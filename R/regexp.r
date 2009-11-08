@@ -3,7 +3,7 @@
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @value boolean vector
+#' @return boolean vector
 #' @seealso \code{\link{grepl}} which this function wraps
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
@@ -24,7 +24,7 @@ str_detect <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @value numeric matrix.  First column gives start postion of match, and
+#' @return numeric matrix.  First column gives start postion of match, and
 #'   second column gives end position.
 #' @seealso \code{\link{regexpr}} which this function wraps
 #' @seealso \code{\link{str_extract}} for a convenient way of extracting 
@@ -48,7 +48,7 @@ str_locate <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @value list of numeric matrices.  First column gives start postion of
+#' @return list of numeric matrices.  First column gives start postion of
 #'   match, and second column gives end position.
 #' @seealso \code{\link{regexpr}} which this function wraps
 #' @seealso \code{\link{str_extract}} for a convenient way of extracting 
@@ -70,7 +70,7 @@ str_locate_all <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @value list of character vectors.
+#' @return list of character vectors.
 str_extract <- function(string, pattern) {
   positions <- str_locate_all(string, pattern)
   llply(seq_along(string), function(i) {
@@ -84,7 +84,10 @@ str_extract <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @value character vector.
+#' @param replacement replacement string.  References of the form \code{\1}, 
+#'   \code{\2} will be replaced with the contents of the respective matched
+#'   group (created by \code{()}) within the pattern.
+#' @return character vector.
 #' @seealso \code{\link{gsub}} which this function wraps
 str_replace <- function(string, pattern, replacement) {
   gsub(pattern, replacement, string)
@@ -97,7 +100,7 @@ str_replace <- function(string, pattern, replacement) {
 #' @param pattern pattern to split up string by.  See \code{\link{regex}} for
 #'   description.  If \code{NA}, returns original string.  If \code{""} splits
 #'   into individual characters.
-#' @value a list of character vectors.
+#' @return a list of character vectors.
 #' @seealso \code{\link{strsplit}} which this function wraps
 str_split <- function(string, pattern) {
   strsplit(pattern, string)

@@ -1,10 +1,10 @@
 #' The length of a string (in characters)
 #'
 #' @param string input character vector
-#' @value numeric vector giving number of characters in each element of the 
+#' @return numeric vector giving number of characters in each element of the 
 #'   character vector.  Missing string have missing length.
 #' @seealso \code{\link{nchar}} which this function wraps
-#' @example
+#' @examples
 #' str_length(letters)
 #' str_length(c("i", "like", "programming", NA))
 str_length <- function(string) {
@@ -20,7 +20,7 @@ str_length <- function(string) {
 #' @param sep string to insert between input vectors
 #' @param collapse optional string used to combine input vectors into single
 #'   string
-#' @value If \code{collapse = NULL} (the default) a character vector with 
+#' @return If \code{collapse = NULL} (the default) a character vector with 
 #'   length equal to the longest input string.  If \code{collapse} is non-
 #'   NULL, a character vector of length 1.
 #' @seealso \code{\link{paste}} which this function wraps
@@ -40,8 +40,8 @@ str_join <- function(..., sep = "", collapse = NULL) {
 
 #' Trim whitespace from start and end of string
 #' 
-#' @param input character vector
-#' @value character vector with leading and trailing whitespace removed
+#' @param string input character vector
+#' @return character vector with leading and trailing whitespace removed
 #' @examples
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")
@@ -56,11 +56,11 @@ str_trim <- function(string) {
 #' a zero length character vector.
 #'
 #' @param string input character vector
-#' @param integer vector giving position of first charater in substring, 
+#' @param start integer vector giving position of first charater in substring, 
 #'   defaults to first character.
-#' @param integer vector giving position of last character in substring, 
+#' @param end integer vector giving position of last character in substring, 
 #'   defaults to last character.
-#' @value character vector of substring.  Will be length of longest input
+#' @return character vector of substring.  Will be length of longest input
 #'   argument
 #' @seealso \code{\link{substring}} which this function wraps
 #' @examples
