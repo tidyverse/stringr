@@ -74,10 +74,13 @@ str_locate_all <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @return list of character vectors.
+#' @return character vector.
 #' @examples
 #' shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
 #' str_extract(shopping_list, "\\d")
+#' str_extract(shopping_list, "[a-z]+")
+#' str_extract(shopping_list, "[a-z]{1,4}")
+#' str_extract(shopping_list, "\\b[a-z]{1,4}\\b")
 str_extract <- function(string, pattern) {
   positions <- str_locate(string, pattern)
   str_sub(string, positions[, "start"], positions[, "end"])
