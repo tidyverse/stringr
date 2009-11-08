@@ -56,8 +56,12 @@ str_locate <- function(string, pattern) {
 #' @seealso \code{\link{str_locate}} to locate position of first match
 str_locate_all <- function(string, pattern) {
   matches <- gregexpr(pattern, string)  
+  
+  null <- matrix(0, nrow = 0, ncol = 2)
+  colnames(null) <- c("start", "end")
+  
   llply(matches, function(match) {
-    if (length(match) == 1 && match == -1) return(NULL)
+    if (length(match) == 1 && match == -1) return(null)
     
     start <- as.vector(match)
     end <- start + attr(match, "match.length") - 1
@@ -75,7 +79,7 @@ str_extract <- function(string, pattern) {
   positions <- str_locate_all(string, pattern)
   llply(seq_along(string), function(i) {
     position <- positions[[i]]
-    substring(string[i], position[, "start"], position[, "end"])
+    str_sub(string[i], position[, "start"], position[, "end"])
   })
 }
 
