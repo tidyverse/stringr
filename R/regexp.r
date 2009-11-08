@@ -19,6 +19,17 @@ str_detect <- function(string, pattern) {
   results
 }
 
+#' Locate the position of the first occurence of a pattern in a string.
+#'
+#' @param string input character vector
+#' @param pattern pattern to look for.  See \code{\link{regex}} for
+#'   description.
+#' @value numeric matrix.  First column gives start postion of match, and
+#'   second column gives end position.
+#' @seealso \code{\link{regexpr}} which this function wraps
+#' @seealso \code{\link{str_extract}} for a convenient way of extracting 
+#'   matches
+#' @seealso \code{\link{str_locate_all}} to locate position of all matches
 str_locate <- function(string, pattern) {
   match <- regexpr(pattern, string)  
   
@@ -32,7 +43,17 @@ str_locate <- function(string, pattern) {
   cbind(start = start, end = end)
 }
 
-# List of locations for each string
+#' Locate the position of all occurences of a pattern in a string.
+#'
+#' @param string input character vector
+#' @param pattern pattern to look for.  See \code{\link{regex}} for
+#'   description.
+#' @value list of numeric matrices.  First column gives start postion of
+#'   match, and second column gives end position.
+#' @seealso \code{\link{regexpr}} which this function wraps
+#' @seealso \code{\link{str_extract}} for a convenient way of extracting 
+#'   matches
+#' @seealso \code{\link{str_locate}} to locate position of first match
 str_locate_all <- function(string, pattern) {
   matches <- gregexpr(pattern, string)  
   llply(matches, function(match) {
@@ -44,6 +65,12 @@ str_locate_all <- function(string, pattern) {
   })
 }
 
+#' Extract pieces of a string that match a pattern.
+#'
+#' @param string input character vector
+#' @param pattern pattern to look for.  See \code{\link{regex}} for
+#'   description.
+#' @value list of character vectors.
 str_extract <- function(string, pattern) {
   positions <- str_locate_all(string, pattern)
   llply(seq_along(string), function(i) {
@@ -52,11 +79,26 @@ str_extract <- function(string, pattern) {
   })
 }
 
+#' Replace replaced occurences of a matched pattern in a string.
+#'
+#' @param string input character vector
+#' @param pattern pattern to look for.  See \code{\link{regex}} for
+#'   description.
+#' @value character vector.
+#' @seealso \code{\link{gsub}} which this function wraps
 str_replace <- function(string, pattern, replacement) {
   gsub(pattern, replacement, string)
 }
 
 
+#' Split up a string by a pattern
+#' 
+#' @param string input character vector
+#' @param pattern pattern to split up string by.  See \code{\link{regex}} for
+#'   description.  If \code{NA}, returns original string.  If \code{""} splits
+#'   into individual characters.
+#' @value a list of character vectors.
+#' @seealso \code{\link{strsplit}} which this function wraps
 str_split <- function(string, pattern) {
   strsplit(pattern, string)
 }
