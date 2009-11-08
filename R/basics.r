@@ -38,8 +38,15 @@ str_join <- function(..., sep = "", collapse = NULL) {
   do.call("paste", c(strings, list(sep = sep, collapse = collapse)))
 }
 
+#' Trim whitespace from start and end of string
+#' 
+#' @param input character vector
+#' @value character vector with leading and trailing whitespace removed
+#' @examples
+#' str_trim("  String with trailing and leading white space\t")
+#' str_trim("\n\nString with trailing and leading white space\n\n")
 str_trim <- function(string) {
-  str_replace(string, "$ +| +^")
+  str_replace(string, "^\\s+|\\s+$", "")
 }
 
 str_sub <- function(string, start = 0, end = Inf) {
