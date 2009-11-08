@@ -1,3 +1,12 @@
+#' The length of a string (in characters)
+#'
+#' @param string input character vector
+#' @value numeric vector giving number of characters in each element of the 
+#'   character vector.  Missing string have missing length.
+#' @seealso \code{\link{nchar}} which this function wraps
+#' @example
+#' str_length(letters)
+#' str_length(c("i", "like", "programming", NA))
 str_length <- function(string) {
   nc <- nchar(string)
   is.na(nc) <- is.na(string)
