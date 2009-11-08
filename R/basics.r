@@ -62,6 +62,7 @@ str_trim <- function(string) {
 #'   defaults to last character.
 #' @value character vector of substring.  Will be length of longest input
 #'   argument
+#' @seealso \code{\link{substring}} which this function wraps
 #' @examples
 #' hw <- "Hadley Wickham"
 #'

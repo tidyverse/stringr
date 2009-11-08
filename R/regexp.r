@@ -4,6 +4,7 @@
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
 #' @value boolean vector
+#' @seealso \code{\link{grepl}} which this function wraps
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
 #' str_detect(fruit, "a")
