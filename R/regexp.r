@@ -94,8 +94,8 @@ str_extract <- function(string, pattern) {
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
 #' @return list of character vectors.
-#' @examples
 #' @seealso \code{\link{str_extract}} to extract the first match
+#' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
 #' str_extract_all(shopping_list, "[a-z]+")
 #' str_extract_all(shopping_list, "\\b[a-z]+\\b")
