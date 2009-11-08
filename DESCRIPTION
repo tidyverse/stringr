@@ -1,0 +1,11 @@
+Package: stringr
+Type: Package
+Title: Make it easier to work with strings.
+Version: 0.1.10
+Author: Hadley Wickham <h.wickham@gmail.com>
+Maintainer: Hadley Wickham <h.wickham@gmail.com>
+Description: stringr is a set of simple wrappers that make R's string 
+  functions more consistent, simpler and easier to use.
+Depends: plyr
+Suggests: testthat
+License: GPL-2
