@@ -69,13 +69,31 @@ str_locate_all <- function(string, pattern) {
   })
 }
 
-#' Extract pieces of a string that match a pattern.
+#' Extract first piece of a string that matches a pattern.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
 #' @return list of character vectors.
+#' @examples
+#' shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
+#' str_extract(shopping_list, "\\d")
 str_extract <- function(string, pattern) {
+  positions <- str_locate(string, pattern)
+  str_sub(string, positions[, "start"], positions[, "end"])
+}
+
+
+#' Extract all pieces of a string that match a pattern.
+#'
+#' @param string input character vector
+#' @param pattern pattern to look for.  See \code{\link{regex}} for
+#'   description.
+#' @return list of character vectors.
+#' @examples
+#' shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
+#' str_extract_all(shopping_list, "\\d")
+str_extract_all <- function(string, pattern) {
   positions <- str_locate_all(string, pattern)
   llply(seq_along(string), function(i) {
     position <- positions[[i]]

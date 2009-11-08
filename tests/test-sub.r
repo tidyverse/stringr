@@ -29,3 +29,13 @@ test_that("specifying only end subsets from start", {
 test_that("specifying only start subsets to end", {
   expect_that(str_sub(alphabet, 24), equals(c("xyz")))  
 })
+
+test_that("missing arguments give missing results", {
+  expect_that(str_sub(NA), equals(NA_character_))
+  expect_that(str_sub(NA, 1, 3), equals(NA_character_))
+  expect_that(str_sub(c(NA, "NA"), 1, 3), equals(c(NA, "NA")))
+  
+  expect_that(str_sub("test", NA, NA), equals(NA_character_))
+  expect_that(str_sub(c(NA, "test"), NA, NA), equals(rep(NA_character_, 2)))
+  
+})
