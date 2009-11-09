@@ -3,7 +3,7 @@ library_if_available(stringr)
 
 context("Joining strings")
 
-test_that("Basic case works", {
+test_that("basic case works", {
   test <- c("a", "b", "c")
   
   expect_that(str_join(test), equals(test))
@@ -11,7 +11,7 @@ test_that("Basic case works", {
   expect_that(str_join(test, collapse = ""), equals("abc"))
 })
 
-test_that("Zero length vectors dropped", {
+test_that("zero length vectors dropped", {
   test <- letters[1:3]
   
   expect_that(str_join(test, c()), equals(test))
