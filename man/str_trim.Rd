@@ -7,6 +7,7 @@
   Trim whitespace from start and end of string
 }
 \value{character vector with leading and trailing whitespace removed}
+\keyword{character}
 \arguments{
   \item{string}{input character vector}
 }

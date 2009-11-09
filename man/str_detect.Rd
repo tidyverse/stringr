@@ -8,6 +8,7 @@
 }
 \value{boolean vector}
 \seealso{\code{\link{grepl}} which this function wraps}
+\keyword{character}
 \arguments{
   \item{string}{input character vector}
   \item{pattern}{pattern to look for.  See \code{\link{regex}} for

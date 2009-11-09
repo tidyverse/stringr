@@ -7,6 +7,7 @@
   Replace replaced occurences of a matched pattern in a string.
 }
 \value{character vector.}
+\keyword{character}
 \seealso{\code{\link{gsub}} which this function wraps}
 \arguments{
   \item{string}{input character vector}

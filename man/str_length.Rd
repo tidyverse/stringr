@@ -8,6 +8,7 @@
 }
 \value{numeric vector giving number of characters in each element of the 
 character vector.  Missing string have missing length.}
+\keyword{character}
 \seealso{\code{\link{nchar}} which this function wraps}
 \arguments{
   \item{string}{input character vector}

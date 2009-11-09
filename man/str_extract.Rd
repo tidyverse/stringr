@@ -7,6 +7,7 @@
   Extract first piece of a string that matches a pattern.
 }
 \value{character vector.}
+\keyword{character}
 \seealso{\code{\link{str_extract_all}} to extract all matches}
 \arguments{
   \item{string}{input character vector}

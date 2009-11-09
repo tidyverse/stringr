@@ -6,6 +6,7 @@
 \description{
   Locate the position of all occurences of a pattern in a string.
 }
+\keyword{character}
 \value{list of numeric matrices.  First column gives start postion of
 match, and second column gives end position.}
 \seealso{\code{\link{regexpr}} which this function wraps

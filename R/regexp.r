@@ -5,6 +5,7 @@
 #'   description.
 #' @return boolean vector
 #' @seealso \code{\link{grepl}} which this function wraps
+#' @keywords character
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
 #' str_detect(fruit, "a")
@@ -26,6 +27,7 @@ str_detect <- function(string, pattern) {
 #'   description.
 #' @return numeric matrix.  First column gives start postion of match, and
 #'   second column gives end position.
+#' @keywords character
 #' @seealso 
 #'   \code{\link{regexpr}} which this function wraps
 #' 
@@ -55,6 +57,7 @@ str_locate <- function(string, pattern) {
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
+#' @keywords character
 #' @return list of numeric matrices.  First column gives start postion of
 #'   match, and second column gives end position.
 #' @seealso
@@ -89,6 +92,7 @@ str_locate_all <- function(string, pattern) {
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
 #' @return character vector.
+#' @keywords character
 #' @seealso \code{\link{str_extract_all}} to extract all matches
 #' @examples
 #' shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
@@ -108,6 +112,7 @@ str_extract <- function(string, pattern) {
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
 #' @return list of character vectors.
+#' @keywords character
 #' @seealso \code{\link{str_extract}} to extract the first match
 #' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
@@ -131,6 +136,7 @@ str_extract_all <- function(string, pattern) {
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
 #' @return character vector.
+#' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps
 str_replace <- function(string, pattern, replacement) {
   gsub(pattern, replacement, string)
@@ -144,6 +150,7 @@ str_replace <- function(string, pattern, replacement) {
 #'   description.  If \code{NA}, returns original string.  If \code{""} splits
 #'   into individual characters.
 #' @return a list of character vectors.
+#' @keywords character
 #' @seealso \code{\link{strsplit}} which this function wraps
 str_split <- function(string, pattern) {
   strsplit(string, pattern)

@@ -3,6 +3,7 @@
 #' @param string input character vector
 #' @return numeric vector giving number of characters in each element of the 
 #'   character vector.  Missing string have missing length.
+#' @keywords character
 #' @seealso \code{\link{nchar}} which this function wraps
 #' @examples
 #' str_length(letters)
@@ -23,6 +24,7 @@ str_length <- function(string) {
 #' @return If \code{collapse = NULL} (the default) a character vector with 
 #'   length equal to the longest input string.  If \code{collapse} is non-
 #'   NULL, a character vector of length 1.
+#' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
 #' @examples
 #' str_join("Letter: ", letters)
@@ -42,6 +44,7 @@ str_join <- function(..., sep = "", collapse = NULL) {
 #' 
 #' @param string input character vector
 #' @return character vector with leading and trailing whitespace removed
+#' @keywords character
 #' @examples
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")
@@ -62,6 +65,7 @@ str_trim <- function(string) {
 #'   defaults to last character.
 #' @return character vector of substring.  Will be length of longest input
 #'   argument
+#' @keywords character
 #' @seealso \code{\link{substring}} which this function wraps
 #' @examples
 #' hw <- "Hadley Wickham"

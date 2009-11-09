@@ -9,6 +9,7 @@
 \value{If \code{collapse = NULL} (the default) a character vector with 
 length equal to the longest input string.  If \code{collapse} is non-
 NULL, a character vector of length 1.}
+\keyword{character}
 \seealso{\code{\link{paste}} which this function wraps}
 \arguments{
   \item{...}{one or more character vectors.  Zero length arguments 

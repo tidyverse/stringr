@@ -8,6 +8,7 @@
 }
 \value{numeric matrix.  First column gives start postion of match, and
 second column gives end position.}
+\keyword{character}
 \seealso{\code{\link{regexpr}} which this function wraps
 
 \code{\link{str_extract}} for a convenient way of extracting matches

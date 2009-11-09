@@ -7,6 +7,7 @@
   Split up a string by a pattern
 }
 \value{a list of character vectors.}
+\keyword{character}
 \seealso{\code{\link{strsplit}} which this function wraps}
 \arguments{
   \item{string}{input character vector}

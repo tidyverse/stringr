@@ -14,6 +14,7 @@
 }
 \value{character vector of substring.  Will be length of longest input
 argument}
+\keyword{character}
 \seealso{\code{\link{substring}} which this function wraps}
 \arguments{
   \item{string}{input character vector}
