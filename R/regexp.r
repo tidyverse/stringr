@@ -26,10 +26,12 @@ str_detect <- function(string, pattern) {
 #'   description.
 #' @return numeric matrix.  First column gives start postion of match, and
 #'   second column gives end position.
-#' @seealso \code{\link{regexpr}} which this function wraps
-#' @seealso \code{\link{str_extract}} for a convenient way of extracting 
-#'   matches
-#' @seealso \code{\link{str_locate_all}} to locate position of all matches
+#' @seealso 
+#'   \code{\link{regexpr}} which this function wraps
+#' 
+#'   \code{\link{str_extract}} for a convenient way of extracting matches
+#  
+#'   \code{\link{str_locate_all}} to locate position of all matches
 #'
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
@@ -55,10 +57,12 @@ str_locate <- function(string, pattern) {
 #'   description.
 #' @return list of numeric matrices.  First column gives start postion of
 #'   match, and second column gives end position.
-#' @seealso \code{\link{regexpr}} which this function wraps
-#' @seealso \code{\link{str_extract}} for a convenient way of extracting 
-#'   matches
-#' @seealso \code{\link{str_locate}} to locate position of first match
+#' @seealso
+#'  \code{\link{regexpr}} which this function wraps
+#'
+#'  \code{\link{str_extract}} for a convenient way of extracting matches
+#'
+#'  \code{\link{str_locate}} to locate position of first match
 #' 
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
