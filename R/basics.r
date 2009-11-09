@@ -94,3 +94,50 @@ str_sub <- function(string, start = 0, end = Inf) {
   
   substring(string, start, end)
 }
+
+#' Pad a string
+#' 
+#' @param string input character vector
+#' @param width pad strings to this minimum width
+#' @param side side on which padding character is added
+#' @param pad padding character (default is a space)
+#' @return character vector
+#' @keywords character
+#' @examples
+#' rbind(
+#'   str_pad("hadley", 30, "left"),
+#'   str_pad("hadley", 30, "right"),
+#'   str_pad("hadley", 30, "center")
+#' )
+#' # Longer strings are returned unchanged
+#' str_pad("hadley", 3)
+str_pad <- function(string, width, side = "left", pad = " ") {
+  stopifnot(length(width) == 1)
+  stopifnot(length(side) == 1)
+  stopifnot(length(pad) == 1)
+  
+  side <- match.arg(side, c("left", "right", "center"))  
+  needed <- pmax(0, width - str_length(string))
+  
+  left <- switch(side, 
+    left = needed, right = 0, center = floor(needed / 2))
+  right <- switch(side, 
+    left = 0, right = needed, center = ceiling(needed / 2))
+    
+  str_join(str_dup(pad, left), string, str_dup(pad, right))
+}
+
+#' Duplicate strings within a character vector
+#'
+#' @param string input character vector
+#' @param times number of times to duplicate each string
+#' @return character vector
+#' @keywords internal
+str_dup <- function(string, times) {
+  # rep_matrix <- matrix(rep(string, times = times), nrow = times)
+  strings <- mlply(cbind(x = string, times), rep.int)
+  output <- unlist(llply(strings, str_join, collapse = ""))
+
+  names(output) <- names(string)
+  output
+}
