@@ -132,5 +132,5 @@ str_replace <- function(string, pattern, replacement) {
 #' @return a list of character vectors.
 #' @seealso \code{\link{strsplit}} which this function wraps
 str_split <- function(string, pattern) {
-  strsplit(pattern, string)
+  strsplit(string, pattern)
 }
