@@ -1,8 +1,9 @@
 #' Extract first matched group from a string
 #'
-#' @value string input character vector
-#' @value pattern with groups
-#' @return character matrix, with one column for each capture group
+#' @param string input character vector
+#' @param pattern with groups
+#' @return character matrix. First column is the complete match, followed by 
+#'   one for each capture group
 str_match <- function(string, pattern) {  
   # Locate complete match
   matches <- str_extract(string, pattern)
@@ -23,11 +24,9 @@ str_match <- function(string, pattern) {
 
 #' Extract all matched groups from a string
 #'
-#' @value string input character vector
-#' @value pattern with groups
-#' @value replace_f replacement function called for each match.  First
-#'   argument is complete match, next argument is first capture group, next is
-#'   second capture group, and so on.
+#' @param string input character vector
+#' @param pattern with groups
+#' @return list of character matrices, as given by \code{\link{str_match}}
 str_match_all <- function(string, pattern) {
   matches <- str_extract_all(string, pattern)
   

@@ -12,4 +12,4 @@ Description: stringr is a set of simple wrappers that make R's string
   structures of other functions.
 Depends: plyr
 License: GPL-2
-Collate: 'basics.r' 'regexp.r'
+Collate: 'basics.r' 'regexp.r' 'match.r'

@@ -17,3 +17,6 @@ matches}
   \item{pattern}{pattern to look for.  See \code{\link{regex}} for
 description.}
 }
+\examples{fruit <- c("apple", "banana", "pear", "pinapple")
+str_locate_all(fruit, "a")
+str_locate_all(fruit, "e")}
