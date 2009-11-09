@@ -30,6 +30,11 @@ str_detect <- function(string, pattern) {
 #' @seealso \code{\link{str_extract}} for a convenient way of extracting 
 #'   matches
 #' @seealso \code{\link{str_locate_all}} to locate position of all matches
+#'
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_locate(fruit, "a")
+#' str_locate(fruit, "e")
 str_locate <- function(string, pattern) {
   match <- regexpr(pattern, string)  
   
@@ -54,6 +59,11 @@ str_locate <- function(string, pattern) {
 #' @seealso \code{\link{str_extract}} for a convenient way of extracting 
 #'   matches
 #' @seealso \code{\link{str_locate}} to locate position of first match
+#' 
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_locate_all(fruit, "a")
+#' str_locate_all(fruit, "e")
 str_locate_all <- function(string, pattern) {
   matches <- gregexpr(pattern, string)  
   
