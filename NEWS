@@ -1,0 +1,4 @@
+stringr 0.2
+===========
+
+ * str_length now returns correct results when used with factors

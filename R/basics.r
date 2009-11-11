@@ -9,6 +9,7 @@
 #' str_length(letters)
 #' str_length(c("i", "like", "programming", NA))
 str_length <- function(string) {
+  string <- as.character(string)
   nc <- nchar(string)
   is.na(nc) <- is.na(string)
   nc
