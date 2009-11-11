@@ -1,7 +1,7 @@
 \name{str_split}
 \alias{str_split}
 \title{Split up a string by a pattern.}
-\usage{str_split(string, pattern)}
+\usage{str_split(string, pattern, n=Inf)}
 
 \description{
   Split up a string by a pattern.
@@ -14,4 +14,6 @@
   \item{pattern}{pattern to split up string by.  See \code{\link{regex}} for
 description.  If \code{NA}, returns original string.  If \code{""} splits
 into individual characters.}
+  \item{n}{maximum number of pieces to return.  Default (Inf) uses all
+possible split positions}
 }
