@@ -1,4 +1,4 @@
-#' The length of a string (in characters)
+#' The length of a string (in characters).
 #'
 #' @param string input character vector
 #' @return numeric vector giving number of characters in each element of the 
@@ -15,7 +15,7 @@ str_length <- function(string) {
   nc
 }
 
-#' Join multiple strings into a single string
+#' Join multiple strings into a single string.
 #' 
 #' @param ... one or more character vectors.  Zero length arguments 
 #'   are removed
@@ -41,7 +41,7 @@ str_join <- function(..., sep = "", collapse = NULL) {
   do.call("paste", c(strings, list(sep = sep, collapse = collapse)))
 }
 
-#' Trim whitespace from start and end of string
+#' Trim whitespace from start and end of string.
 #' 
 #' @param string input character vector
 #' @return character vector with leading and trailing whitespace removed
@@ -53,7 +53,7 @@ str_trim <- function(string) {
   str_replace(string, "^\\s+|\\s+$", "")
 }
 
-#' Extract substrings from a character vector
+#' Extract substrings from a character vector.
 #'
 #' \code{sub_str} will replicate all arguments to be the same length as the 
 #' longest argument.  If any arguments are of length 0, the output will be 
@@ -96,7 +96,7 @@ str_sub <- function(string, start = 0, end = Inf) {
   substring(string, start, end)
 }
 
-#' Pad a string
+#' Pad a string.
 #' 
 #' @param string input character vector
 #' @param width pad strings to this minimum width
@@ -128,7 +128,7 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   str_join(str_dup(pad, left), string, str_dup(pad, right))
 }
 
-#' Duplicate strings within a character vector
+#' Duplicate strings within a character vector.
 #'
 #' @param string input character vector
 #' @param times number of times to duplicate each string

@@ -1,10 +1,10 @@
 \name{str_detect}
 \alias{str_detect}
-\title{Detect the presence or absence of a pattern in a string...}
+\title{Detect the presence or absence of a pattern in a string.}
 \usage{str_detect(string, pattern)}
 
 \description{
-  Detect the presence or absence of a pattern in a string
+  Detect the presence or absence of a pattern in a string.
 }
 \value{boolean vector}
 \seealso{\code{\link{grepl}} which this function wraps}

@@ -1,10 +1,10 @@
 \name{str_sub}
 \alias{str_sub}
-\title{Extract substrings from a character vector...}
+\title{Extract substrings from a character vector.}
 \usage{str_sub(string, start=0, end=Inf)}
 
 \description{
-  Extract substrings from a character vector
+  Extract substrings from a character vector.
 }
 
 \details{

@@ -1,4 +1,4 @@
-#' Extract first matched group from a string
+#' Extract first matched group from a string.
 #'
 #' @param string input character vector
 #' @param pattern with groups
@@ -23,7 +23,7 @@ str_match <- function(string, pattern) {
   match_matrix
 }
 
-#' Extract all matched groups from a string
+#' Extract all matched groups from a string.
 #'
 #' @param string input character vector
 #' @param pattern with groups

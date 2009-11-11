@@ -1,4 +1,4 @@
-#' Detect the presence or absence of a pattern in a string
+#' Detect the presence or absence of a pattern in a string.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
@@ -143,7 +143,7 @@ str_replace <- function(string, pattern, replacement) {
 }
 
 
-#' Split up a string by a pattern
+#' Split up a string by a pattern.
 #' 
 #' @param string input character vector
 #' @param pattern pattern to split up string by.  See \code{\link{regex}} for

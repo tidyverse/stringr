@@ -1,10 +1,10 @@
 \name{str_join}
 \alias{str_join}
-\title{Join multiple strings into a single string...}
+\title{Join multiple strings into a single string.}
 \usage{str_join(..., sep="", collapse)}
 
 \description{
-  Join multiple strings into a single string
+  Join multiple strings into a single string.
 }
 \value{If \code{collapse = NULL} (the default) a character vector with 
 length equal to the longest input string.  If \code{collapse} is non-

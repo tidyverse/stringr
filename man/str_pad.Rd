@@ -1,10 +1,10 @@
 \name{str_pad}
 \alias{str_pad}
-\title{Pad a string...}
+\title{Pad a string.}
 \usage{str_pad(string, width, side="left", pad=" ")}
 
 \description{
-  Pad a string
+  Pad a string.
 }
 \value{character vector}
 \keyword{character}
