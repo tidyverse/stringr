@@ -1,7 +1,7 @@
 Package: stringr
 Type: Package
 Title: Make it easier to work with strings.
-Version: 0.1.10
+Version: 0.2
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
 Description: stringr is a set of simple wrappers that make R's string 
