@@ -2,3 +2,4 @@ stringr 0.2
 ===========
 
  * str_length now returns correct results when used with factors
+ * str_sub now correctly replaces Inf in end argument with length of string

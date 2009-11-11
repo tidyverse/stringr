@@ -90,7 +90,7 @@ str_sub <- function(string, start = 0, end = Inf) {
   end <- rep(end, length = n)
   
   # Replace infinite ends with length of string
-  max_length <- !is.na(end) && end == Inf
+  max_length <- !is.na(end) & end == Inf
   end[max_length] <- str_length(string)[max_length]
   
   substring(string, start, end)
