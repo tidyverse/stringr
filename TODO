@@ -1,3 +1,2 @@
-* str_split_fixed from str_split_all ?
 * rename str_replace to str_replace_all, and add str_replace
 * add string <- as.character(string) to all functions
