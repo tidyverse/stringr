@@ -4,12 +4,13 @@ Title: Make it easier to work with strings.
 Version: 0.2
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
-Description: stringr is a set of simple wrappers that make R's string 
-  functions more consistent, simpler and easier to use.  It does this by 
-  ensuring that: function and argument names (and positions) are consistent,
-  all functions deal with NA's and zero length character appropriately, and 
-  the output data structures from each function matches the input data 
-  structures of other functions.
+Description: stringr is a set of simple wrappers that make R's string
+    functions more consistent, simpler and easier to use.  It does this
+    by ensuring that: function and argument names (and positions) are
+    consistent, all functions deal with NA's and zero length character
+    appropriately, and the output data structures from each function
+    matches the input data structures of other functions.
 Depends: plyr
 License: GPL-2
-Collate: 'basics.r' 'regexp.r' 'match.r'
+Collate: 'detect.r' 'dup.r' 'extract.r' 'join.r' 'length.r' 'locate.r'
+    'match.r' 'replace.r' 'split.r' 'sub.r'
