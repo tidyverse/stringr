@@ -18,6 +18,8 @@
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
 str_split_fixed <- function(string, pattern, n) {
+  if (length(string) == 0) return(matrix(character(), nrow = n, ncol = 1))
+  
   string <- as.character(string)
   if (n == Inf) {
     stop("n must be finite", call. = FALSE)
@@ -63,10 +65,10 @@ str_split_fixed <- function(string, pattern, n) {
 #' # If n greater than number of pieces, no padding occurs
 #' str_split(fruits, " and ", n = 5)
 str_split <- function(string, pattern, n = Inf) {
+  if (length(string) == 0) return(list())
   string <- as.character(string)
-  if (n == Inf) {
-    strsplit(string, pattern)    
-  } else if (n == 1) {
+  
+  if (n == 1) {
     as.list(string)
   } else {
     locations <- str_locate_all(string, pattern)

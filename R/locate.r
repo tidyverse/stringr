@@ -18,6 +18,7 @@
 #' str_locate(fruit, "a")
 #' str_locate(fruit, "e")
 str_locate <- function(string, pattern) {
+  if (length(string) == 0) return(character())
   match <- regexpr(pattern, string)  
   
   start <- as.vector(match)
@@ -50,13 +51,14 @@ str_locate <- function(string, pattern) {
 #' str_locate_all(fruit, "a")
 #' str_locate_all(fruit, "e")
 str_locate_all <- function(string, pattern) {
+  if (length(string) == 0) return(character())
   matches <- gregexpr(pattern, string)  
   
   null <- matrix(0, nrow = 0, ncol = 2)
   colnames(null) <- c("start", "end")
   
   llply(matches, function(match) {
-    if (length(match) == 1 && match == -1) return(null)
+    if (length(match) == 1 && (is.na(match) || match == -1)) return(null)
     
     start <- as.vector(match)
     end <- start + attr(match, "match.length") - 1
