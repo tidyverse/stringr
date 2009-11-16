@@ -42,6 +42,8 @@ And three new functions:
 
 `stringr` provide pattern matching functions to **detect**, **locate**, **extract**, **match**, **replace**, and **split** strings.  
 
+All functions return an output structure with the same "length" as the input string.  
+
 Apart from detect and split, each comes in two forms: one which works with the first matching pattern and the other which works with _all_ matching patterns. This difference is emphasised because it changes the data structure of the output from atomic structures to lists of atomic structures.  Split is distinguished by fixed or variable number of matches, returning a character matrix or a list of character vectors respectively.
 
  * `str_detect`: detect the presence or absence of a pattern.  Logical vector / NA.  Based on  `grepl`
@@ -57,3 +59,9 @@ Formal discussion here: http://laurikari.net/tre/documentation/regex-syntax/.  E
 
 `stringr` does not give access to fixed, basic or perl-compatible regular expressions.
 
+## Functions that return list
+
+All of the *all* functions return a list of vectors or matrices.  To match up each element of the list with the string you can use two strategies:
+
+ * iterate through a common set of indices
+ * create a data frame with the list as one column and the string as another, and iterate through the rows 
