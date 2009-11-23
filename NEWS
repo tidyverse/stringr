@@ -1,6 +1,7 @@
 stringr 0.3
 ===========
 
+ * add fixed() function to allow matching of fixed strings.
 
 stringr 0.2
 ===========
