@@ -1,6 +1,8 @@
 stringr 0.3
 ===========
 
+ * add invert_match() function to convert a matrix of location of matches to
+   locations of non-matches
  * add fixed() function to allow matching of fixed strings.
 
 stringr 0.2

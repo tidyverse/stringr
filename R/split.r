@@ -33,10 +33,10 @@ str_split_fixed <- function(string, pattern, n) {
       
       pieces <- min(n - 1, nrow(location))
       cut <- location[seq_len(pieces), , drop = FALSE]
-      keep <- matrix(c(0, t(cut), Inf), ncol = 2, byrow = TRUE)
+      keep <- invert_match(cut)
       
       padding <- rep("", n - pieces - 1)
-      c(str_sub(string, keep[, 1] + 1, keep[, 2] - 1), padding)
+      c(str_sub(string, keep[, 1], keep[, 2]), padding)
     }))
   } 
 }
@@ -74,9 +74,9 @@ str_split <- function(string, pattern, n = Inf) {
     locations <- str_locate_all(string, pattern)
     unname(c(mlply(cbind(mat = locations, string = string), function(mat, string) {      
       cut <- mat[seq_len(min(n - 1, nrow(mat))), , drop = FALSE]
-      keep <- matrix(c(0, t(cut), Inf), ncol = 2, byrow = TRUE)
+      keep <- invert_match(cut)
       
-      str_sub(string, keep[, 1] + 1, keep[, 2] - 1)
+      str_sub(string, keep[, 1], keep[, 2])
     })))
   }
 }
