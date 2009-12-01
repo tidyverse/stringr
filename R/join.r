@@ -29,7 +29,7 @@ str_join <- function(..., sep = "", collapse = NULL) {
 #' @param string input character vector
 #' @param width pad strings to this minimum width
 #' @param side side on which padding character is added
-#' @param pad padding character (default is a space)
+#' @param pad single padding character (default is a space)
 #' @return character vector
 #' @keywords character
 #' @examples
@@ -45,6 +45,9 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   stopifnot(length(width) == 1)
   stopifnot(length(side) == 1)
   stopifnot(length(pad) == 1)
+  if (str_length(pad) != 1) {
+    stop("pad must be single character single")
+  }
   
   side <- match.arg(side, c("left", "right", "center"))  
   needed <- pmax(0, width - str_length(string))
@@ -53,6 +56,6 @@ str_pad <- function(string, width, side = "left", pad = " ") {
     left = needed, right = 0, center = floor(needed / 2))
   right <- switch(side, 
     left = 0, right = needed, center = ceiling(needed / 2))
-    
+  
   str_join(str_dup(pad, left), string, str_dup(pad, right))
 }
