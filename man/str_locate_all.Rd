@@ -6,6 +6,11 @@
 \description{
   Locate the position of all occurences of a pattern in a string.
 }
+
+\details{
+  Vectorised over \code{string}.  \code{pattern} should be a single
+  pattern, i.e. a character vector of length one.
+}
 \keyword{character}
 \value{list of numeric matrices.  First column gives start postion of
 match, and second column gives end position.}
@@ -16,9 +21,10 @@ match, and second column gives end position.}
 \code{\link{str_locate}} to locate position of first match}
 \arguments{
   \item{string}{input character vector}
-  \item{pattern}{pattern to look for.  See \code{\link{regex}} for
-description.}
+  \item{pattern}{pattern to look for, as defined by a POSIX regular
+expression.  See the ``Extended Regular Expressions'' section of 
+\code{\link{regex}} for details.}
 }
-\examples{fruit <- c("apple", "banana", "pear", "pinapple")
+\examples{fruit <- c("apple", "banana", "pear", "pineapple")
 str_locate_all(fruit, "a")
 str_locate_all(fruit, "e")}

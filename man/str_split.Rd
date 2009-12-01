@@ -6,14 +6,20 @@
 \description{
   Split up a string into a variable number of pieces.
 }
+
+\details{
+  Vectorised over \code{string}.  \code{pattern} should be a single
+  pattern, i.e. a character vector of length one.
+}
 \value{a list of character vectors.}
 \keyword{character}
 \seealso{\code{\link{str_split_fixed}} for fixed number of splits}
 \arguments{
   \item{string}{input character vector}
-  \item{pattern}{pattern to split up string by.  See \code{\link{regex}} for
-description.  If \code{NA}, returns original string.  If \code{""} splits
-into individual characters.}
+  \item{pattern}{pattern to split up by, as defined by a POSIX regular
+expression.  See the ``Extended Regular Expressions'' section of 
+\code{\link{regex}} for details. If \code{NA}, returns original string. 
+If \code{""} splits into individual characters.}
   \item{n}{maximum number of pieces to return.  Default (Inf) uses all
 possible split positions.}
 }

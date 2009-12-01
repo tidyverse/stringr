@@ -18,7 +18,7 @@
 #'   NULL, a character vector of length 1.
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
-#' @alias str_c str_c
+#' @aliases str_c str_join
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")
