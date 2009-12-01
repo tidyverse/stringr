@@ -21,6 +21,15 @@ test_that("special case are correct", {
     equals(character()))
 })
 
+test_that("no matching cases returns 1 column matrix", {
+  res <- str_match(c("a", "b"), ".")
+  
+  expect_that(nrow(res), equals(2))
+  expect_that(ncol(res), equals(1))
+  
+  expect_that(res[, 1], equals(c("a", "b")))
+})
+
 test_that("single match works when all match", {
   matches <- str_match(phones, "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
   

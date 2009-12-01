@@ -15,6 +15,10 @@ str_match <- function(string, pattern) {
   # Figure out how many groups there are
   tmp <- str_replace(pattern, "\\\\\\(", "")
   n <- str_length(str_replace(tmp, "[^(]", ""))
+  
+  if (n == 0) {
+    return(matrix(matches, ncol = 1))
+  }
 
   # Break match into capture groups
   pattern <- str_join(".*?", pattern, ".*")
