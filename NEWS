@@ -1,6 +1,10 @@
 stringr 0.3
 ===========
 
+ * fixed() now also escapes |
+ * str_join() renamed to str_c()
+ * all functions more carefully check input and return informative error
+   messages if not as expected.
  * add invert_match() function to convert a matrix of location of matches to
    locations of non-matches
  * add fixed() function to allow matching of fixed strings.
