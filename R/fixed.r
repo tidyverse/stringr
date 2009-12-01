@@ -12,5 +12,7 @@
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
 fixed <- function(string) {
-   str_replace(string, "([][^${}().?*+\\])", "\\\\\\1")
+  string <- check_string(string)
+
+  str_replace(string, "([][^${}().?*+\\])", "\\\\\\1")
 }

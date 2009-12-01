@@ -28,6 +28,8 @@ str_sub <- function(string, start = 0, end = Inf) {
   if (length(string) == 0 || length(start) == 0 || length(end) == 0) {
     return(vector("character", 0))
   }
+
+  string <- check_string(string)
   
   n <- max(length(string), length(start), length(end))
   string <- rep(string, length = n)

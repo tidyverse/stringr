@@ -11,6 +11,9 @@
 #' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps
 str_replace <- function(string, pattern, replacement) {
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
+
   gsub(pattern, replacement, string)
 }
 
@@ -24,5 +27,7 @@ str_replace <- function(string, pattern, replacement) {
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")
 str_trim <- function(string) {
+  string <- check_string(string)
+
   str_replace(string, "^\\s+|\\s+$", "")
 }

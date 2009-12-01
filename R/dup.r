@@ -5,6 +5,8 @@
 #' @return character vector
 #' @keywords internal
 str_dup <- function(string, times) {
+  string <- check_string(string)
+
   # rep_matrix <- matrix(rep(string, times = times), nrow = times)
   strings <- mlply(cbind(x = string, times), rep.int)
   output <- unlist(llply(strings, str_join, collapse = ""))

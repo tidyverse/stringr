@@ -18,6 +18,9 @@
 #' str_locate(fruit, "a")
 #' str_locate(fruit, "e")
 str_locate <- function(string, pattern) {
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
+
   if (length(string) == 0) return(character())
   match <- regexpr(pattern, string)  
   
@@ -47,11 +50,14 @@ str_locate <- function(string, pattern) {
 #'  \code{\link{str_locate}} to locate position of first match
 #' 
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_locate_all(fruit, "a")
 #' str_locate_all(fruit, "e")
 str_locate_all <- function(string, pattern) {
   if (length(string) == 0) return(character())
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
+
   matches <- gregexpr(pattern, string)  
   
   null <- matrix(0, nrow = 0, ncol = 2)

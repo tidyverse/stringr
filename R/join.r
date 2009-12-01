@@ -41,6 +41,7 @@ str_join <- function(..., sep = "", collapse = NULL) {
 #' # Longer strings are returned unchanged
 #' str_pad("hadley", 3)
 str_pad <- function(string, width, side = "left", pad = " ") {
+  string <- check_string(string)
   stopifnot(length(width) == 1)
   stopifnot(length(side) == 1)
   stopifnot(length(pad) == 1)

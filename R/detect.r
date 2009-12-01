@@ -14,6 +14,9 @@
 #' str_detect(fruit, "b")
 #' str_detect(fruit, "[aeiou]")
 str_detect <- function(string, pattern) {
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
+  
   results <- grepl(pattern, string)
   is.na(results) <- is.na(string)
   

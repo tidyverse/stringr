@@ -19,8 +19,9 @@
 #' str_split_fixed(fruits, " and ", 4)
 str_split_fixed <- function(string, pattern, n) {
   if (length(string) == 0) return(matrix(character(), nrow = n, ncol = 1))
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
   
-  string <- as.character(string)
   if (n == Inf) {
     stop("n must be finite", call. = FALSE)
   } else if (n == 1) {
@@ -66,7 +67,8 @@ str_split_fixed <- function(string, pattern, n) {
 #' str_split(fruits, " and ", n = 5)
 str_split <- function(string, pattern, n = Inf) {
   if (length(string) == 0) return(list())
-  string <- as.character(string)
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
   
   if (n == 1) {
     as.list(string)

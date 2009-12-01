@@ -6,6 +6,9 @@
 #'   one for each capture group
 #' @keywords character
 str_match <- function(string, pattern) {  
+  string <- check_string(string)
+  pattern <- check_pattern(pattern)
+
   # Locate complete match
   matches <- str_extract(string, pattern)
   
