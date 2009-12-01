@@ -10,15 +10,16 @@
 #'   NULL, a character vector of length 1.
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
+#' @alias str_c str_c
 #' @examples
-#' str_join("Letter: ", letters)
-#' str_join("Letter", letters, sep = ": ")
-#' str_join(letters, " is for", "...")
-#' str_join(letters[-26], " comes before ", letters[-1])
+#' str_c("Letter: ", letters)
+#' str_c("Letter", letters, sep = ": ")
+#' str_c(letters, " is for", "...")
+#' str_c(letters[-26], " comes before ", letters[-1])
 #'
-#' str_join(letters, collapse = "")
-#' str_join(letters, collapse = ", ")
-str_join <- function(..., sep = "", collapse = NULL) {
+#' str_c(letters, collapse = "")
+#' str_c(letters, collapse = ", ")
+str_c <- str_join <- function(..., sep = "", collapse = NULL) {
   strings <- Filter(function(x) length(x) > 0, list(...))
   
   do.call("paste", c(strings, list(sep = sep, collapse = collapse)))
@@ -57,5 +58,5 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   right <- switch(side, 
     left = 0, right = needed, center = ceiling(needed / 2))
   
-  str_join(str_dup(pad, left), string, str_dup(pad, right))
+  str_c(str_dup(pad, left), string, str_dup(pad, right))
 }

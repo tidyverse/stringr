@@ -2,7 +2,7 @@ library(testthat)
 library_if_available(stringr)
 
 context("Extracting substrings")
-alphabet <- str_join(letters, collapse = "")
+alphabet <- str_c(letters, collapse = "")
 
 test_that("correct substring extracted", {
   expect_that(str_sub(alphabet, 1, 3), equals("abc"))
@@ -10,7 +10,7 @@ test_that("correct substring extracted", {
 })
 
 test_that("arguments expanded to longest", {
-  alphabet <- str_join(letters, collapse = "")
+  alphabet <- str_c(letters, collapse = "")
   
   expect_that(
     str_sub(alphabet, c(1, 24), c(3, 26)), 

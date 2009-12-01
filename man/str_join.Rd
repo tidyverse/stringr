@@ -1,7 +1,7 @@
-\name{str_join}
-\alias{str_join}
+\name{str_c}
+\alias{str_c}
 \title{Join multiple strings into a single string.}
-\usage{str_join(..., sep="", collapse)}
+\usage{str_c(..., sep="", collapse)}
 
 \description{
   Join multiple strings into a single string.
@@ -18,10 +18,10 @@ are removed}
   \item{collapse}{optional string used to combine input vectors into single
 string}
 }
-\examples{str_join("Letter: ", letters)
-str_join("Letter", letters, sep = ": ")
-str_join(letters, " is for", "...")
-str_join(letters[-26], " comes before ", letters[-1])
+\examples{str_c("Letter: ", letters)
+str_c("Letter", letters, sep = ": ")
+str_c(letters, " is for", "...")
+str_c(letters[-26], " comes before ", letters[-1])
 
-str_join(letters, collapse = "")
-str_join(letters, collapse = ", ")}
+str_c(letters, collapse = "")
+str_c(letters, collapse = ", ")}

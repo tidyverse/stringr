@@ -21,8 +21,8 @@ str_match <- function(string, pattern) {
   }
 
   # Break match into capture groups
-  pattern <- str_join(".*?", pattern, ".*")
-  replace <- str_join("\\", seq_len(n), collapse = "\u001E")
+  pattern <- str_c(".*?", pattern, ".*")
+  replace <- str_c("\\", seq_len(n), collapse = "\u001E")
   
   pieces <- str_replace(matches, pattern, replace)
   pieces_matrix <- do.call("rbind", str_split(pieces, "\u001E"))

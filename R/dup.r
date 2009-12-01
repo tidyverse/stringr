@@ -9,7 +9,7 @@ str_dup <- function(string, times) {
 
   # rep_matrix <- matrix(rep(string, times = times), nrow = times)
   strings <- mlply(cbind(x = string, times), rep.int)
-  output <- unlist(llply(strings, str_join, collapse = ""))
+  output <- unlist(llply(strings, str_c, collapse = ""))
 
   names(output) <- names(string)
   output
