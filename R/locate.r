@@ -1,5 +1,8 @@
 #' Locate the position of the first occurence of a pattern in a string.
 #'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
+#'
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
@@ -35,6 +38,9 @@ str_locate <- function(string, pattern) {
 }
 
 #' Locate the position of all occurences of a pattern in a string.
+#'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular

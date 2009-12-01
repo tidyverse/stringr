@@ -1,5 +1,8 @@
 #' Extract first matched group from a string.
 #'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
+#'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular
 #'   expression.  Pattern should contain groups, defined by ().  See the
@@ -37,6 +40,9 @@ str_match <- function(string, pattern) {
 }
 
 #' Extract all matched groups from a string.
+#'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular

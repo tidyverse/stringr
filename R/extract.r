@@ -1,5 +1,8 @@
 #' Extract first piece of a string that matches a pattern.
 #'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
+#'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular
 #'   expression.  See the ``Extended Regular Expressions'' section of 
@@ -23,6 +26,9 @@ str_extract <- function(string, pattern) {
 
 
 #' Extract all pieces of a string that match a pattern.
+#'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular

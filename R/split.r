@@ -1,4 +1,7 @@
 #' Split up a string into a fixed number of pieces.
+#'
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
 #' 
 #' @param string input character vector
 #' @param pattern pattern to split up by, as defined by a POSIX regular
@@ -23,6 +26,10 @@ str_split_fixed <- function(string, pattern, n) {
   string <- check_string(string)
   pattern <- check_pattern(pattern)
   
+  if (!is.numeric(n) || length(n) != 1) {
+    stop("n should be a numeric vector of length 1")
+  }
+  
   if (n == Inf) {
     stop("n must be finite", call. = FALSE)
   } else if (n == 1) {
@@ -44,6 +51,9 @@ str_split_fixed <- function(string, pattern, n) {
 }
 
 #' Split up a string into a variable number of pieces.
+#' 
+#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' i.e. a character vector of length one.
 #' 
 #' @param string input character vector
 #' @param pattern pattern to split up by, as defined by a POSIX regular
@@ -71,6 +81,10 @@ str_split <- function(string, pattern, n = Inf) {
   if (length(string) == 0) return(list())
   string <- check_string(string)
   pattern <- check_pattern(pattern)
+
+  if (!is.numeric(n) || length(n) != 1) {
+    stop("n should be a numeric vector of length 1")
+  }
   
   if (n == 1) {
     as.list(string)

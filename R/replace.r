@@ -1,6 +1,9 @@
 
 #' Replace replaced occurences of a matched pattern in a string.
 #'
+#' Vectorised over \code{string}.  \code{pattern} and \code{replacement} 
+#' should both be single strings, i.e. a character vectors of length one.
+#'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular
 #'   expression.  See the ``Extended Regular Expressions'' section of 

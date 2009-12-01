@@ -26,6 +26,8 @@ str_c <- str_join <- function(..., sep = "", collapse = NULL) {
 }
 
 #' Pad a string.
+#'
+#' Vectorised over \code{string}.  All other inputs should be of length 1.
 #' 
 #' @param string input character vector
 #' @param width pad strings to this minimum width

@@ -1,5 +1,7 @@
 #' Duplicate strings within a character vector.
 #'
+#' Vectorised over \code{string} and \code{times}.
+#'
 #' @param string input character vector
 #' @param times number of times to duplicate each string
 #' @return character vector
