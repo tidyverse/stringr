@@ -1,7 +1,10 @@
 #' Extract first matched group from a string.
 #'
 #' @param string input character vector
-#' @param pattern with groups
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  Pattern should contain groups, defined by ().  See the
+#'  ``Extended Regular Expressions'' section of \code{\link{regex}} for
+#'   details.
 #' @return character matrix. First column is the complete match, followed by 
 #'   one for each capture group
 #' @keywords character
@@ -36,7 +39,10 @@ str_match <- function(string, pattern) {
 #' Extract all matched groups from a string.
 #'
 #' @param string input character vector
-#' @param pattern with groups
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  Pattern should contain groups, defined by ().  See the
+#'  ``Extended Regular Expressions'' section of \code{\link{regex}} for
+#'   details.
 #' @return list of character matrices, as given by \code{\link{str_match}}
 #' @keywords character
 str_match_all <- function(string, pattern) {

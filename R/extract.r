@@ -1,8 +1,9 @@
 #' Extract first piece of a string that matches a pattern.
 #'
 #' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  See the ``Extended Regular Expressions'' section of 
+#'   \code{\link{regex}} for details.
 #' @return character vector.
 #' @keywords character
 #' @seealso \code{\link{str_extract_all}} to extract all matches
@@ -24,8 +25,9 @@ str_extract <- function(string, pattern) {
 #' Extract all pieces of a string that match a pattern.
 #'
 #' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  See the ``Extended Regular Expressions'' section of 
+#'   \code{\link{regex}} for details.
 #' @return list of character vectors.
 #' @keywords character
 #' @seealso \code{\link{str_extract}} to extract the first match

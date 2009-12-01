@@ -1,8 +1,9 @@
 #' Detect the presence or absence of a pattern in a string.
 #'
 #' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  See the ``Extended Regular Expressions'' section of 
+#'   \code{\link{regex}} for details.
 #' @return boolean vector
 #' @seealso \code{\link{grepl}} which this function wraps
 #' @keywords character

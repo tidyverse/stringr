@@ -2,8 +2,9 @@
 #' Replace replaced occurences of a matched pattern in a string.
 #'
 #' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  See the ``Extended Regular Expressions'' section of 
+#'   \code{\link{regex}} for details.
 #' @param replacement replacement string.  References of the form \code{\1}, 
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.

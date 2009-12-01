@@ -37,8 +37,9 @@ str_locate <- function(string, pattern) {
 #' Locate the position of all occurences of a pattern in a string.
 #'
 #' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @param pattern pattern to look for, as defined by a POSIX regular
+#'   expression.  See the ``Extended Regular Expressions'' section of 
+#'   \code{\link{regex}} for details.
 #' @keywords character
 #' @return list of numeric matrices.  First column gives start postion of
 #'   match, and second column gives end position.
