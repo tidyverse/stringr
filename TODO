@@ -1,4 +1,3 @@
-* update tests to new structure
 * add NAMESPACE
 
 * rename str_replace to str_replace_all, and add str_replace
