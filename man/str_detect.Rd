@@ -8,8 +8,7 @@
 }
 
 \details{
-  Vectorised over \code{string}.  \code{pattern} should be a single
-  pattern, i.e. a character vector of length one.
+  Vectorised over \code{string} and \code{pattern}.
 }
 \value{boolean vector}
 \seealso{\code{\link{grepl}} which this function wraps}
@@ -25,4 +24,7 @@ str_detect(fruit, "a")
 str_detect(fruit, "^a")
 str_detect(fruit, "a$")
 str_detect(fruit, "b")
-str_detect(fruit, "[aeiou]")}
+str_detect(fruit, "[aeiou]")
+
+# Also vectorised over pattern
+str_detect("aecfg", letters)}

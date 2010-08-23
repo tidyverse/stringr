@@ -19,7 +19,7 @@
 #' str_extract(shopping_list, "\\b[a-z]{1,4}\\b")
 str_extract <- function(string, pattern) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   positions <- str_locate(string, pattern)
   str_sub(string, positions[, "start"], positions[, "end"])
@@ -45,7 +45,7 @@ str_extract <- function(string, pattern) {
 #' str_extract_all(shopping_list, "\\d")
 str_extract_all <- function(string, pattern) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   positions <- str_locate_all(string, pattern)
   llply(seq_along(string), function(i) {

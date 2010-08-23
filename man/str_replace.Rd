@@ -1,10 +1,10 @@
 \name{str_replace}
 \alias{str_replace}
-\title{Replace first occurence of a matched pattern in a string.}
+\title{Replace first occurrence of a matched pattern in a string.}
 \usage{str_replace(string, pattern, replacement)}
 
 \description{
-  Replace first occurence of a matched pattern in a string.
+  Replace first occurrence of a matched pattern in a string.
 }
 
 \details{

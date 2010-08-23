@@ -25,7 +25,7 @@
 str_split_fixed <- function(string, pattern, n) {
   if (length(string) == 0) return(matrix(character(), nrow = n, ncol = 1))
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
   
   if (!is.numeric(n) || length(n) != 1) {
     stop("n should be a numeric vector of length 1")
@@ -82,7 +82,7 @@ str_split_fixed <- function(string, pattern, n) {
 str_split <- function(string, pattern, n = Inf) {
   if (length(string) == 0) return(list())
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   if (!is.numeric(n) || length(n) != 1) {
     stop("n should be a numeric vector of length 1")

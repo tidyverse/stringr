@@ -1,4 +1,3 @@
 * add examples to str_replace and str_match
-
-* vectorise with respect to pattern
-* implement fixed and ignore.case functions
+* check that str_locate, str_extract, str_match, str_replace and str_split all
+  use new vectorisation and modifier strategy.

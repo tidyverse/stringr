@@ -23,7 +23,7 @@
 #' str_locate(fruit, "e")
 str_locate <- function(string, pattern) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   if (length(string) == 0) return(character())
   match <- regexpr(pattern, string)  
@@ -65,7 +65,7 @@ str_locate <- function(string, pattern) {
 str_locate_all <- function(string, pattern) {
   if (length(string) == 0) return(character())
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   matches <- gregexpr(pattern, string)  
   

@@ -1,10 +1,10 @@
-#' Escape all special regular expression characters.
+#' Match fixed characters, not regular expression.
 #' 
-#' This function escapes all characters that have meaning for regular
-#' expressions so the string will be matched exactly as is.
+#' This function specifies that a pattern is a fixed string, rather
+#' than a regular expression.  This can yield substantial speed ups, if 
+#' regular expression matching is not needed.
 #' 
 #' @param string string to match exactly as is
-#' @author William Dunlap \email{wdunlap@@tibco.com}
 #' @keywords character
 #' @export
 #' @examples
@@ -13,7 +13,31 @@
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
 fixed <- function(string) {
-  string <- check_string(string)
+  structure(string, fixed = TRUE)
+}
 
-  str_replace_all(string, "([][^${}().?*+\\|])", "\\\\\\1")
+is.fixed <- function(string) {
+  fixed <- attr(string, "fixed")
+  if (is.null(fixed)) FALSE else fixed
+}
+
+#' Ignore case of match.
+#' 
+#' This function specifies that a pattern should ignore the case of matches.
+#' 
+#' @param string pattern for which to ignore case
+#' @keywords character
+#' @export
+#' @examples
+#' pattern <- "a.b"
+#' strings <- c("ABB", "aaB", "aab")
+#' str_detect(strings, pattern)
+#' str_detect(strings, ignore.case(pattern))
+ignore.case <- function(string) {
+  structure(string, ignore.case = TRUE)
+}
+
+case.ignored <- function(string) {
+  ignore.case <- attr(string, "ignore.case")
+  if (is.null(ignore.case)) FALSE else ignore.case
 }

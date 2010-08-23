@@ -14,7 +14,7 @@
 #' @export
 str_match <- function(string, pattern) {  
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
 
   # Locate complete match
   matches <- str_extract(string, pattern)

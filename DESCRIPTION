@@ -14,4 +14,4 @@ Depends: plyr
 License: GPL-2
 Collate: 'c.r' 'checks.r' 'detect.r' 'dup.r' 'extract.r' 'length.r'
     'locate.r' 'match.r' 'modifiers.r' 'pad-trim.r' 'replace.r'
-    'split.r' 'sub.r'
+    'split.r' 'sub.r' 'vectorise.r'

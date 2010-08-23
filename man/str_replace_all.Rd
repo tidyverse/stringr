@@ -1,10 +1,10 @@
 \name{str_replace_all}
 \alias{str_replace_all}
-\title{Replace all occurences of a matched pattern in a string.}
+\title{Replace all occurrences of a matched pattern in a string.}
 \usage{str_replace_all(string, pattern, replacement)}
 
 \description{
-  Replace all occurences of a matched pattern in a string.
+  Replace all occurrences of a matched pattern in a string.
 }
 
 \details{

@@ -1,4 +1,4 @@
-#' Replace first occurence of a matched pattern in a string.
+#' Replace first occurrence of a matched pattern in a string.
 #'
 #' Vectorised over \code{string}.  \code{pattern} and \code{replacement} 
 #' should both be single strings, i.e. a character vectors of length one.
@@ -17,12 +17,12 @@
 #' @export
 str_replace <- function(string, pattern, replacement) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string, replacement)
 
   sub(pattern, replacement, string)
 }
 
-#' Replace all occurences of a matched pattern in a string.
+#' Replace all occurrences of a matched pattern in a string.
 #'
 #' Vectorised over \code{string}.  \code{pattern} and \code{replacement} 
 #' should both be single strings, i.e. a character vectors of length one.
@@ -41,7 +41,7 @@ str_replace <- function(string, pattern, replacement) {
 #' @export
 str_replace_all <- function(string, pattern, replacement) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string, replacement)
 
   gsub(pattern, replacement, string)
 }

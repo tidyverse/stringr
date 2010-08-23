@@ -1,6 +1,13 @@
 stringr 0.4
 ===========
 
+ * fixed() function now tells stringr functions to use fixed matching, rather
+   than escaping regular expression.  Should have improve performance for 
+   large vectors
+ * new ignore.case() modifier tells stringr functions to ignore case of
+   pattern
+ * all functions are now vectorised with respect to string, pattern (and
+   where appropriate) replacement parameters
  * str_replace renamed to str_replace_all and new str_replace function added.
    This makes str_replace consistent with all functions.
  * new str_sub<- function (analogous to substring<-) for substring replacement

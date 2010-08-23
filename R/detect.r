@@ -1,7 +1,6 @@
 #' Detect the presence or absence of a pattern in a string.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular
@@ -18,11 +17,14 @@
 #' str_detect(fruit, "a$")
 #' str_detect(fruit, "b")
 #' str_detect(fruit, "[aeiou]")
+#'
+#' # Also vectorised over pattern
+#' str_detect("aecfg", letters)
 str_detect <- function(string, pattern) {
   string <- check_string(string)
-  pattern <- check_pattern(pattern)
+  pattern <- check_pattern(pattern, string)
   
-  results <- grepl(pattern, string)
+  results <- re_vectorise("grepl", string, pattern)
   is.na(results) <- is.na(string)
   
   results

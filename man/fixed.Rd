@@ -1,17 +1,17 @@
 \name{fixed}
 \alias{fixed}
-\title{Escape all special regular expression characters.}
+\title{Match fixed characters, not regular expression.}
 \usage{fixed(string)}
 
 \description{
-  Escape all special regular expression characters.
+  Match fixed characters, not regular expression.
 }
 
 \details{
-  This function escapes all characters that have meaning for regular
-  expressions so the string will be matched exactly as is.
+  This function specifies that a pattern is a fixed string, rather than
+  a regular expression.  This can yield substantial speed ups, if
+  regular expression matching is not needed.
 }
-\author{William Dunlap \email{wdunlap@tibco.com}}
 \keyword{character}
 \arguments{
   \item{string}{string to match exactly as is}
