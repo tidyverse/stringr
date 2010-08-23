@@ -2,7 +2,6 @@
 * add examples to str_replace and str_match
 * str_pad change argument name to side
 * str_trim add side argument
-* return locations as integers
 * negative values in str_sub
 * replacement version of str_sub (str_sub<-)
 

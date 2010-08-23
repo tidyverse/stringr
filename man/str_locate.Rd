@@ -11,7 +11,7 @@
   Vectorised over \code{string}.  \code{pattern} should be a single
   pattern, i.e. a character vector of length one.
 }
-\value{numeric matrix.  First column gives start postion of match, and
+\value{integer matrix.  First column gives start postion of match, and
 second column gives end position.}
 \keyword{character}
 \seealso{\code{\link{regexpr}} which this function wraps

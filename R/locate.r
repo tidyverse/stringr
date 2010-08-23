@@ -6,7 +6,7 @@
 #' @param string input character vector
 #' @param pattern pattern to look for.  See \code{\link{regex}} for
 #'   description.
-#' @return numeric matrix.  First column gives start postion of match, and
+#' @return integer matrix.  First column gives start postion of match, and
 #'   second column gives end position.
 #' @keywords character
 #' @seealso 
@@ -29,7 +29,7 @@ str_locate <- function(string, pattern) {
   match <- regexpr(pattern, string)  
   
   start <- as.vector(match)
-  end <- start + attr(match, "match.length") - 1
+  end <- start + attr(match, "match.length") - 1L
   
   missing <- start == -1
   start[missing] <- NA
@@ -48,7 +48,7 @@ str_locate <- function(string, pattern) {
 #'   expression.  See the ``Extended Regular Expressions'' section of 
 #'   \code{\link{regex}} for details.
 #' @keywords character
-#' @return list of numeric matrices.  First column gives start postion of
+#' @return list of integer matrices.  First column gives start postion of
 #'   match, and second column gives end position.
 #' @seealso
 #'  \code{\link{regexpr}} which this function wraps
@@ -76,7 +76,7 @@ str_locate_all <- function(string, pattern) {
     if (length(match) == 1 && (is.na(match) || match == -1)) return(null)
     
     start <- as.vector(match)
-    end <- start + attr(match, "match.length") - 1
+    end <- start + attr(match, "match.length") - 1L
     cbind(start = start, end = end)
   })
 }
@@ -100,7 +100,7 @@ str_locate_all <- function(string, pattern) {
 #' str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
 invert_match <- function(loc) {
   cbind(
-    start = c(0, loc[, "end"] + 1),
-    end = c(loc[, "start"] - 1, Inf)
+    start = c(0, loc[, "end"] + 1L),
+    end = c(loc[, "start"] - 1L, Inf)
   )
 }

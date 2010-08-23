@@ -12,7 +12,7 @@
   pattern, i.e. a character vector of length one.
 }
 \keyword{character}
-\value{list of numeric matrices.  First column gives start postion of
+\value{list of integer matrices.  First column gives start postion of
 match, and second column gives end position.}
 \seealso{\code{\link{regexpr}} which this function wraps
 
