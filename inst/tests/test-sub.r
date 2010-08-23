@@ -56,3 +56,20 @@ test_that("missing arguments give missing results", {
   expect_that(str_sub(c(NA, "test"), NA, NA), equals(rep(NA_character_, 2)))
   
 })
+
+test_that("replacement works", {
+  x <- "BBCDEF"
+  str_sub(x, 1, 1) <- "A"
+  expect_that(x, equals("ABCDEF"))
+  
+  str_sub(x, -1, -1) <- "K"
+  expect_that(x, equals("ABCDEK"))  
+  
+  str_sub(x, -2, -1) <- "EFGH"
+  expect_that(x, equals("ABCDEFGH"))  
+
+  str_sub(x, 2, -2) <- ""
+  expect_that(x, equals("AH"))
+  
+  
+})

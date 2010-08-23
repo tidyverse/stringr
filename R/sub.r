@@ -18,7 +18,8 @@
 #' @return character vector of substring from \code{start} to \code{end}
 #'   (inclusive). Will be length of longest input argument.
 #' @keywords character
-#' @seealso \code{\link{substring}} which this function wraps
+#' @seealso \code{\link{substring}} which this function wraps, and 
+#'   \code{link{str_sub_replace}} for the replacement version
 #' @export
 #' @examples
 #' hw <- "Hadley Wickham"
@@ -35,9 +36,9 @@
 #'
 #' str_sub(hw, seq_len(str_length(hw)))
 #' str_sub(hw, end = seq_len(str_length(hw)))
-str_sub <- function(string, start = 1, end = -1) {
-  if (length(string) == 0 || length(start) == 0 || length(end) == 0) {
-    return(vector("character", 0))
+str_sub <- function(string, start = 1L, end = -1L) {
+  if (length(string) == 0L || length(start) == 0L || length(end) == 0L) {
+    return(vector("character", 0L))
   }
 
   string <- check_string(string)
@@ -51,10 +52,40 @@ str_sub <- function(string, start = 1, end = -1) {
   len <- str_length(string)
 
   neg_start <- !is.na(start) & start < 0L
-  start[neg_start] <- start[neg_start] + len[neg_start] + 1
+  start[neg_start] <- start[neg_start] + len[neg_start] + 1L
 
   neg_end <- !is.na(end) & end < 0L
-  end[neg_end] <- end[neg_end] + len[neg_end] + 1
+  end[neg_end] <- end[neg_end] + len[neg_end] + 1L
   
   substring(string, start, end)
+}
+
+#' Replace substrings in a character vector
+# 
+#' \code{sub_str<-} will recycle all arguments to be the same length as the 
+#' longest argument. 
+#' 
+#' @param string input character vector.
+#' @param start integer vector giving position of first charater in substring, 
+#'   defaults to first character. If negative, counts backwards from last 
+#'   character.
+#' @param end integer vector giving position of last character in substring, 
+#'   defaults to last character. If negative, counts backwards from last 
+#'   character.
+#' @return character vector of substring from \code{start} to \code{end}
+#'   (inclusive). Will be length of longest input argument.
+#' @name str_sub_replace
+#' @export
+#' @examples
+#' x <- "BBCDEF"
+#' str_sub(x, 1, 1) <- "A"; x
+#' str_sub(x, -1, -1) <- "K"; x
+#' str_sub(x, -2, -2) <- "GHIJ"; x
+#' str_sub(x, 2, -2) <- ""; x
+"str_sub<-" <- function(string, start = 1L, end = -1L, value) {
+  
+  str_c(
+    str_sub(string, end = start - 1L), 
+    value,
+    ifelse(end == -1L, "", str_sub(string, start = end + 1L)))
 }

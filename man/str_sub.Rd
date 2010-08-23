@@ -1,7 +1,7 @@
 \name{str_sub}
 \alias{str_sub}
 \title{Extract substrings from a character vector.}
-\usage{str_sub(string, start=1, end=-1)}
+\usage{str_sub(string, start=1, end=-1L)}
 
 \description{
   Extract substrings from a character vector.
@@ -19,7 +19,8 @@
 \value{character vector of substring from \code{start} to \code{end}
 (inclusive). Will be length of longest input argument.}
 \keyword{character}
-\seealso{\code{\link{substring}} which this function wraps}
+\seealso{\code{\link{substring}} which this function wraps, and 
+\code{link{str_sub_replace}} for the replacement version}
 \arguments{
   \item{string}{input character vector.}
   \item{start}{integer vector giving position of first charater in substring, 
