@@ -100,7 +100,7 @@ str_locate_all <- function(string, pattern) {
 #' str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
 invert_match <- function(loc) {
   cbind(
-    start = c(0, loc[, "end"] + 1L),
-    end = c(loc[, "start"] - 1L, Inf)
+    start = c(0L, loc[, "end"] + 1L),
+    end = c(loc[, "start"] - 1L, -1L)
   )
 }

@@ -1,6 +1,5 @@
 * rename str_replace to str_replace_all, and add str_replace
 * add examples to str_replace and str_match
-* negative values in str_sub
 * replacement version of str_sub (str_sub<-)
 
 * vectorise with respect to pattern

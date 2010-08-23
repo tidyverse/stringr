@@ -1,6 +1,8 @@
 stringr 0.4
 ===========
 
+ * str_sub now understands negative positions as a position from the end of
+   the string. -1 replaces Inf as indicator for string end.
  * str_pad side argument can be left, right, or both (instead of center)
  * str_trim gains side argument to better match str_pad
  * stringr now has namespace

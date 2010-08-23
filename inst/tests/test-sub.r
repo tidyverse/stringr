@@ -30,16 +30,21 @@ test_that("specifying only start subsets to end", {
   expect_that(str_sub(alphabet, 24), equals(c("xyz")))  
 })
 
-test_that("specifying Inf as end selects entire string", {
+test_that("specifying -1 as end selects entire string", {
   expect_that(
-    str_sub("ABCDEF", c(4, 5), c(5, Inf)),
+    str_sub("ABCDEF", c(4, 5), c(5, -1)),
     equals(c("DE", "EF"))
   ) 
   
   expect_that(
-    str_sub("ABCDEF", c(4, 5), c(Inf, Inf)),
+    str_sub("ABCDEF", c(4, 5), c(-1, -1)),
     equals(c("DEF", "EF"))
   )
+})
+
+test_that("negative values select from end", {
+  expect_that(str_sub("ABCDEF", 1, -4), equals("ABC"))
+  expect_that(str_sub("ABCDEF", -3), equals("DEF"))
 })
 
 test_that("missing arguments give missing results", {
