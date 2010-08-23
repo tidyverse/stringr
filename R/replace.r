@@ -23,17 +23,3 @@ str_replace <- function(string, pattern, replacement) {
 }
 
 
-#' Trim whitespace from start and end of string.
-#' 
-#' @param string input character vector
-#' @return character vector with leading and trailing whitespace removed
-#' @keywords character
-#' @export
-#' @examples
-#' str_trim("  String with trailing and leading white space\t")
-#' str_trim("\n\nString with trailing and leading white space\n\n")
-str_trim <- function(string) {
-  string <- check_string(string)
-
-  str_replace(string, "^\\s+|\\s+$", "")
-}

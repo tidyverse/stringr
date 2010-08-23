@@ -13,4 +13,5 @@ Description: stringr is a set of simple wrappers that make R's string
 Depends: plyr
 License: GPL-2
 Collate: 'checks.r' 'detect.r' 'dup.r' 'extract.r' 'fixed.r' 'join.r'
-    'length.r' 'locate.r' 'match.r' 'replace.r' 'split.r' 'sub.r'
+    'length.r' 'locate.r' 'match.r' 'pad-trim.r' 'replace.r' 'split.r'
+    'sub.r'

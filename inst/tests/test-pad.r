@@ -18,5 +18,5 @@ test_that("directions work for simple case", {
   
   expect_that(pad("right"),  equals("had       "))
   expect_that(pad("left"),   equals("       had"))
-  expect_that(pad("center"), equals("   had    "))
+  expect_that(pad("both"),   equals("   had    "))
 })
