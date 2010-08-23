@@ -14,7 +14,7 @@ check_string <- function(string) {
 
 #' Check that pattern is of the correct type for stringr functions
 #'
-#' @param string input vector
+#' @param pattern input vector
 #' @keywords internal 
 check_pattern <- function(pattern) {
   if (!is.character(pattern) || length(pattern) != 1) 

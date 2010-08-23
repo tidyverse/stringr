@@ -8,5 +8,5 @@
 }
 \keyword{internal}
 \arguments{
-  \item{string}{input vector}
+  \item{pattern}{input vector}
 }

@@ -27,4 +27,3 @@ str_detect <- function(string, pattern) {
   
   results
 }
-

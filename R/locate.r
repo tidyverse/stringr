@@ -81,8 +81,6 @@ str_locate_all <- function(string, pattern) {
   })
 }
 
-
-
 #' Switch location of matches to location of non-matches.
 #'
 #' Invert a matrix of match locations to match the opposite of what was

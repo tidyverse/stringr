@@ -60,4 +60,3 @@ str_match_all <- function(string, pattern) {
     str_match(match, pattern)
   })
 }
-

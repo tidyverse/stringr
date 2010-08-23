@@ -21,4 +21,3 @@ str_replace <- function(string, pattern, replacement) {
 
   gsub(pattern, replacement, string)
 }
-

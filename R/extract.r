@@ -25,7 +25,6 @@ str_extract <- function(string, pattern) {
   str_sub(string, positions[, "start"], positions[, "end"])
 }
 
-
 #' Extract all pieces of a string that match a pattern.
 #'
 #' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
