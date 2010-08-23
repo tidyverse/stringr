@@ -83,7 +83,7 @@ str_locate_all <- function(string, pattern) {
 
 
 
-#' Invert a matrix of locations
+#' Switch location of matches to location of non-matches.
 #'
 #' Invert a matrix of match locations to match the opposite of what was
 #' previously matched.
@@ -99,9 +99,8 @@ str_locate_all <- function(string, pattern) {
 #' text_loc <- invert_match(num_loc)
 #' str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
 invert_match <- function(loc) {
-  loc[, "start"] <- loc[, "start"] - 1
-  loc[, "end"] <- loc[, "end"] + 1
-  mat <- matrix(c(0, t(loc), Inf), ncol = 2, byrow = TRUE)
-  colnames(mat) <- c("start", "end")
-  mat
+  cbind(
+    start = c(0, loc[, "end"] + 1),
+    end = c(loc[, "start"] - 1, Inf)
+  )
 }

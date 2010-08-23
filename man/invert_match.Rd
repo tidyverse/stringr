@@ -1,10 +1,10 @@
 \name{invert_match}
 \alias{invert_match}
-\title{Invert a matrix of locations...}
+\title{Switch location of matches to location of non-matches.}
 \usage{invert_match(loc)}
 
 \description{
-  Invert a matrix of locations
+  Switch location of matches to location of non-matches.
 }
 
 \details{
