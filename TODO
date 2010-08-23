@@ -1,2 +1,14 @@
+* update tests to new structure
+* add NAMESPACE
+
 * rename str_replace to str_replace_all, and add str_replace
-* add string <- as.character(string) to all functions
+* add examples to str_replace and str_replace_all
+* str_pad change argument name to side
+* str_trim add side argument
+* new invert_match function
+* return locations as integers
+* negative values in str_sub
+* replacement version of str_sub (str_sub<-)
+
+* vectorise with respect to pattern
+* implement fixed and ignore.case functions
