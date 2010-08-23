@@ -19,6 +19,7 @@
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
 #' @aliases str_c str_join
+#' @export
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")
@@ -47,6 +48,7 @@ str_c <- str_join <- function(..., sep = "", collapse = NULL) {
 #' @param pad single padding character (default is a space)
 #' @return character vector
 #' @keywords character
+#' @export
 #' @examples
 #' rbind(
 #'   str_pad("hadley", 30, "left"),

@@ -14,6 +14,7 @@
 #' @return character vector.
 #' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps
+#' @export
 str_replace <- function(string, pattern, replacement) {
   string <- check_string(string)
   pattern <- check_pattern(pattern)
@@ -27,6 +28,7 @@ str_replace <- function(string, pattern, replacement) {
 #' @param string input character vector
 #' @return character vector with leading and trailing whitespace removed
 #' @keywords character
+#' @export
 #' @examples
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")

@@ -6,6 +6,7 @@
 #' @param string string to match exactly as is
 #' @author William Dunlap \email{wdunlap@@tibco.com}
 #' @keywords character
+#' @export
 #' @examples
 #' pattern <- "a.b"
 #' strings <- c("abb", "a.b")

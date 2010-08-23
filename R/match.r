@@ -11,6 +11,7 @@
 #' @return character matrix. First column is the complete match, followed by 
 #'   one for each capture group
 #' @keywords character
+#' @export
 str_match <- function(string, pattern) {  
   string <- check_string(string)
   pattern <- check_pattern(pattern)
@@ -51,6 +52,7 @@ str_match <- function(string, pattern) {
 #'   details.
 #' @return list of character matrices, as given by \code{\link{str_match}}
 #' @keywords character
+#' @export
 str_match_all <- function(string, pattern) {
   matches <- str_extract_all(string, pattern)
   

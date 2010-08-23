@@ -6,6 +6,7 @@
 #' @param times number of times to duplicate each string
 #' @return character vector
 #' @keywords character
+#' @export
 #' @examples
 #' fruit <- c("apple", "pear", "banana")
 #' str_dup(fruit, 2)

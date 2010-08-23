@@ -5,6 +5,7 @@
 #'   character vector.  Missing string have missing length.
 #' @keywords character
 #' @seealso \code{\link{nchar}} which this function wraps
+#' @export
 #' @examples
 #' str_length(letters)
 #' str_length(c("i", "like", "programming", NA))

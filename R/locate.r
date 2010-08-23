@@ -16,6 +16,7 @@
 #  
 #'   \code{\link{str_locate_all}} to locate position of all matches
 #'
+#' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
 #' str_locate(fruit, "a")
@@ -56,6 +57,7 @@ str_locate <- function(string, pattern) {
 #'
 #'  \code{\link{str_locate}} to locate position of first match
 #' 
+#' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_locate_all(fruit, "a")
@@ -88,6 +90,7 @@ str_locate_all <- function(string, pattern) {
 #'
 #' @param loc matrix of match locations, as from \code{\link{str_locate_all}}
 #' @return numeric match giving locations of non-matches
+#' @export
 #' @examples
 #' numbers <- "1 and 2 and 4 and 456"
 #' num_loc <- str_locate_all(numbers, "[0-9]+")[[1]]

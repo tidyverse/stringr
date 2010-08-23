@@ -14,6 +14,7 @@
 #' @return character matrix with \code{n} columns.
 #' @keywords character
 #' @seealso \code{\link{str_split}} for variable number of splits
+#' @export
 #' @examples
 #' fruits <- c(
 #'   "apples and oranges and pears and bananas",
@@ -64,6 +65,7 @@ str_split_fixed <- function(string, pattern, n) {
 #'   possible split positions.  
 #' @return a list of character vectors.
 #' @keywords character
+#' @export
 #' @seealso \code{\link{str_split_fixed}} for fixed number of splits
 #' @examples
 #' fruits <- c(

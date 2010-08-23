@@ -1,6 +1,7 @@
 stringr 0.4
 ===========
 
+ * stringr now has namespace
 
 stringr 0.3
 ===========

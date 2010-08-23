@@ -10,6 +10,7 @@
 #' @return boolean vector
 #' @seealso \code{\link{grepl}} which this function wraps
 #' @keywords character
+#' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
 #' str_detect(fruit, "a")

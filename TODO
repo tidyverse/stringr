@@ -1,7 +1,5 @@
-* add NAMESPACE
-
 * rename str_replace to str_replace_all, and add str_replace
-* add examples to str_replace and str_replace_all
+* add examples to str_replace and str_match
 * str_pad change argument name to side
 * str_trim add side argument
 * new invert_match function

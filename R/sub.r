@@ -13,6 +13,7 @@
 #'   argument
 #' @keywords character
 #' @seealso \code{\link{substring}} which this function wraps
+#' @export
 #' @examples
 #' hw <- "Hadley Wickham"
 #'
