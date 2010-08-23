@@ -57,5 +57,5 @@ str_trim <- function(string, side = "both") {
   pattern <- switch(side, left = "^\\s+", right = "\\s+$", 
     both = "^\\s+|\\s+$")
 
-  str_replace(string, pattern, "")
+  str_replace_all(string, pattern, "")
 }

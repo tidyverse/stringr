@@ -15,5 +15,5 @@
 fixed <- function(string) {
   string <- check_string(string)
 
-  str_replace(string, "([][^${}().?*+\\|])", "\\\\\\1")
+  str_replace_all(string, "([][^${}().?*+\\|])", "\\\\\\1")
 }

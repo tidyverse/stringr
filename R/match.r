@@ -20,8 +20,8 @@ str_match <- function(string, pattern) {
   matches <- str_extract(string, pattern)
   
   # Figure out how many groups there are
-  tmp <- str_replace(pattern, "\\\\\\(", "")
-  n <- str_length(str_replace(tmp, "[^(]", ""))
+  tmp <- str_replace_all(pattern, "\\\\\\(", "")
+  n <- str_length(str_replace_all(tmp, "[^(]", ""))
   
   if (n == 0) {
     return(matrix(matches, ncol = 1))
@@ -31,7 +31,7 @@ str_match <- function(string, pattern) {
   pattern <- str_c(".*?", pattern, ".*")
   replace <- str_c("\\", seq_len(n), collapse = "\u001E")
   
-  pieces <- str_replace(matches, pattern, replace)
+  pieces <- str_replace_all(matches, pattern, replace)
   pieces_matrix <- do.call("rbind", str_split(pieces, "\u001E"))
   
   # Combine complete match and individual pieces into a matrix

@@ -1,6 +1,8 @@
 stringr 0.4
 ===========
 
+ * str_replace renamed to str_replace_all and new str_replace function added.
+   This makes str_replace consistent with all functions.
  * new str_sub<- function (analogous to substring<-) for substring replacement
  * str_sub now understands negative positions as a position from the end of
    the string. -1 replaces Inf as indicator for string end.

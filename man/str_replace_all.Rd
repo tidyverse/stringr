@@ -1,10 +1,10 @@
-\name{str_replace}
-\alias{str_replace}
-\title{Replace first occurence of a matched pattern in a string.}
-\usage{str_replace(string, pattern, replacement)}
+\name{str_replace_all}
+\alias{str_replace_all}
+\title{Replace all occurences of a matched pattern in a string.}
+\usage{str_replace_all(string, pattern, replacement)}
 
 \description{
-  Replace first occurence of a matched pattern in a string.
+  Replace all occurences of a matched pattern in a string.
 }
 
 \details{
@@ -14,8 +14,8 @@
 }
 \value{character vector.}
 \keyword{character}
-\seealso{\code{\link{sub}} which this function wraps, 
-\code{\link{str_replace_all}} to replace all matches}
+\seealso{\code{\link{gsub}} which this function wraps, 
+\code{\link{str_replace_all}} to replace a single matche}
 \arguments{
   \item{string}{input character vector}
   \item{pattern}{pattern to look for, as defined by a POSIX regular

@@ -1,4 +1,3 @@
-* rename str_replace to str_replace_all, and add str_replace
 * add examples to str_replace and str_match
 
 * vectorise with respect to pattern
