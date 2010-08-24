@@ -19,6 +19,7 @@
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
 #' @aliases str_c str_join
+#' @import plyr
 #' @export
 #' @examples
 #' str_c("Letter: ", letters)

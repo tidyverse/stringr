@@ -1,3 +1,4 @@
+import(plyr)
 export(str_c)
 export(str_detect)
 export(str_dup)

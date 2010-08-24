@@ -10,7 +10,7 @@ Description: stringr is a set of simple wrappers that make R's string
     consistent, all functions deal with NA's and zero length character
     appropriately, and the output data structures from each function
     matches the input data structures of other functions.
-Depends: plyr
+Imports: plyr
 License: GPL-2
 Collate: 'c.r' 'checks.r' 'detect.r' 'dup.r' 'extract.r' 'length.r'
     'locate.r' 'match.r' 'modifiers.r' 'pad-trim.r' 'replace.r'

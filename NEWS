@@ -15,7 +15,7 @@ stringr 0.4
    the string. -1 replaces Inf as indicator for string end.
  * str_pad side argument can be left, right, or both (instead of center)
  * str_trim gains side argument to better match str_pad
- * stringr now has a namespace
+ * stringr now has a namespace and imports plyr (rather than requiring it)
 
 stringr 0.3
 ===========
