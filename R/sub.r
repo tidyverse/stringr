@@ -72,10 +72,13 @@ str_sub <- function(string, start = 1L, end = -1L) {
 #' @param end integer vector giving position of last character in substring, 
 #'   defaults to last character. If negative, counts backwards from last 
 #'   character.
+#' @param value replacement string
 #' @return character vector of substring from \code{start} to \code{end}
 #'   (inclusive). Will be length of longest input argument.
 #' @name str_sub_replace
-#' @export
+#' @aliases str_sub<- str_sub_replace
+#' @usage str_sub(string, start = 1L, end = -1L) <- value
+#' @export "str_sub<-"
 #' @examples
 #' x <- "BBCDEF"
 #' str_sub(x, 1, 1) <- "A"; x
