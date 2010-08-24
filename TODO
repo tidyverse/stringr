@@ -1,3 +1,3 @@
 * add examples to str_replace and str_match
-* check that str_locate, str_extract, str_match, str_replace and str_split all
+* check that str_extract, str_match, str_replace and str_split all
   use new vectorisation and modifier strategy.

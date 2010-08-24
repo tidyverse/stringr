@@ -24,7 +24,11 @@ str_detect <- function(string, pattern) {
   string <- check_string(string)
   pattern <- check_pattern(pattern, string)
   
-  results <- re_vectorise("grepl", string, pattern)
+  if (length(pattern) == 1) {
+    results <- re_call("grepl", string, pattern)
+  } else {
+    results <- unlist(re_mapply("grepl", string, pattern))
+  }
   is.na(results) <- is.na(string)
   
   results

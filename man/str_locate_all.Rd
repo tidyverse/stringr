@@ -8,8 +8,8 @@
 }
 
 \details{
-  Vectorised over \code{string}.  \code{pattern} should be a single
-  pattern, i.e. a character vector of length one.
+  Vectorised over \code{string} and \code{pattern}, shorter is recycled
+  to same length as longest.
 }
 \keyword{character}
 \value{list of integer matrices.  First column gives start postion of
@@ -27,4 +27,5 @@ expression.  See the ``Extended Regular Expressions'' section of
 }
 \examples{fruit <- c("apple", "banana", "pear", "pineapple")
 str_locate_all(fruit, "a")
-str_locate_all(fruit, "e")}
+str_locate_all(fruit, "e")
+str_locate_all(fruit, c("a", "b", "p", "p"))}
