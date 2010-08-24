@@ -35,6 +35,9 @@ str_match <- function(string, pattern) {
   if (n == 0) {
     return(matrix(matches, ncol = 1))
   }
+  if (length(matches) == 0) {
+    return(matrix(character(), nrow = 0, ncol = n + 1))
+  }
 
   # Break match into capture groups
   pattern <- str_c(".*?", pattern, ".*")
