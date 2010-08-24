@@ -24,3 +24,11 @@ expression.  See the ``Extended Regular Expressions'' section of
 \code{\2} will be replaced with the contents of the respective matched
 group (created by \code{()}) within the pattern.}
 }
+\examples{fruits <- c("one apple", "two pears", "three bananas")
+str_replace(fruits, "[aeiou]", "-")
+str_replace_all(fruits, "[aeiou]", "-")
+
+str_replace_all(fruits, "([aeiou])", "")
+str_replace_all(fruits, "([aeiou])", "\\\\1\\\\1")
+str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
+str_replace_all(fruits, c("a", "e", "i"), "-")}

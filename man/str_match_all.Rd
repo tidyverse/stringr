@@ -20,3 +20,9 @@ expression.  Pattern should contain groups, defined by ().  See the
 ``Extended Regular Expressions'' section of \code{\link{regex}} for
 details.}
 }
+\examples{strings <- c("Home: 219 733 8965.  Work: 229-293-8753 ", 
+"banana pear apple", "595 794 7569 / 387 287 6718")
+phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
+
+str_extract_all(strings, phone)
+str_match_all(strings, phone)}
