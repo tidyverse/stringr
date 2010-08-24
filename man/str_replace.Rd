@@ -8,9 +8,8 @@
 }
 
 \details{
-  Vectorised over \code{string}.  \code{pattern} and \code{replacement}
-  should both be single strings, i.e. a character vectors of length
-  one.
+  Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+  Shorter arguments will be expanded to length of longest.
 }
 \value{character vector.}
 \keyword{character}

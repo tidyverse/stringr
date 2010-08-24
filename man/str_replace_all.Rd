@@ -8,14 +8,13 @@
 }
 
 \details{
-  Vectorised over \code{string}.  \code{pattern} and \code{replacement}
-  should both be single strings, i.e. a character vectors of length
-  one.
+  Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+  Shorter arguments will be expanded to length of longest.
 }
 \value{character vector.}
 \keyword{character}
 \seealso{\code{\link{gsub}} which this function wraps, 
-\code{\link{str_replace_all}} to replace a single matche}
+\code{\link{str_replace_all}} to replace a single match}
 \arguments{
   \item{string}{input character vector}
   \item{pattern}{pattern to look for, as defined by a POSIX regular
