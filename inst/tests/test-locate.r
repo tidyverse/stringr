@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Locations")
 
 test_that("basic location matching works", {

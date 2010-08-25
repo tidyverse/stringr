@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Extract patterns")
 
 test_that("single pattern extracted correctly", {

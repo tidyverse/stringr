@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Extracting substrings")
 alphabet <- str_c(letters, collapse = "")
 

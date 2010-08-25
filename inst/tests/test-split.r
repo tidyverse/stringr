@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Splitting strings")
 
 test_that("special cases are correct", {

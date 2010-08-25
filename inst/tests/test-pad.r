@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Test padding")
 
 test_that("long strings are unchanged", {

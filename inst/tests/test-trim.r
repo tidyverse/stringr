@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Trimming strings")
 
 test_that("trimming removes spaces", {

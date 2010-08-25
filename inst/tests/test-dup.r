@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("Duplicating strings")
 
 test_that("basic duplication works", {

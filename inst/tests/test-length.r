@@ -1,6 +1,3 @@
-library(testthat)
-library_if_available(stringr)
-
 context("String length")
 
 test_that("length of missing string is missing", {
