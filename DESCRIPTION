@@ -11,6 +11,7 @@ Description: stringr is a set of simple wrappers that make R's string
     appropriately, and the output data structures from each function
     matches the input data structures of other functions.
 Imports: plyr
+Depends: R (>= 2.11.0)
 Suggests: testthat (>= 0.3)
 License: GPL-2
 Collate: 'c.r' 'checks.r' 'detect.r' 'dup.r' 'extract.r' 'length.r'
