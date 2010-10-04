@@ -1,6 +1,8 @@
 stringr 0.5
 ===========
 
+  * str_length returns NA for invalid multibyte strings
+
 stringr 0.4
 ===========
 

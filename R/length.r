@@ -12,7 +12,7 @@
 str_length <- function(string) {
   string <- check_string(string)
 
-  nc <- nchar(string)
+  nc <- nchar(string, allowNA = TRUE)
   is.na(nc) <- is.na(string)
   nc
 }
