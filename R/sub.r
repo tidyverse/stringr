@@ -60,7 +60,7 @@ str_sub <- function(string, start = 1L, end = -1L) {
   substring(string, start, end)
 }
 
-#' Replace substrings in a character vector
+#' Replace substrings in a character vector.
 # 
 #' \code{sub_str<-} will recycle all arguments to be the same length as the 
 #' longest argument. 
