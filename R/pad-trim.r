@@ -35,7 +35,11 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   right <- switch(side, 
     left = 0, right = needed, both = ceiling(needed / 2))
   
-  str_c(str_dup(pad, left), string, str_dup(pad, right))
+  # String duplication is slow, so only do the absolute necessary
+  lengths <- unique(c(left, right))
+  padding <- str_dup(pad, lengths)
+  
+  str_c(padding[match(left, lengths)], string, padding[match(right, lengths)])
 }
 
 #' Trim whitespace from start and end of string.
