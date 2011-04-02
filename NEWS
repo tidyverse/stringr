@@ -6,6 +6,8 @@ stringr 0.5
 
 * str_length returns NA for invalid multibyte strings
 
+* fix small bug in internal `recyclable` function
+
 stringr 0.4
 ===========
 

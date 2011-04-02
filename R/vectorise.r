@@ -22,7 +22,7 @@ re_mapply <- function(f, string, pattern, replacement = NULL) {
 # Check if a set of vectors is recyclable.
 # Ignores zero length vectors.  Trivially TRUE if all inputs are zero length.
 recyclable <- function(...) {
-  lengths <- vapply(list(...), length, 1)
+  lengths <- vapply(list(...), length, integer(1))
   
   lengths <- lengths[lengths != 0]
   if (length(lengths) == 0) return(TRUE)
