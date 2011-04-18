@@ -8,8 +8,8 @@
 }
 
 \details{
-  Invert a matrix of match locations to match the opposite of what was
-  previously matched.
+  Invert a matrix of match locations to match the opposite
+  of what was previously matched.
 }
 \value{numeric match giving locations of non-matches}
 \arguments{

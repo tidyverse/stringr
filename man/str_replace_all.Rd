@@ -8,8 +8,9 @@
 }
 
 \details{
-  Vectorised over \code{string}, \code{pattern} and \code{replacement}.
-  Shorter arguments will be expanded to length of longest.
+  Vectorised over \code{string}, \code{pattern} and
+  \code{replacement}.  Shorter arguments will be expanded
+  to length of longest.
 }
 \value{character vector.}
 \keyword{character}

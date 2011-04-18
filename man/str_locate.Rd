@@ -4,12 +4,13 @@
 \usage{str_locate(string, pattern)}
 
 \description{
-  Locate the position of the first occurence of a pattern in a string.
+  Locate the position of the first occurence of a pattern
+  in a string.
 }
 
 \details{
-  Vectorised over \code{string} and \code{pattern}, shorter is recycled
-  to same length as longest.
+  Vectorised over \code{string} and \code{pattern}, shorter
+  is recycled to same length as longest.
 }
 \value{integer matrix.  First column gives start postion of match, and
 second column gives end position.}

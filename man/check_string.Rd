@@ -4,7 +4,8 @@
 \usage{check_string(string)}
 
 \description{
-  Check that stringr is of the correct type for stringr functions
+  Check that stringr is of the correct type for stringr
+  functions
 }
 \keyword{internal}
 \arguments{

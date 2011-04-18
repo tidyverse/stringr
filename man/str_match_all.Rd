@@ -8,8 +8,8 @@
 }
 
 \details{
-  Vectorised over \code{string}.  \code{pattern} should be a single
-  pattern, i.e. a character vector of length one.
+  Vectorised over \code{string}.  \code{pattern} should be
+  a single pattern, i.e. a character vector of length one.
 }
 \value{list of character matrices, as given by \code{\link{str_match}}}
 \keyword{character}

@@ -8,8 +8,8 @@
 }
 
 \details{
-  This function specifies that a pattern should ignore the case of
-  matches.
+  This function specifies that a pattern should ignore the
+  case of matches.
 }
 \keyword{character}
 \arguments{

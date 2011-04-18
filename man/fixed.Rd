@@ -8,9 +8,10 @@
 }
 
 \details{
-  This function specifies that a pattern is a fixed string, rather than
-  a regular expression.  This can yield substantial speed ups, if
-  regular expression matching is not needed.
+  This function specifies that a pattern is a fixed string,
+  rather than a regular expression.  This can yield
+  substantial speed ups, if regular expression matching is
+  not needed.
 }
 \keyword{character}
 \arguments{

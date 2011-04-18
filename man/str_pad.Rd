@@ -8,8 +8,8 @@
 }
 
 \details{
-  Vectorised over \code{string}.  All other inputs should be of length
-  1.
+  Vectorised over \code{string}.  All other inputs should
+  be of length 1.
 }
 \value{character vector}
 \seealso{\code{\link{str_trim}} to remove whitespace}

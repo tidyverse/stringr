@@ -4,7 +4,8 @@
 \usage{str_dup(string, times)}
 
 \description{
-  Duplicate and concatenate strings within a character vector.
+  Duplicate and concatenate strings within a character
+  vector.
 }
 
 \details{

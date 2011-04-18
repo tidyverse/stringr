@@ -4,12 +4,14 @@
 \usage{str_replace(string, pattern, replacement)}
 
 \description{
-  Replace first occurrence of a matched pattern in a string.
+  Replace first occurrence of a matched pattern in a
+  string.
 }
 
 \details{
-  Vectorised over \code{string}, \code{pattern} and \code{replacement}.
-  Shorter arguments will be expanded to length of longest.
+  Vectorised over \code{string}, \code{pattern} and
+  \code{replacement}.  Shorter arguments will be expanded
+  to length of longest.
 }
 \value{character vector.}
 \keyword{character}
