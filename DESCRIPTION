@@ -16,7 +16,7 @@ Imports: plyr
 Depends: R (>= 2.11.0)
 Suggests: testthat (>= 0.3)
 License: GPL-2
-Collate: 'c.r' 'checks.r' 'detect.r' 'dup.r' 'extract.r'
-    'length.r' 'locate.r' 'match.r' 'modifiers.r'
-    'pad-trim.r' 'replace.r' 'split.r' 'sub.r'
-    'vectorise.r'
+Collate: 'c.r' 'checks.r' 'count.r' 'detect.r' 'dup.r'
+    'extract.r' 'length.r' 'locate.r' 'match.r'
+    'modifiers.r' 'pad-trim.r' 'replace.r' 'split.r'
+    'sub.r' 'vectorise.r'

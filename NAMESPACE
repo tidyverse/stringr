@@ -1,5 +1,6 @@
 import(plyr)
 export(str_c)
+export(str_count)
 export(str_detect)
 export(str_dup)
 export(str_extract)
