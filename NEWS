@@ -1,6 +1,9 @@
 stringr 0.5
 ===========
 
+* `str_locate` now returns consistent type when matching empty string (thanks
+  to Stavros Macrakis)
+
 * new `str_count` counts number of matches in a string.
 
 * `str_pad` and `str_trim` receive performance tweaks - for large vectors this

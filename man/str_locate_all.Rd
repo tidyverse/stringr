@@ -11,6 +11,9 @@
 \details{
   Vectorised over \code{string} and \code{pattern}, shorter
   is recycled to same length as longest.
+
+  If the match is of length 0, (e.g. from a special match
+  like \code{$}) end will be one character less than start.
 }
 \keyword{character}
 \value{list of integer matrices.  First column gives start postion of

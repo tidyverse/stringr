@@ -26,7 +26,6 @@ str_locate <- function(string, pattern) {
   string <- check_string(string)
   pattern <- check_pattern(pattern, string)
 
-  if (length(string) == 0) return(character())
   if (length(pattern) == 1) {
     results <- re_call("regexpr", string, pattern)
     match_to_matrix(results)
@@ -40,6 +39,9 @@ str_locate <- function(string, pattern) {
 #'
 #' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
 #' same length as longest.
+#'
+#' If the match is of length 0, (e.g. from a special match like \code{$})
+#' end will be one character less than start.
 #'
 #' @param string input character vector
 #' @param pattern pattern to look for, as defined by a POSIX regular
@@ -62,7 +64,6 @@ str_locate <- function(string, pattern) {
 #' str_locate_all(fruit, "e")
 #' str_locate_all(fruit, c("a", "b", "p", "p"))
 str_locate_all <- function(string, pattern) {
-  if (length(string) == 0) return(character())
   string <- check_string(string)
   pattern <- check_pattern(pattern, string)
 
@@ -85,11 +86,8 @@ match_to_matrix <- function(match, global = FALSE) {
   }
   
   start <- as.vector(match)
+  start[start == -1] <- NA
   end <- start + attr(match, "match.length") - 1L
-  
-  missing <- start == -1
-  start[missing] <- NA
-  end[missing] <- NA
   
   cbind(start = start, end = end)
 }
