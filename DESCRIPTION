@@ -1,9 +1,10 @@
 Package: stringr
-Type: Package
-Title: Make it easier to work with strings.
-Version: 0.5
-Author: Hadley Wickham <h.wickham@gmail.com>
+Imports: plyr
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
+License: GPL-2
+Title: Make it easier to work with strings.
+Type: Package
+Author: Hadley Wickham <h.wickham@gmail.com>
 Description: stringr is a set of simple wrappers that make
     R's string functions more consistent, simpler and
     easier to use.  It does this by ensuring that: function
@@ -12,10 +13,9 @@ Description: stringr is a set of simple wrappers that make
     appropriately, and the output data structures from each
     function matches the input data structures of other
     functions.
-Imports: plyr
+Version: 0.5
 Depends: R (>= 2.11.0)
 Suggests: testthat (>= 0.3)
-License: GPL-2
 Collate: 'c.r' 'checks.r' 'count.r' 'detect.r' 'dup.r'
     'extract.r' 'length.r' 'locate.r' 'match.r'
     'modifiers.r' 'pad-trim.r' 'replace.r' 'split.r'
