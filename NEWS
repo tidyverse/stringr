@@ -1,6 +1,9 @@
 stringr 0.5
 ===========
 
+* new `str_wrap` function which gives `strwrap` output in a more convenient
+  format
+
 * new `word` function extract words from a string given user defined
   separator (thanks to suggestion by David Cooper)
 

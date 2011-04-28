@@ -19,4 +19,4 @@ Suggests: testthat (>= 0.3)
 Collate: 'c.r' 'checks.r' 'count.r' 'detect.r' 'dup.r'
     'extract.r' 'length.r' 'locate.r' 'match.r'
     'modifiers.r' 'pad-trim.r' 'replace.r' 'split.r'
-    'sub.r' 'vectorise.r' 'word.r'
+    'sub.r' 'vectorise.r' 'word.r' 'wrap.r'
