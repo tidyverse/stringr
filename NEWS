@@ -1,6 +1,9 @@
 stringr 0.5
 ===========
 
+* new `word` function extract words from a string given user defined
+  separator (thanks to suggestion by David Cooper)
+
 * `str_locate` now returns consistent type when matching empty string (thanks
   to Stavros Macrakis)
 

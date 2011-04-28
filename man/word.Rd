@@ -1,0 +1,34 @@
+\name{word}
+\alias{word}
+\title{Extract words from a sentence.}
+\usage{word(string, start=1, end=start, sep=fixed(" "))}
+
+\description{
+  Extract words from a sentence.
+}
+\value{character vector of words from \code{start} to \code{end}
+(inclusive). Will be length of longest input argument.}
+\arguments{
+  \item{string}{input character vector.}
+  \item{start}{integer vector giving position of first word to extract.
+Defaults to first word. If negative, counts backwards from last 
+character.}
+  \item{end}{integer vector giving position of last word to extract. 
+Defaults to first word. If negative, counts backwards from last 
+character.}
+  \item{sep}{separator between words.  Defaults to single space.}
+}
+\examples{sentences <- c("Jane saw a cat", "Jane sat down")
+word(sentences, 1)
+word(sentences, 2)
+word(sentences, -1)
+word(sentences, 2, -1)
+
+# Also vectorised over start and end
+word(sentences[1], 1:3, -1)
+word(sentences[1], 1, 1:4)
+
+# Can define words by other separators
+str <- 'abc.def..123.4568.999'
+word(str, 1, sep = fixed('..'))
+word(str, 2, sep = fixed('..'))}
