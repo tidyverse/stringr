@@ -8,13 +8,17 @@
 #' @seealso \code{\link{str_sort}} to sort a string
 #' @export
 #' @examples
-#' str_reverse("tang")
-str_reverse <- function(string) {
+#' str_rev("tang")
+#' str_rev(c("abc", "321"))
+str_rev <- function(string) {
   string <- check_string(string)
-  new <- unname(vapply(string, function(x){
-        if(nchar(x)<=1) x else
-          paste(rev(substring(x, seq_len(nchar(x)), seq_len(nchar(x)))), collapse="")
-      }, "x"))
+  new <- vapply(string, str_rev_one, FUN.VALUE="x", USE.NAMES=FALSE)
   new[is.na(string)] <- NA
   new
 }
+
+str_rev_one <- function(x){
+  if(is.na(x) || str_length(x)<=1) x else
+    paste(rev(str_sub(x, seq_len(str_length(x)), seq_len(str_length(x)))), collapse="")
+}
+

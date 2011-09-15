@@ -1,8 +1,8 @@
-\name{str_reverse}
-\alias{str_reverse}
+\name{str_rev}
+\alias{str_rev}
 \title{Returns a string in reverse order.}
 \usage{
-  str_reverse(string)
+  str_rev(string)
 }
 \arguments{
   \item{string}{input character vector}
@@ -15,7 +15,8 @@
   e.g. "gnat" -> "tang"
 }
 \examples{
-str_reverse("tang")
+str_rev("tang")
+str_rev(c("abc", "321"))
 }
 \seealso{
   \code{\link{str_sort}} to sort a string
