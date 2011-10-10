@@ -1,11 +1,11 @@
 #' Extract substrings from a character vector.
 #'
-#' \code{sub_str} will recycle all arguments to be the same length as the 
+#' \code{str_sub} will recycle all arguments to be the same length as the 
 #' longest argument. If any arguments are of length 0, the output will be 
 #' a zero length character vector.
 #'
 #' Substrings are inclusive - they include the characters at both start and 
-#' end positions. \code{sub_str(string, 1, -1)} will return the complete
+#' end positions. \code{str_sub(string, 1, -1)} will return the complete
 #' substring, from the first character to the last.
 #'
 #' @param string input character vector.
@@ -62,7 +62,7 @@ str_sub <- function(string, start = 1L, end = -1L) {
 
 #' Replace substrings in a character vector.
 # 
-#' \code{sub_str<-} will recycle all arguments to be the same length as the 
+#' \code{str_sub<-} will recycle all arguments to be the same length as the 
 #' longest argument. 
 #' 
 #' @param string input character vector.
