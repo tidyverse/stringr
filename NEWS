@@ -1,3 +1,6 @@
+* `str_match` now uses new base function `regmatches` to extract matches -
+  this should hopefully be faster than my previous pure R algorithm
+
 stringr 0.5
 ===========
 

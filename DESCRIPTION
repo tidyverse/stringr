@@ -16,7 +16,7 @@ Description: stringr is a set of simple wrappers that make
     functions.
 Version: 0.5
 Depends:
-    R (>= 2.11.0)
+    R (>= 2.14)
 Suggests:
     testthat (>= 0.3)
 Collate:
