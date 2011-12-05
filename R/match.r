@@ -25,31 +25,20 @@ str_match <- function(string, pattern) {
   string <- check_string(string)
   pattern <- check_pattern(pattern, string)
 
-  # Locate complete match
-  matches <- str_extract(string, pattern)
-  
-  # Figure out how many groups there are
-  tmp <- str_replace_all(pattern, "\\\\\\(", "")
-  n <- str_length(str_replace_all(tmp, "[^(]", ""))
-  
-  if (n == 0) {
-    return(matrix(matches, ncol = 1))
-  }
-  if (length(matches) == 0) {
-    return(matrix(character(), nrow = 0, ncol = n + 1))
-  }
+  if (length(string) == 0) return(character())
 
-  # Break match into capture groups
-  pattern <- str_c(".*?", pattern, ".*")
-  replace <- str_c("\\", seq_len(n), collapse = "\u001E")
+  matcher <- re_call("regexec", string, pattern)
+  matches <- regmatches(string, matcher)
   
-  pieces <- str_replace_all(matches, pattern, replace)
-  pieces_matrix <- do.call("rbind", str_split(pieces, "\u001E"))
+  # Figure out how many groups there are and coerce into a matrix with 
+  # nmatches + 1 columns
+  tmp <- str_replace_all(pattern, "\\\\\\(", "")
+  n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
   
-  # Combine complete match and individual pieces into a matrix
-  match_matrix <- cbind(matches, pieces_matrix)
-  colnames(match_matrix) <- NULL
-  match_matrix
+  len <- vapply(matches, length, integer(1))
+  matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
+  
+  do.call("rbind", matches)
 }
 
 #' Extract all matched groups from a string.
