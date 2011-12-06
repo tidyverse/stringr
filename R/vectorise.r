@@ -4,7 +4,14 @@
 
 re_call <- function(f, string, pattern, replacement = NULL) {
   args <- list(pattern, replacement, string,
-    fixed = is.fixed(pattern), ignore.case = case.ignored(pattern))
+    fixed = is.fixed(pattern), ignore.case = case.ignored(pattern), 
+    perl = is.perl(pattern))
+  
+  if (!("perl" %in% names(formals(f)))) {
+    if (args$perl) message("Perl regexps not supported by ", f)
+    args$perl <- NULL
+  }
+  
   do.call(f, compact(args))  
 }
 

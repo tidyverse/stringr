@@ -17,5 +17,8 @@ strings <- c("ABB", "aaB", "aab")
 str_detect(strings, pattern)
 str_detect(strings, ignore.case(pattern))
 }
+\seealso{
+  Other modifiers: \code{\link{fixed}}, \code{\link{perl}}
+}
 \keyword{character}
 

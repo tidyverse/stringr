@@ -19,5 +19,9 @@ strings <- c("abb", "a.b")
 str_detect(strings, pattern)
 str_detect(strings, fixed(pattern))
 }
+\seealso{
+  Other modifiers: \code{\link{ignore.case}},
+  \code{\link{perl}}
+}
 \keyword{character}
 

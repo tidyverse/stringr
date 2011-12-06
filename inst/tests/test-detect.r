@@ -17,4 +17,7 @@ test_that("modifiers work", {
   expect_that(str_detect("abc", "ab[c]"), equals(TRUE))
   expect_that(str_detect("abc", fixed("ab[c]")), equals(FALSE))
   expect_that(str_detect("ab[c]", fixed("ab[c]")), equals(TRUE))
+  
+  expect_that(str_detect("abc", perl("(?x)a b c")), equals(TRUE))
+  
 })
