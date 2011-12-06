@@ -1,6 +1,6 @@
 #' The length of a string (in characters).
 #'
-#' @param string input character vector
+#' @inheritParams str_detect
 #' @return numeric vector giving number of characters in each element of the 
 #'   character vector.  Missing string have missing length.
 #' @keywords character

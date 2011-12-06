@@ -5,7 +5,8 @@
   str_length(string)
 }
 \arguments{
-  \item{string}{input character vector}
+  \item{string}{input vector. This must be an atomic
+  vector, and will be coerced to a character vector}
 }
 \value{
   numeric vector giving number of characters in each

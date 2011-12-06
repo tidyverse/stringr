@@ -3,9 +3,7 @@
 #' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
 #' same length as longest.
 #'
-#' @param string input character vector
-#' @param pattern pattern to look for.  See \code{\link{regex}} for
-#'   description.
+#' @inheritParams str_detect
 #' @return integer matrix.  First column gives start postion of match, and
 #'   second column gives end position.
 #' @keywords character
@@ -43,10 +41,7 @@ str_locate <- function(string, pattern) {
 #' If the match is of length 0, (e.g. from a special match like \code{$})
 #' end will be one character less than start.
 #'
-#' @param string input character vector
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of 
-#'   \code{\link{regex}} for details.
+#' @inheritParams str_detect
 #' @keywords character
 #' @return list of integer matrices.  First column gives start postion of
 #'   match, and second column gives end position.

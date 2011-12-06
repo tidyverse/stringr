@@ -5,17 +5,20 @@
   str_replace(string, pattern, replacement)
 }
 \arguments{
-  \item{string}{input character vector}
-
-  \item{pattern}{pattern to look for, as defined by a POSIX
-  regular expression.  See the ``Extended Regular
-  Expressions'' section of \code{\link{regex}} for
-  details.}
-
   \item{replacement}{replacement string.  References of the
   form \code{\1}, \code{\2} will be replaced with the
   contents of the respective matched group (created by
   \code{()}) within the pattern.}
+
+  \item{string}{input vector. This must be an atomic
+  vector, and will be coerced to a character vector}
+
+  \item{pattern}{pattern to look for, as defined by a POSIX
+  regular expression.  See the ``Extended Regular
+  Expressions'' section of \code{\link{regex}} for details.
+  See \code{\link{fixed}}, \code{\link{ignore.case}} and
+  \code{\link{perl}} for how to use other types of
+  matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
   character vector.

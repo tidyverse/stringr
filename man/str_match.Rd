@@ -5,12 +5,13 @@
   str_match(string, pattern)
 }
 \arguments{
-  \item{string}{input character vector}
-
   \item{pattern}{pattern to look for, as defined by a POSIX
   regular expression.  Pattern should contain groups,
   defined by ().  See the ``Extended Regular Expressions''
   section of \code{\link{regex}} for details.}
+
+  \item{string}{input vector. This must be an atomic
+  vector, and will be coerced to a character vector}
 }
 \value{
   character matrix. First column is the complete match,

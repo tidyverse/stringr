@@ -3,10 +3,7 @@
 #' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
 #' same length as longest.
 #'
-#' @param string input character vector
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of 
-#'   \code{\link{regex}} for details.
+#' @inheritParams str_detect
 #' @keywords character
 #' @return integer vector
 #' @seealso

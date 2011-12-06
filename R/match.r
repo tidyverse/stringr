@@ -3,7 +3,7 @@
 #' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
 #' i.e. a character vector of length one.
 #'
-#' @param string input character vector
+#' @inheritParams str_detect
 #' @param pattern pattern to look for, as defined by a POSIX regular
 #'   expression.  Pattern should contain groups, defined by ().  See the
 #'  ``Extended Regular Expressions'' section of \code{\link{regex}} for
@@ -46,7 +46,7 @@ str_match <- function(string, pattern) {
 #' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
 #' i.e. a character vector of length one.
 #'
-#' @param string input character vector
+#' @inheritParams str_detect
 #' @param pattern pattern to look for, as defined by a POSIX regular
 #'   expression.  Pattern should contain groups, defined by ().  See the
 #'  ``Extended Regular Expressions'' section of \code{\link{regex}} for

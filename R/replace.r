@@ -3,10 +3,7 @@
 #' Vectorised over \code{string}, \code{pattern} and \code{replacement}.  
 #' Shorter arguments will be expanded to length of longest. 
 #'
-#' @param string input character vector
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of 
-#'   \code{\link{regex}} for details.
+#' @inheritParams str_detect
 #' @param replacement replacement string.  References of the form \code{\1}, 
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
@@ -40,10 +37,7 @@ str_replace <- function(string, pattern, replacement) {
 #' Vectorised over \code{string}, \code{pattern} and \code{replacement}.  
 #' Shorter arguments will be expanded to length of longest. 
 #'
-#' @param string input character vector
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of 
-#'   \code{\link{regex}} for details.
+#' @inheritParams str_detect
 #' @param replacement replacement string.  References of the form \code{\1}, 
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.

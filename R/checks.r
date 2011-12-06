@@ -1,7 +1,4 @@
-#' Check that stringr is of the correct type for stringr functions
-#'
-#' @param string input vector
-#' @keywords internal 
+# Check that stringr is of the correct type for stringr functions
 check_string <- function(string) {
   if (!is.atomic(string)) 
     stop("String must be an atomic vector", call. = FALSE)
@@ -12,10 +9,7 @@ check_string <- function(string) {
   string
 }
 
-#' Check that pattern is of the correct type for stringr functions
-#'
-#' @param pattern input vector
-#' @keywords internal 
+# Check that pattern is of the correct type for stringr functions
 check_pattern <- function(pattern, string, replacement = NULL) {
   if (!is.character(pattern)) 
     stop("Pattern must be a character vector", call. = FALSE)

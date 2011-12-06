@@ -5,12 +5,15 @@
   str_count(string, pattern)
 }
 \arguments{
-  \item{string}{input character vector}
+  \item{string}{input vector. This must be an atomic
+  vector, and will be coerced to a character vector}
 
   \item{pattern}{pattern to look for, as defined by a POSIX
   regular expression.  See the ``Extended Regular
-  Expressions'' section of \code{\link{regex}} for
-  details.}
+  Expressions'' section of \code{\link{regex}} for details.
+  See \code{\link{fixed}}, \code{\link{ignore.case}} and
+  \code{\link{perl}} for how to use other types of
+  matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
   integer vector
