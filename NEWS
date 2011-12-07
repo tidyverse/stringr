@@ -1,3 +1,6 @@
+stringr 0.6
+===========
+
 * new modifier `perl` that switches to Perl regular expressions
 
 * `str_match` now uses new base function `regmatches` to extract matches -

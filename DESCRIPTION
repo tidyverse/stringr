@@ -14,7 +14,7 @@ Description: stringr is a set of simple wrappers that make
     appropriately, and the output data structures from each
     function matches the input data structures of other
     functions.
-Version: 0.5
+Version: 0.6
 Depends:
     R (>= 2.14)
 Suggests:
