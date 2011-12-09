@@ -2,7 +2,7 @@
 \alias{str_sub_replace}
 \alias{str_sub<-}
 \title{Replace substrings in a character vector.
-\code{sub_str<-} will recycle all arguments to be the same length as the
+\code{str_sub<-} will recycle all arguments to be the same length as the
 longest argument.}
 \usage{
   str_sub(string, start = 1L, end = -1L) <- value
@@ -27,7 +27,7 @@ longest argument.}
 }
 \description{
   Replace substrings in a character vector.
-  \code{sub_str<-} will recycle all arguments to be the
+  \code{str_sub<-} will recycle all arguments to be the
   same length as the longest argument.
 }
 \examples{
