@@ -27,9 +27,18 @@ str_match <- function(string, pattern) {
 
   if (length(string) == 0) return(character())
 
-  matcher <- re_call("regexec", string, pattern)
+  if(!is.perl(pattern)){
+    matcher <- re_call("regexec", string, pattern)
+  }else{
+    m <- re_call("regexpr", string, pattern)
+    matcher <- lapply(seq_along(m),function(i){
+      structure(c(m[i],attr(m,"capture.start")[i,]),
+                match.length=c(attr(m,"match.length")[i],attr(m,"capture.length")[i,]))
+    })
+  }
+
   matches <- regmatches(string, matcher)
-  
+
   # Figure out how many groups there are and coerce into a matrix with 
   # nmatches + 1 columns
   tmp <- str_replace_all(pattern, "\\\\\\(", "")
@@ -38,7 +47,12 @@ str_match <- function(string, pattern) {
   len <- vapply(matches, length, integer(1))
   matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
   
-  do.call("rbind", matches)
+  match.matrix <- do.call("rbind", matches)
+  group.names <- names(matcher[[1]])
+  if(!is.null(group.names) && !all(group.names=="")){
+    colnames(match.matrix) <- group.names
+  }
+  match.matrix
 }
 
 #' Extract all matched groups from a string.

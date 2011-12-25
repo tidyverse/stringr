@@ -56,6 +56,13 @@ test_that("multiple match works", {
     "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
   single_matches <- str_match(phones, 
     "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
-  
+   
   expect_that(multi_match[[1]], equals(single_matches))
+})
+
+test_that("named capture works", {
+  phones_one <- str_c(phones, collapse = " ")
+  multi_match <- str_match_all(phones_one, 
+    perl("\\((?<area>[0-9]{3})\\) ([0-9]{3}) ([0-9]{4})"))
+  expect_equal(colnames(multi_match[[1]])[2], "area")
 })
