@@ -1,4 +1,4 @@
-# Check that stringr is of the correct type for stringr functions
+# Check that string is of the correct type for stringr functions
 check_string <- function(string) {
   if (!is.atomic(string)) 
     stop("String must be an atomic vector", call. = FALSE)
