@@ -44,7 +44,7 @@ str_replace <- function(string, pattern, replacement) {
 #' @return character vector.
 #' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps, 
-#'   \code{\link{str_replace_all}} to replace a single match
+#'   \code{\link{str_replace}} to replace a single match
 #' @export
 #' @examples
 #' fruits <- c("one apple", "two pears", "three bananas")
