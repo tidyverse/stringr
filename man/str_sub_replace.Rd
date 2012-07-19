@@ -1,6 +1,6 @@
 \name{str_sub_replace}
-\alias{str_sub_replace}
 \alias{str_sub<-}
+\alias{str_sub_replace}
 \title{Replace substrings in a character vector.
 \code{str_sub<-} will recycle all arguments to be the same length as the
 longest argument.}
