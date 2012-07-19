@@ -20,7 +20,7 @@
 #' @seealso \code{\link{paste}} which this function wraps
 #' @aliases str_c str_join
 #' @import plyr
-#' @export
+#' @export str_c str_join
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")

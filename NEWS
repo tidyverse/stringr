@@ -1,5 +1,6 @@
 * Zero input to `str_split_fixed` returns 0 row matrix with `n` columns
 
+* Export `str_join`
 
 stringr 0.6
 ===========
