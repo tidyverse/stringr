@@ -1,3 +1,6 @@
+* Zero input to `str_split_fixed` returns 0 row matrix with `n` columns
+
+
 stringr 0.6
 ===========
 

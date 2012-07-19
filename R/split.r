@@ -23,7 +23,9 @@
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
 str_split_fixed <- function(string, pattern, n) {
-  if (length(string) == 0) return(matrix(character(), nrow = n, ncol = 1))
+  if (length(string) == 0) {
+    return(matrix(character(), nrow = 0, ncol = n))
+  }
   string <- check_string(string)
   pattern <- check_pattern(pattern, string)
   
