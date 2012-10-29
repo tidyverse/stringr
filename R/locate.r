@@ -29,7 +29,9 @@ str_locate <- function(string, pattern) {
     match_to_matrix(results)
   } else {
     results <- re_mapply("regexpr", string, pattern)
-    laply(results, match_to_matrix)
+    out <- t(vapply(results, match_to_matrix, integer(2)))
+    colnames(out) <- c("start", "end")
+    out
   }
 }
 
@@ -68,7 +70,7 @@ str_locate_all <- function(string, pattern) {
     matches <- unlist(re_mapply("gregexpr", string, pattern),
       recursive = FALSE)
   }
-  llply(matches, match_to_matrix, global = TRUE)
+  lapply(matches, match_to_matrix, global = TRUE)
 }
 
 # Convert annoying regexpr format to something more useful

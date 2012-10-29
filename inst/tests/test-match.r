@@ -2,7 +2,7 @@ context("Matching groups")
 
 set.seed(1410)
 num <- matrix(sample(9, 10 * 10, rep = T), ncol = 10)
-num_flat <- aaply(num, 1, str_c, collapse = "")
+num_flat <- apply(num, 1, str_c, collapse = "")
 
 phones <- str_c(
   "(", num[, 1], num[ ,2], num[, 3], ") ",
@@ -35,7 +35,7 @@ test_that("single match works when all match", {
 
   expect_that(matches[, 1], equals(phones))
 
-  matches_flat <- aaply(matches[, -1], 1, str_c, collapse = "")
+  matches_flat <- apply(matches[, -1], 1, str_c, collapse = "")
   expect_that(matches_flat, equals(num_flat))
 })
 

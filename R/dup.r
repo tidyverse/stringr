@@ -21,9 +21,9 @@ str_dup <- function(string, times) {
   string <- data$string
   times <- data$times
 
-  output <- unlist(lapply(seq_len(n), function(i){
+  output <- vapply(seq_len(n), function(i) {
     paste(rep.int(string[i], times[i]), collapse = "")
-  }))
+  }, character(1))
 
   names(output) <- names(string)
   output

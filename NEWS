@@ -1,6 +1,8 @@
 stringr 0.6.1.99
 ================
 
+* remove dependency on plyr
+
 stringr 0.6.1
 =============
 

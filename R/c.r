@@ -19,7 +19,6 @@
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
 #' @aliases str_c str_join
-#' @import plyr
 #' @export str_c str_join
 #' @examples
 #' str_c("Letter: ", letters)
@@ -31,10 +30,10 @@
 #' str_c(letters, collapse = ", ")
 str_c <- str_join <- function(..., sep = "", collapse = NULL) {
   strings <- Filter(function(x) length(x) > 0, list(...))
-  if (!all(unlist(llply(strings, is.atomic)))) {
+  atomic <- vapply(strings, is.atomic, logical(1))
+  if (!all(atomic)) {
     stop("Input to str_c should be atomic vectors", call. = FALSE)
   }
-
 
   do.call("paste", c(strings, list(sep = sep, collapse = collapse)))
 }

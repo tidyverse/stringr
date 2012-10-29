@@ -64,7 +64,7 @@ str_match <- function(string, pattern) {
 str_match_all <- function(string, pattern) {
   matches <- str_extract_all(string, pattern)
 
-  llply(matches, function(match) {
+  lapply(matches, function(match) {
     str_match(match, pattern)
   })
 }

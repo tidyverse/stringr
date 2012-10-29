@@ -42,7 +42,7 @@ str_extract_all <- function(string, pattern) {
   pattern <- check_pattern(pattern, string)
 
   positions <- str_locate_all(string, pattern)
-  llply(seq_along(string), function(i) {
+  lapply(seq_along(string), function(i) {
     position <- positions[[i]]
     str_sub(string[i], position[, "start"], position[, "end"])
   })

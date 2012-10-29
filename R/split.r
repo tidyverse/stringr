@@ -39,7 +39,7 @@ str_split_fixed <- function(string, pattern, n) {
     matrix(string, ncol = 1)
   } else {
     locations <- str_locate_all(string, pattern)
-    do.call("rbind", llply(seq_along(locations), function(i) {
+    do.call("rbind", lapply(seq_along(locations), function(i) {
       location <- locations[[i]]
       string <- string[i]
 
@@ -94,11 +94,13 @@ str_split <- function(string, pattern, n = Inf) {
     as.list(string)
   } else {
     locations <- str_locate_all(string, pattern)
-    unname(c(mlply(cbind(mat = locations, string = string), function(mat, string) {
+    pieces <- function(mat, string) {
       cut <- mat[seq_len(min(n - 1, nrow(mat))), , drop = FALSE]
       keep <- invert_match(cut)
 
       str_sub(string, keep[, 1], keep[, 2])
-    })))
+    }
+    mapply(pieces, locations, string,
+      SIMPLIFY = FALSE, USE.NAMES = FALSE)
   }
 }

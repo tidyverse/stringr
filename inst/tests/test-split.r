@@ -12,7 +12,7 @@ test_that("str_split functions as expected", {
   expect_that(result, is_a("list"))
   expect_that(length(result), equals(3))
 
-  lengths <- sapply(result, length)
+  lengths <- vapply(result, length, integer(1))
   expect_that(lengths, equals(c(2, 2, 3)))
 
   expect_that(result, equals(

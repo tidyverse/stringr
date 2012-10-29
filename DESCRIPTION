@@ -1,6 +1,4 @@
 Package: stringr
-Imports:
-    plyr
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
 License: GPL-2
 Title: Make it easier to work with strings.
@@ -37,3 +35,4 @@ Collate:
     'vectorise.r'
     'word.r'
     'wrap.r'
+    'utils.r'
