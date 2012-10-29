@@ -1,9 +1,9 @@
 #' Match fixed characters, not regular expression.
-#' 
+#'
 #' This function specifies that a pattern is a fixed string, rather
-#' than a regular expression.  This can yield substantial speed ups, if 
+#' than a regular expression.  This can yield substantial speed ups, if
 #' regular expression matching is not needed.
-#' 
+#'
 #' @param string string to match exactly as is
 #' @family modifiers
 #' @keywords character
@@ -24,9 +24,9 @@ is.fixed <- function(string) {
 }
 
 #' Ignore case of match.
-#' 
+#'
 #' This function specifies that a pattern should ignore the case of matches.
-#' 
+#'
 #' @param string pattern for which to ignore case
 #' @keywords character
 #' @family modifiers
@@ -47,11 +47,11 @@ case.ignored <- function(string) {
 
 
 #' Use perl regular expressions.
-#' 
+#'
 #' This function specifies that a pattern should use the Perl regular
 #' expression egine, rather than the default POSIX 1003.2 extended
 #' regular expressions
-#' 
+#'
 #' @param string pattern to match with Perl regexps
 #' @family modifiers
 #' @keywords character

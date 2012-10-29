@@ -1,14 +1,14 @@
 #' Wrap strings into nicely formatted paragraphs.
-#' 
+#'
 #' This is currently implemented as thin wrapper over \code{\link{strwrap}},
 #' but is vectorised over \code{stringr}, and collapses output into single
 #' strings.  See \code{\link{strwrap}} for more details.
-#' 
+#'
 #' @param string character vector of strings to reformat.
 #' @param width positive integer giving target line width in characters.
-#' @param indent non-negative integer giving indentation of first line in 
+#' @param indent non-negative integer giving indentation of first line in
 #'  each paragraph
-#' @param exdent non-negative integer giving indentation of following lines in 
+#' @param exdent non-negative integer giving indentation of following lines in
 #'  each paragraph
 #' @return a character vector of reformatted strings.
 #' @export

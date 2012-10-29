@@ -1,7 +1,7 @@
 #' The length of a string (in characters).
 #'
 #' @inheritParams str_detect
-#' @return numeric vector giving number of characters in each element of the 
+#' @return numeric vector giving number of characters in each element of the
 #'   character vector.  Missing string have missing length.
 #' @keywords character
 #' @seealso \code{\link{nchar}} which this function wraps

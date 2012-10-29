@@ -16,5 +16,5 @@ test_that("trimming removes tabs", {
 
 test_that("side argument restricts trimming", {
   expect_that(str_trim(" abc ", "left"), equals("abc "))
-  expect_that(str_trim(" abc ", "right"), equals(" abc"))  
+  expect_that(str_trim(" abc ", "right"), equals(" abc"))
 })

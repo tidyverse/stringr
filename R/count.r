@@ -11,7 +11,7 @@
 #'
 #'  \code{\link{str_locate}}/\code{\link{str_locate_all}} to locate position
 #'  of matches
-#' 
+#'
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
@@ -27,7 +27,7 @@ str_count <- function(string, pattern) {
   if (length(pattern) == 1) {
     matches <- re_call("gregexpr", string, pattern)
   } else {
-    matches <- unlist(re_mapply("gregexpr", string, pattern), 
+    matches <- unlist(re_mapply("gregexpr", string, pattern),
       recursive = FALSE)
   }
 
