@@ -13,7 +13,8 @@
 #' @return a character vector of reformatted strings.
 #' @export
 #' @examples
-#' thanks <- str_c(readLines(R.home("doc/THANKS")), collapse = "\n")
+#' thanks_path <- file.path(R.home("doc"), "THANKS")
+#' thanks <- str_c(readLines(thanks_path), collapse = "\n")
 #' thanks <- word(thanks, 1, 3, fixed("\n\n"))
 #' cat(str_wrap(thanks), "\n")
 #' cat(str_wrap(thanks, width = 40), "\n")

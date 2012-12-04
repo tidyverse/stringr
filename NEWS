@@ -1,6 +1,8 @@
 stringr 0.6.2
 ================
 
+* fixed path in `str_wrap` example so works for more R installations.
+
 * remove dependency on plyr
 
 stringr 0.6.1
