@@ -8,8 +8,8 @@
 #'   expression.  See the ``Extended Regular Expressions'' section of
 #'   \code{\link{regex}} for details. If \code{NA}, returns original string.
 #'   If \code{""} splits into individual characters.
-#' @param n number of pieces to return.  Default (Inf) uses all
-#'   possible split positions.  If n is greater than the number of pieces,
+#' @param n number of pieces to return.  
+#'   If n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
 #' @return character matrix with \code{n} columns.
 #' @keywords character
