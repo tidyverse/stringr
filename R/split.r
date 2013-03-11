@@ -97,6 +97,9 @@ str_split <- function(string, pattern, n = Inf) {
     as.list(string)
   } else {
     locations <- str_locate_all(string, pattern)
+    if (pattern == "") { # for consistency with strsplit()
+      locations <- lapply(locations, function(x) x[-1, , drop= FALSE])
+    }
     pieces <- function(mat, string) {
       cut <- mat[seq_len(min(n - 1, nrow(mat))), , drop = FALSE]
       keep <- invert_match(cut)
