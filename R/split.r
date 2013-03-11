@@ -39,6 +39,9 @@ str_split_fixed <- function(string, pattern, n) {
     matrix(string, ncol = 1)
   } else {
     locations <- str_locate_all(string, pattern)
+    if (pattern == "") { # for consistency with strsplit()
+      locations <- lapply(locations, function(x) x[-1, , drop= FALSE])
+    }
     do.call("rbind", lapply(seq_along(locations), function(i) {
       location <- locations[[i]]
       string <- string[i]
