@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: R 2.15.1\n"
+"Report-Msgid-Bugs-To: bugs@r-project.org\n"
+"POT-Creation-Date: 2013-03-22 22:59\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "String must be an atomic vector"
+msgstr ""
+
+msgid "Pattern must be a character vector"
+msgstr ""
+
+msgid "Lengths of string and pattern not compatible"
+msgstr ""
+
+msgid "Input to str_c should be atomic vectors"
+msgstr ""
+
+msgid "Overriding Perl regexp matching"
+msgstr ""
+
+msgid "Overriding fixed matching"
+msgstr ""
+
+msgid "pad must be single character single"
+msgstr ""
+
+msgid "n should be a numeric vector of length 1"
+msgstr ""
+
+msgid "n must be finite"
+msgstr ""
+
+msgid "Perl regexps not supported by"
+msgstr ""

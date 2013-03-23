@@ -1,0 +1,54 @@
+# Korean translation for R stringr package
+# /po/ko.po
+# This file is distributed under the same license as the R stringr package.
+# R Development Translation Team - Korean
+# Chel Hee Lee <gnustats@korea.gnu.org>, 2013.
+# Chel Hee Lee <gnustats@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: stringr 0.6.2\n"
+"Report-Msgid-Bugs-To: bugs@r-project.org\n"
+"POT-Creation-Date: 2013-03-22 22:59\n"
+"PO-Revision-Date: 2013-03-22 22:56-0600\n"
+"Last-Translator: Chel Hee Lee <gnustats@korea.gnu.org>\n"
+"Language-Team: R Development Translation Teams (Korean) <gnustats@korea.gnu."
+"org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Korean\n"
+"X-Poedit-Country: KOREA, REPUBLIC OF\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "String must be an atomic vector"
+msgstr ""
+
+msgid "Pattern must be a character vector"
+msgstr "패턴은 반드시 문자형 벡터이어야 합니다"
+
+msgid "Lengths of string and pattern not compatible"
+msgstr "문자열의 길이와 패턴의 길이가 일치하지 않습니다"
+
+msgid "Input to str_c should be atomic vectors"
+msgstr ""
+
+msgid "Overriding Perl regexp matching"
+msgstr ""
+
+msgid "Overriding fixed matching"
+msgstr ""
+
+msgid "pad must be single character single"
+msgstr ""
+
+msgid "n should be a numeric vector of length 1"
+msgstr "n은 반드시 길이가 1인 수치형 벡터이어야 합니다"
+
+msgid "n must be finite"
+msgstr "n은 반드시 유한해야 합니다"
+
+msgid "Perl regexps not supported by"
+msgstr ""
