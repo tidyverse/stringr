@@ -36,3 +36,4 @@ Collate:
     'word.r'
     'wrap.r'
     'utils.r'
+    'format.r'
