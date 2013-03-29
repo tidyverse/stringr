@@ -15,5 +15,3 @@ More concretely, `stringr`:
    that missing inputs result in missing outputs, and zero length inputs
    result in zero length outputs.
 
- * Completes R's string handling functions with useful functions from other
-   programming languages.
