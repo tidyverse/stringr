@@ -18,6 +18,3 @@ More concretely, `stringr`:
  * Completes R's string handling functions with useful functions from other
    programming languages.
 
-# 2013.03.22
-# Thank you for your great efforts on developing this package 'stringr'.
-
