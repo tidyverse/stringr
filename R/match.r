@@ -27,13 +27,36 @@ str_match <- function(string, pattern) {
 
   if (length(string) == 0) return(character())
 
-  matcher <- re_call("regexec", string, pattern)
-  matches <- regmatches(string, matcher)
-
-  # Figure out how many groups there are and coerce into a matrix with
-  # nmatches + 1 columns
-  tmp <- str_replace_all(pattern, "\\\\\\(", "")
-  n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
+  if (is.perl(pattern)) {
+    n <- 1
+    matcher <- re_call("regexpr", string, pattern)
+    matches <- lapply(seq_along(matcher), function(i) {
+      if (identical(matcher[i], -1L)) return (character(0))
+      else {
+        substring <- str_sub(string, matcher[i], matcher[i]+attr(matcher,"match.length")[i])
+        submatches <- character(101)
+        submatches[1] <- substring
+        for (j in 1:100) {
+          submatch <- re_call("sub", substring, pattern, paste("\\",j,sep=""))
+          if (submatch == "") {
+            n <<- j
+            break
+          }
+          else submatches[j+1] <- submatch
+        }
+        return (submatches[1:n])
+      }
+    })
+  }
+  else {
+    matcher <- re_call("regexec", string, pattern)
+    matches <- regmatches(string, matcher)
+    
+    # Figure out how many groups there are and coerce into a matrix with
+    # nmatches + 1 columns
+    tmp <- str_replace_all(pattern, "\\\\\\(", "")
+    n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
+  }
 
   len <- vapply(matches, length, integer(1))
   matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
