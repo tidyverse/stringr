@@ -1,19 +1,10 @@
-# stringr
+# stringr with named capture regular expressions
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. The `stringr` package aims to remedy these problems by providing a clean, modern interface to common string operations. 
+This package is an enhanced version of hadley/stringr. The only
+difference is that when you use `str_match_all(text, perl(regex))` or
+`str_match(text, perl(regex))`, the columns for the extracted
+subgroups will be named if `regex` is a named capture regular
+expression. It also takes advantage of the new fast C code available
+starting from R-2.14.
 
-More concretely, `stringr`:
-
- * Processes factors and characters in the same way.
-
- * Gives functions consistent names and arguments.
-
- * Simplifies string operations by eliminating options that you don't need
-   95% of the time.
-
- * Produces outputs than can easily be used as inputs. This includes ensuring
-   that missing inputs result in missing outputs, and zero length inputs
-   result in zero length outputs.
-
- * Completes R's string handling functions with useful functions from other
-   programming languages.
+http://sugiyama-www.cs.titech.ac.jp/~toby/papers/2011-08-16-directlabels-and-regular-expressions-for-useR-2011/2011-useR-named-capture-regexp.pdf
