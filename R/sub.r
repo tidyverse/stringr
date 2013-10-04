@@ -19,7 +19,7 @@
 #'   (inclusive). Will be length of longest input argument.
 #' @keywords character
 #' @seealso \code{\link{substring}} which this function wraps, and
-#'   \code{link{str_sub_replace}} for the replacement version
+#'   \code{\link{str_sub_replace}} for the replacement version
 #' @export
 #' @examples
 #' hw <- "Hadley Wickham"
