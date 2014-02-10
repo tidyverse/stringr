@@ -2,7 +2,7 @@
 \alias{str_split}
 \title{Split up a string into a variable number of pieces.}
 \usage{
-  str_split(string, pattern, n = Inf)
+str_split(string, pattern, n = Inf)
 }
 \arguments{
   \item{string}{input character vector}
@@ -17,11 +17,11 @@
   (Inf) uses all possible split positions.}
 }
 \value{
-  a list of character vectors.
+a list of character vectors.
 }
 \description{
-  Vectorised over \code{string}.  \code{pattern} should be
-  a single pattern, i.e. a character vector of length one.
+Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+i.e. a character vector of length one.
 }
 \examples{
 fruits <- c(
@@ -37,7 +37,7 @@ str_split(fruits, " and ", n = 2)
 str_split(fruits, " and ", n = 5)
 }
 \seealso{
-  \code{\link{str_split_fixed}} for fixed number of splits
+\code{\link{str_split_fixed}} for fixed number of splits
 }
 \keyword{character}
 

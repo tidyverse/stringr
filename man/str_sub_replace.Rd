@@ -5,7 +5,7 @@
 \code{str_sub<-} will recycle all arguments to be the same length as the
 longest argument.}
 \usage{
-  str_sub(string, start = 1L, end = -1L) <- value
+str_sub(string, start = 1L, end = -1L) <- value
 }
 \arguments{
   \item{string}{input character vector.}
@@ -21,14 +21,13 @@ longest argument.}
   \item{value}{replacement string}
 }
 \value{
-  character vector of substring from \code{start} to
-  \code{end} (inclusive). Will be length of longest input
-  argument.
+character vector of substring from \code{start} to \code{end}
+  (inclusive). Will be length of longest input argument.
 }
 \description{
-  Replace substrings in a character vector.
-  \code{str_sub<-} will recycle all arguments to be the
-  same length as the longest argument.
+Replace substrings in a character vector.
+\code{str_sub<-} will recycle all arguments to be the same length as the
+longest argument.
 }
 \examples{
 x <- "BBCDEF"

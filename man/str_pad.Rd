@@ -2,7 +2,7 @@
 \alias{str_pad}
 \title{Pad a string.}
 \usage{
-  str_pad(string, width, side = "left", pad = " ")
+str_pad(string, width, side = "left", pad = " ")
 }
 \arguments{
   \item{string}{input character vector}
@@ -15,11 +15,10 @@
   \item{pad}{single padding character (default is a space)}
 }
 \value{
-  character vector
+character vector
 }
 \description{
-  Vectorised over \code{string}.  All other inputs should
-  be of length 1.
+Vectorised over \code{string}.  All other inputs should be of length 1.
 }
 \examples{
 rbind(
@@ -31,7 +30,7 @@ rbind(
 str_pad("hadley", 3)
 }
 \seealso{
-  \code{\link{str_trim}} to remove whitespace
+\code{\link{str_trim}} to remove whitespace
 }
 \keyword{character}
 

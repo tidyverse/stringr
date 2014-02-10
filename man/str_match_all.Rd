@@ -2,7 +2,7 @@
 \alias{str_match_all}
 \title{Extract all matched groups from a string.}
 \usage{
-  str_match_all(string, pattern)
+str_match_all(string, pattern)
 }
 \arguments{
   \item{pattern}{pattern to look for, as defined by a POSIX
@@ -14,12 +14,11 @@
   vector, and will be coerced to a character vector}
 }
 \value{
-  list of character matrices, as given by
-  \code{\link{str_match}}
+list of character matrices, as given by \code{\link{str_match}}
 }
 \description{
-  Vectorised over \code{string}.  \code{pattern} should be
-  a single pattern, i.e. a character vector of length one.
+Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+i.e. a character vector of length one.
 }
 \examples{
 strings <- c("Home: 219 733 8965.  Work: 229-293-8753 ",

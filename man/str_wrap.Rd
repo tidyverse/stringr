@@ -2,7 +2,7 @@
 \alias{str_wrap}
 \title{Wrap strings into nicely formatted paragraphs.}
 \usage{
-  str_wrap(string, width = 80, indent = 0, exdent = 0)
+str_wrap(string, width = 80, indent = 0, exdent = 0)
 }
 \arguments{
   \item{string}{character vector of strings to reformat.}
@@ -17,13 +17,12 @@
   following lines in each paragraph}
 }
 \value{
-  a character vector of reformatted strings.
+a character vector of reformatted strings.
 }
 \description{
-  This is currently implemented as thin wrapper over
-  \code{\link{strwrap}}, but is vectorised over
-  \code{stringr}, and collapses output into single strings.
-  See \code{\link{strwrap}} for more details.
+This is currently implemented as thin wrapper over \code{\link{strwrap}},
+but is vectorised over \code{stringr}, and collapses output into single
+strings.  See \code{\link{strwrap}} for more details.
 }
 \examples{
 thanks_path <- file.path(R.home("doc"), "THANKS")

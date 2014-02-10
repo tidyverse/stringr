@@ -2,7 +2,7 @@
 \alias{str_match}
 \title{Extract first matched group from a string.}
 \usage{
-  str_match(string, pattern)
+str_match(string, pattern)
 }
 \arguments{
   \item{pattern}{pattern to look for, as defined by a POSIX
@@ -14,12 +14,12 @@
   vector, and will be coerced to a character vector}
 }
 \value{
-  character matrix. First column is the complete match,
-  followed by one for each capture group
+character matrix. First column is the complete match, followed by
+  one for each capture group
 }
 \description{
-  Vectorised over \code{string}.  \code{pattern} should be
-  a single pattern, i.e. a character vector of length one.
+Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+i.e. a character vector of length one.
 }
 \examples{
 strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",

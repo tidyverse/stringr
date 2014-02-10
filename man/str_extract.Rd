@@ -2,7 +2,7 @@
 \alias{str_extract}
 \title{Extract first piece of a string that matches a pattern.}
 \usage{
-  str_extract(string, pattern)
+str_extract(string, pattern)
 }
 \arguments{
   \item{string}{input vector. This must be an atomic
@@ -16,11 +16,11 @@
   matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
-  character vector.
+character vector.
 }
 \description{
-  Vectorised over \code{string}.  \code{pattern} should be
-  a single pattern, i.e. a character vector of length one.
+Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+i.e. a character vector of length one.
 }
 \examples{
 shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
@@ -30,7 +30,7 @@ str_extract(shopping_list, "[a-z]{1,4}")
 str_extract(shopping_list, "\\\\b[a-z]{1,4}\\\\b")
 }
 \seealso{
-  \code{\link{str_extract_all}} to extract all matches
+\code{\link{str_extract_all}} to extract all matches
 }
 \keyword{character}
 

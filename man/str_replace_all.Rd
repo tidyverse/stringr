@@ -2,7 +2,7 @@
 \alias{str_replace_all}
 \title{Replace all occurrences of a matched pattern in a string.}
 \usage{
-  str_replace_all(string, pattern, replacement)
+str_replace_all(string, pattern, replacement)
 }
 \arguments{
   \item{replacement}{replacement string.  References of the
@@ -21,12 +21,11 @@
   matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
-  character vector.
+character vector.
 }
 \description{
-  Vectorised over \code{string}, \code{pattern} and
-  \code{replacement}. Shorter arguments will be expanded to
-  length of longest.
+Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+Shorter arguments will be expanded to length of longest.
 }
 \examples{
 fruits <- c("one apple", "two pears", "three bananas")
@@ -39,7 +38,7 @@ str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace_all(fruits, c("a", "e", "i"), "-")
 }
 \seealso{
-  \code{\link{gsub}} which this function wraps,
+\code{\link{gsub}} which this function wraps,
   \code{\link{str_replace}} to replace a single match
 }
 \keyword{character}

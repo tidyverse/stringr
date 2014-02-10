@@ -2,7 +2,7 @@
 \alias{str_detect}
 \title{Detect the presence or absence of a pattern in a string.}
 \usage{
-  str_detect(string, pattern)
+str_detect(string, pattern)
 }
 \arguments{
   \item{string}{input vector. This must be an atomic
@@ -16,10 +16,10 @@
   matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
-  boolean vector
+boolean vector
 }
 \description{
-  Vectorised over \code{string} and \code{pattern}.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pinapple")
@@ -33,7 +33,7 @@ str_detect(fruit, "[aeiou]")
 str_detect("aecfg", letters)
 }
 \seealso{
-  \code{\link{grepl}} which this function wraps
+\code{\link{grepl}} which this function wraps
 }
 \keyword{character}
 

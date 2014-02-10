@@ -2,7 +2,7 @@
 \alias{str_locate_all}
 \title{Locate the position of all occurences of a pattern in a string.}
 \usage{
-  str_locate_all(string, pattern)
+str_locate_all(string, pattern)
 }
 \arguments{
   \item{string}{input vector. This must be an atomic
@@ -16,16 +16,16 @@
   matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
-  list of integer matrices.  First column gives start
-  postion of match, and second column gives end position.
+list of integer matrices.  First column gives start postion of
+  match, and second column gives end position.
 }
 \description{
-  Vectorised over \code{string} and \code{pattern}, shorter
-  is recycled to same length as longest.
+Vectorised over \code{string} and \code{pattern}, shorter is recycled to
+same length as longest.
 }
 \details{
-  If the match is of length 0, (e.g. from a special match
-  like \code{$}) end will be one character less than start.
+If the match is of length 0, (e.g. from a special match like \code{$})
+end will be one character less than start.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
@@ -34,13 +34,11 @@ str_locate_all(fruit, "e")
 str_locate_all(fruit, c("a", "b", "p", "p"))
 }
 \seealso{
-  \code{\link{regexpr}} which this function wraps
+\code{\link{regexpr}} which this function wraps
 
-  \code{\link{str_extract}} for a convenient way of
-  extracting matches
+ \code{\link{str_extract}} for a convenient way of extracting matches
 
-  \code{\link{str_locate}} to locate position of first
-  match
+ \code{\link{str_locate}} to locate position of first match
 }
 \keyword{character}
 

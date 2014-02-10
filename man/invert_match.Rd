@@ -2,18 +2,18 @@
 \alias{invert_match}
 \title{Switch location of matches to location of non-matches.}
 \usage{
-  invert_match(loc)
+invert_match(loc)
 }
 \arguments{
   \item{loc}{matrix of match locations, as from
   \code{\link{str_locate_all}}}
 }
 \value{
-  numeric match giving locations of non-matches
+numeric match giving locations of non-matches
 }
 \description{
-  Invert a matrix of match locations to match the opposite
-  of what was previously matched.
+Invert a matrix of match locations to match the opposite of what was
+previously matched.
 }
 \examples{
 numbers <- "1 and 2 and 4 and 456"

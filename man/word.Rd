@@ -2,7 +2,7 @@
 \alias{word}
 \title{Extract words from a sentence.}
 \usage{
-  word(string, start = 1L, end = start, sep = fixed(" "))
+word(string, start = 1L, end = start, sep = fixed(" "))
 }
 \arguments{
   \item{string}{input character vector.}
@@ -19,11 +19,11 @@
   space.}
 }
 \value{
-  character vector of words from \code{start} to \code{end}
+character vector of words from \code{start} to \code{end}
   (inclusive). Will be length of longest input argument.
 }
 \description{
-  Extract words from a sentence.
+Extract words from a sentence.
 }
 \examples{
 sentences <- c("Jane saw a cat", "Jane sat down")

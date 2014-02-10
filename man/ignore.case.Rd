@@ -2,14 +2,13 @@
 \alias{ignore.case}
 \title{Ignore case of match.}
 \usage{
-  ignore.case(string)
+ignore.case(string)
 }
 \arguments{
   \item{string}{pattern for which to ignore case}
 }
 \description{
-  This function specifies that a pattern should ignore the
-  case of matches.
+This function specifies that a pattern should ignore the case of matches.
 }
 \examples{
 pattern <- "a.b"
@@ -18,7 +17,7 @@ str_detect(strings, pattern)
 str_detect(strings, ignore.case(pattern))
 }
 \seealso{
-  Other modifiers: \code{\link{fixed}}, \code{\link{perl}}
+Other modifiers: \code{\link{fixed}}; \code{\link{perl}}
 }
 \keyword{character}
 

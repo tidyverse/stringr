@@ -2,7 +2,7 @@
 \alias{str_extract_all}
 \title{Extract all pieces of a string that match a pattern.}
 \usage{
-  str_extract_all(string, pattern)
+str_extract_all(string, pattern)
 }
 \arguments{
   \item{string}{input vector. This must be an atomic
@@ -16,11 +16,11 @@
   matching: fixed, case insensitive and perl-compatible.}
 }
 \value{
-  list of character vectors.
+list of character vectors.
 }
 \description{
-  Vectorised over \code{string}.  \code{pattern} should be
-  a single pattern, i.e. a character vector of length one.
+Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+i.e. a character vector of length one.
 }
 \examples{
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
@@ -29,7 +29,7 @@ str_extract_all(shopping_list, "\\\\b[a-z]+\\\\b")
 str_extract_all(shopping_list, "\\\\d")
 }
 \seealso{
-  \code{\link{str_extract}} to extract the first match
+\code{\link{str_extract}} to extract the first match
 }
 \keyword{character}
 

@@ -3,7 +3,7 @@
 \alias{str_join}
 \title{Join multiple strings into a single string.}
 \usage{
-  str_c(..., sep = "", collapse = NULL)
+str_c(..., sep = "", collapse = NULL)
 }
 \arguments{
   \item{...}{one or more character vectors.  Zero length
@@ -15,21 +15,18 @@
   vectors into single string}
 }
 \value{
-  If \code{collapse = NULL} (the default) a character
-  vector with length equal to the longest input string.  If
-  \code{collapse} is non- NULL, a character vector of
-  length 1.
+If \code{collapse = NULL} (the default) a character vector with
+  length equal to the longest input string.  If \code{collapse} is non-
+  NULL, a character vector of length 1.
 }
 \description{
-  To understand how \code{str_c} works, you need to imagine
-  that you are building up a matrix of strings.  Each input
-  argument forms a column, and is expanded to the length of
-  the longest argument, using the usual recyling rules.
-  The \code{sep} string is inserted between each column. If
-  collapse is \code{NULL} each row is collapsed into a
-  single string.  If non-\code{NULL} that string is
-  inserted at the end of each row, and the entire matrix
-  collapsed to a single string.
+To understand how \code{str_c} works, you need to imagine that you are
+building up a matrix of strings.  Each input argument forms a column, and
+is expanded to the length of the longest argument, using the usual
+recyling rules.  The \code{sep} string is inserted between each column. If
+collapse is \code{NULL} each row is collapsed into a single string.   If
+non-\code{NULL} that string is inserted at the end of each row, and
+the entire matrix collapsed to a single string.
 }
 \examples{
 str_c("Letter: ", letters)
@@ -41,7 +38,7 @@ str_c(letters, collapse = "")
 str_c(letters, collapse = ", ")
 }
 \seealso{
-  \code{\link{paste}} which this function wraps
+\code{\link{paste}} which this function wraps
 }
 \keyword{character}
 
