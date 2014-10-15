@@ -33,7 +33,7 @@ str_match <- function(string, pattern) {
   # Figure out how many groups there are and coerce into a matrix with
   # nmatches + 1 columns
   tmp <- str_replace_all(pattern, "\\\\\\(", "")
-  n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
+  n <- nrow(str_locate_all(pattern, perl("\\((?!\\?:)"))[[1]]) + 1
 
   len <- vapply(matches, length, integer(1))
   matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
