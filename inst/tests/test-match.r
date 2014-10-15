@@ -59,3 +59,14 @@ test_that("multiple match works", {
 
   expect_that(multi_match[[1]], equals(single_matches))
 })
+
+test_that("str_match doesn't try to capture non-capture groups", {
+  x <- c("ab", "xx")
+  rx <- "(a)(?:b)"
+  actual <- str_match(x, rx)
+  expected <- matrix(
+    c("ab", "a", rep.int(NA_character_, 2)), 
+    ncol = 2, 
+    byrow = TRUE)
+  expect_equal(actual, expected)
+})
