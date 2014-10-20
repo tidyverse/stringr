@@ -23,6 +23,9 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   stopifnot(length(width) == 1)
   stopifnot(length(side) == 1)
   stopifnot(length(pad) == 1)
+  if( any( is.na( string ) ) ) {
+    stop( "String cannot contain missings" )
+  }
   if (str_length(pad) != 1) {
     stop("pad must be single character single")
   }
