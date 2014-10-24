@@ -33,6 +33,9 @@ str_match <- function(string, pattern) {
   # Figure out how many groups there are and coerce into a matrix with
   # nmatches + 1 columns
   tmp <- str_replace_all(pattern, "\\\\\\(", "")
+  # Remove character expressions to stop ( in them being matched as groups 
+  tmp <- str_replace_all(tmp, "\\[(.*?)\\]", "")
+  
   n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
 
   len <- vapply(matches, length, integer(1))
