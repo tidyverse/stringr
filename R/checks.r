@@ -5,6 +5,9 @@ check_string <- function(string) {
 
   if (!is.character(string))
     string <- as.character(string)
+  
+  if (length(string) == 0)
+    string <- ""
 
   string
 }
