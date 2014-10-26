@@ -91,5 +91,6 @@ str_sub <- function(string, start = 1L, end = -1L) {
     str_sub(string, end = start - 1L), 
     value, 
     ifelse(rep(end, length(string)) == -1L, "", str_sub(mytext, start = end + 1L))
+  )
         
 }
