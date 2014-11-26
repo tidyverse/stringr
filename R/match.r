@@ -27,13 +27,30 @@ str_match <- function(string, pattern) {
 
   if (length(string) == 0) return(character())
 
-  matcher <- re_call("regexec", string, pattern)
-  matches <- regmatches(string, matcher)
-
   # Figure out how many groups there are and coerce into a matrix with
   # nmatches + 1 columns
   tmp <- str_replace_all(pattern, "\\\\\\(", "")
   n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
+  
+  if (is.perl(pattern)) {
+    matcher <- re_call("regexpr", string, pattern)
+    matches <- lapply(seq_along(matcher), function(i) {
+      if (identical(matcher[i], -1L)) return (character(0))
+      else {
+        substring <- str_sub(string, matcher[i], matcher[i]+attr(matcher,"match.length")[i])
+        submatches <- character(n)
+        submatches[1] <- substring
+        for (j in seq_len(n-1)) {
+          submatch <- re_call("sub", substring, pattern, paste("\\",j,sep=""))
+          submatches[j+1] <- ifelse(submatch == "", NA_character_, submatch)
+        }
+        return (submatches)
+      }
+    })
+  } else {
+    matcher <- re_call("regexec", string, pattern)
+    matches <- regmatches(string, matcher)
+  }
 
   len <- vapply(matches, length, integer(1))
   matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
