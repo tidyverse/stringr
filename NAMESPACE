@@ -1,4 +1,8 @@
 export("str_sub<-")
+export(capitalise)
+export(capitalise_words)
+export(capitalize)
+export(capitalize_words)
 export(fixed)
 export(ignore.case)
 export(invert_match)
