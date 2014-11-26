@@ -23,6 +23,7 @@ str_pad <- function(string, width, side = "left", pad = " ") {
   stopifnot(length(width) == 1)
   stopifnot(length(side) == 1)
   stopifnot(length(pad) == 1)
+  na.track <- is.na(string)
   if (str_length(pad) != 1) {
     stop("pad must be single character single")
   }
@@ -37,9 +38,12 @@ str_pad <- function(string, width, side = "left", pad = " ") {
 
   # String duplication is slow, so only do the absolute necessary
   lengths <- unique(c(left, right))
+  lengths <- lengths[!is.na(lengths)]
   padding <- str_dup(pad, lengths)
 
-  str_c(padding[match(left, lengths)], string, padding[match(right, lengths)])
+  out <- str_c(padding[match(left, lengths)], string, padding[match(right, lengths)])
+  out[na.track] <- NA
+  out
 }
 
 #' Trim whitespace from start and end of string.
