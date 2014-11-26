@@ -19,8 +19,7 @@ types of matching: fixed, case insensitive and perl-compatible.}
 character vector.
 }
 \description{
-Vectorised over \code{string}. \code{pattern} should be a single pattern,
-i.e. a character vector of length one.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 shopping_list <- c("apples x4", "flour", "sugar", "milk x2")

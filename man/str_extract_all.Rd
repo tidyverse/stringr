@@ -22,8 +22,7 @@ vectors. If \code{TRUE} returns a character matrix.}
 list of character vectors.
 }
 \description{
-Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-i.e. a character vector of length one.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")

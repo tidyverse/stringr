@@ -18,8 +18,7 @@ coerced to a character vector}
 list of character matrices, as given by \code{\link{str_match}}
 }
 \description{
-Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-i.e. a character vector of length one.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 strings <- c("Home: 219 733 8965.  Work: 229-293-8753 ",

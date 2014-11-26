@@ -1,7 +1,6 @@
 #' Extract first piece of a string that matches a pattern.
 #'
-#' Vectorised over \code{string}. \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
 #' @return character vector.
@@ -24,8 +23,7 @@ str_extract <- function(string, pattern) {
 
 #' Extract all pieces of a string that match a pattern.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
 #' @param simplify If \code{FALSE}, the default, returns a list of character

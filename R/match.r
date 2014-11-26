@@ -30,8 +30,7 @@ str_match <- function(string, pattern) {
 
 #' Extract all matched groups from a string.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
 #' @param pattern pattern to look for, as defined by a POSIX regular
