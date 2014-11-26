@@ -35,7 +35,7 @@ str_replace <- function(string, pattern, replacement) {
 #' Shorter arguments will be expanded to length of longest.
 #'
 #' @inheritParams str_detect
-#' @param pattern, replacement Supply separate pattern and replacement strings
+#' @param pattern,replacement Supply separate pattern and replacement strings
 #'   to vectorise over the patterns. References of the form \code{\1},
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.

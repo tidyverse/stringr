@@ -8,7 +8,7 @@ str_sub(string, start = 1L, end = -1L)
 \arguments{
 \item{string}{input character vector.}
 
-\item{start,from}{Two integer vectors. \code{start} gives the position
+\item{start,end}{Two integer vectors. \code{start} gives the position
   of the first character (defaults to first), \code{end} gives the position
   of the last (defaults to last character).
 

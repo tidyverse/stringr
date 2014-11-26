@@ -9,7 +9,7 @@ str_replace_all(string, pattern, replacement)
 \item{string}{input vector. This must be an atomic vector, and will be
 coerced to a character vector}
 
-\item{pattern,}{replacement Supply separate pattern and replacement strings
+\item{pattern,replacement}{Supply separate pattern and replacement strings
   to vectorise over the patterns. References of the form \code{\1},
   \code{\2} will be replaced with the contents of the respective matched
   group (created by \code{()}) within the pattern.

@@ -11,7 +11,6 @@
 #' @param n number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.  If n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
-#' @param simplify If \code{TRUE}, the default, returns a character
 #' @return character matrix with \code{n} columns.
 #' @keywords character
 #' @seealso \code{\link{str_split}} for variable number of splits

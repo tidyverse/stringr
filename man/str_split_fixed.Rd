@@ -16,8 +16,6 @@ If \code{""} splits into individual characters.}
 \item{n}{number of pieces to return.  Default (Inf) uses all
 possible split positions.  If n is greater than the number of pieces,
 the result will be padded with empty strings.}
-
-\item{simplify}{If \code{TRUE}, the default, returns a character}
 }
 \value{
 character matrix with \code{n} columns.

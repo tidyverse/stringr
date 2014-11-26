@@ -9,7 +9,7 @@
 #' substring, from the first character to the last.
 #'
 #' @param string input character vector.
-#' @param start,from Two integer vectors. \code{start} gives the position
+#' @param start,end Two integer vectors. \code{start} gives the position
 #'   of the first character (defaults to first), \code{end} gives the position
 #'   of the last (defaults to last character).
 #'
