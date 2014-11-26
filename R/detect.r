@@ -10,7 +10,7 @@
 #'   \code{\link{ignore.case}} and \code{\link{perl}} for how to use other
 #'   types of matching: fixed, case insensitive and perl-compatible.
 #' @return boolean vector
-#' @seealso \code{\link{grepl}} which this function wraps
+#' @seealso \code{\link[stringi]{stri_detect}} which this function wraps
 #' @keywords character
 #' @export
 #' @examples
@@ -24,15 +24,10 @@
 #' # Also vectorised over pattern
 #' str_detect("aecfg", letters)
 str_detect <- function(string, pattern) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string)
-
-  if (length(pattern) == 1) {
-    results <- re_call("grepl", string, pattern)
-  } else {
-    results <- unlist(re_mapply("grepl", string, pattern))
-  }
-  is.na(results) <- is.na(string)
-
-  results
+  switch(type(pattern),
+    fixed = stri_detect_fixed(string, pattern),
+    regex = stri_detect_regex(string, pattern, attr(pattern, "options")),
+    coll  = stri_detect_coll(string, pattern, attr(pattern, "options"))
+  )
 }
+

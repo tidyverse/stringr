@@ -1,6 +1,6 @@
 #' Pad a string.
 #'
-#' Vectorised over \code{string}.  All other inputs should be of length 1.
+#' Vectorised over \code{string}, \code{width} and \code{pad}.
 #'
 #' @param string input character vector
 #' @param width pad strings to this minimum width
@@ -16,30 +16,22 @@
 #'   str_pad("hadley", 30, "right"),
 #'   str_pad("hadley", 30, "both")
 #' )
+#'
+#' # All arguments are vectorised except side
+#' str_pad(c("a", "abc", "abcdef"), 10)
+#' str_pad("a", c(5, 10, 20))
+#' str_pad("a", 10, pad = c("-", "_", " "))
+#'
 #' # Longer strings are returned unchanged
 #' str_pad("hadley", 3)
-str_pad <- function(string, width, side = "left", pad = " ") {
-  string <- check_string(string)
-  stopifnot(length(width) == 1)
-  stopifnot(length(side) == 1)
-  stopifnot(length(pad) == 1)
-  if (str_length(pad) != 1) {
-    stop("pad must be single character single")
-  }
+str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ") {
+  side <- match.arg(side)
 
-  side <- match.arg(side, c("left", "right", "both"))
-  needed <- pmax(0, width - str_length(string))
-
-  left <- switch(side,
-    left = needed, right = 0, both = floor(needed / 2))
-  right <- switch(side,
-    left = 0, right = needed, both = ceiling(needed / 2))
-
-  # String duplication is slow, so only do the absolute necessary
-  lengths <- unique(c(left, right))
-  padding <- str_dup(pad, lengths)
-
-  str_c(padding[match(left, lengths)], string, padding[match(right, lengths)])
+  switch(side,
+    left = stri_pad_left(string, width, pad = pad),
+    right = stri_pad_right(string, width, pad = pad),
+    both = stri_pad_both(string, width, pad = pad)
+  )
 }
 
 #' Trim whitespace from start and end of string.
@@ -53,13 +45,12 @@ str_pad <- function(string, width, side = "left", pad = " ") {
 #' @examples
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")
-str_trim <- function(string, side = "both") {
-  string <- check_string(string)
-  stopifnot(length(side) == 1)
+str_trim <- function(string, side = c("both", "left", "right")) {
+  side <- match.arg(side)
 
-  side <- match.arg(side, c("left", "right", "both"))
-  pattern <- switch(side, left = "^\\s+", right = "\\s+$",
-    both = "^\\s+|\\s+$")
-
-  str_replace_all(string, pattern, "")
+  switch(side,
+    left =  stri_trim_left(string),
+    right = stri_trim_right(string),
+    both =  stri_trim_both(string)
+  )
 }

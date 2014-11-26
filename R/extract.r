@@ -1,6 +1,6 @@
 #' Extract first piece of a string that matches a pattern.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
+#' Vectorised over \code{string}. \code{pattern} should be a single pattern,
 #' i.e. a character vector of length one.
 #'
 #' @inheritParams str_detect
@@ -15,11 +15,11 @@
 #' str_extract(shopping_list, "[a-z]{1,4}")
 #' str_extract(shopping_list, "\\b[a-z]{1,4}\\b")
 str_extract <- function(string, pattern) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string)
-
-  positions <- str_locate(string, pattern)
-  str_sub(string, positions[, "start"], positions[, "end"])
+  switch(type(pattern),
+    fixed = stop("Do you really need this?", call. = FALSE),
+    coll  = stri_extract_first_coll(string, pattern, attr(pattern, "options")),
+    regex = stri_extract_first_regex(string, pattern, attr(pattern, "options")),
+  )
 }
 
 #' Extract all pieces of a string that match a pattern.
@@ -28,6 +28,8 @@ str_extract <- function(string, pattern) {
 #' i.e. a character vector of length one.
 #'
 #' @inheritParams str_detect
+#' @param simplify If \code{FALSE}, the default, returns a list of character
+#'   vectors. If \code{TRUE} returns a character matrix.
 #' @return list of character vectors.
 #' @keywords character
 #' @seealso \code{\link{str_extract}} to extract the first match
@@ -37,13 +39,14 @@ str_extract <- function(string, pattern) {
 #' str_extract_all(shopping_list, "[a-z]+")
 #' str_extract_all(shopping_list, "\\b[a-z]+\\b")
 #' str_extract_all(shopping_list, "\\d")
-str_extract_all <- function(string, pattern) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string)
-
-  positions <- str_locate_all(string, pattern)
-  lapply(seq_along(string), function(i) {
-    position <- positions[[i]]
-    str_sub(string[i], position[, "start"], position[, "end"])
-  })
+#'
+#' # Simplifying results
+#' str_extract_all(shopping_list, "\\b[a-z]+\\b", simplify = TRUE)
+#' str_extract_all(shopping_list, "\\d", simplify = TRUE)
+str_extract_all <- function(string, pattern, simplify = FALSE) {
+  switch(type(pattern),
+    fixed = stop("Do you really need this?", call. = FALSE),
+    coll  = stri_extract_all_coll(string, pattern, simplify, attr(pattern, "options")),
+    regex = stri_extract_all_regex(string, pattern, simplify, attr(pattern, "options")),
+  )
 }

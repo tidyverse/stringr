@@ -22,14 +22,11 @@
 #' str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 #' str_replace(fruits, c("a", "e", "i"), "-")
 str_replace <- function(string, pattern, replacement) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string, replacement)
-
-  if (length(pattern) == 1 && length(replacement) == 1) {
-    re_call("sub", string, pattern, replacement)
-  } else {
-    unlist(re_mapply("sub", string, pattern, replacement))
-  }
+  switch(type(pattern),
+    fixed = stri_replace_first_fixed(string, pattern, replacement),
+    regex = stri_replace_first_regex(string, pattern, replacement, attr(pattern, "options")),
+    coll  = stri_replace_first_coll(string, pattern, replacement, attr(pattern, "options"))
+  )
 }
 
 #' Replace all occurrences of a matched pattern in a string.
@@ -38,9 +35,13 @@ str_replace <- function(string, pattern, replacement) {
 #' Shorter arguments will be expanded to length of longest.
 #'
 #' @inheritParams str_detect
-#' @param replacement replacement string.  References of the form \code{\1},
+#' @param pattern, replacement Supply separate pattern and replacement strings
+#'   to vectorise over the patterns. References of the form \code{\1},
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
+#'
+#'   If you want to apply multiple patterns and replacements to each string,
+#'   pass a named character to \code{pattern}.
 #' @return character vector.
 #' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps,
@@ -55,13 +56,24 @@ str_replace <- function(string, pattern, replacement) {
 #' str_replace_all(fruits, "([aeiou])", "\\1\\1")
 #' str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
 #' str_replace_all(fruits, c("a", "e", "i"), "-")
+#'
+#' # If you want to apply multiple patterns and replacements to the same
+#' # string, pass a named version to pattern.
+#' str_replace_all(str_c(fruits, collapse = "---"),
+#'  c("one" = 1, "two" = 2, "three" = 3))
 str_replace_all <- function(string, pattern, replacement) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string, replacement)
-
-  if (length(pattern) == 1 && length(replacement) == 1) {
-    re_call("gsub", string, pattern, replacement)
+  if (!is.null(names(pattern))) {
+    browser()
+    replacement <- unname(pattern)
+    pattern <- names(pattern)
+    vec <- FALSE
   } else {
-    unlist(re_mapply("gsub", string, pattern, replacement))
+    vec <- TRUE
   }
+
+  switch(type(pattern),
+    fixed = stri_replace_all_fixed(string, pattern, replacement, vec),
+    regex = stri_replace_all_regex(string, pattern, replacement, vec, attr(pattern, "options")),
+    coll  = stri_replace_all_coll(string, pattern, replacement, vec, attr(pattern, "options"))
+  )
 }

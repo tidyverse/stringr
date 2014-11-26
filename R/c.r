@@ -18,8 +18,7 @@
 #'   NULL, a character vector of length 1.
 #' @keywords character
 #' @seealso \code{\link{paste}} which this function wraps
-#' @aliases str_c str_join
-#' @export str_c str_join
+#' @export str_c
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")
@@ -28,12 +27,13 @@
 #'
 #' str_c(letters, collapse = "")
 #' str_c(letters, collapse = ", ")
-str_c <- str_join <- function(..., sep = "", collapse = NULL) {
-  strings <- Filter(function(x) length(x) > 0, list(...))
-  atomic <- vapply(strings, is.atomic, logical(1))
-  if (!all(atomic)) {
-    stop("Input to str_c should be atomic vectors", call. = FALSE)
-  }
+str_c <- function(..., sep = "", collapse = NULL) {
+  stri_c(..., sep = sep, collapse = collapse)
+}
 
-  do.call("paste", c(strings, list(sep = sep, collapse = collapse)))
+#' @export
+#' @rdname str_c
+str_join <- function(...) {
+  .Deprecated("str_c")
+  str_c(...)
 }

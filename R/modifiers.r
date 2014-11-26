@@ -1,72 +1,81 @@
-#' Match fixed characters, not regular expression.
-#'
-#' This function specifies that a pattern is a fixed string, rather
-#' than a regular expression.  This can yield substantial speed ups, if
-#' regular expression matching is not needed.
+#' Control matching behaviour with modifier functions.
 #'
 #' @param string string to match exactly as is
 #' @family modifiers
 #' @keywords character
-#' @export
 #' @examples
 #' pattern <- "a.b"
 #' strings <- c("abb", "a.b")
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
-fixed <- function(string) {
-  if (is.perl(string)) message("Overriding Perl regexp matching")
-  structure(string, fixed = TRUE)
-}
+#' @name modifiers
+NULL
 
-is.fixed <- function(string) {
-  fixed <- attr(string, "fixed")
-  if (is.null(fixed)) FALSE else fixed
-}
-
-#' Ignore case of match.
-#'
-#' This function specifies that a pattern should ignore the case of matches.
-#'
-#' @param string pattern for which to ignore case
-#' @keywords character
-#' @family modifiers
 #' @export
-#' @examples
-#' pattern <- "a.b"
-#' strings <- c("ABB", "aaB", "aab")
-#' str_detect(strings, pattern)
-#' str_detect(strings, ignore.case(pattern))
+#' @rdname modifiers
+fixed <- function(pattern) {
+  structure(pattern, class = c("fixed", "pattern", "character"))
+}
+
+#' @export
+#' @rdname modifiers
+coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
+  options <- stri_opts_collator(
+    strength = if (ignore_case) 2L else 3L,
+    locale = NULL,
+    ...
+  )
+
+  structure(
+    pattern,
+    options = options,
+    class = c("coll", "pattern", "character")
+  )
+}
+
+#' @export
+#' @rdname modifiers
+regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
+                   comments = FALSE, dotall = FALSE, ...) {
+  options <- stri_opts_regex(
+    case_insensitive = !ignore_case,
+    multiline = multiline,
+    comments = comments,
+    dotall = dotall,
+    ...
+  )
+
+  structure(
+    pattern,
+    options = options,
+    class = c("regex", "pattern", "character")
+  )
+}
+
+type <- function(x) UseMethod("type")
+type.regexp <- function(x) "regex"
+type.coll <- function(x) "coll"
+type.fixed <- function(x) "fixed"
+type.character <- function(x) "regex"
+
+#' Deprecated modifier functions.
+#'
+#' Please use \code{\link{regexp}} and \code{\link{coll}} instead.
+#'
+#' @name modifier-deprecated
+#' @keywords internal
+NULL
+
+#' @export
+#' @rdname modifier-deprecated
 ignore.case <- function(string) {
-  structure(string, ignore.case = TRUE)
+  message("Please use regexp(x, ignore_case = TRUE) or coll(x, ignore_case = TRUE)instead of ignore.case(x)")
+  regexp(string, ignore.case = TRUE)
 }
 
-case.ignored <- function(string) {
-  ignore.case <- attr(string, "ignore.case")
-  if (is.null(ignore.case)) FALSE else ignore.case
-}
-
-
-#' Use perl regular expressions.
-#'
-#' This function specifies that a pattern should use the Perl regular
-#' expression egine, rather than the default POSIX 1003.2 extended
-#' regular expressions
-#'
-#' @param string pattern to match with Perl regexps
-#' @family modifiers
-#' @keywords character
 #' @export
-#' @examples
-#' pattern <- "(?x)a.b"
-#' strings <- c("abb", "a.b")
-#' \dontrun{str_detect(strings, pattern)}
-#' str_detect(strings, perl(pattern))
-perl <- function(string) {
-  if (is.fixed(string)) message("Overriding fixed matching")
-  structure(string, perl = TRUE)
-}
-
-is.perl <- function(string) {
-  perl <- attr(string, "perl")
-  if (is.null(perl)) FALSE else perl
+#' @rdname modifier-deprecated
+perl <- function(pattern) {
+  message("perl is deprecated. Please use regexp instead")
+  regexp(pattern)
 }

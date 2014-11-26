@@ -9,12 +9,13 @@
 #' substring, from the first character to the last.
 #'
 #' @param string input character vector.
-#' @param start integer vector giving position of first charater in substring,
-#'   defaults to first character. If negative, counts backwards from last
-#'   character.
-#' @param end integer vector giving position of last character in substring,
-#'   defaults to last character. If negative, counts backwards from last
-#'   character.
+#' @param start,from Two integer vectors. \code{start} gives the position
+#'   of the first character (defaults to first), \code{end} gives the position
+#'   of the last (defaults to last character).
+#'
+#'   Alternatively, pass a two-column matrix to \code{start}.
+#'
+#'   Negative values count backwards from the last character.
 #' @return character vector of substring from \code{start} to \code{end}
 #'   (inclusive). Will be length of longest input argument.
 #' @keywords character
@@ -30,34 +31,26 @@
 #' str_sub(hw, 8)
 #' str_sub(hw, c(1, 8), c(6, 14))
 #'
+#' # Negative indices
 #' str_sub(hw, -1)
 #' str_sub(hw, -7)
 #' str_sub(hw, end = -7)
 #'
+#' # Alternatively, you can pass in a two colum matrix, as in the
+#' # output from str_locate_all
+#' pos <- str_locate_all(hw, "[aeio]")[[1]]
+#' str_sub(hw, pos)
+#' str_sub(hw, pos[, 1], pos[, 2])
+#'
+#' # Vectorisation
 #' str_sub(hw, seq_len(str_length(hw)))
 #' str_sub(hw, end = seq_len(str_length(hw)))
 str_sub <- function(string, start = 1L, end = -1L) {
-  if (length(string) == 0L || length(start) == 0L || length(end) == 0L) {
-    return(vector("character", 0L))
+  if (is.matrix(start)) {
+    stri_sub(string, from = start)
+  } else {
+    stri_sub(string, from = start, to = end)
   }
-
-  string <- check_string(string)
-
-  n <- max(length(string), length(start), length(end))
-  string <- rep(string, length = n)
-  start <- rep(start, length = n)
-  end <- rep(end, length = n)
-
-  # Convert negative values into actual positions
-  len <- str_length(string)
-
-  neg_start <- !is.na(start) & start < 0L
-  start[neg_start] <- start[neg_start] + len[neg_start] + 1L
-
-  neg_end <- !is.na(end) & end < 0L
-  end[neg_end] <- end[neg_end] + len[neg_end] + 1L
-
-  substring(string, start, end)
 }
 
 #' Replace substrings in a character vector.
@@ -86,9 +79,6 @@ str_sub <- function(string, start = 1L, end = -1L) {
 #' str_sub(x, -2, -2) <- "GHIJ"; x
 #' str_sub(x, 2, -2) <- ""; x
 "str_sub<-" <- function(string, start = 1L, end = -1L, value) {
-
-  str_c(
-    str_sub(string, end = start - 1L),
-    value,
-    ifelse(end == -1L, "", str_sub(string, start = end + 1L)))
+  stri_sub(string, from = start, to = end) <- value
+  string
 }

@@ -22,23 +22,10 @@
 #' str_extract(strings, phone)
 #' str_match(strings, phone)
 str_match <- function(string, pattern) {
-  string <- check_string(string)
-  pattern <- check_pattern(pattern, string)
-
-  if (length(string) == 0) return(character())
-
-  matcher <- re_call("regexec", string, pattern)
-  matches <- regmatches(string, matcher)
-
-  # Figure out how many groups there are and coerce into a matrix with
-  # nmatches + 1 columns
-  tmp <- str_replace_all(pattern, "\\\\\\(", "")
-  n <- str_length(str_replace_all(tmp, "[^(]", "")) + 1
-
-  len <- vapply(matches, length, integer(1))
-  matches[len == 0] <- rep(list(rep(NA_character_, n)), sum(len == 0))
-
-  do.call("rbind", matches)
+  switch(type(pattern),
+    regex = stri_match_first_regex(string, pattern, attr(pattern, "options")),
+    stop("Can only match regular expressions", call. = FALSE)
+  )
 }
 
 #' Extract all matched groups from a string.
@@ -62,9 +49,8 @@ str_match <- function(string, pattern) {
 #' str_extract_all(strings, phone)
 #' str_match_all(strings, phone)
 str_match_all <- function(string, pattern) {
-  matches <- str_extract_all(string, pattern)
-
-  lapply(matches, function(match) {
-    str_match(match, pattern)
-  })
+  switch(type(pattern),
+    regex = stri_match_all_regex(string, pattern, attr(pattern, "options")),
+    stop("Can only match regular expressions", call. = FALSE)
+  )
 }
