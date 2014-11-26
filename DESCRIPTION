@@ -17,4 +17,6 @@ Depends:
     R (>= 2.14)
 Suggests:
     testthat (>= 0.3)
+Imports:
+    stringi
 Roxygen: list(wrap = FALSE)
