@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
+^NEWS\.md$

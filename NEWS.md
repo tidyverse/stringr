@@ -1,36 +1,45 @@
-stringr 0.9.0.9000
-================
+# stringr 0.9.0.9000
 
-* replace all and named vector
+* stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
+  instead of base R regular expressions. This improves unicode and support, and 
+  makes most operations considerably faster.  If you find stringr inadequate for
+  you string processing needs, I highly recommend looking at stringi in more
+  detail.
 
-* `ignore.case()` and `perl()` deprecated
+* `str_replace_all()` gains a convenient syntax for applying multiple pairs of
+  pattern and replacement to the same vector:
+  
+    ```R
+    input <- c("abc", "def")
+    str_replace_all(input, c("[ad]" = "!", "[cf]" = "?"))
+    ```
 
-* Deprecated str_join
+* `ignore.case(x)` has been deprecated in favour of 
+  `regexp(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in favour of
+  `regexp(x)`.
 
-stringr 0.6.2
-================
+* `str_join()` is deprecated, please use `str_c()` instead.
+
+# stringr 0.6.2
 
 * fixed path in `str_wrap` example so works for more R installations.
 
 * remove dependency on plyr
 
-stringr 0.6.1
-=============
+# stringr 0.6.1
 
 * Zero input to `str_split_fixed` returns 0 row matrix with `n` columns
 
 * Export `str_join`
 
-stringr 0.6
-===========
+# stringr 0.6
 
 * new modifier `perl` that switches to Perl regular expressions
 
 * `str_match` now uses new base function `regmatches` to extract matches -
   this should hopefully be faster than my previous pure R algorithm
 
-stringr 0.5
-===========
+# stringr 0.5
 
 * new `str_wrap` function which gives `strwrap` output in a more convenient
   format
@@ -50,8 +59,7 @@ stringr 0.5
 
 * fix small bug in internal `recyclable` function
 
-stringr 0.4
-===========
+# stringr 0.4
 
  * all functions now vectorised with respect to string, pattern (and
    where appropriate) replacement parameters
@@ -69,8 +77,7 @@ stringr 0.4
  * str_trim gains side argument to better match str_pad
  * stringr now has a namespace and imports plyr (rather than requiring it)
 
-stringr 0.3
-===========
+# stringr 0.3
 
  * fixed() now also escapes |
  * str_join() renamed to str_c()
@@ -80,8 +87,7 @@ stringr 0.3
    locations of non-matches
  * add fixed() function to allow matching of fixed strings.
 
-stringr 0.2
-===========
+# stringr 0.2
 
  * str_length now returns correct results when used with factors
  * str_sub now correctly replaces Inf in end argument with length of string
