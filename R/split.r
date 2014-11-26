@@ -8,8 +8,8 @@
 #'   expression.  See the ``Extended Regular Expressions'' section of
 #'   \code{\link{regex}} for details. If \code{NA}, returns original string.
 #'   If \code{""} splits into individual characters.
-#' @param n number of pieces to return.  Default (Inf) uses all
-#'   possible split positions.  If n is greater than the number of pieces,
+#' @param n number of pieces to return.  
+#'   If n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
 #' @return character matrix with \code{n} columns.
 #' @keywords character
@@ -39,6 +39,9 @@ str_split_fixed <- function(string, pattern, n) {
     matrix(string, ncol = 1)
   } else {
     locations <- str_locate_all(string, pattern)
+    if (pattern == "") { # for consistency with strsplit()
+      locations <- lapply(locations, function(x) x[-1, , drop= FALSE])
+    }
     do.call("rbind", lapply(seq_along(locations), function(i) {
       location <- locations[[i]]
       string <- string[i]
@@ -94,6 +97,9 @@ str_split <- function(string, pattern, n = Inf) {
     as.list(string)
   } else {
     locations <- str_locate_all(string, pattern)
+    if (pattern == "") { # for consistency with strsplit()
+      locations <- lapply(locations, function(x) x[-1, , drop= FALSE])
+    }
     pieces <- function(mat, string) {
       cut <- mat[seq_len(min(n - 1, nrow(mat))), , drop = FALSE]
       keep <- invert_match(cut)
