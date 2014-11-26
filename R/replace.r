@@ -63,7 +63,6 @@ str_replace <- function(string, pattern, replacement) {
 #'  c("one" = 1, "two" = 2, "three" = 3))
 str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
-    browser()
     replacement <- unname(pattern)
     pattern <- names(pattern)
     vec <- FALSE
