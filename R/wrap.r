@@ -21,5 +21,6 @@
 #' cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 #' cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 str_wrap <- function(string, width = 80, indent = 0, exdent = 0) {
-  stri_wrap(string, width = width)
+  pieces <- strwrap(string, width, indent, exdent, simplify = FALSE)
+  unlist(lapply(pieces, str_c, collapse = "\n"))
 }
