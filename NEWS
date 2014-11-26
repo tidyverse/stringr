@@ -1,3 +1,12 @@
+stringr 0.9.0.9000
+================
+
+* replace all and named vector
+
+* `ignore.case()` and `perl()` deprecated
+
+* Deprecated str_join
+
 stringr 0.6.2
 ================
 
@@ -47,7 +56,7 @@ stringr 0.4
  * all functions now vectorised with respect to string, pattern (and
    where appropriate) replacement parameters
  * fixed() function now tells stringr functions to use fixed matching, rather
-   than escaping the regular expression.  Should improve performance for 
+   than escaping the regular expression.  Should improve performance for
    large vectors.
  * new ignore.case() modifier tells stringr functions to ignore case of
    pattern.
