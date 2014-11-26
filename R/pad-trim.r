@@ -55,6 +55,10 @@ str_pad <- function(string, width, side = "left", pad = " ") {
 #' str_trim("\n\nString with trailing and leading white space\n\n")
 str_trim <- function(string, side = "both") {
   string <- check_string(string)
+  
+  if (length(string) == 0)
+    string <- ""
+  
   stopifnot(length(side) == 1)
 
   side <- match.arg(side, c("left", "right", "both"))
