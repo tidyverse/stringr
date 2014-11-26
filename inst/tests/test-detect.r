@@ -12,12 +12,11 @@ test_that("vectorised patterns work", {
 
 test_that("modifiers work", {
   expect_that(str_detect("ab", "AB"), equals(FALSE))
-  expect_that(str_detect("ab", ignore.case("AB")), equals(TRUE))
+  expect_that(str_detect("ab", regex("AB", TRUE)), equals(TRUE))
 
   expect_that(str_detect("abc", "ab[c]"), equals(TRUE))
   expect_that(str_detect("abc", fixed("ab[c]")), equals(FALSE))
   expect_that(str_detect("ab[c]", fixed("ab[c]")), equals(TRUE))
 
-  expect_that(str_detect("abc", perl("(?x)a b c")), equals(TRUE))
-
+  expect_that(str_detect("abc", "(?x)a b c"), equals(TRUE))
 })

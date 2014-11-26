@@ -97,8 +97,8 @@ NULL
 #' @export
 #' @rdname modifier-deprecated
 ignore.case <- function(string) {
-  message("Please use regexp(x, ignore_case = TRUE) or coll(x, ignore_case = TRUE)instead of ignore.case(x)")
-  regex(string, ignore.case = TRUE)
+  message("Please use (regexp|coll)(x, ignore_case = TRUE) instead of ignore.case(x)")
+  regex(string, ignore_case = TRUE)
 }
 
 #' @export

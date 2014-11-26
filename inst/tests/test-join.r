@@ -11,7 +11,7 @@ test_that("basic case works", {
 test_that("zero length vectors dropped", {
   test <- letters[1:3]
 
-  expect_that(str_c(test, c()), equals(test))
+  expect_that(str_c(test, character()), equals(test))
   expect_that(str_c(test, NULL), equals(test))
 
   expect_that(

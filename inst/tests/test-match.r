@@ -10,12 +10,8 @@ phones <- str_c(
   num[, 7], num[, 8], num[, 9], num[, 10])
 
 test_that("special case are correct", {
-  # These tests really should compare to character matrices, but str_match
-  # returns matrices with dimnames set it's real pain
-  expect_that(c(str_match(NA, "(a)")),
-    equals(c(NA_character_, NA_character_)))
-  expect_that(c(str_match(character(), "(a)")),
-    equals(character()))
+  expect_equal(str_match(NA, "(a)"), matrix(NA_character_))
+  expect_equal(str_match(character(), "(a)"), matrix(character(), 0, 1))
 })
 
 test_that("no matching cases returns 1 column matrix", {
