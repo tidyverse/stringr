@@ -1,4 +1,4 @@
 library(testthat)
 library(stringr)
 
-test_package("stringr")
+test_check("stringr")

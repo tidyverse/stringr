@@ -13,7 +13,7 @@ Authors@R: as.person(c(
 License: GPL-2
 Depends:
     R (>= 2.14)
-Suggests:
-    testthat (>= 0.3)
 Imports:
     stringi
+Suggests:
+    testthat
