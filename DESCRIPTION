@@ -1,22 +1,19 @@
 Package: stringr
-Maintainer: Hadley Wickham <h.wickham@gmail.com>
-License: GPL-2
-Title: Make it easier to work with strings.
-Type: Package
-Author: Hadley Wickham <h.wickham@gmail.com>
-Description: stringr is a set of simple wrappers that make
-    R's string functions more consistent, simpler and
-    easier to use.  It does this by ensuring that: function
-    and argument names (and positions) are consistent, all
-    functions deal with NA's and zero length character
-    appropriately, and the output data structures from each
-    function matches the input data structures of other
-    functions.
 Version: 0.6.2
+Title: Simple, Consistent Wrappers for Common String Operations.
+Description: A consistent, simple and easy to use set of wrappers around the
+    fantastic stringi package. All function and argument names (and positions)
+    are consistent, all functions deal with NA's and zero length character
+    appropriately, and the output data structures from each function matches
+    the input data structures of other functions.
+Authors@R: as.person(c(
+    "Hadley Wickham <hadley@rstudio.com> [aut, cre, cph]",
+    "RStudio [cph]"
+    ))
+License: GPL-2
 Depends:
     R (>= 2.14)
 Suggests:
     testthat (>= 0.3)
 Imports:
     stringi
-Roxygen: list(wrap = FALSE)
