@@ -64,6 +64,7 @@ str_split <- function(string, pattern, n = Inf) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
+    empty = stri_split_boundaries(string, stri_opts_brkiter(type = "character")),
     fixed = stri_split_fixed(string, pattern, n_max = n, simplify = FALSE),
     regex = stri_split_regex(string, pattern, n_max = n, simplify = FALSE,
       opts_regex = attr(pattern, "options")),

@@ -32,6 +32,9 @@ fruit <- c("apple", "banana", "pear", "pineapple")
 str_locate_all(fruit, "a")
 str_locate_all(fruit, "e")
 str_locate_all(fruit, c("a", "b", "p", "p"))
+
+# Find location of every character
+str_locate_all(fruit, "")
 }
 \seealso{
 \code{\link{regexpr}} which this function wraps

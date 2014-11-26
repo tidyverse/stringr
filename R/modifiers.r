@@ -84,7 +84,7 @@ type <- function(x) UseMethod("type")
 type.regexp <- function(x) "regex"
 type.coll <- function(x) "coll"
 type.fixed <- function(x) "fixed"
-type.character <- function(x) "regex"
+type.character <- function(x) if (identical(x, "")) "empty" else "regex"
 
 #' Deprecated modifier functions.
 #'

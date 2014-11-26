@@ -54,8 +54,12 @@ str_locate <- function(string, pattern) {
 #' str_locate_all(fruit, "a")
 #' str_locate_all(fruit, "e")
 #' str_locate_all(fruit, c("a", "b", "p", "p"))
+#'
+#' # Find location of every character
+#' str_locate_all(fruit, "")
 str_locate_all <- function(string, pattern) {
   switch(type(pattern),
+    empty = stri_locate_boundaries(string, stri_opts_brkiter("character")),
     fixed = stri_locate_all_fixed(string, pattern),
     regex = stri_locate_all_regex(string, pattern, attr(pattern, "options")),
     coll  = stri_locate_all_coll(string, pattern, attr(pattern, "options"))
