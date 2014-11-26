@@ -14,16 +14,48 @@ regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
   dotall = FALSE, ...)
 }
 \arguments{
-\item{string}{string to match exactly as is}
+\item{pattern}{Pattern to modify behaviour.}
+
+\item{ignore_case}{Should case differences be ignored in the match?}
+
+\item{locale}{Locale to use for case comparisons.}
+
+\item{...}{Other less frequently used arguments passed on to
+\code{\link[stringi]{stri_opts_collator}} or
+\code{\link[stringi]{stri_opts_regex}}}
+
+\item{multiline}{If \code{TRUE}, \code{$} and \code{^} match
+the beginning and end of each line. If \code{FALSE}, the
+default, only match the start and end of the input.}
+
+\item{comments}{If \code{TRUE}, white space and comments beginning with
+\code{#} are ignored. Escape literal spaces with \code{\\ }.}
+
+\item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 }
 \description{
-Control matching behaviour with modifier functions.
+\describe{
+ \item{fixed}{Compare literal bytes in the string. This is very fast, but
+   not usually what you want}
+ \item{coll}{Compare strings respecting standard collation rules}
+ \item{regexp}{The default. Uses ICU regular expressions}
+}
 }
 \examples{
 pattern <- "a.b"
 strings <- c("abb", "a.b")
 str_detect(strings, pattern)
 str_detect(strings, fixed(pattern))
+
+# Regular expression variations
+str_extract_all("The Cat in the Hat", "[a-z]+")
+str_extract_all("The Cat in the Hat", regex("[a-z]+", TRUE))
+
+str_extract_all("a\\nb\\nc", "^.")
+str_extract_all("a\\nb\\nc", regex("^.", multiline = TRUE))
+
+str_extract_all("a\\nb\\nc", "a.")
+str_extract_all("a\\nb\\nc", regex("a.", dotall = TRUE))
 }
 \keyword{character}
 

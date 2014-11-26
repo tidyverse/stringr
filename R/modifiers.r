@@ -1,14 +1,32 @@
 #' Control matching behaviour with modifier functions.
 #'
-#' @param string string to match exactly as is
+#' \describe{
+#'  \item{fixed}{Compare literal bytes in the string. This is very fast, but
+#'    not usually what you want}
+#'  \item{coll}{Compare strings respecting standard collation rules}
+#'  \item{regexp}{The default. Uses ICU regular expressions}
+#' }
+#'
+#' @param pattern Pattern to modify behaviour.
+#' @param ignore_case Should case differences be ignored in the match?
 #' @family modifiers
 #' @keywords character
+#' @name modifiers
 #' @examples
 #' pattern <- "a.b"
 #' strings <- c("abb", "a.b")
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
-#' @name modifiers
+#'
+#' # Regular expression variations
+#' str_extract_all("The Cat in the Hat", "[a-z]+")
+#' str_extract_all("The Cat in the Hat", regex("[a-z]+", TRUE))
+#'
+#' str_extract_all("a\nb\nc", "^.")
+#' str_extract_all("a\nb\nc", regex("^.", multiline = TRUE))
+#'
+#' str_extract_all("a\nb\nc", "a.")
+#' str_extract_all("a\nb\nc", regex("a.", dotall = TRUE))
 NULL
 
 #' @export
@@ -19,6 +37,10 @@ fixed <- function(pattern) {
 
 #' @export
 #' @rdname modifiers
+#' @param locale Locale to use for case comparisons.
+#' @param ... Other less frequently used arguments passed on to
+#'   \code{\link[stringi]{stri_opts_collator}} or
+#'   \code{\link[stringi]{stri_opts_regex}}
 coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
@@ -35,10 +57,16 @@ coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
 
 #' @export
 #' @rdname modifiers
+#' @param multiline If \code{TRUE}, \code{$} and \code{^} match
+#'   the beginning and end of each line. If \code{FALSE}, the
+#'   default, only match the start and end of the input.
+#' @param comments If \code{TRUE}, white space and comments beginning with
+#'   \code{#} are ignored. Escape literal spaces with \code{\\ }.
+#' @param dotall If \code{TRUE}, \code{.} will also match line terminators.
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
   options <- stri_opts_regex(
-    case_insensitive = !ignore_case,
+    case_insensitive = ignore_case,
     multiline = multiline,
     comments = comments,
     dotall = dotall,
