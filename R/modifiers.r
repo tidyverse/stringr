@@ -98,12 +98,12 @@ NULL
 #' @rdname modifier-deprecated
 ignore.case <- function(string) {
   message("Please use regexp(x, ignore_case = TRUE) or coll(x, ignore_case = TRUE)instead of ignore.case(x)")
-  regexp(string, ignore.case = TRUE)
+  regex(string, ignore.case = TRUE)
 }
 
 #' @export
 #' @rdname modifier-deprecated
 perl <- function(pattern) {
   message("perl is deprecated. Please use regexp instead")
-  regexp(pattern)
+  regex(pattern)
 }
