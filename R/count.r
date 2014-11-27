@@ -3,7 +3,6 @@
 #' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
-#' @keywords character
 #' @return An integer vector.
 #' @seealso
 #'  \code{\link[stringi]{stri_count}} which this function wraps.

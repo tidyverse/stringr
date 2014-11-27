@@ -18,7 +18,6 @@
 #'   Negative values count backwards from the last character.
 #' @return character vector of substring from \code{start} to \code{end}
 #'   (inclusive). Will be length of longest input argument.
-#' @keywords character
 #' @seealso \code{\link[stringi]{stri_sub}} which this function wraps, and
 #'   \code{\link{str_sub_replace}} for the replacement version
 #' @export

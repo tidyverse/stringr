@@ -35,5 +35,4 @@ str_match(strings, phone)
   \code{\link[stringi]{stri_match_first_regex}} for the underlying
   implementation.
 }
-\keyword{character}
 

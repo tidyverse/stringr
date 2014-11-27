@@ -7,7 +7,6 @@
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
 #' @return character vector.
-#' @keywords character
 #' @seealso \code{\link{sub}} which this function wraps,
 #'   \code{\link{str_replace_all}} to replace all matches
 #' @export
@@ -48,7 +47,6 @@ str_replace <- function(string, pattern, replacement) {
 #'   If you want to apply multiple patterns and replacements to each string,
 #'   pass a named character to \code{pattern}.
 #' @return character vector.
-#' @keywords character
 #' @seealso \code{\link{gsub}} which this function wraps,
 #'   \code{\link{str_replace}} to replace a single match
 #' @export

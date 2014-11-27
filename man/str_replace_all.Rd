@@ -43,5 +43,4 @@ str_replace_all(str_c(fruits, collapse = "---"),
 \code{\link{gsub}} which this function wraps,
   \code{\link{str_replace}} to replace a single match
 }
-\keyword{character}
 

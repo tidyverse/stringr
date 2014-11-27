@@ -42,5 +42,4 @@ str_extract(shopping_list, "\\\\b[a-z]{1,4}\\\\b")
   \code{\link[stringi]{stri_extract_first}} for the underlying
   implementation.
 }
-\keyword{character}
 

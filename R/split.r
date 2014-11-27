@@ -7,7 +7,6 @@
 #'   possible split positions.  If n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
 #' @return character matrix with \code{n} columns.
-#' @keywords character
 #' @seealso \code{\link{str_split}} for variable number of splits
 #' @export
 #' @examples
@@ -41,7 +40,6 @@ str_split_fixed <- function(string, pattern, n) {
 #' @param n maximum number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.
 #' @return a list of character vectors.
-#' @keywords character
 #' @export
 #' @seealso \code{\link{str_split_fixed}} for fixed number of splits
 #' @examples

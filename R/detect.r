@@ -20,7 +20,6 @@
 #'   \code{boundary("character")}.
 #' @return A logical vector.
 #' @seealso \code{\link[stringi]{stri_detect}} which this function wraps
-#' @keywords character
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")

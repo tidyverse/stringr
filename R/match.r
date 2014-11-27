@@ -11,7 +11,6 @@
 #'   \code{\link{str_match_all}} to extract all matches,
 #'   \code{\link[stringi]{stri_match_first_regex}} for the underlying
 #'   implementation.
-#' @keywords character
 #' @export
 #' @examples
 #' strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
@@ -38,7 +37,6 @@ str_match <- function(string, pattern) {
 #' @inheritParams str_match
 #' @return A list of character matrices. First column is the complete match,
 #'   followed by one column for each capture group.
-#' @keywords character
 #' @seealso \code{\link{str_extract_all}} to extract the complete match,
 #'   \code{\link{str_match}} to extract just the first match,
 #'   \code{\link[stringi]{stri_match_all_regex}} for the underlying

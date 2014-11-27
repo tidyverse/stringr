@@ -7,7 +7,6 @@
 #' @return A character vector.
 #' @seealso \code{\link{grep}} with argument \code{value = TRUE},
 #'    \code{\link[stringi]{stri_subset}} for the underlying implementation.
-#' @keywords character
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")

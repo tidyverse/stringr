@@ -45,5 +45,4 @@ str_match_all(strings, phone)
   \code{\link[stringi]{stri_match_all_regex}} for the underlying
   implementation.
 }
-\keyword{character}
 

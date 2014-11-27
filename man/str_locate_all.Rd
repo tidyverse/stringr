@@ -47,5 +47,4 @@ str_locate_all(fruit, "")
  \code{\link{str_extract}} for a convenient way of extracting matches,
  \code{\link{str_locate}} to locate position of first match
 }
-\keyword{character}
 

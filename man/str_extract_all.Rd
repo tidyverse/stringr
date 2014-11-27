@@ -45,5 +45,4 @@ str_extract_all(shopping_list, "\\\\d", simplify = TRUE)
   \code{\link[stringi]{stri_extract_all}} for the underlying
   implementation.
 }
-\keyword{character}
 

@@ -58,5 +58,4 @@ str_sub(hw, end = seq_len(str_length(hw)))
 \code{\link[stringi]{stri_sub}} which this function wraps, and
   \code{\link{str_sub_replace}} for the replacement version
 }
-\keyword{character}
 

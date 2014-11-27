@@ -5,7 +5,6 @@
 #' @param string Input character vector.
 #' @param times Number of times to duplicate each string.
 #' @return A character vector.
-#' @keywords character
 #' @export
 #' @examples
 #' fruit <- c("apple", "pear", "banana")

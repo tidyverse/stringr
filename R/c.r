@@ -16,7 +16,6 @@
 #' @return If \code{collapse = NULL} (the default) a character vector with
 #'   length equal to the longest input string. If \code{collapse} is
 #'   non-NULL, a character vector of length 1.
-#' @keywords character
 #' @seealso \code{\link{paste}} for equivalent base R functionality, and
 #'    \code{\link[stringi]{stri_c}} which this function wraps
 #' @export str_c

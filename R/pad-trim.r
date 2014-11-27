@@ -8,7 +8,6 @@
 #' @param pad Single padding character (default is a space).
 #' @return A character vector.
 #' @seealso \code{\link{str_trim}} to remove whitespace
-#' @keywords character
 #' @export
 #' @examples
 #' rbind(
@@ -39,7 +38,6 @@ str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ")
 #' @param string A character vector.
 #' @param side Side on which to remove whitespace (left, right or both).
 #' @return A character vector.
-#' @keywords character
 #' @export
 #' @seealso \code{\link{str_pad}} to add whitespace
 #' @examples

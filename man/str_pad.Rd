@@ -38,5 +38,4 @@ str_pad("hadley", 3)
 \seealso{
 \code{\link{str_trim}} to remove whitespace
 }
-\keyword{character}
 

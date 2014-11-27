@@ -44,5 +44,4 @@ str_c(letters, collapse = ", ")
 \code{\link{paste}} for equivalent base R functionality, and
    \code{\link[stringi]{stri_c}} which this function wraps
 }
-\keyword{character}
 

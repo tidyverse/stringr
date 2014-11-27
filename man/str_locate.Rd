@@ -43,5 +43,4 @@ str_locate(fruit, c("a", "b", "p", "p"))
   \code{\link{str_extract}} for a convenient way of extracting matches,
   \code{\link{str_locate_all}} to locate position of all matches
 }
-\keyword{character}
 

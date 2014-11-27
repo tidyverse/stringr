@@ -23,5 +23,4 @@ str_trim("\\n\\nString with trailing and leading white space\\n\\n")
 \seealso{
 \code{\link{str_pad}} to add whitespace
 }
-\keyword{character}
 

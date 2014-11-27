@@ -4,7 +4,6 @@
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
-#' @keywords character
 #' @seealso \code{\link{str_extract_all}} to extract all matches,
 #'   \code{\link[stringi]{stri_extract_first}} for the underlying
 #'   implementation.
@@ -34,7 +33,6 @@ str_extract <- function(string, pattern) {
 #' @inheritParams str_detect
 #' @param simplify If \code{FALSE}, the default, returns a list of character
 #'   vectors. If \code{TRUE} returns a character matrix.
-#' @keywords character
 #' @seealso \code{\link{str_extract}} to extract the first match,
 #'   \code{\link[stringi]{stri_extract_all}} for the underlying
 #'   implementation.

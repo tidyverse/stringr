@@ -43,5 +43,4 @@ str_subset(fruit, "[aeiou]")
 \code{\link{grep}} with argument \code{value = TRUE},
    \code{\link[stringi]{stri_subset}} for the underlying implementation.
 }
-\keyword{character}
 

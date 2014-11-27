@@ -48,5 +48,4 @@ str_replace(fruits, c("a", "e", "i"), "-")
 \code{\link{sub}} which this function wraps,
   \code{\link{str_replace_all}} to replace all matches
 }
-\keyword{character}
 

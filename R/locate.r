@@ -5,7 +5,6 @@
 #' @inheritParams str_detect
 #' @return Integer matrix. First column gives start postion of match, and
 #'   second column gives end position.
-#' @keywords character
 #' @seealso
 #'   \code{\link[stringi]{stri_locate_first}} which this function wraps,
 #'   \code{\link{str_extract}} for a convenient way of extracting matches,
@@ -36,7 +35,6 @@ str_locate <- function(string, pattern) {
 #' than start.
 #'
 #' @inheritParams str_detect
-#' @keywords character
 #' @return List of integer matrices. First column gives start postion of
 #'   match, and second column gives end position.
 #' @seealso

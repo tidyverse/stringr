@@ -45,5 +45,4 @@ str_split_fixed(fruits, " and ", 4)
 \seealso{
 \code{\link{str_split}} for variable number of splits
 }
-\keyword{character}
 
