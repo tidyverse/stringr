@@ -29,6 +29,10 @@
 * New modifier `boundary()` allows you to count, locate and split by
   character, word, line and sentence boundaries.
 
+* The documentation got a lot of love, and very similar functions (e.g.
+  first and all variants) are now documented together. This should hopefully
+  make it easier to locate the function you need.
+
 * `ignore.case(x)` has been deprecated in favour of 
   `regexp(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in favour of
   `regexp(x)`.
