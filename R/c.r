@@ -29,12 +29,12 @@
 #' str_c(letters, collapse = "")
 #' str_c(letters, collapse = ", ")
 str_c <- function(..., sep = "", collapse = NULL) {
-  stri_c(..., sep = sep, collapse = collapse)
+  stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
 }
 
 #' @export
 #' @rdname str_c
 str_join <- function(..., sep = "", collapse = NULL) {
   .Deprecated("str_c")
-  stri_c(..., sep = sep, collapse = collapse)
+  stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
 }

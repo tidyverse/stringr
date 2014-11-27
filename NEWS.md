@@ -6,6 +6,10 @@
   you string processing needs, I highly recommend looking at stringi in more
   detail.
 
+* `str_c()` now returns a zero length vector if any of its inputs are 
+  zero length vectors. This is consistent with all other functions, and
+  standard R recycling rules.
+
 * `str_replace_all()` gains a convenient syntax for applying multiple pairs of
   pattern and replacement to the same vector:
   

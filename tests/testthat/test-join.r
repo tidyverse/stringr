@@ -8,13 +8,9 @@ test_that("basic case works", {
   expect_that(str_c(test, collapse = ""), equals("abc"))
 })
 
-test_that("zero length vectors dropped", {
+test_that("NULLs are dropped", {
   test <- letters[1:3]
 
-  expect_that(str_c(test, character()), equals(test))
-  expect_that(str_c(test, NULL), equals(test))
-
-  expect_that(
-    str_c(test, NULL, "a", sep = " "),
-    equals(c("a a", "b a", "c a")))
+  expect_equal(str_c(test, NULL), test)
+  expect_equal(str_c(test, NULL, "a", sep = " "), c("a a", "b a", "c a"))
 })
