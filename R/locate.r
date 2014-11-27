@@ -51,9 +51,11 @@ str_locate <- function(string, pattern) {
 str_locate_all <- function(string, pattern) {
   switch(type(pattern),
     empty = stri_locate_boundaries(string, stri_opts_brkiter("character")),
-    fixed = stri_locate_all_fixed(string, pattern),
-    regex = stri_locate_all_regex(string, pattern, attr(pattern, "options")),
-    coll  = stri_locate_all_coll(string, pattern, attr(pattern, "options"))
+    fixed = stri_locate_all_fixed(string, pattern, omit_no_match = TRUE),
+    regex = stri_locate_all_regex(string, pattern,
+      omit_no_match = FALSE, opts_regex = attr(pattern, "options")),
+    coll  = stri_locate_all_coll(string, pattern,
+      omit_no_match = FALSE, opts_collator = attr(pattern, "options"))
   )
 }
 
