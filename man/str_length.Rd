@@ -6,17 +6,17 @@
 str_length(string)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 }
 \value{
-numeric vector giving number of characters in each element of the
-  character vector. Missing string have missing length.
+A numeric vector giving number of characters (code points) in each
+   element of the character vector. Missing string have missing length.
 }
 \description{
 Technically this returns the number of "code points", in a string. One
 code point usually corresponds to one character, but not always. For example,
-an u with a umlaut might be represent as a single character or as the
+an u with a umlaut might be represented as a single character or as the
 combination a u and an umlaut.
 }
 \examples{
@@ -24,6 +24,16 @@ str_length(letters)
 str_length(NA)
 str_length(factor("abc"))
 str_length(c("i", "like", "programming", NA))
+
+# Two ways of representing a u with an umlaut
+u1 <- "\\u00fc"
+u2 <- stringi::stri_trans_nfd(u1)
+# The print the same:
+u1
+u2
+# But have a different number of characters
+str_length(u1)
+str_length(u2)
 }
 \seealso{
 \code{\link[stringi]{stri_length}} which this function wraps.

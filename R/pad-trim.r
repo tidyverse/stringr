@@ -2,11 +2,11 @@
 #'
 #' Vectorised over \code{string}, \code{width} and \code{pad}.
 #'
-#' @param string input character vector
-#' @param width pad strings to this minimum width
-#' @param side side on which padding character is added (left, right or both)
-#' @param pad single padding character (default is a space)
-#' @return character vector
+#' @param string A character vector.
+#' @param width Minimum width of padded strings.
+#' @param side Side on which padding character is added (left, right or both).
+#' @param pad Single padding character (default is a space).
+#' @return A character vector.
 #' @seealso \code{\link{str_trim}} to remove whitespace
 #' @keywords character
 #' @export
@@ -36,9 +36,9 @@ str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ")
 
 #' Trim whitespace from start and end of string.
 #'
-#' @param string input character vector
-#' @param side side on which whitespace is removed (left, right or both)
-#' @return character vector with leading and trailing whitespace removed
+#' @param string A character vector.
+#' @param side Side on which to remove whitespace (left, right or both).
+#' @return A character vector.
 #' @keywords character
 #' @export
 #' @seealso \code{\link{str_pad}} to add whitespace

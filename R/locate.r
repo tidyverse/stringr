@@ -1,19 +1,15 @@
 #' Locate the position of the first occurence of a pattern in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
-#' same length as longest.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
-#' @return integer matrix.  First column gives start postion of match, and
+#' @return Integer matrix. First column gives start postion of match, and
 #'   second column gives end position.
 #' @keywords character
 #' @seealso
-#'   \code{\link{regexpr}} which this function wraps
-#'
-#'   \code{\link{str_extract}} for a convenient way of extracting matches
-#
+#'   \code{\link[stringi]{stri_locate_first}} which this function wraps,
+#'   \code{\link{str_extract}} for a convenient way of extracting matches,
 #'   \code{\link{str_locate_all}} to locate position of all matches
-#'
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
@@ -31,23 +27,18 @@ str_locate <- function(string, pattern) {
 
 #' Locate the position of all occurences of a pattern in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
-#' same length as longest.
-#'
-#' If the match is of length 0, (e.g. from a special match like \code{$})
-#' end will be one character less than start.
+#' Vectorised over \code{string} and \code{pattern}. If the match is of length
+#' 0, (e.g. from a special match like \code{$}) end will be one character less
+#' than start.
 #'
 #' @inheritParams str_detect
 #' @keywords character
-#' @return list of integer matrices.  First column gives start postion of
+#' @return List of integer matrices. First column gives start postion of
 #'   match, and second column gives end position.
 #' @seealso
-#'  \code{\link{regexpr}} which this function wraps
-#'
-#'  \code{\link{str_extract}} for a convenient way of extracting matches
-#'
+#'  \code{\link[stringi]{stri_locate_all}} which this function wraps,
+#'  \code{\link{str_extract}} for a convenient way of extracting matches,
 #'  \code{\link{str_locate}} to locate position of first match
-#'
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")

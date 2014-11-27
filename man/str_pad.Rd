@@ -6,16 +6,16 @@
 str_pad(string, width, side = c("left", "right", "both"), pad = " ")
 }
 \arguments{
-\item{string}{input character vector}
+\item{string}{A character vector.}
 
-\item{width}{pad strings to this minimum width}
+\item{width}{Minimum width of padded strings.}
 
-\item{side}{side on which padding character is added (left, right or both)}
+\item{side}{Side on which padding character is added (left, right or both).}
 
-\item{pad}{single padding character (default is a space)}
+\item{pad}{Single padding character (default is a space).}
 }
 \value{
-character vector
+A character vector.
 }
 \description{
 Vectorised over \code{string}, \code{width} and \code{pad}.

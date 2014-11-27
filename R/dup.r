@@ -2,9 +2,9 @@
 #'
 #' Vectorised over \code{string} and \code{times}.
 #'
-#' @param string input character vector
-#' @param times number of times to duplicate each string
-#' @return character vector
+#' @param string Input character vector.
+#' @param times Number of times to duplicate each string.
+#' @return A character vector.
 #' @keywords character
 #' @export
 #' @examples

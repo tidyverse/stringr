@@ -2,12 +2,12 @@
 #'
 #' Technically this returns the number of "code points", in a string. One
 #' code point usually corresponds to one character, but not always. For example,
-#' an u with a umlaut might be represent as a single character or as the
+#' an u with a umlaut might be represented as a single character or as the
 #' combination a u and an umlaut.
 #'
 #' @inheritParams str_detect
-#' @return numeric vector giving number of characters in each element of the
-#'   character vector. Missing string have missing length.
+#' @return A numeric vector giving number of characters (code points) in each
+#'    element of the character vector. Missing string have missing length.
 #' @keywords character
 #' @seealso \code{\link[stringi]{stri_length}} which this function wraps.
 #' @export
@@ -16,6 +16,16 @@
 #' str_length(NA)
 #' str_length(factor("abc"))
 #' str_length(c("i", "like", "programming", NA))
+#'
+#' # Two ways of representing a u with an umlaut
+#' u1 <- "\u00fc"
+#' u2 <- stringi::stri_trans_nfd(u1)
+#' # The print the same:
+#' u1
+#' u2
+#' # But have a different number of characters
+#' str_length(u1)
+#' str_length(u2)
 str_length <- function(string) {
   stri_length(string)
 }

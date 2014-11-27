@@ -1,7 +1,6 @@
 #' Replace first occurrence of a matched pattern in a string.
 #'
 #' Vectorised over \code{string}, \code{pattern} and \code{replacement}.
-#' Shorter arguments will be expanded to length of longest.
 #'
 #' @inheritParams str_detect
 #' @param replacement replacement string.  References of the form \code{\1},
@@ -22,6 +21,8 @@
 #' str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 #' str_replace(fruits, c("a", "e", "i"), "-")
 str_replace <- function(string, pattern, replacement) {
+  replacement <- fix_replacement(replacement)
+
   switch(type(pattern),
     fixed = stri_replace_first_fixed(string, pattern, replacement),
     regex = stri_replace_first_regex(string, pattern, replacement, attr(pattern, "options")),
@@ -69,10 +70,15 @@ str_replace_all <- function(string, pattern, replacement) {
   } else {
     vec <- TRUE
   }
+  replacement <- fix_replacement(replacement)
 
   switch(type(pattern),
     fixed = stri_replace_all_fixed(string, pattern, replacement, vec),
     regex = stri_replace_all_regex(string, pattern, replacement, vec, attr(pattern, "options")),
     coll  = stri_replace_all_coll(string, pattern, replacement, vec, attr(pattern, "options"))
   )
+}
+
+fix_replacement <- function(x) {
+  stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"), FALSE)
 }

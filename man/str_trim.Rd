@@ -6,12 +6,12 @@
 str_trim(string, side = c("both", "left", "right"))
 }
 \arguments{
-\item{string}{input character vector}
+\item{string}{A character vector.}
 
-\item{side}{side on which whitespace is removed (left, right or both)}
+\item{side}{Side on which to remove whitespace (left, right or both).}
 }
 \value{
-character vector with leading and trailing whitespace removed
+A character vector.
 }
 \description{
 Trim whitespace from start and end of string.

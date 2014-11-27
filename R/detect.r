@@ -2,14 +2,19 @@
 #'
 #' Vectorised over \code{string} and \code{pattern}.
 #'
-#' @param string input vector. This must be an atomic vector, and will be
-#'   coerced to a character vector
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of
-#'   \code{\link{regex}} for details.  See \code{\link{fixed}},
-#'   \code{\link{ignore.case}} and \code{\link{perl}} for how to use other
-#'   types of matching: fixed, case insensitive and perl-compatible.
-#' @return boolean vector
+#' @param string Input vector. Either a character vector, or something
+#'  coercible to one.
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression, as described
+#'   in \link[stringi]{stringi-search-regex}. Control options with
+#'   \code{\link{regex}()}.
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using
+#'   \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want \code{\link{coll}(x)} which
+#'   respects character matching rules for the specified locale.
+#' @return A logical vector.
 #' @seealso \code{\link[stringi]{stri_detect}} which this function wraps
 #' @keywords character
 #' @export
@@ -25,6 +30,7 @@
 #' str_detect("aecfg", letters)
 str_detect <- function(string, pattern) {
   switch(type(pattern),
+    empty = stop("Not implemented", call. = FALSE),
     fixed = stri_detect_fixed(string, pattern),
     regex = stri_detect_regex(string, pattern, attr(pattern, "options")),
     coll  = stri_detect_coll(string, pattern, attr(pattern, "options"))

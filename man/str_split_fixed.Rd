@@ -6,12 +6,19 @@
 str_split_fixed(string, pattern, n)
 }
 \arguments{
-\item{string}{input character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to split up by, as defined by a POSIX regular
-expression.  See the ``Extended Regular Expressions'' section of
-\code{\link{regex}} for details. If \code{NA}, returns original string.
-If \code{""} splits into individual characters.}
+\item{pattern}{Pattern to look for.
+
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
+
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.}
 
 \item{n}{number of pieces to return.  Default (Inf) uses all
 possible split positions.  If n is greater than the number of pieces,
@@ -21,8 +28,7 @@ the result will be padded with empty strings.}
 character matrix with \code{n} columns.
 }
 \description{
-Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-i.e. a character vector of length one.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 fruits <- c(

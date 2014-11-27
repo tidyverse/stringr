@@ -18,7 +18,8 @@ regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
 
 \item{ignore_case}{Should case differences be ignored in the match?}
 
-\item{locale}{Locale to use for case comparisons.}
+\item{locale}{Locale to use for comparisons. See
+\code{\link[stringi]{stri_locale_list}()} for all possible options.}
 
 \item{...}{Other less frequently used arguments passed on to
 \code{\link[stringi]{stri_opts_collator}} or

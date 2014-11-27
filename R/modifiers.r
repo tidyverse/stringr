@@ -37,7 +37,8 @@ fixed <- function(pattern) {
 
 #' @export
 #' @rdname modifiers
-#' @param locale Locale to use for case comparisons.
+#' @param locale Locale to use for comparisons. See
+#'   \code{\link[stringi]{stri_locale_list}()} for all possible options.
 #' @param ... Other less frequently used arguments passed on to
 #'   \code{\link[stringi]{stri_opts_collator}} or
 #'   \code{\link[stringi]{stri_opts_regex}}

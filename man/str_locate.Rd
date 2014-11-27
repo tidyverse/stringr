@@ -6,22 +6,26 @@
 str_locate(string, pattern)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to look for, as defined by a POSIX regular
-expression.  See the ``Extended Regular Expressions'' section of
-\code{\link{regex}} for details.  See \code{\link{fixed}},
-\code{\link{ignore.case}} and \code{\link{perl}} for how to use other
-types of matching: fixed, case insensitive and perl-compatible.}
+\item{pattern}{Pattern to look for.
+
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
+
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.}
 }
 \value{
-integer matrix.  First column gives start postion of match, and
+Integer matrix. First column gives start postion of match, and
   second column gives end position.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}, shorter is recycled to
-same length as longest.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pinapple")
@@ -31,9 +35,8 @@ str_locate(fruit, "e")
 str_locate(fruit, c("a", "b", "p", "p"))
 }
 \seealso{
-\code{\link{regexpr}} which this function wraps
-
-  \code{\link{str_extract}} for a convenient way of extracting matches
+\code{\link[stringi]{stri_locate_first}} which this function wraps,
+  \code{\link{str_extract}} for a convenient way of extracting matches,
   \code{\link{str_locate_all}} to locate position of all matches
 }
 \keyword{character}

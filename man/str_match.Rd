@@ -6,21 +6,18 @@
 str_match(string, pattern)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to look for, as defined by a POSIX regular
- expression.  Pattern should contain groups, defined by ().  See the
-``Extended Regular Expressions'' section of \code{\link{regex}} for
- details.}
+\item{pattern}{Pattern to look for, as defined by an ICU regular
+expression. See \link[stringi]{stringi-search-regex} for more details.}
 }
 \value{
-character matrix. First column is the complete match, followed by
-  one for each capture group
+Character matrix. First column is the complete match, followed by
+  one column for each capture group.
 }
 \description{
-Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-i.e. a character vector of length one.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
@@ -31,6 +28,12 @@ phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
 
 str_extract(strings, phone)
 str_match(strings, phone)
+}
+\seealso{
+\code{\link{str_extract}} to extract the complete match,
+  \code{\link{str_match_all}} to extract all matches,
+  \code{\link[stringi]{stri_match_first_regex}} for the underlying
+  implementation.
 }
 \keyword{character}
 

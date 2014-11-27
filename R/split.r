@@ -1,13 +1,8 @@
 #' Split up a string into a fixed number of pieces.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
-#' @param string input character vector
-#' @param pattern pattern to split up by, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of
-#'   \code{\link{regex}} for details. If \code{NA}, returns original string.
-#'   If \code{""} splits into individual characters.
+#' @inheritParams str_detect
 #' @param n number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.  If n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
@@ -23,25 +18,22 @@
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
 str_split_fixed <- function(string, pattern, n) {
-  switch(type(pattern),
+  out <- switch(type(pattern),
     fixed = stri_split_fixed(string, pattern, n_max = n, simplify = TRUE),
     regex = stri_split_regex(string, pattern, n_max = n, simplify = TRUE,
       opts_regex = attr(pattern, "options")),
     coll  = stri_split_coll(string, pattern, n_max = n, simplify = TRUE,
       opts_collator = attr(pattern, "options"))
   )
+  out[is.na(out)] <- ""
+  out
 }
 
 #' Split up a string into a variable number of pieces.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
-#' @param string input character vector
-#' @param pattern pattern to split up by, as defined by a POSIX regular
-#'   expression.  See the ``Extended Regular Expressions'' section of
-#'   \code{\link{regex}} for details. If \code{NA}, returns original string.
-#'   If \code{""} splits into individual characters.
+#' @inheritParams str_detect
 #' @param n maximum number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.
 #' @return a list of character vectors.

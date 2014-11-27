@@ -6,21 +6,25 @@
 str_count(string, pattern)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to look for, as defined by a POSIX regular
-expression.  See the ``Extended Regular Expressions'' section of
-\code{\link{regex}} for details.  See \code{\link{fixed}},
-\code{\link{ignore.case}} and \code{\link{perl}} for how to use other
-types of matching: fixed, case insensitive and perl-compatible.}
+\item{pattern}{Pattern to look for.
+
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
+
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.}
 }
 \value{
-integer vector
+An integer vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}, shorter is recycled to
-same length as longest.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

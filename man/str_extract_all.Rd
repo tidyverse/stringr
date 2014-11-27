@@ -6,20 +6,22 @@
 str_extract_all(string, pattern, simplify = FALSE)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to look for, as defined by a POSIX regular
-expression.  See the ``Extended Regular Expressions'' section of
-\code{\link{regex}} for details.  See \code{\link{fixed}},
-\code{\link{ignore.case}} and \code{\link{perl}} for how to use other
-types of matching: fixed, case insensitive and perl-compatible.}
+\item{pattern}{Pattern to look for.
+
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
+
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.}
 
 \item{simplify}{If \code{FALSE}, the default, returns a list of character
 vectors. If \code{TRUE} returns a character matrix.}
-}
-\value{
-list of character vectors.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
@@ -35,7 +37,9 @@ str_extract_all(shopping_list, "\\\\b[a-z]+\\\\b", simplify = TRUE)
 str_extract_all(shopping_list, "\\\\d", simplify = TRUE)
 }
 \seealso{
-\code{\link{str_extract}} to extract the first match
+\code{\link{str_extract}} to extract the first match,
+  \code{\link[stringi]{stri_extract_all}} for the underlying
+  implementation.
 }
 \keyword{character}
 

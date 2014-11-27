@@ -1,11 +1,10 @@
 #' Count the number of matches in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}, shorter is recycled to
-#' same length as longest.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
 #' @keywords character
-#' @return integer vector
+#' @return An integer vector.
 #' @seealso
 #'  \code{\link[stringi]{stri_count}} which this function wraps.
 #'
@@ -24,6 +23,7 @@
 #' str_count(c("a.", "...", ".a.a"), fixed("."))
 str_count <- function(string, pattern) {
   switch(type(pattern),
+    empty = str_count_boundaries(string, stri_opts_brkiter(type = "character")),
     fixed = stri_count_fixed(string, pattern),
     coll  = stri_count_coll(string, pattern, attr(pattern, "options")),
     regex = stri_count_regex(string, pattern, attr(pattern, "options")),

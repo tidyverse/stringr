@@ -6,8 +6,8 @@
 str_replace_all(string, pattern, replacement)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{pattern,replacement}{Supply separate pattern and replacement strings
   to vectorise over the patterns. References of the form \code{\1},

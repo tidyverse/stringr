@@ -6,12 +6,12 @@
 str_dup(string, times)
 }
 \arguments{
-\item{string}{input character vector}
+\item{string}{Input character vector.}
 
-\item{times}{number of times to duplicate each string}
+\item{times}{Number of times to duplicate each string.}
 }
 \value{
-character vector
+A character vector.
 }
 \description{
 Vectorised over \code{string} and \code{times}.

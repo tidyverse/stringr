@@ -6,16 +6,23 @@
 str_match_all(string, pattern)
 }
 \arguments{
-\item{string}{input vector. This must be an atomic vector, and will be
-coerced to a character vector}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{pattern}{pattern to look for, as defined by a POSIX regular
- expression.  Pattern should contain groups, defined by ().  See the
-``Extended Regular Expressions'' section of \code{\link{regex}} for
- details.}
+\item{pattern}{Pattern to look for.
+
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
+
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.}
 }
 \value{
-list of character matrices, as given by \code{\link{str_match}}
+A list of character matrices. First column is the complete match,
+  followed by one column for each capture group.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
@@ -27,6 +34,12 @@ phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
 
 str_extract_all(strings, phone)
 str_match_all(strings, phone)
+}
+\seealso{
+\code{\link{str_extract_all}} to extract the complete match,
+  \code{\link{str_match}} to extract just the first match,
+  \code{\link[stringi]{stri_match_all_regex}} for the underlying
+  implementation.
 }
 \keyword{character}
 

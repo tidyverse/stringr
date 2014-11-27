@@ -1,15 +1,16 @@
 #' Extract first matched group from a string.
 #'
-#' Vectorised over \code{string}.  \code{pattern} should be a single pattern,
-#' i.e. a character vector of length one.
+#' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  Pattern should contain groups, defined by ().  See the
-#'  ``Extended Regular Expressions'' section of \code{\link{regex}} for
-#'   details.
-#' @return character matrix. First column is the complete match, followed by
-#'   one for each capture group
+#' @param pattern Pattern to look for, as defined by an ICU regular
+#'   expression. See \link[stringi]{stringi-search-regex} for more details.
+#' @return Character matrix. First column is the complete match, followed by
+#'   one column for each capture group.
+#' @seealso \code{\link{str_extract}} to extract the complete match,
+#'   \code{\link{str_match_all}} to extract all matches,
+#'   \code{\link[stringi]{stri_match_first_regex}} for the underlying
+#'   implementation.
 #' @keywords character
 #' @export
 #' @examples
@@ -33,12 +34,14 @@ str_match <- function(string, pattern) {
 #' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
-#' @param pattern pattern to look for, as defined by a POSIX regular
-#'   expression.  Pattern should contain groups, defined by ().  See the
-#'  ``Extended Regular Expressions'' section of \code{\link{regex}} for
-#'   details.
-#' @return list of character matrices, as given by \code{\link{str_match}}
+#' @inheritParams str_match
+#' @return A list of character matrices. First column is the complete match,
+#'   followed by one column for each capture group.
 #' @keywords character
+#' @seealso \code{\link{str_extract_all}} to extract the complete match,
+#'   \code{\link{str_match}} to extract just the first match,
+#'   \code{\link[stringi]{stri_match_all_regex}} for the underlying
+#'   implementation.
 #' @export
 #' @examples
 #' strings <- c("Home: 219 733 8965.  Work: 229-293-8753 ",

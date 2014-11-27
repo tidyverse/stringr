@@ -27,7 +27,7 @@ test_that("vectors give correct results dealt with correctly", {
   expect_that(nrow(result), equals(4))
   expect_that(ncol(result), equals(3))
 
-  expect_that(result[1, ], equals(c("b", "b", NA)))
+  expect_that(result[1, ], equals(c("b", "b", "")))
   expect_that(result[3, ], equals(c("d", "d", "d")))
   expect_that(result[, 1], equals(c("b", "c", "d", "e")))
 
