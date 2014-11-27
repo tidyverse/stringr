@@ -19,6 +19,7 @@
 #' str_locate(fruit, c("a", "b", "p", "p"))
 str_locate <- function(string, pattern) {
   switch(type(pattern),
+    empty = stop("Not implemented", call. = FALSE),
     fixed = stri_locate_first_fixed(string, pattern),
     coll  = stri_locate_first_coll(string, pattern,
       opts_collator = attr(pattern, "options")),

@@ -19,6 +19,8 @@
 #' str_split_fixed(fruits, " and ", 4)
 str_split_fixed <- function(string, pattern, n) {
   out <- switch(type(pattern),
+    empty = stri_split_boundaries(string,
+      opts_brkiter = stri_opts_brkiter(type = "character")),
     fixed = stri_split_fixed(string, pattern, n_max = n, simplify = TRUE),
     regex = stri_split_regex(string, pattern, n_max = n, simplify = TRUE,
       opts_regex = attr(pattern, "options")),

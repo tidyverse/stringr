@@ -24,6 +24,7 @@ str_replace <- function(string, pattern, replacement) {
   replacement <- fix_replacement(replacement)
 
   switch(type(pattern),
+    empty = stop("Not implemented", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement),
     coll  = stri_replace_first_coll(string, pattern, replacement,
       opts_collator = attr(pattern, "options")),
@@ -75,6 +76,7 @@ str_replace_all <- function(string, pattern, replacement) {
   replacement <- fix_replacement(replacement)
 
   switch(type(pattern),
+    empty = stop("Not implemented", call. = FALSE),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
       vectorize_all = vec),
     coll  = stri_replace_all_coll(string, pattern, replacement,
