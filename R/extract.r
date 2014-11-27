@@ -49,7 +49,9 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
   switch(type(pattern),
     empty = ,
     fixed = stop("Not implemented", call. = FALSE),
-    coll  = stri_extract_all_coll(string, pattern, simplify, attr(pattern, "options")),
-    regex = stri_extract_all_regex(string, pattern, simplify, attr(pattern, "options")),
+    coll  = stri_extract_all_coll(string, pattern, simplify,
+      omit_no_match = TRUE, attr(pattern, "options")),
+    regex = stri_extract_all_regex(string, pattern, simplify,
+      omit_no_match = TRUE, attr(pattern, "options"))
   )
 }

@@ -12,3 +12,7 @@ test_that("single pattern extracted correctly", {
     equals(list(c("one", "two", "three"), character())))
 
 })
+
+test_that("no match yields empty vector", {
+  expect_equal(str_extract_all("a", "b")[[1]], character())
+})
