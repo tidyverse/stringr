@@ -2,6 +2,7 @@
 
 export("%>%")
 export("str_sub<-")
+export(boundary)
 export(coll)
 export(fixed)
 export(ignore.case)

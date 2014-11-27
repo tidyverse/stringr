@@ -18,6 +18,9 @@
     str_replace_all(input, c("[ad]" = "!", "[cf]" = "?"))
     ```
 
+* New modifier `boundary()` allows you to count, locate and split by
+  character, word, line and sentence boundaries.
+
 * `ignore.case(x)` has been deprecated in favour of 
   `regexp(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in favour of
   `regexp(x)`.

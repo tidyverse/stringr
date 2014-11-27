@@ -14,6 +14,10 @@
 #'   \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
 #'   for matching human text, you'll want \code{\link{coll}(x)} which
 #'   respects character matching rules for the specified locale.
+#'
+#'   Match character, word, line and sentence boundaries with
+#'   \code{\link{boundary}()}. An empty pattern, "", is equivalent to
+#'   \code{boundary("character")}.
 #' @return A logical vector.
 #' @seealso \code{\link[stringi]{stri_detect}} which this function wraps
 #' @keywords character
@@ -30,7 +34,8 @@
 #' str_detect("aecfg", letters)
 str_detect <- function(string, pattern) {
   switch(type(pattern),
-    empty = stop("Not implemented", call. = FALSE),
+    empty = ,
+    bound = stop("Not implemented", call. = FALSE),
     fixed = stri_detect_fixed(string, pattern),
     coll  = stri_detect_coll(string, pattern,
       opts_collator = attr(pattern, "options")),

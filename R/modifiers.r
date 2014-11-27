@@ -5,6 +5,7 @@
 #'    not usually what you want}
 #'  \item{coll}{Compare strings respecting standard collation rules}
 #'  \item{regexp}{The default. Uses ICU regular expressions}
+#'  \item{boundary}{Match boundaries between things}
 #' }
 #'
 #' @param pattern Pattern to modify behaviour.
@@ -17,6 +18,13 @@
 #' strings <- c("abb", "a.b")
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
+#' str_detect(strings, coll(pattern))
+#'
+#' # Word boundaries
+#' words <- c("These are   some words.")
+#' str_count(words, boundary("word"))
+#' str_split(words, " ")[[1]]
+#' str_split(words, boundary("word"))[[1]]
 #'
 #' # Regular expression variations
 #' str_extract_all("The Cat in the Hat", "[a-z]+")
@@ -40,8 +48,9 @@ fixed <- function(pattern) {
 #' @param locale Locale to use for comparisons. See
 #'   \code{\link[stringi]{stri_locale_list}()} for all possible options.
 #' @param ... Other less frequently used arguments passed on to
-#'   \code{\link[stringi]{stri_opts_collator}} or
-#'   \code{\link[stringi]{stri_opts_regex}}
+#'   \code{\link[stringi]{stri_opts_collator}},
+#'   \code{\link[stringi]{stri_opts_regex}}, or
+#'   \code{\link[stringi]{stri_opts_brkiter}}
 coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
@@ -81,7 +90,29 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
   )
 }
 
+#' @param type Boundary type to detect.
+#' @param skip_word_none Ignore "words" that don't contain any characters
+#'   or numbers - i.e. punctuation.
+#' @export
+#' @rdname modifiers
+boundary <- function(type = c("character", "line_break", "sentence", "word"),
+                    skip_word_none = TRUE, ...) {
+  type <- match.arg(type)
+  options <- stri_opts_brkiter(
+    type = type,
+    skip_word_none = skip_word_none,
+    ...
+  )
+
+  structure(
+    character(),
+    options = options,
+    class = c("boundary", "pattern", "character")
+  )
+}
+
 type <- function(x) UseMethod("type")
+type.boundary <- function(x) "bound"
 type.regexp <- function(x) "regex"
 type.coll <- function(x) "coll"
 type.fixed <- function(x) "fixed"

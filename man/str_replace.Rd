@@ -18,7 +18,11 @@ coercible to one.}
   Match a fixed string (i.e. by comparing only bytes), using
   \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
   for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.}
+  respects character matching rules for the specified locale.
+
+  Match character, word, line and sentence boundaries with
+  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
+  \code{boundary("character")}.}
 
 \item{replacement}{replacement string.  References of the form \code{\1},
 \code{\2} will be replaced with the contents of the respective matched
