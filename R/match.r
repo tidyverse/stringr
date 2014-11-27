@@ -52,7 +52,8 @@ str_match <- function(string, pattern) {
 #' str_match_all(strings, phone)
 str_match_all <- function(string, pattern) {
   switch(type(pattern),
-    regex = stri_match_all_regex(string, pattern, attr(pattern, "options")),
+    regex = stri_match_all_regex(string, pattern,
+      omit_no_match = TRUE, opts_regex = attr(pattern, "options")),
     stop("Can only match regular expressions", call. = FALSE)
   )
 }
