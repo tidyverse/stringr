@@ -24,6 +24,8 @@
 * New `str_order()` and `str_sort()` allow you to sort and order strings
   in a specified locale.
 
+* New `str_conv()` to convert strings from specified encoding to UTF-8.
+
 * New modifier `boundary()` allows you to count, locate and split by
   character, word, line and sentence boundaries.
 
