@@ -1,4 +1,4 @@
-#' Extract substrings from a character vector.
+#' Extract and replace substrings from a character vector.
 #'
 #' \code{str_sub} will recycle all arguments to be the same length as the
 #' longest argument. If any arguments are of length 0, the output will be
@@ -11,15 +11,14 @@
 #' @param string input character vector.
 #' @param start,end Two integer vectors. \code{start} gives the position
 #'   of the first character (defaults to first), \code{end} gives the position
-#'   of the last (defaults to last character).
-#'
-#'   Alternatively, pass a two-column matrix to \code{start}.
+#'   of the last (defaults to last character). Alternatively, pass a two-column
+#'   matrix to \code{start}.
 #'
 #'   Negative values count backwards from the last character.
-#' @return character vector of substring from \code{start} to \code{end}
+#' @param value replacement string
+#' @return A character vector of substring from \code{start} to \code{end}
 #'   (inclusive). Will be length of longest input argument.
-#' @seealso \code{\link[stringi]{stri_sub}} which this function wraps, and
-#'   \code{\link{str_sub_replace}} for the replacement version
+#' @seealso The underlying implementation in \code{\link[stringi]{stri_sub}}
 #' @export
 #' @examples
 #' hw <- "Hadley Wickham"
@@ -44,6 +43,13 @@
 #' # Vectorisation
 #' str_sub(hw, seq_len(str_length(hw)))
 #' str_sub(hw, end = seq_len(str_length(hw)))
+#'
+#' # Replacement form
+#' x <- "BBCDEF"
+#' str_sub(x, 1, 1) <- "A"; x
+#' str_sub(x, -1, -1) <- "K"; x
+#' str_sub(x, -2, -2) <- "GHIJ"; x
+#' str_sub(x, 2, -2) <- ""; x
 str_sub <- function(string, start = 1L, end = -1L) {
   if (is.matrix(start)) {
     stri_sub(string, from = start)
@@ -52,32 +58,14 @@ str_sub <- function(string, start = 1L, end = -1L) {
   }
 }
 
-#' Replace substrings in a character vector.
-#
-#' \code{str_sub<-} will recycle all arguments to be the same length as the
-#' longest argument.
-#'
-#' @param string input character vector.
-#' @param start integer vector giving position of first charater in substring,
-#'   defaults to first character. If negative, counts backwards from last
-#'   character.
-#' @param end integer vector giving position of last character in substring,
-#'   defaults to last character. If negative, counts backwards from last
-#'   character.
-#' @param value replacement string
-#' @return character vector of substring from \code{start} to \code{end}
-#'   (inclusive). Will be length of longest input argument.
-#' @name str_sub_replace
-#' @aliases str_sub<- str_sub_replace
-#' @usage str_sub(string, start = 1L, end = -1L) <- value
-#' @export "str_sub<-"
-#' @examples
-#' x <- "BBCDEF"
-#' str_sub(x, 1, 1) <- "A"; x
-#' str_sub(x, -1, -1) <- "K"; x
-#' str_sub(x, -2, -2) <- "GHIJ"; x
-#' str_sub(x, 2, -2) <- ""; x
+
+#' @export
+#' @rdname str_sub
 "str_sub<-" <- function(string, start = 1L, end = -1L, value) {
-  stri_sub(string, from = start, to = end) <- value
+  if (is.matrix(start)) {
+    stri_sub(string, from = start) <- value
+  } else {
+    stri_sub(string, from = start, to = end) <- value
+  }
   string
 }
