@@ -1,21 +1,30 @@
-#' Locate the position of the first occurence of a pattern in a string.
+#' Locate the position of patterns in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over \code{string} and \code{pattern}. If the match is of length
+#' 0, (e.g. from a special match like \code{$}) end will be one character less
+#' than start.
 #'
 #' @inheritParams str_detect
-#' @return Integer matrix. First column gives start postion of match, and
-#'   second column gives end position.
+#' @return For \code{str_locate}, an integer matrix. First column gives start
+#'   postion of match, and second column gives end position. For
+#'   \code{str_locate_all} a list of integer matrices.
 #' @seealso
-#'   \code{\link[stringi]{stri_locate_first}} which this function wraps,
 #'   \code{\link{str_extract}} for a convenient way of extracting matches,
-#'   \code{\link{str_locate_all}} to locate position of all matches
+#'   \code{\link[stringi]{stri_locate}} for the underlying implementation.
 #' @export
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_locate(fruit, "$")
 #' str_locate(fruit, "a")
 #' str_locate(fruit, "e")
 #' str_locate(fruit, c("a", "b", "p", "p"))
+#'
+#' str_locate_all(fruit, "a")
+#' str_locate_all(fruit, "e")
+#' str_locate_all(fruit, c("a", "b", "p", "p"))
+#'
+#' # Find location of every character
+#' str_locate_all(fruit, "")
 str_locate <- function(string, pattern) {
   switch(type(pattern),
     empty = ,
@@ -28,28 +37,8 @@ str_locate <- function(string, pattern) {
   )
 }
 
-#' Locate the position of all occurences of a pattern in a string.
-#'
-#' Vectorised over \code{string} and \code{pattern}. If the match is of length
-#' 0, (e.g. from a special match like \code{$}) end will be one character less
-#' than start.
-#'
-#' @inheritParams str_detect
-#' @return List of integer matrices. First column gives start postion of
-#'   match, and second column gives end position.
-#' @seealso
-#'  \code{\link[stringi]{stri_locate_all}} which this function wraps,
-#'  \code{\link{str_extract}} for a convenient way of extracting matches,
-#'  \code{\link{str_locate}} to locate position of first match
+#' @rdname str_locate
 #' @export
-#' @examples
-#' fruit <- c("apple", "banana", "pear", "pineapple")
-#' str_locate_all(fruit, "a")
-#' str_locate_all(fruit, "e")
-#' str_locate_all(fruit, c("a", "b", "p", "p"))
-#'
-#' # Find location of every character
-#' str_locate_all(fruit, "")
 str_locate_all <- function(string, pattern) {
   switch(type(pattern),
     empty = stri_locate_boundaries(string,
