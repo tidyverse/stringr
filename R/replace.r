@@ -25,8 +25,10 @@ str_replace <- function(string, pattern, replacement) {
 
   switch(type(pattern),
     fixed = stri_replace_first_fixed(string, pattern, replacement),
-    regex = stri_replace_first_regex(string, pattern, replacement, attr(pattern, "options")),
-    coll  = stri_replace_first_coll(string, pattern, replacement, attr(pattern, "options"))
+    coll  = stri_replace_first_coll(string, pattern, replacement,
+      opts_collator = attr(pattern, "options")),
+    regex = stri_replace_first_regex(string, pattern, replacement,
+      opts_regex = attr(pattern, "options")),
   )
 }
 
@@ -73,12 +75,16 @@ str_replace_all <- function(string, pattern, replacement) {
   replacement <- fix_replacement(replacement)
 
   switch(type(pattern),
-    fixed = stri_replace_all_fixed(string, pattern, replacement, vec),
-    regex = stri_replace_all_regex(string, pattern, replacement, vec, attr(pattern, "options")),
-    coll  = stri_replace_all_coll(string, pattern, replacement, vec, attr(pattern, "options"))
+    fixed = stri_replace_all_fixed(string, pattern, replacement,
+      vectorize_all = vec),
+    coll  = stri_replace_all_coll(string, pattern, replacement,
+      vectorize_all = vec, opts_collator = attr(pattern, "options")),
+    regex = stri_replace_all_regex(string, pattern, replacement,
+      vectorize_all = vec, opts_regex = attr(pattern, "options"))
   )
 }
 
 fix_replacement <- function(x) {
-  stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"), FALSE)
+  stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"),
+    vectorize_all = FALSE)
 }

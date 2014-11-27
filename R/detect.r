@@ -32,8 +32,10 @@ str_detect <- function(string, pattern) {
   switch(type(pattern),
     empty = stop("Not implemented", call. = FALSE),
     fixed = stri_detect_fixed(string, pattern),
-    regex = stri_detect_regex(string, pattern, attr(pattern, "options")),
-    coll  = stri_detect_coll(string, pattern, attr(pattern, "options"))
+    coll  = stri_detect_coll(string, pattern,
+      opts_collator = attr(pattern, "options")),
+    regex = stri_detect_regex(string, pattern,
+      opts_regex = attr(pattern, "options"))
   )
 }
 

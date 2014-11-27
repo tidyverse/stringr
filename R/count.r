@@ -23,9 +23,12 @@
 #' str_count(c("a.", "...", ".a.a"), fixed("."))
 str_count <- function(string, pattern) {
   switch(type(pattern),
-    empty = str_count_boundaries(string, stri_opts_brkiter(type = "character")),
+    empty = stri_count_boundaries(string,
+      opts_brkiter = stri_opts_brkiter(type = "character")),
     fixed = stri_count_fixed(string, pattern),
-    coll  = stri_count_coll(string, pattern, attr(pattern, "options")),
-    regex = stri_count_regex(string, pattern, attr(pattern, "options")),
+    coll  = stri_count_coll(string, pattern,
+      opts_collator = attr(pattern, "options")),
+    regex = stri_count_regex(string, pattern,
+      opts_regex = attr(pattern, "options"))
   )
 }

@@ -24,7 +24,8 @@
 #' str_match(strings, phone)
 str_match <- function(string, pattern) {
   switch(type(pattern),
-    regex = stri_match_first_regex(string, pattern, attr(pattern, "options")),
+    regex = stri_match_first_regex(string, pattern,
+      opts_regex = attr(pattern, "options")),
     stop("Can only match regular expressions", call. = FALSE)
   )
 }
