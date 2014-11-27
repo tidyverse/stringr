@@ -1,8 +1,8 @@
 context("Detecting patterns")
 
 test_that("special cases are correct", {
-  expect_that(str_detect(NA, ""), equals(NA))
-  expect_that(str_detect(character(), ""), equals(logical()))
+  expect_that(str_detect(NA, "x"), equals(NA))
+  expect_that(str_detect(character(), "x"), equals(logical()))
 })
 
 test_that("vectorised patterns work", {
