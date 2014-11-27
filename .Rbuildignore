@@ -3,3 +3,4 @@
 ^packrat/
 ^\.Rprofile$
 ^NEWS\.md$
+^\.travis\.yml$
