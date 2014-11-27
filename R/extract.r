@@ -1,19 +1,30 @@
-#' Extract first piece of a string that matches a pattern.
+#' Extract matching patterns from a string.
 #'
 #' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
-#' @seealso \code{\link{str_extract_all}} to extract all matches,
-#'   \code{\link[stringi]{stri_extract_first}} for the underlying
+#' @seealso \code{\link[stringi]{stri_extract_first}} and
+#'   \code{\link[stringi]{stri_extract_all}} for the underlying
 #'   implementation.
+#' @param simplify If \code{FALSE}, the default, returns a list of character
+#'   vectors. If \code{TRUE} returns a character matrix.
 #' @export
 #' @examples
-#' shopping_list <- c("apples x4", "flour", "sugar", "milk x2")
+#' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
 #' str_extract(shopping_list, "\\d")
 #' str_extract(shopping_list, "[a-z]+")
 #' str_extract(shopping_list, "[a-z]{1,4}")
 #' str_extract(shopping_list, "\\b[a-z]{1,4}\\b")
+#'
+#' # Extract all matches
+#' str_extract_all(shopping_list, "[a-z]+")
+#' str_extract_all(shopping_list, "\\b[a-z]+\\b")
+#' str_extract_all(shopping_list, "\\d")
+#'
+#' # Simplify results into character matrix
+#' str_extract_all(shopping_list, "\\b[a-z]+\\b", simplify = TRUE)
+#' str_extract_all(shopping_list, "\\d", simplify = TRUE)
 str_extract <- function(string, pattern) {
   switch(type(pattern),
     empty = ,
@@ -26,26 +37,8 @@ str_extract <- function(string, pattern) {
   )
 }
 
-#' Extract all pieces of a string that match a pattern.
-#'
-#' Vectorised over \code{string} and \code{pattern}.
-#'
-#' @inheritParams str_detect
-#' @param simplify If \code{FALSE}, the default, returns a list of character
-#'   vectors. If \code{TRUE} returns a character matrix.
-#' @seealso \code{\link{str_extract}} to extract the first match,
-#'   \code{\link[stringi]{stri_extract_all}} for the underlying
-#'   implementation.
+#' @rdname str_extract
 #' @export
-#' @examples
-#' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
-#' str_extract_all(shopping_list, "[a-z]+")
-#' str_extract_all(shopping_list, "\\b[a-z]+\\b")
-#' str_extract_all(shopping_list, "\\d")
-#'
-#' # Simplifying results
-#' str_extract_all(shopping_list, "\\b[a-z]+\\b", simplify = TRUE)
-#' str_extract_all(shopping_list, "\\d", simplify = TRUE)
 str_extract_all <- function(string, pattern, simplify = FALSE) {
   switch(type(pattern),
     empty = ,
