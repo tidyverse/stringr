@@ -18,6 +18,9 @@
     str_replace_all(input, c("[ad]" = "!", "[cf]" = "?"))
     ```
 
+* New `str_subset()` keeps values that match a pattern. It's a convenient
+  wrapper for `x[str_detect(x)]` (#21, @jiho).
+
 * New modifier `boundary()` allows you to count, locate and split by
   character, word, line and sentence boundaries.
 
