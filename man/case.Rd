@@ -6,14 +6,16 @@
 \alias{str_to_upper}
 \title{Convert case of a string.}
 \usage{
-str_to_upper(string)
+str_to_upper(string, locale = "")
 
-str_to_lower(string)
+str_to_lower(string, locale = "")
 
-str_to_title(string)
+str_to_title(string, locale = "")
 }
 \arguments{
 \item{string}{String to modify}
+
+\item{locale}{Locale to use for translations.}
 }
 \description{
 Convert case of a string.
@@ -23,5 +25,9 @@ dog <- "The quick brown dog"
 str_to_upper(dog)
 str_to_lower(dog)
 str_to_title(dog)
+
+# Locale matters!
+str_to_upper("i")
+str_to_upper("i", "tr_TR")
 }
 

@@ -21,6 +21,9 @@
 * New `str_subset()` keeps values that match a pattern. It's a convenient
   wrapper for `x[str_detect(x)]` (#21, @jiho).
 
+* New `str_order()` and `str_sort()` allow you to sort and order strings
+  in a specified locale.
+
 * New modifier `boundary()` allows you to count, locate and split by
   character, word, line and sentence boundaries.
 
