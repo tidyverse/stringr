@@ -10,7 +10,6 @@
 #'
 #' @param pattern Pattern to modify behaviour.
 #' @param ignore_case Should case differences be ignored in the match?
-#' @family modifiers
 #' @name modifiers
 #' @examples
 #' pattern <- "a.b"
