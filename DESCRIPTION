@@ -3,9 +3,9 @@ Version: 0.9.0.9000
 Title: Simple, Consistent Wrappers for Common String Operations.
 Description: A consistent, simple and easy to use set of wrappers around the
     fantastic stringi package. All function and argument names (and positions)
-    are consistent, all functions deal with NA's and zero length character
-    appropriately, and the output data structures from each function matches
-    the input data structures of other functions.
+    are consistent, all functions deal with NA's and zero length vectors
+    in the same way, and the output from one function is easy to feed into
+    the input of another.
 Authors@R: as.person(c(
     "Hadley Wickham <hadley@rstudio.com> [aut, cre, cph]",
     "RStudio [cph]"
