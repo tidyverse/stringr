@@ -20,7 +20,7 @@
 #'
 #' str_count(c("a.", "...", ".a.a"), ".")
 #' str_count(c("a.", "...", ".a.a"), fixed("."))
-str_count <- function(string, pattern) {
+str_count <- function(string, pattern = "") {
   switch(type(pattern),
     empty = stri_count_boundaries(string,
       opts_brkiter = stri_opts_brkiter(type = "character")),

@@ -9,8 +9,8 @@
 #' str_to_title(dog)
 #'
 #' # Locale matters!
-#' str_to_upper("i")
-#' str_to_upper("i", "tr_TR")
+#' str_to_upper("i", "en") # English
+#' str_to_upper("i", "tr") # Turkish
 #' @name case
 NULL
 

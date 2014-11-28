@@ -2,10 +2,10 @@
 #'
 #' \describe{
 #'  \item{fixed}{Compare literal bytes in the string. This is very fast, but
-#'    not usually what you want}
-#'  \item{coll}{Compare strings respecting standard collation rules}
-#'  \item{regexp}{The default. Uses ICU regular expressions}
-#'  \item{boundary}{Match boundaries between things}
+#'    not usually what you want for non-ASCII character sets.}
+#'  \item{coll}{Compare strings respecting standard collation rules.}
+#'  \item{regexp}{The default. Uses ICU regular expressions.}
+#'  \item{boundary}{Match boundaries between things.}
 #' }
 #'
 #' @param pattern Pattern to modify behaviour.
@@ -17,6 +17,12 @@
 #' str_detect(strings, pattern)
 #' str_detect(strings, fixed(pattern))
 #' str_detect(strings, coll(pattern))
+#'
+#' # coll() is useful for locale-aware case-insensitive matching
+#' i <- c("I", "\u0130", "i")
+#' i
+#' str_detect(i, coll("i", TRUE))
+#' str_detect(i, coll("i", TRUE, locale = "tr"))
 #'
 #' # Word boundaries
 #' words <- c("These are   some words.")

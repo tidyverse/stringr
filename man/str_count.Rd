@@ -3,7 +3,7 @@
 \alias{str_count}
 \title{Count the number of matches in a string.}
 \usage{
-str_count(string, pattern)
+str_count(string, pattern = "")
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something

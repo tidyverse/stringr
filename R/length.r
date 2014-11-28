@@ -22,9 +22,12 @@
 #' # The print the same:
 #' u1
 #' u2
-#' # But have a different number of characters
+#' # But have a different length
 #' str_length(u1)
 #' str_length(u2)
+#' # Even though they have the same number of characters
+#' str_count(u1)
+#' str_count(u2)
 str_length <- function(string) {
   stri_length(string)
 }
