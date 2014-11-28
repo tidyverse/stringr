@@ -52,7 +52,7 @@ fixed <- function(pattern) {
 coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
-    locale = NULL,
+    locale = locale,
     ...
   )
 
