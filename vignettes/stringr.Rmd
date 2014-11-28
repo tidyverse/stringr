@@ -8,44 +8,51 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. The `stringr` package aims to remedy these problems by providing a clean, modern interface to common string operations.
+```{r, echo=FALSE}
+library("stringr")
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
+```
 
-More concretely, `stringr`:
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. The __stringr__ package aims to remedy these problems by providing a clean, modern interface to common string operations.
 
--   Processes factors and characters in the same way.
+More concretely, stringr:
 
--   Gives functions consistent names and arguments.
+-   Simplifies string operations by eliminating options that you don't need 
+    95% of the time (the other 5% of the time you can functions from base R or
+    [stringi](https://github.com/Rexamine/stringi/)).
 
--   Simplifies string operations by eliminating options that you don’t need 
-    95% of the time (the other 5% of the time you can use the base functions).
+-   Uses consistent function names and arguments.
 
 -   Produces outputs than can easily be used as inputs. This includes ensuring 
     that missing inputs result in missing outputs, and zero length inputs result 
-    in zero length outputs.
+    in zero length outputs. It also processes factors and character vectors in 
+    the same way.
 
--   Completes R’s string handling functions with useful functions from other 
+-   Completes R's string handling functions with useful functions from other 
     programming languages.
 
-To meet these goals, `stringr` provides two basic families of functions:
+To meet these goals, stringr provides two basic families of functions:
 
 -   basic string operations, and
 
 -   pattern matching functions which use regular expressions to detect, locate, 
     match, replace, extract, and split strings.
 
+As of version 1.0, stringr is a thin wrapper around [stringi](https://github.com/Rexamine/stringi/), which implements all the functions in stringr with efficient C code based on the [ICU library](http://site.icu-project.org).  Compared to stringi, stringr is considerably simpler: it provides fewer options and fewer functions. This is great when you're getting started learning string functions, and if you do need more of stringi's power, you should find the interface similar.
+
 These are described in more detail in the following sections.
 
-# Basic string operations
+## Basic string operations
 
 There are three string functions that are closely related to their base R equivalents, but with a few enhancements:
 
--   `str_c()` is equivalent to `paste`, but it uses the empty string ("") as the 
-    default separator and silently removes zero length arguments.
+-   `str_c()` is equivalent to `paste()`, but it uses the empty string ("") as 
+    the default separator and silently removes `NULL` inputs.
 
--   `str_length()` is equivalent to `nchar`, but it preserves NA’s (rather than 
+-   `str_length()` is equivalent to `nchar()`, but it preserves NA's (rather than 
      giving them length 2) and converts factors to characters (not integers).
 
--   `str_sub()` is equivalent to `substr` but it returns a zero length vector 
+-   `str_sub()` is equivalent to `substr()` but it returns a zero length vector 
     if any of its inputs are zero length, and otherwise expands each argument to
     match the longest. It also accepts negative positions, which are calculated 
     from the left of the last character. The end position defaults to `-1`, 
@@ -63,20 +70,51 @@ Three functions add new functionality:
 
 -   `str_pad()` to pad a string with extra whitespace on the left, right, or both sides.
 
-# Pattern matching
+## Pattern matching
 
-`stringr` provides pattern matching functions to **detect**, **locate**, **extract**, **match**, **replace**, and **split** strings:
+stringr provides pattern matching functions to **detect**, **locate**, **extract**, **match**, **replace**, and **split** strings. I'll illustrate how they work with some strings and a regular expression designed to match (US) phone numbers:
+
+```{r}
+strings <- c(
+  "apple", 
+  "219 733 8965", 
+  "329-293-8753", 
+  "Work: 579-499-7527; Home: 543.355.3679"
+)
+phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
+```
 
 -   `str_detect()` detects the presence or absence of a pattern and returns a 
-    logical vector. Similar to `grepl()`.
+    logical vector (similar to `grepl()`). `str_subset()` returns the elements
+    of a character vector that match a regular expression (similar to `grep()` 
+    with `value = TRUE`)`.
+    
+    ```{r}
+    # Which strings contain phone numbers?
+    str_detect(strings, phone)
+    str_subset(strings, phone)
+    ```
 
 -   `str_locate()` locates the first position of a pattern and returns a numeric 
     matrix with columns start and end. `str_locate_all()` locates all matches, 
     returning a list of numeric matrices. Similar to `regexpr()` and `gregexpr()`.
 
+    ```{r}
+    # Where in the string is the phone number located?
+    (loc <- str_locate(strings, phone))
+    str_locate_all(strings, phone)
+    ```
+
 -   `str_extract()` extracts text corresponding to the first match, returning a 
     character vector. `str_extract_all()` extracts all matches and returns a 
     list of character vectors.
+
+    ```{r}
+    # What are the phone numbers?
+    str_extract(strings, phone)
+    str_extract_all(strings, phone)
+    str_extract_all(strings, phone, simplify = TRUE)
+    ```
 
 -   `str_match()` extracts capture groups formed by `()` from the first match. 
     It returns a character matrix with one column for the complete match and 
@@ -84,67 +122,50 @@ Three functions add new functionality:
     all matches and returns a list of character matrices. Similar to 
     `regmatches()`.
 
+    ```{r}
+    # Pull out the three components of the match
+    str_match(strings, phone)
+    str_match_all(strings, phone)
+    ```
+
 -   `str_replace()` replaces the first matched pattern and returns a character
-    vector. `str_replace_all()` replaces all matches. Similar to `sub` and `gsub`.
+    vector. `str_replace_all()` replaces all matches. Similar to `sub()` and 
+    `gsub()`.
+
+    ```{r}
+    str_replace(strings, phone, "XXX-XXX-XXXX")
+    str_replace_all(strings, phone, "XXX-XXX-XXXX")
+    ```
 
 -   `str_split_fixed()` splits the string into a fixed number of pieces based 
     on a pattern and returns a character matrix. `str_split()` splits a string 
     into a variable number of pieces and returns a list of character vectors.
 
-The following code shows how the simple (single match) form of each of these functions work:
-
-```{r}
-library(stringr)
-strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
- "387 287 6718", "apple", "233.398.9187  ", "482 952 3315", "239 923 8115",
- "842 566 4692", "Work: 579-499-7527", "$1000", "Home: 543.355.3679")
-phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
-
-# Which strings contain phone numbers?
-str_detect(strings, phone)
-strings[str_detect(strings, phone)]
-
-# Where in the string is the phone number located?
-loc <- str_locate(strings, phone)
-loc
-# Extract just the phone numbers
-str_sub(strings, loc[, "start"], loc[, "end"])
-# Or more conveniently:
-str_extract(strings, phone)
-
-# Pull out the three components of the match
-str_match(strings, phone)
-
-# Anonymise the data
-str_replace(strings, phone, "XXX-XXX-XXXX")
-```
-
-## Arguments
+### Arguments
 
 Each pattern matching function has the same first two arguments, a character vector of `string`s to process and a single `pattern` (regular expression) to match. The replace functions have an additional argument specifying the replacement string, and the split functions have an argument to specify the number of pieces.
 
-Unlike base string functions, `stringr` only offers limited control over the type of matching. The `fixed()` and `ignore.case()` functions modify the pattern to use fixed matching or to ignore case, but if you want to use perl-style regular expressions or to match on bytes instead of characters, you’re out of luck and you’ll have to use the base string functions. This is a deliberate choice made to simplify these functions. For example, while `grepl` has six arguments, `str_detect` only has two.
+Unlike base string functions, stringr offers control over matching not through arguments, but through modifier functions, `regexp()`, `coll()` and `fixed()`.  This is a deliberate choice made to simplify these functions. For example, while `grepl` has six arguments, `str_detect()` only has two.
 
-## Regular expressions
+### Regular expressions
 
-To be able to use these functions effectively, you’ll need a good knowledge of regular expressions, which this paper is not going to teach you. Some useful tools to get you started:
+To be able to use these functions effectively, you'll need a good knowledge of regular expressions, which this vignette is not going to teach you. Some useful tools to get you started:
 
 -   A good [reference sheet](http://www.regular-expressions.info/reference.html).
 
--   A tool that allows you to [interactively test](http://gskinner.com/RegExr/).
+-   A tool that allows you to [interactively test](http://gskinner.com/RegExr/)
     what a regular expression will match.
 
 -   A tool to [build a regular expression](http://www.txt2re.com) from an 
     input string.
 
-When writing regular expressions, I strongly recommend generating a list of positive (pattern should match) and negative (pattern shouldn’t match) test cases to ensure that you are matching the correct components.
+When writing regular expressions, I strongly recommend generating a list of positive (pattern should match) and negative (pattern shouldn't match) test cases to ensure that you are matching the correct components.
 
-## Functions that return lists
+### Functions that return lists
 
-Many of the functions return a list of vectors or matrices. To work with each element of the list there are two strategies: iterate through a common set of indices, or use `mapply` to iterate through the vectors simultaneously. The first approach is usually easier to understand and is illustrated below:
+Many of the functions return a list of vectors or matrices. To work with each element of the list there are two strategies: iterate through a common set of indices, or use `Map()` to iterate through the vectors simultaneously. The second strategy is illustrated below:
 
 ```{r}
-library(stringr)
 col2hex <- function(col) {
   rgb <- col2rgb(col)
   rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
@@ -159,17 +180,22 @@ str_extract_all(strings, colours)
 
 # Instead, let's work with locations
 locs <- str_locate_all(strings, colours)
-sapply(seq_along(strings), function(i) {
-  string <- strings[i]
-  loc <- locs[[i]]
-
-  # Convert colours to hex and replace
-  hex <- col2hex(str_sub(string, loc[, "start"], loc[, "end"]))
-  str_sub(string, loc[, "start"], loc[, "end"]) <- hex
+Map(function(string, loc) {
+  hex <- col2hex(str_sub(string, loc))
+  str_sub(string, loc) <- hex
   string
-})
+}, strings, locs)
 ```
 
-# Conclusion
+Another approach is to use the second form of `str_replace_all()`: if you give it a named vector, it applies each `pattern = replacement` in turn:
 
-`stringr` provides an opinionated interface to strings in R. It makes string processing simpler by removing uncommon options, and by vigorously enforcing consistency across functions. I have also added new functions that I have found useful from Ruby, and over time, I hope users will suggest useful functions from other programming languages. I will continue to build on the included test suite to ensure that the package behaves as expected and remains bug free.
+```{r}
+matches <- col2hex(colors())
+names(matches) <- str_c("\\b", colors(), "\\b")
+
+str_replace_all(strings, matches)
+```
+
+## Conclusion
+
+stringr provides an opinionated interface to strings in R. It makes string processing simpler by removing uncommon options, and by vigorously enforcing consistency across functions. I have also added new functions that I have found useful from Ruby, and over time, I hope users will suggest useful functions from other programming languages. I will continue to build on the included test suite to ensure that the package behaves as expected and remains bug free.
