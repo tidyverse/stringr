@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/hadley/stringr.png?branch=master)](https://travis-ci.org/hadley/stringr)
-
 # stringr
+
+[![Build Status](https://travis-ci.org/hadley/stringr.png?branch=master)](https://travis-ci.org/hadley/stringr)
 
 Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. 
 
