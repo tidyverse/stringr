@@ -6,6 +6,9 @@
   you string processing needs, I highly recommend looking at stringi in more
   detail.
 
+* stringr gains a vignette, currently a straight forward update of the article
+  that appeared in the R Journal.
+
 * `str_c()` now returns a zero length vector if any of its inputs are 
   zero length vectors. This is consistent with all other functions, and
   standard R recycling rules.

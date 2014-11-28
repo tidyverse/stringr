@@ -17,4 +17,6 @@ Imports:
     stringi,
     magrittr
 Suggests:
-    testthat
+    testthat,
+    knitr
+VignetteBuilder: knitr
