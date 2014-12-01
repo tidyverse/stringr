@@ -3,7 +3,7 @@
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
   instead of base R regular expressions. This improves unicode and support, and 
   makes most operations considerably faster.  If you find stringr inadequate for
-  you string processing needs, I highly recommend looking at stringi in more
+  your string processing needs, I highly recommend looking at stringi in more
   detail.
 
 * stringr gains a vignette, currently a straight forward update of the article
