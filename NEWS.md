@@ -11,7 +11,8 @@
 
 * `str_c()` now returns a zero length vector if any of its inputs are 
   zero length vectors. This is consistent with all other functions, and
-  standard R recycling rules.
+  standard R recycling rules. Similarly, using `str_c("x", NA)` now
+  yields `NA`. If you want `"xNA"`, use `str_replace_na()` on the inputs.
 
 * `str_replace_all()` gains a convenient syntax for applying multiple pairs of
   pattern and replacement to the same vector:

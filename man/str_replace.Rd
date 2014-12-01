@@ -51,6 +51,7 @@ str_replace_all(str_c(fruits, collapse = "---"),
  c("one" = 1, "two" = 2, "three" = 3))
 }
 \seealso{
-\code{\link{stri_replace}} for the underlying implementation.
+\code{str_replace_na} to turn missing values into "NA";
+  \code{\link{stri_replace}} for the underlying implementation.
 }
 

@@ -11,7 +11,8 @@
 #'   For \code{str_replace_all} only, you can multiple patterns and replacements
 #'   to each string, by passing a named character to \code{pattern}.
 #' @return A character vector.
-#' @seealso \code{\link{stri_replace}} for the underlying implementation.
+#' @seealso \code{str_replace_na} to turn missing values into "NA";
+#'   \code{\link{stri_replace}} for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c("one apple", "two pears", "three bananas")
@@ -77,4 +78,15 @@ str_replace_all <- function(string, pattern, replacement) {
 fix_replacement <- function(x) {
   stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"),
     vectorize_all = FALSE)
+}
+
+
+#' Turn NA into "NA"
+#'
+#' @inheritParams str_replace
+#' @export
+#' @examples
+#' str_replace_na(c("NA", "abc", "def"))
+str_replace_na <- function(string, replacement = "NA") {
+  stri_replace_na(string, replacement)
 }
