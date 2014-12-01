@@ -33,9 +33,9 @@ str_split <- function(string, pattern, n = Inf) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
-    empty = stri_split_boundaries(string,
+    empty = stri_split_boundaries(string, n_max = n, simplify = FALSE,
       opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string,
+    bound = stri_split_boundaries(string, n_max = n, simplify = FALSE,
       opts_brkiter = attr(pattern, "options")),
     fixed = stri_split_fixed(string, pattern, n_max = n, simplify = FALSE),
     regex = stri_split_regex(string, pattern, n_max = n, simplify = FALSE,
@@ -49,9 +49,9 @@ str_split <- function(string, pattern, n = Inf) {
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
   out <- switch(type(pattern),
-    empty = stri_split_boundaries(string,
+    empty = stri_split_boundaries(string, n_max = n, simplify = TRUE,
       opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string,
+    bound = stri_split_boundaries(string, n_max = n, simplify = TRUE,
       opts_brkiter = attr(pattern, "options")),
     fixed = stri_split_fixed(string, pattern, n_max = n, simplify = TRUE),
     regex = stri_split_regex(string, pattern, n_max = n, simplify = TRUE,
