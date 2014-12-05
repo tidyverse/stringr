@@ -4,3 +4,4 @@
 ^\.Rprofile$
 ^NEWS\.md$
 ^\.travis\.yml$
+^revdep$
