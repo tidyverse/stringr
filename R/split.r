@@ -33,14 +33,14 @@ str_split <- function(string, pattern, n = Inf) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
-    empty = stri_split_boundaries(string, n_max = n, simplify = FALSE,
+    empty = stri_split_boundaries(string, n = n, simplify = FALSE,
       opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string, n_max = n, simplify = FALSE,
+    bound = stri_split_boundaries(string, n = n, simplify = FALSE,
       opts_brkiter = attr(pattern, "options")),
-    fixed = stri_split_fixed(string, pattern, n_max = n, simplify = FALSE),
-    regex = stri_split_regex(string, pattern, n_max = n, simplify = FALSE,
+    fixed = stri_split_fixed(string, pattern, n = n, simplify = FALSE),
+    regex = stri_split_regex(string, pattern, n = n, simplify = FALSE,
       opts_regex = attr(pattern, "options")),
-    coll  = stri_split_coll(string, pattern, n_max = n, simplify = FALSE,
+    coll  = stri_split_coll(string, pattern, n = n, simplify = FALSE,
       opts_collator = attr(pattern, "options"))
   )
 }
@@ -49,14 +49,14 @@ str_split <- function(string, pattern, n = Inf) {
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
   out <- switch(type(pattern),
-    empty = stri_split_boundaries(string, n_max = n, simplify = TRUE,
+    empty = stri_split_boundaries(string, n = n, simplify = TRUE,
       opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string, n_max = n, simplify = TRUE,
+    bound = stri_split_boundaries(string, n = n, simplify = TRUE,
       opts_brkiter = attr(pattern, "options")),
-    fixed = stri_split_fixed(string, pattern, n_max = n, simplify = TRUE),
-    regex = stri_split_regex(string, pattern, n_max = n, simplify = TRUE,
+    fixed = stri_split_fixed(string, pattern, n = n, simplify = TRUE),
+    regex = stri_split_regex(string, pattern, n = n, simplify = TRUE,
       opts_regex = attr(pattern, "options")),
-    coll  = stri_split_coll(string, pattern, n_max = n, simplify = TRUE,
+    coll  = stri_split_coll(string, pattern, n = n, simplify = TRUE,
       opts_collator = attr(pattern, "options"))
   )
   out[is.na(out)] <- ""

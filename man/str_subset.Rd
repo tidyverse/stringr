@@ -39,6 +39,9 @@ str_subset(fruit, "^a")
 str_subset(fruit, "a$")
 str_subset(fruit, "b")
 str_subset(fruit, "[aeiou]")
+
+# Missings are silently dropped
+str_subset(c("a", NA, "b"), ".")
 }
 \seealso{
 \code{\link{grep}} with argument \code{value = TRUE},

@@ -54,7 +54,7 @@ test_that("n sets maximum number of splits in str_split", {
 test_that("n sets exact number of splits in str_split_fixed", {
   test <- "Subject: Roger: his drinking problems"
 
-  expect_that(ncol(str_split_fixed(test, ": ", 4)), equals(3))
+  expect_that(ncol(str_split_fixed(test, ": ", 4)), equals(4))
   expect_that(ncol(str_split_fixed(test, ": ", 3)), equals(3))
   expect_that(ncol(str_split_fixed(test, ": ", 2)), equals(2))
   expect_that(ncol(str_split_fixed(test, ": ", 1)), equals(1))
