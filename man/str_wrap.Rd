@@ -18,12 +18,11 @@ each paragraph}
 each paragraph}
 }
 \value{
-a character vector of reformatted strings.
+A character vector of re-wrapped strings.
 }
 \description{
-This is currently implemented as thin wrapper over \code{\link{strwrap}},
-but is vectorised over \code{stringr}, and collapses output into single
-strings.  See \code{\link{strwrap}} for more details.
+This is a wrapper around \code{\link[stringi]{stri_wrap}} which implements
+the Knuth-Plass paragraph wrapping algorithm.
 }
 \examples{
 thanks_path <- file.path(R.home("doc"), "THANKS")
