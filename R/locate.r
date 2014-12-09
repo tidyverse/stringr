@@ -27,8 +27,10 @@
 #' str_locate_all(fruit, "")
 str_locate <- function(string, pattern) {
   switch(type(pattern),
-    empty = ,
-    bound = stop("Not implemented", call. = FALSE),
+    empty = stri_locate_first_boundaries(string,
+      opts_brkiter = stri_opts_brkiter("character")),
+    bound = stri_locate_first_boundaries(string,
+      opts_brkiter = attr(pattern, "options")),
     fixed = stri_locate_first_fixed(string, pattern),
     coll  = stri_locate_first_coll(string, pattern,
       opts_collator = attr(pattern, "options")),
@@ -41,9 +43,9 @@ str_locate <- function(string, pattern) {
 #' @export
 str_locate_all <- function(string, pattern) {
   switch(type(pattern),
-    empty = stri_locate_boundaries(string,
+    empty = stri_locate_all_boundaries(string, omit_no_match = TRUE,
       opts_brkiter = stri_opts_brkiter("character")),
-    bound = stri_locate_boundaries(string,
+    bound = stri_locate_all_boundaries(string, omit_no_match = TRUE,
       opts_brkiter = attr(pattern, "options")),
     fixed = stri_locate_all_fixed(string, pattern, omit_no_match = TRUE),
     regex = stri_locate_all_regex(string, pattern,
