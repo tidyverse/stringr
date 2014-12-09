@@ -8,8 +8,9 @@
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
 #'
-#'   For \code{str_replace_all} only, you can multiple patterns and replacements
-#'   to each string, by passing a named character to \code{pattern}.
+#'   For \code{str_replace_all} only, you can perform multiple patterns and 
+#'   replacements to each string, by passing a named character to 
+#'   \code{pattern}.
 #' @return A character vector.
 #' @seealso \code{str_replace_na} to turn missing values into "NA";
 #'   \code{\link{stri_replace}} for the underlying implementation.
