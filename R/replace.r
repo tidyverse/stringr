@@ -8,7 +8,7 @@
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
 #'
-#'   For \code{str_replace_all} only, you can program multiple patterns and 
+#'   For \code{str_replace_all} only, you can perform multiple patterns and 
 #'   replacements to each string, by passing a named character to 
 #'   \code{pattern}.
 #' @return A character vector.
