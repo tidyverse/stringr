@@ -49,9 +49,9 @@ str_locate_all <- function(string, pattern) {
       opts_brkiter = attr(pattern, "options")),
     fixed = stri_locate_all_fixed(string, pattern, omit_no_match = TRUE),
     regex = stri_locate_all_regex(string, pattern,
-      omit_no_match = FALSE, opts_regex = attr(pattern, "options")),
+      omit_no_match = TRUE, opts_regex = attr(pattern, "options")),
     coll  = stri_locate_all_coll(string, pattern,
-      omit_no_match = FALSE, opts_collator = attr(pattern, "options"))
+      omit_no_match = TRUE, opts_collator = attr(pattern, "options"))
   )
 }
 
