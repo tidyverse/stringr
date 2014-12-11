@@ -8,7 +8,7 @@
 \alias{regex}
 \title{Control matching behaviour with modifier functions.}
 \usage{
-fixed(pattern)
+fixed(pattern, ignore_case = FALSE)
 
 coll(pattern, ignore_case = FALSE, locale = NULL, ...)
 
@@ -64,6 +64,7 @@ str_detect(strings, coll(pattern))
 # coll() is useful for locale-aware case-insensitive matching
 i <- c("I", "\\u0130", "i")
 i
+str_detect(i, fixed("i", TRUE))
 str_detect(i, coll("i", TRUE))
 str_detect(i, coll("i", TRUE, locale = "tr"))
 

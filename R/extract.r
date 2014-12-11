@@ -28,12 +28,13 @@
 str_extract <- function(string, pattern) {
   switch(type(pattern),
     empty = ,
-    bound = ,
-    fixed = stop("Not implemented", call. = FALSE),
+    bound = stop("Not implemented", call. = FALSE),
+    fixed = stri_extract_first_fixed(string, pattern,
+      opts_fixed = attr(pattern, "options")),
     coll  = stri_extract_first_coll(string, pattern,
       opts_collator = attr(pattern, "options")),
     regex = stri_extract_first_regex(string, pattern,
-      opts_regex = attr(pattern, "options")),
+      opts_regex = attr(pattern, "options"))
   )
 }
 
@@ -42,8 +43,9 @@ str_extract <- function(string, pattern) {
 str_extract_all <- function(string, pattern, simplify = FALSE) {
   switch(type(pattern),
     empty = ,
-    bound = ,
-    fixed = stop("Not implemented", call. = FALSE),
+    bound = stop("Not implemented", call. = FALSE),
+    fixed = stri_extract_all_fixed(string, pattern,
+      opts_fixed = attr(pattern, "options")),
     coll  = stri_extract_all_coll(string, pattern,
       simplify = simplify, omit_no_match = TRUE, attr(pattern, "options")),
     regex = stri_extract_all_regex(string, pattern,

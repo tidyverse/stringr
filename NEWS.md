@@ -38,8 +38,8 @@
   make it easier to locate the function you need.
 
 * `ignore.case(x)` has been deprecated in favour of 
-  `regexp(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in favour of
-  `regexp(x)`.
+  `fixed|regexp|coll(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in 
+  favour of `regexp(x)`.
 
 * `str_join()` is deprecated, please use `str_c()` instead.
 

@@ -8,8 +8,8 @@
 #'   \code{\2} will be replaced with the contents of the respective matched
 #'   group (created by \code{()}) within the pattern.
 #'
-#'   For \code{str_replace_all} only, you can perform multiple patterns and 
-#'   replacements to each string, by passing a named character to 
+#'   For \code{str_replace_all} only, you can perform multiple patterns and
+#'   replacements to each string, by passing a named character to
 #'   \code{pattern}.
 #' @return A character vector.
 #' @seealso \code{str_replace_na} to turn missing values into "NA";
@@ -44,7 +44,8 @@ str_replace <- function(string, pattern, replacement) {
   switch(type(pattern),
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
-    fixed = stri_replace_first_fixed(string, pattern, replacement),
+    fixed = stri_replace_first_fixed(string, pattern, replacement,
+      opts_fixed = attr(pattern, "options")),
     coll  = stri_replace_first_coll(string, pattern, replacement,
       opts_collator = attr(pattern, "options")),
     regex = stri_replace_first_regex(string, pattern, replacement,
@@ -68,7 +69,7 @@ str_replace_all <- function(string, pattern, replacement) {
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
-      vectorize_all = vec),
+      vectorize_all = vec, opts_fixed = attr(pattern, "options")),
     coll  = stri_replace_all_coll(string, pattern, replacement,
       vectorize_all = vec, opts_collator = attr(pattern, "options")),
     regex = stri_replace_all_regex(string, pattern, replacement,

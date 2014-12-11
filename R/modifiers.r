@@ -21,6 +21,7 @@
 #' # coll() is useful for locale-aware case-insensitive matching
 #' i <- c("I", "\u0130", "i")
 #' i
+#' str_detect(i, fixed("i", TRUE))
 #' str_detect(i, coll("i", TRUE))
 #' str_detect(i, coll("i", TRUE, locale = "tr"))
 #'
@@ -43,8 +44,14 @@ NULL
 
 #' @export
 #' @rdname modifiers
-fixed <- function(pattern) {
-  structure(pattern, class = c("fixed", "pattern", "character"))
+fixed <- function(pattern, ignore_case = FALSE) {
+  options <- stri_opts_fixed(case_insensitive = ignore_case)
+
+  structure(
+    pattern,
+    options = options,
+    class = c("fixed", "pattern", "character")
+  )
 }
 
 #' @export
@@ -133,8 +140,8 @@ NULL
 #' @export
 #' @rdname modifier-deprecated
 ignore.case <- function(string) {
-  message("Please use (regexp|coll)(x, ignore_case = TRUE) instead of ignore.case(x)")
-  regex(string, ignore_case = TRUE)
+  message("Please use (fixed|coll|regexp)(x, ignore_case = TRUE) instead of ignore.case(x)")
+  fixed(string, ignore_case = TRUE)
 }
 
 #' @export
