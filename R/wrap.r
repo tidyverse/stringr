@@ -20,6 +20,8 @@
 #' cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 #' cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 str_wrap <- function(string, width = 80, indent = 0, exdent = 0) {
+  if (width == 0) return(string)
+
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
     simplify = FALSE)
   vapply(out, str_c, collapse = "\n", character(1))

@@ -1,9 +1,7 @@
 library("devtools")
 
-with_libpaths(getOption("devtools.revdep.libpath"), {
-  install_github("Rexamine/stringi")
-})
-
 res <- revdep_check()
+
+install.packages("stringr", lib = "~/R-revdep")
 revdep_check_save_summary(res)
 revdep_check_save_logs(res)
