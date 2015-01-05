@@ -9,7 +9,8 @@ str_wrap(string, width = 80, indent = 0, exdent = 0)
 \arguments{
 \item{string}{character vector of strings to reformat.}
 
-\item{width}{positive integer giving target line width in characters.}
+\item{width}{positive integer giving target line width in characters. A
+width less than or equal to 1 will put each word on its own line.}
 
 \item{indent}{non-negative integer giving indentation of first line in
 each paragraph}
@@ -32,5 +33,6 @@ cat(str_wrap(thanks), "\\n")
 cat(str_wrap(thanks, width = 40), "\\n")
 cat(str_wrap(thanks, width = 60, indent = 2), "\\n")
 cat(str_wrap(thanks, width = 60, exdent = 2), "\\n")
+cat(str_wrap(thanks, width = 0, exdent = 2), "\\n")
 }
 
