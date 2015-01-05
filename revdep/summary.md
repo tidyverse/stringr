@@ -19,10 +19,10 @@
 |magrittr |*  |1.5     |2014-11-22 |CRAN (R 3.1.2) |
 |stringi  |*  |0.4-1   |2014-12-14 |CRAN (R 3.1.2) |
 |stringr  |*  |0.6.2   |2012-12-06 |CRAN (R 3.1.0) |
-|testthat |   |0.9.1   |2014-10-01 |CRAN (R 3.1.1) |
+|testthat |*  |0.9.1   |2014-10-01 |CRAN (R 3.1.1) |
 
 # Check results
-144 checked out of 144 dependencies 
+145 checked out of 145 dependencies 
 
 ## acs (1.2)
 Maintainer: Ezra Haber Glenn <eglenn@mit.edu>
@@ -106,9 +106,9 @@ Execution halted
 Maintainer: David Kahle <david.kahle@gmail.com>
 
 ```
-checking whether package ‘algstat’ can be installed ... [17s/17s] ERROR
+checking whether package ‘algstat’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/algstat.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/algstat.Rcheck/00install.out’ for details.
 ```
 
 ## alm (0.3.1)
@@ -185,7 +185,7 @@ Bug reports: https://github.com/richarddmorey/BayesFactor/issues
 ```
 checking whether package ‘BayesFactor’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/BayesFactor.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/BayesFactor.Rcheck/00install.out’ for details.
 ```
 
 ## beepr (1.1)
@@ -332,15 +332,15 @@ Maintainer: James Keirstead <j.keirstead@imperial.ac.uk>
 ```
 checking whether package ‘decctools’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/decctools.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/decctools.Rcheck/00install.out’ for details.
 ```
 
-## docopt (0.3)
+## docopt (0.4.2)
 Maintainer: Edwin de Jonge <edwindjonge@gmail.com>
 
 __OK__
 
-## dplR (1.6.1)
+## dplR (1.6.2)
 Maintainer: Andy Bunn <andy.bunn@wwu.edu>
 
 __OK__
@@ -351,7 +351,7 @@ Maintainer: John Waller <john.waller@biol.lu.se>
 ```
 checking whether package ‘EasyMARK’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/EasyMARK.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/EasyMARK.Rcheck/00install.out’ for details.
 ```
 
 ## eeptools (0.3.1)
@@ -1099,7 +1099,7 @@ Maintainer: Heewon Jeon <madjakarta@gmail.com>
 ```
 checking whether package ‘KoNLP’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/KoNLP.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/KoNLP.Rcheck/00install.out’ for details.
 ```
 
 ## LindenmayeR (0.1-0)
@@ -1149,7 +1149,7 @@ Maintainer: Rahul Premraj <r.premraj+mailR@gmail.com>
 ```
 checking whether package ‘mailR’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/mailR.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/mailR.Rcheck/00install.out’ for details.
 ```
 
 ## managelocalrepo (0.1.4)
@@ -1191,7 +1191,7 @@ Maintainer: David Kahle <david.kahle@gmail.com>
 ```
 checking whether package ‘mpoly’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/mpoly.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/mpoly.Rcheck/00install.out’ for details.
 ```
 
 ## mtk (1.0)
@@ -1537,7 +1537,7 @@ Bug reports: http://github.com/renozao/RcppOctave/issues
 ```
 checking whether package ‘RcppOctave’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/RcppOctave.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/RcppOctave.Rcheck/00install.out’ for details.
 ```
 
 ## rdryad (0.1.1)
@@ -1666,7 +1666,7 @@ Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
 __OK__
 
-## rNOMADS (2.0.4)
+## rNOMADS (2.1.1)
 Maintainer: Daniel C. Bowman <daniel.bowman@unc.edu>
 
 __OK__
@@ -1735,6 +1735,12 @@ checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘rCharts’
 ```
 
+## rUnemploymentData (1.0.0)
+Maintainer: Ari Lamstein <arilamstein@gmail.com>  
+Bug reports: https://github.com/trulia/choroplethr/issues
+
+__OK__
+
 ## ryouready (0.3)
 Maintainer: Mark Heckmann <heckmann@uni-bremen.de>
 
@@ -1802,7 +1808,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘spanr’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/spanr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/spanr.Rcheck/00install.out’ for details.
 ```
 
 ## spatsurv (0.9-8)
@@ -1837,7 +1843,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘srd’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/srd.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/srd.Rcheck/00install.out’ for details.
 ```
 
 ## ssh.utils (1.0)
@@ -1873,12 +1879,12 @@ stm v1.0.8 (2014-11-07) successfully loaded. See ?stm for help.
 Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
   Running 'texi2dvi' on 'stmVignette.tex' failed.
 LaTeX errors:
-es/stmVignette.tex:96: pdfTeX error (ext4): \pdfendlink ended up in different n
-esting level than \pdfstartlink.
+s/stmVignette.tex:96: pdfTeX error (ext4): \pdfendlink ended up in different ne
+sting level than \pdfstartlink.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.96 \end{itemize}
-es/stmVignette.tex:96:  ==> Fatal error occurred, no output PDF file produced!
+s/stmVignette.tex:96:  ==> Fatal error occurred, no output PDF file produced!
 Calls: buildVignettes -> texi2pdf -> texi2dvi
 Execution halted
 
@@ -1889,7 +1895,7 @@ Maintainer: Andrie de Vries <apdevries@gmail.com>
 
 __OK__
 
-## swirl (2.2.16)
+## swirl (2.2.21)
 Maintainer: Nick Carchedi <nick.carchedi@gmail.com>
 
 __OK__
@@ -2011,7 +2017,7 @@ Maintainer: Steven Pollack <steven@pollackphoto.net>
 
 __OK__
 
-## vardpoor (0.2.2)
+## vardpoor (0.2.4)
 Maintainer: Juris Breidaks <Juris.Breidaks@csb.gov.lv>  
 Bug reports: https://github.com/CSBLatvia/vardpoor/issues/
 
@@ -2084,7 +2090,7 @@ Maintainer: Tien T. Phan <phantien84@gmail.com>
 ```
 checking whether package ‘x.ent’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpTxZwOK/check_cranf1f0524c8660/x.ent.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/x.ent.Rcheck/00install.out’ for details.
 ```
 
 ## x12 (1.6.0)
