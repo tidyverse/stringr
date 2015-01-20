@@ -28,9 +28,7 @@
 str_left <-
 function(x, n = 1){
     x <- as.character(x)
-    begin <- 1
-    end <- begin + n - 1
-    substring(x, begin, end)
+    stri_sub(x, 1, length = n)
 }
 
 
@@ -40,7 +38,5 @@ function(x, n = 1){
 str_right <-
 function(x, n = 1){
     x <- as.character(x)
-    end <- nchar(x)
-    begin <- end - n + 1
-    substring(x, begin, end)
+    stri_sub(x, -n, length = n)
 }
