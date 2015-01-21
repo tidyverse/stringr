@@ -36,8 +36,8 @@ x <- c("abcde", "12345")
 Gerhard Nachtmann \email{kpm.nachtmann@gmail.com}
 }
 \seealso{
-\code{\link{substr}}, \code{\link{nchar}},
-\code{\link{str_sub}}
+\code{\link{stri_sub}}, \code{\link{str_sub}},
+         \code{\link{substr}}
 }
 \keyword{left}
 \keyword{right}

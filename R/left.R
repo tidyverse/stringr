@@ -13,8 +13,8 @@
 #' (\code{str_left}) or right-most (\code{str_right}) elements
 #' of \code{x}.
 #' @author Gerhard Nachtmann \email{kpm.nachtmann@@gmail.com}
-#' @seealso \code{\link{substr}}, \code{\link{nchar}},
-#' \code{\link{str_sub}}
+#' @seealso \code{\link{stri_sub}}, \code{\link{str_sub}},
+#'          \code{\link{substr}}
 #' @keywords left right
 #' @export
 #' @examples
@@ -27,7 +27,6 @@
 
 str_left <-
 function(x, n = 1){
-    x <- as.character(x)
     stri_sub(x, 1, length = n)
 }
 
@@ -37,6 +36,5 @@ function(x, n = 1){
 
 str_right <-
 function(x, n = 1){
-    x <- as.character(x)
     stri_sub(x, -n, length = n)
 }
