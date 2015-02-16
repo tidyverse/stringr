@@ -3,7 +3,7 @@ context("Test padding")
 test_that("long strings are unchanged", {
   lengths <- sample(40:100, 10)
   strings <- vapply(lengths, function(x)
-    str_c(letters[sample(26, x, rep = T)], collapse = ""),
+    str_c(letters[sample(26, x, replace = T)], collapse = ""),
     character(1))
 
   padded <- str_pad(strings, width = 30)
