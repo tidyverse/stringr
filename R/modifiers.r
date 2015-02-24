@@ -109,6 +109,9 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
                     skip_word_none = TRUE, ...) {
   type <- match.arg(type)
+
+  if (type != "word" & missingArg(skip_word_none)) skip_word_none <- FALSE
+
   options <- stri_opts_brkiter(
     type = type,
     skip_word_none = skip_word_none,
