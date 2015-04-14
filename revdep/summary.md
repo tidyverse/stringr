@@ -4,9 +4,9 @@
 
 |setting  |value                        |
 |:--------|:----------------------------|
-|version  |R version 3.1.2 (2014-10-31) |
+|version  |R version 3.1.3 (2015-03-09) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.104)           |
+|ui       |RStudio (0.99.380)           |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
@@ -15,14 +15,14 @@
 
 |package  |*  |version |date       |source         |
 |:--------|:--|:-------|:----------|:--------------|
-|knitr    |*  |1.8     |2014-11-11 |CRAN (R 3.1.2) |
+|knitr    |*  |1.9     |2015-01-20 |CRAN (R 3.1.2) |
 |magrittr |*  |1.5     |2014-11-22 |CRAN (R 3.1.2) |
 |stringi  |*  |0.4-1   |2014-12-14 |CRAN (R 3.1.2) |
-|stringr  |*  |0.6.2   |2012-12-06 |CRAN (R 3.1.0) |
-|testthat |*  |0.9.1   |2014-10-01 |CRAN (R 3.1.1) |
+|stringr  |*  |0.6.2   |2012-12-06 |CRAN (R 3.1.2) |
+|testthat |   |0.9.1   |2014-10-01 |CRAN (R 3.1.2) |
 
 # Check results
-145 checked out of 145 dependencies 
+155 checked out of 155 dependencies 
 
 ## acs (1.2)
 Maintainer: Ezra Haber Glenn <eglenn@mit.edu>
@@ -52,73 +52,21 @@ Maintainer: Imanuel Costigan <i.costigan@me.com>
 
 __OK__
 
-## afex (0.12-135)
+## afex (0.13-145)
 Maintainer: Henrik Singmann <singmann+afex@gmail.com>
 
-```
-checking examples ... ERROR
-Running examples in ‘afex-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: aov.car
-> ### Title: Convenience wrappers for car::Anova using either a formula or
-> ###   factor based interface.
-> ### Aliases: aov.car aov4 ez.glm univ
-> 
-> ### ** Examples
-> 
-> 
-> # Examples from a pureyl within-design from
-> # Maxwell & Delaney (2004, Chapter 11),
-> # Table 12.5 (p. 578):
-> data(md_12.1)
-> ez.glm("id", "rt", md_12.1, within = c("angle", "noise"), 
-+        args.return=list(correction = "none", es = "none"))
-       Effect    df     MSE         F      p
-1       angle 2, 18 3560.00 40.72 *** <.0001
-2       noise  1, 9 8460.00 33.77 ***  .0003
-3 angle:noise 2, 18 1160.00 45.31 *** <.0001
-> 
-> # Default output
-> ez.glm("id", "rt", md_12.1, within = c("angle", "noise"))       
-       Effect          df     MSE         F ges      p
-1       angle 1.92, 17.31 3702.02 40.72 *** .39 <.0001
-2       noise        1, 9 8460.00 33.77 *** .39  .0003
-3 angle:noise 1.81, 16.27 1283.22 45.31 *** .19 <.0001
-> 
-> 
-> # examples using obk.long (see ?obk.long), a long version of the OBrienKaiser dataset from car.
-> 
-> data(obk.long, package = "afex")
-> 
-> # run univariate mixed ANOVA for the full design:
-> aov.car(value ~ treatment * gender + Error(id/phase*hour), 
-+         data = obk.long, observed = "gender")
-Contrasts set to contr.sum for the following variables: treatment, gender
-Error in nice.anova(object = list(SSP = list(`(Intercept)` = 101389.655172414,  : 
-  Observed variable not in data: gender
-Calls: aov.car -> do.call -> nice.anova
-Execution halted
-```
+__OK__
 
 ## algstat (0.0.2)
 Maintainer: David Kahle <david.kahle@gmail.com>
 
-```
-checking whether package ‘algstat’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/algstat.Rcheck/00install.out’ for details.
-```
+__OK__
 
-## alm (0.3.1)
+## alm (0.4.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/alm/issues
 
-```
-checking package dependencies ... NOTE
-Package which this enhances but not available for checking: ‘rCharts’
-```
+__OK__
 
 ## AnDE (1.0)
 Maintainer: Sai Teja Ranuva <ranuva.teja@gmail.com>
@@ -134,8 +82,6 @@ Packages in Depends field not imported from:
   ‘discretization’ ‘foreign’ ‘functional’ ‘stringr’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -144,12 +90,12 @@ mdl: no visible global function definition for ‘cutPoints’
 setVar: no visible global function definition for ‘Compose’
 ```
 
-## aqp (1.7-7)
+## aqp (1.8)
 Maintainer: Dylan Beaudette <debeaudette@ucdavis.edu>
 
 ```
 checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘soilDB’
+Packages suggested but not available for checking: ‘soilDB’ ‘compositions’
 ```
 ```
 checking examples ... ERROR
@@ -172,20 +118,22 @@ Calls: data -> find.package
 Execution halted
 ```
 
-## BatchJobs (1.5)
+## BatchJobs (1.6)
 Maintainer: Bernd Bischl <bernd_bischl@gmx.net>  
 Bug reports: https://github.com/tudo-r/BatchJobs/issues
 
 __OK__
 
-## BayesFactor (0.9.9)
+## BayesFactor (0.9.11-1)
 Maintainer: Richard D. Morey <richarddmorey@gmail.com>  
 Bug reports: https://github.com/richarddmorey/BayesFactor/issues
 
 ```
-checking whether package ‘BayesFactor’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/BayesFactor.Rcheck/00install.out’ for details.
+checking package dependencies ... ERROR
+Package required but not available: ‘RcppEigen’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## beepr (1.1)
@@ -212,20 +160,43 @@ Maintainer: Steven Pollack <steven@pollackphoto.net>
 
 __OK__
 
+## broom (0.3.6)
+Maintainer: David Robinson <admiral.david@gmail.com>  
+Bug reports: http://github.com/dgrtwo/broom/issues
+
+__OK__
+
 ## Causata (4.2-0)
 Maintainer: Justin Hemann <justinh@causata.com>
 
 ```
-checking package dependencies ... ERROR
-Package required but not available: ‘RMySQL’
-
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘integration_tests’
+```
+```
+checking R code for possible problems ... NOTE
+GetMetadata.Connect: no visible global function definition for
+  ‘dbGetQuery’
+GetRawData.Connect: no visible global function definition for
+  ‘dbGetQuery’
+```
+```
+checking line endings in Makefiles ... NOTE
+Found the following Makefile(s) without a final LF:
+  inst/doc/Makefile
+Some ‘make’ programs ignore lines not ending in LF.
+```
+```
+checking files in ‘vignettes’ ... NOTE
+The following files look like leftovers/mistakes:
+  ‘Causata-vignette.log’
+Please remove them from your package.
 ```
 
-## choroplethr (2.1.1)
+## choroplethr (3.0.0)
 Maintainer: Ari Lamstein <arilamstein@gmail.com>  
-Bug reports: https://github.com/trulia/choroplethr/issues
+Bug reports: https://github.com/arilamstein/choroplethr/issues
 
 __OK__
 
@@ -234,7 +205,7 @@ Maintainer: Emanuele Eccel <emanuele.eccel@fmach.it>
 
 __OK__
 
-## CLME (2.0-1)
+## CLME (2.0-2)
 Maintainer: Casey M. Jelsema <casey.jelsema@nih.gov>  
 Bug reports: https://github.com/jelsema/CLME/issues
 
@@ -246,7 +217,7 @@ Bug reports: https://github.com/cancercentrum/commentr/issues
 
 __OK__
 
-## COPASutils (0.1.5)
+## COPASutils (0.1.6)
 Maintainer: Erik Andersen <erik.andersen@northwestern.edu>
 
 __OK__
@@ -260,8 +231,6 @@ Packages in Depends field not imported from:
   ‘XML’ ‘stringr’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -323,17 +292,13 @@ Bug reports: https://github.com/yhat/db.r/issues
 
 ```
 checking package dependencies ... NOTE
-Packages suggested but not available for checking: ‘RPostgreSQL’ ‘RMySQL’
+Package suggested but not available for checking: ‘RPostgreSQL’
 ```
 
 ## decctools (0.2.0)
 Maintainer: James Keirstead <j.keirstead@imperial.ac.uk>
 
-```
-checking whether package ‘decctools’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/decctools.Rcheck/00install.out’ for details.
-```
+__OK__
 
 ## docopt (0.4.2)
 Maintainer: Edwin de Jonge <edwindjonge@gmail.com>
@@ -343,7 +308,10 @@ __OK__
 ## dplR (1.6.2)
 Maintainer: Andy Bunn <andy.bunn@wwu.edu>
 
-__OK__
+```
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘Biobase’
+```
 
 ## EasyMARK (1.0)
 Maintainer: John Waller <john.waller@biol.lu.se>
@@ -351,7 +319,7 @@ Maintainer: John Waller <john.waller@biol.lu.se>
 ```
 checking whether package ‘EasyMARK’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/EasyMARK.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/EasyMARK.Rcheck/00install.out’ for details.
 ```
 
 ## eeptools (0.3.1)
@@ -362,7 +330,7 @@ checking R code for possible problems ... NOTE
 moves_calc: no visible binding for global variable ‘id’
 ```
 
-## enaR (2.8)
+## enaR (2.8.1)
 Maintainer: Matthew K. Lau <enaR.maintainer@gmail.com>
 
 __OK__
@@ -375,8 +343,9 @@ checking R code for possible problems ... NOTE
 eqs2lavaan: no visible binding for global variable ‘r’
 ```
 
-## evaluate (0.5.5)
-Maintainer: Yihui Xie <xie@yihui.name>
+## evaluate (0.6)
+Maintainer: Yihui Xie <xie@yihui.name>  
+Bug reports: https://github.com/hadley/evaluate/issues
 
 __OK__
 
@@ -389,8 +358,6 @@ Packages in Depends field not imported from:
   ‘ape’ ‘geiger’ ‘seqinr’ ‘stringr’ ‘taxize’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -421,6 +388,13 @@ __OK__
 ## fbRanks (2.0)
 Maintainer: E Holmes <eeholmes@u.washington.edu>
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘RCurl’ ‘RJSONIO’ ‘XML’ ‘glmnet’ ‘httr’ ‘speedglm’ ‘tcltk’ ‘xtable’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 print.fbRanks: no visible global function definition for ‘xtable’
@@ -581,51 +555,20 @@ team.name.select: no visible global function definition for
   ‘tkwait.window’
 ```
 
-## FRESA.CAD (1.0)
+## fitbitScraper (0.1.2)
+Maintainer: Cory Nissen <corynissen@gmail.com>
+
+__OK__
+
+## FRESA.CAD (2.0.2)
 Maintainer: Jose Gerardo Tamez-Pena <jose.tamezpena@itesm.mx>
 
 ```
-checking examples ... ERROR
-Running examples in ‘FRESA.CAD-Ex.R’ failed
-The error most likely occurred in:
+checking package dependencies ... ERROR
+Package required but not available: ‘RcppArmadillo’
 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: rankInverseNormalDataFrame
-> ### Title: Performs a Z transformation of the data using the Rank Inverse
-> ###   Normal Transform
-> ### Aliases: rankInverseNormalDataFrame
-> ### Keywords: Data_Conditioning
-> 
-> ### ** Examples
-> 
-> ## Use the Prostate cancer data
-> require(rpart)
-Loading required package: rpart
-> data(stagec)
-> dataCancer <- stagec[complete.cases(stagec),]
-> ## List the variables to rank inverse
-> varlist <- data.frame(c("g2","grade"),c("cells in G2 phase","tumor grade"))
-> ## Set the group of no progression
-> noProgress <- subset(dataCancer,pgstat==0)
-> ## Rank the variables
-> CancerZTransform <- rankInverseNormalDataFrame(varlist,dataCancer,noProgress)
- Variable:  g2 Min:  -13.74673  Max:  72.52673 
- Variable:  grade Min:  -0.0820667  Max:  4.082067 
-> ## show the heatmap
-> x <- heatMaps (varlist,outcome='pgstat',dataframe=CancerZTransform,outcomeGain=4)
-Loading required package: gplots
-
-Attaching package: ‘gplots’
-
-The following object is masked from ‘package:stats’:
-
-    lowess
-
-Loading required package: RColorBrewer
-Error in stri_locate_first_regex(string, pattern, opts_regex = attr(pattern,  : 
-  Incorrectly nested parentheses in regexp pattern. (U_REGEX_MISMATCHED_PAREN)
-Calls: heatMaps -> str_locate -> stri_locate_first_regex -> .Call
-Execution halted
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## fslr (1.3)
@@ -639,21 +582,36 @@ Maintainer: Nikolai Gorte <n.gorte@gmail.com>
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘osmar’ ‘frbs’
+Packages required but not available: ‘osmar’ ‘frbs’ ‘rgeos’ ‘rgdal’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
-## games (1.1-1)
+## games (1.1.2)
 Maintainer: Brenton Kenkel <brenton.kenkel@gmail.com>
 
 __OK__
 
-## geotopbricks (1.3.5.4)
+## genderizeR (1.0.0)
+Maintainer: Kamil Wais <kamil.wais@gmail.com>  
+Bug reports: https://github.com/kalimu/genderizeR
+
+```
+checking Rd cross-references ... NOTE
+Package unavailable to check Rd xrefs: ‘sortinghat’
+```
+
+## geotopbricks (1.3.6)
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 
-__OK__
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘rgdal’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
 
 ## gfcanalysis (1.2)
 Maintainer: Alex Zvoleff <azvoleff@conservation.org>  
@@ -661,100 +619,27 @@ Bug reports: https://github.com/azvoleff/gfcanalysis/issues
 
 ```
 checking package dependencies ... ERROR
-Package required but not available: ‘rasterVis’
+Packages required but not available: ‘rgdal’ ‘rgeos’ ‘rasterVis’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## GGally (0.5.0)
 Maintainer: Barret Schloerke <schloerke@gmail.com>
 
-```
-checking dependencies in R code ... NOTE
-No Java runtime present, requesting install.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
+__OK__
 
-## ggmap (2.3)
-Maintainer: David Kahle <david.kahle@gmail.com>
+## ggenealogy (0.1.0)
+Maintainer: Lindsay Rutter <lrutter@iastate.edu>
 
-```
-checking DESCRIPTION meta-information ... NOTE
-License components which are templates and need '+ file LICENSE':
-  MIT
-```
-```
-checking dependencies in R code ... NOTE
-Package in Depends field not imported from: ‘ggplot2’
-  These packages need to be imported from (in the NAMESPACE file)
-  for when this namespace is loaded but not attached.
-Unexported objects imported by ':::' calls:
-  ‘ggplot2:::Geom’ ‘ggplot2:::Position’ ‘ggplot2:::Stat’
-  ‘ggplot2:::is.constant’ ‘ggplot2:::rename_aes’
-  ‘plyr:::list_to_dataframe’
-  See the note in ?`:::` about the use of this operator.
-There are ::: calls to the package's namespace in its code. A package
-  almost never needs to use ::: for its own objects:
-  ‘annotation_raster’
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
-```
-checking R code for possible problems ... NOTE
-ggimage: no visible global function definition for ‘ggplot’
-ggimage: no visible global function definition for ‘aes’
-ggimage: no visible global function definition for ‘geom_blank’
-ggimage: no visible global function definition for ‘scale_x_continuous’
-ggimage: no visible global function definition for ‘scale_y_continuous’
-gglocator: no visible global function definition for ‘last_plot’
-ggmap: no visible global function definition for ‘ggplot’
-ggmap: no visible global function definition for ‘aes’
-ggmap: no visible global function definition for ‘geom_blank’
-ggmap: no visible global function definition for ‘annotate’
-ggmap: no visible global function definition for ‘geom_tile’
-ggmap: no visible global function definition for ‘scale_fill_identity’
-ggmap: no visible global function definition for ‘xlim’
-ggmap: no visible global function definition for ‘ylim’
-ggmap: no visible global function definition for ‘coord_map’
-ggmap: no visible global function definition for ‘scale_x_continuous’
-ggmap: no visible global function definition for ‘scale_y_continuous’
-ggmap: no visible global function definition for ‘theme’
-ggmap: no visible global function definition for ‘element_rect’
-qmplot: no visible global function definition for ‘ggplot’
-qmplot: no visible global function definition for ‘annotate’
-qmplot: no visible global function definition for ‘coord_map’
-qmplot: no visible global function definition for ‘scale_x_continuous’
-qmplot: no visible global function definition for ‘scale_y_continuous’
-qmplot: no visible global function definition for ‘theme’
-qmplot: no visible global function definition for ‘element_rect’
-qmplot: no visible global function definition for ‘facet_null’
-qmplot: no visible global function definition for ‘facet_wrap’
-qmplot: no visible global function definition for ‘facet_grid’
-qmplot : <anonymous>: no visible global function definition for ‘layer’
-theme_inset: no visible global function definition for ‘theme_get’
-theme_inset: no visible global function definition for ‘element_blank’
-theme_nothing: no visible global function definition for ‘theme’
-theme_nothing: no visible global function definition for
-  ‘element_blank’
-```
-```
-checking Rd line widths ... NOTE
-Rd file 'get_cloudmademap.Rd':
-  \usage lines wider than 90 characters:
-       get_cloudmademap(bbox = c(left = -95.80204, bottom = 29.38048, right = -94.92313, top = 30.14344),
+__OK__
 
-Rd file 'get_openstreetmap.Rd':
-  \usage lines wider than 90 characters:
-       get_openstreetmap(bbox = c(left = -95.80204, bottom = 29.38048, right = -94.92313, top = 30.14344),
+## ggmap (2.4)
+Maintainer: David Kahle <david.kahle@gmail.com>  
+Bug reports: https://github.com/dkahle/ggmap/issues
 
-Rd file 'get_stamenmap.Rd':
-  \usage lines wider than 90 characters:
-       get_stamenmap(bbox = c(left = -95.80204, bottom = 29.38048, right = -94.92313, top = 30.14344),
-
-These lines will be truncated in the PDF manual.
-```
+__OK__
 
 ## ggsubplot (0.3.2)
 Maintainer: Garrett Grolemund <garrett@rstudio.com>
@@ -765,49 +650,58 @@ __OK__
 Maintainer: Keaven Anderson <keaven_anderson@merck.com>
 
 ```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Loading required package: gsDesign
-Loading required package: ggplot2
-Loading required package: xtable
-Loading required package: stringr
-Loading required package: RUnit
-Loading required package: plyr
-Quitting from lines 146-147 (gsSurvTemplate.rnw) 
-Error: processing vignette 'gsSurvTemplate.rnw' failed with diagnostics:
-Missing closing bracket on a bracket expression. (U_REGEX_MISSING_CLOSE_BRACKET)
-Execution halted
-
+checking line endings in Makefiles ... NOTE
+Found the following Makefile(s) without a final LF:
+  inst/unitTests/Makefile
+Some ‘make’ programs ignore lines not ending in LF.
 ```
 
-## GSIF (0.4-3)
+## gsheet (0.1.0)
+Maintainer: Max Conway <conway.max1@gmail.com>  
+Bug reports: https://github.com/maxconway/gsheet/issues
+
+__OK__
+
+## GSIF (0.4-4)
 Maintainer: Tomislav Hengl <tom.hengl@wur.nl>
 
 ```
 checking package dependencies ... ERROR
 Packages required but not available:
-  ‘RSAGA’ ‘dismo’ ‘aqp’ ‘plotKML’ ‘gstat’ ‘quantregForest’
+  ‘RSAGA’ ‘dismo’ ‘rgdal’ ‘aqp’ ‘plotKML’
 
 Packages suggested but not available for checking:
-  ‘soiltexture’ ‘fossil’ ‘AICcmodavg’ ‘SDMTools’ ‘spacetime’
-  ‘gdalUtils’
+  ‘soiltexture’ ‘spatstat’ ‘quantregForest’ ‘fossil’ ‘gdalUtils’
+  ‘maxlike’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## HistogramTools (0.3.1)
 Maintainer: Murray Stokely <mstokely@google.com>
 
-__OK__
+```
+checking package dependencies ... NOTE
+Package which this enhances but not available for checking: ‘RProtoBuf’
+```
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘RProtoBuf’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
+```
+checking Rd cross-references ... NOTE
+Package unavailable to check Rd xrefs: ‘RProtoBuf’
+```
 
 ## hoardeR (0.0-2)
 Maintainer: Daniel Fischer <daniel.fischer@mtt.fi>
 
 __OK__
 
-## htmlTable (1.0)
+## htmlTable (1.2)
 Maintainer: Max Gordon <max@gforge.se>  
 Bug reports: https://github.com/gforge/htmlTable/issues
 
@@ -823,7 +717,8 @@ The error most likely occurred in:
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 > ### Name: htmlTable
 > ### Title: Outputting HTML tables
-> ### Aliases: htmlTable htmlTable.default print.htmlTable
+> ### Aliases: htmlTable htmlTable.default knit_print.htmlTable
+> ###   print.htmlTable
 > 
 > ### ** Examples
 > 
@@ -834,24 +729,25 @@ The error most likely occurred in:
 +                                  list("Column 1", "Column 2")))
 > htmlTable(output)
 <table class='gmisc_table' style='border-collapse: collapse;' >
-	<thead>
-	<tr>
-		<th style='border-bottom: 1px solid grey; border-top: 2px solid grey;'> </th>
-		<th style='border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Column 1</th>
-		<th style='border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Column 2</th>
-	</tr>
-	</thead><tbody>
-	<tr>
-		<td style='text-align: left;'>Row 1</td>
-		<td style='text-align: center;'>1</td>
-		<td style='text-align: center;'>3</td>
-	</tr>
-	<tr>
-		<td style='border-bottom: 2px solid grey; text-align: left;'>Row 2</td>
-		<td style='border-bottom: 2px solid grey; text-align: center;'>2</td>
-		<td style='border-bottom: 2px solid grey; text-align: center;'>4</td>
-	</tr>
-	</tbody>
+<thead>
+<tr>
+<th style='border-bottom: 1px solid grey; border-top: 2px solid grey;'> </th>
+<th style='border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Column 1</th>
+<th style='border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='text-align: left;'>Row 1</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>3</td>
+</tr>
+<tr>
+<td style='border-bottom: 2px solid grey; text-align: left;'>Row 2</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>2</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>4</td>
+</tr>
+</tbody>
 </table>> 
 > # An advanced output
 > output <-
@@ -899,8 +795,6 @@ Maintainer: Hadley Wickham <hadley@rstudio.com>
 checking dependencies in R code ... NOTE
 Namespace in Imports field not imported from: ‘R6’
   All declared Imports should be used.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 
 ## indicoio (0.3)
@@ -908,11 +802,14 @@ Maintainer: Madison May <madison@indico.io>
 
 __OK__
 
-## io (0.2.1)
+## io (0.2.2)
 Maintainer: David J. H. Shih <djh.shih@gmail.com>  
 Bug reports: https://bitbucket.org/djhshih/io/issues
 
-__OK__
+```
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘rhdf5’
+```
 
 ## ISOweek (0.6-2)
 Maintainer: Uwe Block <u.block.mz@googlemail.com>
@@ -922,184 +819,25 @@ checking Rd cross-references ... NOTE
 Package unavailable to check Rd xrefs: ‘surveillance’
 ```
 
-## knitr (1.8)
+## knitr (1.9)
 Maintainer: Yihui Xie <xie@yihui.name>  
 Bug reports: https://github.com/yihui/knitr/issues
 
-```
-checking examples ... ERROR
-Running examples in ‘knitr-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: Sweave2knitr
-> ### Title: Convert Sweave to knitr documents
-> ### Aliases: Sweave2knitr
-> 
-> ### ** Examples
-> 
-> Sweave2knitr(text = "<<echo=TRUE>>=")  # this is valid
-[1] "<<echo=TRUE>>="
-> Sweave2knitr(text = "<<png=true>>=")  # dev='png'
-capitalizing true/false to TRUE/FALSE:
-    * png=true
-replacing pdf/jpeg/png/tikz=TRUE with dev='pdf'/'jpeg'/'png'/'tikz':
-    * png=TRUE
-[1] "<<dev='png'>>="
-> Sweave2knitr(text = "<<eps=TRUE, pdf=FALSE, results=tex, width=5, prefix.string=foo>>=")
-removing pdf/jpeg/png/eps/tikz=FALSE:
-    * eps=TRUE, pdf=FALSE, results=tex, width=5, prefix.string=foo
-replacing eps=TRUE with dev='postscript':
-    * eps=TRUE, , results=tex, width=5, prefix.string=foo
-replacing results=tex with results=asis:
-    * dev='postscript', , results=tex, width=5, prefix.string=foo
-quoting the results option:
-    * dev='postscript', , results=asis, width=5, prefix.string=foo
-replacing width/height with fig.width/fig.height:
-    * dev='postscript', , results='asis', width=5, prefix.string=foo
-replacing prefix.string=foo with fig.path='foo':
-    * dev='postscript', , results='asis', fig.width=5,
-      prefix.string=foo
-[1] "<<dev='postscript', results='asis', fig.width=5, fig.path='foo'>>="
-> Sweave2knitr(text = "<<,png=false,fig=TRUE>>=")
-capitalizing true/false to TRUE/FALSE:
-    * ,png=false,fig=TRUE
-removing the unnecessary option fig=TRUE:
-    * ,png=FALSE,fig=TRUE
-removing pdf/jpeg/png/eps/tikz=FALSE:
-    * ,png=FALSE,
-[1] "<<>>="
-> Sweave2knitr(text = "\\SweaveOpts{echo=false}")
-capitalizing true/false to TRUE/FALSE:
-    * echo=false
-changing \SweaveOpts{} to opts_chunk$set():
-    * \SweaveOpts{echo=false}
-[1] "\n<<include=FALSE>>=\nlibrary(knitr)\nopts_chunk$set(\necho=FALSE\n)\n@\n"
-> Sweave2knitr(text = "\\SweaveInput{hello.Rnw}")
-replacing \SweaveInput{...} with <<child='...'>>=:
-    * \SweaveInput{hello.Rnw}
-[1] "\n<<'child-hello.Rnw', child='hello.Rnw'>>=\n@\n"
-> # Sweave example in utils
-> testfile = system.file("Sweave", "Sweave-test-1.Rnw", package = "utils")
-> Sweave2knitr(testfile, output = "Sweave-test-knitr.Rnw")
-capitalizing true/false to TRUE/FALSE:
-    * fig=true
-removing the unnecessary option fig=TRUE:
-    * fig=TRUE
-    * fig=TRUE
-quoting the results option:
-    * results=hide
-removing options 'print', 'term', 'prefix':
-    * print=TRUE
-    * echo=TRUE,print=TRUE
-capitalizing true/false to TRUE/FALSE:
-    * echo=true
-changing \SweaveOpts{} to opts_chunk$set():
-    * \SweaveOpts{echo=FALSE}
-    * \SweaveOpts{echo=true}
-removing extra lines (#n shows line numbers):
-    * (#69) @
-> knit("Sweave-test-knitr.Rnw")  # or knit2pdf() directly
-Warning: closing unused connection 3 (/Library/Frameworks/R.framework/Resources/library/utils/Sweave/Sweave-test-1.Rnw)
-
-
-processing file: Sweave-test-knitr.Rnw
-
-  |                                                                       
-  |                                                                 |   0%
-  |                                                                       
-  |....                                                             |   6%
-  ordinary text without R code
-
-
-  |                                                                       
-  |.......                                                          |  11%
-label: unnamed-chunk-1 (with options) 
-List of 1
- $ include: logi FALSE
-
-
-  |                                                                       
-  |...........                                                      |  17%
-  ordinary text without R code
-
-
-  |                                                                       
-  |..............                                                   |  22%
-label: unnamed-chunk-2
-
-  |                                                                       
-  |..................                                               |  28%
-label: unnamed-chunk-3 (with options) 
-List of 1
- $ results: chr "hide"
-
-
-  |                                                                       
-  |......................                                           |  33%
-  ordinary text without R code
-
-
-  |                                                                       
-  |.........................                                        |  39%
-label: unnamed-chunk-4 (with options) 
-List of 1
- $ echo: logi TRUE
-
-
-  |                                                                       
-  |.............................                                    |  44%
-  ordinary text without R code
-
-
-  |                                                                       
-  |................................                                 |  50%
-label: unnamed-chunk-5
-
-  |                                                                       
-  |....................................                             |  56%
-   inline R code fragments
-
-
-  |                                                                       
-  |........................................                         |  61%
-label: unnamed-chunk-6 (with options) 
-List of 1
- $ include: logi FALSE
-
-
-  |                                                                       
-  |...........................................                      |  67%
-  ordinary text without R code
-
-
-  |                                                                       
-  |...............................................                  |  72%
-label: unnamed-chunk-7
-
-  |                                                                       
-  |...................................................              |  78%
-  ordinary text without R code
-
-
-  |                                                                       
-  |......................................................           |  83%
-label: unnamed-chunk-8
-Quitting from lines 68-70 (Sweave-test-knitr.Rnw) 
-Error in stri_split_regex(string, pattern, n = n, simplify = FALSE, opts_regex = attr(pattern,  : 
-  Missing closing bracket on a bracket expression. (U_REGEX_MISSING_CLOSE_BRACKET)
-Calls: knit ... <Anonymous> -> str_split -> stri_split_regex -> .Call
-
-Execution halted
-```
+__OK__
 
 ## KoNLP (0.76.9)
 Maintainer: Heewon Jeon <madjakarta@gmail.com>
 
 ```
-checking whether package ‘KoNLP’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/KoNLP.Rcheck/00install.out’ for details.
+checking dependencies in R code ... NOTE
+Package in Depends field not imported from: ‘Sejong’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+':::' call which should be '::': ‘rJava:::.jniInitialized’
+  See the note in ?`:::` about the use of this operator.
+There are ::: calls to the package's namespace in its code. A package
+  almost never needs to use ::: for its own objects:
+  ‘.KoNLPEnv’
 ```
 
 ## LindenmayeR (0.1-0)
@@ -1111,8 +849,6 @@ checking dependencies in R code ... NOTE
 Package in Depends field not imported from: ‘grid’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -1140,17 +876,13 @@ Bug reports: https://github.com/hadley/lubridate/issues
 
 ```
 checking package dependencies ... NOTE
-Package which this enhances but not available for checking: ‘fts’
+Packages which this enhances but not available for checking: ‘its’ ‘fts’
 ```
 
-## mailR (0.3)
+## mailR (0.4.1)
 Maintainer: Rahul Premraj <r.premraj+mailR@gmail.com>
 
-```
-checking whether package ‘mailR’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/mailR.Rcheck/00install.out’ for details.
-```
+__OK__
 
 ## managelocalrepo (0.1.4)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -1160,6 +892,13 @@ __OK__
 ## MARSS (3.9)
 Maintainer: Elizabeth Holmes - NOAA Federal <eli.holmes@noaa.gov>
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘Hmisc’ ‘stringr’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 build.eqn.tex: no visible global function definition for ‘str_detect’
@@ -1185,18 +924,182 @@ toLatex.marssMODEL: no visible global function definition for
   ‘str_replace’
 ```
 
+## MazamaSpatialUtils (0.2.3)
+Maintainer: Jonathan Callahan <jonathan.s.callahan@gmail.com>
+
+```
+checking package dependencies ... ERROR
+Packages required but not available: ‘rgdal’ ‘rgeos’
+
+Package suggested but not available for checking: ‘ISOcodes’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
 ## mpoly (0.0.5)
 Maintainer: David Kahle <david.kahle@gmail.com>
 
 ```
-checking whether package ‘mpoly’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/mpoly.Rcheck/00install.out’ for details.
+checking examples ... ERROR
+Running examples in ‘mpoly-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: mp
+> ### Title: Define a multivariate polynomial.
+> ### Aliases: mp
+> 
+> ### ** Examples
+> 
+> ( m <- mp('x + y + x y') )
+x  +  y  +  x y
+> is.mpoly( m )
+[1] TRUE
+> unclass(m)
+[[1]]
+   x coef 
+   1    1 
+
+[[2]]
+   y coef 
+   1    1 
+
+[[3]]
+   x    y coef 
+   1    1    1 
+
+> 
+> mp('x - y')
+x  -  y
+> mp('x - 1')
+x  -  1
+> mp('x +      y')
+x  +  y
+> mp('x -      5')
+x  -  5
+> mp('x - -5')
+x  +  5
+> mp('10 x 6 x') # -> 60 x^2
+60 x^2
+> mp('10 x 6 x + 10 x 6 x y y 2') # -> 60 x^2  +  120 x^2 y^2
+60 x^2  +  120 x^2 y^2
+> 
+> mp('x^2 + x^2 y') # -> x^2  +  x^2 y
+x^2  +  x^2 y
+> 
+> mp('x - x') # -> 0
+0
+> mp('x - 4 x') # -> -3 x
+-3 x
+> mp('x y^2 - y^2 x') # -> 0
+0
+> 
+> mp('5^2') # -> 25
+25
+> mp('2^2 x + 5^2 + 3^2') # -> 4 x  +  34
+4 x  +  34
+> mp('1 1') # -> 1
+1
+> mp('-1 -1 -1') # -> 1
+-1
+> mp('1  3 5^2 + 2 3^4 x') # -> 75  + 162 x
+75  +  162 x
+> mp("x - 2 x -3") # 7 x
+7 x
+> 
+> ( ms <- mp(c('x + y', '2 x')) )
+x  +  y
+2 x
+> is.mpolyList(ms)
+[1] TRUE
+> 
+> mp('10 x + 2 y 3 + x^2 5 y') # -> 10 x  +  6 y  +  5 x^2 y
+10 x  +  6 y  +  5 x^2 y
+> mp('x + 2 y + x^2 y + x y z') # -> x  +  2 y  +  x^2 y  +  x y z
+x  +  2 y  +  x^2 y  +  x y z
+> mp('x + 2 y + x^2 y + x y z', varorder = c('y', 'z', 'x')) # -> x  +  2 y  +  y  +  y z x
+x  +  2 y  +  y x^2  +  y z x
+> #mp('x + 2 y + x^2 y', varorder = c('q', 'p')) # -> error
+> 
+> mp('p111 + p121 2 p112^2')
+p111  +  2 p121 p112^2
+> unclass(mp('p111 + p121 2 p112^2'))
+[[1]]
+p111 coef 
+   1    1 
+
+[[2]]
+p121 p112 coef 
+   1    2    2 
+
+> 
+> mp('0')
+0
+> mp('2')
+2
+> mp('-5')
+-5
+> mp('-4 x')
+-4 x
+> mp('y + -1 x')
+y  -  x
+> mp('-1 + x')
+-1  +  x
+> 
+> mp("(x)")
+x
+> mp("((((x))))")
+x
+> mp("(x + 0)")
+x
+> mp("(x + 1)")
+x  +  1
+> mp("(x - 1)")
+x  -  1
+> mp("(-1 x - 1)")
+-1 x  -  1
+> mp("2 (x + 1)")
+2 x  +  2
+> mp("-1 (x + 1)")
+-1 x  -  1
+> 
+> 
+> string <- "-2 x + -1 x (3 x - (7 - 2 x)) 7 (x + 1) -3"
+> mp(string)
+-149 x  +  105 x^3  -  42 x^2
+> # note that in the above problem, the -3 on the end is
+> # times negative 3, not minus 3; that would be "... - 3"
+> 
+> mp("(x + 1) (x - 1)")
+x^2  -  1
+> mp("(x + 1) (x + 2)")
+x^2  +  3 x  +  2
+> mp("(x + 1)^5")
+x^5  +  5 x^4  +  10 x^3  +  10 x^2  +  5 x  +  1
+> mp("x + 1")^5
+x^5  +  5 x^4  +  10 x^3  +  10 x^2  +  5 x  +  1
+> mp("3 (x + 1) (x + 2)^2")
+3 x^3  +  15 x^2  +  24 x  +  12
+> 
+> mp("(x + y) (x - y)")
+x^2  -  y^2
+> mp("((x + y) (x - y))^2")
+Error in while (str_detect(fLP, "--")) { : 
+  missing value where TRUE/FALSE needed
+Calls: mp ... lapply -> FUN -> Reduce -> lapply -> as.list -> bubble
+Execution halted
 ```
 
 ## mtk (1.0)
 Maintainer: Juhui WANG <Juhui.Wang@jouy.inra.fr>
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘MASS’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 plmm.mtk: no visible global function definition for ‘stepAIC’
@@ -1232,10 +1135,19 @@ Bug reports: http://github.com/renozao/NMF/issues
 
 ```
 checking package dependencies ... NOTE
-Packages suggested but not available for checking: ‘RcppOctave’ ‘doMPI’
+Packages suggested but not available for checking:
+  ‘RcppOctave’ ‘doMPI’ ‘Biobase’
+```
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘Biobase’ ‘bigmemory’ ‘devtools’ ‘knitr’ ‘synchronicity’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
 ```
 ```
 checking R code for possible problems ... NOTE
+.wrapResult: no visible global function definition for ‘exprs’
 devnmf: no visible global function definition for ‘load_all’
 nmfReport: no visible global function definition for ‘knit2html’
 posICA: no visible binding for global variable ‘fastICA’
@@ -1247,7 +1159,14 @@ test.match_atrack : .check: no visible global function definition for
 ```
 ```
 checking Rd cross-references ... NOTE
-Package unavailable to check Rd xrefs: ‘RcppOctave’
+Packages unavailable to check Rd xrefs: ‘Biobase’, ‘RcppOctave’
+```
+```
+checking data for non-ASCII characters ... NOTE
+  Error in .requirePackage(package) : 
+    unable to find required package 'Biobase'
+  Calls: <Anonymous> ... .extendsForS3 -> extends -> getClassDef -> .requirePackage
+  Execution halted
 ```
 ```
 checking examples ... ERROR
@@ -1285,12 +1204,7 @@ Execution halted
 ## OpenRepGrid (0.1.9)
 Maintainer: Mark Heckmann <heckmann@uni-bremen.de>
 
-```
-checking dependencies in R code ... NOTE
-No Java runtime present, requesting install.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
+__OK__
 
 ## optiRum (0.35)
 Maintainer: Stephanie Locke <stephanie.locke@optimumcredit.co.uk>  
@@ -1318,24 +1232,70 @@ Maintainer: Yi Tang <yi.tang.uk@me.com>
 
 __OK__
 
-## P2C2M (0.5)
+## P2C2M (0.6)
 Maintainer: Michael Gruenstaeudl <gruenstaeudl.1@osu.edu>
 
 ```
-checking package dependencies ... ERROR
-Packages required but not available: ‘apTreeshape’ ‘rPython’
-
+checking package dependencies ... NOTE
 Packages suggested but not available for checking:
-  ‘genealogicalSorting’ ‘phybase’ ‘Rmpi’ ‘xtermStyle’
+  ‘genealogicalSorting’ ‘phybase’ ‘Rmpi’
+```
+```
+checking data for non-ASCII characters ... NOTE
+  Note: found 490 marked UTF-8 strings
+```
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+## patchSynctex (0.1-0)
+Maintainer: Emmanuel Charpentier <emm.charpentier@free.fr>
+
+__OK__
+
+## pathological (0.0-3)
+Maintainer: Richard Cotton <richierocks@gmail.com>
+
+```
+checking examples ... ERROR
+Running examples in ‘pathological-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: decompose_path
+> ### Title: Split a path into its components
+> ### Aliases: decompose_path get_extension recompose_path
+> ###   recompose_path.decomposed_path replace_extension strip_extension
+> 
+> ### ** Examples
+> 
+> x <- c(
++   "somedir/foo.tgz",         # single extension
++   "another dir\\bar.tar.gz", # double extension
++   "baz",                     # no extension
++   "quux. quuux.tbz2",        # single ext, dots in filename
++   R.home(),                  # a dir
++   "~",                       # another dir
++   "~/quuuux.tar.xz",         # a file in a dir
++   "",                        # empty
++   ".",                       # current dir
++   "..",                      # parent dir
++   NA_character_              # missing
++ )
+> (decomposed <- decompose_path(x))
+Error in stri_match_first_regex(string, pattern, opts_regex = attr(pattern,  : 
+  Missing closing bracket on a bracket expression. (U_REGEX_MISSING_CLOSE_BRACKET)
+Calls: decompose_path -> str_match -> stri_match_first_regex -> .Call
+Execution halted
 ```
 
 ## PepPrep (1.1.0)
 Maintainer: Rafael Dellen <Rafael.Dellen@uni-duesseldorf.de>
 
-__OK__
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘biomaRt’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
 
 ## pkgmaker (0.22)
 Maintainer: Renaud Gaujoux <renaud@tx.technion.ac.il>  
@@ -1344,6 +1304,13 @@ Bug reports: http://github.com/renozao/pkgmaker/issues
 ```
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘ReportingTools’
+```
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘argparse’ ‘devtools’ ‘knitr’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -1377,24 +1344,37 @@ write_PACKAGES_index: no visible global function definition for
   ‘finish’
 ```
 
-## plotKML (0.4-8)
+## plotKML (0.5-0)
 Maintainer: Tomislav Hengl <tom.hengl@wur.nl>
 
 ```
 checking package dependencies ... ERROR
 Packages required but not available:
-  ‘spacetime’ ‘dismo’ ‘aqp’ ‘colorRamps’ ‘gstat’ ‘RSAGA’
+  ‘rgdal’ ‘dismo’ ‘aqp’ ‘colorRamps’ ‘RSAGA’
 
 Packages suggested but not available for checking:
-  ‘adehabitat’ ‘fossil’ ‘spcosa’ ‘rgbif’ ‘GSIF’ ‘intervals’ ‘gdalUtils’
+  ‘adehabitat’ ‘fossil’ ‘spcosa’ ‘spatstat’ ‘rgbif’ ‘GSIF’ ‘gdalUtils’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
+
+## plotROC (1.3.3)
+Maintainer: Michael C Sachs <sachsmc@gmail.com>  
+Bug reports: http://github.com/sachsmc/plotROC/issues
+
+__OK__
 
 ## polywog (0.4-0)
 Maintainer: Brenton Kenkel <brenton.kenkel@gmail.com>
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘lattice’ ‘rgl’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 plot.preplot.polywog: no visible global function definition for
@@ -1410,6 +1390,12 @@ __OK__
 Maintainer: Hadley Wickham <h.wickham@gmail.com>  
 Bug reports: https://github.com/hadley/profr/issues
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘ggplot2’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 ggplot.profr: no visible global function definition for ‘ggplot’
@@ -1428,14 +1414,7 @@ Bug reports: https://github.com/johnmyleswhite/ProjectTemplate/issues
 
 ```
 checking package dependencies ... NOTE
-Packages suggested but not available for checking:
-  ‘RMySQL’ ‘RODBC’ ‘RPostgreSQL’
-```
-```
-checking dependencies in R code ... NOTE
-No Java runtime present, requesting install.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+Packages suggested but not available for checking: ‘RODBC’ ‘RPostgreSQL’
 ```
 
 ## pryr (0.1)
@@ -1461,25 +1440,21 @@ read.px: no visible global function definition for ‘str_sub’
 read.px: no visible global function definition for ‘str_length’
 ```
 
-## pxweb (0.5.3)
+## pxweb (0.5.5)
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>  
 Bug reports: https://github.com/rOpenGov/pxweb/issues
+
+__OK__
+
+## QCAtools (0.1)
+Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>
 
 __OK__
 
 ## quipu (1.9.0)
 Maintainer: Reinhard Simon <R.SIMON@CGIAR.ORG>
 
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Quitting from lines 95-96 (Quipu_tutorial.Rnw) 
-Error: processing vignette 'Quipu_tutorial.Rnw' failed with diagnostics:
-Missing closing bracket on a bracket expression. (U_REGEX_MISSING_CLOSE_BRACKET)
-Execution halted
-
-```
+__OK__
 
 ## rattle (3.4.1)
 Maintainer: Graham Williams <Graham.Williams@togaware.com>
@@ -1487,8 +1462,8 @@ Maintainer: Graham Williams <Graham.Williams@togaware.com>
 ```
 checking package dependencies ... NOTE
 Packages suggested but not available for checking:
-  ‘RGtk2’ ‘cairoDevice’ ‘gWidgetsRGtk2’ ‘playwith’ ‘rggobi’
-  ‘RGtk2Extras’ ‘RODBC’ ‘pkgDepTools’
+  ‘RGtk2’ ‘cairoDevice’ ‘graph’ ‘gWidgetsRGtk2’ ‘playwith’ ‘RBGL’
+  ‘rggobi’ ‘RGtk2Extras’ ‘RODBC’ ‘pkgDepTools’ ‘Rgraphviz’
 ```
 ```
 checking installed package size ... NOTE
@@ -1497,6 +1472,17 @@ checking installed package size ... NOTE
     data   2.1Mb
     etc    2.5Mb
     po     1.2Mb
+```
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘Hmisc’ ‘RBGL’ ‘RGtk2’ ‘RGtk2Extras’ ‘ROCR’ ‘RODBC’ ‘Rgraphviz’ ‘XML’
+  ‘ada’ ‘arules’ ‘bitops’ ‘cairoDevice’ ‘colorspace’ ‘e1071’ ‘fBasics’
+  ‘foreign’ ‘fpc’ ‘graph’ ‘grid’ ‘kernlab’ ‘methods’ ‘nnet’
+  ‘pkgDepTools’ ‘pmml’ ‘randomForest’ ‘reshape’ ‘rggobi’ ‘rpart’
+  ‘stats’ ‘survival’ ‘utils’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -1512,17 +1498,23 @@ event one is needed.
 Maintainer: Sara Varela <svarela@paleobiogeography.org>  
 Bug reports: https://github.com/ropensci/rAvis/issues
 
-__OK__
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘rgdal’
 
-## RbioRXN (1.3.1)
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
+## RbioRXN (1.5)
 Maintainer: Byoungnam Min <mbnmbn00@gmail.com>
 
 ```
 checking package dependencies ... ERROR
-Package required but not available: ‘fmcsR’
+Packages required but not available: ‘fmcsR’ ‘ChemmineR’ ‘KEGGREST’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## rClinicalCodes (1.0.1)
@@ -1537,7 +1529,7 @@ Bug reports: http://github.com/renozao/RcppOctave/issues
 ```
 checking whether package ‘RcppOctave’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/RcppOctave.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/RcppOctave.Rcheck/00install.out’ for details.
 ```
 
 ## rdryad (0.1.1)
@@ -1546,8 +1538,9 @@ Bug reports: https://github.com/ropensci/rdryad/issues
 
 __OK__
 
-## redcapAPI (1.1)
-Maintainer: Benjamin Nutter <nutterb@ccf.org>
+## redcapAPI (1.3)
+Maintainer: Stephen Lane <stephen.lane@barwonhealth.org.au>  
+Bug reports: https://github.com/nutterb/redcapAPI/issues
 
 __OK__
 
@@ -1559,10 +1552,16 @@ checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘RODBC’
 ```
 ```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘RODBC’ ‘testthat’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
+```
 checking tests ... ERROR
 Running the tests in ‘tests/test-all.R’ failed.
 Last 13 lines of output:
-                 character()
              else names(CURLcodeValues)[i]
          }
          typeName = gsub("^CURLE_", "", typeName)
@@ -1571,21 +1570,22 @@ Last 13 lines of output:
          else warning)
          fun(structure(list(message = msg, call = sys.call()), class = c(typeName, "GenericCurlError", 
              "error", "condition")))
-     }(35L, "Unknown SSL protocol error in connection to bbmc.ouhsc.edu:-9800", TRUE)
+     }(35L, "SSL peer handshake failed, the server most likely requires a client certificate to connect", 
+         TRUE)
   
   Error: Test failures
   Execution halted
 ```
 
-## RefManageR (0.8.40)
+## RefManageR (0.8.45)
 Maintainer: Mathew W. McLean <mathew.w.mclean@gmail.com>
 
 ```
 checking foreign function calls ... NOTE
 Foreign function call to a different package:
   .External("do_read_bib", ..., PACKAGE = "bibtex")
-See the chapter ‘System and foreign language interfaces’ of the
-‘Writing R Extensions’ manual.
+See chapter ‘System and foreign language interfaces’ in the ‘Writing R
+Extensions’ manual.
 ```
 
 ## reportRx (1.0)
@@ -1605,9 +1605,20 @@ Bug reports: https://github.com/andrie/rfordummies/issues
 
 __OK__
 
-## rgbif (0.7.7)
+## rgbif (0.8.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgbif/issues
+
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘rgeos’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
+## RGENERATEPREC (1.0)
+Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 
 __OK__
 
@@ -1652,6 +1663,12 @@ Maintainer: Renaud Gaujoux <renaud@tx.technion.ac.il>
 Bug reports: http://github.com/renozao/rngtools/issues
 
 ```
+checking dependencies in R code ... NOTE
+'library' or 'require' call to ‘parallel’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
+```
 checking R code for possible problems ... NOTE
 RNGseq : <anonymous>: no visible global function definition for
   ‘nextRNGStream’
@@ -1664,9 +1681,15 @@ checkRNG: no visible global function definition for ‘checkTrue’
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
-__OK__
+```
+checking package dependencies ... ERROR
+Packages required but not available: ‘rgdal’ ‘rgeos’
 
-## rNOMADS (2.1.1)
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
+## rNOMADS (2.1.3)
 Maintainer: Daniel C. Bowman <daniel.bowman@unc.edu>
 
 __OK__
@@ -1674,16 +1697,16 @@ __OK__
 ## rnrfa (0.1.5)
 Maintainer: Claudia Vitolo <cvitolodev@gmail.com>
 
-__OK__
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘rgdal’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
 
 ## roxygen2 (4.1.0)
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
-
-__OK__
-
-## rplos (0.4.1)
-Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
-Bug reports: http://www.github.com/ropensci/rplos/issues
 
 __OK__
 
@@ -1699,8 +1722,7 @@ Maintainer: Chuang Ma <chuangma2006@gmail.com>
 ```
 checking package dependencies ... ERROR
 Packages required but not available:
-  ‘biwt’ ‘cairoDevice’ ‘gWidgets’ ‘gWidgetsRGtk2’ ‘minerva’ ‘parmigene’
-  ‘snowfall’
+  ‘biwt’ ‘cairoDevice’ ‘gWidgetsRGtk2’ ‘minerva’ ‘parmigene’
 
 Package suggested but not available for checking: ‘ctc’
 
@@ -1710,17 +1732,34 @@ Depends: includes the non-default packages:
 Adding so many packages to the search path is excessive and importing
 selectively is preferable.
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
-## RSiteCatalyst (1.4.2)
+## RSiteCatalyst (1.4.3)
 Maintainer: Randy Zwitch <rzwitch+rsitecatalyst@gmail.com>  
 Bug reports: https://github.com/randyzwitch/RSiteCatalyst
 
-__OK__
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  4: expect_output(SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", "")), "Authentication Succeeded.") at test-scauth.R:6
+  5: expect_that(object, prints_text(regexp, ...), info = info, label = label)
+  6: condition(object)
+  7: evaluate_promise(expr, print = TRUE)
+  8: with_sink(temp, withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler))
+  9: withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler)
+  10: withVisible(code)
+  11: SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", ""))
+  12: stop("Authentication failed due to errors")
+  
+  Error: Test failures
+  In addition: There were 50 or more warnings (use warnings() to see the first 50)
+  Execution halted
+```
 
-## rsnps (0.1.0)
+## rsnps (0.1.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rsnps/issues
 
@@ -1750,8 +1789,6 @@ Packages in Depends field not imported from:
   ‘car’ ‘stringr’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -1768,15 +1805,15 @@ Maintainer: James Keirstead <j.keirstead@imperial.ac.uk>
 
 __OK__
 
-## sdcTable (0.17.1)
+## sdcTable (0.18.0)
 Maintainer: Bernhard Meindl <bernhard.meindl@statistik.gv.at>
 
 ```
 checking package dependencies ... ERROR
 Packages required but not available: ‘Rglpk’ ‘lpSolveAPI’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## selectr (0.2-3)
@@ -1790,17 +1827,11 @@ Maintainer: Xiaowei Zhan <zhanxw@gmail.com>
 
 __OK__
 
-## simPH (1.2.4)
+## simPH (1.3)
 Maintainer: Christopher Gandrud <christopher.gandrud@gmail.com>  
 Bug reports: https://github.com/christophergandrud/simPH/issues
 
-```
-checking package dependencies ... ERROR
-Package required and available but unsuitable version: ‘stringr’
-
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
+__OK__
 
 ## spanr (1.0)
 Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
@@ -1808,13 +1839,16 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘spanr’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/spanr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/spanr.Rcheck/00install.out’ for details.
 ```
 
 ## spatsurv (0.9-8)
 Maintainer: Benjamin M. Taylor <b.taylor1@lancaster.ac.uk>
 
-__OK__
+```
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘rgdal’
+```
 
 ## sqliter (0.1.0)
 Maintainer: Wilson Freitas <wilson.freitas@gmail.com>
@@ -1828,13 +1862,14 @@ Bug reports: https://github.com/jbryer/sqlutils/issues
 ```
 checking package dependencies ... NOTE
 Packages which this enhances but not available for checking:
-  ‘RPostgreSQL’ ‘RODBC’ ‘RMySQL’
+  ‘RPostgreSQL’ ‘RODBC’
 ```
 ```
 checking dependencies in R code ... NOTE
-No Java runtime present, requesting install.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+'library' or 'require' calls in package code:
+  ‘RJDBC’ ‘RMySQL’ ‘RODBC’ ‘RPostgreSQL’ ‘RSQLite’ ‘tcltk’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
 ```
 
 ## srd (1.0)
@@ -1843,7 +1878,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘srd’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/srd.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/srd.Rcheck/00install.out’ for details.
 ```
 
 ## ssh.utils (1.0)
@@ -1856,7 +1891,7 @@ Maintainer: Mike Malecki <Mike.Malecki@yougov.com>
 
 __OK__
 
-## statar (0.1.2)
+## statar (0.1.3)
 Maintainer: Matthieu Gomez <mattg@princeton.edu>  
 Bug reports: https://github.com/matthieugomez/statar/issues
 
@@ -1868,26 +1903,6 @@ Maintainer: Brandon Stewart <bstewart@fas.harvard.edu>
 ```
 checking dependencies in R code ... NOTE
 Missing or unexported object: ‘tm::meta’
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-stm v1.0.8 (2014-11-07) successfully loaded. See ?stm for help.
-Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
-  Running 'texi2dvi' on 'stmVignette.tex' failed.
-LaTeX errors:
-s/stmVignette.tex:96: pdfTeX error (ext4): \pdfendlink ended up in different ne
-sting level than \pdfstartlink.
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.96 \end{itemize}
-s/stmVignette.tex:96:  ==> Fatal error occurred, no output PDF file produced!
-Calls: buildVignettes -> texi2pdf -> texi2dvi
-Execution halted
-
 ```
 
 ## surveydata (0.1-14)
@@ -1903,6 +1918,13 @@ __OK__
 ## taRifx (1.0.6)
 Maintainer: Ari B. Friedman <abfriedman@gmail.com>
 
+```
+checking dependencies in R code ... NOTE
+'library' or 'require' calls in package code:
+  ‘gdata’ ‘ggplot2’ ‘grid’ ‘lattice’ ‘xtable’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+```
 ```
 checking R code for possible problems ... NOTE
 autoplot.microbenchmark: no visible global function definition for
@@ -1984,19 +2006,15 @@ __OK__
 Maintainer: Boris P. Hejblum <boris.hejblum@isped.u-bordeaux2.fr>
 
 ```
-checking R code for possible problems ... NOTE
-TcGSA.LR.parallel: no visible global function definition for
-  ‘makeCluster’
-TcGSA.LR.parallel: no visible global function definition for
-  ‘registerDoSNOW’
-TcGSA.LR.parallel: no visible global function definition for ‘%dopar%’
-TcGSA.LR.parallel: no visible global function definition for ‘foreach’
-TcGSA.LR.parallel: no visible global function definition for
-  ‘stopCluster’
+checking package dependencies ... ERROR
+Package required but not available: ‘multtest’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
-## tikzDevice (0.7.0)
-Maintainer: Kirill Mueller <mail@kirill-mueller.de>  
+## tikzDevice (0.8.1)
+Maintainer: Kirill Müller <krlmlr+r@mailbox.org>  
 Bug reports: https://github.com/yihui/tikzDevice/issues
 
 __OK__
@@ -2005,9 +2023,18 @@ __OK__
 Maintainer: Bernd Bischl <bernd_bischl@gmx.net>  
 Bug reports: https://github.com/berndbischl/tspmeta/issues
 
-__OK__
+```
+checking S3 generic/method consistency ... WARNING
+tour_length:
+  function(x, ...)
+tour_length.tsp_instance:
+  function(x, order)
 
-## tumblR (1.0)
+See section ‘Generic functions and methods’ in the ‘Writing R
+Extensions’ manual.
+```
+
+## tumblR (1.1)
 Maintainer: Andrea Capozio <andreacapozio@gmail.com>
 
 __OK__
@@ -2017,7 +2044,7 @@ Maintainer: Steven Pollack <steven@pollackphoto.net>
 
 __OK__
 
-## vardpoor (0.2.4)
+## vardpoor (0.2.8)
 Maintainer: Juris Breidaks <Juris.Breidaks@csb.gov.lv>  
 Bug reports: https://github.com/CSBLatvia/vardpoor/issues/
 
@@ -2029,7 +2056,7 @@ Bug reports: https://github.com/talassio/vetools/issues
 
 __OK__
 
-## vows (0.3)
+## vows (0.4)
 Maintainer: Philip Reiss <phil.reiss@nyumc.org>
 
 __OK__
@@ -2047,8 +2074,6 @@ checking dependencies in R code ... NOTE
 Package in Depends field not imported from: ‘parallel’
   These packages need to be imported from (in the NAMESPACE file)
   for when this namespace is loaded but not attached.
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
 ```
 ```
 checking R code for possible problems ... NOTE
@@ -2074,24 +2099,27 @@ File ‘wsrf/libs/wsrf.so’:
       ‘random_forests.o’
 
 Compiled code should not call entry points which might terminate R nor
-write to stdout/stderr instead of to the console, nor the C RNG.
+write to stdout/stderr instead of to the console, nor the system RNG.
 
 See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
 ```
 
-## wux (1.2-2)
+## wux (2.0-0)
 Maintainer: Thomas Mendlik <thomas.mendlik@uni-graz.at>
 
+```
+checking package dependencies ... ERROR
+Packages required but not available: ‘ncdf’ ‘rgdal’ ‘rgeos’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
+## x.ent (1.1.2)
+Maintainer: Tien T. Phan <phantien84@gmail.com>  
+Bug reports: https://github.com/tienpt/x.ent/issues
+
 __OK__
-
-## x.ent (1.0.6)
-Maintainer: Tien T. Phan <phantien84@gmail.com>
-
-```
-checking whether package ‘x.ent’ can be installed ... ERROR
-Installation failed.
-See ‘/private/tmp/Rtmpt0cEnG/check_crand447fed5470/x.ent.Rcheck/00install.out’ for details.
-```
 
 ## x12 (1.6.0)
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>
@@ -2105,11 +2133,11 @@ Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>
 checking package dependencies ... ERROR
 Packages required but not available: ‘x12’ ‘RGtk2’ ‘cairoDevice’
 
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
-## yhatr (0.13.2)
+## yhatr (0.13.4)
 Maintainer: Greg Lamp <greg@yhathq.com>
 
 __OK__
