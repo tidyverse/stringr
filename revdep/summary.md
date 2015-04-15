@@ -297,32 +297,7 @@ __OK__
 ## docopt (0.4.2)
 Maintainer: Edwin de Jonge <edwindjonge@gmail.com>
 
-```
-checking examples ... ERROR
-Running examples in ‘docopt-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: docopt
-> ### Title: Parse 'args' based on command-line interface described in 'doc'.
-> ### Aliases: docopt
-> 
-> ### ** Examples
-> 
-> "Usage: my_program.R [-hso FILE] [--quiet | --verbose] [INPUT ...]
-+ 
-+ -h --help    show this
-+ -s --sorted  sorted output
-+ -o FILE      specify output file [default: ./test.txt]
-+ --quiet      print less text
-+ --verbose    print more text" -> doc
-> docopt(doc, "-s --quiet")
-perl is deprecated. Please use regexp instead
-perl is deprecated. Please use regexp instead
-Error in parse_long(tokens, optionlist) :  is specified ambigously
-Calls: docopt -> parse_args -> parse_long -> <Anonymous>
-Execution halted
-```
+__OK__
 
 ## dplR (1.6.2)
 Maintainer: Andy Bunn <andy.bunn@wwu.edu>
@@ -338,7 +313,7 @@ Maintainer: John Waller <john.waller@biol.lu.se>
 ```
 checking whether package ‘EasyMARK’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/EasyMARK.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpPgHCED/check_cran46f2570a2e67/EasyMARK.Rcheck/00install.out’ for details.
 ```
 
 ## eeptools (0.3.1)
@@ -585,7 +560,7 @@ Maintainer: Jose Gerardo Tamez-Pena <jose.tamezpena@itesm.mx>
 ```
 checking whether package ‘FRESA.CAD’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/FRESA.CAD.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpPgHCED/check_cran46f2570a2e67/FRESA.CAD.Rcheck/00install.out’ for details.
 ```
 
 ## fslr (1.3)
@@ -826,24 +801,6 @@ Bug reports: https://bitbucket.org/djhshih/io/issues
 ```
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘rhdf5’
-```
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  7 string mismatches
-  
-  2. Failure(@/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/io.Rcheck/tests/testthat/helper.R#71): write-and-read does not change data 
-  x not equal to y
-  Names: 2 string mismatches
-  
-  3. Failure(@/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/io.Rcheck/tests/testthat/helper.R#91): write to text connection does not change content 
-  inlines not equal to textlines
-  Lengths (7, 8) differ (string compare on first 7)
-  7 string mismatches
-  
-  Error: Test failures
-  Execution halted
 ```
 
 ## ISOweek (0.6-2)
@@ -1230,10 +1187,9 @@ The error most likely occurred in:
 > res <- nmf(V, 3)
 > 
 > basismap(res)
-Error in ccPalette(x, ...) : 
-  Invalid palette name '': should be an RColorBrewer palette or one of 'RdYlBu2', 'rainbow', 'heat', 'topo', 'terrain', 'cm', 'gray', 'grey'.
-  Available RColorBrewer palettes: 'BrBG', 'PiYG', 'PRGn', 'PuOr', 'RdBu', 'RdGy', 'RdYlBu', 'RdYlGn', 'Spectral', 'Accent', 'Dark2', 'Paired', 'Pastel1', 'Pastel2', 'Set1', 'Set2', 'Set3', 'Blues', 'BuGn', 'BuPu', 'GnBu', 'Greens', 'Greys', 'Oranges', 'OrRd', 'PuBu', 'PuBuGn', 'PuRd', 'Purples', 'RdPu', 'Reds', 'YlGn', 'YlGnBu', 'YlOrBr', 'YlOrRd'.
-Calls: basismap ... basismap -> .local -> aheatmap -> ccRamp -> ccPalette
+Error in process_tracks(x, tracks, annRow, annCol) : 
+  Invalid special annotation track name ['basis']. Should partially match one of 'basis', ':basis', 'basis:'.
+Calls: basismap -> basismap -> .local -> process_tracks
 Execution halted
 ```
 
@@ -1565,7 +1521,7 @@ Bug reports: http://github.com/renozao/RcppOctave/issues
 ```
 checking whether package ‘RcppOctave’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/RcppOctave.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpPgHCED/check_cran46f2570a2e67/RcppOctave.Rcheck/00install.out’ for details.
 ```
 
 ## rdryad (0.1.1)
@@ -1850,24 +1806,7 @@ manual.
 Maintainer: Simon Potter <simon@sjp.co.nz>  
 Bug reports: https://github.com/sjp/selectr/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  y[1]: "Element[]"
-  
-  
-  
-  Z. Failure(@test-pseudo.R#36): parser parses canonical pseudo element expressions 
-  parse_one("*") not equal to list("Element[*]", NULL)
-  Component 1: 1 string mismatch
-  
-  Error: Test failures
-  In addition: Warning message:
-  In mapply(FUN = f, ..., SIMPLIFY = FALSE) :
-    longer argument not a multiple of length of shorter
-  Execution halted
-```
+__OK__
 
 ## seqminer (3.4)
 Maintainer: Xiaowei Zhan <zhanxw@gmail.com>
@@ -1886,7 +1825,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘spanr’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/spanr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpPgHCED/check_cran46f2570a2e67/spanr.Rcheck/00install.out’ for details.
 ```
 
 ## spatsurv (0.9-8)
@@ -1925,7 +1864,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘srd’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpPgHCED/check_cran46f22e9b2abb/srd.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpPgHCED/check_cran46f2570a2e67/srd.Rcheck/00install.out’ for details.
 ```
 
 ## ssh.utils (1.0)

@@ -8,6 +8,7 @@
 #' @return For \code{str_match}, a character matrix. First column is the
 #'   complete match, followed by one column for each capture group.
 #'   For \code{str_match_all}, a list of character matrices.
+#'
 #' @seealso \code{\link{str_extract}} to extract the complete match,
 #'   \code{\link[stringi]{stri_match}} for the underlying
 #'   implementation.
@@ -25,10 +26,17 @@
 #' # Extract/match all
 #' str_extract_all(strings, phone)
 #' str_match_all(strings, phone)
+#'
+#' x <- c("<a> <b>", "<a> <>", "<a>", "", NA)
+#' str_match(x, "<(.*?)> <(.*?)>")
+#' str_match_all(x, "<(.*?)>")
+#'
+#' str_extract(x, "<.*?>")
+#' str_extract_all(x, "<.*?>")
 str_match <- function(string, pattern) {
   switch(type(pattern),
     regex = stri_match_first_regex(string, pattern,
-      opts_regex = attr(pattern, "options"), cg_missing = ""),
+      opts_regex = attr(pattern, "options")),
     stop("Can only match regular expressions", call. = FALSE)
   )
 }
@@ -38,8 +46,9 @@ str_match <- function(string, pattern) {
 str_match_all <- function(string, pattern) {
   switch(type(pattern),
     regex = stri_match_all_regex(string, pattern,
-      omit_no_match = TRUE, opts_regex = attr(pattern, "options"),
-      cg_missing = ""),
+      cg_missing = "",
+      omit_no_match = TRUE,
+      opts_regex = attr(pattern, "options")),
     stop("Can only match regular expressions", call. = FALSE)
   )
 }
