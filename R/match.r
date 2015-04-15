@@ -28,7 +28,7 @@
 str_match <- function(string, pattern) {
   switch(type(pattern),
     regex = stri_match_first_regex(string, pattern,
-      opts_regex = attr(pattern, "options")),
+      opts_regex = attr(pattern, "options"), cg_missing = ""),
     stop("Can only match regular expressions", call. = FALSE)
   )
 }
