@@ -1,4 +1,4 @@
-# stringr 0.9.0.9000
+# stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
   instead of base R regular expressions. This improves unicode and support, and 
