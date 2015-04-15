@@ -128,13 +128,7 @@ __OK__
 Maintainer: Richard D. Morey <richarddmorey@gmail.com>  
 Bug reports: https://github.com/richarddmorey/BayesFactor/issues
 
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppEigen’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
+__OK__
 
 ## beepr (1.1)
 Maintainer: Rasmus Bååth <rasmus.baath@gmail.com>
@@ -319,7 +313,7 @@ Maintainer: John Waller <john.waller@biol.lu.se>
 ```
 checking whether package ‘EasyMARK’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/EasyMARK.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmppTodh4/check_cran11828875e07f/EasyMARK.Rcheck/00install.out’ for details.
 ```
 
 ## eeptools (0.3.1)
@@ -564,11 +558,9 @@ __OK__
 Maintainer: Jose Gerardo Tamez-Pena <jose.tamezpena@itesm.mx>
 
 ```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppArmadillo’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
+checking whether package ‘FRESA.CAD’ can be installed ... [27s/28s] ERROR
+Installation failed.
+See ‘/private/tmp/RtmppTodh4/check_cran11828875e07f/FRESA.CAD.Rcheck/00install.out’ for details.
 ```
 
 ## fslr (1.3)
@@ -582,7 +574,7 @@ Maintainer: Nikolai Gorte <n.gorte@gmail.com>
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘osmar’ ‘frbs’ ‘rgeos’ ‘rgdal’
+Packages required but not available: ‘osmar’ ‘frbs’ ‘rgdal’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
@@ -619,7 +611,7 @@ Bug reports: https://github.com/azvoleff/gfcanalysis/issues
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘rgdal’ ‘rgeos’ ‘rasterVis’
+Packages required but not available: ‘rgdal’ ‘rasterVis’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
@@ -929,7 +921,7 @@ Maintainer: Jonathan Callahan <jonathan.s.callahan@gmail.com>
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘rgdal’ ‘rgeos’
+Package required but not available: ‘rgdal’
 
 Package suggested but not available for checking: ‘ISOcodes’
 
@@ -1529,7 +1521,7 @@ Bug reports: http://github.com/renozao/RcppOctave/issues
 ```
 checking whether package ‘RcppOctave’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/RcppOctave.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmppTodh4/check_cran11828875e07f/RcppOctave.Rcheck/00install.out’ for details.
 ```
 
 ## rdryad (0.1.1)
@@ -1609,13 +1601,7 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgbif/issues
 
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘rgeos’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
+__OK__
 
 ## RGENERATEPREC (1.0)
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
@@ -1683,7 +1669,7 @@ Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘rgdal’ ‘rgeos’
+Package required but not available: ‘rgdal’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
@@ -1839,7 +1825,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘spanr’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/spanr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmppTodh4/check_cran11828875e07f/spanr.Rcheck/00install.out’ for details.
 ```
 
 ## spatsurv (0.9-8)
@@ -1878,7 +1864,7 @@ Maintainer: Roger Marshall <rj.marshall@auckland.ac.nz>
 ```
 checking whether package ‘srd’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmph7PUNf/check_cran8a7e788398cb/srd.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmppTodh4/check_cran11828875e07f/srd.Rcheck/00install.out’ for details.
 ```
 
 ## ssh.utils (1.0)
@@ -2109,7 +2095,7 @@ Maintainer: Thomas Mendlik <thomas.mendlik@uni-graz.at>
 
 ```
 checking package dependencies ... ERROR
-Packages required but not available: ‘ncdf’ ‘rgdal’ ‘rgeos’
+Packages required but not available: ‘ncdf’ ‘rgdal’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
