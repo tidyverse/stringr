@@ -22,6 +22,10 @@
     str_replace_all(input, c("[ad]" = "!", "[cf]" = "?"))
     ```
 
+* `str_match()` now returns NA if an optional group doesn't match 
+  (previously it returned ""). This is more consistent with `str_extract()`
+  and other match failures.
+
 * New `str_subset()` keeps values that match a pattern. It's a convenient
   wrapper for `x[str_detect(x)]` (#21, @jiho).
 
