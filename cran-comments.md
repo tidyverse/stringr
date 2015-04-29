@@ -4,7 +4,10 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs, WARNINGs or NOTEs. 
+There were no ERRORs, or WARNINGs.
+
+There was one note: I am changing the maintainer email to my rstudio address,
+and will send confirmation shortly.
 
 ## Downstream dependencies
 This release changes the backend of stringr from R's built in regular 
