@@ -1,3 +1,7 @@
+This is a resubmission. I've now correctly used person() in the Authors@R field.
+
+---
+
 ## Test environments
 * local OS X install, R 3.2.0
 * ubuntu 12.04 (on travis-ci), R 3.2.0
