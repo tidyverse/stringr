@@ -1,3 +1,5 @@
+# stringr 1.0.0.9000
+
 # stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
