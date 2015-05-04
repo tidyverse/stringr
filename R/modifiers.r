@@ -4,7 +4,7 @@
 #'  \item{fixed}{Compare literal bytes in the string. This is very fast, but
 #'    not usually what you want for non-ASCII character sets.}
 #'  \item{coll}{Compare strings respecting standard collation rules.}
-#'  \item{regexp}{The default. Uses ICU regular expressions.}
+#'  \item{regex}{The default. Uses ICU regular expressions.}
 #'  \item{boundary}{Match boundaries between things.}
 #' }
 #'
@@ -124,14 +124,14 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
 
 type <- function(x) UseMethod("type")
 type.boundary <- function(x) "bound"
-type.regexp <- function(x) "regex"
+type.regex <- function(x) "regex"
 type.coll <- function(x) "coll"
 type.fixed <- function(x) "fixed"
 type.character <- function(x) if (identical(x, "")) "empty" else "regex"
 
 #' Deprecated modifier functions.
 #'
-#' Please use \code{\link{regexp}} and \code{\link{coll}} instead.
+#' Please use \code{\link{regex}} and \code{\link{coll}} instead.
 #'
 #' @name modifier-deprecated
 #' @keywords internal
@@ -140,13 +140,13 @@ NULL
 #' @export
 #' @rdname modifier-deprecated
 ignore.case <- function(string) {
-  message("Please use (fixed|coll|regexp)(x, ignore_case = TRUE) instead of ignore.case(x)")
+  message("Please use (fixed|coll|regex)(x, ignore_case = TRUE) instead of ignore.case(x)")
   fixed(string, ignore_case = TRUE)
 }
 
 #' @export
 #' @rdname modifier-deprecated
 perl <- function(pattern) {
-  message("perl is deprecated. Please use regexp instead")
+  message("perl is deprecated. Please use regex() instead")
   regex(pattern)
 }

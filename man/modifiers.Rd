@@ -50,7 +50,7 @@ or numbers - i.e. punctuation.}
  \item{fixed}{Compare literal bytes in the string. This is very fast, but
    not usually what you want for non-ASCII character sets.}
  \item{coll}{Compare strings respecting standard collation rules.}
- \item{regexp}{The default. Uses ICU regular expressions.}
+ \item{regex}{The default. Uses ICU regular expressions.}
  \item{boundary}{Match boundaries between things.}
 }
 }

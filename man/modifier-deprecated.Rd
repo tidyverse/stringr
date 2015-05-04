@@ -11,7 +11,7 @@ ignore.case(string)
 perl(pattern)
 }
 \description{
-Please use \code{\link{regexp}} and \code{\link{coll}} instead.
+Please use \code{\link{regex}} and \code{\link{coll}} instead.
 }
 \keyword{internal}
 
