@@ -1,5 +1,7 @@
 # stringr 1.0.0.9000
 
+* The replacement to `perl()` is `regex()` not `regexp()` (#61).
+
 # stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
@@ -44,8 +46,8 @@
   make it easier to locate the function you need.
 
 * `ignore.case(x)` has been deprecated in favour of 
-  `fixed|regexp|coll(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in 
-  favour of `regexp(x)`.
+  `fixed|regex|coll(x, ignore.case = TRUE)`, `perl(x)` has been deprecated in 
+  favour of `regex(x)`.
 
 * `str_join()` is deprecated, please use `str_c()` instead.
 
