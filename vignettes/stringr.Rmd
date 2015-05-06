@@ -58,7 +58,7 @@ There are three string functions that are closely related to their base R equiva
     from the left of the last character. The end position defaults to `-1`, 
     which corresponds to the last character.
 
--   `str_str<-` is equivalent to `substr<-`, but like `str_sub` it understands 
+-   `str_sub<-` is equivalent to `substr<-`, but like `str_sub` it understands 
     negative indices, and replacement strings not do need to be the same length 
     as the string they are replacing.
 
