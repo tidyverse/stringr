@@ -57,6 +57,7 @@ str_interp <- function(string, env = parent.frame())
 #' @return list containing \code{indices} (regex match data) and \code{matches},
 #'   the string representations of matched expressions.
 #'
+#' @noRd
 #' @author Stefan Milton Bache
 interp_placeholders <- function(string)
 {
@@ -97,6 +98,7 @@ interp_placeholders <- function(string)
 #'
 #' @return A character vector of replacement strings.
 #'
+#' @noRd
 #' @author Stefan Milton Bache
 eval_interp_matches <- function(matches, env)
 {
@@ -124,6 +126,7 @@ eval_interp_matches <- function(matches, env)
 #'
 #' @return list of R expressions
 #'
+#' @noRd
 #' @author Stefan Milton Bache
 extract_expressions <- function(matches)
 {
@@ -148,6 +151,7 @@ extract_expressions <- function(matches)
 #'
 #' @return A character vector of format specifiers.
 #'
+#' @noRd
 #' @author Stefan Milton Bache
 extract_formats <- function(matches)
 {
@@ -169,6 +173,7 @@ extract_formats <- function(matches)
 #'
 #' @return Integer with the posision of the matching brace.
 #'
+#' @noRd
 #' @author Stefan Milton Bache
 match_brace <- function(opening, closing)
 {
