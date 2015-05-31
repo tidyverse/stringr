@@ -34,16 +34,52 @@
 #' # Or a data frame
 #' str_interp("Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
 #'            iris)
+#'
+#' # Use a formula and hyphens when the string is long
+#' max_char <- 80
+#' str_interp(~"This particular line is so long that it is hard to write "-
+#'   "without breaking the ${max_char}-char barrier!")
 str_interp <- function(string, env = parent.frame())
 {
+
+  if ("formula" %in% class(string))
+    string <- unwrap_string_formula(string)
+  else if (!is.character(string))
+    stop("string argument is not character.", call. = FALSE)
+
   # Find expression placeholders
   matches      <- interp_placeholders(string)
 
-  # Evaluate them to get the replacement strings.
-  replacements <- eval_interp_matches(matches$matches, env)
+  # Determine if any placeholders were found.
+  if (matches$indices[1] <= 0) {
+    string
+  } else {
+    # Evaluate them to get the replacement strings.
+    replacements <- eval_interp_matches(matches$matches, env)
 
-  # Replace the expressions by their values and return.
-  `regmatches<-`(string, list(matches$indices), FALSE, list(replacements))
+    # Replace the expressions by their values and return.
+    `regmatches<-`(string, list(matches$indices), FALSE, list(replacements))
+  }
+}
+
+#' Unwrap String Formula
+#'
+#' A string formula allows for concatenating long strings using a
+#' hyphen (dash). This is useful for writing a single long lines
+#' in multiple lines of source code without having to use a nested
+#' \code{paste} or \code{sprintf}.
+#'
+#' @param fs a formula with one or more strings separated by hypens.
+#' @return character
+#' @noRd
+#' @example
+#' unwrap_string_formula(~"This is a long line which is hard to write without "-
+#'   "breaking the 80-char barrier")
+unwrap_string_formula <- function(fs)
+{
+  # Hyphen
+  `-` <- function(a, b) paste0(a, b)
+  eval(fs[[length(fs)]])
 }
 
 #' Match String Interpolation Placeholders
@@ -63,6 +99,10 @@ interp_placeholders <- function(string)
 {
   # Find starting position of ${} or $[]{} placeholders.
   starts   <- gregexpr("\\$(\\[.*?\\])?\\{", string)[[1]]
+
+  # Return immediately if no matches are found.
+  if (starts[1] <= 0)
+    return(list(indices = starts))
 
   # Break up the string in parts
   parts <- substr(rep(string, length(starts)),

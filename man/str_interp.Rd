@@ -42,6 +42,11 @@ str_interp("One value, ${value1}, and then another, ${value2*2}.",
 # Or a data frame
 str_interp("Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
            iris)
+
+# Use a formula and hyphens when the string is long
+max_char <- 80
+str_interp(~"This particular line is so long that it is hard to write "-
+  "without breaking the ${max_char}-char barrier!")
 }
 \author{
 Stefan Milton Bache
