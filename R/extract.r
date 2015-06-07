@@ -4,8 +4,8 @@
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
-#' @seealso \code{\link[stringi]{stri_extract_first}} and
-#'   \code{\link[stringi]{stri_extract_all}} for the underlying
+#' @seealso \code{\link[stringi]{stri_extract}} and
+#'   \code{\link[stringi]{stri_extract}} for the underlying
 #'   implementation.
 #' @param simplify If \code{FALSE}, the default, returns a list of character
 #'   vectors. If \code{TRUE} returns a character matrix.
