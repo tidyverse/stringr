@@ -2,6 +2,9 @@
 
 * The replacement to `perl()` is `regex()` not `regexp()` (#61).
 
+* `str_subset()` now allows to set custom options for `fixed`
+  pattern search (#79).
+
 # stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 

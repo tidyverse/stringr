@@ -54,8 +54,7 @@ str_extract_all(shopping_list, "\\\\b[a-z]+\\\\b", simplify = TRUE)
 str_extract_all(shopping_list, "\\\\d", simplify = TRUE)
 }
 \seealso{
-\code{\link[stringi]{stri_extract_first}} and
-  \code{\link[stringi]{stri_extract_all}} for the underlying
+\code{\link[stringi]{stri_extract}} for the underlying
   implementation.
 }
 
