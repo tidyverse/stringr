@@ -109,6 +109,11 @@ interp_placeholders <- function(string)
                   start = starts,
                   stop  = c(starts[-1L] - 1L, nchar(string)))
 
+  # If there are nested placeholders, each part will not contain a full
+  # placeholder in which case we report invalid string interpolation template.
+  if (any(!grepl("\\$(\\[.*?\\])?\\{.+\\}", parts)))
+    stop("Invalid template string for interpolation.", call. = FALSE)
+
   # For each part, find the opening and closing braces.
   opens  <- lapply(strsplit(parts, ""), function(v) which(v == "{"))
   closes <- lapply(strsplit(parts, ""), function(v) which(v == "}"))
