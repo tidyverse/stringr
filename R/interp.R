@@ -176,7 +176,9 @@ eval_interp_matches <- function(matches, env)
 extract_expressions <- function(matches)
 {
   # Parse function for text argument as first argument.
-  parse_text <- function(text) parse(text = text)
+  parse_text <- function(text)
+    tryCatch(parse(text = text),
+             error = function(e) stop(conditionMessage(e), call. = FALSE))
 
   # string representation of the expressions (without the possible formats).
   strings  <- gsub("\\$(\\[.+?\\])?\\{", "", matches)

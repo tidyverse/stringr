@@ -61,4 +61,15 @@ test_that("str_interp allows for hyphenation to concatenate strings", {
 })
 
 
+test_that("str_interp fails when encountering nested placeholders", {
 
+  msg  <- "This will never see the light of day"
+  num  <- 1.2345
+
+  expect_error(str_interp("You cannot use nested placeholders, e.g. ${${msg}}"),
+                          "Invalid template string for interpolation")
+
+  expect_error(str_interp("Nor can you with formats, e.g. $[.2f]{${msg}}"),
+               "Invalid template string for interpolation")
+
+})
