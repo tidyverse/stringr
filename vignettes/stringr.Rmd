@@ -58,7 +58,7 @@ There are three string functions that are closely related to their base R equiva
     from the left of the last character. The end position defaults to `-1`, 
     which corresponds to the last character.
 
--   `str_str<-` is equivalent to `substr<-`, but like `str_sub` it understands 
+-   `str_sub<-` is equivalent to `substr<-`, but like `str_sub` it understands 
     negative indices, and replacement strings not do need to be the same length 
     as the string they are replacing.
 
@@ -145,7 +145,7 @@ phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
 
 Each pattern matching function has the same first two arguments, a character vector of `string`s to process and a single `pattern` (regular expression) to match. The replace functions have an additional argument specifying the replacement string, and the split functions have an argument to specify the number of pieces.
 
-Unlike base string functions, stringr offers control over matching not through arguments, but through modifier functions, `regexp()`, `coll()` and `fixed()`.  This is a deliberate choice made to simplify these functions. For example, while `grepl` has six arguments, `str_detect()` only has two.
+Unlike base string functions, stringr offers control over matching not through arguments, but through modifier functions, `regex()`, `coll()` and `fixed()`.  This is a deliberate choice made to simplify these functions. For example, while `grepl` has six arguments, `str_detect()` only has two.
 
 ### Regular expressions
 

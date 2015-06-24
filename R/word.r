@@ -28,9 +28,9 @@
 #' word(str, 2, sep = fixed('..'))
 word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   n <- max(length(string), length(start), length(end))
-  string <- rep(string, length = n)
-  start <- rep(start, length = n)
-  end <- rep(end, length = n)
+  string <- rep(string, length.out = n)
+  start <- rep(start, length.out = n)
+  end <- rep(end, length.out = n)
 
   breaks <- str_locate_all(string, sep)
   words <- lapply(breaks, invert_match)
