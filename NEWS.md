@@ -4,6 +4,9 @@
 
 * `str_subset()` now allows to set custom options for `fixed`
   pattern search (#79).
+  
+* `str_replace()` now behaves correctly when a replacement string
+  contains `$`s (#83).
 
 # stringr 1.0.0
 
