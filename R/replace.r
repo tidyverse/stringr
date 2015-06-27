@@ -75,8 +75,10 @@ str_replace_all <- function(string, pattern, replacement) {
 }
 
 fix_replacement <- function(x) {
-  stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"),
-    vectorize_all = FALSE)
+  stri_replace_all_regex(
+    stri_replace_all_fixed(x, "$", "\\$"),
+    "(?<!\\\\)\\\\(\\d)",
+    "\\$$1")
 }
 
 
