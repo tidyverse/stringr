@@ -3,7 +3,10 @@
 * The replacement to `perl()` is `regex()` not `regexp()` (#61).
 
 * `str_subset()` now allows to set custom options for `fixed`
-  pattern search (#79).
+  pattern search (#79, @gagolews).
+  
+* `str_replace()` and `str_replace_all()` now behave correctly when a
+  replacement string contains `$`s, `\\\\1`, etc. (#83, @gagolews).
 
 # stringr 1.0.0
 

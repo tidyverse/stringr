@@ -39,8 +39,6 @@
 #' str_replace_all(str_c(fruits, collapse = "---"),
 #'  c("one" = 1, "two" = 2, "three" = 3))
 str_replace <- function(string, pattern, replacement) {
-  replacement <- fix_replacement(replacement)
-
   switch(type(pattern),
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
@@ -48,8 +46,8 @@ str_replace <- function(string, pattern, replacement) {
       opts_fixed = attr(pattern, "options")),
     coll  = stri_replace_first_coll(string, pattern, replacement,
       opts_collator = attr(pattern, "options")),
-    regex = stri_replace_first_regex(string, pattern, replacement,
-      opts_regex = attr(pattern, "options")),
+    regex = stri_replace_first_regex(string, pattern, fix_replacement(replacement),
+      opts_regex = attr(pattern, "options"))
   )
 }
 
@@ -63,7 +61,6 @@ str_replace_all <- function(string, pattern, replacement) {
   } else {
     vec <- TRUE
   }
-  replacement <- fix_replacement(replacement)
 
   switch(type(pattern),
     empty = ,
@@ -72,14 +69,16 @@ str_replace_all <- function(string, pattern, replacement) {
       vectorize_all = vec, opts_fixed = attr(pattern, "options")),
     coll  = stri_replace_all_coll(string, pattern, replacement,
       vectorize_all = vec, opts_collator = attr(pattern, "options")),
-    regex = stri_replace_all_regex(string, pattern, replacement,
+    regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
       vectorize_all = vec, opts_regex = attr(pattern, "options"))
   )
 }
 
 fix_replacement <- function(x) {
-  stri_replace_all_regex(x, c("\\$", "\\\\(\\d)"), c("\\\\$", "\\$$1"),
-    vectorize_all = FALSE)
+  stri_replace_all_regex(
+    stri_replace_all_fixed(x, "$", "\\$"),
+    "(?<!\\\\)\\\\(\\d)",
+    "\\$$1")
 }
 
 
