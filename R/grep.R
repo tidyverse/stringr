@@ -34,6 +34,10 @@
 #' # Also vectorised over pattern
 #' str_grep("aecfg", letters)
 str_grep <- function(string, pattern) {
+  if (length(string) == 0) return(string)
+  if (length(string) < length(pattern)) {
+    string <- rep(string, length.out=length(pattern))
+  }
   str_detect_result <- str_detect(string, pattern)
   string[str_detect_result]
 }
