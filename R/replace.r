@@ -87,7 +87,7 @@ fix_replacement <- function(x) {
 #' @inheritParams str_replace
 #' @export
 #' @examples
-#' str_replace_na(c("NA", "abc", "def"))
+#' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
   stri_replace_na(string, replacement)
 }
