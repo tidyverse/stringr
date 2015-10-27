@@ -18,7 +18,9 @@ Imports:
     magrittr
 Suggests:
     testthat,
-    knitr
+    knitr,
+    htmltools,
+    htmlwidgets
 VignetteBuilder: knitr
 URL: https://github.com/hadley/stringr
 BugReports: https://github.com/hadley/stringr/issues

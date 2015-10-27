@@ -1,5 +1,8 @@
 # stringr 1.0.0.9000
 
+* `str_view()` creates an HTML widget to display regular expression 
+  matches (#96).
+
 * The replacement to `perl()` is `regex()` not `regexp()` (#61).
 
 * `str_subset()` now allows to set custom options for `fixed`
