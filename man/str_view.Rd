@@ -4,9 +4,12 @@
 \alias{str_view}
 \title{View HTML rendering of regular expression match.}
 \usage{
-str_view(x, pattern)
+str_view(string, pattern)
 }
 \arguments{
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
+
 \item{pattern}{Pattern to look for.
 
   The default interpretation is a regular expression, as described
