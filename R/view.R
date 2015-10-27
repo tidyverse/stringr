@@ -21,6 +21,9 @@ str_view <- function(string, pattern) {
   ))
 
   htmlwidgets::createWidget("str_view", list(html = bullets),
-    sizingPolicy = htmlwidgets::sizingPolicy(knitr.figure = FALSE, defaultHeight = NA),
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      knitr.figure = FALSE,
+      defaultHeight = "auto"
+    ),
     package = "stringr")
 }
