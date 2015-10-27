@@ -23,6 +23,6 @@ coercible to one.}
 Turn NA into "NA"
 }
 \examples{
-str_replace_na(c("NA", "abc", "def"))
+str_replace_na(c(NA, "abc", "def"))
 }
 
