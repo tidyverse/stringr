@@ -18,5 +18,7 @@ Imports:
     magrittr
 Suggests:
     testthat,
-    knitr
+    knitr,
+    htmltools,
+    htmlwidgets
 VignetteBuilder: knitr
