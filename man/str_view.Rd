@@ -4,7 +4,7 @@
 \alias{str_view}
 \title{View HTML rendering of regular expression match.}
 \usage{
-str_view(string, pattern)
+str_view(string, pattern, match = NA)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -24,6 +24,10 @@ coercible to one.}
   Match character, word, line and sentence boundaries with
   \code{\link{boundary}()}. An empty pattern, "", is equivalent to
   \code{boundary("character")}.}
+
+\item{match}{If \code{TRUE}, shows only strings that match the pattern.
+If \code{FALSE}, shows only the strings that don't match the pattern.
+Otherwise (the default) displays both matches and non-matches.}
 }
 \description{
 View HTML rendering of regular expression match.
@@ -31,5 +35,8 @@ View HTML rendering of regular expression match.
 \examples{
 str_view(c("abc", "def", "fgh"), "[aeiou]")
 str_view(c("abc", "def", "fgh"), "^")
+
+str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
+str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
 }
 
