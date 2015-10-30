@@ -14,6 +14,9 @@
 * `str_replace()` and `str_replace_all()` now behave correctly when a
   replacement string contains `$`s, `\\\\1`, etc. (#83, @gagolews).
 
+* `boundary()` has a different default argument which works for splitting on
+   sentence boundaries (#58, @lmullen).
+
 # stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 

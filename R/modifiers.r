@@ -115,14 +115,17 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 
 #' @param type Boundary type to detect.
 #' @param skip_word_none Ignore "words" that don't contain any characters
-#'   or numbers - i.e. punctuation.
+#'   or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
+#'   only when splitting on \code{word} boundaries.
 #' @export
 #' @rdname modifiers
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
-                    skip_word_none = TRUE, ...) {
+                    skip_word_none = NA, ...) {
   type <- match.arg(type)
 
-  if (type != "word" & missingArg(skip_word_none)) skip_word_none <- FALSE
+  if (identical(skip_word_none, NA)) {
+    skip_word_none <- type == "word"
+  }
 
   options <- stri_opts_brkiter(
     type = type,
