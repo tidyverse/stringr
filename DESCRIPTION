@@ -6,10 +6,9 @@ Description: A consistent, simple and easy to use set of wrappers around the
     are consistent, all functions deal with "NA"'s and zero length vectors
     in the same way, and the output from one function is easy to feed into
     the input of another.
-Authors@R: c(
-    person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre", "cph")),
-    person("RStudio", role = "cph")
-    )
+Authors@R: c(person("Hadley", "Wickham", email = "hadley@rstudio.com",
+                    role = c("aut", "cre", "cph")),
+             person("RStudio", role = "cph"))
 License: GPL-2
 Depends:
     R (>= 2.14)
