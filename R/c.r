@@ -9,7 +9,13 @@
 #' the entire matrix collapsed to a single string.
 #'
 #' @param ... One or more character vectors. Zero length arguments
-#'   are removed.
+#'   are removed. Short arguments are recycled to the length of the
+#'   longest.
+#'
+#'   Like most other R functions, missing values are "infectious": whenever
+#'   a missing value is combined with another string the result will always
+#'   be missing. Use \code{\link{str_replace_na}} to convert \code{NA} to
+#'   \code{"NA"}
 #' @param sep String to insert between input vectors.
 #' @param collapse Optional string used to combine input vectors into single
 #'   string.
@@ -39,6 +45,7 @@ str_c <- function(..., sep = "", collapse = NULL) {
 
 #' @export
 #' @rdname str_c
+#' @usage NULL
 str_join <- function(..., sep = "", collapse = NULL) {
   .Deprecated("str_c")
   stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)

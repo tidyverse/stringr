@@ -6,12 +6,16 @@
 \title{Join multiple strings into a single string.}
 \usage{
 str_c(..., sep = "", collapse = NULL)
-
-str_join(..., sep = "", collapse = NULL)
 }
 \arguments{
 \item{...}{One or more character vectors. Zero length arguments
-are removed.}
+  are removed. Short arguments are recycled to the length of the
+  longest.
+
+  Like most other R functions, missing values are "infectious": whenever
+  a missing value is combined with another string the result will always
+  be missing. Use \code{\link{str_replace_na}} to convert \code{NA} to
+  \code{"NA"}}
 
 \item{sep}{String to insert between input vectors.}
 
