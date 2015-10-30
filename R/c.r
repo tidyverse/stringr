@@ -9,7 +9,13 @@
 #' the entire matrix collapsed to a single string.
 #'
 #' @param ... One or more character vectors. Zero length arguments
-#'   are removed.
+#'   are removed. Short arguments are recycled to the length of the
+#'   longest.
+#'
+#'   Like most other R functions, missing values are "infectious": whenever
+#'   a missing value is combined with another string the result will always
+#'   be missing. Use \code{\link{str_replace_na}} to convert \code{NA} to
+#'   \code{"NA"}
 #' @param sep String to insert between input vectors.
 #' @param collapse Optional string used to combine input vectors into single
 #'   string.
@@ -17,7 +23,7 @@
 #'   length equal to the longest input string. If \code{collapse} is
 #'   non-NULL, a character vector of length 1.
 #' @seealso \code{\link{paste}} for equivalent base R functionality, and
-#'    \code{\link[stringi]{stri_c}} which this function wraps
+#'    \code{\link[stringi]{stri_join}} which this function wraps
 #' @export str_c
 #' @examples
 #' str_c("Letter: ", letters)
@@ -32,12 +38,14 @@
 #' str_c(c("a", NA, "b"), "-d")
 #' # Use str_replace_NA to display literal NAs:
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
+#' @import stringi
 str_c <- function(..., sep = "", collapse = NULL) {
   stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
 }
 
 #' @export
 #' @rdname str_c
+#' @usage NULL
 str_join <- function(..., sep = "", collapse = NULL) {
   .Deprecated("str_c")
   stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)

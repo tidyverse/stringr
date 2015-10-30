@@ -1,15 +1,15 @@
 Package: stringr
-Version: 0.9.0.9000
-Title: Simple, Consistent Wrappers for Common String Operations.
+Version: 1.0.0.9000
+Title: Simple, Consistent Wrappers for Common String Operations
 Description: A consistent, simple and easy to use set of wrappers around the
-    fantastic stringi package. All function and argument names (and positions)
-    are consistent, all functions deal with NA's and zero length vectors
+    fantastic 'stringi' package. All function and argument names (and positions)
+    are consistent, all functions deal with "NA"'s and zero length vectors
     in the same way, and the output from one function is easy to feed into
     the input of another.
-Authors@R: as.person(c(
-    "Hadley Wickham <hadley@rstudio.com> [aut, cre, cph]",
-    "RStudio [cph]"
-    ))
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre", "cph")),
+    person("RStudio", role = "cph")
+    )
 License: GPL-2
 Depends:
     R (>= 2.14)
@@ -18,5 +18,10 @@ Imports:
     magrittr
 Suggests:
     testthat,
-    knitr
+    knitr,
+    htmltools,
+    htmlwidgets
 VignetteBuilder: knitr
+URL: https://github.com/hadley/stringr
+BugReports: https://github.com/hadley/stringr/issues
+RoxygenNote: 5.0.0

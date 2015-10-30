@@ -4,7 +4,7 @@
 #'  \item{fixed}{Compare literal bytes in the string. This is very fast, but
 #'    not usually what you want for non-ASCII character sets.}
 #'  \item{coll}{Compare strings respecting standard collation rules.}
-#'  \item{regexp}{The default. Uses ICU regular expressions.}
+#'  \item{regex}{The default. Uses ICU regular expressions.}
 #'  \item{boundary}{Match boundaries between things.}
 #' }
 #'
@@ -45,6 +45,10 @@ NULL
 #' @export
 #' @rdname modifiers
 fixed <- function(pattern, ignore_case = FALSE) {
+  if (!is_bare_character(pattern)) {
+    stop("Can only modify plain character vectors.", call. = FALSE)
+  }
+
   options <- stri_opts_fixed(case_insensitive = ignore_case)
 
   structure(
@@ -63,6 +67,10 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   \code{\link[stringi]{stri_opts_regex}}, or
 #'   \code{\link[stringi]{stri_opts_brkiter}}
 coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
+  if (!is_bare_character(pattern)) {
+    stop("Can only modify plain character vectors.", call. = FALSE)
+  }
+
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
     locale = locale,
@@ -86,6 +94,10 @@ coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
 #' @param dotall If \code{TRUE}, \code{.} will also match line terminators.
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
+  if (!is_bare_character(pattern)) {
+    stop("Can only modify plain character vectors.", call. = FALSE)
+  }
+
   options <- stri_opts_regex(
     case_insensitive = ignore_case,
     multiline = multiline,
@@ -127,14 +139,14 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
 
 type <- function(x) UseMethod("type")
 type.boundary <- function(x) "bound"
-type.regexp <- function(x) "regex"
+type.regex <- function(x) "regex"
 type.coll <- function(x) "coll"
 type.fixed <- function(x) "fixed"
 type.character <- function(x) if (identical(x, "")) "empty" else "regex"
 
 #' Deprecated modifier functions.
 #'
-#' Please use \code{\link{regexp}} and \code{\link{coll}} instead.
+#' Please use \code{\link{regex}} and \code{\link{coll}} instead.
 #'
 #' @name modifier-deprecated
 #' @keywords internal
@@ -143,13 +155,17 @@ NULL
 #' @export
 #' @rdname modifier-deprecated
 ignore.case <- function(string) {
-  message("Please use (fixed|coll|regexp)(x, ignore_case = TRUE) instead of ignore.case(x)")
+  message("Please use (fixed|coll|regex)(x, ignore_case = TRUE) instead of ignore.case(x)")
   fixed(string, ignore_case = TRUE)
 }
 
 #' @export
 #' @rdname modifier-deprecated
 perl <- function(pattern) {
-  message("perl is deprecated. Please use regexp instead")
+  message("perl is deprecated. Please use regex() instead")
   regex(pattern)
+}
+
+is_bare_character <- function(x) {
+  is.character(x) && !is.object(x)
 }

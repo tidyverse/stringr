@@ -1,27 +1,12 @@
-# Sample .travis.yml for R projects from https://github.com/craigcitro/r-travis
+language: r
+warnings_are_errors: true
+sudo: required
 
-language: c
+r_github_packages:
+  - Rexamine/stringi
 
-before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
+r_packages:
+  - covr
 
-install:
-  - ./travis-tool.sh install_deps
-
-script: ./travis-tool.sh run_tests
-
-after_failure:
-  - ./travis-tool.sh dump_logs
-
-env:
-  global:
-    - WARNINGS_ARE_ERRORS=1
-    - R_BUILD_ARGS=--no-manual
-    - R_CHECK_ARGS=--no-manual --as-cran
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
+after_success:
+  - Rscript -e 'covr::codecov()'
