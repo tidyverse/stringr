@@ -38,3 +38,38 @@ test_that("str_interp works with nested expressions", {
   expect_that(s, is_identical_to("Works with } nested { braces too: 5348.00"))
 
 })
+
+test_that("str_interp works in the absense of placeholders", {
+
+  s <- str_interp("A quite static string here.")
+
+  expect_that(s, is_identical_to("A quite static string here."))
+
+})
+
+test_that("str_interp allows for hyphenation to concatenate strings", {
+
+  github_url <- "https://github.com/hadley/stringr"
+  issues <- "https://github.com/hadley/stringr/issues"
+
+  s <- str_interp(~"You may find the development page at ${github_url} "-
+                   "and file any issues at ${issues}.")
+
+  expect_that(s, is_identical_to(
+    "You may find the development page at https://github.com/hadley/stringr and file any issues at https://github.com/hadley/stringr/issues."))
+
+})
+
+
+test_that("str_interp fails when encountering nested placeholders", {
+
+  msg  <- "This will never see the light of day"
+  num  <- 1.2345
+
+  expect_error(str_interp("You cannot use nested placeholders, e.g. ${${msg}}"),
+                          "Invalid template string for interpolation")
+
+  expect_error(str_interp("Nor can you with formats, e.g. $[.2f]{${msg}}"),
+               "Invalid template string for interpolation")
+
+})
