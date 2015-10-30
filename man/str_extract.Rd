@@ -54,6 +54,7 @@ str_extract_all(shopping_list, "\\\\b[a-z]+\\\\b", simplify = TRUE)
 str_extract_all(shopping_list, "\\\\d", simplify = TRUE)
 }
 \seealso{
+\code{\link{str_match}} to extract capture groups,
 \code{\link[stringi]{stri_extract}} for the underlying
   implementation.
 }
