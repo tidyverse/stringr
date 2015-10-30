@@ -1,5 +1,8 @@
 # stringr 1.0.0.9000
 
+* `fixed()`, `regex()`, and `coll()` now throw an error if you use them with
+  anything other than a plain string (#60).
+
 * `str_view()` creates an HTML widget to display regular expression 
   matches (#96).
 
