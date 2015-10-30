@@ -32,6 +32,7 @@
 #' str_c(c("a", NA, "b"), "-d")
 #' # Use str_replace_NA to display literal NAs:
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
+#' @import stringi
 str_c <- function(..., sep = "", collapse = NULL) {
   stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
 }
