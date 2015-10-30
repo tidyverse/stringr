@@ -67,3 +67,12 @@ test_that("n sets exact number of splits in str_split_fixed", {
     equals(c("Subject", "Roger: his drinking problems")))
 
 })
+
+test_that("str_split can split sentences correctly", {
+ test <- "This is a sentence. Is this a sentence? Why, yes it is."
+ expect_that(length(str_split(test, boundary("sentence"))[[1]]),
+             equals(3))
+ expect_that(str_split(test, boundary("sentence")),
+             equals(list(c("This is a sentence. ", "Is this a sentence? ",
+                           "Why, yes it is."))))
+})

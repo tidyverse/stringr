@@ -16,7 +16,7 @@ regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
   dotall = FALSE, ...)
 
 boundary(type = c("character", "line_break", "sentence", "word"),
-  skip_word_none = TRUE, ...)
+  skip_word_none = NA, ...)
 }
 \arguments{
 \item{pattern}{Pattern to modify behaviour.}
@@ -43,7 +43,8 @@ default, only match the start and end of the input.}
 \item{type}{Boundary type to detect.}
 
 \item{skip_word_none}{Ignore "words" that don't contain any characters
-or numbers - i.e. punctuation.}
+or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
+only when splitting on \code{word} boundaries.}
 }
 \description{
 \describe{
