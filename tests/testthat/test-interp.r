@@ -50,17 +50,6 @@ test_that("str_interp works in the absense of placeholders", {
   )
 })
 
-test_that("str_interp allows for hyphenation to concatenate strings", {
-  x <- 1
-  y <- 2
-
-  expect_equal(
-    str_interp(~"${x} " - "${y}"),
-    "1 2"
-  )
-})
-
-
 test_that("str_interp fails when encountering nested placeholders", {
   msg  <- "This will never see the light of day"
   num  <- 1.2345

@@ -1,4 +1,4 @@
-#' String Interpolation
+#' String interpolation.
 #'
 #' String interpolation is a useful way of specifying a character string which
 #' depends on values in a certain environment. It allows for string creation
@@ -9,9 +9,9 @@
 #' can be evaluated in the given environment, and \code{format} is a format
 #' specification valid for use with \code{\link{sprintf}}.
 #'
-#' @param string A template character string.
+#' @param string A template character string. This function is not vectorised:
+#'   a character vector will be collapsed into a single string.
 #' @param env The environment in which to evaluate the expressions.
-#'
 #' @return An interpolated character string.
 #' @author Stefan Milton Bache
 #' @export
@@ -28,24 +28,28 @@
 #' str_interp("Works with } nested { braces too: $[.2f]{{{2 + 2}*{amount}}}")
 #'
 #' # Values can also come from a list
-#' str_interp("One value, ${value1}, and then another, ${value2*2}.",
-#'            list(value1 = 10, value2 = 20))
+#' str_interp(
+#'   "One value, ${value1}, and then another, ${value2*2}.",
+#'   list(value1 = 10, value2 = 20)
+#' )
 #'
 #' # Or a data frame
-#' str_interp("Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
-#'            iris)
+#' str_interp(
+#'   "Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
+#'   iris
+#' )
 #'
-#' # Use a formula and hyphens when the string is long
+#' # Use a vector when the string is long:
 #' max_char <- 80
-#' str_interp(~"This particular line is so long that it is hard to write "-
-#'   "without breaking the ${max_char}-char barrier!")
-str_interp <- function(string, env = parent.frame())
-{
-
-  if ("formula" %in% class(string))
-    string <- unwrap_string_formula(string)
-  else if (!is.character(string))
+#' str_interp(c(
+#'   "This particular line is so long that it is hard to write ",
+#'   "without breaking the ${max_char}-char barrier!"
+#' ))
+str_interp <- function(string, env = parent.frame()) {
+  if (!is.character(string)) {
     stop("string argument is not character.", call. = FALSE)
+  }
+  string <- str_c(string, collapse = "")
 
   # Find expression placeholders
   matches      <- interp_placeholders(string)
@@ -62,26 +66,6 @@ str_interp <- function(string, env = parent.frame())
   }
 }
 
-#' Unwrap String Formula
-#'
-#' A string formula allows for concatenating long strings using a
-#' hyphen (dash). This is useful for writing a single long lines
-#' in multiple lines of source code without having to use a nested
-#' \code{paste} or \code{sprintf}.
-#'
-#' @param fs a formula with one or more strings separated by hypens.
-#' @return character
-#' @noRd
-#' @example
-#' unwrap_string_formula(~"This is a long line which is hard to write without "-
-#'   "breaking the 80-char barrier")
-unwrap_string_formula <- function(fs)
-{
-  # Hyphen
-  `-` <- function(a, b) paste0(a, b)
-  eval(fs[[length(fs)]])
-}
-
 #' Match String Interpolation Placeholders
 #'
 #' Given a character string a set of expression placeholders are matched. They
@@ -95,8 +79,7 @@ unwrap_string_formula <- function(fs)
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-interp_placeholders <- function(string)
-{
+interp_placeholders <- function(string) {
   # Find starting position of ${} or $[]{} placeholders.
   starts   <- gregexpr("\\$(\\[.*?\\])?\\{", string)[[1]]
 
@@ -145,8 +128,7 @@ interp_placeholders <- function(string)
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-eval_interp_matches <- function(matches, env)
-{
+eval_interp_matches <- function(matches, env) {
   # Extract expressions from the matches
   expressions <- extract_expressions(matches)
 
@@ -173,12 +155,14 @@ eval_interp_matches <- function(matches, env)
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-extract_expressions <- function(matches)
-{
+extract_expressions <- function(matches) {
   # Parse function for text argument as first argument.
-  parse_text <- function(text)
-    tryCatch(parse(text = text),
-             error = function(e) stop(conditionMessage(e), call. = FALSE))
+  parse_text <- function(text) {
+    tryCatch(
+      parse(text = text),
+      error = function(e) stop(conditionMessage(e), call. = FALSE)
+    )
+  }
 
   # string representation of the expressions (without the possible formats).
   strings  <- gsub("\\$(\\[.+?\\])?\\{", "", matches)
@@ -200,8 +184,7 @@ extract_expressions <- function(matches)
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-extract_formats <- function(matches)
-{
+extract_formats <- function(matches) {
   # Extract the optional format parts.
   formats <- gsub("\\$(\\[(.+?)\\])?.*", "\\2", matches)
 
@@ -222,8 +205,7 @@ extract_formats <- function(matches)
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-match_brace <- function(opening, closing)
-{
+match_brace <- function(opening, closing) {
   # maximum index for the matching closing brace
   max_close <- max(closing)
 

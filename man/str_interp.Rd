@@ -2,12 +2,13 @@
 % Please edit documentation in R/interp.R
 \name{str_interp}
 \alias{str_interp}
-\title{String Interpolation}
+\title{String interpolation.}
 \usage{
 str_interp(string, env = parent.frame())
 }
 \arguments{
-\item{string}{A template character string.}
+\item{string}{A template character string. This function is not vectorised:
+a character vector will be collapsed into a single string.}
 
 \item{env}{The environment in which to evaluate the expressions.}
 }
@@ -37,17 +38,23 @@ str_interp("User ${user_name} (account $[08d]{account}) has $$[.2f]{amount}.")
 str_interp("Works with } nested { braces too: $[.2f]{{{2 + 2}*{amount}}}")
 
 # Values can also come from a list
-str_interp("One value, ${value1}, and then another, ${value2*2}.",
-           list(value1 = 10, value2 = 20))
+str_interp(
+  "One value, ${value1}, and then another, ${value2*2}.",
+  list(value1 = 10, value2 = 20)
+)
 
 # Or a data frame
-str_interp("Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
-           iris)
+str_interp(
+  "Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}.",
+  iris
+)
 
-# Use a formula and hyphens when the string is long
+# Use a vector when the string is long:
 max_char <- 80
-str_interp(~"This particular line is so long that it is hard to write "-
-  "without breaking the ${max_char}-char barrier!")
+str_interp(c(
+  "This particular line is so long that it is hard to write ",
+  "without breaking the ${max_char}-char barrier!"
+))
 }
 \author{
 Stefan Milton Bache
