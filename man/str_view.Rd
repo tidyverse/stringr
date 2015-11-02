@@ -2,9 +2,12 @@
 % Please edit documentation in R/view.R
 \name{str_view}
 \alias{str_view}
+\alias{str_view_all}
 \title{View HTML rendering of regular expression match.}
 \usage{
 str_view(string, pattern, match = NA)
+
+str_view_all(string, pattern, match = NA)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -30,7 +33,8 @@ If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default) displays both matches and non-matches.}
 }
 \description{
-View HTML rendering of regular expression match.
+\code{str_view} shows the first match; \code{str_view_all} shows all
+the matches.
 }
 \examples{
 str_view(c("abc", "def", "fgh"), "[aeiou]")
@@ -38,5 +42,7 @@ str_view(c("abc", "def", "fgh"), "^")
 
 str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
+
+str_view_all(c("abc", "def", "fgh"), "d|e")
 }
 
