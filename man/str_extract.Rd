@@ -52,6 +52,9 @@ str_extract_all(shopping_list, "\\\\d")
 # Simplify results into character matrix
 str_extract_all(shopping_list, "\\\\b[a-z]+\\\\b", simplify = TRUE)
 str_extract_all(shopping_list, "\\\\d", simplify = TRUE)
+
+# Extract all words
+str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 }
 \seealso{
 \code{\link{str_match}} to extract matched groups;

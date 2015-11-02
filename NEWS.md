@@ -1,5 +1,9 @@
 # stringr 1.0.0.9000
 
+* `str_extract()` and `str_extract_all()` now work with `boundary()`. This is
+  particularly useful if you want to extract logical constructs like words
+  or sentences.
+
 * `fixed()`, `regex()`, and `coll()` now throw an error if you use them with
   anything other than a plain string (#60).
 
