@@ -3,9 +3,9 @@ context("Joining strings")
 test_that("basic case works", {
   test <- c("a", "b", "c")
 
-  expect_that(str_c(test), equals(test))
-  expect_that(str_c(test, sep = " "), equals(test))
-  expect_that(str_c(test, collapse = ""), equals("abc"))
+  expect_equal(str_c(test), test)
+  expect_equal(str_c(test, sep = " "), test)
+  expect_equal(str_c(test, collapse = ""), "abc")
 })
 
 test_that("NULLs are dropped", {

@@ -17,33 +17,33 @@ test_that("special case are correct", {
 test_that("no matching cases returns 1 column matrix", {
   res <- str_match(c("a", "b"), ".")
 
-  expect_that(nrow(res), equals(2))
-  expect_that(ncol(res), equals(1))
+  expect_equal(nrow(res), 2)
+  expect_equal(ncol(res), 1)
 
-  expect_that(res[, 1], equals(c("a", "b")))
+  expect_equal(res[, 1], c("a", "b"))
 })
 
 test_that("single match works when all match", {
   matches <- str_match(phones, "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
 
-  expect_that(nrow(matches), equals(length(phones)))
-  expect_that(ncol(matches), equals(4))
+  expect_equal(nrow(matches), length(phones))
+  expect_equal(ncol(matches), 4)
 
-  expect_that(matches[, 1], equals(phones))
+  expect_equal(matches[, 1], phones)
 
   matches_flat <- apply(matches[, -1], 1, str_c, collapse = "")
-  expect_that(matches_flat, equals(num_flat))
+  expect_equal(matches_flat, num_flat)
 })
 
 test_that("match returns NA when some inputs don't match", {
   matches <- str_match(c(phones, "blah", NA),
     "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
 
-  expect_that(nrow(matches), equals(length(phones) + 2))
-  expect_that(ncol(matches), equals(4))
+  expect_equal(nrow(matches), length(phones) + 2)
+  expect_equal(ncol(matches), 4)
 
-  expect_that(matches[11, ], equals(rep(NA_character_, 4)))
-  expect_that(matches[12, ], equals(rep(NA_character_, 4)))
+  expect_equal(matches[11, ], rep(NA_character_, 4))
+  expect_equal(matches[12, ], rep(NA_character_, 4))
 })
 
 test_that("match returns NA when optional group doesn't match", {
@@ -57,5 +57,5 @@ test_that("multiple match works", {
   single_matches <- str_match(phones,
     "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
 
-  expect_that(multi_match[[1]], equals(single_matches))
+  expect_equal(multi_match[[1]], single_matches)
 })

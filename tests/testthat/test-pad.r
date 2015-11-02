@@ -7,14 +7,14 @@ test_that("long strings are unchanged", {
     character(1))
 
   padded <- str_pad(strings, width = 30)
-  expect_that(str_length(padded), equals(str_length(padded)))
+  expect_equal(str_length(padded), str_length(padded))
 })
 
 test_that("directions work for simple case", {
 
   pad <- function(direction) str_pad("had", direction, width = 10)
 
-  expect_that(pad("right"),  equals("had       "))
-  expect_that(pad("left"),   equals("       had"))
-  expect_that(pad("both"),   equals("   had    "))
+  expect_equal(pad("right"),  "had       ")
+  expect_equal(pad("left"),   "       had")
+  expect_equal(pad("both"),   "   had    ")
 })

@@ -1,20 +1,18 @@
 context("Trimming strings")
 
 test_that("trimming removes spaces", {
-  is_trimmed <- equals("abc")
-  expect_that(str_trim("abc   "), is_trimmed)
-  expect_that(str_trim("  abc"), is_trimmed)
-  expect_that(str_trim("  abc   "), is_trimmed)
+  expect_equal(str_trim("abc   "),   "abc")
+  expect_equal(str_trim("   abc"),   "abc")
+  expect_equal(str_trim("  abc   "), "abc")
 })
 
 test_that("trimming removes tabs", {
-  is_trimmed <- equals("abc")
-  expect_that(str_trim("abc\t"), is_trimmed)
-  expect_that(str_trim("\tabc"), is_trimmed)
-  expect_that(str_trim("\tabc\t"), is_trimmed)
+  expect_equal(str_trim("abc\t"),   "abc")
+  expect_equal(str_trim("\tabc"),   "abc")
+  expect_equal(str_trim("\tabc\t"), "abc")
 })
 
 test_that("side argument restricts trimming", {
-  expect_that(str_trim(" abc ", "left"), equals("abc "))
-  expect_that(str_trim(" abc ", "right"), equals(" abc"))
+  expect_equal(str_trim(" abc ", "left"),  "abc ")
+  expect_equal(str_trim(" abc ", "right"), " abc")
 })

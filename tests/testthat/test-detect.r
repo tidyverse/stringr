@@ -1,22 +1,22 @@
 context("Detecting patterns")
 
 test_that("special cases are correct", {
-  expect_that(str_detect(NA, "x"), equals(NA))
-  expect_that(str_detect(character(), "x"), equals(logical()))
+  expect_equal(str_detect(NA, "x"), NA)
+  expect_equal(str_detect(character(), "x"), logical())
 })
 
 test_that("vectorised patterns work", {
-  expect_that(str_detect("ab", c("a", "b", "c")), equals(c(T, T, F)))
-  expect_that(str_detect(c("ca", "ab"), c("a", "c")), equals(c(T, F)))
+  expect_equal(str_detect("ab", c("a", "b", "c")), c(T, T, F))
+  expect_equal(str_detect(c("ca", "ab"), c("a", "c")), c(T, F))
 })
 
 test_that("modifiers work", {
-  expect_that(str_detect("ab", "AB"), equals(FALSE))
-  expect_that(str_detect("ab", regex("AB", TRUE)), equals(TRUE))
+  expect_false(str_detect("ab", "AB"))
+  expect_true(str_detect("ab", regex("AB", TRUE)))
 
-  expect_that(str_detect("abc", "ab[c]"), equals(TRUE))
-  expect_that(str_detect("abc", fixed("ab[c]")), equals(FALSE))
-  expect_that(str_detect("ab[c]", fixed("ab[c]")), equals(TRUE))
+  expect_true(str_detect("abc", "ab[c]"))
+  expect_false(str_detect("abc", fixed("ab[c]")))
+  expect_true(str_detect("ab[c]", fixed("ab[c]")))
 
-  expect_that(str_detect("abc", "(?x)a b c"), equals(TRUE))
+  expect_true(str_detect("abc", "(?x)a b c"))
 })
