@@ -1,25 +1,22 @@
 # stringr 1.0.0.9000
 
+* `fixed()`, `regex()`, and `coll()` now throw an error if you use them with
+  anything other than a plain string (#60). I've clarified that the replacement
+  for `perl()` is `regex()` not `regexp()` (#61). `boundary()` has improved
+  defaults when splitting on non-word boundaries (#58, @lmullen).
+  
 * `str_extract()` and `str_extract_all()` now work with `boundary()`. This is
   particularly useful if you want to extract logical constructs like words
   or sentences.
 
-* `fixed()`, `regex()`, and `coll()` now throw an error if you use them with
-  anything other than a plain string (#60).
-
-* `str_view()` creates an HTML widget to display regular expression 
-  matches (#96).
-
-* The replacement to `perl()` is `regex()` not `regexp()` (#61).
-
-* `str_subset()` now allows to set custom options for `fixed`
-  pattern search (#79, @gagolews).
+* `str_subset()` now respects custom options for `fixed()` patterns 
+  (#79, @gagolews).
   
 * `str_replace()` and `str_replace_all()` now behave correctly when a
   replacement string contains `$`s, `\\\\1`, etc. (#83, @gagolews).
   
-* `boundary()` has a different default argument which works for splitting on
-   sentence boundaries (#58, @lmullen).
+* `str_view()` and `str_view_all()` create HTML widgets that display regular 
+  expression matches (#96).
 
 # stringr 1.0.0
 
