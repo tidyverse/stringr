@@ -14,6 +14,9 @@
   
 * `str_replace()` and `str_replace_all()` now behave correctly when a
   replacement string contains `$`s, `\\\\1`, etc. (#83, @gagolews).
+
+* `str_split()` gains a `simplify` argument to match `str_extract_all()` 
+  etc.
   
 * `str_view()` and `str_view_all()` create HTML widgets that display regular 
   expression matches (#96).

@@ -3,6 +3,7 @@
 #' Vectorised over \code{string} and \code{pattern}.
 #'
 #' @inheritParams str_detect
+#' @inheritParams str_extract
 #' @param n number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.
 #'
@@ -19,6 +20,7 @@
 #' )
 #'
 #' str_split(fruits, " and ")
+#' str_split(fruits, " and ", simplify = TRUE)
 #'
 #' # Specify n to restrict the number of possible matches
 #' str_split(fruits, " and ", n = 3)
@@ -29,19 +31,19 @@
 #' # Use fixed to return a character matrix
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
-str_split <- function(string, pattern, n = Inf) {
+str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = FALSE,
+    empty = stri_split_boundaries(string, n = n, simplify = simplify,
       opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string, n = n, simplify = FALSE,
+    bound = stri_split_boundaries(string, n = n, simplify = simplify,
       opts_brkiter = attr(pattern, "options")),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = FALSE,
+    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify,
       opts_fixed = attr(pattern, "options")),
-    regex = stri_split_regex(string, pattern, n = n, simplify = FALSE,
+    regex = stri_split_regex(string, pattern, n = n, simplify = simplify,
       opts_regex = attr(pattern, "options")),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = FALSE,
+    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify,
       opts_collator = attr(pattern, "options"))
   )
 }

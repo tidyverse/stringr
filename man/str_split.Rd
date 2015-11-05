@@ -5,7 +5,7 @@
 \alias{str_split_fixed}
 \title{Split up a string into pieces.}
 \usage{
-str_split(string, pattern, n = Inf)
+str_split(string, pattern, n = Inf, simplify = FALSE)
 
 str_split_fixed(string, pattern, n)
 }
@@ -33,6 +33,9 @@ coercible to one.}
 
   For \code{str_split_fixed}, if n is greater than the number of pieces,
   the result will be padded with empty strings.}
+
+\item{simplify}{If \code{FALSE}, the default, returns a list of character
+vectors. If \code{TRUE} returns a character matrix.}
 }
 \value{
 For \code{str_split_fixed}, a character matrix with \code{n} columns.
@@ -48,6 +51,7 @@ fruits <- c(
 )
 
 str_split(fruits, " and ")
+str_split(fruits, " and ", simplify = TRUE)
 
 # Specify n to restrict the number of possible matches
 str_split(fruits, " and ", n = 3)
