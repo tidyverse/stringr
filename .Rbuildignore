@@ -6,3 +6,4 @@
 ^\.travis\.yml$
 ^revdep$
 ^cran-comments\.md$
+^data-raw$

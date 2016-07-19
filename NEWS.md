@@ -1,5 +1,7 @@
 # stringr 1.0.0.9000
 
+* Add sample datasets: `fruit`, `words` and `sentences`.
+
 * `fixed()`, `regex()`, and `coll()` now throw an error if you use them with
   anything other than a plain string (#60). I've clarified that the replacement
   for `perl()` is `regex()` not `regexp()` (#61). `boundary()` has improved
