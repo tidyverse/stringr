@@ -44,6 +44,10 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   neg_end <- !is.na(end) & end < 0L
   end[neg_end] <- end[neg_end] + len[neg_end] + 1L
 
+  # Replace indexes past end with NA
+  start[start > len] <- NA
+  end[end > len] <- NA
+
   # Extract locations
   starts <- mapply(function(word, loc) word[loc, "start"], words, start)
   ends <-   mapply(function(word, loc) word[loc, "end"], words, end)

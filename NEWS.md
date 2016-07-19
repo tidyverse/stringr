@@ -22,6 +22,8 @@
   
 * `str_view()` and `str_view_all()` create HTML widgets that display regular 
   expression matches (#96).
+  
+* `word()` returns `NA` for indexes greater than number of words (#112).
 
 # stringr 1.0.0
 
