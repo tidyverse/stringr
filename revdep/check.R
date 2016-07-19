@@ -1,11 +1,8 @@
+# Remember to run from caffeinate R
 library("devtools")
 
-dr_devtools()
+revdep_check(threads = 4)
+revdep_check_save_summary()
+revdep_check_print_problems()
 
-install.packages(c("RcppEigen", "RcppArmadillo"), lib = "~/R-revdep")
-install.packages("rgeos", lib = "~/R-revdep", type = "source")
-res <- revdep_check()
-
-install.packages("stringr", lib = "~/R-revdep") # because it's otherwise deleted
-revdep_check_save_summary(res)
-revdep_check_save_logs(res)
+# revdep_email(date = "April 4", only_problems = TRUE, draft = FALSE)
