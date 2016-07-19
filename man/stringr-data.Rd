@@ -22,5 +22,15 @@ and made available at \url{https://github.com/dariusk/corpora}.
 \code{sentences} is a collection of "Harvard sentences" used for
 standardised testing of voice.
 }
+\examples{
+length(sentences)
+sentences[1:5]
+
+length(fruit)
+fruit[1:5]
+
+length(words)
+words[1:5]
+}
 \keyword{datasets}
 
