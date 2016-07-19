@@ -30,7 +30,7 @@ coercible to one.}
 
 \item{match}{If \code{TRUE}, shows only strings that match the pattern.
 If \code{FALSE}, shows only the strings that don't match the pattern.
-Otherwise (the default) displays both matches and non-matches.}
+Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 }
 \description{
 \code{str_view} shows the first match; \code{str_view_all} shows all
@@ -39,10 +39,14 @@ the matches.
 \examples{
 str_view(c("abc", "def", "fgh"), "[aeiou]")
 str_view(c("abc", "def", "fgh"), "^")
+str_view(c("abc", "def", "fgh"), "..")
 
+# Show all matches with str_view_all
+str_view_all(c("abc", "def", "fgh"), "d|e")
+
+# Use match to control what is shown
+str_view(c("abc", "def", "fgh"), "d|e")
 str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-
-str_view_all(c("abc", "def", "fgh"), "d|e")
 }
 
