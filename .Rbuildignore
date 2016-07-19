@@ -2,7 +2,6 @@
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
-^NEWS\.md$
 ^\.travis\.yml$
 ^revdep$
 ^cran-comments\.md$
