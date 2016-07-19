@@ -6,3 +6,4 @@
 ^revdep$
 ^cran-comments\.md$
 ^data-raw$
+^codecov\.yml$
