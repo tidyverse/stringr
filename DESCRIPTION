@@ -25,3 +25,4 @@ VignetteBuilder: knitr
 URL: https://github.com/hadley/stringr
 BugReports: https://github.com/hadley/stringr/issues
 RoxygenNote: 5.0.1
+LazyData: true
