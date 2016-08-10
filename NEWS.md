@@ -15,7 +15,7 @@
   (#79, @gagolews).
   
 * `str_replace()` and `str_replace_all()` now behave correctly when a
-  replacement string contains `$`s, `\\\\1`, etc. (#83, @gagolews).
+  replacement string contains `$`s, `\\\\1`, etc. (#83, #99).
 
 * `str_split()` gains a `simplify` argument to match `str_extract_all()` 
   etc.

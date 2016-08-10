@@ -75,10 +75,41 @@ str_replace_all <- function(string, pattern, replacement) {
 }
 
 fix_replacement <- function(x) {
-  stri_replace_all_regex(
-    stri_replace_all_fixed(x, "$", "\\$"),
-    "(?<!\\\\)\\\\(\\d)",
-    "\\$$1")
+  escape_dollar <- function(x) if (x == "$") "\\$" else x
+
+  chars <- str_split(x, "")[[1]]
+  out <- character(length(chars))
+  escaped <- logical(length(chars))
+
+  in_escape <- FALSE
+  for (i in seq_along(chars)) {
+    escaped[[i]] <- in_escape
+    char <- chars[[i]]
+
+    if (in_escape) {
+      # Escape character not printed previously so must include here
+      if (char == "$") {
+        out[[i]] <- "\\\\$"
+      } else if (char >= "0" && char <= "9") {
+        out[[i]] <- paste0("$", char)
+      } else {
+        out[[i]] <- paste0("\\", char)
+      }
+
+      in_escape <- FALSE
+    } else {
+      if (char == "$") {
+        out[[i]] <- "\\$"
+      } else if (char == "\\") {
+        in_escape <- TRUE
+      } else {
+        out[[i]] <- char
+      }
+    }
+  }
+
+  # tibble::tibble(chars, out, escaped)
+  paste0(out, collapse = "")
 }
 
 

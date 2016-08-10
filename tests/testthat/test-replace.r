@@ -33,3 +33,20 @@ test_that("replacement strings with capture groups refs and dollar signs work", 
   expect_equal(str_replace("aba", "(b)", "\\1$\\\\1$\\1"), "ab$\\1$ba")
   expect_equal(str_replace("aba", "(b)", "\\\\1$\\1$\\\\1"), "a\\1$b$\\1a")
 })
+
+
+# fix_replacement ---------------------------------------------------------
+
+test_that("$ are escaped", {
+  expect_equal(fix_replacement("$"), "\\$")
+  expect_equal(fix_replacement("\\$"), "\\\\$")
+})
+
+test_that("\1 converted to $1 etc", {
+  expect_equal(fix_replacement("\\1"), "$1")
+  expect_equal(fix_replacement("\\9"), "$9")
+})
+
+test_that("\\1 left as is", {
+  expect_equal(fix_replacement("\\\\1"), "\\\\1")
+})
