@@ -35,34 +35,18 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = simplify,
-      opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string, n = n, simplify = simplify,
-      opts_brkiter = attr(pattern, "options")),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify,
-      opts_fixed = attr(pattern, "options")),
-    regex = stri_split_regex(string, pattern, n = n, simplify = simplify,
-      opts_regex = attr(pattern, "options")),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify,
-      opts_collator = attr(pattern, "options"))
+    empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
+    bound = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
+    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify, opts_fixed = opts(pattern)),
+    regex = stri_split_regex(string, pattern, n = n, simplify = simplify, opts_regex = opts(pattern)),
+    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
   )
 }
 
 #' @export
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
-  out <- switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = TRUE,
-      opts_brkiter = stri_opts_brkiter(type = "character")),
-    bound = stri_split_boundaries(string, n = n, simplify = TRUE,
-      opts_brkiter = attr(pattern, "options")),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = TRUE,
-      opts_fixed = attr(pattern, "options")),
-    regex = stri_split_regex(string, pattern, n = n, simplify = TRUE,
-      opts_regex = attr(pattern, "options")),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = TRUE,
-      opts_collator = attr(pattern, "options"))
-  )
+  out <- str_split(string, pattern, n = n, simplify = TRUE)
   out[is.na(out)] <- ""
   out
 }

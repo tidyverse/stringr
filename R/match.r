@@ -34,21 +34,24 @@
 #' str_extract(x, "<.*?>")
 #' str_extract_all(x, "<.*?>")
 str_match <- function(string, pattern) {
-  switch(type(pattern),
-    regex = stri_match_first_regex(string, pattern,
-      opts_regex = attr(pattern, "options")),
+  if (type(pattern) != "regex") {
     stop("Can only match regular expressions", call. = FALSE)
-  )
+  }
+
+  stri_match_first_regex(string, pattern, opts_regex = opts(pattern))
 }
 
 #' @rdname str_match
 #' @export
 str_match_all <- function(string, pattern) {
-  switch(type(pattern),
-    regex = stri_match_all_regex(string, pattern,
-      cg_missing = "",
-      omit_no_match = TRUE,
-      opts_regex = attr(pattern, "options")),
+  if (type(pattern) != "regex") {
     stop("Can only match regular expressions", call. = FALSE)
+  }
+
+  stri_match_all_regex(string,
+    pattern,
+    cg_missing = "",
+    omit_no_match = TRUE,
+    opts_regex = opts(pattern)
   )
 }

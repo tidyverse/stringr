@@ -43,11 +43,11 @@ str_replace <- function(string, pattern, replacement) {
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
-      opts_fixed = attr(pattern, "options")),
+      opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
-      opts_collator = attr(pattern, "options")),
+      opts_collator = opts(pattern)),
     regex = stri_replace_first_regex(string, pattern, fix_replacement(replacement),
-      opts_regex = attr(pattern, "options"))
+      opts_regex = opts(pattern))
   )
 }
 
@@ -66,11 +66,11 @@ str_replace_all <- function(string, pattern, replacement) {
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
-      vectorize_all = vec, opts_fixed = attr(pattern, "options")),
+      vectorize_all = vec, opts_fixed = opts(pattern)),
     coll  = stri_replace_all_coll(string, pattern, replacement,
-      vectorize_all = vec, opts_collator = attr(pattern, "options")),
+      vectorize_all = vec, opts_collator = opts(pattern)),
     regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
-      vectorize_all = vec, opts_regex = attr(pattern, "options"))
+      vectorize_all = vec, opts_regex = opts(pattern))
   )
 }
 

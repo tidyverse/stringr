@@ -8,11 +8,12 @@
   defaults when splitting on non-word boundaries (#58, @lmullen).
 
 * `str_detect()` now can detect boundaries (by checking for a `str_count()` > 0)
-  (#120).
+  (#120). `str_subset()` works similarly.
   
 * `str_extract()` and `str_extract_all()` now work with `boundary()`. This is
   particularly useful if you want to extract logical constructs like words
-  or sentences.
+  or sentences. `str_extract_all()` respects the `simplify` argument
+  when used with `fixed()` matches.
 
 * `str_subset()` now respects custom options for `fixed()` patterns 
   (#79, @gagolews).

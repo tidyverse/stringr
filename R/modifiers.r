@@ -140,6 +140,14 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
   )
 }
 
+opts <- function(x) {
+  if (identical(x, "")) {
+    stri_opts_brkiter(type = "character")
+  } else {
+    attr(x, "options")
+  }
+}
+
 type <- function(x) UseMethod("type")
 type.boundary <- function(x) "bound"
 type.regex <- function(x) "regex"
