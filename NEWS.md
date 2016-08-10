@@ -6,6 +6,9 @@
   anything other than a plain string (#60). I've clarified that the replacement
   for `perl()` is `regex()` not `regexp()` (#61). `boundary()` has improved
   defaults when splitting on non-word boundaries (#58, @lmullen).
+
+* `str_detect()` now can detect boundaries (by checking for a `str_count()` > 0)
+  (#120).
   
 * `str_extract()` and `str_extract_all()` now work with `boundary()`. This is
   particularly useful if you want to extract logical constructs like words

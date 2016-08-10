@@ -34,7 +34,7 @@
 str_detect <- function(string, pattern) {
   switch(type(pattern),
     empty = ,
-    bound = stop("Not implemented", call. = FALSE),
+    bound = str_count(string, pattern) > 0,
     fixed = stri_detect_fixed(string, pattern,
       opts_fixed = attr(pattern, "options")),
     coll  = stri_detect_coll(string, pattern,
