@@ -33,7 +33,6 @@ To get the current development version from github:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("Rexamine/stringi")
 devtools::install_github("hadley/stringr")
 ```
 
