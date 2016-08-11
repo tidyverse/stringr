@@ -1,34 +1,29 @@
-This is a resubmission. I've now correctly used person() in the Authors@R field.
-
----
-
 ## Test environments
-* local OS X install, R 3.2.0
-* ubuntu 12.04 (on travis-ci), R 3.2.0
+* local OS X install, R 3.3.0
+* ubuntu 12.04 (on travis-ci), R 3.3.0
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs, or WARNINGs.
 
-There was one note: I am changing the maintainer email to my rstudio address,
-and will send confirmation shortly.
+0 errors | 0 warnings | 0 note
 
-## Downstream dependencies
-This release changes the backend of stringr from R's built in regular 
-expression engine to ICU's, as provided by the stringi package. The potential 
-for backward incompatible changes was high so I have R CMD check on all 158 
-downstream dependencies (https://github.com/hadley/stringr/blob/master/revdep/summary.md). 
+## Reverse dependencies
 
-All downstream maintainers (both en masse, and individually in the case of 
-problems) were notified of the change in early Dec and again on April 14
-(two weeks ago). 
+I have run R CMD check on the 280 downstream dependencies. (Summary at https://github.com/hadley/stringr/tree/master/revdep). I saw the following failures:
 
-Despite these warnings, I have identifed six packages that now fail R CMD 
-check with either an error or a warning:
+* Failed to install dependencies for: biomartr, HydeNet, IATscores, metagear, MetaIntegrator, PepPrep, RbioRXN, TcGSA
+* Failed to install: aemo, EasyMARK, imager, morse, mrMLM, RcppOctave, rsgcc, sdcTable, x12GUI
+* afex: checking re-building of vignette outputs ... WARNING
+* dataone: checking examples ... ERROR
+* fitbitScraper: checking re-building of vignette outputs ... WARNING
+* icd: checking Rd cross-references ... WARNING
+* lint: checking tests ... ERROR
+* modellingTools: checking examples ... ERROR
+* mtconnectR: checking tests ... ERROR
+* NMF: checking examples ... ERROR
+* optparse: checking re-building of vignette outputs ... WARNING
+* vows: checking examples ... ERROR
 
-* Errors: CSS, mpoly, NMF, pathological, rlme
-* Warnings: MazamaSpatialUtils
+After carefully reading the reports, I believe that none of them are related to this release of stringr (which is quite small).
 
-Two other packages failed with non-installed-related errors (RSiteCatalyst, 
-REDCapR). Judging from the error messages, I don't believe these failures
-at related to stringr.
+All maintainers with errors were nonetheless notified of the release on Aug 11, and again today.

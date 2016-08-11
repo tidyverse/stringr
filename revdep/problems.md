@@ -10,22 +10,24 @@
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-07-19                   |
+|date     |2016-08-10                   |
 
 ## Packages
 
 |package     |*  |version    |date       |source                           |
 |:-----------|:--|:----------|:----------|:--------------------------------|
+|covr        |   |2.2.0      |2016-08-04 |cran (@2.2.0)                    |
 |htmltools   |   |0.3.5      |2016-03-21 |CRAN (R 3.3.0)                   |
-|htmlwidgets |   |0.6        |2016-02-25 |CRAN (R 3.3.0)                   |
+|htmlwidgets |   |0.7        |2016-08-02 |cran (@0.7)                      |
 |knitr       |   |1.13       |2016-05-09 |CRAN (R 3.3.0)                   |
 |magrittr    |   |1.5        |2014-11-22 |CRAN (R 3.3.0)                   |
+|rmarkdown   |   |1.0        |2016-07-08 |cran (@1.0)                      |
 |stringi     |   |1.1.1      |2016-05-27 |cran (@1.1.1)                    |
-|stringr     |   |1.0.0.9000 |2016-07-19 |local (hadley/stringr@NA)        |
+|stringr     |   |1.0.0.9000 |2016-08-10 |local (hadley/stringr@NA)        |
 |testthat    |*  |1.0.2.9000 |2016-07-19 |Github (hadley/testthat@46d15da) |
 
 # Check results
-29 packages with problems
+27 packages with problems
 
 ## aemo (0.1.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -72,37 +74,7 @@ Execution halted
 
 ```
 
-## AmostraBrasil (1.1)
-Maintainer: Celso Stephan <celso.stephan@gmail.com>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘AmostraBrasil-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: amostraBrasil
-> ### Title: Generates Brazil's IBGE Householding Sample
-> ### Aliases: amostraBrasil
-> 
-> ### ** Examples
-... 15 lines ...
-
-Aguarde... geocodificando endereços via Google Maps.
-
-Foram descartados 0 registros não geocodificados!
-
-Buscando mapa do município (shp file)
-trying URL 'ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios/al/al_municipios.zip'
-Error in download.file(MYfilename, temp) : 
-  cannot open URL 'ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios/al/al_municipios.zip'
-Calls: amostraBrasil -> getIBGEMunSHP -> download.file
-Execution halted
-```
-
-## biomartr (0.0.3)
+## biomartr (0.1.0)
 Maintainer: Hajk-Georg Drost <hgd23@cam.ac.uk>  
 Bug reports: https://github.com/HajkD/biomartr/issues
 
@@ -114,6 +86,51 @@ Packages required but not available: ‘biomaRt’ ‘Biostrings’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
+```
+
+## dataone (2.0.0)
+Maintainer: Matthew B. Jones <jones@nceas.ucsb.edu>  
+Bug reports: https://github.com/DataONEorg/rdataone/issues
+
+2 errors | 0 warnings | 0 notes
+
+```
+checking examples ... ERROR
+Running examples in ‘dataone-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: MNode-class
+> ### Title: Provides R API to DataONE Member Node services.
+> ### Aliases: MNode-class
+> 
+> ### ** Examples
+> 
+> library(dataone)
+> library(uuid)
+> library(digest)
+> cn <- CNode("STAGING")
+Error in .local(x, ...) : 
+  Error accessing https://cn-stage.test.dataone.org/cn: Server error: (503) Service Unavailable
+Calls: CNode -> CNode -> .local
+Execution halted
+
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  2: CNode("STAGING")
+  3: .local(x, ...)
+  4: stop(sprintf("Error accessing %s: %s\n", CN_URI, getErrorDescription(response)))
+  
+  testthat results ================================================================
+  OK: 161 SKIPPED: 34 FAILED: 4
+  1. Error: D1Client constructors (@test.D1Client.R#30) 
+  2. Error: CNode ping (@test.D1Node.R#8) 
+  3. Error: CNode object index query works with query list param (@test.D1Node.R#17) 
+  4. Error: Object listing works for CNode, MNode (@test.D1Node.R#62) 
+  
+  Error: testthat unit tests failed
+  Execution halted
 ```
 
 ## EasyMARK (1.0)
@@ -215,15 +232,15 @@ Maintainer: Andrew Redd <andrew.redd@hsc.utah.edu>
 checking tests ... ERROR
 Running the tests in ‘tests/test_package.R’ failed.
 Last 13 lines of output:
+         exclude.region = c("find_string", "find_inside_comment"), message = "needs two spaces spacing before inline comments", 
          lines = c("{#", "}#", "# c", "1#c", "1 #c", "1 <- \"#c\"", "1  # c #"))
   9: str_locate(pattern = perl(pattern), string = lines)
-  10: type(pattern) at /Users/hadley/Documents/stringr/stringr/R/locate.r:29
-  11: perl(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:143
-  12: regex(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:169
-  13: stop("Can only modify plain character vectors.", call. = FALSE) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:98
+  10: type(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/locate.r:29
+  11: perl(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:151
+  12: regex(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:177
+  13: stop("Can only modify plain character vectors.", call. = FALSE) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:98
   
   DONE ===========================================================================
-  No-one gets it right on their first try
   Error: Test failures
   In addition: Warning message:
   Placing tests in `inst/tests/` is deprecated. Please use `tests/testthat/` instead 
@@ -261,6 +278,23 @@ Maintainer: Marc J. Lajeunesse <lajeunesse@usf.edu>
 ```
 checking package dependencies ... ERROR
 Package required but not available: ‘EBImage’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
+## MetaIntegrator (1.0.0)
+Maintainer: Winston A. Haynes <hayneswa@stanford.edu>
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking package dependencies ... ERROR
+Packages required but not available:
+  ‘multtest’ ‘Biobase’ ‘preprocessCore’ ‘GEOquery’ ‘GEOmetadb’
+
+Packages suggested but not available for checking:
+  ‘BiocStyle’ ‘BiocGenerics’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
@@ -351,37 +385,42 @@ Maintainer: Yuanming Zhang<soyzhang@mail.hzau.edu.cn>
 1 error  | 0 warnings | 0 notes
 
 ```
-checking package dependencies ... ERROR
-Package required but not available: ‘qqman’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
+checking whether package ‘mrMLM’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/stringr/stringr/revdep/checks/mrMLM.Rcheck/00install.out’ for details.
 ```
 
-## mtconnectR (1.0.0)
+## mtconnectR (1.0.1)
 Maintainer: Subramanyam Ravishankar <subramanyam@systeminsights.com>
 
-1 error  | 0 warnings | 0 notes
+1 error  | 1 warning  | 0 notes
 
 ```
-checking examples ... ERROR
-Running examples in ‘mtconnectR-Ex.R’ failed
-The error most likely occurred in:
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  93.43% data contextualized successfuly!
+  Error: mtc_device_2@data_item_list[!condition_values] not equal to example_mtc_device_2@data_item_list[!condition_values].
+  Names: 5 string mismatches
+  Length mismatch: comparison on first 15 components
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (462, 154) differ > >
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "timestamp": Numeric: lengths (462, 154) differ >
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "value": Numeric: lengths (462, 154) differ >
+  Component 11: Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (2, 154) differ > >
+  Component 11: Attributes: < Component "data": Component "timestamp": Numeric: lengths (2, 154) differ >
+  Component 11: Attributes: < Component "data": Component "value": Modes: char
+  testthat results ================================================================
+  OK: 0 SKIPPED: 0 FAILED: 0
+  Execution halted
 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: map_gcode_mtc
-> ### Title: Create a mapping between simulated and actual data
-> ### Aliases: map_gcode_mtc
-> 
-> ### ** Examples
-> 
-> data("example_gcode_parsed") # Parsed gcode
-> data("example_mtc_device_3") # MTCDevice object of actual log data
-> simulated_gcode_data = na.omit(simulate_data_from_gcode(example_gcode_parsed, 
-+ start_time = 0, data_res = 0.1, data_type = "HH"))
-Error in eval(expr, envir, enclos) : could not find function "one_of"
-Calls: na.omit ... select_vars_ -> <Anonymous> -> lapply -> FUN -> eval -> eval
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+Quitting from lines 34-37 (simulate_map_gcode.Rmd) 
+Error: processing vignette 'simulate_map_gcode.Rmd' failed with diagnostics:
+dim(X) must have a positive length
 Execution halted
+
 ```
 
 ## NMF (0.20.6)
@@ -483,19 +522,6 @@ See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
 ```
 
-## QCAtools (0.2.1)
-Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘QCAGUI’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
-
 ## RbioRXN (1.5.1)
 Maintainer: Byoungnam Min <mbnmbn00@gmail.com>
 
@@ -519,30 +545,6 @@ Bug reports: http://github.com/renozao/RcppOctave/issues
 checking whether package ‘RcppOctave’ can be installed ... ERROR
 Installation failed.
 See ‘/Users/hadley/Documents/stringr/stringr/revdep/checks/RcppOctave.Rcheck/00install.out’ for details.
-```
-
-## roxygen2 (5.0.1)
-Maintainer: Hadley Wickham <hadley@rstudio.com>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  1/1 mismatches
-  x[1]: "export(\"%\\1%\")"
-  y[1]: "export(\"%\\\\%\")"
-  
-  
-  testthat results ================================================================
-  OK: 348 SKIPPED: 0 FAILED: 3
-  1. Failure: export escapes tricky names (@test-namespace.R#21) 
-  2. Failure: export escapes tricky names (@test-namespace.R#23) 
-  3. Failure: export escapes tricky names (@test-namespace.R#25) 
-  
-  Error: testthat unit tests failed
-  Execution halted
 ```
 
 ## rsgcc (1.0.6)
@@ -589,36 +591,6 @@ Package required but not available: ‘multtest’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
-```
-
-## vcfR (1.1.0)
-Maintainer: Brian J. Knaus <briank.lists@gmail.com>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘vcfR-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: Convert to tidy data frames
-> ### Title: Convert vcfR objects to tidy data frames
-> ### Aliases: 'Convert to tidy data frames' extract_gt_tidy
-> ###   extract_info_tidy vcfR2tidy vcf_field_names
-> 
-... 8 lines ...
-> # data frames: fix, gt, and meta. Here we don't coerce columns
-> # to integer or numeric types...
-> Z <- vcfR2tidy(vcf)
-Extracting gt element AD
-Extracting gt element DP
-Extracting gt element GQ
-Extracting gt element GT
-Extracting gt element PL
-Error in eval(expr, envir, enclos) : could not find function "everything"
-Calls: vcfR2tidy ... select_vars_ -> <Anonymous> -> lapply -> FUN -> eval -> eval
-Execution halted
 ```
 
 ## vows (0.4)

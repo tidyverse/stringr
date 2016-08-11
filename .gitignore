@@ -4,3 +4,4 @@
 packrat/lib*/
 packrat/src
 inst/doc
+.httr-oauth

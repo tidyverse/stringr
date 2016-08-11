@@ -10,22 +10,24 @@
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-07-19                   |
+|date     |2016-08-10                   |
 
 ## Packages
 
 |package     |*  |version    |date       |source                           |
 |:-----------|:--|:----------|:----------|:--------------------------------|
+|covr        |   |2.2.0      |2016-08-04 |cran (@2.2.0)                    |
 |htmltools   |   |0.3.5      |2016-03-21 |CRAN (R 3.3.0)                   |
-|htmlwidgets |   |0.6        |2016-02-25 |CRAN (R 3.3.0)                   |
+|htmlwidgets |   |0.7        |2016-08-02 |cran (@0.7)                      |
 |knitr       |   |1.13       |2016-05-09 |CRAN (R 3.3.0)                   |
 |magrittr    |   |1.5        |2014-11-22 |CRAN (R 3.3.0)                   |
+|rmarkdown   |   |1.0        |2016-07-08 |cran (@1.0)                      |
 |stringi     |   |1.1.1      |2016-05-27 |cran (@1.1.1)                    |
-|stringr     |   |1.0.0.9000 |2016-07-19 |local (hadley/stringr@NA)        |
+|stringr     |   |1.0.0.9000 |2016-08-10 |local (hadley/stringr@NA)        |
 |testthat    |*  |1.0.2.9000 |2016-07-19 |Github (hadley/testthat@46d15da) |
 
 # Check results
-271 packages
+280 packages
 
 ## acs (2.0)
 Maintainer: Ezra Haber Glenn <eglenn@mit.edu>
@@ -142,35 +144,10 @@ The following directory looks like a leftover from 'knitr':
 Please remove from your package.
 ```
 
-## AmostraBrasil (1.1)
+## AmostraBrasil (1.2)
 Maintainer: Celso Stephan <celso.stephan@gmail.com>
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘AmostraBrasil-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: amostraBrasil
-> ### Title: Generates Brazil's IBGE Householding Sample
-> ### Aliases: amostraBrasil
-> 
-> ### ** Examples
-... 15 lines ...
-
-Aguarde... geocodificando endereços via Google Maps.
-
-Foram descartados 0 registros não geocodificados!
-
-Buscando mapa do município (shp file)
-trying URL 'ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios/al/al_municipios.zip'
-Error in download.file(MYfilename, temp) : 
-  cannot open URL 'ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios/al/al_municipios.zip'
-Calls: amostraBrasil -> getIBGEMunSHP -> download.file
-Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## AnDE (1.0)
 Maintainer: Sai Teja Ranuva <ranuva.teja@gmail.com>
@@ -249,7 +226,12 @@ checking DESCRIPTION meta-information ... NOTE
 Checking should be performed on sources prepared by ‘R CMD build’.
 ```
 
-## bibliometrix (0.8)
+## bib2df (0.1.1)
+Maintainer: Philipp Ottolinger <philipp@ottolinger.de>
+
+0 errors | 0 warnings | 0 notes
+
+## bibliometrix (1.0)
 Maintainer: Massimo Aria <aria@unina.it>
 
 0 errors | 0 warnings | 0 notes
@@ -259,7 +241,7 @@ Maintainer: Mark P. Robertson <markrobertsonsa@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## biomartr (0.0.3)
+## biomartr (0.1.0)
 Maintainer: Hajk-Georg Drost <hgd23@cam.ac.uk>  
 Bug reports: https://github.com/HajkD/biomartr/issues
 
@@ -271,6 +253,16 @@ Packages required but not available: ‘biomaRt’ ‘Biostrings’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
+```
+
+## blkbox (1.0)
+Maintainer: Boris Guennewig <b.guennewig@garvan.org.au>
+
+0 errors | 0 warnings | 1 note 
+
+```
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘bigrf’
 ```
 
 ## bold (0.3.5)
@@ -392,7 +384,7 @@ Bug reports: https://github.com/arilamstein/choroplethr/issues
 
 0 errors | 0 warnings | 0 notes
 
-## ClimClass (2.0.1)
+## ClimClass (2.1.0)
 Maintainer: Emanuele Eccel <emanuele.eccel@fmach.it>
 
 0 errors | 0 warnings | 0 notes
@@ -472,7 +464,46 @@ to your NAMESPACE file.
 Maintainer: Matthew B. Jones <jones@nceas.ucsb.edu>  
 Bug reports: https://github.com/DataONEorg/rdataone/issues
 
-0 errors | 0 warnings | 0 notes
+2 errors | 0 warnings | 0 notes
+
+```
+checking examples ... ERROR
+Running examples in ‘dataone-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: MNode-class
+> ### Title: Provides R API to DataONE Member Node services.
+> ### Aliases: MNode-class
+> 
+> ### ** Examples
+> 
+> library(dataone)
+> library(uuid)
+> library(digest)
+> cn <- CNode("STAGING")
+Error in .local(x, ...) : 
+  Error accessing https://cn-stage.test.dataone.org/cn: Server error: (503) Service Unavailable
+Calls: CNode -> CNode -> .local
+Execution halted
+
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  2: CNode("STAGING")
+  3: .local(x, ...)
+  4: stop(sprintf("Error accessing %s: %s\n", CN_URI, getErrorDescription(response)))
+  
+  testthat results ================================================================
+  OK: 161 SKIPPED: 34 FAILED: 4
+  1. Error: D1Client constructors (@test.D1Client.R#30) 
+  2. Error: CNode ping (@test.D1Node.R#8) 
+  3. Error: CNode object index query works with query list param (@test.D1Node.R#17) 
+  4. Error: Object listing works for CNode, MNode (@test.D1Node.R#62) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
 
 ## DeLorean (1.2.3)
 Maintainer: John Reid <john.reid@mrc-bsu.cam.ac.uk>
@@ -558,7 +589,7 @@ Maintainer: Jared E. Knowles <jknowles@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## emuR (0.1.8)
+## emuR (0.1.9)
 Maintainer: Raphael Winkelmann <raphael@phonetik.uni-muenchen.de>  
 Bug reports: https://github.com/IPS-LMU/emuR/issues
 
@@ -589,6 +620,12 @@ Consider adding
   importFrom("stats", "cov2cor")
 to your NAMESPACE file.
 ```
+
+## etl (0.3.3)
+Maintainer: Ben Baumer <ben.baumer@gmail.com>  
+Bug reports: https://github.com/beanumber/etl/issues
+
+0 errors | 0 warnings | 0 notes
 
 ## evaluate (0.9)
 Maintainer: Yihui Xie <xie@yihui.name>  
@@ -666,8 +703,8 @@ to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
 contains 'methods').
 ```
 
-## Fgmutils (0.6)
-Maintainer: Clayton Vieira Fraga Filho <altoe.wagner@gmail.com>
+## Fgmutils (0.8)
+Maintainer: Clayton Vieira Fraga Filho <forestgrowthsoftware@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
@@ -765,8 +802,13 @@ Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## GERGM (0.7.4)
+## GERGM (0.10.0)
 Maintainer: Matthew J. Denny <mdenny@psu.edu>
+
+0 errors | 0 warnings | 0 notes
+
+## GetHFData (1.0.0)
+Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
@@ -810,12 +852,7 @@ Bug reports: https://github.com/jennybc/googlesheets/issues
 ## Greg (1.2)
 Maintainer: Max Gordon <max@gforge.se>
 
-0 errors | 0 warnings | 1 note 
-
-```
-checking Rd cross-references ... NOTE
-Package unavailable to check Rd xrefs: ‘rmeta’
-```
+0 errors | 0 warnings | 0 notes
 
 ## gsheet (0.3.0)
 Maintainer: Max Conway <conway.max1@gmail.com>  
@@ -823,7 +860,7 @@ Bug reports: https://github.com/maxconway/gsheet/issues
 
 0 errors | 0 warnings | 0 notes
 
-## GSIF (0.5-2)
+## GSIF (0.5-3)
 Maintainer: Tomislav Hengl <tom.hengl@isric.org>
 
 0 errors | 0 warnings | 1 note 
@@ -874,7 +911,7 @@ Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 
 0 errors | 0 warnings | 0 notes
 
-## htmlTable (1.5)
+## htmlTable (1.6)
 Maintainer: Max Gordon <max@gforge.se>  
 Bug reports: https://github.com/gforge/htmlTable/issues
 
@@ -986,7 +1023,7 @@ Bug reports: https://github.com/kehraProject/r_kehra/issues
 
 0 errors | 0 warnings | 0 notes
 
-## kinn (0.1)
+## kinn (0.2)
 Maintainer: Yossi Keshet <jossiekat@icloud.com>
 
 0 errors | 0 warnings | 0 notes
@@ -1041,8 +1078,13 @@ Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
 
 0 errors | 0 warnings | 0 notes
 
-## liftr (0.3)
-Maintainer: Nan Xiao <nanx@uchicago.edu>  
+## lexRankr (0.1.0)
+Maintainer: Adam Spannbauer <spannbaueradam@gmail.com>
+
+0 errors | 0 warnings | 0 notes
+
+## liftr (0.4)
+Maintainer: Nan Xiao <me@nanx.me>  
 Bug reports: https://github.com/road2stat/liftr/issues
 
 0 errors | 0 warnings | 0 notes
@@ -1067,15 +1109,15 @@ Maintainer: Andrew Redd <andrew.redd@hsc.utah.edu>
 checking tests ... ERROR
 Running the tests in ‘tests/test_package.R’ failed.
 Last 13 lines of output:
+         exclude.region = c("find_string", "find_inside_comment"), message = "needs two spaces spacing before inline comments", 
          lines = c("{#", "}#", "# c", "1#c", "1 #c", "1 <- \"#c\"", "1  # c #"))
   9: str_locate(pattern = perl(pattern), string = lines)
-  10: type(pattern) at /Users/hadley/Documents/stringr/stringr/R/locate.r:29
-  11: perl(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:143
-  12: regex(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:169
-  13: stop("Can only modify plain character vectors.", call. = FALSE) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:98
+  10: type(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/locate.r:29
+  11: perl(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:151
+  12: regex(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:177
+  13: stop("Can only modify plain character vectors.", call. = FALSE) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:98
   
   DONE ===========================================================================
-  No-one gets it right on their first try
   Error: Test failures
   In addition: Warning message:
   Placing tests in `inst/tests/` is deprecated. Please use `tests/testthat/` instead 
@@ -1200,6 +1242,23 @@ See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
 ```
 
+## MetaIntegrator (1.0.0)
+Maintainer: Winston A. Haynes <hayneswa@stanford.edu>
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking package dependencies ... ERROR
+Packages required but not available:
+  ‘multtest’ ‘Biobase’ ‘preprocessCore’ ‘GEOquery’ ‘GEOmetadb’
+
+Packages suggested but not available for checking:
+  ‘BiocStyle’ ‘BiocGenerics’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
 ## modellingTools (0.1.0)
 Maintainer: Alex Stringer <alex@alexstringer.ca>
 
@@ -1297,37 +1356,42 @@ Maintainer: Yuanming Zhang<soyzhang@mail.hzau.edu.cn>
 1 error  | 0 warnings | 0 notes
 
 ```
-checking package dependencies ... ERROR
-Package required but not available: ‘qqman’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
+checking whether package ‘mrMLM’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/stringr/stringr/revdep/checks/mrMLM.Rcheck/00install.out’ for details.
 ```
 
-## mtconnectR (1.0.0)
+## mtconnectR (1.0.1)
 Maintainer: Subramanyam Ravishankar <subramanyam@systeminsights.com>
 
-1 error  | 0 warnings | 0 notes
+1 error  | 1 warning  | 0 notes
 
 ```
-checking examples ... ERROR
-Running examples in ‘mtconnectR-Ex.R’ failed
-The error most likely occurred in:
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  93.43% data contextualized successfuly!
+  Error: mtc_device_2@data_item_list[!condition_values] not equal to example_mtc_device_2@data_item_list[!condition_values].
+  Names: 5 string mismatches
+  Length mismatch: comparison on first 15 components
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (462, 154) differ > >
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "timestamp": Numeric: lengths (462, 154) differ >
+  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "value": Numeric: lengths (462, 154) differ >
+  Component 11: Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (2, 154) differ > >
+  Component 11: Attributes: < Component "data": Component "timestamp": Numeric: lengths (2, 154) differ >
+  Component 11: Attributes: < Component "data": Component "value": Modes: char
+  testthat results ================================================================
+  OK: 0 SKIPPED: 0 FAILED: 0
+  Execution halted
 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: map_gcode_mtc
-> ### Title: Create a mapping between simulated and actual data
-> ### Aliases: map_gcode_mtc
-> 
-> ### ** Examples
-> 
-> data("example_gcode_parsed") # Parsed gcode
-> data("example_mtc_device_3") # MTCDevice object of actual log data
-> simulated_gcode_data = na.omit(simulate_data_from_gcode(example_gcode_parsed, 
-+ start_time = 0, data_res = 0.1, data_type = "HH"))
-Error in eval(expr, envir, enclos) : could not find function "one_of"
-Calls: na.omit ... select_vars_ -> <Anonymous> -> lapply -> FUN -> eval -> eval
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+Quitting from lines 34-37 (simulate_map_gcode.Rmd) 
+Error: processing vignette 'simulate_map_gcode.Rmd' failed with diagnostics:
+dim(X) must have a positive length
 Execution halted
+
 ```
 
 ## mtk (1.0)
@@ -1387,7 +1451,7 @@ Maintainer: Bradley Buchsbaum <brad.buchsbaum@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## nhanesA (0.6.4.1)
+## nhanesA (0.6.4.2)
 Maintainer: Christopher Endres <cjendres1@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -1693,6 +1757,12 @@ Maintainer: Roberto Gatta <roberto.gatta.bs@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
+## pollstR (1.4.0)
+Maintainer: Jeffrey B. Arnold <jeffrey.arnold@gmail.com>  
+Bug reports: https://github.com/rOpenGov/pollstR/issues
+
+0 errors | 0 warnings | 0 notes
+
 ## polywog (0.4-0)
 Maintainer: Brenton Kenkel <brenton.kenkel@gmail.com>
 
@@ -1915,18 +1985,10 @@ Bug reports: https://github.com/rOpenGov/pxweb/issues
 
 0 errors | 0 warnings | 0 notes
 
-## QCAtools (0.2.1)
+## QCAtools (0.2.2)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘QCAGUI’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
+0 errors | 0 warnings | 0 notes
 
 ## qrcode (0.1.1)
 Maintainer: Victor Teh <victorteh@gmail.com>
@@ -1996,7 +2058,7 @@ checking installed package size ... NOTE
 
 checking dependencies in R code ... NOTE
 
-(R:12151): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+(R:19217): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
 ```
 
 ## rAvis (0.1.4)
@@ -2309,26 +2371,7 @@ Bug reports: https://github.com/alexgenin/rollply
 ## roxygen2 (5.0.1)
 Maintainer: Hadley Wickham <hadley@rstudio.com>
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  1/1 mismatches
-  x[1]: "export(\"%\\1%\")"
-  y[1]: "export(\"%\\\\%\")"
-  
-  
-  testthat results ================================================================
-  OK: 348 SKIPPED: 0 FAILED: 3
-  1. Failure: export escapes tricky names (@test-namespace.R#21) 
-  2. Failure: export escapes tricky names (@test-namespace.R#23) 
-  3. Failure: export escapes tricky names (@test-namespace.R#25) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## rpcdsearch (1.0)
 Maintainer: David Springate <daspringate@gmail.com>
@@ -2389,6 +2432,11 @@ selectively is preferable.
 ## RSiteCatalyst (1.4.9)
 Maintainer: Randy Zwitch <rzwitch+rsitecatalyst@gmail.com>  
 Bug reports: https://github.com/randyzwitch/RSiteCatalyst
+
+0 errors | 0 warnings | 0 notes
+
+## rslp (0.0.1)
+Maintainer: Daniel Falbel <dfalbel@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
@@ -2473,9 +2521,14 @@ Bug reports: https://github.com/jkeirstead/scholar/issues
 
 0 errors | 0 warnings | 0 notes
 
-## SciencesPo (1.4.0)
+## SciencesPo (1.4.1)
 Maintainer: Daniel Marcelino <dmarcelino@live.com>  
 Bug reports: http://github.com/danielmarcelino/SciencesPo/issues
+
+0 errors | 0 warnings | 0 notes
+
+## scientoText (0.1)
+Maintainer: Ashraf Uddin <mdaakib18@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
@@ -2526,7 +2579,7 @@ Bug reports: https://github.com/pitakakariki/simr/issues
 
 0 errors | 0 warnings | 0 notes
 
-## SocialMediaLab (0.22.0)
+## SocialMediaLab (0.23.0)
 Maintainer: Timothy Graham <timothy.graham3@uq.net.au>
 
 0 errors | 0 warnings | 0 notes
@@ -2829,7 +2882,7 @@ Consider adding
 to your NAMESPACE file.
 ```
 
-## taxize (0.7.8)
+## taxize (0.7.9)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/taxize/issues
 
@@ -2979,7 +3032,7 @@ Bug reports: https://github.com/dmpe/urlshorteneR/issues
 
 0 errors | 0 warnings | 0 notes
 
-## vardpoor (0.7.0)
+## vardpoor (0.7.2)
 Maintainer: Juris Breidaks <Juris.Breidaks@csb.gov.lv>  
 Bug reports: https://github.com/CSBLatvia/vardpoor/issues/
 
@@ -2990,35 +3043,10 @@ Maintainer: Zongfu Cao <caozongfu@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## vcfR (1.1.0)
+## vcfR (1.2.0)
 Maintainer: Brian J. Knaus <briank.lists@gmail.com>
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘vcfR-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: Convert to tidy data frames
-> ### Title: Convert vcfR objects to tidy data frames
-> ### Aliases: 'Convert to tidy data frames' extract_gt_tidy
-> ###   extract_info_tidy vcfR2tidy vcf_field_names
-> 
-... 8 lines ...
-> # data frames: fix, gt, and meta. Here we don't coerce columns
-> # to integer or numeric types...
-> Z <- vcfR2tidy(vcf)
-Extracting gt element AD
-Extracting gt element DP
-Extracting gt element GQ
-Extracting gt element GT
-Extracting gt element PL
-Error in eval(expr, envir, enclos) : could not find function "everything"
-Calls: vcfR2tidy ... select_vars_ -> <Anonymous> -> lapply -> FUN -> eval -> eval
-Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## VDAP (2.0.0)
 Maintainer: Cody Moore <Jumper9400@gmail.com>

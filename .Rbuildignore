@@ -7,3 +7,4 @@
 ^cran-comments\.md$
 ^data-raw$
 ^codecov\.yml$
+^\.httr-oauth$
