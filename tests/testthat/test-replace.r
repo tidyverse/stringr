@@ -34,6 +34,11 @@ test_that("replacement strings with capture groups refs and dollar signs work", 
   expect_equal(str_replace("aba", "(b)", "\\\\1$\\1$\\\\1"), "a\\1$b$\\1a")
 })
 
+test_that("can replace multiple matches", {
+  x <- c("a1", "b2")
+  y <- str_replace_all(x, c("a" = "1", "b" = "2"))
+  expect_equal(y, c("11", "22"))
+})
 
 # fix_replacement ---------------------------------------------------------
 

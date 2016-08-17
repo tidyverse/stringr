@@ -55,9 +55,9 @@ str_replace <- function(string, pattern, replacement) {
 #' @rdname str_replace
 str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
+    vec <- FALSE
     replacement <- unname(pattern)
     pattern <- names(pattern)
-    vec <- FALSE
   } else {
     vec <- TRUE
   }
@@ -75,6 +75,10 @@ str_replace_all <- function(string, pattern, replacement) {
 }
 
 fix_replacement <- function(x) {
+  vapply(x, fix_replacement_one, character(1), USE.NAMES = FALSE)
+}
+
+fix_replacement_one <- function(x) {
   escape_dollar <- function(x) if (x == "$") "\\$" else x
 
   chars <- str_split(x, "")[[1]]
