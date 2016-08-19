@@ -1,4 +1,4 @@
-# stringr 1.0.0.9000
+# stringr 1.1.0
 
 * Add sample datasets: `fruit`, `words` and `sentences`.
 

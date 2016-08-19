@@ -10,24 +10,24 @@
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-08-10                   |
+|date     |2016-08-19                   |
 
 ## Packages
 
 |package     |*  |version    |date       |source                           |
 |:-----------|:--|:----------|:----------|:--------------------------------|
-|covr        |   |2.2.0      |2016-08-04 |cran (@2.2.0)                    |
+|covr        |   |2.2.1      |2016-08-10 |cran (@2.2.1)                    |
 |htmltools   |   |0.3.5      |2016-03-21 |CRAN (R 3.3.0)                   |
 |htmlwidgets |   |0.7        |2016-08-02 |cran (@0.7)                      |
-|knitr       |   |1.13       |2016-05-09 |CRAN (R 3.3.0)                   |
+|knitr       |   |1.14       |2016-08-13 |cran (@1.14)                     |
 |magrittr    |   |1.5        |2014-11-22 |CRAN (R 3.3.0)                   |
 |rmarkdown   |   |1.0        |2016-07-08 |cran (@1.0)                      |
 |stringi     |   |1.1.1      |2016-05-27 |cran (@1.1.1)                    |
-|stringr     |   |1.0.0.9000 |2016-08-10 |local (hadley/stringr@NA)        |
+|stringr     |   |1.1.0      |2016-08-19 |local (hadley/stringr@NA)        |
 |testthat    |*  |1.0.2.9000 |2016-07-19 |Github (hadley/testthat@46d15da) |
 
 # Check results
-280 packages
+282 packages
 
 ## acs (2.0)
 Maintainer: Ezra Haber Glenn <eglenn@mit.edu>
@@ -189,6 +189,11 @@ Bug reports: https://github.com/RMHogervorst/badgecreatr/issues
 
 0 errors | 0 warnings | 0 notes
 
+## banxicoR (0.9.0)
+Maintainer: Eduardo Flores <eduardo@enelmargen.org>
+
+0 errors | 0 warnings | 0 notes
+
 ## BatchJobs (1.6)
 Maintainer: Bernd Bischl <bernd_bischl@gmx.net>  
 Bug reports: https://github.com/tudo-r/BatchJobs/issues
@@ -301,9 +306,9 @@ Consider adding
 to your NAMESPACE file.
 ```
 
-## boxr (0.3.2)
-Maintainer: Brendan Rocks <rocks.brendan@gmail.com>  
-Bug reports: https://github.com/brendan-R/boxr/issues
+## boxr (0.3.3)
+Maintainer: Brendan Rocks <foss@brendanrocks.com>  
+Bug reports: https://github.com/brendan-r/boxr/issues
 
 0 errors | 0 warnings | 0 notes
 
@@ -464,42 +469,22 @@ to your NAMESPACE file.
 Maintainer: Matthew B. Jones <jones@nceas.ucsb.edu>  
 Bug reports: https://github.com/DataONEorg/rdataone/issues
 
-2 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
 
 ```
-checking examples ... ERROR
-Running examples in ‘dataone-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: MNode-class
-> ### Title: Provides R API to DataONE Member Node services.
-> ### Aliases: MNode-class
-> 
-> ### ** Examples
-> 
-> library(dataone)
-> library(uuid)
-> library(digest)
-> cn <- CNode("STAGING")
-Error in .local(x, ...) : 
-  Error accessing https://cn-stage.test.dataone.org/cn: Server error: (503) Service Unavailable
-Calls: CNode -> CNode -> .local
-Execution halted
-
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  2: CNode("STAGING")
-  3: .local(x, ...)
-  4: stop(sprintf("Error accessing %s: %s\n", CN_URI, getErrorDescription(response)))
+  length(objects) - 1 not equal to `count`.
+  1/1 mismatches
+  [1] 1 - 5 == -4
+  
   
   testthat results ================================================================
-  OK: 161 SKIPPED: 34 FAILED: 4
-  1. Error: D1Client constructors (@test.D1Client.R#30) 
-  2. Error: CNode ping (@test.D1Node.R#8) 
-  3. Error: CNode object index query works with query list param (@test.D1Node.R#17) 
-  4. Error: Object listing works for CNode, MNode (@test.D1Node.R#62) 
+  OK: 179 SKIPPED: 35 FAILED: 3
+  1. Failure: CNode object index query works with query list param (@test.D1Node.R#37) 
+  2. Failure: Object listing works for CNode, MNode (@test.D1Node.R#70) 
+  3. Failure: Object listing works for CNode, MNode (@test.D1Node.R#77) 
   
   Error: testthat unit tests failed
   Execution halted
@@ -791,6 +776,19 @@ Maintainer: J Grey Monroe <greymonroe@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
+## GenomicTools (0.1)
+Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking package dependencies ... ERROR
+Package required but not available: ‘snpStats’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+
 ## geoparser (0.1.0)
 Maintainer: Maëlle Salmon <maelle.salmon@yahoo.se>  
 Bug reports: http://github.com/ropenscilabs/geoparser/issues
@@ -807,12 +805,12 @@ Maintainer: Matthew J. Denny <mdenny@psu.edu>
 
 0 errors | 0 warnings | 0 notes
 
-## GetHFData (1.0.0)
+## GetHFData (1.1.0)
 Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## GetTDData (1.2.3)
+## GetTDData (1.2.4)
 Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -829,7 +827,7 @@ Bug reports: https://github.com/dkahle/ggmap/issues
 
 0 errors | 0 warnings | 0 notes
 
-## githubinstall (0.0.1)
+## githubinstall (0.1.0)
 Maintainer: Koji Makiyama <hoxo.smile@gmail.com>  
 Bug reports: https://github.com/hoxo-m/githubinstall/issues
 
@@ -1028,7 +1026,7 @@ Maintainer: Yossi Keshet <jossiekat@icloud.com>
 
 0 errors | 0 warnings | 0 notes
 
-## knitr (1.13)
+## knitr (1.14)
 Maintainer: Yihui Xie <xie@yihui.name>  
 Bug reports: https://github.com/yihui/knitr/issues
 
@@ -1112,10 +1110,10 @@ Last 13 lines of output:
          exclude.region = c("find_string", "find_inside_comment"), message = "needs two spaces spacing before inline comments", 
          lines = c("{#", "}#", "# c", "1#c", "1 #c", "1 <- \"#c\"", "1  # c #"))
   9: str_locate(pattern = perl(pattern), string = lines)
-  10: type(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/locate.r:29
-  11: perl(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:151
-  12: regex(pattern) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:177
-  13: stop("Can only modify plain character vectors.", call. = FALSE) at /private/tmp/Rtmp7oept0/file103316fb21a26/stringr/R/modifiers.r:98
+  10: type(pattern) at /Users/hadley/Documents/stringr/stringr/R/locate.r:29
+  11: perl(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:151
+  12: regex(pattern) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:177
+  13: stop("Can only modify plain character vectors.", call. = FALSE) at /Users/hadley/Documents/stringr/stringr/R/modifiers.r:98
   
   DONE ===========================================================================
   Error: Test failures
@@ -1364,35 +1362,7 @@ See ‘/Users/hadley/Documents/stringr/stringr/revdep/checks/mrMLM.Rcheck/00inst
 ## mtconnectR (1.0.1)
 Maintainer: Subramanyam Ravishankar <subramanyam@systeminsights.com>
 
-1 error  | 1 warning  | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  93.43% data contextualized successfuly!
-  Error: mtc_device_2@data_item_list[!condition_values] not equal to example_mtc_device_2@data_item_list[!condition_values].
-  Names: 5 string mismatches
-  Length mismatch: comparison on first 15 components
-  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (462, 154) differ > >
-  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "timestamp": Numeric: lengths (462, 154) differ >
-  Component "nist_testbed_GF_Agie_1<Device>:path_pos_x<PATH_POSITION>": Attributes: < Component "data": Component "value": Numeric: lengths (462, 154) differ >
-  Component 11: Attributes: < Component "data": Attributes: < Component "row.names": Numeric: lengths (2, 154) differ > >
-  Component 11: Attributes: < Component "data": Component "timestamp": Numeric: lengths (2, 154) differ >
-  Component 11: Attributes: < Component "data": Component "value": Modes: char
-  testthat results ================================================================
-  OK: 0 SKIPPED: 0 FAILED: 0
-  Execution halted
-
-checking re-building of vignette outputs ... WARNING
-Error in re-building vignettes:
-  ...
-Quitting from lines 34-37 (simulate_map_gcode.Rmd) 
-Error: processing vignette 'simulate_map_gcode.Rmd' failed with diagnostics:
-dim(X) must have a positive length
-Execution halted
-
-```
+0 errors | 0 warnings | 0 notes
 
 ## mtk (1.0)
 Maintainer: Juhui WANG <Juhui.Wang@jouy.inra.fr>
@@ -1856,41 +1826,15 @@ Maintainer: Winston Chang <winston@rstudio.com>
 
 0 errors | 0 warnings | 0 notes
 
-## ProjectTemplate (0.6)
-Maintainer: Kirill Mueller <krlmlr+r@mailbox.org>  
+## ProjectTemplate (0.7)
+Maintainer: Kenton White <jkentonwhite@gmail.com>  
 Bug reports: https://github.com/johnmyleswhite/ProjectTemplate/issues
 
-0 errors | 0 warnings | 3 notes
+0 errors | 0 warnings | 1 note 
 
 ```
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘RODBC’
-
-checking DESCRIPTION meta-information ... NOTE
-Malformed Title field: should not end in a period.
-
-checking R code for possible problems ... NOTE
-.check.version: no visible global function definition for
-  ‘compareVersion’
-create.project: no visible global function definition for ‘untar’
-csv.reader: no visible global function definition for ‘unzip’
-csv.reader: no visible global function definition for ‘read.csv’
-csv2.reader: no visible global function definition for ‘unzip’
-csv2.reader: no visible global function definition for ‘read.csv’
-sql.reader: no visible global function definition for ‘modifyList’
-test.project: no visible global function definition for
-... 6 lines ...
-wsv.reader: no visible global function definition for ‘unzip’
-wsv.reader: no visible global function definition for ‘read.table’
-Undefined global functions or variables:
-  compareVersion download.file modifyList packageVersion read.csv
-  read.table setNames untar unzip
-Consider adding
-  importFrom("stats", "setNames")
-  importFrom("utils", "compareVersion", "download.file", "modifyList",
-             "packageVersion", "read.csv", "read.table", "untar",
-             "unzip")
-to your NAMESPACE file.
 ```
 
 ## pryr (0.1.2)
@@ -2058,7 +2002,7 @@ checking installed package size ... NOTE
 
 checking dependencies in R code ... NOTE
 
-(R:19217): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+(R:26950): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
 ```
 
 ## rAvis (0.1.4)
@@ -2784,7 +2728,22 @@ checking installed package size ... NOTE
 ## stm (1.1.3)
 Maintainer: Brandon Stewart <bms4@princeton.edu>
 
-0 errors | 0 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
+
+```
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+stm v1.1.3 (2016-01-14) successfully loaded. See ?stm for help.
+Warning in load(url("http://goo.gl/VPdxlS")) :
+  unable to resolve 'goo.gl'
+
+Error: processing vignette 'stmVignette.Rnw' failed with diagnostics:
+ chunk 6 
+Error in load(url("http://goo.gl/VPdxlS")) : cannot open the connection
+Execution halted
+
+```
 
 ## stplanr (0.1.2)
 Maintainer: Robin Lovelace <rob00x@gmail.com>  

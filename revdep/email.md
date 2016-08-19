@@ -1,6 +1,6 @@
 Hi,
 
-This is an automated email to let you know that {{{ my_package }}} will be submitted to CRAN on {{{ date }}}.  To check for potential problems, I ran `R CMD check` on your package {{{your_package}}} ({{{your_version}}}). 
+This is an automated email to let you know that {{{ my_package }}} will be submitted to CRAN on {{{ date }}} (today!).  To check for potential problems, I ran `R CMD check` on your package {{{your_package}}} ({{{your_version}}}). 
 
 I found: {{{your_summary}}}.
 
