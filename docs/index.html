@@ -83,17 +83,16 @@
 <li><p>Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.</p></li>
 <li><p>Is built on top of <a href="https://github.com/Rexamine/stringi/">stringi</a> which uses the <a href="http://site.icu-project.org">ICU</a> library to provide fast, correct implementations of common string manipulations</p></li>
 </ul>
+<p>stringr provides the pipe, <code>%&gt;%</code>, from magrittr to make it easy to string together sequences of string operations:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters %&gt;%
+<span class="st">  </span><span class="kw">str_pad</span>(<span class="dv">5</span>, <span class="st">&quot;right&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">str_c</span>(letters)</code></pre></div>
 <h2 id="installation">Installation</h2>
 <p>To get the current released version from CRAN:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</code></pre></div>
 <p>To get the current development version from github:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
 devtools::<span class="kw">install_github</span>(<span class="st">&quot;hadley/stringr&quot;</span>)</code></pre></div>
-<h2 id="piping">Piping</h2>
-<p>stringr provides the pipe, <code>%&gt;%</code>, from magrittr to make it easy to string together sequences of string operations:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters %&gt;%
-<span class="st">  </span><span class="kw">str_pad</span>(<span class="dv">5</span>, <span class="st">&quot;right&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">str_c</span>(letters)</code></pre></div>
   </div>
 </div>
 

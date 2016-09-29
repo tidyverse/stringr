@@ -21,6 +21,14 @@ The __stringr__ package aims to remedy these problems by providing a clean, mode
   uses the [ICU](http://site.icu-project.org) library to provide fast, correct
   implementations of common string manipulations
 
+stringr provides the pipe, `%>%`, from magrittr to make it easy to string together sequences of string operations:
+
+```R
+letters %>%
+  str_pad(5, "right") %>%
+  str_c(letters)
+```
+
 ## Installation
 
 To get the current released version from CRAN:
@@ -34,14 +42,4 @@ To get the current development version from github:
 ```R
 # install.packages("devtools")
 devtools::install_github("hadley/stringr")
-```
-
-## Piping
-
-stringr provides the pipe, `%>%`, from magrittr to make it easy to string together sequences of string operations:
-
-```R
-letters %>%
-  str_pad(5, "right") %>%
-  str_c(letters)
 ```
