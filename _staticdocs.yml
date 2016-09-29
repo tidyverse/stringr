@@ -1,0 +1,55 @@
+bootswatch: cerulean
+
+navbar:
+  type: default
+  left:
+  - text: Home
+    href: index.html
+  - text: Overview
+    href: articles/stringr.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/hadley/stringr
+
+references:
+- title: Regular expressions
+  contents:
+  - str_detect
+  - str_extract
+  - str_locate
+  - str_match
+  - str_replace
+  - str_split
+  - str_subset
+  - modifiers
+
+- title: Whitespace
+  contents:
+  - str_pad
+  - str_trim
+  - str_wrap
+
+- titles: Bundled data
+  contents:
+  - stringr-data
+
+- title: Other helpers
+  contents:
+  - case
+  - invert_match
+  - str_c
+  - str_conv
+  - str_count
+  - str_dup
+  - str_order
+  - str_length
+  - str_interp
+  - str_replace_na
+  - str_trunc
+  - str_sub
+  - str_view
+  - word

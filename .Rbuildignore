@@ -8,3 +8,5 @@
 ^data-raw$
 ^codecov\.yml$
 ^\.httr-oauth$
+^_staticdocs\.yml$
+^docs$
