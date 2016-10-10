@@ -1,45 +1,141 @@
-# stringr
 
-[![Travis-CI Build Status](https://travis-ci.org/hadley/stringr.svg?branch=master)](https://travis-ci.org/hadley/stringr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/stringr/master.svg)](https://codecov.io/github/hadley/stringr?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/stringr)](http://cran.r-project.org/package=stringr)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+stringr <img src="logo.png" align="right" />
+============================================
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. 
+[![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr) [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master) [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](http://cran.r-project.org/package=stringr)
 
-The __stringr__ package aims to remedy these problems by providing a clean, modern interface to common string operations. More concretely, stringr:
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is <http://r4ds.had.co.nz/strings.html>.
 
-* Uses consistent functions and argument names.
+Installation
+------------
 
-* Simplifies string operations by eliminating options that you don't need
-  95% of the time.
-
-* Produces outputs than can easily be used as inputs. This includes ensuring
-  that missing inputs result in missing outputs, and zero length inputs
-  result in zero length outputs.
-
-* Is built on top of [stringi](https://github.com/Rexamine/stringi/) which
-  uses the [ICU](http://site.icu-project.org) library to provide fast, correct
-  implementations of common string manipulations
-
-stringr provides the pipe, `%>%`, from magrittr to make it easy to string together sequences of string operations:
-
-```R
-letters %>%
-  str_pad(5, "right") %>%
-  str_c(letters)
-```
-
-## Installation
-
-To get the current released version from CRAN:
-
-```R
+``` r
+# Install the released version from CRAN:
 install.packages("stringr")
-```
 
-To get the current development version from github:
-
-```R
+# Install the cutting edge development version from GitHub:
 # install.packages("devtools")
-devtools::install_github("hadley/stringr")
+devtools::install_github("tidyverse/stringr")
 ```
+
+Usage
+-----
+
+All functions in stringr start with `str_` and take a vector of strings as the first argument.
+
+``` r
+x <- c("why", "video", "cross", "extra", "deal", "authority")
+str_length(x) 
+#> [1] 3 5 5 5 4 9
+str_c(x, collapse = ", ")
+#> [1] "why, video, cross, extra, deal, authority"
+str_sub(x, 1, 2)
+#> [1] "wh" "vi" "cr" "ex" "de" "au"
+```
+
+Most string functions work with regular expressions, a concise language for describing patterns of text. For example, the regular expression `"[aeiou]"` matches any single character that is a vowel:
+
+``` r
+
+str_subset(x, "[aeiou]")
+#> [1] "video"     "cross"     "extra"     "deal"      "authority"
+str_count(x, "[aeiou]")
+#> [1] 0 3 1 2 2 4
+```
+
+There are seven main verbs that work with patterns:
+
+-   `str_detect(x, pattern)` tells you if there's any match to the pattern.
+
+    ``` r
+    str_detect(x, "[aeiou]")
+    #> [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+    ```
+
+-   `str_count(x, pattern)` counts the number of patterns.
+
+    ``` r
+    str_count(x, "[aeiou]")
+    #> [1] 0 3 1 2 2 4
+    ```
+
+-   `str_subset(x, pattern)` extracts the matching components.
+
+    ``` r
+    str_subset(x, "[aeiou]")
+    #> [1] "video"     "cross"     "extra"     "deal"      "authority"
+    ```
+
+-   `str_locate(x, pattern)` gives the position of the match.
+
+    ``` r
+    str_locate(x, "[aeiou]")
+    #>      start end
+    #> [1,]    NA  NA
+    #> [2,]     2   2
+    #> [3,]     3   3
+    #> [4,]     1   1
+    #> [5,]     2   2
+    #> [6,]     1   1
+    ```
+
+-   `str_extract(x, pattern)` extracts the text of the match.
+
+    ``` r
+    str_extract(x, "[aeiou]")
+    #> [1] NA  "i" "o" "e" "e" "a"
+    ```
+
+-   `str_match(x, pattern)` extracts parts of the match defined by parentheses.
+
+    ``` r
+    # extract the characters on either side of the vowel
+    str_match(x, "(.)[aeiou](.)")
+    #>      [,1]  [,2] [,3]
+    #> [1,] NA    NA   NA  
+    #> [2,] "vid" "v"  "d" 
+    #> [3,] "ros" "r"  "s" 
+    #> [4,] NA    NA   NA  
+    #> [5,] "dea" "d"  "a" 
+    #> [6,] "aut" "a"  "t"
+    ```
+
+-   `str_replace(x, pattern, replacemnt)` replaces the matches with new text.
+
+    ``` r
+    str_replace(x, "[aeiou]", "?")
+    #> [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"
+    ```
+
+-   `str_split(x, pattern)` splits up a string into multiple pieces.
+
+    ``` r
+    str_split(c("a,b", "c,d,e"), ",")
+    #> [[1]]
+    #> [1] "a" "b"
+    #> 
+    #> [[2]]
+    #> [1] "c" "d" "e"
+    ```
+
+Compared to base R
+------------------
+
+R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R.
+
+-   Uses consistent function and argument names. The first argument is always the vector of strings to modify, which makes stringr work particularly well in conjunction with the pipe:
+
+    ``` r
+    letters %>%
+      .[1:10] %>% 
+      str_pad(3, "right") %>%
+      str_c(letters[2:11])
+    #>  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"
+    ```
+
+-   Simplifies string operations by eliminating options that you don't need 95% of the time.
+
+-   Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.
+
+-   Is built on top of [stringi](https://github.com/Rexamine/stringi/) which uses the [ICU](http://site.icu-project.org) library to provide fast, correct implementations of common string manipulations. stringi always converts its inputs to UTF-8 which ensures consistent and correct operation across platforms.

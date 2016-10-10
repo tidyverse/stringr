@@ -10,3 +10,5 @@
 ^\.httr-oauth$
 ^_staticdocs\.yml$
 ^docs$
+^README\.Rmd$
+^README-.*\.png$

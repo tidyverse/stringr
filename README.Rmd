@@ -1,0 +1,123 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+library(stringr)
+```
+
+# stringr <img src="logo.png" align="right" />
+
+[![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master)
+[![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](http://cran.r-project.org/package=stringr)
+
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is <http://r4ds.had.co.nz/strings.html>.
+
+## Installation
+
+```R
+# Install the released version from CRAN:
+install.packages("stringr")
+
+# Install the cutting edge development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("tidyverse/stringr")
+```
+
+## Usage
+
+All functions in stringr start with `str_` and take a vector of strings as the first argument.
+
+```{r}
+x <- c("why", "video", "cross", "extra", "deal", "authority")
+str_length(x) 
+str_c(x, collapse = ", ")
+str_sub(x, 1, 2)
+```
+
+Most string functions work with regular expressions, a concise language for describing patterns of text. For example, the regular expression `"[aeiou]"` matches any single character that is a vowel:
+
+```{r}
+
+str_subset(x, "[aeiou]")
+str_count(x, "[aeiou]")
+```
+
+There are seven main verbs that work with patterns:
+
+*   `str_detect(x, pattern)` tells you if there's any match to the pattern.
+    ```{r}
+    str_detect(x, "[aeiou]")
+    ```
+    
+*   `str_count(x, pattern)` counts the number of patterns.
+    ```{r}
+    str_count(x, "[aeiou]")
+    ```
+
+*   `str_subset(x, pattern)` extracts the matching components.
+    ```{r}
+    str_subset(x, "[aeiou]")
+    ```
+
+*   `str_locate(x, pattern)` gives the position of the match.
+    ```{r}
+    str_locate(x, "[aeiou]")
+    ```
+
+*   `str_extract(x, pattern)` extracts the text of the match.
+    ```{r}
+    str_extract(x, "[aeiou]")
+    ```
+
+*   `str_match(x, pattern)` extracts parts of the match defined by parentheses.
+    ```{r}
+    # extract the characters on either side of the vowel
+    str_match(x, "(.)[aeiou](.)")
+    ```
+
+*   `str_replace(x, pattern, replacemnt)` replaces the matches with new text.
+    ```{r}
+    str_replace(x, "[aeiou]", "?")
+    ```
+
+*   `str_split(x, pattern)` splits up a string into multiple pieces.
+    ```{r}
+    str_split(c("a,b", "c,d,e"), ",")
+    ```
+
+## Compared to base R
+
+R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. 
+
+* Uses consistent function and argument names. The first argument is always
+  the vector of strings to modify, which makes stringr work particularly well
+  in conjunction with the pipe:
+  
+    ```{r}
+    letters %>%
+      .[1:10] %>% 
+      str_pad(3, "right") %>%
+      str_c(letters[2:11])
+    ```
+
+* Simplifies string operations by eliminating options that you don't need
+  95% of the time.
+
+* Produces outputs than can easily be used as inputs. This includes ensuring
+  that missing inputs result in missing outputs, and zero length inputs
+  result in zero length outputs.
+
+* Is built on top of [stringi](https://github.com/Rexamine/stringi/) which
+  uses the [ICU](http://site.icu-project.org) library to provide fast, correct
+  implementations of common string manipulations. stringi always converts
+  its inputs to UTF-8 which ensures consistent and correct operation
+  across platforms.
