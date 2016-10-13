@@ -40,6 +40,18 @@ test_that("can replace multiple matches", {
   expect_equal(y, c("11", "22"))
 })
 
+# functions ---------------------------------------------------------------
+
+test_that("can supply replacement function", {
+  expect_equal(str_replace("abc", "a|c", toupper), "Abc")
+  expect_equal(str_replace_all("abc", "a|c", toupper), "AbC")
+})
+
+test_that("replacement can be different length", {
+  double <- function(x) str_dup(x, 2)
+  expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
+})
+
 # fix_replacement ---------------------------------------------------------
 
 test_that("$ are escaped", {

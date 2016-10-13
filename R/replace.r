@@ -11,6 +11,10 @@
 #'   For \code{str_replace_all} only, you can perform multiple patterns and
 #'   replacements to each string, by passing a named character to
 #'   \code{pattern}.
+#'
+#'   Alternatively, you can supply use a \code{replacement} function:
+#'   it will be called once for each match and its return value will be
+#'   used to replace the match.
 #' @return A character vector.
 #' @seealso \code{str_replace_na} to turn missing values into "NA";
 #'   \code{\link{stri_replace}} for the underlying implementation.
@@ -19,6 +23,7 @@
 #' fruits <- c("one apple", "two pears", "three bananas")
 #' str_replace(fruits, "[aeiou]", "-")
 #' str_replace_all(fruits, "[aeiou]", "-")
+#' str_replace_all(fruits, "[aeiou]", toupper)
 #'
 #' str_replace(fruits, "([aeiou])", "")
 #' str_replace(fruits, "([aeiou])", "\\1\\1")
@@ -36,9 +41,28 @@
 #'
 #' # If you want to apply multiple patterns and replacements to the same
 #' # string, pass a named version to pattern.
-#' str_replace_all(str_c(fruits, collapse = "---"),
-#'  c("one" = 1, "two" = 2, "three" = 3))
+#' fruits %>%
+#'   str_c(collapse = "---") %>%
+#'   str_replace_all(c("one" = 1, "two" = 2, "three" = 3))
+#'
+#' # Use a function for more sophisticated replacement. This example
+#' # replaces colour names with their hex values.
+#' colours <- str_c("\\b", colors(), "\\b", collapse="|")
+#' col2hex <- function(col) {
+#'   rgb <- col2rgb(col)
+#'   rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
+#' }
+#'
+#' x <- c(
+#'   "Roses are red, violets are blue",
+#'   "My favourite colour is green"
+#' )
+#' str_replace_all(x, colours, col2hex)
 str_replace <- function(string, pattern, replacement) {
+  if (!missing(replacement) && is.function(replacement)) {
+    return(str_transform(string, pattern, replacement))
+  }
+
   switch(type(pattern),
     empty = ,
     bound = stop("Not implemented", call. = FALSE),
@@ -54,6 +78,11 @@ str_replace <- function(string, pattern, replacement) {
 #' @export
 #' @rdname str_replace
 str_replace_all <- function(string, pattern, replacement) {
+  if (!missing(replacement) && is.function(replacement)) {
+    return(str_transform_all(string, pattern, replacement))
+  }
+
+
   if (!is.null(names(pattern))) {
     vec <- FALSE
     replacement <- unname(pattern)
@@ -125,4 +154,23 @@ fix_replacement_one <- function(x) {
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
   stri_replace_na(string, replacement)
+}
+
+
+str_transform <- function(string, pattern, replacement) {
+  loc <- str_locate(string, pattern)
+  str_sub(string, loc) <- replacement(str_sub(string, loc))
+  string
+}
+str_transform_all <- function(string, pattern, replacement) {
+  locs <- str_locate_all(string, pattern)
+
+  for (i in seq_along(string)) {
+    for (j in rev(seq_len(nrow(locs[[i]])))) {
+      loc <- locs[[i]]
+      str_sub(string[[i]], loc[j, 1], loc[j, 2]) <- replacement(str_sub(string[[i]], loc[j, 1], loc[j, 2]))
+    }
+  }
+
+  string
 }

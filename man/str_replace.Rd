@@ -20,7 +20,11 @@ coercible to one.}
 
   For \code{str_replace_all} only, you can perform multiple patterns and
   replacements to each string, by passing a named character to
-  \code{pattern}.}
+  \code{pattern}.
+
+  Alternatively, you can supply use a \code{replacement} function:
+  it will be called once for each match and its return value will be
+  used to replace the match.}
 }
 \value{
 A character vector.
@@ -32,6 +36,7 @@ Vectorised over \code{string}, \code{pattern} and \code{replacement}.
 fruits <- c("one apple", "two pears", "three bananas")
 str_replace(fruits, "[aeiou]", "-")
 str_replace_all(fruits, "[aeiou]", "-")
+str_replace_all(fruits, "[aeiou]", toupper)
 
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
@@ -49,8 +54,23 @@ str_replace_all(fruits, c("a", "e", "i"), "-")
 
 # If you want to apply multiple patterns and replacements to the same
 # string, pass a named version to pattern.
-str_replace_all(str_c(fruits, collapse = "---"),
- c("one" = 1, "two" = 2, "three" = 3))
+fruits \%>\%
+  str_c(collapse = "---") \%>\%
+  str_replace_all(c("one" = 1, "two" = 2, "three" = 3))
+
+# Use a function for more sophisticated replacement. This example
+# replaces colour names with their hex values.
+colours <- str_c("\\\\b", colors(), "\\\\b", collapse="|")
+col2hex <- function(col) {
+  rgb <- col2rgb(col)
+  rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
+}
+
+x <- c(
+  "Roses are red, violets are blue",
+  "My favourite colour is green"
+)
+str_replace_all(x, colours, col2hex)
 }
 \seealso{
 \code{str_replace_na} to turn missing values into "NA";

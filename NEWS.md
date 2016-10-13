@@ -1,5 +1,8 @@
 # stringr 1.1.0.9000
 
+* In `str_replace()`, `replacement` can now be a function that is called once
+  for each match and who's return value is used to replace the match.
+
 # stringr 1.1.0
 
 * Add sample datasets: `fruit`, `words` and `sentences`.

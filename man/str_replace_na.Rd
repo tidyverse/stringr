@@ -17,7 +17,11 @@ coercible to one.}
 
   For \code{str_replace_all} only, you can perform multiple patterns and
   replacements to each string, by passing a named character to
-  \code{pattern}.}
+  \code{pattern}.
+
+  Alternatively, you can supply use a \code{replacement} function:
+  it will be called once for each match and its return value will be
+  used to replace the match.}
 }
 \description{
 Turn NA into "NA"
