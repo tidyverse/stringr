@@ -5,9 +5,11 @@
 \alias{str_sort}
 \title{Order or sort a character vector.}
 \usage{
-str_order(x, decreasing = FALSE, na_last = TRUE, locale = "", ...)
+str_order(x, decreasing = FALSE, na_last = TRUE, locale = "",
+  numeric = FALSE, ...)
 
-str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "", ...)
+str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "",
+  numeric = FALSE, ...)
 }
 \arguments{
 \item{x}{A character vector to sort.}
@@ -21,6 +23,9 @@ lowest to highest; if \code{TRUE} sorts from highest to lowest.}
 \item{locale}{In which locale should the sorting occur? Defaults to
 the current locale.}
 
+\item{numeric}{If \code{TRUE}, will sort digits numerically, instead
+of as strings.}
+
 \item{...}{Other options used to control sorting order. Passed on to
 \code{\link[stringi]{stri_opts_collator}}.}
 }
@@ -33,6 +38,10 @@ str_sort(letters, locale = "en")
 
 str_order(letters, locale = "haw")
 str_sort(letters, locale = "haw")
+
+x <- c("100a10", "100a5", "2b", "2a")
+str_sort(x)
+str_sort(x, numeric = TRUE)
 }
 \seealso{
 \code{\link[stringi]{stri_order}} for the underlying implementation.

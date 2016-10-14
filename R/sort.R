@@ -7,6 +7,8 @@
 #'   \code{FALSE} at the beginning, \code{NA} dropped.
 #' @param locale In which locale should the sorting occur? Defaults to
 #'   the current locale.
+#' @param numeric If \code{TRUE}, will sort digits numerically, instead
+#'    of as strings.
 #' @param ... Other options used to control sorting order. Passed on to
 #'   \code{\link[stringi]{stri_opts_collator}}.
 #' @seealso \code{\link[stringi]{stri_order}} for the underlying implementation.
@@ -17,14 +19,20 @@
 #'
 #' str_order(letters, locale = "haw")
 #' str_sort(letters, locale = "haw")
-str_order <- function(x, decreasing = FALSE, na_last = TRUE, locale = "", ...) {
+#'
+#' x <- c("100a10", "100a5", "2b", "2a")
+#' str_sort(x)
+#' str_sort(x, numeric = TRUE)
+str_order <- function(x, decreasing = FALSE, na_last = TRUE,
+                      locale = "", numeric = FALSE, ...) {
   stri_order(x, decreasing = decreasing, na_last = na_last,
-    opts_collator = stri_opts_collator(locale, ...))
+    opts_collator = stri_opts_collator(locale, numeric = numeric, ...))
 }
 
 #' @export
 #' @rdname str_order
-str_sort <- function(x, decreasing = FALSE, na_last = TRUE, locale = "", ...) {
+str_sort <- function(x, decreasing = FALSE, na_last = TRUE,
+                     locale = "", numeric = FALSE, ...) {
   stri_sort(x, decreasing = decreasing, na_last = na_last,
-    opts_collator = stri_opts_collator(locale, ...))
+    opts_collator = stri_opts_collator(locale, numeric = numeric, ...))
 }

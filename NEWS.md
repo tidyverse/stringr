@@ -1,5 +1,8 @@
 # stringr 1.1.0.9000
 
+* `str_order()` and `str_sort()` gain explicit `numeric` argument for sorting
+  mixed numbers and strings.
+
 * In `str_replace()`, `replacement` can now be a function that is called once
   for each match and who's return value is used to replace the match.
 
