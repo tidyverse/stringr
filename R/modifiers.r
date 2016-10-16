@@ -62,11 +62,13 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #' @rdname modifiers
 #' @param locale Locale to use for comparisons. See
 #'   \code{\link[stringi]{stri_locale_list}()} for all possible options.
+#'   Defaults to "en" (English) to ensure that the default collation is
+#'   consistent across platforms.
 #' @param ... Other less frequently used arguments passed on to
 #'   \code{\link[stringi]{stri_opts_collator}},
 #'   \code{\link[stringi]{stri_opts_regex}}, or
 #'   \code{\link[stringi]{stri_opts_brkiter}}
-coll <- function(pattern, ignore_case = FALSE, locale = NULL, ...) {
+coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   if (!is_bare_character(pattern)) {
     stop("Can only modify plain character vectors.", call. = FALSE)
   }

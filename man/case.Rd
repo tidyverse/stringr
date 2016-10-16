@@ -7,16 +7,17 @@
 \alias{str_to_upper}
 \title{Convert case of a string.}
 \usage{
-str_to_upper(string, locale = "")
+str_to_upper(string, locale = "en")
 
-str_to_lower(string, locale = "")
+str_to_lower(string, locale = "en")
 
-str_to_title(string, locale = "")
+str_to_title(string, locale = "en")
 }
 \arguments{
 \item{string}{String to modify}
 
-\item{locale}{Locale to use for translations.}
+\item{locale}{Locale to use for translations. Defaults to "en" (English)
+to ensure consistent default ordering across platforms.}
 }
 \description{
 Convert case of a string.
@@ -28,7 +29,7 @@ str_to_lower(dog)
 str_to_title(dog)
 
 # Locale matters!
-str_to_upper("i", "en") # English
+str_to_upper("i") # English
 str_to_upper("i", "tr") # Turkish
 }
 

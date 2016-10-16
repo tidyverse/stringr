@@ -1,5 +1,9 @@
 # stringr 1.1.0.9000
 
+* All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
+  default to "en" (English) to ensure that the default is consistent across
+  platforms.
+
 * `str_order()` and `str_sort()` gain explicit `numeric` argument for sorting
   mixed numbers and strings.
 

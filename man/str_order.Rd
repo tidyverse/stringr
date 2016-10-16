@@ -5,10 +5,10 @@
 \alias{str_sort}
 \title{Order or sort a character vector.}
 \usage{
-str_order(x, decreasing = FALSE, na_last = TRUE, locale = "",
+str_order(x, decreasing = FALSE, na_last = TRUE, locale = "en",
   numeric = FALSE, ...)
 
-str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "",
+str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "en",
   numeric = FALSE, ...)
 }
 \arguments{
@@ -21,7 +21,8 @@ lowest to highest; if \code{TRUE} sorts from highest to lowest.}
 \code{FALSE} at the beginning, \code{NA} dropped.}
 
 \item{locale}{In which locale should the sorting occur? Defaults to
-the current locale.}
+the English. This ensures that code behaves the same way across
+platforms.}
 
 \item{numeric}{If \code{TRUE}, will sort digits numerically, instead
 of as strings.}
@@ -33,8 +34,8 @@ of as strings.}
 Order or sort a character vector.
 }
 \examples{
-str_order(letters, locale = "en")
-str_sort(letters, locale = "en")
+str_order(letters)
+str_sort(letters)
 
 str_order(letters, locale = "haw")
 str_sort(letters, locale = "haw")

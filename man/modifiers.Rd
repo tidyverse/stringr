@@ -10,7 +10,7 @@
 \usage{
 fixed(pattern, ignore_case = FALSE)
 
-coll(pattern, ignore_case = FALSE, locale = NULL, ...)
+coll(pattern, ignore_case = FALSE, locale = "en", ...)
 
 regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
   dotall = FALSE, ...)
@@ -24,7 +24,9 @@ boundary(type = c("character", "line_break", "sentence", "word"),
 \item{ignore_case}{Should case differences be ignored in the match?}
 
 \item{locale}{Locale to use for comparisons. See
-\code{\link[stringi]{stri_locale_list}()} for all possible options.}
+\code{\link[stringi]{stri_locale_list}()} for all possible options.
+Defaults to "en" (English) to ensure that the default collation is
+consistent across platforms.}
 
 \item{...}{Other less frequently used arguments passed on to
 \code{\link[stringi]{stri_opts_collator}},
