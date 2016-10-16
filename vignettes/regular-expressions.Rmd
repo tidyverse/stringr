@@ -1,0 +1,373 @@
+---
+title: "Regular expressions"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Regular expressions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(stringr)
+```
+
+Regular expressions are an extremely concise, but flexible tool for describing patterns in strings. This vignette describes the key features of stringr's implementation (powered by stringi), but is designed to jog your memory not serve as a tutorial. If you've never used regular expressions before, I'd recommend starting at. <http://r4ds.had.co.nz/strings.html>. 
+
+-   A good [reference sheet](http://www.regular-expressions.info/reference.html).
+
+-   A tool that allows you to [interactively test](http://gskinner.com/RegExr/)
+    what a regular expression will match.
+
+-   A tool to [build a regular expression](http://www.txt2re.com) from an 
+    input string.
+
+If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://amzn.com/0596528124) by Jeffrey E. F. Fried. 
+
+Regular expressions are the default pattern engine in stringr. That is, when you use a bare string, it's equivalent to wrapping it in a call to `regex()`:
+
+```{r, eval = FALSE}
+# The regular call:
+str_view(fruit, "nana")
+# Is shorthand for
+str_view(fruit, regex("nana"))
+```
+
+You will need to use `regex()` explicit if you want to override the default options, as you'll learn below.
+
+## Basic matches
+
+The simplest patterns match exact strings:
+
+```{r}
+x <- c("apple", "banana", "pear")
+str_view(x, "an")
+```
+
+The next step up in complexity is `.`, which matches any character (except a newline):
+
+```{r}
+str_view(x, ".a.")
+```
+
+### Escaping
+
+If "`.`" matches any character, how do you match a literal "`.`"? You need to use an "escape" to tell the regular expression you want to match it exactly, not use its special behaviour. Like strings, regexps use the backslash, `\`, to escape special behaviour. So to match an `.`, you need the regexp `\.`. Unfortunately this creates a problem. We use strings to represent regular expressions, and `\` is also used as an escape symbol in strings. So to create the regular expression `\.` we need the string `"\\."`. 
+
+```{r}
+# To create the regular expression, we need \\
+dot <- "\\."
+
+# But the expression itself only contains one:
+writeLines(dot)
+
+# And this tells R to look for an explicit .
+str_view(c("abc", "a.c", "bef"), "a\\.c")
+```
+
+If `\` is used as an escape character in regular expressions, how do you match a literal `\`? Well you need to escape it, creating the regular expression `\\`. To create that regular expression, you need to use a string, which also needs to escape `\`. That means to match a literal `\` you need to write `"\\\\"` --- you need four backslashes to match one!
+
+```{r}
+x <- "a\\b"
+writeLines(x)
+
+str_view(x, "\\\\")
+```
+
+An alternative quoting mechanism is  `\Q...\E`. This is useful if you want to exactly match user input as part of a regular expression.
+
+```{r}
+x <- "a.b"
+str_detect(c("a.b.c.d", "aeb"), paste0("^", x))
+str_detect(c("a.b.c.d", "aeb"), paste0("^\\Q", x, "\\E"))
+
+str_detect("\\Q-\\E", "\\Q\\Q-\\E\\E")
+```
+
+### Special characters
+
+Some match special characters that are mostly used historically:
+
+* `\a`: bell
+
+* `\cX`: match a control-X character, these are used for things like
+  changing the colour in the console.
+
+* `\e`: escape  (`\u001B`)
+
+* `\f`: form feed (`\u000C`)
+
+* `\r`: carriage return (`\u000D`)
+
+* `\n`: line feed (`\u000A`)
+
+* `\t`: horizontal tabulation (`\u0009`)
+
+* `\0ooo` match an octal character. 'ooo' is from one to three octal digits, 
+  from 000 to 0377. The leading zero is required.
+
+You can also specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:
+
+* `\xhh`: 2 hex digits.
+* `\x{hhhh}`: 1-6 hex digits.
+* `\uhhhh`: 4 hex digits.
+* `\Uhhhhhhhh`: 8 hex digits.
+* `\N{name}`, e.g. `\N{grinning face}` matches the basic smiling emoji.
+
+There are a number of special patterns that match more than one character. You've already seen `.`, which matches any character apart from a newline. There are six other useful tools:
+
+* `\d`: matches any digit, i.e 0-9.. Technically, this includes any character 
+  in the Unicode Category of Nd (Number, Decimal Digit), which also
+  includes numeric symbols from other languages. The complement, `\D`,
+  matches any character that is not a decimal digit.
+  
+* `\s`: matches any whitespace.  Technically this includes tabs, newlines,
+  form feeds, and any character in the Unicode Z Category (which includes 
+  a variety of space characters and other separators.). The complement,
+  `\S`, matches any non-whitespace character.
+
+* `\p{property name}` matches any character with specific unicode property,
+  like `\p{Uppercase}` or `\p{Diacritic}`.A  complete index of unicode property
+  names can be found at <http://www.unicode.org/reports/tr44/#Property_Index>.
+  The complement, `\P{property name}`, matches all characters without the 
+  property.
+
+* `\w` matches any "word" character, which include alphabetic, marks,
+  decimal numbers, connector punctuation, `\u200c` and `\u200d`. 
+  The complement, `\W` matches any non-word character.
+  
+* `\b` matches word boundaries, at the transition between word and non-word 
+  characters. `\B` matches anything that's not a word boundary.
+
+* `\X` matches a grapheme cluster, for example a combining character sequence
+  where you have a base character plus accents. 
+
+Remember, to create a regular expression containing `\d` or `\s`, you'll need to escape the `\` for the string, so you'll type `"\\d"` or `"\\s"`.
+
+### Arguments
+
+Two arguments to `regex()` can override these defaults:
+
+*   `ignore_case = TRUE` allows characters to match either their uppercase or 
+    lowercase forms. This always uses the current locale: to get more control
+    you'll need to use `coll()` instead.
+    
+    ```{r}
+    bananas <- c("banana", "Banana", "BANANA")
+    str_view(bananas, "banana")
+    str_view(bananas, regex("banana", ignore_case = TRUE))
+    ```
+
+*   `dotall = TRUE` allows `.` to match everything, including `\n`.
+
+
+## Character classes
+
+* `[abc]`: matches a, b, or c.
+* `[a-z]`: matches everything between a and z (in Unicode code point order)
+* `[^abc]`: matches anything except a, b, or c.
+
+Use `\-` or `\^` to match those characters.
+
+### POSIX classes
+
+* `[:punct:]`
+* `[:alpha:]`
+* `[:lower:]`
+* `[:upper:]`
+* `[:digit:]`
+* `[:xdigit:]`
+* `[:alnum:]`
+* `[:cntrl:]`
+* `[:graph:]`
+* `[:print:]`
+* `[:space:]`
+* `[:blank:]`
+* `[:word:]`
+
+Note that these all go inside the `[]`, i.e. `[[:digit:]AX]` matches all digits, A, and X.
+
+### Unicode properties
+
+You can also using Unicode properties. See `?"stringi-search-charclass"` for details.
+
+## Alternation
+
+You can use _alternation_ to pick between one or more alternative patterns. For example, `abc|d..f` will match either '"abc"', or `"deaf"`. Note that the precedence for `|` is low, so that `abc|xyz` matches `abc` or `xyz` not `abcyz` or `abxyz`. 
+
+## Grouping
+
+You can use parentheses to override the default precedence rules:
+
+```{r}
+str_match(c("grey", "gray"), "gr(e|a)y")
+```
+
+They also define "groups" that you can refer to with _backreferences_, like `\1`, `\2` etc, and can be extracted with `str_match()`. For example, the following regular expression finds all fruits that have a repeated pair of letters:
+
+```{r}
+pattern <- "(..)\\1"
+fruit %>% 
+  str_subset(pattern) %>% 
+  str_match(pattern)
+```
+
+You can also use `(?:...)` to control precedence, but not capture the match in a group. This is slightly more efficient than capturing parentheses.
+
+```{r}
+str_match(c("grey", "gray"), "gr(e|a)y")
+str_match(c("grey", "gray"), "gr(?:e|a)y")
+```
+
+This is most useful when you need to both capture matches and indepenently control precedence.
+
+## Anchors
+
+By default, regular expressions will match any part of a string. It's often useful to _anchor_ the regular expression so that it matches from the start or end of the string. You can use:
+
+* `^` to matches the start of input. 
+* `$` to matches the end of the input.
+
+```{r}
+x <- c("apple", "banana", "pear")
+str_view(x, "^a")
+str_view(x, "a$")
+```
+
+* `\A` match at the beginning of the input (will not match after a new line)
+* `\z` match the end of the input.
+* `\Z` match the end of the input, but before the final line terminator, if it 
+  exists.
+* `\G` matches the end of the previous match. In the first match attempt it
+  matches `\A`.
+
+    
+*   `multiline = TRUE` allows `^` and `$` to match the start and end of each
+    line rather than the start and end of the complete string.
+    
+    ```{r}
+    x <- "Line 1\nLine 2\nLine 3"
+    str_extract_all(x, "^Line")[[1]]
+    str_extract_all(x, regex("^Line", multiline = TRUE))[[1]]
+    ```
+
+
+These are most useful in conjunction with `regex(multiline = TRUE)` which changes the behaviour of `^` to `$` to match by line:
+
+* `^` match start of line
+* `$` match end of line
+
+## Repetition
+
+The next step up in power involves controlling how many times a pattern matches:
+
+* `?`: 0 or 1
+* `+`: 1 or more
+* `*`: 0 or more
+
+```{r}
+x <- "1888 is the longest year in Roman numerals: MDCCCLXXXVIII"
+str_view(x, "CC?")
+str_view(x, "CC+")
+str_view(x, 'C[LX]+')
+```
+
+Note that the precedence of these operators is high, so you can write: `colou?r` to match either American or British spellings. That means most uses will need parentheses, like `bana(na)+`.
+
+You can also specify the number of matches precisely:
+
+* `{n}`: exactly n
+* `{n,}`: n or more
+* `{n,m}`: between n and m
+
+```{r}
+str_view(x, "C{2}")
+str_view(x, "C{2,}")
+str_view(x, "C{2,3}")
+```
+
+By default these matches are "greedy": they will match the longest string possible. You can make them "lazy", matching the shortest string possible by putting a `?` after them:
+
+* `??`: 0 or 1, prefer 0.
+* `+?`: 1 or more, match as few times as possible.
+* `*?`: 0 or more, match as few times as possible.
+* `{n}?`: exactly n.
+* `{n,}?`: n or more, match as few times as possible.
+* `{n,m}?`: between n and m, , match as few times as possible, but at least n.
+
+```{r}
+str_view(x, 'C{2,3}?')
+str_view(x, 'C[LX]+?')
+```
+
+You can also make the matches possessive, which means that if latter parts of the 
+regular expression do not match, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to avoid very slow behaviour in worst-case scenarios
+
+* `??`: 0 or 1, possessive.
+* `+?`: 1 or more, possessive.
+* `*?`: 0 or more, possessive.
+* `{n}?`: exactly n, possessive.
+* `{n,}?`: n or more, possessive.
+* `{n,m}?`: between n and m, possessive.
+
+A related concept is the atomic-match parenthesis, `(?>...)`. If a later match fails and the engine needs to back-track, the existing atomic match keep as is: it succeeds or fails as a whole. Compare the following two regular expressions:
+
+```{r}
+str_detect("ABC", "(?>A|.B)C")
+str_detect("ABC", "(?:A|.B)C")
+```
+
+The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match suceeds because it matches A, but then C doesn't match, so it back-tracks and tries B instead.
+
+## Look arounds
+
+These assertions look ahead or behind the current match without "consuming" any characters (i.e. changing the input position).
+
+* `(?=...)`: positive look-ahead assertion. Matches if `...` matches at the 
+  current input.
+  
+* `(?!...)`: negative look-ahead assertion. Matches if `...` __does not__ 
+  matche at the current input.
+  
+* `(?<=...)`: positive look-behind assertion. Matches if `...` matches text 
+  preceding the current position, with the last character of the match 
+  being the character just before the current position. Length must be bounded  
+  (i.e. no `*` or `+`).
+
+* `(?<!...)`: negative look-behind assertion. Matches if `...` __does not__
+  match text preceding the current position. Length must be bounded  
+  (i.e. no `*` or `+`).
+
+These are useful when you want to match only if a pattern exists, but you don't want to include the pattern in the result:
+
+```{r}
+x <- c("1 piece", "2 pieces", "3")
+str_extract(x, "\\d+(?= pieces?)")
+
+y <- c("USD 100", "NZD 400")
+str_extract(y, "(?<=NZD )\\d+")
+```
+
+## Comments
+
+There are two ways to include comments in a regular expression. The first is with `(?#...)`. 
+
+The second is to use `regex(comments = TRUE)`. This form ignores spaces and newlines, and anything everything after `#`. To match a literal space, you'll need to escape it: 
+`"\\ "`.
+
+```{r}
+phone <- regex("
+  \\(?     # optional opening parens
+  (\\d{3}) # area code
+  [)- ]?   # optional closing parens, dash, or space
+  (\\d{3}) # another three numbers
+  [ -]?    # optional space or dash
+  (\\d{3}) # three more numbers
+  ", comments = TRUE)
+
+str_match("514-791-8141", phone)
+```
