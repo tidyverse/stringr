@@ -240,7 +240,7 @@ fruit %&gt;%<span class="st"> </span>
 <span class="co">#&gt; [1] "a" NA  NA</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"a$"</span>)
 <span class="co">#&gt; [1] NA  "a" NA</span></code></pre></div>
-<p>For multiline strings, you can use <code><a href="../reference/modifiers.html">regex(multiline = TRUE)</a></code>:</p>
+<p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>:</p>
 <ul><li><p><code>^</code> matches the start of each line.</p></li>
 <li><p><code>$</code> matches the end of each line.</p></li>
 <li><p><code>\A</code> matches the start of the input.</p></li>
@@ -326,7 +326,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"USD 
 <p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span>)
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
-<p>The second is to use <code><a href="../reference/modifiers.html">regex(comments = TRUE)</a></code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you&rsquo;ll need to escape it: <code>"\\ "</code>.</p>
+<p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you&rsquo;ll need to escape it: <code>"\\ "</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phone &lt;-<span class="st"> </span><span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"</span>
 <span class="st">  </span><span class="ch">\\</span><span class="st">(?     # optional opening parens</span>
 <span class="st">  (</span><span class="ch">\\</span><span class="st">d{3}) # area code</span>

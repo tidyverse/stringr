@@ -18,7 +18,7 @@ navbar:
   - icon: fa-github fa-lg
     href: https://github.com/hadley/stringr
 
-references:
+reference:
 - title: Pattern matching
   contents:
   - str_count

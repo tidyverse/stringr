@@ -73,7 +73,7 @@ x <- c(
 str_replace_all(x, colours, col2hex)
 }
 \seealso{
-\code{str_replace_na} to turn missing values into "NA";
+\code{\link{str_replace_na}} to turn missing values into "NA";
   \code{\link{stri_replace}} for the underlying implementation.
 }
 

@@ -103,7 +103,7 @@
 <h1>stringr 1.0.0</h1>
 <ul><li><p>stringr is now powered by <a href="https://github.com/Rexamine/stringi">stringi</a> instead of base R regular expressions. This improves unicode and support, and makes most operations considerably faster. If you find stringr inadequate for your string processing needs, I highly recommend looking at stringi in more detail.</p></li>
 <li><p>stringr gains a vignette, currently a straight forward update of the article that appeared in the R Journal.</p></li>
-<li><p><code><a href="../reference/str_c.html">str_c()</a></code> now returns a zero length vector if any of its inputs are zero length vectors. This is consistent with all other functions, and standard R recycling rules. Similarly, using <code><a href="../reference/str_c.html">str_c("x", NA)</a></code> now yields <code>NA</code>. If you want <code>"xNA"</code>, use <code><a href="../reference/str_replace_na.html">str_replace_na()</a></code> on the inputs.</p></li>
+<li><p><code><a href="../reference/str_c.html">str_c()</a></code> now returns a zero length vector if any of its inputs are zero length vectors. This is consistent with all other functions, and standard R recycling rules. Similarly, using <code>str_c("x", NA)</code> now yields <code>NA</code>. If you want <code>"xNA"</code>, use <code><a href="../reference/str_replace_na.html">str_replace_na()</a></code> on the inputs.</p></li>
 <li>
 <p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> gains a convenient syntax for applying multiple pairs of pattern and replacement to the same vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">input &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)
@@ -115,7 +115,7 @@
 <li><p>New <code><a href="../reference/str_conv.html">str_conv()</a></code> to convert strings from specified encoding to UTF-8.</p></li>
 <li><p>New modifier <code><a href="../reference/modifiers.html">boundary()</a></code> allows you to count, locate and split by character, word, line and sentence boundaries.</p></li>
 <li><p>The documentation got a lot of love, and very similar functions (e.g. first and all variants) are now documented together. This should hopefully make it easier to locate the function you need.</p></li>
-<li><p><code><a href="../reference/modifier-deprecated.html">ignore.case(x)</a></code> has been deprecated in favour of <code>fixed|regex|coll(x, ignore.case = TRUE)</code>, <code><a href="../reference/modifier-deprecated.html">perl(x)</a></code> has been deprecated in favour of <code><a href="../reference/modifiers.html">regex(x)</a></code>.</p></li>
+<li><p><code>ignore.case(x)</code> has been deprecated in favour of <code>fixed|regex|coll(x, ignore.case = TRUE)</code>, <code>perl(x)</code> has been deprecated in favour of <code>regex(x)</code>.</p></li>
 <li><p><code><a href="../reference/str_c.html">str_join()</a></code> is deprecated, please use <code><a href="../reference/str_c.html">str_c()</a></code> instead.</p></li>
 </ul></div>
     <div id="stringr-0.6.2" class="section level1">

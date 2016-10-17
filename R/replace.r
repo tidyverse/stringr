@@ -16,7 +16,7 @@
 #'   it will be called once for each match and its return value will be
 #'   used to replace the match.
 #' @return A character vector.
-#' @seealso \code{str_replace_na} to turn missing values into "NA";
+#' @seealso \code{\link{str_replace_na}} to turn missing values into "NA";
 #'   \code{\link{stri_replace}} for the underlying implementation.
 #' @export
 #' @examples
