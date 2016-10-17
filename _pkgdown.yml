@@ -1,4 +1,5 @@
-bootswatch: cerulean
+template:
+  bootswatch: cerulean
 
 navbar:
   type: default
@@ -7,6 +8,8 @@ navbar:
     href: index.html
   - text: Overview
     href: articles/stringr.html
+  - text: RegEx
+    href: articles/regular-expressions.html
   - text: Reference
     href: reference/index.html
   - text: News
@@ -16,8 +19,9 @@ navbar:
     href: https://github.com/hadley/stringr
 
 references:
-- title: Regular expressions
+- title: Pattern matching
   contents:
+  - str_count
   - str_detect
   - str_extract
   - str_locate
@@ -25,6 +29,7 @@ references:
   - str_replace
   - str_split
   - str_subset
+  - str_view
   - modifiers
 
 - title: Whitespace
@@ -33,23 +38,24 @@ references:
   - str_trim
   - str_wrap
 
-- titles: Bundled data
+- title: Locale senstive
   contents:
-  - stringr-data
+  - str_order
+  - case
 
 - title: Other helpers
   contents:
-  - case
   - invert_match
   - str_c
   - str_conv
-  - str_count
   - str_dup
-  - str_order
   - str_length
   - str_interp
   - str_replace_na
   - str_trunc
   - str_sub
-  - str_view
   - word
+
+- title: Bundled data
+  contents:
+  - stringr-data

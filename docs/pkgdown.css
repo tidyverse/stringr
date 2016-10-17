@@ -1,4 +1,6 @@
-body {padding-top: 60px;}
+body {
+  position: relative;
+}
 
 .icon img {
   float: right;
@@ -17,24 +19,27 @@ footer p {
   color: #555;
 }
 
+/* Fixes for fixed navbar --------------------------*/
+
+body {
+  position: relative;
+  padding-top: 60px;
+}
+
+.section h1, .section h2, .section h3, .section h4 {
+  padding-top: 60px;
+  margin-top: -60px;
+}
+
 /* Table of contents --------------------------*/
 
-.toc h2 {
+#tocnav h2 {
   margin-top: 0;
   font-size: 1.5em;
 }
 
-.toc.affix {
-  top: 80;
-}
 
 /* Syntax highlighting ---------------------------------------------------- */
-
-.examples .output {
-  border-left: 4px solid #ccc;
-  margin-left: -10px;
-  padding-left: 6px;
-}
 
 .fl,.number {color:rgb(21,20,181);}
 .fu,.functioncall {color:#264D66 ;}
