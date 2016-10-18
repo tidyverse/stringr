@@ -16,19 +16,9 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-Regular expressions are an extremely concise, but flexible tool for describing patterns in strings. This vignette describes the key features of stringr's implementation (powered by stringi), but is designed to jog your memory not serve as a tutorial. If you've never used regular expressions before, I'd recommend starting at. <http://r4ds.had.co.nz/strings.html>. 
+Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr's regular expressions, as implemented by [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so if you're unfamiliar regular expressions, I'd recommend starting at <http://r4ds.had.co.nz/strings.html>. If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://amzn.com/0596528124) by Jeffrey E. F. Fried. 
 
--   A good [reference sheet](http://www.regular-expressions.info/reference.html).
-
--   A tool that allows you to [interactively test](http://gskinner.com/RegExr/)
-    what a regular expression will match.
-
--   A tool to [build a regular expression](http://www.txt2re.com) from an 
-    input string.
-
-If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://amzn.com/0596528124) by Jeffrey E. F. Fried. 
-
-Regular expressions are the default pattern engine in stringr. That is, when you use a bare string, it's equivalent to wrapping it in a call to `regex()`:
+Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it's equivalent to wrapping it in a call to `regex()`:
 
 ```{r, eval = FALSE}
 # The regular call:
@@ -84,16 +74,6 @@ writeLines(dot)
 str_extract(c("abc", "a.c", "bef"), "a\\.c")
 ```
 
-
-*   `\X` matches a grapheme cluster, for example a combining character sequence
-    where you have a base character plus accents. 
-    
-    ```{r}
-    x <- "a\u0301"
-    str_extract(x, ".")
-    str_extract(x, "\\X")
-    ```
-
 If `\` is used as an escape character in regular expressions, how do you match a literal `\`? Well you need to escape it, creating the regular expression `\\`. To create that regular expression, you need to use a string, which also needs to escape `\`. That means to match a literal `\` you need to write `"\\\\"` --- you need four backslashes to match one!
 
 ```{r}
@@ -103,21 +83,21 @@ writeLines(x)
 str_extract(x, "\\\\")
 ```
 
-In this vignette, I'll use `\.` to denote the regular expression, and `"\\."` to denote the string that represents the regular expression.
+In this vignette, I use `\.` to denote the regular expression, and `"\\."` to denote the string that represents the regular expression.
 
-An alternative quoting mechanism is `\Q...\E`: all the characters in `...` are treated exactly as is. This is useful if you want to exactly match user input as part of a regular expression.
+An alternative quoting mechanism is `\Q...\E`: all the characters in `...` are treated as exact matches. This is useful if you want to exactly match user input as part of a regular expression.
 
 ```{r}
-x <- "a.b"
-str_detect(c("a.b.c.d", "aeb"), paste0("^", x))
-str_detect(c("a.b.c.d", "aeb"), paste0("^\\Q", x, "\\E"))
+x <- c("a.b.c.d", "aeb")
+starts_with <- "a.b"
+
+str_detect(x, paste0("^", starts_with))
+str_detect(x, paste0("^\\Q", starts_with, "\\E"))
 ```
 
 ## Special characters
 
-Escapes also allow you to specify individual characters that are otherwise hard to type. 
-
-You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:
+Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:
 
 * `\xhh`: 2 hex digits.
 
@@ -133,27 +113,34 @@ Similarly, you can specify many common control characters:
 
 * `\a`: bell.
 
-* `\cX`: match a control-X character, these are used for things like
-  changing the colour in the console.
+* `\cX`: match a control-X character.
 
 * `\e`: escape  (`\u001B`).
 
 * `\f`: form feed (`\u000C`).
 
-* `\r`: carriage return (`\u000D`).
-
 * `\n`: line feed (`\u000A`).
+
+* `\r`: carriage return (`\u000D`).
 
 * `\t`: horizontal tabulation (`\u0009`).
 
 * `\0ooo` match an octal character. 'ooo' is from one to three octal digits, 
   from 000 to 0377. The leading zero is required.
 
-(Note that many of these are only of historical interest and only included here for the sake of completeness.)
+(Many of these are only of historical interest and are only included here for the sake of completeness.)
 
 ## Matching multiple characters
 
-There are a number of patterns that match more than one character. You've already seen `.`, which matches any character (except a newline). There are five other escaped pairs that match narrower classes of characters:
+There are a number of patterns that match more than one character. You've already seen `.`, which matches any character (except a newline). A closely related operator is `\X`, which matches a __grapheme cluster__, a set of individual elements that form a single symbol. For example, one way of representing "á" is as the letter "a" plus an accent: `.` will match the component "a", while `\X` will match the complete symbol:
+    
+```{r}
+x <- "a\u0301"
+str_extract(x, ".")
+str_extract(x, "\\X")
+```
+
+There are five other escaped pairs that match narrower classes of characters:
    
 *   `\d`: matches any digit. The complement, `\D`, matches any character that 
     is not a decimal digit.
@@ -182,10 +169,10 @@ There are a number of patterns that match more than one character. You've alread
     ```
 
 *   `\p{property name}` matches any character with specific unicode property,
-    like `\p{Uppercase}` or `\p{Diacritic}`. A complete index of unicode property
-    names can be found at <http://www.unicode.org/reports/tr44/#Property_Index>.
-    The complement, `\P{property name}`, matches all characters without the 
-    property.
+    like `\p{Uppercase}` or `\p{Diacritic}`. The complement, 
+    `\P{property name}`, matches all characters without the property.
+    A complete list of unicode properties can be found at
+    <http://www.unicode.org/reports/tr44/#Property_Index>.
     
     ```{r}
     (text <- c('"Double quotes"', "«Guillemet»", "“Fancy quotes”"))
@@ -193,7 +180,8 @@ There are a number of patterns that match more than one character. You've alread
     ```
 
 *   `\w` matches any "word" character, which includes alphabetic characters, 
-    marks and decimal numbers. The complement, `\W`, matches any non-word character.
+    marks and decimal numbers. The complement, `\W`, matches any non-word
+    character.
     
     ```{r}
     str_extract_all("Don't eat that!", "\\w+")[[1]]
@@ -205,7 +193,8 @@ There are a number of patterns that match more than one character. You've alread
     the wild.
 
 *   `\b` matches word boundaries, the transition between word and non-word 
-    characters. `\B` matches the opposite: positions that don't transition.
+    characters. `\B` matches the opposite: boundaries that have either both
+    word or non-word characters on either side.
     
     ```{r}
     str_replace_all("The quick brown fox", "\\b", "_")
@@ -215,7 +204,8 @@ There are a number of patterns that match more than one character. You've alread
 You can also create your own __character classes__ using `[]`:
 
 * `[abc]`: matches a, b, or c.
-* `[a-z]`: matches everything between a and z (in Unicode code point order).
+* `[a-z]`: matches every character between a and z 
+   (in Unicode code point order).
 * `[^abc]`: matches anything except a, b, or c.
 * `[\^\-]`: matches `-` or `\`.
 
@@ -234,13 +224,13 @@ There are a number of pre-built classes that you can use inside `[]`:
 * `[:space:]`: space characters (basically equivalent to `\s`).
 * `[:blank:]`: space and tab.
 
-Note that these all go inside the `[]`, i.e. `[[:digit:]AX]` matches all digits, A, and X.
+These all go inside the `[]` for character classes, i.e. `[[:digit:]AX]` matches all digits, A, and X.
 
-You can also using Unicode properties, like `[[\p{Letter}]`. See `?"stringi-search-charclass"` for details.
+You can also using Unicode properties, like `[\p{Letter}]`, and various set operations, like `[\p{Letter}--\p{script=latin}]`. See `?"stringi-search-charclass"` for details.
 
 ## Alternation
 
-`|` is the __alternation__ operator, which will pick between one or more alternative patterns. For example, `abc|def` will match `abc` or `def`. 
+`|` is the __alternation__ operator, which will pick between one or more possible matches. For example, `abc|def` will match `abc` or `def`. 
 
 ```{r}
 str_detect(c("abc", "def", "ghi"), "abc|def")
@@ -257,7 +247,7 @@ str_extract(c("grey", "gray"), "gre|ay")
 str_extract(c("grey", "gray"), "gr(e|a)y")
 ```
 
-Parenthesis also define "groups" that you can refer to with _backreferences_, like `\1`, `\2` etc, and can be extracted with `str_match()`. For example, the following regular expression finds all fruits that have a repeated pair of letters:
+Parenthesis also define "groups" that you can refer to with __backreferences__, like `\1`, `\2` etc, and can be extracted with `str_match()`. For example, the following regular expression finds all fruits that have a repeated pair of letters:
 
 ```{r}
 pattern <- "(..)\\1"
@@ -269,22 +259,21 @@ fruit %>%
   str_match(pattern)
 ```
 
-You can use `(?:...)` to control precedence, but not capture the match in a group. This is slightly more efficient than capturing parentheses.
+You can use `(?:...)`, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.
 
 ```{r}
 str_match(c("grey", "gray"), "gr(e|a)y")
 str_match(c("grey", "gray"), "gr(?:e|a)y")
 ```
 
-This is most useful in more complex examples where you need to capture matches and control precedence independently.
+This is most useful for more complex cases where you need to capture matches and control precedence independently.
 
 ## Anchors
 
-By default, regular expressions will match any part of a string. It's often useful to _anchor_ the regular expression so that it matches from the start or end of the string. You can use:
+By default, regular expressions will match any part of a string. It's often useful to __anchor__ the regular expression so that it matches from the start or end of the string:
 
-* `^` matches the start of input. 
-
-* `$` matches the end of the input.
+* `^` matches the start of string. 
+* `$` matches the end of the string.
 
 ```{r}
 x <- c("apple", "banana", "pear")
@@ -292,11 +281,13 @@ str_extract(x, "^a")
 str_extract(x, "a$")
 ```
 
-For multiline strings, you can use `regex(multiline = TRUE)`:
+To match a literal "$" or "^", you need to escape them, `\$`, and `\^`.
 
-* `^` matches the start of each line. 
+For multiline strings, you can use `regex(multiline = TRUE)`. This changes the behaviour of `^` and `$`, and introduces three new operators:
 
-* `$` matches the end of each line.
+* `^` now matches the start of each line. 
+
+* `$` now matches the end of each line.
 
 * `\A` matches the start of the input.
 
@@ -307,18 +298,18 @@ For multiline strings, you can use `regex(multiline = TRUE)`:
 
 ```{r}
 x <- "Line 1\nLine 2\nLine 3\n"
-str_extract_all(x, "^Line")[[1]]
-str_extract_all(x, regex("^Line", multiline = TRUE))[[1]]
-str_extract_all(x, regex("\\ALine", multiline = TRUE))[[1]]
+str_extract_all(x, "^Line..")[[1]]
+str_extract_all(x, regex("^Line..", multiline = TRUE))[[1]]
+str_extract_all(x, regex("\\ALine..", multiline = TRUE))[[1]]
 ```
 
 ## Repetition
 
 You can control how many times a pattern matches with the repetition operators:
 
-* `?`: 0 or 1
-* `+`: 1 or more
-* `*`: 0 or more
+* `?`: 0 or 1.
+* `+`: 1 or more.
+* `*`: 0 or more.
 
 ```{r}
 x <- "1888 is the longest year in Roman numerals: MDCCCLXXXVIII"
@@ -346,17 +337,15 @@ By default these matches are "greedy": they will match the longest string possib
 * `??`: 0 or 1, prefer 0.
 * `+?`: 1 or more, match as few times as possible.
 * `*?`: 0 or more, match as few times as possible.
-* `{n}?`: exactly n.
 * `{n,}?`: n or more, match as few times as possible.
 * `{n,m}?`: between n and m, , match as few times as possible, but at least n.
 
 ```{r}
-str_extract(x, 'C{2,3}?')
-str_extract(x, 'C[LX]+?')
+str_extract(x, c("C{2,3}", "C{2,3}?"))
+str_extract(x, c("C[LX]+", "C[LX]+?"))
 ```
 
-You can also make the matches possessive, which means that if latter parts of the 
-regular expression do not match, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to avoid very slow behaviour in worst-case scenarios
+You can also make the matches possessive, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called "catastrophic backtracking").
 
 * `??`: 0 or 1, possessive.
 * `+?`: 1 or more, possessive.
@@ -365,7 +354,7 @@ regular expression do not match, the repetition will not be re-tried with a smal
 * `{n,}?`: n or more, possessive.
 * `{n,m}?`: between n and m, possessive.
 
-A related concept is the atomic-match parenthesis, `(?>...)`. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:
+A related concept is the __atomic-match__ parenthesis, `(?>...)`. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:
 
 ```{r}
 str_detect("ABC", "(?>A|.B)C")
@@ -393,14 +382,14 @@ These assertions look ahead or behind the current match without "consuming" any 
   match text preceding the current position. Length must be bounded  
   (i.e. no `*` or `+`).
 
-These are useful when you want to match only if a pattern exists, but you don't want to include the pattern in the result:
+These are useful when you want to check that a pattern exists, but you don't want to include it in the result:
 
 ```{r}
 x <- c("1 piece", "2 pieces", "3")
 str_extract(x, "\\d+(?= pieces?)")
 
-y <- c("USD 100", "NZD 400")
-str_extract(y, "(?<=NZD )\\d+")
+y <- c("100", "$400")
+str_extract(y, "(?<=\\$)\\d+")
 ```
 
 ## Comments
@@ -411,8 +400,7 @@ There are two ways to include comments in a regular expression. The first is wit
 str_detect("xyz", "x(?#this is a comment)")
 ```
 
-The second is to use `regex(comments = TRUE)`. This form ignores spaces and newlines, and anything everything after `#`. To match a literal space, you'll need to escape it: 
-`"\\ "`.
+The second is to use `regex(comments = TRUE)`. This form ignores spaces and newlines, and anything everything after `#`. To match a literal space, you'll need to escape it: `"\\ "`. This is a useful way of describing complex regular expressions:
 
 ```{r}
 phone <- regex("

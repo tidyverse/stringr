@@ -95,6 +95,12 @@ There are seven main verbs that work with patterns:
     str_split(c("a,b", "c,d,e"), ",")
     ```
 
+As well as regular expressions (the default), there are three other pattern matching engines:
+
+* `fixed()`: match exact bytes
+* `coll()`: match human letters
+* `boundary()`: match boundaries
+
 ## Compared to base R
 
 R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. 

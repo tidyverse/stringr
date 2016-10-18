@@ -5,7 +5,9 @@ stringr <img src="logo.png" align="right" />
 
 [![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr) [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master) [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](http://cran.r-project.org/package=stringr)
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is <http://r4ds.had.co.nz/strings.html>.
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is the R for Data Science [chapter on strings](http://r4ds.had.co.nz/strings.html).
+
+stringr is built on top of [stringi](https://github.com/gagolews/stringi), which uses the [ICU](http://site.icu-project.org) C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you've mastered stringr, you should find stringi similarly easy to use.
 
 Installation
 ------------
@@ -37,7 +39,6 @@ str_sub(x, 1, 2)
 Most string functions work with regular expressions, a concise language for describing patterns of text. For example, the regular expression `"[aeiou]"` matches any single character that is a vowel:
 
 ``` r
-
 str_subset(x, "[aeiou]")
 #> [1] "video"     "cross"     "extra"     "deal"      "authority"
 str_count(x, "[aeiou]")
@@ -119,6 +120,12 @@ There are seven main verbs that work with patterns:
     #> [1] "c" "d" "e"
     ```
 
+As well as regular expressions (the default), there are three other pattern matching engines:
+
+-   `fixed()`: match exact bytes
+-   `coll()`: match human letters
+-   `boundary()`: match boundaries
+
 Compared to base R
 ------------------
 
@@ -137,5 +144,3 @@ R provides a solid set of string operations, but because they have grown organic
 -   Simplifies string operations by eliminating options that you don't need 95% of the time.
 
 -   Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.
-
--   Is built on top of [stringi](https://github.com/Rexamine/stringi/) which uses the [ICU](http://site.icu-project.org) library to provide fast, correct implementations of common string manipulations. stringi always converts its inputs to UTF-8 which ensures consistent and correct operation across platforms.
