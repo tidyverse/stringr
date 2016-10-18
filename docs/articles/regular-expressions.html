@@ -16,9 +16,6 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li>
-  <a href="../index.html">Home</a>
-</li>
-<li>
   <a href="../articles/stringr.html">Overview</a>
 </li>
 <li>
@@ -42,20 +39,12 @@
       
       </header><div class="row">
   <div class="col-md-9">
-    <div class="page-header toc-ignore">
-      <h1>Regular expressions</h1>
-            
-            <h4 class="date">2016-10-17</h4>
-          </div>
+    
 
     
     
-<p>Regular expressions are an extremely concise, but flexible tool for describing patterns in strings. This vignette describes the key features of stringr&rsquo;s implementation (powered by stringi), but is designed to jog your memory not serve as a tutorial. If you&rsquo;ve never used regular expressions before, I&rsquo;d recommend starting at. <a href="http://r4ds.had.co.nz/strings.html" class="uri">http://r4ds.had.co.nz/strings.html</a>.</p>
-<ul><li><p>A good <a href="http://www.regular-expressions.info/reference.html">reference sheet</a>.</p></li>
-<li><p>A tool that allows you to <a href="http://gskinner.com/RegExr/">interactively test</a> what a regular expression will match.</p></li>
-<li><p>A tool to <a href="http://www.txt2re.com">build a regular expression</a> from an input string.</p></li>
-</ul><p>If you want to master the details, I&rsquo;d recommend reading the classic <a href="https://amzn.com/0596528124"><em>Mastering Regular Expressions</em></a> by Jeffrey E. F. Fried.</p>
-<p>Regular expressions are the default pattern engine in stringr. That is, when you use a bare string, it&rsquo;s equivalent to wrapping it in a call to <code><a href="../reference/modifiers.html">regex()</a></code>:</p>
+<p>Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr&rsquo;s regular expressions, as implemented by <a href="https://github.com/gagolews/stringi">stringi</a>. It is not a tutorial, so if you&rsquo;re unfamiliar regular expressions, I&rsquo;d recommend starting at <a href="http://r4ds.had.co.nz/strings.html" class="uri">http://r4ds.had.co.nz/strings.html</a>. If you want to master the details, I&rsquo;d recommend reading the classic <a href="https://amzn.com/0596528124"><em>Mastering Regular Expressions</em></a> by Jeffrey E. F. Fried.</p>
+<p>Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it&rsquo;s equivalent to wrapping it in a call to <code><a href="../reference/modifiers.html">regex()</a></code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The regular call:</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(fruit, <span class="st">"nana"</span>)
 <span class="co"># Is shorthand for</span>
@@ -95,31 +84,26 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <span class="co"># And this tells R to look for an explicit .</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"a.c"</span>, <span class="st">"bef"</span>), <span class="st">"a</span><span class="ch">\\</span><span class="st">.c"</span>)
 <span class="co">#&gt; [1] NA    "a.c" NA</span></code></pre></div>
-<ul><li><p><code>\X</code> matches a grapheme cluster, for example a combining character sequence where you have a base character plus accents.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "a\u0301"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"."</span>)
-<span class="co">#&gt; [1] "a"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\</span><span class="st">X"</span>)
-<span class="co">#&gt; [1] "a&#769;"</span></code></pre></div></li>
-</ul><p>If <code>\</code> is used as an escape character in regular expressions, how do you match a literal <code>\</code>? Well you need to escape it, creating the regular expression <code>\\</code>. To create that regular expression, you need to use a string, which also needs to escape <code>\</code>. That means to match a literal <code>\</code> you need to write <code>"\\\\"</code> &mdash; you need four backslashes to match one!</p>
+<p>If <code>\</code> is used as an escape character in regular expressions, how do you match a literal <code>\</code>? Well you need to escape it, creating the regular expression <code>\\</code>. To create that regular expression, you need to use a string, which also needs to escape <code>\</code>. That means to match a literal <code>\</code> you need to write <code>"\\\\"</code> &mdash; you need four backslashes to match one!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "a</span><span class="ch">\\</span><span class="st">b"</span>
 <span class="kw">writeLines</span>(x)
 <span class="co">#&gt; a\b</span>
 
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\\\</span><span class="st">"</span>)
 <span class="co">#&gt; [1] "\\"</span></code></pre></div>
-<p>In this vignette, I&rsquo;ll use <code>\.</code> to denote the regular expression, and <code>"\\."</code> to denote the string that represents the regular expression.</p>
-<p>An alternative quoting mechanism is <code>\Q...\E</code>: all the characters in <code>...</code> are treated exactly as is. This is useful if you want to exactly match user input as part of a regular expression.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "a.b"</span>
-<span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw">c</span>(<span class="st">"a.b.c.d"</span>, <span class="st">"aeb"</span>), <span class="kw">paste0</span>(<span class="st">"^"</span>, x))
+<p>In this vignette, I use <code>\.</code> to denote the regular expression, and <code>"\\."</code> to denote the string that represents the regular expression.</p>
+<p>An alternative quoting mechanism is <code>\Q...\E</code>: all the characters in <code>...</code> are treated as exact matches. This is useful if you want to exactly match user input as part of a regular expression.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"a.b.c.d"</span>, <span class="st">"aeb"</span>)
+starts_with &lt;-<span class="st"> "a.b"</span>
+
+<span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw">paste0</span>(<span class="st">"^"</span>, starts_with))
 <span class="co">#&gt; [1] TRUE TRUE</span>
-<span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw">c</span>(<span class="st">"a.b.c.d"</span>, <span class="st">"aeb"</span>), <span class="kw">paste0</span>(<span class="st">"^</span><span class="ch">\\</span><span class="st">Q"</span>, x, <span class="st">"</span><span class="ch">\\</span><span class="st">E"</span>))
+<span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw">paste0</span>(<span class="st">"^</span><span class="ch">\\</span><span class="st">Q"</span>, starts_with, <span class="st">"</span><span class="ch">\\</span><span class="st">E"</span>))
 <span class="co">#&gt; [1]  TRUE FALSE</span></code></pre></div>
 </div>
 <div id="special-characters" class="section level2">
 <h2>Special characters</h2>
-<p>Escapes also allow you to specify individual characters that are otherwise hard to type.</p>
-<p>You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p>
+<p>Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p>
 <ul><li><p><code>\xhh</code>: 2 hex digits.</p></li>
 <li><p><code>\x{hhhh}</code>: 1-6 hex digits.</p></li>
 <li><p><code>\uhhhh</code>: 4 hex digits.</p></li>
@@ -127,18 +111,24 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <li><p><code>\N{name}</code>, e.g. <code>\N{grinning face}</code> matches the basic smiling emoji.</p></li>
 </ul><p>Similarly, you can specify many common control characters:</p>
 <ul><li><p><code>\a</code>: bell.</p></li>
-<li><p><code>\cX</code>: match a control-X character, these are used for things like changing the colour in the console.</p></li>
+<li><p><code>\cX</code>: match a control-X character.</p></li>
 <li><p><code>\e</code>: escape (<code>\u001B</code>).</p></li>
 <li><p><code>\f</code>: form feed (<code>\u000C</code>).</p></li>
-<li><p><code>\r</code>: carriage return (<code>\u000D</code>).</p></li>
 <li><p><code>\n</code>: line feed (<code>\u000A</code>).</p></li>
+<li><p><code>\r</code>: carriage return (<code>\u000D</code>).</p></li>
 <li><p><code>\t</code>: horizontal tabulation (<code>\u0009</code>).</p></li>
 <li><p><code>\0ooo</code> match an octal character. &lsquo;ooo&rsquo; is from one to three octal digits, from 000 to 0377. The leading zero is required.</p></li>
-</ul><p>(Note that many of these are only of historical interest and only included here for the sake of completeness.)</p>
+</ul><p>(Many of these are only of historical interest and are only included here for the sake of completeness.)</p>
 </div>
 <div id="matching-multiple-characters" class="section level2">
 <h2>Matching multiple characters</h2>
-<p>There are a number of patterns that match more than one character. You&rsquo;ve already seen <code>.</code>, which matches any character (except a newline). There are five other escaped pairs that match narrower classes of characters:</p>
+<p>There are a number of patterns that match more than one character. You&rsquo;ve already seen <code>.</code>, which matches any character (except a newline). A closely related operator is <code>\X</code>, which matches a <strong>grapheme cluster</strong>, a set of individual elements that form a single symbol. For example, one way of representing &ldquo;&aacute;&rdquo; is as the letter &ldquo;a&rdquo; plus an accent: <code>.</code> will match the component &ldquo;a&rdquo;, while <code>\X</code> will match the complete symbol:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "a\u0301"</span>
+<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"."</span>)
+<span class="co">#&gt; [1] "a"</span>
+<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\</span><span class="st">X"</span>)
+<span class="co">#&gt; [1] "a&#769;"</span></code></pre></div>
+<p>There are five other escaped pairs that match narrower classes of characters:</p>
 <ul><li><p><code>\d</code>: matches any digit. The complement, <code>\D</code>, matches any character that is not a decimal digit.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(<span class="st">"1 + 2 = 3"</span>, <span class="st">"</span><span class="ch">\\</span><span class="st">d+"</span>)[[<span class="dv">1</span>]]
 <span class="co">#&gt; [1] "1" "2" "3"</span></code></pre></div>
@@ -151,7 +141,7 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <span class="co">#&gt; [1] "Some  \t badly\n\t\tspaced \f text"</span>
 <span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(text, <span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>, <span class="st">" "</span>)
 <span class="co">#&gt; [1] "Some badly spaced text"</span></code></pre></div></li>
-<li><p><code>\p{property name}</code> matches any character with specific unicode property, like <code>\p{Uppercase}</code> or <code>\p{Diacritic}</code>. A complete index of unicode property names can be found at <a href="http://www.unicode.org/reports/tr44/#Property_Index" class="uri">http://www.unicode.org/reports/tr44/#Property_Index</a>. The complement, <code>\P{property name}</code>, matches all characters without the property.</p>
+<li><p><code>\p{property name}</code> matches any character with specific unicode property, like <code>\p{Uppercase}</code> or <code>\p{Diacritic}</code>. The complement, <code>\P{property name}</code>, matches all characters without the property. A complete list of unicode properties can be found at <a href="http://www.unicode.org/reports/tr44/#Property_Index" class="uri">http://www.unicode.org/reports/tr44/#Property_Index</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(text &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'"Double quotes"'</span>, <span class="st">"&laquo;Guillemet&raquo;"</span>, <span class="st">"&ldquo;Fancy quotes&rdquo;"</span>))
 <span class="co">#&gt; [1] "\"Double quotes\"" "&laquo;Guillemet&raquo;"       "&ldquo;Fancy quotes&rdquo;"</span>
 <span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(text, <span class="st">"</span><span class="ch">\\</span><span class="st">p{quotation mark}"</span>, <span class="st">"'"</span>)
@@ -162,14 +152,14 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <span class="kw"><a href="../reference/str_split.html">str_split</a></span>(<span class="st">"Don't eat that!"</span>, <span class="st">"</span><span class="ch">\\</span><span class="st">W"</span>)[[<span class="dv">1</span>]]
 <span class="co">#&gt; [1] "Don"  "t"    "eat"  "that" ""</span></code></pre></div>
 <p>Technically, <code>\w</code> also matches connector punctuation, <code>\u200c</code> (zero width connector), and <code>\u200d</code> (zero width joiner), but these are rarely seen in the wild.</p></li>
-<li><p><code>\b</code> matches word boundaries, the transition between word and non-word characters. <code>\B</code> matches the opposite: positions that don&rsquo;t transition.</p>
+<li><p><code>\b</code> matches word boundaries, the transition between word and non-word characters. <code>\B</code> matches the opposite: boundaries that have either both word or non-word characters on either side.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(<span class="st">"The quick brown fox"</span>, <span class="st">"</span><span class="ch">\\</span><span class="st">b"</span>, <span class="st">"_"</span>)
 <span class="co">#&gt; [1] "_The_ _quick_ _brown_ _fox_"</span>
 <span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(<span class="st">"The quick brown fox"</span>, <span class="st">"</span><span class="ch">\\</span><span class="st">B"</span>, <span class="st">"_"</span>)
 <span class="co">#&gt; [1] "T_h_e q_u_i_c_k b_r_o_w_n f_o_x"</span></code></pre></div></li>
 </ul><p>You can also create your own <strong>character classes</strong> using <code>[]</code>:</p>
 <ul><li><code>[abc]</code>: matches a, b, or c.</li>
-<li><code>[a-z]</code>: matches everything between a and z (in Unicode code point order).</li>
+<li><code>[a-z]</code>: matches every character between a and z (in Unicode code point order).</li>
 <li><code>[^abc]</code>: matches anything except a, b, or c.</li>
 <li><code>[\^\-]</code>: matches <code>-</code> or <code>\</code>.</li>
 </ul><p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p>
@@ -185,12 +175,12 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <li><code>[:print:]</code>: letters, numbers, punctuation, and whitespace.</li>
 <li><code>[:space:]</code>: space characters (basically equivalent to <code>\s</code>).</li>
 <li><code>[:blank:]</code>: space and tab.</li>
-</ul><p>Note that these all go inside the <code>[]</code>, i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p>
-<p>You can also using Unicode properties, like <code>[[\p{Letter}]</code>. See <code>?"stringi-search-charclass"</code> for details.</p>
+</ul><p>These all go inside the <code>[]</code> for character classes, i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p>
+<p>You can also using Unicode properties, like <code>[\p{Letter}]</code>, and various set operations, like <code>[\p{Letter}--\p{script=latin}]</code>. See <code>?"stringi-search-charclass"</code> for details.</p>
 </div>
 <div id="alternation" class="section level2">
 <h2>Alternation</h2>
-<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more alternative patterns. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
+<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span>), <span class="st">"abc|def"</span>)
 <span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
 <p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
@@ -202,7 +192,7 @@ dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."
 <span class="co">#&gt; [1] "gre" "ay"</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)
 <span class="co">#&gt; [1] "grey" "gray"</span></code></pre></div>
-<p>Parenthesis also define &ldquo;groups&rdquo; that you can refer to with <em>backreferences</em>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code><a href="../reference/str_match.html">str_match()</a></code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p>
+<p>Parenthesis also define &ldquo;groups&rdquo; that you can refer to with <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code><a href="../reference/str_match.html">str_match()</a></code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pattern &lt;-<span class="st"> "(..)</span><span class="ch">\\</span><span class="st">1"</span>
 fruit %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(pattern)
@@ -219,7 +209,7 @@ fruit %&gt;%<span class="st"> </span>
 <span class="co">#&gt; [4,] "juju" "ju"</span>
 <span class="co">#&gt; [5,] "papa" "pa"</span>
 <span class="co">#&gt; [6,] "alal" "al"</span></code></pre></div>
-<p>You can use <code>(?:...)</code> to control precedence, but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
+<p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)
 <span class="co">#&gt;      [,1]   [,2]</span>
 <span class="co">#&gt; [1,] "grey" "e" </span>
@@ -228,38 +218,39 @@ fruit %&gt;%<span class="st"> </span>
 <span class="co">#&gt;      [,1]  </span>
 <span class="co">#&gt; [1,] "grey"</span>
 <span class="co">#&gt; [2,] "gray"</span></code></pre></div>
-<p>This is most useful in more complex examples where you need to capture matches and control precedence independently.</p>
+<p>This is most useful for more complex cases where you need to capture matches and control precedence independently.</p>
 </div>
 <div id="anchors" class="section level2">
 <h2>Anchors</h2>
-<p>By default, regular expressions will match any part of a string. It&rsquo;s often useful to <em>anchor</em> the regular expression so that it matches from the start or end of the string. You can use:</p>
-<ul><li><p><code>^</code> matches the start of input.</p></li>
-<li><p><code>$</code> matches the end of the input.</p></li>
+<p>By default, regular expressions will match any part of a string. It&rsquo;s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
+<ul><li><code>^</code> matches the start of string.</li>
+<li><code>$</code> matches the end of the string.</li>
 </ul><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"^a"</span>)
 <span class="co">#&gt; [1] "a" NA  NA</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"a$"</span>)
 <span class="co">#&gt; [1] NA  "a" NA</span></code></pre></div>
-<p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>:</p>
-<ul><li><p><code>^</code> matches the start of each line.</p></li>
-<li><p><code>$</code> matches the end of each line.</p></li>
+<p>To match a literal &ldquo;$&rdquo; or &ldquo;^&rdquo;, you need to escape them, <code>\$</code>, and <code>\^</code>.</p>
+<p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>. This changes the behaviour of <code>^</code> and <code>$</code>, and introduces three new operators:</p>
+<ul><li><p><code>^</code> now matches the start of each line.</p></li>
+<li><p><code>$</code> now matches the end of each line.</p></li>
 <li><p><code>\A</code> matches the start of the input.</p></li>
 <li><p><code>\z</code> matches the end of the input.</p></li>
 <li><p><code>\Z</code> matches the end of the input, but before the final line terminator, if it exists.</p></li>
 </ul><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "Line 1</span><span class="ch">\n</span><span class="st">Line 2</span><span class="ch">\n</span><span class="st">Line 3</span><span class="ch">\n</span><span class="st">"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="st">"^Line"</span>)[[<span class="dv">1</span>]]
-<span class="co">#&gt; [1] "Line"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"^Line"</span>, <span class="dt">multiline =</span> <span class="ot">TRUE</span>))[[<span class="dv">1</span>]]
-<span class="co">#&gt; [1] "Line" "Line" "Line"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">ALine"</span>, <span class="dt">multiline =</span> <span class="ot">TRUE</span>))[[<span class="dv">1</span>]]
-<span class="co">#&gt; [1] "Line"</span></code></pre></div>
+<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="st">"^Line.."</span>)[[<span class="dv">1</span>]]
+<span class="co">#&gt; [1] "Line 1"</span>
+<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"^Line.."</span>, <span class="dt">multiline =</span> <span class="ot">TRUE</span>))[[<span class="dv">1</span>]]
+<span class="co">#&gt; [1] "Line 1" "Line 2" "Line 3"</span>
+<span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">ALine.."</span>, <span class="dt">multiline =</span> <span class="ot">TRUE</span>))[[<span class="dv">1</span>]]
+<span class="co">#&gt; [1] "Line 1"</span></code></pre></div>
 </div>
 <div id="repetition" class="section level2">
 <h2>Repetition</h2>
 <p>You can control how many times a pattern matches with the repetition operators:</p>
-<ul><li><code>?</code>: 0 or 1</li>
-<li><code>+</code>: 1 or more</li>
-<li><code>*</code>: 0 or more</li>
+<ul><li><code>?</code>: 0 or 1.</li>
+<li><code>+</code>: 1 or more.</li>
+<li><code>*</code>: 0 or more.</li>
 </ul><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "1888 is the longest year in Roman numerals: MDCCCLXXXVIII"</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"CC?"</span>)
 <span class="co">#&gt; [1] "CC"</span>
@@ -282,21 +273,20 @@ fruit %&gt;%<span class="st"> </span>
 <ul><li><code>??</code>: 0 or 1, prefer 0.</li>
 <li><code>+?</code>: 1 or more, match as few times as possible.</li>
 <li><code>*?</code>: 0 or more, match as few times as possible.</li>
-<li><code>{n}?</code>: exactly n.</li>
 <li><code>{n,}?</code>: n or more, match as few times as possible.</li>
 <li><code>{n,m}?</code>: between n and m, , match as few times as possible, but at least n.</li>
-</ul><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">'C{2,3}?'</span>)
-<span class="co">#&gt; [1] "CC"</span>
-<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">'C[LX]+?'</span>)
-<span class="co">#&gt; [1] "CL"</span></code></pre></div>
-<p>You can also make the matches possessive, which means that if latter parts of the regular expression do not match, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to avoid very slow behaviour in worst-case scenarios</p>
+</ul><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw">c</span>(<span class="st">"C{2,3}"</span>, <span class="st">"C{2,3}?"</span>))
+<span class="co">#&gt; [1] "CCC" "CC"</span>
+<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw">c</span>(<span class="st">"C[LX]+"</span>, <span class="st">"C[LX]+?"</span>))
+<span class="co">#&gt; [1] "CLXXX" "CL"</span></code></pre></div>
+<p>You can also make the matches possessive, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called &ldquo;catastrophic backtracking&rdquo;).</p>
 <ul><li><code>??</code>: 0 or 1, possessive.</li>
 <li><code>+?</code>: 1 or more, possessive.</li>
 <li><code>*?</code>: 0 or more, possessive.</li>
 <li><code>{n}?</code>: exactly n, possessive.</li>
 <li><code>{n,}?</code>: n or more, possessive.</li>
 <li><code>{n,m}?</code>: between n and m, possessive.</li>
-</ul><p>A related concept is the atomic-match parenthesis, <code>(?&gt;...)</code>. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:</p>
+</ul><p>A related concept is the <strong>atomic-match</strong> parenthesis, <code>(?&gt;...)</code>. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"ABC"</span>, <span class="st">"(?&gt;A|.B)C"</span>)
 <span class="co">#&gt; [1] FALSE</span>
 <span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"ABC"</span>, <span class="st">"(?:A|.B)C"</span>)
@@ -312,13 +302,13 @@ fruit %&gt;%<span class="st"> </span>
 (i.e.&nbsp;no <code>*</code> or <code>+</code>).</p></li>
 <li><p><code>(?&lt;!...)</code>: negative look-behind assertion. Matches if <code>...</code> <strong>does not</strong> match text preceding the current position. Length must be bounded<br>
 (i.e.&nbsp;no <code>*</code> or <code>+</code>).</p></li>
-</ul><p>These are useful when you want to match only if a pattern exists, but you don&rsquo;t want to include the pattern in the result:</p>
+</ul><p>These are useful when you want to check that a pattern exists, but you don&rsquo;t want to include it in the result:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"1 piece"</span>, <span class="st">"2 pieces"</span>, <span class="st">"3"</span>)
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\</span><span class="st">d+(?= pieces?)"</span>)
 <span class="co">#&gt; [1] "1" "2" NA</span>
 
-y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"USD 100"</span>, <span class="st">"NZD 400"</span>)
-<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(y, <span class="st">"(?&lt;=NZD )</span><span class="ch">\\</span><span class="st">d+"</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"100"</span>, <span class="st">"$400"</span>)
+<span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(y, <span class="st">"(?&lt;=</span><span class="ch">\\</span><span class="st">$)</span><span class="ch">\\</span><span class="st">d+"</span>)
 <span class="co">#&gt; [1] NA    "400"</span></code></pre></div>
 </div>
 <div id="comments" class="section level2">
@@ -326,7 +316,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"USD 
 <p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span>)
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
-<p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you&rsquo;ll need to escape it: <code>"\\ "</code>.</p>
+<p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you&rsquo;ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">phone &lt;-<span class="st"> </span><span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"</span>
 <span class="st">  </span><span class="ch">\\</span><span class="st">(?     # optional opening parens</span>
 <span class="st">  (</span><span class="ch">\\</span><span class="st">d{3}) # area code</span>

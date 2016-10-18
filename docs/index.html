@@ -16,9 +16,6 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li>
-  <a href="index.html">Home</a>
-</li>
-<li>
   <a href="articles/stringr.html">Overview</a>
 </li>
 <li>
@@ -42,10 +39,7 @@
       
       </header><div class="row">
   <div class="col-md-9">
-    <div class="page-header toc-ignore">
-      <h1></h1>
-            
-          </div>
+    
 
     
     
@@ -121,6 +115,10 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [[2]]</span>
 <span class="co">#&gt; [1] "c" "d" "e"</span></code></pre></div></li>
+</ul><p>As well as regular expressions (the default), there are three other pattern matching engines:</p>
+<ul><li><code><a href="reference/modifiers.html">fixed()</a></code>: match exact bytes</li>
+<li><code><a href="reference/modifiers.html">coll()</a></code>: match human letters</li>
+<li><code><a href="reference/modifiers.html">boundary()</a></code>: match boundaries</li>
 </ul></div>
 <div id="compared-to-base-r" class="section level2">
 <h2>Compared to base R</h2>

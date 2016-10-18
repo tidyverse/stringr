@@ -4,8 +4,6 @@ template:
 navbar:
   type: default
   left:
-  - text: Home
-    href: index.html
   - text: Overview
     href: articles/stringr.html
   - text: RegEx
