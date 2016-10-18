@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-There are four main families of functions in stringr: those 
+There are four main families of functions in stringr: 
 
 1.  Character manipulation: these functions allow you to manipulate the 
     individual characters inside the strings inside character vectors.
