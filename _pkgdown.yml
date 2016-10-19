@@ -11,7 +11,15 @@ navbar:
   - text: Reference
     href: reference/index.html
   - text: News
-    href: news/index.html
+    menu:
+      - text: "Release notes"
+      - text: "Version 1.1.0"
+        href: articles/releases/stringr-1.1.0.html
+      - text: "Version 1.0.0"
+        href: articles/releases/stringr-1.0.0.html
+      - text: "------------------"
+      - text: "Change log"
+        href: news/index.html
   right:
   - icon: fa-github fa-lg
     href: https://github.com/hadley/stringr
