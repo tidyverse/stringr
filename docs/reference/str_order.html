@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,12 +93,12 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Order or sort a character vector.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Order or sort a character vector.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p>Order or sort a character vector.</p>
     
@@ -109,8 +109,10 @@
 <span class='fu'>str_sort</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na_last</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>,
   <span class='kw'>numeric</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>x</dt>
       <dd>A character vector to sort.</dd>
@@ -131,16 +133,16 @@ of as strings.</dd>
       <dd>Other options used to control sorting order. Passed on to
 <code><a href='http://www.rdocumentation.org/packages/stri_opts_collator/topics/stringi'>stri_opts_collator</a></code>.</dd>
     </dl>
-    </div>
     
-    <div class="section">
-      <h2>See also</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-      <p><code><a href='http://www.rdocumentation.org/packages/stri_order/topics/stringi'>stri_order</a></code> for the underlying implementation.</p>
-    </div>
+    <p><code><a href='http://www.rdocumentation.org/packages/stri_order/topics/stringi'>stri_order</a></code> for the underlying implementation.</p>
     
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='fu'>str_order</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 #&gt; [26] 26
 #&gt; </div><div class='input'><span class='fu'>str_sort</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
@@ -155,14 +157,29 @@ of as strings.</dd>
 <span class='fu'>str_sort</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] &quot;100a10&quot; &quot;100a5&quot;  &quot;2a&quot;     &quot;2b&quot;    
 #&gt; </div><div class='input'><span class='fu'>str_sort</span>(<span class='no'>x</span>, <span class='kw'>numeric</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] &quot;2a&quot;     &quot;2b&quot;     &quot;100a5&quot;  &quot;100a10&quot;
 #&gt; </div></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 

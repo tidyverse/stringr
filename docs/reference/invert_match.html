@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,12 +93,12 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Switch location of matches to location of non-matches.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Switch location of matches to location of non-matches.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p>Invert a matrix of match locations to match the opposite of what was
 previously matched.</p>
@@ -106,22 +106,24 @@ previously matched.</p>
 
     <pre><span class='fu'>invert_match</span>(<span class='no'>loc</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>loc</dt>
       <dd>matrix of match locations, as from <code><a href='str_locate.html'>str_locate_all</a></code></dd>
     </dl>
-    </div>
     
-    <div class="section">
-      <h2>Value</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-      <p>numeric match giving locations of non-matches</p>
-    </div>
+    <p>numeric match giving locations of non-matches</p>
     
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='no'>numbers</span> <span class='kw'>&lt;-</span> <span class='st'>"1 and 2 and 4 and 456"</span>
 <span class='no'>num_loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span>(<span class='no'>numbers</span>, <span class='st'>"[0-9]+"</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
 <span class='fu'><a href='str_sub.html'>str_sub</a></span>(<span class='no'>numbers</span>, <span class='no'>num_loc</span>[, <span class='st'>"start"</span>], <span class='no'>num_loc</span>[, <span class='st'>"end"</span>])</div><div class='output co'>#&gt; [1] &quot;1&quot;   &quot;2&quot;   &quot;4&quot;   &quot;456&quot;
@@ -129,14 +131,29 @@ previously matched.</p>
 <span class='no'>text_loc</span> <span class='kw'>&lt;-</span> <span class='fu'>invert_match</span>(<span class='no'>num_loc</span>)
 <span class='fu'><a href='str_sub.html'>str_sub</a></span>(<span class='no'>numbers</span>, <span class='no'>text_loc</span>[, <span class='st'>"start"</span>], <span class='no'>text_loc</span>[, <span class='st'>"end"</span>])</div><div class='output co'>#&gt; [1] &quot;&quot;      &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot;&quot;     
 #&gt; </div></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 

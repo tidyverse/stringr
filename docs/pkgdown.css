@@ -12,29 +12,43 @@ body {
 
 /* Table of contents --------------------------*/
 
-#tocnav {
+#sidebar {
   position: fixed;
-  top: 120px;
-  padding: 40px;
 
-  -webkit-transition: top, .33s;
-  -o-transition: top, .33s;
-  transition: top, .33s;
+  top: 80px;
+  padding-top: 40px;
+
+  word-wrap: break-word;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
-.shrink-header #tocnav {
+.shrink-header #sidebar {
   top: 30px;
 }
 
-#tocnav h2 {
-  font-size: 1.5em;
+#sidebar h2 {
+  font-size: 1.6em;
+  margin-top: 1em;
+  margin-bottom: 0.25em;
 }
 
-@media screen and (max-width: 991px) {
-  #tocnav {
-    display: none;
+#sidebar .list-unstyled li {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+#sidebar small {
+  color: #777;
+}
+
+@media screen and (min-width: 970px) {
+  #sidebar {
+    width: 243px;
   }
 }
+
 
 /* Syntax highlighting ---------------------------------------------------- */
 
@@ -135,17 +149,12 @@ pre img {
 
 .topic p {
   font-size: 16px;
-  font-weight: 400;
   margin-bottom: 0;
 }
 
 .topic ul {
   padding-top: 0;
   list-style-type: square;
-}
-
-.topic li {
-  font-size: 13px;
 }
 
 .topic li a {
@@ -170,84 +179,20 @@ footer {
   margin-top: 45px;
   padding: 35px 0 36px;
   border-top: 1px solid #e5e5e5;
+
+  display: flex;
+  color: #666;
 }
 footer p {
   margin-bottom: 0;
-  color: #555;
 }
-
-.rstudioFooter {
-  display: flex;
-  justify-content: space-between;
-
-  display: -ms-flexbox;
-  -ms-flex-pack: justify;
-
-  align-items: center;
-
-  line-height: 20px;
+footer .tidyverse {
+  flex: 1;
 }
-
-.rstudioFooter #logos {
-  flex-shrink: 0;
+footer .author {
+  flex: 1;
+  text-align: right;
 }
-
-.rstudioFooter .footerLogo {
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center center;
-
-  margin: 0 8px;
-}
-
-.rstudioFooter .footerLogo:last-child {
-  margin-right: 0px;
-}
-
-.rstudioFooter .footerLogo.twitter {
-  background-image: url(./images/twitterLogo.svg);
-}
-
-.rstudioFooter .footerLogo.gitHub {
-  background-image: url(./images/gitHubLogo.svg);
-}
-
-.rstudioFooter .footerLogo.linkedIn {
-  background-image: url(./images/linkedInLogo.svg);
-}
-
-.rstudioFooter .footerLogo.facebook {
-  background-image: url(./images/facebookLogo.svg);
-}
-
-.rstudioFooter .rstudioLogo {
-  display: inline-block;
-  width: 75px;
-  height: 25px;
-  background-image:url(./images/logoRStudio.svg);
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  margin: 0 0 2px 2px;
-}
-
-
-
-@media screen and (max-width: 440px){
-  .rstudioFooter {
-    display: block;
-    text-align: center;
-  }
-
-  .rstudioFooter .footerLogo {
-    margin-top: 30px;
-  }
-}
-
 
 /* --------------------- darken code link color */
 
@@ -278,37 +223,40 @@ a.anchor {
   visibility: visible;
 }
 
-/* ---------------------- tocnav fixes */
+/* Tweak appearance of navigation in sidebar ---------------------- */
 
-#tocnav .nav {
+#sidebar .nav {
   padding-left: 0px;
   list-style-type: none;
   color: #5a9ddb;
 }
 
-#tocnav .nav > li {
-  padding-left: 20px;
+#sidebar .active {
+  width: 243px;
+}
+
+#sidebar .nav > li {
+  padding: 10px 0 0px 20px;
   display: list-item;
-  line-height: 40px;
+  line-height: 20px;
   background-image: url(./tocBullet.svg);
   background-repeat: no-repeat;
-  background-size: 16px 80px;
+  background-size: 16px 280px;
   background-position: left 0px;
 }
 
-#tocnav .nav > li.active {
-  list-style-type: disc;
-  background-position: left -40px;
+#sidebar .nav > li.active {
+  background-position: left -240px;
 }
 
 
-#tocnav a {
+#sidebar a {
   padding: 0px;
   color: #5a9ddb;
   background-color: transparent;
 }
 
-#tocnav a:hover {
+#sidebar a:hover {
   background-color: transparent;
   text-decoration: underline;
 }

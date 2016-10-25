@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,12 +93,12 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Replace matched patterns in a string.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Replace matched patterns in a string.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p>Vectorised over <code>string</code>, <code>pattern</code> and <code>replacement</code>.</p>
     
@@ -107,8 +107,10 @@
 
 <span class='fu'>str_replace_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
       <dd>Input vector. Either a character vector, or something
@@ -127,23 +129,21 @@ coercible to one.</dd>
   it will be called once for each match and its return value will be
   used to replace the match.</dd>
     </dl>
-    </div>
     
-    <div class="section">
-      <h2>Value</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-      <p>A character vector.</p>
-    </div>
+    <p>A character vector.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class="section">
-      <h2>See also</h2>
-
-      <p><code><a href='str_replace_na.html'>str_replace_na</a></code> to turn missing values into &quot;NA&quot;;
+    <p><code><a href='str_replace_na.html'>str_replace_na</a></code> to turn missing values into &quot;NA&quot;;
   <code>stri_replace</code> for the underlying implementation.</p>
-    </div>
     
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
 <span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-ne apple&quot;     &quot;tw- pears&quot;     &quot;thr-e bananas&quot;
 #&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-n- -ppl-&quot;     &quot;tw- p--rs&quot;     &quot;thr-- b-n-n-s&quot;
@@ -184,14 +184,31 @@ coercible to one.</dd>
 <span class='fu'>str_replace_all</span>(<span class='no'>x</span>, <span class='no'>colours</span>, <span class='no'>col2hex</span>)</div><div class='output co'>#&gt; [1] &quot;Roses are #FF0000, violets are #0000FF&quot;
 #&gt; [2] &quot;My favourite colour is #00FF00&quot;        
 #&gt; </div></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 

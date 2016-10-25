@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,20 +93,22 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Pad a string.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Pad a string.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p>Vectorised over <code>string</code>, <code>width</code> and <code>pad</code>.</p>
     
 
     <pre><span class='fu'>str_pad</span>(<span class='no'>string</span>, <span class='no'>width</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"both"</span>), <span class='kw'>pad</span> <span class='kw'>=</span> <span class='st'>" "</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
       <dd>A character vector.</dd>
@@ -117,23 +119,21 @@
       <dt>pad</dt>
       <dd>Single padding character (default is a space).</dd>
     </dl>
-    </div>
     
-    <div class="section">
-      <h2>Value</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-      <p>A character vector.</p>
-    </div>
+    <p>A character vector.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class="section">
-      <h2>See also</h2>
-
-      <p><code><a href='str_trim.html'>str_trim</a></code> to remove whitespace;
+    <p><code><a href='str_trim.html'>str_trim</a></code> to remove whitespace;
   <code><a href='str_trunc.html'>str_trunc</a></code> to decrease the maximum width of a string.</p>
-    </div>
     
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='fu'>rbind</span>(
   <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>30</span>, <span class='st'>"left"</span>),
   <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>30</span>, <span class='st'>"right"</span>),
@@ -151,14 +151,31 @@
 <span class='co'># Longer strings are returned unchanged</span>
 <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] &quot;hadley&quot;
 #&gt; </div></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 

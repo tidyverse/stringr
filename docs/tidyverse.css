@@ -5816,9 +5816,10 @@ button.close {
   -webkit-box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1); }
   .navbar-brand {
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
     font-weight: normal;
     font-size: 48px;
+    padding: 35px 15px;
     padding-left: 84px;
     background-image: url(../logo.png);
     background-size: 60px auto;

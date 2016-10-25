@@ -1,22 +1,22 @@
 $(function() {
-
-  $('#tocnav').affix({
+  $('#sidebar').affix({
     offset: {
-      top: $('#tocnav').offset().top - 80
+      top: function() {
+        // Header height changes
+        return $('header').outerHeight(true);
+      },
+      bottom: $('footer').outerHeight(true)
     }
   });
   $('body').scrollspy({
-    target: '#tocnav',
-    offset: 80
+    target: '#sidebar'
   });
-
 });
 
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {
     $('body').addClass('shrink-header');
-  }
-  else {
+  } else {
     $('body').removeClass('shrink-header');
   }
 });

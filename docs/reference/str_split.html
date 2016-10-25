@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,12 +93,12 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Split up a string into pieces.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Split up a string into pieces.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
     
@@ -107,8 +107,10 @@
 
 <span class='fu'>str_split_fixed</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
       <dd>Input vector. Either a character vector, or something
@@ -138,23 +140,21 @@ coercible to one.</dd>
       <dd>If <code>FALSE</code>, the default, returns a list of character
 vectors. If <code>TRUE</code> returns a character matrix.</dd>
     </dl>
-    </div>
     
-    <div class="section">
-      <h2>Value</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-      <p>For <code>str_split_fixed</code>, a character matrix with <code>n</code> columns.
+    <p>For <code>str_split_fixed</code>, a character matrix with <code>n</code> columns.
   For <code>str_split</code>, a list of character vectors.</p>
-    </div>
-
-    <div class="section">
-      <h2>See also</h2>
-
-      <p><code>stri_split</code> for the underlying implementation.</p>
-    </div>
     
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code>stri_split</code> for the underlying implementation.</p>
+    
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(
   <span class='st'>"apples and oranges and pears and bananas"</span>,
   <span class='st'>"pineapples and mangos and guavas"</span>
@@ -199,14 +199,31 @@ vectors. If <code>TRUE</code> returns a character matrix.</dd>
 #&gt; [1,] &quot;apples&quot;     &quot;oranges&quot; &quot;pears&quot;  &quot;bananas&quot;
 #&gt; [2,] &quot;pineapples&quot; &quot;mangos&quot;  &quot;guavas&quot; &quot;&quot;       
 #&gt; </div></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 

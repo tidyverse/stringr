@@ -6,9 +6,8 @@ home:
   strip_header: true
 
 navbar:
-  type: default
   left:
-  - text: Overview
+  - text: Intro
     href: articles/stringr.html
   - text: RegEx
     href: articles/regular-expressions.html

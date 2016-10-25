@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../articles/stringr.html">Overview</a>
+  <a href="../articles/stringr.html">Intro</a>
 </li>
 <li>
   <a href="../articles/regular-expressions.html">RegEx</a>
@@ -93,12 +93,12 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>View HTML rendering of regular expression match.</h1>
-</div>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>View HTML rendering of regular expression match.</h1>
+    </div>
 
-<div class="row">
-  <div class="col-md-9">
     
     <p><code>str_view</code> shows the first match; <code>str_view_all</code> shows all
 the matches.</p>
@@ -108,8 +108,10 @@ the matches.</p>
 
 <span class='fu'>str_view_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
     
-    <div class="section">
-    <h2>Arguments</h2>
+    <h2 class="hasAnchor" id="arguments">
+      <a class="anchor" href="#arguments"></a>
+      Arguments
+    </h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
       <dd>Input vector. Either a character vector, or something
@@ -134,10 +136,12 @@ coercible to one.</dd>
 If <code>FALSE</code>, shows only the strings that don&#39;t match the pattern.
 Otherwise (the default, <code>NA</code>) displays both matches and non-matches.</dd>
     </dl>
-    </div>
-        
-    <div class="section">
-    <h2 id="examples">Examples</h2>
+    
+
+    <h2 class="hasAnchor" id="examples">
+      <a class="anchor" href="#examples"></a>
+      Examples
+    </h2>
     <pre class="examples"><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"[aeiou]"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
 file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"^"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
 file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>".."</span>)</div><div class='output'><strong class='text-warning'>Warning message:
@@ -150,14 +154,27 @@ file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot
 file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
 file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
 file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong></pre>
-    </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 
       <footer>
-      <p>Built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>. Styled with <a href="http://getbootstrap.com">Bootstrap 3</a>.</p>
+      <div class="tidyverse">
+  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="http://tidyverse.org">tidyverse.org</a>.</p>
+</div>
+
+<div class="author">
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+</div>
       </footer>
    </div>
 
