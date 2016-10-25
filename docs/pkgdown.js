@@ -1,13 +1,22 @@
 $(function() {
 
-  $('#sidebar').affix({
+  $('#tocnav').affix({
     offset: {
-      top: $('#sidebar').offset().top - 40
+      top: $('#tocnav').offset().top - 80
     }
   });
   $('body').scrollspy({
-    target: '#sidebar',
-    offset: 40
+    target: '#tocnav',
+    offset: 80
   });
 
+});
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('body').addClass('shrink-header');
+  }
+  else {
+    $('body').removeClass('shrink-header');
+  }
 });

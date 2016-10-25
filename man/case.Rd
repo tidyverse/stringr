@@ -2,9 +2,9 @@
 % Please edit documentation in R/case.R
 \name{case}
 \alias{case}
+\alias{str_to_upper}
 \alias{str_to_lower}
 \alias{str_to_title}
-\alias{str_to_upper}
 \title{Convert case of a string.}
 \usage{
 str_to_upper(string, locale = "en")

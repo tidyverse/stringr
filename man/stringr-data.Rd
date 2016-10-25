@@ -2,9 +2,9 @@
 % Please edit documentation in R/data.R
 \docType{data}
 \name{stringr-data}
-\alias{fruit}
-\alias{sentences}
 \alias{stringr-data}
+\alias{sentences}
+\alias{fruit}
 \alias{words}
 \title{Sample character vectors for practicing string manipulations.}
 \format{A character vector.}

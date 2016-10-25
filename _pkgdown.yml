@@ -1,5 +1,9 @@
 template:
-  bootswatch: cerulean
+  package: tidytemplate
+  default_assets: false
+
+home:
+  strip_header: true
 
 navbar:
   type: default
@@ -20,9 +24,6 @@ navbar:
       - text: "------------------"
       - text: "Change log"
         href: news/index.html
-  right:
-  - icon: fa-github fa-lg
-    href: https://github.com/hadley/stringr
 
 reference:
 - title: Pattern matching

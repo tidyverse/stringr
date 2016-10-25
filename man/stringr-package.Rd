@@ -12,21 +12,21 @@ are consistent, all functions deal with "NA"'s and zero length vectors
 in the same way, and the output from one function is easy to feed into
 the input of another.
 }
-\author{
-\strong{Maintainer}: Hadley Wickham \email{hadley@rstudio.com} (Copyright holder)
-
-Other contributors:
-\itemize{
-  \item RStudio (Copyright holder)
-}
-
-}
 \seealso{
 Useful links:
 \itemize{
   \item \url{http://stringr.tidyverse.org}
   \item \url{https://github.com/tidyverse/stringr}
   \item Report bugs at \url{https://github.com/tidyverse/stringr/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Hadley Wickham \email{hadley@rstudio.com} [copyright holder]
+
+Other contributors:
+\itemize{
+  \item RStudio [copyright holder]
 }
 
 }

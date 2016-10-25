@@ -1,13 +1,170 @@
+/* Fixes for fixed navbar --------------------------*/
+
 body {
   position: relative;
+  padding-top: 110px;
 }
 
-.icon img {
-  float: right;
-  border: 1px solid #ccc;
+.section h1, .section h2, .section h3, .section h4 {
+  padding-top: 80px;
+  margin-top: -60px;
 }
-.index .internal {display: none;}
-ul.index li {margin-bottom: 0.5em; clear: both;}
+
+/* Table of contents --------------------------*/
+
+#tocnav {
+  position: fixed;
+  top: 120px;
+  padding: 40px;
+
+  -webkit-transition: top, .33s;
+  -o-transition: top, .33s;
+  transition: top, .33s;
+}
+
+.shrink-header #tocnav {
+  top: 30px;
+}
+
+#tocnav h2 {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 991px) {
+  #tocnav {
+    display: none;
+  }
+}
+
+/* Syntax highlighting ---------------------------------------------------- */
+
+.fl,.number {color:rgb(21,20,181);}
+.fu,.functioncall {color:#264D66 ;}
+.ch,.st,.string {color:#375D81 ;}
+.kw,.keyword {font-weight:600;}
+.argument {color:#264D66 ;}
+.co,.comment {color: #333;}
+.formalargs {color: #264D66;}
+.eqformalargs {color:#264D66;}
+.slot {font-style:italic;}
+.symbol {color:black ;}
+.prompt {color:black ;}
+
+pre img {
+  background-color: #fff;
+  display: block;
+}
+
+/* Status --------------------------- */
+
+.status-container {
+  padding-top:32px;
+}
+
+.status-container  a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* tidyverse link ------------------- */
+
+.navbar-brand-container {
+  position: relative;
+  min-width: 200px;
+}
+
+.tidylink {
+  position: absolute;
+  top: 70px;
+  left: 74px;
+  font-size: 12px;
+  color: #555;
+
+  -webkit-transition: all, .25s;
+  -o-transition: all, .25s;
+  transition: all, .25s;
+
+}
+
+@media screen and (max-width: 768px) {
+  .tidylink {
+    left: 89px;
+  }
+}
+
+/* For shrinking navbar ------------------ */
+
+.shrink-header .navbar {
+  min-height: 50px;
+}
+
+.shrink-header .navbar-brand {
+  height: 50px;
+  background-size: 32px auto;
+  font-size: 32px;
+  padding: 0 0 0 54px;
+  line-height: 50px;
+}
+
+.shrink-header .navbar-nav {
+  line-height: 50px;
+}
+
+.shrink-header .navbar-nav li a {
+  padding-top:0px;
+  padding-bottom: 0px;
+  line-height: inherit;
+}
+
+.shrink-header .navbar-toggle {
+  margin-top: 7px;
+  margin-bottom: 0px;
+}
+
+.shrink-header .tidylink {
+  top: 32px;
+  left: 42px;
+  opacity: 0;
+}
+
+/* For reference topics listing ------- */
+
+.section {
+  margin-bottom: 24px;
+}
+
+.topic p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.topic ul {
+  padding-top: 0;
+  list-style-type: square;
+}
+
+.topic li {
+  font-size: 13px;
+}
+
+.topic li a {
+  color: inherit;
+}
+
+@media screen and (min-width: 1024px) {
+  .side-by-side {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .side-by-side .section {
+    width: 45%;
+  }
+}
+
+/* For the rstudio footer ------- */
 
 footer {
   margin-top: 45px;
@@ -19,50 +176,139 @@ footer p {
   color: #555;
 }
 
-/* Fixes for fixed navbar --------------------------*/
+.rstudioFooter {
+  display: flex;
+  justify-content: space-between;
 
-body {
-  position: relative;
-  padding-top: 60px;
+  display: -ms-flexbox;
+  -ms-flex-pack: justify;
+
+  align-items: center;
+
+  line-height: 20px;
 }
 
-.section h1, .section h2, .section h3, .section h4 {
-  padding-top: 60px;
-  margin-top: -60px;
+.rstudioFooter #logos {
+  flex-shrink: 0;
 }
 
-/* Table of contents --------------------------*/
+.rstudioFooter .footerLogo {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
 
-#sidebar {
-  margin-top: 40px;
-}
-#sidebar.affix {
-  margin-top: 5px;
-}
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
 
-#sidebar h2 {
-  font-size: 1.5em;
-}
-
-#sidebar h2:first-child {
-  margin-top: 0;
+  margin: 0 8px;
 }
 
-/* Syntax highlighting ---------------------------------------------------- */
+.rstudioFooter .footerLogo:last-child {
+  margin-right: 0px;
+}
 
-.fl,.number {color:rgb(21,20,181);}
-.fu,.functioncall {color:#264D66 ;}
-.ch,.st,.string {color:#375D81 ;}
-.kw,.keyword {color:black;}
-.argument {color:#264D66 ;}
-.co,.comment {color: #777;}
-.formalargs {color: #264D66;}
-.eqformalargs {color:#264D66;}
-.slot {font-style:italic;}
-.symbol {color:black ;}
-.prompt {color:black ;}
+.rstudioFooter .footerLogo.twitter {
+  background-image: url(./images/twitterLogo.svg);
+}
 
-pre img {
-  background-color: #fff;
-  display: block;
+.rstudioFooter .footerLogo.gitHub {
+  background-image: url(./images/gitHubLogo.svg);
+}
+
+.rstudioFooter .footerLogo.linkedIn {
+  background-image: url(./images/linkedInLogo.svg);
+}
+
+.rstudioFooter .footerLogo.facebook {
+  background-image: url(./images/facebookLogo.svg);
+}
+
+.rstudioFooter .rstudioLogo {
+  display: inline-block;
+  width: 75px;
+  height: 25px;
+  background-image:url(./images/logoRStudio.svg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: 0 0 2px 2px;
+}
+
+
+
+@media screen and (max-width: 440px){
+  .rstudioFooter {
+    display: block;
+    text-align: center;
+  }
+
+  .rstudioFooter .footerLogo {
+    margin-top: 30px;
+  }
+}
+
+
+/* --------------------- darken code link color */
+
+code a {
+  color: #375f84;
+  font-weight: 600;
+}
+
+/* ---------------------- hover anchor tags */
+
+.hasAnchor {
+  margin-left: -30px;
+}
+
+a.anchor {
+  display:inline-block;
+  width: 30px;
+  height: 30px;
+  visibility: hidden;
+
+  background-image: url(./link.svg);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center center;
+}
+
+.hasAnchor:hover a.anchor {
+  visibility: visible;
+}
+
+/* ---------------------- tocnav fixes */
+
+#tocnav .nav {
+  padding-left: 0px;
+  list-style-type: none;
+  color: #5a9ddb;
+}
+
+#tocnav .nav > li {
+  padding-left: 20px;
+  display: list-item;
+  line-height: 40px;
+  background-image: url(./tocBullet.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 80px;
+  background-position: left 0px;
+}
+
+#tocnav .nav > li.active {
+  list-style-type: disc;
+  background-position: left -40px;
+}
+
+
+#tocnav a {
+  padding: 0px;
+  color: #5a9ddb;
+  background-color: transparent;
+}
+
+#tocnav a:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }

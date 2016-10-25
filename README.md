@@ -5,7 +5,10 @@ stringr <img src="logo.png" align="right" />
 
 [![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr) [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master) [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](http://cran.r-project.org/package=stringr)
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is the R for Data Science [chapter on strings](http://r4ds.had.co.nz/strings.html).
+Overview
+--------
+
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is the [chapter on strings](http://r4ds.had.co.nz/strings.html) in R for Data Sciene.
 
 stringr is built on top of [stringi](https://github.com/gagolews/stringi), which uses the [ICU](http://site.icu-project.org) C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you've mastered stringr, you should find stringi similarly easy to use.
 

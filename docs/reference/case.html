@@ -12,15 +12,13 @@
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
+<link href="../tidyverse.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
-
-<!-- pkgdown -->
+<!-- tidyverse -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 
@@ -36,8 +34,7 @@
   <body>
     <div class="container">
       <header>
-      
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -45,10 +42,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">stringr</a>
+
+      <div class="navbar-brand-container">
+        <a class="navbar-brand" href="../index.html">stringr</a>
+        <div class="tidylink">part of the <a href="http://tidyverse.org">tidyverse</a></div>
+      </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/stringr.html">Overview</a>
 </li>
@@ -78,10 +79,8 @@
     </li>
   </ul>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/hadley/stringr">
+  <a href="https://github.com/tidyverse/stringr">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -90,6 +89,7 @@
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
+
       
       </header>
 
@@ -109,6 +109,7 @@
 
 <span class='fu'>str_to_title</span>(<span class='no'>string</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>)</pre>
     
+    <div class="section">
     <h2>Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
@@ -117,7 +118,9 @@
       <dd>Locale to use for translations. Defaults to &quot;en&quot; (English)
 to ensure consistent default ordering across platforms.</dd>
     </dl>
+    </div>
         
+    <div class="section">
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>dog</span> <span class='kw'>&lt;-</span> <span class='st'>"The quick brown dog"</span>
 <span class='fu'>str_to_upper</span>(<span class='no'>dog</span>)</div><div class='output co'>#&gt; [1] &quot;THE QUICK BROWN DOG&quot;
@@ -128,6 +131,7 @@ to ensure consistent default ordering across platforms.</dd>
 <span class='fu'>str_to_upper</span>(<span class='st'>"i"</span>) <span class='co'># English</span></div><div class='output co'>#&gt; [1] &quot;I&quot;
 #&gt; </div><div class='input'><span class='fu'>str_to_upper</span>(<span class='st'>"i"</span>, <span class='st'>"tr"</span>) <span class='co'># Turkish</span></div><div class='output co'>#&gt; [1] &quot;İ&quot;
 #&gt; </div></pre>
+    </div>
   </div>
   <div class="col-md-3">
   </div>

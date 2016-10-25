@@ -12,15 +12,13 @@
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
+<link href="../tidyverse.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
-
-<!-- pkgdown -->
+<!-- tidyverse -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 
@@ -36,8 +34,7 @@
   <body>
     <div class="container">
       <header>
-      
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -45,10 +42,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">stringr</a>
+
+      <div class="navbar-brand-container">
+        <a class="navbar-brand" href="../index.html">stringr</a>
+        <div class="tidylink">part of the <a href="http://tidyverse.org">tidyverse</a></div>
+      </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/stringr.html">Overview</a>
 </li>
@@ -78,10 +79,8 @@
     </li>
   </ul>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/hadley/stringr">
+  <a href="https://github.com/tidyverse/stringr">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -90,6 +89,7 @@
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
+
       
       </header>
 
@@ -109,6 +109,7 @@ a zero length character vector.</p>
 
 <span class='fu'>str_sub</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> -<span class='fl'>1L</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
     
+    <div class="section">
     <h2>Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
@@ -123,15 +124,16 @@ a zero length character vector.</p>
       <dt>value</dt>
       <dd>replacement string</dd>
     </dl>
+    </div>
     
-    <div class="Value">
+    <div class="section">
       <h2>Value</h2>
 
       <p>A character vector of substring from <code>start</code> to <code>end</code>
   (inclusive). Will be length of longest input argument.</p>
     </div>
 
-    <div class="Details">
+    <div class="section">
       <h2>Details</h2>
 
       <p>Substrings are inclusive - they include the characters at both start and
@@ -139,12 +141,13 @@ end positions. <code>str_sub(string, 1, -1)</code> will return the complete
 substring, from the first character to the last.</p>
     </div>
 
-    <div class="See also">
+    <div class="section">
       <h2>See also</h2>
 
       <p>The underlying implementation in <code><a href='http://www.rdocumentation.org/packages/stri_sub/topics/stringi'>stri_sub</a></code></p>
     </div>
     
+    <div class="section">
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>hw</span> <span class='kw'>&lt;-</span> <span class='st'>"Hadley Wickham"</span>
 
@@ -182,6 +185,7 @@ substring, from the first character to the last.</p>
 #&gt; </div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, -<span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>"GHIJ"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] &quot;ABCDGHIJK&quot;
 #&gt; </div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, <span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>""</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] &quot;AK&quot;
 #&gt; </div></pre>
+    </div>
   </div>
   <div class="col-md-3">
   </div>
