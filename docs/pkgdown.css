@@ -5,7 +5,7 @@ body {
   padding-top: 110px;
 }
 
-.section h1, .section h2, .section h3, .section h4 {
+.contents h1, .contents h2, .contents h3, .contents h4 {
   padding-top: 80px;
   margin-top: -60px;
 }
