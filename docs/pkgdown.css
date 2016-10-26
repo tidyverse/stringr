@@ -2,30 +2,25 @@
 
 body {
   position: relative;
-  padding-top: 110px;
+  padding-top: 65px;
 }
 
 .contents h1, .contents h2, .contents h3, .contents h4 {
-  padding-top: 80px;
-  margin-top: -60px;
+  padding-top: 65px;
+  margin-top: -45px;
+}
+
+.page-header {
+  margin-top: 0;
 }
 
 /* Table of contents --------------------------*/
 
 #sidebar {
-  position: fixed;
-
-  top: 80px;
-  padding-top: 40px;
-
   word-wrap: break-word;
   hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
-}
-
-.shrink-header #sidebar {
-  top: 30px;
 }
 
 #sidebar h2 {
@@ -41,12 +36,6 @@ body {
 
 #sidebar small {
   color: #777;
-}
-
-@media screen and (min-width: 970px) {
-  #sidebar {
-    width: 243px;
-  }
 }
 
 
@@ -80,66 +69,25 @@ pre img {
   margin-bottom: 5px;
 }
 
-/* tidyverse link ------------------- */
-
-.navbar-brand-container {
-  position: relative;
-  min-width: 200px;
-}
-
-.tidylink {
-  position: absolute;
-  top: 70px;
-  left: 74px;
-  font-size: 12px;
-  color: #555;
-
-  -webkit-transition: all, .25s;
-  -o-transition: all, .25s;
-  transition: all, .25s;
-
-}
-
-@media screen and (max-width: 768px) {
-  .tidylink {
-    left: 89px;
-  }
-}
-
 /* For shrinking navbar ------------------ */
 
-.shrink-header .navbar {
-  min-height: 50px;
-}
+/* For big header
 
-.shrink-header .navbar-brand {
-  height: 50px;
-  background-size: 32px auto;
-  font-size: 32px;
-  padding: 0 0 0 54px;
-  line-height: 50px;
-}
+  &-brand {
+    font-family: $font-family-monospace;
+    font-weight: normal;
+    font-size: 48px;
+    padding: 35px 15px;
 
-.shrink-header .navbar-nav {
-  line-height: 50px;
-}
+    padding-left: 84px;
+    background-image:url(../logo.png);
+    background-size: 60px auto;
+    background-repeat: no-repeat;
+    background-position: 15px center;
 
-.shrink-header .navbar-nav li a {
-  padding-top:0px;
-  padding-bottom: 0px;
-  line-height: inherit;
-}
+  }
+*/
 
-.shrink-header .navbar-toggle {
-  margin-top: 7px;
-  margin-bottom: 0px;
-}
-
-.shrink-header .tidylink {
-  top: 32px;
-  left: 42px;
-  opacity: 0;
-}
 
 /* For reference topics listing ------- */
 
@@ -159,18 +107,6 @@ pre img {
 
 .topic li a {
   color: inherit;
-}
-
-@media screen and (min-width: 1024px) {
-  .side-by-side {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .side-by-side .section {
-    width: 45%;
-  }
 }
 
 /* For the rstudio footer ------- */
@@ -231,10 +167,6 @@ a.anchor {
   color: #5a9ddb;
 }
 
-#sidebar .active {
-  width: 243px;
-}
-
 #sidebar .nav > li {
   padding: 10px 0 0px 20px;
   display: list-item;
@@ -248,7 +180,6 @@ a.anchor {
 #sidebar .nav > li.active {
   background-position: left -240px;
 }
-
 
 #sidebar a {
   padding: 0px;

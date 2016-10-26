@@ -5814,17 +5814,26 @@ button.close {
 .navbar {
   border: none;
   -webkit-box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1);
+  min-height: 50px;
+  padding: 5px 0; }
   .navbar-brand {
     font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
     font-weight: normal;
-    font-size: 48px;
-    padding: 35px 15px;
-    padding-left: 84px;
+    font-size: 32px;
+    padding: 0 0 0 54px;
+    height: 50px;
+    line-height: 50px;
     background-image: url(../logo.png);
-    background-size: 60px auto;
+    background-size: 32px auto;
     background-repeat: no-repeat;
     background-position: 15px center; }
+  .navbar small {
+    vertical-align: bottom; }
+  .navbar-nav li a {
+    padding-top: 10px;
+    padding-bottom: 0px;
+    line-height: inherit; }
   .navbar-inverse .navbar-form input[type=text],
   .navbar-inverse .navbar-form input[type=password] {
     color: #fff;

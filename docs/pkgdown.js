@@ -1,22 +1,8 @@
 $(function() {
-  $('#sidebar').affix({
-    offset: {
-      top: function() {
-        // Header height changes
-        return $('header').outerHeight(true);
-      },
-      bottom: $('footer').outerHeight(true)
-    }
+  $("#sidebar").stick_in_parent({
+    offset_top: $(".navbar").outerHeight()
   });
   $('body').scrollspy({
     target: '#sidebar'
   });
-});
-
-$(window).scroll(function() {
-  if ($(document).scrollTop() > 50) {
-    $('body').addClass('shrink-header');
-  } else {
-    $('body').removeClass('shrink-header');
-  }
 });

@@ -20,6 +20,7 @@
 
 <!-- tidyverse -->
 <link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
@@ -45,7 +46,7 @@
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">stringr</a>
-        <div class="tidylink">part of the <a href="http://tidyverse.org">tidyverse</a></div>
+        <small class="tidyverse">part of the <a href="http://tidyverse.org">tidyverse</a></small>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -111,10 +112,7 @@ the entire matrix collapsed to a single string.</p>
 
     <pre><span class='fu'>str_c</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments">
-      <a class="anchor" href="#arguments"></a>
-      Arguments
-    </h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>...</dt>
       <dd>One or more character vectors. Zero length arguments
@@ -181,8 +179,7 @@ string.</dd>
 <span class='fu'>str_c</span>(<span class='fu'><a href='str_replace_na.html'>str_replace_na</a></span>(<span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='fl'>NA</span>, <span class='st'>"b"</span>)), <span class='st'>"-d"</span>)</div><div class='output co'>#&gt; [1] &quot;a-d&quot;  &quot;NA-d&quot; &quot;b-d&quot; 
 #&gt; </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs">
-    <div id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
@@ -194,7 +191,6 @@ string.</dd>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    </div>
   </div>
 </div>
 

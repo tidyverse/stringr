@@ -20,6 +20,7 @@
 
 <!-- tidyverse -->
 <link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 <!-- mathjax -->
@@ -45,7 +46,7 @@
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">stringr</a>
-        <div class="tidylink">part of the <a href="http://tidyverse.org">tidyverse</a></div>
+        <small class="tidyverse">part of the <a href="http://tidyverse.org">tidyverse</a></small>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -109,10 +110,7 @@
 
 <span class='fu'>str_to_title</span>(<span class='no'>string</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments">
-      <a class="anchor" href="#arguments"></a>
-      Arguments
-    </h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
       <dd>String to modify</dd>
@@ -136,8 +134,7 @@ to ensure consistent default ordering across platforms.</dd>
 #&gt; </div><div class='input'><span class='fu'>str_to_upper</span>(<span class='st'>"i"</span>, <span class='st'>"tr"</span>) <span class='co'># Turkish</span></div><div class='output co'>#&gt; [1] &quot;İ&quot;
 #&gt; </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs">
-    <div id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
@@ -145,7 +142,6 @@ to ensure consistent default ordering across platforms.</dd>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    </div>
   </div>
 </div>
 
