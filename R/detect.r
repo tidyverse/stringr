@@ -19,7 +19,9 @@
 #'   \code{\link{boundary}()}. An empty pattern, "", is equivalent to
 #'   \code{boundary("character")}.
 #' @return A logical vector.
-#' @seealso \code{\link[stringi]{stri_detect}} which this function wraps
+#' @seealso \code{\link[stringi]{stri_detect}} which this function wraps,
+#'   \code{\link{str_subset}} for a convenient wrapper around 
+#'   \code{x[str_detect(x, pattern)]}
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
