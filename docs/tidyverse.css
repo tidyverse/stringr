@@ -5828,11 +5828,9 @@ button.close {
     background-size: 32px auto;
     background-repeat: no-repeat;
     background-position: 15px center; }
-  .navbar small {
-    vertical-align: bottom; }
   .navbar-nav li a {
     padding-top: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     line-height: inherit; }
   .navbar-inverse .navbar-form input[type=text],
   .navbar-inverse .navbar-form input[type=password] {

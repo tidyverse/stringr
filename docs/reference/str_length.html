@@ -101,7 +101,7 @@
     </div>
 
     
-    <p>Technically this returns the number of &quot;code points&quot;, in a string. One
+    <p>Technically this returns the number of "code points", in a string. One
 code point usually corresponds to one character, but not always. For example,
 an u with a umlaut might be represented as a single character or as the
 combination a u and an umlaut.</p>
@@ -112,8 +112,8 @@ combination a u and an umlaut.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>Input vector. Either a character vector, or something
-coercible to one.</dd>
+      <dd><p>Input vector. Either a character vector, or something
+coercible to one.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -123,31 +123,18 @@ coercible to one.</dd>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='http://www.rdocumentation.org/packages/stri_length/topics/stringi'>stri_length</a></code> which this function wraps.</p>
+    <p><code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_length'>stri_length</a></code> which this function wraps.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_length</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; </div><div class='input'><span class='fu'>str_length</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] NA
-#&gt; </div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>factor</span>(<span class='st'>"abc"</span>))</div><div class='output co'>#&gt; [1] 3
-#&gt; </div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>c</span>(<span class='st'>"i"</span>, <span class='st'>"like"</span>, <span class='st'>"programming"</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1]  1  4 11 NA
-#&gt; </div><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>str_length</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</div><div class='input'><span class='fu'>str_length</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>factor</span>(<span class='st'>"abc"</span>))</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>c</span>(<span class='st'>"i"</span>, <span class='st'>"like"</span>, <span class='st'>"programming"</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1]  1  4 11 NA</div><div class='input'>
 <span class='co'># Two ways of representing a u with an umlaut</span>
 <span class='no'>u1</span> <span class='kw'>&lt;-</span> <span class='st'>"\u00fc"</span>
 <span class='no'>u2</span> <span class='kw'>&lt;-</span> <span class='kw'>stringi</span><span class='kw'>::</span><span class='fu'>stri_trans_nfd</span>(<span class='no'>u1</span>)
 <span class='co'># The print the same:</span>
-<span class='no'>u1</span></div><div class='output co'>#&gt; [1] &quot;ü&quot;
-#&gt; </div><div class='input'><span class='no'>u2</span></div><div class='output co'>#&gt; [1] &quot;ü&quot;
-#&gt; </div><div class='input'><span class='co'># But have a different length</span>
-<span class='fu'>str_length</span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'>str_length</span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 2
-#&gt; </div><div class='input'><span class='co'># Even though they have the same number of characters</span>
-<span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 1
-#&gt; </div></pre>
+<span class='no'>u1</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='no'>u2</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='co'># But have a different length</span>
+<span class='fu'>str_length</span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>str_length</span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 2</div><div class='input'><span class='co'># Even though they have the same number of characters</span>
+<span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -173,6 +160,16 @@ coercible to one.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

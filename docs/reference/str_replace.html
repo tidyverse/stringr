@@ -111,21 +111,19 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>Input vector. Either a character vector, or something
-coercible to one.</dd>
+      <dd><p>Input vector. Either a character vector, or something
+coercible to one.</p></dd>
       <dt>pattern, replacement</dt>
-      <dd>Supply separate pattern and replacement strings
+      <dd><p>Supply separate pattern and replacement strings
   to vectorise over the patterns. References of the form <code>\1</code>,
   <code>\2</code> will be replaced with the contents of the respective matched
-  group (created by <code>()</code>) within the pattern.
-
-  For <code>str_replace_all</code> only, you can perform multiple patterns and
+  group (created by <code>()</code>) within the pattern.</p>
+<p>For <code>str_replace_all</code> only, you can perform multiple patterns and
   replacements to each string, by passing a named character to
-  <code>pattern</code>.
-
-  Alternatively, you can supply use a <code>replacement</code> function:
+  <code>pattern</code>.</p>
+<p>Alternatively, you can supply use a <code>replacement</code> function:
   it will be called once for each match and its return value will be
-  used to replace the match.</dd>
+  used to replace the match.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -134,39 +132,22 @@ coercible to one.</dd>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='str_replace_na.html'>str_replace_na</a></code> to turn missing values into &quot;NA&quot;;
+    <p><code><a href='str_replace_na.html'>str_replace_na</a></code> to turn missing values into "NA";
   <code>stri_replace</code> for the underlying implementation.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-ne apple&quot;     &quot;tw- pears&quot;     &quot;thr-e bananas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-n- -ppl-&quot;     &quot;tw- p--rs&quot;     &quot;thr-- b-n-n-s&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='no'>toupper</span>)</div><div class='output co'>#&gt; [1] &quot;OnE ApplE&quot;     &quot;twO pEArs&quot;     &quot;thrEE bAnAnAs&quot;
-#&gt; </div><div class='input'>
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [1] &quot;ne apple&quot;     &quot;tw pears&quot;     &quot;thre bananas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span>)</div><div class='output co'>#&gt; [1] &quot;oone apple&quot;     &quot;twoo pears&quot;     &quot;threee bananas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'>c</span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] &quot;1ne apple&quot;     &quot;tw2 pears&quot;     &quot;thr3e bananas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span>), <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;one -pple&quot;     &quot;two p-ars&quot;     &quot;three bananas&quot;
-#&gt; </div><div class='input'>
+<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-ne apple"     "tw- pears"     "thr-e bananas"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='no'>toupper</span>)</div><div class='output co'>#&gt; [1] "OnE ApplE"     "twO pEArs"     "thrEE bAnAnAs"</div><div class='input'>
+<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [1] "ne apple"     "tw pears"     "thre bananas"</div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span>)</div><div class='output co'>#&gt; [1] "oone apple"     "twoo pears"     "threee bananas"</div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'>c</span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] "1ne apple"     "tw2 pears"     "thr3e bananas"</div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span>), <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "one -pple"     "two p-ars"     "three bananas"</div><div class='input'>
 <span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-ne apple&quot;     &quot;tw- pears&quot;     &quot;thr-e bananas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;-n- -ppl-&quot;     &quot;tw- p--rs&quot;     &quot;thr-- b-n-n-s&quot;
-#&gt; </div><div class='input'>
-<span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [1] &quot;n ppl&quot;    &quot;tw prs&quot;   &quot;thr bnns&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span>)</div><div class='output co'>#&gt; [1] &quot;oonee aapplee&quot;      &quot;twoo peeaars&quot;       &quot;threeee baanaanaas&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'>c</span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] &quot;1n1 1ppl1&quot;     &quot;tw2 p22rs&quot;     &quot;thr33 b3n3n3s&quot;
-#&gt; </div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span>), <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] &quot;one -pple&quot;     &quot;two p-ars&quot;     &quot;three bananas&quot;
-#&gt; </div><div class='input'>
+<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-ne apple"     "tw- pears"     "thr-e bananas"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</div><div class='input'>
+<span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [1] "n ppl"    "tw prs"   "thr bnns"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span>)</div><div class='output co'>#&gt; [1] "oonee aapplee"      "twoo peeaars"       "threeee baanaanaas"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'>c</span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] "1n1 1ppl1"     "tw2 p22rs"     "thr33 b3n3n3s"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span>), <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "one -pple"     "two p-ars"     "three bananas"</div><div class='input'>
 <span class='co'># If you want to apply multiple patterns and replacements to the same</span>
 <span class='co'># string, pass a named version to pattern.</span>
 <span class='no'>fruits</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='str_c.html'>str_c</a></span>(<span class='kw'>collapse</span> <span class='kw'>=</span> <span class='st'>"---"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>str_replace_all</span>(<span class='fu'>c</span>(<span class='st'>"one"</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='st'>"two"</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='st'>"three"</span> <span class='kw'>=</span> <span class='fl'>3</span>))</div><div class='output co'>#&gt; [1] &quot;1 apple---2 pears---3 bananas&quot;
-#&gt; </div><div class='input'>
+  <span class='fu'>str_replace_all</span>(<span class='fu'>c</span>(<span class='st'>"one"</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='st'>"two"</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='st'>"three"</span> <span class='kw'>=</span> <span class='fl'>3</span>))</div><div class='output co'>#&gt; [1] "1 apple---2 pears---3 bananas"</div><div class='input'>
 <span class='co'># Use a function for more sophisticated replacement. This example</span>
 <span class='co'># replaces colour names with their hex values.</span>
 <span class='no'>colours</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='str_c.html'>str_c</a></span>(<span class='st'>"\\b"</span>, <span class='fu'>colors</span>(), <span class='st'>"\\b"</span>, <span class='kw'>collapse</span><span class='kw'>=</span><span class='st'>"|"</span>)
@@ -179,9 +160,8 @@ coercible to one.</dd>
   <span class='st'>"Roses are red, violets are blue"</span>,
   <span class='st'>"My favourite colour is green"</span>
 )
-<span class='fu'>str_replace_all</span>(<span class='no'>x</span>, <span class='no'>colours</span>, <span class='no'>col2hex</span>)</div><div class='output co'>#&gt; [1] &quot;Roses are #FF0000, violets are #0000FF&quot;
-#&gt; [2] &quot;My favourite colour is #00FF00&quot;        
-#&gt; </div></pre>
+<span class='fu'>str_replace_all</span>(<span class='no'>x</span>, <span class='no'>colours</span>, <span class='no'>col2hex</span>)</div><div class='output co'>#&gt; [1] "Roses are #FF0000, violets are #0000FF"
+#&gt; [2] "My favourite colour is #00FF00"        </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -207,6 +187,16 @@ coercible to one.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

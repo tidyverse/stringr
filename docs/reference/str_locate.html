@@ -113,23 +113,20 @@ than start.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>Input vector. Either a character vector, or something
-coercible to one.</dd>
+      <dd><p>Input vector. Either a character vector, or something
+coercible to one.</p></dd>
       <dt>pattern</dt>
-      <dd>Pattern to look for.
-
-  The default interpretation is a regular expression, as described
-  in <a href='http://www.rdocumentation.org/packages/stringi-search-regex/topics/stringi'>stringi-search-regex</a>. Control options with
-  <code><a href='modifiers.html'>regex</a>()</code>.
-
-  Match a fixed string (i.e. by comparing only bytes), using
+      <dd><p>Pattern to look for.</p>
+<p>The default interpretation is a regular expression, as described
+  in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
+  <code><a href='modifiers.html'>regex</a>()</code>.</p>
+<p>Match a fixed string (i.e. by comparing only bytes), using
   <code><a href='modifiers.html'>fixed</a>(x)</code>. This is fast, but approximate. Generally,
-  for matching human text, you&#39;ll want <code><a href='modifiers.html'>coll</a>(x)</code> which
-  respects character matching rules for the specified locale.
-
-  Match character, word, line and sentence boundaries with
-  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, &quot;&quot;, is equivalent to
-  <code>boundary(&quot;character&quot;)</code>.</dd>
+  for matching human text, you'll want <code><a href='modifiers.html'>coll</a>(x)</code> which
+  respects character matching rules for the specified locale.</p>
+<p>Match character, word, line and sentence boundaries with
+  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
+  <code>boundary("character")</code>.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -141,35 +138,28 @@ coercible to one.</dd>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <p><code><a href='str_extract.html'>str_extract</a></code> for a convenient way of extracting matches,
-  <code><a href='http://www.rdocumentation.org/packages/stri_locate/topics/stringi'>stri_locate</a></code> for the underlying implementation.</p>
+  <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locate'>stri_locate</a></code> for the underlying implementation.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>fruit</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span>)
 <span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"$"</span>)</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     6   5
 #&gt; [2,]     7   6
 #&gt; [3,]     5   4
-#&gt; [4,]    10   9
-#&gt; </div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt;      start end
+#&gt; [4,]    10   9</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     1   1
 #&gt; [2,]     2   2
 #&gt; [3,]     3   3
-#&gt; [4,]     5   5
-#&gt; </div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"e"</span>)</div><div class='output co'>#&gt;      start end
+#&gt; [4,]     5   5</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"e"</span>)</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     5   5
 #&gt; [2,]    NA  NA
 #&gt; [3,]     2   2
-#&gt; [4,]     4   4
-#&gt; </div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span>))</div><div class='output co'>#&gt;      start end
+#&gt; [4,]     4   4</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span>))</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     1   1
 #&gt; [2,]     1   1
 #&gt; [3,]     1   1
-#&gt; [4,]     1   1
-#&gt; </div><div class='input'>
+#&gt; [4,]     1   1</div><div class='input'>
 <span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     1   1
@@ -187,7 +177,6 @@ coercible to one.</dd>
 #&gt; [[4]]
 #&gt;      start end
 #&gt; [1,]     5   5
-#&gt; 
 #&gt; </div><div class='input'><span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>"e"</span>)</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     5   5
@@ -203,7 +192,6 @@ coercible to one.</dd>
 #&gt;      start end
 #&gt; [1,]     4   4
 #&gt; [2,]     9   9
-#&gt; 
 #&gt; </div><div class='input'><span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span>))</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     1   1
@@ -221,7 +209,6 @@ coercible to one.</dd>
 #&gt; [1,]     1   1
 #&gt; [2,]     6   6
 #&gt; [3,]     7   7
-#&gt; 
 #&gt; </div><div class='input'>
 <span class='co'># Find location of every character</span>
 <span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [[1]]
@@ -259,7 +246,6 @@ coercible to one.</dd>
 #&gt;  [7,]     7   7
 #&gt;  [8,]     8   8
 #&gt;  [9,]     9   9
-#&gt; 
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -286,6 +272,16 @@ coercible to one.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

@@ -109,44 +109,33 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>input character vector.</dd>
+      <dd><p>input character vector.</p></dd>
       <dt>start</dt>
-      <dd>integer vector giving position of first word to extract.
+      <dd><p>integer vector giving position of first word to extract.
 Defaults to first word. If negative, counts backwards from last
-character.</dd>
+character.</p></dd>
       <dt>end</dt>
-      <dd>integer vector giving position of last word to extract.
+      <dd><p>integer vector giving position of last word to extract.
 Defaults to first word. If negative, counts backwards from last
-character.</dd>
+character.</p></dd>
       <dt>sep</dt>
-      <dd>separator between words.  Defaults to single space.</dd>
+      <dd><p>separator between words.  Defaults to single space.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>character vector of words from <code>start</code> to <code>end</code>
-  (inclusive). Will be length of longest input argument.</p>
+    <p>character vector of words from <code>start</code> to <code>end</code></p>
+<p>(inclusive). Will be length of longest input argument.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>sentences</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"Jane saw a cat"</span>, <span class='st'>"Jane sat down"</span>)
-<span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] &quot;Jane&quot; &quot;Jane&quot;
-#&gt; </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] &quot;saw&quot; &quot;sat&quot;
-#&gt; </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] &quot;cat&quot;  &quot;down&quot;
-#&gt; </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] &quot;saw a cat&quot; &quot;sat down&quot; 
-#&gt; </div><div class='input'>
+<span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane" "Jane"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "saw" "sat"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "cat"  "down"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "saw a cat" "sat down" </div><div class='input'>
 <span class='co'># Also vectorised over start and end</span>
-<span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>:<span class='fl'>3</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] &quot;Jane saw a cat&quot; &quot;saw a cat&quot;      &quot;a cat&quot;         
-#&gt; </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] &quot;Jane&quot;           &quot;Jane saw&quot;       &quot;Jane saw a&quot;     &quot;Jane saw a cat&quot;
-#&gt; </div><div class='input'>
+<span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>:<span class='fl'>3</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane saw a cat" "saw a cat"      "a cat"         </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "Jane"           "Jane saw"       "Jane saw a"     "Jane saw a cat"</div><div class='input'>
 <span class='co'># Can define words by other separators</span>
 <span class='no'>str</span> <span class='kw'>&lt;-</span> <span class='st'>'abc.def..123.4568.999'</span>
-<span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>1</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] &quot;abc.def&quot;
-#&gt; </div><div class='input'><span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] &quot;123.4568.999&quot;
-#&gt; </div></pre>
+<span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>1</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "abc.def"</div><div class='input'><span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "123.4568.999"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -170,6 +159,16 @@ character.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

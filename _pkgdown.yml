@@ -4,6 +4,9 @@ template:
 
 home:
   strip_header: true
+  links:
+  - text: Learn more at R4DS
+    href: http://r4ds.had.co.nz/strings.html
 
 navbar:
   left:

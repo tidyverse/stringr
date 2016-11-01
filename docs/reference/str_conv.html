@@ -109,23 +109,17 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>String to re-encode.</dd>
+      <dd><p>String to re-encode.</p></dd>
       <dt>encoding</dt>
-      <dd>Name of encoding. See <code><a href='http://www.rdocumentation.org/packages/stri_enc_list/topics/stringi'>stri_enc_list</a></code>
-for a complete list.</dd>
+      <dd><p>Name of encoding. See <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_enc_list'>stri_enc_list</a></code></p>
+<p>for a complete list.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example from encoding?stringi::stringi</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rawToChar</span>(<span class='fu'>as.raw</span>(<span class='fl'>177</span>))
-<span class='no'>x</span></div><div class='output co'>#&gt; [1] &quot;\xb1&quot;
-#&gt; </div><div class='input'><span class='fu'>str_conv</span>(<span class='no'>x</span>, <span class='st'>"ISO-8859-2"</span>) <span class='co'># Polish "a with ogonek"</span></div><div class='output co'>#&gt; [1] &quot;ą&quot;
-#&gt; </div><div class='input'><span class='fu'>str_conv</span>(<span class='no'>x</span>, <span class='st'>"ISO-8859-1"</span>) <span class='co'># Plus-minus</span></div><div class='output co'>#&gt; [1] &quot;±&quot;
-#&gt; </div></pre>
+<span class='no'>x</span></div><div class='output co'>#&gt; [1] "\xb1"</div><div class='input'><span class='fu'>str_conv</span>(<span class='no'>x</span>, <span class='st'>"ISO-8859-2"</span>) <span class='co'># Polish "a with ogonek"</span></div><div class='output co'>#&gt; [1] "ą"</div><div class='input'><span class='fu'>str_conv</span>(<span class='no'>x</span>, <span class='st'>"ISO-8859-1"</span>) <span class='co'># Plus-minus</span></div><div class='output co'>#&gt; [1] "±"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -147,6 +141,16 @@ for a complete list.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

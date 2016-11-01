@@ -110,12 +110,12 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>A character vector.</dd>
+      <dd><p>A character vector.</p></dd>
       <dt>width</dt>
-      <dd>Maximum width of string.</dd>
+      <dd><p>Maximum width of string.</p></dd>
       <dt>side, ellipsis</dt>
-      <dd>Location and content of ellipsis that indicates
-content has been removed.</dd>
+      <dd><p>Location and content of ellipsis that indicates
+content has been removed.</p></dd>
     </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -123,20 +123,16 @@ content has been removed.</dd>
     <p><code><a href='str_pad.html'>str_pad</a></code> to increase the minimum width of a string.</p>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='st'>"This string is moderately long"</span>
 <span class='fu'>rbind</span>(
   <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"right"</span>),
   <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"left"</span>),
   <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"center"</span>)
 )</div><div class='output co'>#&gt;      [,1]                  
-#&gt; [1,] &quot;This string is mo...&quot;
-#&gt; [2,] &quot;...s moderately long&quot;
-#&gt; [3,] &quot;This stri...ely long&quot;
-#&gt; </div><div class='input'>
+#&gt; [1,] "This string is mo..."
+#&gt; [2,] "...s moderately long"
+#&gt; [3,] "This stri...ely long"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -161,6 +157,16 @@ content has been removed.</dd>
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 

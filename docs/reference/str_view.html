@@ -112,46 +112,33 @@ the matches.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>string</dt>
-      <dd>Input vector. Either a character vector, or something
-coercible to one.</dd>
+      <dd><p>Input vector. Either a character vector, or something
+coercible to one.</p></dd>
       <dt>pattern</dt>
-      <dd>Pattern to look for.
-
-  The default interpretation is a regular expression, as described
-  in <a href='http://www.rdocumentation.org/packages/stringi-search-regex/topics/stringi'>stringi-search-regex</a>. Control options with
-  <code><a href='modifiers.html'>regex</a>()</code>.
-
-  Match a fixed string (i.e. by comparing only bytes), using
+      <dd><p>Pattern to look for.</p>
+<p>The default interpretation is a regular expression, as described
+  in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
+  <code><a href='modifiers.html'>regex</a>()</code>.</p>
+<p>Match a fixed string (i.e. by comparing only bytes), using
   <code><a href='modifiers.html'>fixed</a>(x)</code>. This is fast, but approximate. Generally,
-  for matching human text, you&#39;ll want <code><a href='modifiers.html'>coll</a>(x)</code> which
-  respects character matching rules for the specified locale.
-
-  Match character, word, line and sentence boundaries with
-  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, &quot;&quot;, is equivalent to
-  <code>boundary(&quot;character&quot;)</code>.</dd>
+  for matching human text, you'll want <code><a href='modifiers.html'>coll</a>(x)</code> which
+  respects character matching rules for the specified locale.</p>
+<p>Match character, word, line and sentence boundaries with
+  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
+  <code>boundary("character")</code>.</p></dd>
       <dt>match</dt>
-      <dd>If <code>TRUE</code>, shows only strings that match the pattern.
-If <code>FALSE</code>, shows only the strings that don&#39;t match the pattern.
-Otherwise (the default, <code>NA</code>) displays both matches and non-matches.</dd>
+      <dd><p>If <code>TRUE</code>, shows only strings that match the pattern.
+If <code>FALSE</code>, shows only the strings that don't match the pattern.
+Otherwise (the default, <code>NA</code>) displays both matches and non-matches.</p></dd>
     </dl>
     
 
-    <h2 class="hasAnchor" id="examples">
-      <a class="anchor" href="#examples"></a>
-      Examples
-    </h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"[aeiou]"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"^"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>".."</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"^"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>".."</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'>
 <span class='co'># Show all matches with str_view_all</span>
-<span class='fu'>str_view_all</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'>
+<span class='fu'>str_view_all</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'>
 <span class='co'># Use match to control what is shown</span>
-<span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output'><strong class='text-warning'>Warning message:
-file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot;: using the former</strong></div><strong class='error'>Error in dirname(to): a character vector argument expected</strong></pre>
+<span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -173,6 +160,16 @@ file(&quot;&quot;) only supports open = &quot;w+&quot; and open = &quot;w+b&quot
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
   <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
 </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67989-18', 'auto');
+  ga('send', 'pageview');
+</script>
       </footer>
    </div>
 
