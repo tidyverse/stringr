@@ -1,6 +1,5 @@
 ---
 title: "Regular expressions"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Regular expressions}

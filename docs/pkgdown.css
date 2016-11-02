@@ -58,10 +58,8 @@ body {
 .symbol {color:black ;}
 .prompt {color:black ;}
 
-pre.examples {
-  background: none;
-  border: none;
-  padding: 0;
+pre a {
+  font-weight: bolder;
 }
 
 pre img {
