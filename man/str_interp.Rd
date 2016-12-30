@@ -59,4 +59,3 @@ str_interp(c(
 \author{
 Stefan Milton Bache
 }
-

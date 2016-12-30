@@ -66,4 +66,3 @@ str_split_fixed(fruits, " and ", 4)
 \seealso{
 \code{\link{stri_split}} for the underlying implementation.
 }
-

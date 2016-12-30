@@ -33,4 +33,3 @@ length(words)
 words[1:5]
 }
 \keyword{datasets}
-

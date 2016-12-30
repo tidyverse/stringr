@@ -32,4 +32,3 @@ str_to_title(dog)
 str_to_upper("i") # English
 str_to_upper("i", "tr") # Turkish
 }
-

@@ -45,4 +45,3 @@ str_detect("aecfg", letters)
 \seealso{
 \code{\link[stringi]{stri_detect}} which this function wraps
 }
-

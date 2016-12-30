@@ -76,4 +76,3 @@ str_replace_all(x, colours, col2hex)
 \code{\link{str_replace_na}} to turn missing values into "NA";
   \code{\link{stri_replace}} for the underlying implementation.
 }
-

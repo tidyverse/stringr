@@ -60,4 +60,3 @@ str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 \code{\link{str_match}} to extract matched groups;
   \code{\link[stringi]{stri_extract}} for the underlying implementation.
 }
-

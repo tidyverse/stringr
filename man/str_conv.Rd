@@ -22,4 +22,3 @@ x
 str_conv(x, "ISO-8859-2") # Polish "a with ogonek"
 str_conv(x, "ISO-8859-1") # Plus-minus
 }
-

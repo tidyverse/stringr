@@ -24,4 +24,3 @@ str_sub(numbers, num_loc[, "start"], num_loc[, "end"])
 text_loc <- invert_match(num_loc)
 str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
 }
-

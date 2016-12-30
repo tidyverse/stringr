@@ -35,4 +35,3 @@ cat(str_wrap(thanks, width = 60, indent = 2), "\\n")
 cat(str_wrap(thanks, width = 60, exdent = 2), "\\n")
 cat(str_wrap(thanks, width = 0, exdent = 2), "\\n")
 }
-

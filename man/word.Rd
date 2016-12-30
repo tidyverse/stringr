@@ -42,4 +42,3 @@ str <- 'abc.def..123.4568.999'
 word(str, 1, sep = fixed('..'))
 word(str, 2, sep = fixed('..'))
 }
-

@@ -50,4 +50,3 @@ str_extract_all(x, "<.*?>")
   \code{\link[stringi]{stri_match}} for the underlying
   implementation.
 }
-

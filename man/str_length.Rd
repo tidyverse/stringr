@@ -42,4 +42,3 @@ str_count(u2)
 \seealso{
 \code{\link[stringi]{stri_length}} which this function wraps.
 }
-

@@ -54,4 +54,3 @@ str_c(str_replace_na(c("a", NA, "b")), "-d")
 \code{\link{paste}} for equivalent base R functionality, and
    \code{\link[stringi]{stri_join}} which this function wraps
 }
-

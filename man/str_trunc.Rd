@@ -30,4 +30,3 @@ rbind(
 \seealso{
 \code{\link{str_pad}} to increase the minimum width of a string.
 }
-

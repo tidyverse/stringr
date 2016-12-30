@@ -47,4 +47,3 @@ str_count(c("a.", "...", ".a.a"), fixed("."))
  \code{\link{str_locate}}/\code{\link{str_locate_all}} to locate position
  of matches
 }
-

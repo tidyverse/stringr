@@ -47,4 +47,3 @@ str_sort(x, numeric = TRUE)
 \seealso{
 \code{\link[stringi]{stri_order}} for the underlying implementation.
 }
-

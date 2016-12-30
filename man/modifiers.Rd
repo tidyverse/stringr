@@ -87,4 +87,3 @@ str_extract_all("a\\nb\\nc", regex("^.", multiline = TRUE))
 str_extract_all("a\\nb\\nc", "a.")
 str_extract_all("a\\nb\\nc", regex("a.", dotall = TRUE))
 }
-

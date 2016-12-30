@@ -49,4 +49,3 @@ str_view(c("abc", "def", "fgh"), "d|e")
 str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
 }
-

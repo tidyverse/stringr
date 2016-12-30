@@ -69,4 +69,3 @@ str_sub(x, 2, -2) <- ""; x
 \seealso{
 The underlying implementation in \code{\link[stringi]{stri_sub}}
 }
-

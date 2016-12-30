@@ -40,4 +40,3 @@ str_pad("hadley", 3)
 \code{\link{str_trim}} to remove whitespace;
   \code{\link{str_trunc}} to decrease the maximum width of a string.
 }
-
