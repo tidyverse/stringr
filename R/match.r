@@ -38,7 +38,10 @@ str_match <- function(string, pattern) {
     stop("Can only match regular expressions", call. = FALSE)
   }
 
-  stri_match_first_regex(string, pattern, opts_regex = opts(pattern))
+  stri_match_first_regex(string,
+    pattern,
+    opts_regex = opts(pattern)
+  )
 }
 
 #' @rdname str_match
@@ -50,7 +53,6 @@ str_match_all <- function(string, pattern) {
 
   stri_match_all_regex(string,
     pattern,
-    cg_missing = "",
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )

@@ -1,5 +1,9 @@
 # stringr 1.1.0.9000
 
+* `str_match_all()` now returns NA if an optional group doesn't match 
+  (previously it returned ""). This is more consistent with `str_match()`
+  and other match failures (#134).
+
 * All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
   default to "en" (English) to ensure that the default is consistent across
   platforms.
