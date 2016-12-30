@@ -1,5 +1,9 @@
 # stringr 1.1.0.9000
 
+* `str_replace_all()` now throws an error if `replacement` is not a character
+  vector. If `replacement` is `NA_character_` it replaces the complete string 
+  with replaces with `NA` (#124).
+
 * `str_match_all()` now returns NA if an optional group doesn't match 
   (previously it returned ""). This is more consistent with `str_match()`
   and other match failures (#134).

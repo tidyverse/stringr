@@ -10,18 +10,7 @@ str_replace_na(string, replacement = "NA")
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{replacement}{Supply separate pattern and replacement strings
-  to vectorise over the patterns. References of the form \code{\1},
-  \code{\2} will be replaced with the contents of the respective matched
-  group (created by \code{()}) within the pattern.
-
-  For \code{str_replace_all} only, you can perform multiple patterns and
-  replacements to each string, by passing a named character to
-  \code{pattern}.
-
-  Alternatively, you can supply use a \code{replacement} function:
-  it will be called once for each match and its return value will be
-  used to replace the match.}
+\item{replacement}{A single string.}
 }
 \description{
 Turn NA into "NA"

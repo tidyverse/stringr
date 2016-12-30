@@ -13,18 +13,34 @@ str_replace_all(string, pattern, replacement)
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{pattern, replacement}{Supply separate pattern and replacement strings
-  to vectorise over the patterns. References of the form \code{\1},
-  \code{\2} will be replaced with the contents of the respective matched
-  group (created by \code{()}) within the pattern.
+\item{pattern}{Pattern to look for.
 
-  For \code{str_replace_all} only, you can perform multiple patterns and
-  replacements to each string, by passing a named character to
-  \code{pattern}.
+  The default interpretation is a regular expression, as described
+  in \link[stringi]{stringi-search-regex}. Control options with
+  \code{\link{regex}()}.
 
-  Alternatively, you can supply use a \code{replacement} function:
-  it will be called once for each match and its return value will be
-  used to replace the match.}
+  Match a fixed string (i.e. by comparing only bytes), using
+  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
+  for matching human text, you'll want \code{\link{coll}(x)} which
+  respects character matching rules for the specified locale.
+
+  Match character, word, line and sentence boundaries with
+  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
+  \code{boundary("character")}.}
+
+\item{replacement}{A character vector of replacements. Should be either
+  length one, or the same length as \code{string} or \code{pattern}.
+  References of the form \code{\1}, \code{\2}, etc will be replaced with
+  the contents of the respective matched group (created by \code{()}).
+
+  To perform multiple replacements in each element of \code{string},
+  pass a named vector (\code{c(pattern1 = replacement1)}) to
+  \code{str_replace_all}. Alternatively, pass a function to
+  \code{replacement}: it will be called once for each match and its
+  return value will be used to replace the match.
+
+  To replace the complete string with \code{NA}, use
+  \code{replacement = NA_character_}.}
 }
 \value{
 A character vector.
@@ -37,6 +53,7 @@ fruits <- c("one apple", "two pears", "three bananas")
 str_replace(fruits, "[aeiou]", "-")
 str_replace_all(fruits, "[aeiou]", "-")
 str_replace_all(fruits, "[aeiou]", toupper)
+str_replace_all(fruits, "b", NA_character_)
 
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
@@ -53,10 +70,10 @@ str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace_all(fruits, c("a", "e", "i"), "-")
 
 # If you want to apply multiple patterns and replacements to the same
-# string, pass a named version to pattern.
+# string, pass a named vector to pattern.
 fruits \%>\%
   str_c(collapse = "---") \%>\%
-  str_replace_all(c("one" = 1, "two" = 2, "three" = 3))
+  str_replace_all(c("one" = "1", "two" = "2", "three" = "3"))
 
 # Use a function for more sophisticated replacement. This example
 # replaces colour names with their hex values.

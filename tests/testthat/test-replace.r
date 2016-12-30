@@ -40,6 +40,15 @@ test_that("can replace multiple matches", {
   expect_equal(y, c("11", "22"))
 })
 
+test_that("replacement must be a string", {
+  expect_error(str_replace("x", "x", 1), "must be a character vector")
+})
+
+test_that("replacement must be a string", {
+  expect_equal(str_replace("xyz", "x", NA_character_), NA_character_)
+})
+
+
 # functions ---------------------------------------------------------------
 
 test_that("can supply replacement function", {
