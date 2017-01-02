@@ -14,6 +14,8 @@
   vector. If `replacement` is `NA_character_` it replaces the complete string 
   with replaces with `NA` (#124).
 
+* New `str_which()` mimics `grep()` (#129).
+
 * All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
   default to "en" (English) to ensure that the default is consistent across
   platforms.
