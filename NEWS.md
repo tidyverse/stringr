@@ -19,6 +19,11 @@
 * All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
   default to "en" (English) to ensure that the default is consistent across
   platforms.
+  
+* A new vignette (`vignette("regular-expressions")`) describes the 
+  details of the regular expressions supported by stringr.
+  The main vignette (`vignette("stringr")`) has been updated to 
+  give a high-level overview of the package.
 
 # stringr 1.1.0
 
