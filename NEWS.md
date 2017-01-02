@@ -1,22 +1,22 @@
 # stringr 1.1.0.9000
 
-* `str_replace_all()` now throws an error if `replacement` is not a character
-  vector. If `replacement` is `NA_character_` it replaces the complete string 
-  with replaces with `NA` (#124).
-
 * `str_match_all()` now returns NA if an optional group doesn't match 
   (previously it returned ""). This is more consistent with `str_match()`
   and other match failures (#134).
-
-* All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
-  default to "en" (English) to ensure that the default is consistent across
-  platforms.
 
 * `str_order()` and `str_sort()` gain explicit `numeric` argument for sorting
   mixed numbers and strings.
 
 * In `str_replace()`, `replacement` can now be a function that is called once
   for each match and who's return value is used to replace the match.
+
+* `str_replace_all()` now throws an error if `replacement` is not a character
+  vector. If `replacement` is `NA_character_` it replaces the complete string 
+  with replaces with `NA` (#124).
+
+* All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
+  default to "en" (English) to ensure that the default is consistent across
+  platforms.
 
 # stringr 1.1.0
 
