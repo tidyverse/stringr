@@ -8,7 +8,7 @@
   mixed numbers and strings.
 
 * In `str_replace()`, `replacement` can now be a function that is called once
-  for each match and who's return value is used to replace the match.
+  for each match and whose return value is used to replace the match.
 
 * `str_replace_all()` now throws an error if `replacement` is not a character
   vector. If `replacement` is `NA_character_` it replaces the complete string 
