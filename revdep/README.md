@@ -4,47 +4,64 @@
 
 |setting  |value                        |
 |:--------|:----------------------------|
-|version  |R version 3.3.1 (2016-06-21) |
+|version  |R version 3.3.2 (2016-10-31) |
 |system   |x86_64, darwin13.4.0         |
 |ui       |X11                          |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2017-01-02                   |
+|date     |2017-01-20                   |
 
 ## Packages
 
-|package     |*  |version    |date       |source                       |
-|:-----------|:--|:----------|:----------|:----------------------------|
-|covr        |   |2.2.1      |2016-08-10 |cran (@2.2.1)                |
-|htmltools   |   |0.3.5      |2016-03-21 |cran (@0.3.5)                |
-|htmlwidgets |   |0.8        |2016-11-09 |cran (@0.8)                  |
-|knitr       |   |1.15.6     |2016-12-29 |Github (yihui/knitr@849f2d0) |
-|magrittr    |   |1.5        |2014-11-22 |cran (@1.5)                  |
-|rmarkdown   |   |1.3        |2016-12-21 |cran (@1.3)                  |
-|stringi     |   |1.1.2      |2016-10-01 |cran (@1.1.2)                |
-|stringr     |   |1.1.0.9000 |2017-01-03 |local (tidyverse/stringr@NA) |
-|testthat    |*  |1.0.2      |2016-04-23 |cran (@1.0.2)                |
+|package     |*  |version |date       |source                       |
+|:-----------|:--|:-------|:----------|:----------------------------|
+|covr        |   |2.2.2   |2017-01-05 |cran (@2.2.2)                |
+|htmltools   |   |0.3.5   |2016-03-21 |cran (@0.3.5)                |
+|htmlwidgets |   |0.8     |2016-11-09 |cran (@0.8)                  |
+|knitr       |   |1.15.7  |2017-01-19 |Github (yihui/knitr@4f4431b) |
+|magrittr    |   |1.5     |2014-11-22 |cran (@1.5)                  |
+|rmarkdown   |   |1.3     |2016-12-21 |cran (@1.3)                  |
+|stringi     |   |1.1.2   |2016-10-01 |cran (@1.1.2)                |
+|stringr     |   |1.1.0   |2016-08-19 |local (tidyverse/stringr@NA) |
+|testthat    |*  |1.0.2   |2016-04-23 |cran (@1.0.2)                |
 
 # Check results
-332 packages
+339 packages
 
-## abcrf (1.4)
+## abcrf (1.5)
 Maintainer: Jean-Michel Marin <jean-michel.marin@umontpellier.fr>
 
 0 errors | 0 warnings | 0 notes
 
+## abjutils (0.0.1)
+Maintainer: Fernando Correa <fcorrea@abj.org.br>
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  x[1]: "\"a\"e\"i\"o\"u\"A\"E\"I\"O\"U\"y"
+  y[1]: "aeiouAEIOUy"
+  
+  
+  testthat results ================================================================
+  OK: 10 SKIPPED: 0 FAILED: 4
+  1. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#30) 
+  2. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#32) 
+  3. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#33) 
+  4. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#34) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
+
 ## acs (2.0)
 Maintainer: Ezra Haber Glenn <eglenn@mit.edu>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘acs’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/acs.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## aemo (0.2.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -54,29 +71,12 @@ Maintainer: Imanuel Costigan <i.costigan@me.com>
 ## afex (0.16-1)
 Maintainer: Henrik Singmann <singmann+afex@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘afex’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘lsmeans’ was built under R version 3.3.2
-  Warning: package ‘estimability’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/afex.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## AFM (1.2.2)
 Maintainer: Mathieu Beauvais <beauvais.escp@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘AFM’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘data.table’ was built under R version 3.3.2
-  Warning: package ‘sp’ was built under R version 3.3.2
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/AFM.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## ALA4R (1.5.3)
 Maintainer: Ben Raymond <ben_ala@untan.gl>
@@ -183,8 +183,9 @@ Maintainer: Justin Fainges <Justin.Fainges@csiro.au>
 
 0 errors | 0 warnings | 0 notes
 
-## aqp (1.9.14)
-Maintainer: Dylan Beaudette <dylan.beaudette@ca.usda.gov>
+## aqp (1.10)
+Maintainer: Dylan Beaudette <dylan.beaudette@ca.usda.gov>  
+Bug reports: https://github.com/ncss-tech/aqp/issues
 
 0 errors | 0 warnings | 0 notes
 
@@ -200,9 +201,11 @@ Bug reports: https://github.com/coseal/aslib-r/issues
 1 error  | 0 warnings | 0 notes
 
 ```
-checking whether package ‘aslib’ can be installed ... ERROR
-Installation failed.
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/aslib.Rcheck/00install.out’ for details.
+checking package dependencies ... ERROR
+Package required but not available: ‘RWeka’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
 ```
 
 ## assignPOP (1.1.1)
@@ -221,6 +224,11 @@ Maintainer: Eduardo Flores <eduardo@enelmargen.org>
 
 0 errors | 0 warnings | 0 notes
 
+## BatchGetSymbols (1.1)
+Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
+
+0 errors | 0 warnings | 0 notes
+
 ## BatchJobs (1.6)
 Maintainer: Bernd Bischl <bernd_bischl@gmx.net>  
 Bug reports: https://github.com/tudo-r/BatchJobs/issues
@@ -231,26 +239,12 @@ Bug reports: https://github.com/tudo-r/BatchJobs/issues
 Maintainer: Richard D. Morey <richarddmorey@gmail.com>  
 Bug reports: https://github.com/richarddmorey/BayesFactor/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘BayesFactor’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘coda’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/BayesFactor.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## bea.R (1.0.0)
 Maintainer: Andrea Julca <Andrea.Julca@bea.gov>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘bea.R’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘data.table’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/bea.R.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## beepr (1.2)
 Maintainer: Rasmus Bååth <rasmus.baath@gmail.com>
@@ -306,29 +300,13 @@ Bug reports: https://github.com/HajkD/biomartr/issues
 
 ```
 checking package dependencies ... ERROR
-Package required but not available: ‘biomaRt’
+Packages required but not available: ‘biomaRt’ ‘Biostrings’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
 ```
 
-## blkbox (1.0)
-Maintainer: Boris Guennewig <b.guennewig@garvan.org.au>
-
-0 errors | 0 warnings | 2 notes
-
-```
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘bigrf’
-
-checking dependencies in R code ... NOTE
-JavaVM: requested Java version ((null)) not available. Using Java at "" instead.
-JavaVM: Failed to load JVM: /bundle/Libraries/libserver.dylib
-JavaVM FATAL: Failed to load the jvm library.
-Missing or unexported object: ‘xgboost::predict’
-```
-
-## bold (0.3.5)
+## bold (0.4.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/bold/issues
 
@@ -364,7 +342,7 @@ Consider adding
 to your NAMESPACE file.
 ```
 
-## boxr (0.3.3)
+## boxr (0.3.4)
 Maintainer: Brendan Rocks <foss@brendanrocks.com>  
 Bug reports: https://github.com/brendan-r/boxr/issues
 
@@ -374,14 +352,42 @@ Bug reports: https://github.com/brendan-r/boxr/issues
 Maintainer: David Robinson <admiral.david@gmail.com>  
 Bug reports: http://github.com/dgrtwo/broom/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 1 note 
+
+```
+checking examples ... ERROR
+Running examples in ‘broom-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: survfit_tidiers
+> ### Title: tidy survival curve fits
+> ### Aliases: glance.survfit survfit_tidiers tidy.survfit
+> 
+> ### ** Examples
+... 43 lines ...
++         do(glance(survfit(coxph(Surv(time, status) ~ age + sex, .))))
++     
++     glances
++     
++     qplot(glances$median, binwidth = 15)
++     quantile(glances$median, c(.025, .975))
++ }
+Error in data.frame(..., check.names = FALSE) : 
+  arguments imply differing number of rows: 237, 0, 711
+Calls: tidy -> tidy.survfit -> cbind -> cbind -> data.frame
+Execution halted
+
+checking Rd cross-references ... NOTE
+Package unavailable to check Rd xrefs: ‘akima’
+```
 
 ## brr (1.0.0)
 Maintainer: Stéphane Laurent <laurent_step@yahoo.fr>
 
 0 errors | 0 warnings | 0 notes
 
-## BTLLasso (0.1-4)
+## BTLLasso (0.1-5)
 Maintainer: Gunther Schauberger <gunther@stat.uni-muenchen.de>
 
 1 error  | 0 warnings | 0 notes
@@ -395,14 +401,9 @@ See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/BTLLasso.Rcheck/0
 ## Causata (4.2-0)
 Maintainer: Justin Hemann <justinh@causata.com>
 
-0 errors | 1 warning  | 5 notes
+0 errors | 0 warnings | 3 notes
 
 ```
-checking whether package ‘Causata’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/Causata.Rcheck/00install.out’ for details.
-
 checking DESCRIPTION meta-information ... NOTE
 Malformed Title field: should not end in a period.
 
@@ -432,56 +433,12 @@ Consider adding
              "na.omit", "predict", "quantile", "sd", "terms.formula")
   importFrom("utils", "read.csv")
 to your NAMESPACE file.
-
-checking line endings in Makefiles ... NOTE
-Found the following Makefile(s) without a final LF:
-  inst/doc/Makefile
-Some ‘make’ programs ignore lines not ending in LF.
-
-checking files in ‘vignettes’ ... NOTE
-The following files look like leftovers/mistakes:
-  ‘Causata-vignette.log’
-Please remove them from your package.
-The following directory looks like a leftover from 'knitr':
-  ‘figure’
-Please remove from your package.
 ```
 
-## choroplethr (3.5.2)
-Maintainer: Ari Lamstein <arilamstein@gmail.com>  
-Bug reports: https://github.com/arilamstein/choroplethr/issues
+## choroplethr (3.5.3)
+Maintainer: Ari Lamstein <ari@lamsteinconsulting.com>
 
-0 errors | 2 warnings | 0 notes
-
-```
-checking whether package ‘choroplethr’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/choroplethr.Rcheck/00install.out’ for details.
-
-checking re-building of vignette outputs ... WARNING
-Error in re-building vignettes:
-  ...
-        • KN = Know Nothing
-
-        • AM = Anti-Masonic
-
-        • N = Nullifier
-
-        • SP = Split evenly
-... 8 lines ...
-     Taken from <URL:
-     http://en.wikipedia.org/wiki/List_of_United_States_presidential_election_results_by_state>
-     3/20/2014.
-
-
-Warning: package 'Hmisc' was built under R version 3.3.2
-Loading required package: lattice
-Quitting from lines 33-61 (h-creating-your-own-maps.Rmd) 
-Error: processing vignette 'h-creating-your-own-maps.Rmd' failed with diagnostics:
-package 'survival' 2.39.5 was found, but >= 2.40.1 is required by 'Hmisc'
-Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## CIAAWconsensus (1.1)
 Maintainer: Juris Meija <juris.meija@nrc-cnrc.gc.ca>
@@ -524,6 +481,11 @@ Bug reports: https://bitbucket.org/cancercentrum/commentr/issues?
 
 0 errors | 0 warnings | 0 notes
 
+## configr (0.0.3)
+Maintainer: Jianfeng Li <lee_jianfeng@sjtu.edu.cn>
+
+0 errors | 0 warnings | 0 notes
+
 ## crtests (0.2.1)
 Maintainer: Sjoerd van der Spoel <R@sjoerdvanderspoel.nl>
 
@@ -539,11 +501,17 @@ Maintainer: Bob Rudis <bob@rudis.net>
 
 0 errors | 0 warnings | 0 notes
 
-## data.tree (0.6.2)
+## data.tree (0.7.0)
 Maintainer: Christoph Glur <christoph.glur@ipub.com>  
 Bug reports: http://github.com/gluc/data.tree/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking whether package ‘data.tree’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/data.tree.Rcheck/00install.out’ for details.
+```
 
 ## datacheck (1.2.2)
 Maintainer: "Simon, Reinhard (CIP)" <R.SIMON@CGIAR.ORG>  
@@ -585,14 +553,7 @@ Bug reports: https://github.com/DataONEorg/rdataone/issues
 ## DeLorean (1.2.4)
 Maintainer: John Reid <john.reid@mrc-bsu.cam.ac.uk>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘DeLorean’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘Rcpp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/DeLorean.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## detector (0.1.0)
 Maintainer: Paul Hendricks <paul.hendricks.2013@owu.edu>  
@@ -600,19 +561,16 @@ Bug reports: https://github.com/paulhendricks/detector/issues
 
 0 errors | 0 warnings | 0 notes
 
-## DiagrammeR (0.8.4)
+## DiagrammeR (0.9.0)
 Maintainer: Richard Iannone <riannone@me.com>  
 Bug reports: https://github.com/rich-iannone/DiagrammeR/issues
 
-0 errors | 0 warnings | 1 note 
+1 error  | 0 warnings | 0 notes
 
 ```
-checking installed package size ... NOTE
-  installed size is  9.6Mb
-  sub-directories of 1Mb or more:
-    examples      2.4Mb
-    htmlwidgets   4.6Mb
-    img           2.1Mb
+checking whether package ‘DiagrammeR’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/DiagrammeR.Rcheck/00install.out’ for details.
 ```
 
 ## distcomp (0.25.4)
@@ -623,14 +581,7 @@ Maintainer: Balasubramanian Narasimhan <naras@stat.Stanford.EDU>
 ## dMod (0.3.2)
 Maintainer: Daniel Kaschek <daniel.kaschek@physik.uni-freiburg.de>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘dMod’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/dMod.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## docopt (0.4.5)
 Maintainer: Edwin de Jonge <edwindjonge@gmail.com>
@@ -653,9 +604,7 @@ The error most likely occurred in:
 > ### Aliases: format_engr
 > 
 > ### ** Examples
-... 12 lines ...
-> # format different objects
-> print(x)
+... 14 lines ...
           z b            y a         w
 1  6.501440 c  0.001051893 q 2846529.3
 2 28.374092 o  0.000347614 y 4874357.1
@@ -663,7 +612,9 @@ The error most likely occurred in:
 4 44.500979 a -0.003045062 a 1314715.7
 5 92.411835 x -0.001069473 i  417385.0
 > format_engr(x)
-Error: `replacement` must be a character vector
+Error in mutate_impl(.data, dots) : 
+  `replacement` must be a character vector
+Calls: format_engr ... as.data.frame -> mutate_ -> mutate_.tbl_df -> mutate_impl -> .Call
 Execution halted
 ```
 
@@ -671,14 +622,7 @@ Execution halted
 Maintainer: Yue Hu <yue-hu-1@uiowa.edu>  
 Bug reports: https://github.com/fsolt/dotwhisker/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘dotwhisker’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/dotwhisker.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## dplR (1.6.4)
 Maintainer: Andy Bunn <andy.bunn@wwu.edu>
@@ -690,19 +634,16 @@ Maintainer: Hector Sanz <hector.sanz@isglobal.org>
 
 0 errors | 0 warnings | 0 notes
 
-## dynamichazard (0.1.0)
+## dynamichazard (0.2.0)
 Maintainer: Benjamin Christoffersen <boennecd@gmail.com>  
 Bug reports: https://github.com/boennecd/dynamichazard/issues
 
-1 error  | 0 warnings | 1 note 
+1 error  | 0 warnings | 0 notes
 
 ```
 checking whether package ‘dynamichazard’ can be installed ... ERROR
 Installation failed.
 See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/dynamichazard.Rcheck/00install.out’ for details.
-
-checking package dependencies ... NOTE
-Packages suggested but not available for checking: ‘timereg’ ‘captioner’
 ```
 
 ## EasyMARK (1.0)
@@ -725,14 +666,7 @@ Bug reports: https://github.com/PMassicotte/eemR/issues
 ## eeptools (1.0.0)
 Maintainer: Jared E. Knowles <jknowles@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘eeptools’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/eeptools.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## elementR (1.2)
 Maintainer: Charlotte Sirot <charlott.sirot@gmail.com>
@@ -812,7 +746,49 @@ to your NAMESPACE file.
 Maintainer: Ben Baumer <ben.baumer@gmail.com>  
 Bug reports: https://github.com/beanumber/etl/issues
 
-0 errors | 0 warnings | 0 notes
+2 errors | 0 warnings | 0 notes
+
+```
+checking examples ... ERROR
+Running examples in ‘etl-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: etl
+> ### Title: Initialize an 'etl' object
+> ### Aliases: etl etl.default is.etl print.etl summary.etl
+> 
+> ### ** Examples
+... 42 lines ...
+> cars %>%
++   etl_extract() %>%
++   etl_transform() %>%
++   etl_load()
+Extracting raw data...
+Transforming raw data...
+Loading processed data...
+Error in (function (classes, fdef, mtable)  : 
+  unable to find an inherited method for function ‘dbWriteTable’ for signature ‘"NULL", "character", "data.frame"’
+Calls: %>% ... etl_load -> etl_load.etl_mtcars -> <Anonymous> -> <Anonymous>
+Execution halted
+
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  
+  trying URL 'http://www.nytimes.com'
+  Content type 'text/html; charset=utf-8' length 267011 bytes (260 KB)
+  ==================================================
+  downloaded 260 KB
+  
+  testthat results ================================================================
+  OK: 13 SKIPPED: 0 FAILED: 2
+  1. Error: sqlite works (@test-etl.R#12) 
+  2. Error: dplyr works (@test-etl.R#20) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
 
 ## eurostat (2.2.1)
 Maintainer: Lahti Leo <louhos@googlegroups.com>  
@@ -824,26 +800,7 @@ Bug reports: https://github.com/ropengov/eurostat/issues
 Maintainer: Yihui Xie <xie@yihui.name>  
 Bug reports: https://github.com/hadley/evaluate/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  > 
-  > if (require("testthat", quietly = TRUE)) test_check("evaluate")
-  1. Failure: return value of value handler inserted directly in output list (@test-evaluate.r#63) 
-  classes(ev) not equal to c("source", "numeric", "source", "source", "source", "gg").
-  Lengths differ: 7 vs 6
-  
-  
-  testthat results ================================================================
-  OK: 49 SKIPPED: 0 FAILED: 1
-  1. Failure: return value of value handler inserted directly in output list (@test-evaluate.r#63) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## Evomorph (0.9)
 Maintainer: Juan Manuel Cabrera <juanmanuelcabrera1@gmail.com>
@@ -879,7 +836,7 @@ Maintainer: Michael A. Lawrence <mike.lwrnc@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## fbar (0.1.16)
+## fbar (0.1.23)
 Maintainer: Max Conway <conway.max1@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -947,6 +904,12 @@ Execution halted
 
 ```
 
+## fivethirtyeight (0.1.0)
+Maintainer: Albert Y. Kim <albert.ys.kim@gmail.com>  
+Bug reports: https://github.com/rudeboybert/fivethirtyeight/issues
+
+0 errors | 0 warnings | 0 notes
+
 ## fragilityindex (0.0.8)
 Maintainer: Kipp Johnson <kipp.william.johnson@gmail.com>
 
@@ -971,7 +934,19 @@ Maintainer: Niels G. Waller <nwaller@umn.edu>
 ## futureheatwaves (1.0.3)
 Maintainer: Brooke Anderson <brooke.anderson@colostate.edu>
 
-0 errors | 0 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
+
+```
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+pandoc: Could not fetch /Users/hadley/R/leaflet/htmlwidgets/lib/leaflet/#default#VML
+/Users/hadley/R/leaflet/htmlwidgets/lib/leaflet/: openBinaryFile: inappropriate type (is a directory)
+Error: processing vignette 'futureheatwaves.Rmd' failed with diagnostics:
+pandoc document conversion failed with error 67
+Execution halted
+
+```
 
 ## fuzzyjoin (0.1.2)
 Maintainer: David Robinson <drobinson@stackoverflow.com>
@@ -981,14 +956,9 @@ Maintainer: David Robinson <drobinson@stackoverflow.com>
 ## games (1.1.2)
 Maintainer: Brenton Kenkel <brenton.kenkel@gmail.com>
 
-0 errors | 1 warning  | 1 note 
+0 errors | 0 warnings | 1 note 
 
 ```
-checking whether package ‘games’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘miscTools’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/games.Rcheck/00install.out’ for details.
-
 checking R code for possible problems ... NOTE
 CIfromBoot: no visible global function definition for ‘predict’
 CIfromBoot: no visible global function definition for ‘txtProgressBar’
@@ -1051,22 +1021,14 @@ Bug reports: http://github.com/ropenscilabs/geoparser/issues
 ## geotopbricks (1.4)
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘geotopbricks’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-  Warning: package ‘zoo’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/geotopbricks.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## GERGM (0.10.0)
 Maintainer: Matthew J. Denny <mdenny@psu.edu>
 
 0 errors | 0 warnings | 0 notes
 
-## GetHFData (1.2.2)
+## GetHFData (1.2.3)
 Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -1080,32 +1042,62 @@ Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 Maintainer: Alex Zvoleff <azvoleff@conservation.org>  
 Bug reports: https://github.com/azvoleff/gfcanalysis/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘gfcanalysis’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/gfcanalysis.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## ggenealogy (0.3.0)
 Maintainer: Lindsay Rutter <lrutter@iastate.edu>
 
-0 errors | 0 warnings | 0 notes
+1 error  | 1 warning  | 0 notes
+
+```
+checking examples ... ERROR
+Running examples in ‘ggenealogy-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getDegree
+> ### Title: Determine the degree between two varieties
+> ### Aliases: getDegree
+> 
+> ### ** Examples
+> 
+> data(sbGeneal)
+> ig <- dfToIG(sbGeneal)
+> getDegree("Brim", "Bedford", ig, sbGeneal)
+Error in sapply(args, get_vs_graph_id) %>% unique() : 
+  could not find function "split_chain"
+Calls: getDegree ... c.igraph.vs -> parse_vs_op_args -> parse_op_args -> %>%
+Execution halted
+
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+     
+_A_r_g_u_m_e_n_t_s:
+
+  geneal: the full genealogy (in data frame format)
+
+vertexinfo: (default NULL) either names of columns in the genealogy
+          which should be added to the database as vertex information
+... 8 lines ...
+_S_e_e _A_l_s_o:
+
+     <URL: https://www.r-project.org> for iGraph information
+
+
+
+Error: processing vignette 'ggenealogy.Rnw' failed with diagnostics:
+ chunk 19 
+Error in sapply(args, get_vs_graph_id) %>% unique() : 
+  could not find function "split_chain"
+Execution halted
+```
 
 ## ggmap (2.6.1)
 Maintainer: David Kahle <david.kahle@gmail.com>  
 Bug reports: https://github.com/dkahle/ggmap/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘ggmap’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/ggmap.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## gitlabr (0.6.4)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>  
@@ -1113,7 +1105,14 @@ Bug reports:
         http://gitlab.points-of-interest.cc/points-of-interest/gitlabr/
         issues/
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note 
+
+```
+checking R code for possible problems ... NOTE
+pipe_into: no visible global function definition for ‘set_names’
+Undefined global functions or variables:
+  set_names
+```
 
 ## gogamer (0.4.3)
 Maintainer: Kota Mori <kmori05@gmail.com>  
@@ -1130,71 +1129,31 @@ Bug reports: https://github.com/jennybc/googlesheets/issues
 ## Greg (1.2)
 Maintainer: Max Gordon <max@gforge.se>
 
-2 errors | 2 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
 
 ```
-checking examples ... ERROR
-Running examples in ‘Greg-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: simpleRmsAnova
-> ### Title: A simpler latex output of the latex.anova.rms
-> ### Aliases: print.simpleRmsAnova simpleRmsAnova
-> ### Keywords: internal
-> 
-... 6 lines ...
-> #and cholesterol, with age fitted with a smooth 5-knot restricted cubic 
-> #spline function and a different shape of the age relationship for males 
-> #and females.  
-> 
-> library(rms)
-Warning: package ‘rms’ was built under R version 3.3.2
-Loading required package: Hmisc
-Warning: package ‘Hmisc’ was built under R version 3.3.2
-Loading required package: lattice
-Error: package ‘survival’ 2.39.5 was found, but >= 2.40.1 is required by ‘Hmisc’
-Execution halted
-
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  5: stop(gettextf(msg, sQuote(pkg), current, dep$op, target, sQuote(pkgname)), call. = FALSE, 
-         domain = NA)
-  
-  Error: package 'survival' 2.39.5 was found, but >= 2.40.1 is required by 'Hmisc'
-  In addition: Warning messages:
-  1: package 'rms' was built under R version 3.3.2 
-  2: package 'Hmisc' was built under R version 3.3.2 
-  testthat results ================================================================
-  OK: 14 SKIPPED: 0 FAILED: 1
-  1. Error: That rms-functions work (@test-addNonlinearity.R#108) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-
-checking whether package ‘Greg’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘forestplot’ was built under R version 3.3.2
-  Warning: package ‘Rcpp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/Greg.Rcheck/00install.out’ for details.
-
 checking re-building of vignette outputs ... WARNING
 Error in re-building vignettes:
   ...
-Loading required package: forestplot
-Loading required package: grid
-Loading required package: magrittr
-Loading required package: checkmate
-Loading required package: Gmisc
-Loading required package: Rcpp
-Loading required package: htmlTable
-Loading required package: lattice
-Quitting from lines 56-65 (Print_crude_and_adjusted_models.Rmd) 
-Error: processing vignette 'Print_crude_and_adjusted_models.Rmd' failed with diagnostics:
-package 'survival' 2.39.5 was found, but >= 2.40.1 is required by 'Hmisc'
-Execution halted
+Attaching package: 'Hmisc'
 
+The following objects are masked from 'package:base':
+
+    format.pval, round.POSIXt, trunc.POSIXt, units
+
+
+... 8 lines ...
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Quitting from lines 408-412 (timeSplitter.Rmd) 
+Error: processing vignette 'timeSplitter.Rmd' failed with diagnostics:
+could not find function "extract2"
+Execution halted
 ```
 
 ## gsheet (0.4.2)
@@ -1208,12 +1167,6 @@ Maintainer: Tomislav Hengl <tom.hengl@isric.org>
 
 0 errors | 0 warnings | 0 notes
 
-## GSODR (0.1.9)
-Maintainer: Adam Sparks <adamhsparks@gmail.com>  
-Bug reports: https://github.com/adamhsparks/GSODR/issues
-
-0 errors | 0 warnings | 0 notes
-
 ## gunsales (0.1.1)
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 
@@ -1223,26 +1176,7 @@ Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Maintainer: David Robinson <admiral.david@gmail.com>  
 Bug reports: http://github.com/ropenscilabs/gutenbergr/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  > library(gutenbergr)
-  > 
-  > test_check("gutenbergr")
-  1. Failure: read_zip_url can download and read a zip file (@test-utils.R#7) ----
-  any(z == "Congress shall make no law respecting an establishment of religion,") isn't true.
-  
-  
-  testthat results ================================================================
-  OK: 46 SKIPPED: 0 FAILED: 1
-  1. Failure: read_zip_url can download and read a zip file (@test-utils.R#7) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## hddtools (0.3.0)
 Maintainer: Claudia Vitolo <cvitolodev@gmail.com>  
@@ -1250,11 +1184,36 @@ Bug reports: https://github.com/cvitolo/hddtools/issues
 
 0 errors | 0 warnings | 0 notes
 
-## highcharter (0.4.0)
+## highcharter (0.5.0)
 Maintainer: Joshua Kunst <jbkunst@gmail.com>  
 Bug reports: https://github.com/jbkunst/highcharter/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 1 note 
+
+```
+checking examples ... ERROR
+Running examples in ‘highcharter-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: hcboxplot
+> ### Title: Shortcut to make a boxplot
+> ### Aliases: hcboxplot
+> 
+> ### ** Examples
+> 
+> hcboxplot(x = iris$Sepal.Length, var = iris$Species, color = "red")
+Error in mutate_impl(.data, dots) : 
+  incompatible size (5), expecting 1 (the group size) or 1
+Calls: hcboxplot ... transmute_.default -> mutate_ -> mutate_.tbl_df -> mutate_impl -> .Call
+Execution halted
+
+checking installed package size ... NOTE
+  installed size is 16.4Mb
+  sub-directories of 1Mb or more:
+    doc          13.7Mb
+    htmlwidgets   1.8Mb
+```
 
 ## HistogramTools (0.3.2)
 Maintainer: Murray Stokely <murray@stokely.org>
@@ -1276,36 +1235,18 @@ Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 
 ```
 checking package dependencies ... ERROR
-Package required but not available: ‘bamsignals’
+Packages required but not available:
+  ‘Biostrings’ ‘GenomicRanges’ ‘bamsignals’ ‘Rsamtools’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
 ```
 
-## htmlTable (1.7)
+## htmlTable (1.8)
 Maintainer: Max Gordon <max@gforge.se>  
 Bug reports: https://github.com/gforge/htmlTable/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  
-  testthat results ================================================================
-  OK: 355 SKIPPED: 0 FAILED: 1
-  1. Failure: should be converted into strings (@test-htmlTable_dates.R#45) 
-  
-  Error: testthat unit tests failed
-  In addition: Warning messages:
-  1: package 'XML' was built under R version 3.3.2 
-  2: In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
-    there is no package called 'lubridate'
-  3: In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
-    there is no package called 'chron'
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## HTSSIP (1.0.3)
 Maintainer: Nicholas Youngblut <nyoungb2@gmail.com>
@@ -1326,7 +1267,7 @@ Bug reports: https://github.com/fernandosm/hybridModels/issues
 
 0 errors | 0 warnings | 0 notes
 
-## HydeNet (0.10.4)
+## HydeNet (0.10.5)
 Maintainer: Benjamin Nutter <benjamin.nutter@gmail.com>  
 Bug reports: https://github.com/nutterb/HydeNet/issues
 
@@ -1357,9 +1298,26 @@ manual.
 Maintainer: Simon Barthelme <simon.barthelme@gipsa-lab.fr>  
 Bug reports: https://github.com/dahtah/imager/issues
 
-0 errors | 1 warning  | 1 note 
+1 error  | 1 warning  | 1 note 
 
 ```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  1. Error: cpp_plugin (@test_cpp_api.R#14) --------------------------------------
+  Error 1 occurred building shared library.
+  1: cppFunction(foo.inline, depends = "imager") at testthat/test_cpp_api.R:14
+  2: sourceCpp(code = code, env = env, rebuild = rebuild, cacheDir = cacheDir, showOutput = showOutput, 
+         verbose = verbose)
+  3: stop("Error ", status, " occurred building shared library.")
+  
+  testthat results ================================================================
+  OK: 0 SKIPPED: 0 FAILED: 1
+  1. Error: cpp_plugin (@test_cpp_api.R#14) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+
 checking whether package ‘imager’ can be installed ... WARNING
 Found the following significant warnings:
   ../inst/include/CImg.h:13559:29: warning: multiple unsequenced modifications to 'ptrs' [-Wunsequenced]
@@ -1406,14 +1364,7 @@ Package suggested but not available for checking: ‘rhdf5’
 ## IRISMustangMetrics (2.0.2)
 Maintainer: Gillian Sharer <gillian@iris.washington.edu>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘IRISMustangMetrics’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘IRISSeismic’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/IRISMustangMetrics.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## IRISSeismic (1.3.9)
 Maintainer: Gillian Sharer <gillian@iris.washington.edu>
@@ -1423,7 +1374,12 @@ Maintainer: Gillian Sharer <gillian@iris.washington.edu>
 ## ISOweek (0.6-2)
 Maintainer: Uwe Block <u.block.mz@googlemail.com>
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note 
+
+```
+checking Rd cross-references ... NOTE
+Package unavailable to check Rd xrefs: ‘surveillance’
+```
 
 ## kehra (0.1)
 Maintainer: Claudia Vitolo <cvitolodev@gmail.com>  
@@ -1490,14 +1446,7 @@ Bug reports: https://github.com/bryanhanson/LindenmayeR/issues
 ## linear.tools (1.3.0)
 Maintainer: Fan Yang <yfno1@msn.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘linear.tools’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/linear.tools.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## lmem.gwaser (0.1.0)
 Maintainer: Gaston Quero <gastonquero@gmail.com>
@@ -1513,7 +1462,12 @@ Maintainer: Gaston Quero <gastonquero@gmail.com>
 Maintainer: Vitalie Spinu <spinuvit@gmail.com>  
 Bug reports: https://github.com/hadley/lubridate/issues
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note 
+
+```
+checking package dependencies ... NOTE
+Packages which this enhances but not available for checking: ‘its’ ‘fts’
+```
 
 ## Maeswrap (1.7)
 Maintainer: Remko Duursma <remkoduursma@gmail.com>
@@ -1587,7 +1541,7 @@ Maintainer: Zachary Foster <zacharyfoster1989@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
-## metagear (0.2)
+## metagear (0.3)
 Maintainer: Marc J. Lajeunesse <lajeunesse@usf.edu>
 
 1 error  | 0 warnings | 0 notes
@@ -1674,18 +1628,10 @@ Installation failed.
 See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/mrMLM.Rcheck/00install.out’ for details.
 ```
 
-## MSGARCH (0.17)
+## MSGARCH (0.17.7)
 Maintainer: Keven Bluteau <Keven.Bluteau@unine.ch>
 
-0 errors | 0 warnings | 1 note 
-
-```
-checking installed package size ... NOTE
-  installed size is  7.0Mb
-  sub-directories of 1Mb or more:
-    doc    2.5Mb
-    libs   4.1Mb
-```
+0 errors | 0 warnings | 0 notes
 
 ## mtconnectR (1.0.1)
 Maintainer: Subramanyam Ravishankar <subramanyam@systeminsights.com>
@@ -1693,36 +1639,17 @@ Maintainer: Subramanyam Ravishankar <subramanyam@systeminsights.com>
 1 error  | 0 warnings | 0 notes
 
 ```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  Error: `mapped_plot` not equal to lazyLoadDBfetch(c(36520L, 320L), datafile, compressed, envhook).
-  Component "layers": Component 1: Component 3: Component 2: Modes of target, current: function, environment
-  Component "layers": Component 1: Component 3: Component 2: target, current do not match when deparsed
-  Component "layers": Component 1: Component 7: Component 2: Modes of target, current: function, environment
-  Component "layers": Component 1: Component 7: Component 2: target, current do not match when deparsed
-  Component "layers": Component 1: Component 9: Component 2: Modes of target, current: function, environment
-  Component "layers": Component 1: Component 9: Component 2: target, current do not match when deparsed
-  Component "layers": Component 1: Component 12: Modes of target, current: function, environment
-  Component "layers": Component 1: Component 12: target, current do not match when deparsed
-  Component "layers": Component 2: Component 3: Component 2: Modes of target, current: fun
-  testthat results ================================================================
-  OK: 0 SKIPPED: 0 FAILED: 0
-  Execution halted
+checking whether package ‘mtconnectR’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/mtconnectR.Rcheck/00install.out’ for details.
 ```
 
 ## mtk (1.0)
 Maintainer: Juhui WANG <Juhui.Wang@jouy.inra.fr>
 
-0 errors | 1 warning  | 2 notes
+0 errors | 0 warnings | 2 notes
 
 ```
-checking whether package ‘mtk’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
-  Warning: package ‘sensitivity’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/mtk.Rcheck/00install.out’ for details.
-
 checking dependencies in R code ... NOTE
 'library' or 'require' call to ‘MASS’ in package code.
   Please use :: or requireNamespace() instead.
@@ -1756,12 +1683,37 @@ to your NAMESPACE file.
 Maintainer: Justin Alford <justin.alford@gmail.com>  
 Bug reports: https://github.com/alforj/muir/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking whether package ‘muir’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/muir.Rcheck/00install.out’ for details.
+```
 
 ## narray (0.1.1)
 Maintainer: Michael Schubert <mschu.dev@gmail.com>
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  3: compare.numeric(object, expected, ...) at /Users/hadley/Documents/devtools/testthat/R/compare.R:12
+  4: all.equal(x, y, tolerance = tolerance, check.attributes = check.attributes, ...) at /Users/hadley/Documents/devtools/testthat/R/compare-numeric.R:23
+  5: all.equal.numeric(x, y, tolerance = tolerance, check.attributes = check.attributes, 
+         ...)
+  6: stop(gettextf("'%s' must be logical", "check.attributes"), domain = NA)
+  
+  testthat results ================================================================
+  OK: 52 SKIPPED: 0 FAILED: 2
+  1. Error: summarizing elements (@test_map.r#31) 
+  2. Error: everything (@test_subset.r#18) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
 
 ## netgen (1.3)
 Maintainer: Jakob Bossek <j.bossek@gmail.com>  
@@ -1932,16 +1884,7 @@ Execution halted
 ## orgR (0.9.0)
 Maintainer: Yi Tang <yi.tang.uk@me.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘orgR’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggthemes’ was built under R version 3.3.2
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-  Warning: package ‘data.table’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/orgR.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## P2C2M (0.7.6)
 Maintainer: Michael Gruenstaeudl <mi.gruenstaeudl@gmail.com>
@@ -1977,7 +1920,13 @@ to your NAMESPACE file.
 Maintainer: Ryan Hafen <rhafen@gmail.com>  
 Bug reports: https://github.com/hafen/packagedocs/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking whether package ‘packagedocs’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/packagedocs.Rcheck/00install.out’ for details.
+```
 
 ## patchSynctex (0.1-4)
 Maintainer: Emmanuel Charpentier <emm.charpentier@free.fr>
@@ -2012,14 +1961,7 @@ manual.
 ## PersomicsArray (1.0)
 Maintainer: John Smestad <smestad.john@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘PersomicsArray’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/PersomicsArray.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## phrasemachine (1.0.0)
 Maintainer: Matthew J. Denny <mdenny@psu.edu>
@@ -2088,14 +2030,7 @@ JavaVM FATAL: Failed to load the jvm library.
 ## PhysActBedRest (1.0)
 Maintainer: J. Dustin Tracy <jtracy2@student.gsu.edu>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘PhysActBedRest’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘chron’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/PhysActBedRest.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## pipefittr (0.1.2)
 Maintainer: Sahil Seth <me@sahilseth.com>
@@ -2106,7 +2041,26 @@ Maintainer: Sahil Seth <me@sahilseth.com>
 Maintainer: Benjamin Nutter <nutter@battelle.org>  
 Bug reports: https://github.com/nutterb/pixiedust/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+         na.rm = TRUE)) %>% dplyr::ungroup() %>% dplyr::mutate(height = ifelse(is.na(height), 
+         "", paste0("\\\\[", height, "pt]"))) %>% "height"$NULL
+  10: withVisible(pipeline(.)) at /private/tmp/Rtmp2pXcOy/devtoolsd8ec7d07be96/smbache-magrittr-3b09db4/R/pipe.R:13
+  11: pipeline(.)
+  
+  testthat results ================================================================
+  OK: 149 SKIPPED: 1 FAILED: 3
+  1. Error: print.dust for latex output with hhline = FALSE (@test-print.dust-explicit.R#26) 
+  2. Error: print.dust for latex output with hhline = TRUE (@test-print.dust-explicit.R#33) 
+  3. Error: print_dust_latex (@test-print_dust_methods.R#160) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
 
 ## pkgcopier (0.0.1)
 Maintainer: Hao Zhu <haozhu233@gmail.com>  
@@ -2154,6 +2108,11 @@ Consider adding
 to your NAMESPACE file.
 ```
 
+## Plasmidprofiler (0.1.6)
+Maintainer: Adrian Zetner <adrian.zetner@phac-aspc.gc.ca>
+
+0 errors | 0 warnings | 0 notes
+
 ## plotKML (0.5-6)
 Maintainer: Tomislav Hengl <tom.hengl@isric.org>
 
@@ -2163,24 +2122,16 @@ Maintainer: Tomislav Hengl <tom.hengl@isric.org>
 Maintainer: Michael C Sachs <sachsmc@gmail.com>  
 Bug reports: http://github.com/sachsmc/plotROC/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘plotROC’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/plotROC.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## pMineR (0.27)
 Maintainer: Roberto Gatta <roberto.gatta.bs@gmail.com>
 
-0 errors | 1 warning  | 0 notes
+1 error  | 0 warnings | 0 notes
 
 ```
-checking whether package ‘pMineR’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
+checking whether package ‘pMineR’ can be installed ... ERROR
+Installation failed.
 See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/pMineR.Rcheck/00install.out’ for details.
 ```
 
@@ -2193,14 +2144,9 @@ Bug reports: https://github.com/rOpenGov/pollstR/issues
 ## polywog (0.4-0)
 Maintainer: Brenton Kenkel <brenton.kenkel@gmail.com>
 
-0 errors | 1 warning  | 2 notes
+0 errors | 0 warnings | 2 notes
 
 ```
-checking whether package ‘polywog’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘miscTools’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/polywog.Rcheck/00install.out’ for details.
-
 checking dependencies in R code ... NOTE
 'library' or 'require' calls in package code:
   ‘lattice’ ‘rgl’
@@ -2235,17 +2181,15 @@ to your NAMESPACE file.
 Maintainer: Philippe Marchand <pmarchand@sesync.org>  
 Bug reports: https://github.com/SESYNC-ci/postGIStools/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘postGIStools’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/postGIStools.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## powerbydesign (1.0.3)
 Maintainer: Frank Papenmeier <frank.papenmeier@uni-tuebingen.de>
+
+0 errors | 0 warnings | 0 notes
+
+## predatory (1.1)
+Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 
 0 errors | 0 warnings | 0 notes
 
@@ -2290,7 +2234,7 @@ Consider adding
 to your NAMESPACE file.
 ```
 
-## profvis (0.3.2)
+## profvis (0.3.3)
 Maintainer: Winston Chang <winston@rstudio.com>
 
 0 errors | 0 warnings | 0 notes
@@ -2299,12 +2243,9 @@ Maintainer: Winston Chang <winston@rstudio.com>
 Maintainer: Kenton White <jkentonwhite@gmail.com>  
 Bug reports: https://github.com/johnmyleswhite/ProjectTemplate/issues
 
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 note 
 
 ```
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘RODBC’
-
 checking dependencies in R code ... NOTE
 JavaVM: requested Java version ((null)) not available. Using Java at "" instead.
 JavaVM: Failed to load JVM: /bundle/Libraries/libserver.dylib
@@ -2344,27 +2285,22 @@ to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
 contains 'methods').
 ```
 
-## ptstem (0.0.2)
+## ptstem (0.0.3)
 Maintainer: Daniel Falbel <dfalbel@gmail.com>
 
 0 errors | 0 warnings | 1 note 
 
 ```
 checking installed package size ... NOTE
-  installed size is  5.2Mb
+  installed size is  5.3Mb
   sub-directories of 1Mb or more:
     dict   5.1Mb
 ```
 
-## PubMedWordcloud (0.3.2)
+## PubMedWordcloud (0.3.3)
 Maintainer: Felix Yanhui Fan <nolanfyh@gmail.com>
 
-0 errors | 0 warnings | 1 note 
-
-```
-checking DESCRIPTION meta-information ... NOTE
-Malformed Description field: should contain one or more complete sentences.
-```
+0 errors | 0 warnings | 0 notes
 
 ## pubprint (0.2.1)
 Maintainer: Rudolf Siegel <rs.os@t-online.de>  
@@ -2380,34 +2316,10 @@ checking Rd cross-references ... NOTE
 Package unavailable to check Rd xrefs: ‘lm.beta’
 ```
 
-## pxR (0.40.0)
+## pxR (0.42.2)
 Maintainer: Carlos J. Gil Bellosta <cgb@datanalytics.com>
 
-0 errors | 0 warnings | 2 notes
-
-```
-checking S3 generic/method consistency ... NOTE
-Found the following apparent S3 methods exported but not registered:
-  as.px.array
-See section ‘Registering S3 methods’ in the ‘Writing R Extensions’
-manual.
-
-checking R code for possible problems ... NOTE
-as.px.array: no visible global function definition for ‘ftable’
-read.px : get.attributes: no visible global function definition for
-  ‘ldply’
-read.px: no visible global function definition for ‘str_locate_all’
-read.px: no visible global function definition for ‘str_sub’
-read.px: no visible global function definition for ‘str_length’
-read.px: no visible global function definition for ‘read.table’
-summary.px: no visible global function definition for ‘str’
-Undefined global functions or variables:
-  ftable ldply read.table str str_length str_locate_all str_sub
-Consider adding
-  importFrom("stats", "ftable")
-  importFrom("utils", "read.table", "str")
-to your NAMESPACE file.
-```
+0 errors | 0 warnings | 0 notes
 
 ## pxweb (0.6.3)
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>  
@@ -2415,16 +2327,10 @@ Bug reports: https://github.com/rOpenGov/pxweb/issues
 
 0 errors | 0 warnings | 0 notes
 
-## QCAtools (0.2.2)
+## QCAtools (0.2.3)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking whether package ‘QCAtools’ can be installed ... ERROR
-Installation failed.
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/QCAtools.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## qrcode (0.1.1)
 Maintainer: Victor Teh <victorteh@gmail.com>
@@ -2474,12 +2380,11 @@ to your NAMESPACE file.
 Maintainer: Vincent Nijs <radiant@rady.ucsd.edu>  
 Bug reports: https://github.com/radiant-rstats/radiant.model/issues
 
-0 errors | 1 warning  | 0 notes
+1 error  | 0 warnings | 0 notes
 
 ```
-checking whether package ‘radiant.model’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
+checking whether package ‘radiant.model’ can be installed ... ERROR
+Installation failed.
 See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/radiant.model.Rcheck/00install.out’ for details.
 ```
 
@@ -2507,7 +2412,7 @@ Maintainer: Graham Williams <Graham.Williams@togaware.com>
 ```
 checking package dependencies ... NOTE
 Packages suggested but not available for checking:
-  ‘graph’ ‘RBGL’ ‘rggobi’ ‘RODBC’ ‘pkgDepTools’ ‘Rgraphviz’
+  ‘graph’ ‘RBGL’ ‘pkgDepTools’ ‘Rgraphviz’
 
 checking installed package size ... NOTE
   installed size is  6.8Mb
@@ -2518,7 +2423,9 @@ checking installed package size ... NOTE
 
 checking dependencies in R code ... NOTE
 
-(R:11463): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+(R:24473): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+Missing or unexported objects:
+  ‘magrittr::extract2’ ‘magrittr::set_names’
 ```
 
 ## rAvis (0.1.4)
@@ -2696,7 +2603,13 @@ Bug reports: https://github.com/hadley/reshape/issues
 ## RevEcoR (0.99.3)
 Maintainer: Yang Cao <yiluheihei@gmail.com>
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking whether package ‘RevEcoR’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/RevEcoR.Rcheck/00install.out’ for details.
+```
 
 ## rex (1.1.1)
 Maintainer: Jim Hester <james.f.hester@gmail.com>  
@@ -2711,25 +2624,16 @@ Bug reports: https://github.com/andrie/rfordummies/issues
 0 errors | 0 warnings | 1 note 
 
 ```
-checking dependencies in R code ... NOTE
-JavaVM: requested Java version ((null)) not available. Using Java at "" instead.
-JavaVM: Failed to load JVM: /bundle/Libraries/libserver.dylib
-JavaVM FATAL: Failed to load the jvm library.
+checking package dependencies ... NOTE
+Package suggested but not available for checking: ‘XLConnect’
 ```
 
 ## RGENERATEPREC (1.0)
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
 
-0 errors | 1 warning  | 1 note 
+0 errors | 0 warnings | 1 note 
 
 ```
-checking whether package ‘RGENERATEPREC’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘chron’ was built under R version 3.3.2
-  Warning: package ‘date’ was built under R version 3.3.2
-  Warning: package ‘zoo’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/RGENERATEPREC.Rcheck/00install.out’ for details.
-
 checking R code for possible problems ... NOTE
 PrecipitationAmountModel: no visible global function definition for
   ‘str’
@@ -2779,14 +2683,9 @@ Maintainer: Marcelo Perlin <marceloperlin@gmail.com>
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/RNeXML/issues
 
-0 errors | 1 warning  | 1 note 
+0 errors | 0 warnings | 1 note 
 
 ```
-checking whether package ‘RNeXML’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ape’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/RNeXML.Rcheck/00install.out’ for details.
-
 checking package dependencies ... NOTE
 Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
 ```
@@ -2966,7 +2865,7 @@ The error most likely occurred in:
 > ### Aliases: meteofrance
 > 
 > ### ** Examples
-... 16 lines ...
+... 15 lines ...
 Map from URL : http://maps.googleapis.com/maps/api/staticmap?center=France&zoom=6&size=640x640&scale=2&maptype=terrain&language=en-EN&sensor=false
 Information from URL : http://maps.googleapis.com/maps/api/geocode/json?address=France&sensor=false
 > 
@@ -2996,36 +2895,34 @@ Bug reports: https://github.com/ropengov/rsunlight/issues
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>  
 Bug reports: https://github.com/poissonconsulting/rtide/issues
 
+1 error  | 0 warnings | 1 note 
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  31: mutate_(tbl_df(.data), .dots = dots)
+  32: mutate_.tbl_df(tbl_df(.data), .dots = dots) at /private/tmp/RtmplxOACw/devtools6c4449870bfa/hadley-dplyr-165b760/R/manip.r:150
+  33: mutate_impl(.data, dots) at /private/tmp/RtmplxOACw/devtools6c4449870bfa/hadley-dplyr-165b760/R/tbl-df.r:121
+  
+  testthat results ================================================================
+  OK: 24 SKIPPED: 0 FAILED: 4
+  1. Error: tide_height_data works (@test-tide-height-data.R#10) 
+  2. Error: tide_height_data predictions (@test-tide-height-data.R#17) 
+  3. Error: tide_height_data tz (@test-tide-height-data.R#49) 
+  4. Error: tide_height works (@test-tide-height.R#6) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+
+checking dependencies in R code ... NOTE
+Missing or unexported object: ‘magrittr::multiply_by’
+```
+
+## rUnemploymentData (1.1.0)
+Maintainer: Ari Lamstein <ari@lamsteinconsulting.com>
+
 0 errors | 0 warnings | 0 notes
-
-## rUnemploymentData (1.0.0)
-Maintainer: Ari Lamstein <arilamstein@gmail.com>  
-Bug reports: https://github.com/trulia/choroplethr/issues
-
-0 errors | 0 warnings | 1 note 
-
-```
-checking R code for possible problems ... NOTE
-animated_county_unemployment_choropleth: no visible global function
-  definition for ‘data’
-animated_state_unemployment_choropleth: no visible global function
-  definition for ‘data’
-build_county_df: no visible global function definition for ‘data’
-build_state_df: no visible global function definition for ‘data’
-county_unemployment_choropleth: no visible global function definition
-  for ‘data’
-get_county_unemployment_df: no visible global function definition for
-  ‘read.fwf’
-get_county_unemployment_df: no visible global function definition for
-  ‘data’
-state_unemployment_choropleth: no visible global function definition
-  for ‘data’
-Undefined global functions or variables:
-  data read.fwf
-Consider adding
-  importFrom("utils", "data", "read.fwf")
-to your NAMESPACE file.
-```
 
 ## rusda (1.0.8)
 Maintainer: Franz-Sebastian Krah <f.krah@mailbox.org>
@@ -3053,14 +2950,7 @@ Bug reports: https://github.com/jkeirstead/scholar/issues
 Maintainer: Daniel Marcelino <dmarcelino@live.com>  
 Bug reports: http://github.com/danielmarcelino/SciencesPo/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘SciencesPo’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/SciencesPo.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## scientoText (0.1)
 Maintainer: Ashraf Uddin <mdaakib18@gmail.com>
@@ -3105,30 +2995,47 @@ Maintainer: Satria Sajuthi <ssajuthi@wakehealth.edu>
 Maintainer: Oleg Sofrygin <oleg.sofrygin@gmail.com>  
 Bug reports: https://github.com/osofr/simcausal/issues
 
-0 errors | 1 warning  | 0 notes
+1 error  | 1 warning  | 0 notes
 
 ```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+  Number of errors: 1 
+  Number of failures: 0 
+  
+   
+  1 Test Suite : 
+  simcausal unit testing - 28 test functions, 1 error, 0 failures
+  ERROR in test.latent: Error in sapply(args, get_vs_graph_id) %>% unique() : 
+    could not find function "split_chain"
+  Error: 
+  
+  unit testing failed (#test failures: 0, #R errors: 1)
+  
+  Execution halted
+
 checking re-building of vignette outputs ... WARNING
 Error in re-building vignettes:
   ...
-node W2, order:2
+node Anode, order:2
+node Y, order:3
+existing node Y was modified
+...automatically assigning order attribute to some nodes...
+node W, order:1
+node Anode, order:2
+node Y, order:3
+... 8 lines ...
 node W3, order:3
 ...automatically assigning order attribute to some nodes...
 node W1, order:1
 node W2, order:2
 ...automatically assigning order attribute to some nodes...
 node W1, order:1
-... 8 lines ...
-
-The following object is masked _by_ '.GlobalEnv':
-
-    %+%
-
-Warning: package 'Hmisc' was built under R version 3.3.2
-Loading required package: lattice
-Quitting from lines 2415-2446 (simcausal_vignette.Rnw) 
+node W2, order:2
+Quitting from lines 1589-1592 (simcausal_vignette.Rnw) 
 Error: processing vignette 'simcausal_vignette.Rnw' failed with diagnostics:
-package 'survival' 2.39.5 was found, but >= 2.40.1 is required by 'Hmisc'
+could not find function "split_chain"
 Execution halted
 ```
 
@@ -3144,7 +3051,7 @@ Bug reports: https://github.com/pitakakariki/simr/issues
 
 0 errors | 0 warnings | 0 notes
 
-## sjmisc (2.2.0)
+## sjmisc (2.2.1)
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>  
 Bug reports: https://github.com/sjPlot/sjmisc/issues
 
@@ -3181,9 +3088,13 @@ Package which this enhances but not available for checking: ‘RecordLinkage’
 Maintainer: Alex M Chubaty <alexander.chubaty@canada.ca>  
 Bug reports: https://github.com/PredictiveEcology/SpaDES/issues
 
-0 errors | 0 warnings | 1 note 
+1 error  | 0 warnings | 1 note 
 
 ```
+checking whether package ‘SpaDES’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/SpaDES.Rcheck/00install.out’ for details.
+
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘fastshp’
 ```
@@ -3248,12 +3159,9 @@ Maintainer: Wilson Freitas <wilson.freitas@gmail.com>
 Maintainer: Jason Bryer <jason@bryer.org>  
 Bug reports: https://github.com/jbryer/sqlutils/issues
 
-0 errors | 0 warnings | 4 notes
+0 errors | 0 warnings | 3 notes
 
 ```
-checking package dependencies ... NOTE
-Package which this enhances but not available for checking: ‘RODBC’
-
 checking DESCRIPTION meta-information ... NOTE
 Malformed Title field: should not end in a period.
 
@@ -3400,18 +3308,44 @@ Installation failed.
 See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/stm.Rcheck/00install.out’ for details.
 ```
 
-## stplanr (0.1.7-2)
+## stormwindmodel (0.1.0)
+Maintainer: Brooke Anderson <brooke.anderson@colostate.edu>  
+Bug reports: https://github.com/geanders/stormwindmodel/issues
+
+0 errors | 1 warning  | 0 notes
+
+```
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+... 8 lines ...
+The following object is masked from 'package:dplyr':
+
+    combine
+
+Map from URL : http://maps.googleapis.com/maps/api/staticmap?center=georgia&zoom=5&size=640x640&scale=2&maptype=terrain&language=en-EN&sensor=false
+Information from URL : http://maps.googleapis.com/maps/api/geocode/json?address=georgia&sensor=false
+Quitting from lines 220-233 (Details.Rmd) 
+Error: processing vignette 'Details.Rmd' failed with diagnostics:
+GeomRasterAnn was built with an incompatible version of ggproto.
+Please reinstall the package that provides this extension.
+Execution halted
+```
+
+## stplanr (0.1.7-3)
 Maintainer: Robin Lovelace <rob00x@gmail.com>  
 Bug reports: https://github.com/ropensci/stplanr/issues
 
-0 errors | 2 warnings | 0 notes
+0 errors | 1 warning  | 0 notes
 
 ```
-checking whether package ‘stplanr’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/stplanr.Rcheck/00install.out’ for details.
-
 checking re-building of vignette outputs ... WARNING
 Error in re-building vignettes:
   ...
@@ -3420,63 +3354,23 @@ JavaVM: Failed to load JVM: /bundle/Libraries/libserver.dylib
 JavaVM FATAL: Failed to load the jvm library.
 Error in .jinit() : JNI_GetCreatedJavaVMs returned -1
 
-Quitting from lines 108-112 (introducing-stplanr.Rmd) 
+Quitting from lines 108-113 (introducing-stplanr.Rmd) 
 Error: processing vignette 'introducing-stplanr.Rmd' failed with diagnostics:
 OpenStreetMap package needed for this function to work. Please install it.
 Execution halted
 
 ```
 
-## stremr (0.2)
+## stremr (0.4)
 Maintainer: Oleg Sofrygin <oleg.sofrygin@gmail.com>  
 Bug reports: https://github.com/osofr/stremr/issues
 
-1 error  | 0 warnings | 1 note 
+0 errors | 0 warnings | 0 notes
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  
-   
-  1 Test Suite : 
-  stremr unit testing - 21 test functions, 2 errors, 0 failures
-  ERROR in test.h2oglm.IPW.MSM.10Kdata: Error in data.table::fwrite(dat.sVar, tmpf, turbo = TRUE, verbose = TRUE,  : 
-    unused argument (turbo = TRUE)
-  ERROR in test.h2o.ALL.ML.allestimators10Kdata: Error in data.table::fwrite(dat.sVar, tmpf, turbo = TRUE, verbose = TRUE,  : 
-    unused argument (turbo = TRUE)
-  Error: 
-  
-  unit testing failed (#test failures: 0, #R errors: 2)
-  
-  Execution halted
+## stringformattr (0.1.1)
+Maintainer: Alexander Hoyle <ahoyle@wesleyan.edu>
 
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘h2oEnsemble’
-```
-
-## stringformattr (0.1.0)
-Maintainer: Alexander <ahoyle@wesleyan.edu>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘stringformattr-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: format-string
-> ### Title: Pass variables into strings
-> ### Aliases: %f% format-string
-> 
-> ### ** Examples
-> 
-> # order matters when not using a named vector
-> 'the quick {} fox jumped {} the lazy {}' %f% c('brown', 'over', 'dog')
-Error: `replacement` must be a character vector
-Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## striprtf (0.2.2)
 Maintainer: Kota Mori <kmori05@gmail.com>  
@@ -3491,7 +3385,7 @@ Last 13 lines of output:
   
   
   testthat results ================================================================
-  OK: 4 SKIPPED: 0 FAILED: 6
+  OK: 4 SKIPPED: 1 FAILED: 6
   1. Failure: basic (@test-strip.R#13) 
   2. Failure: big (@test-strip.R#20) 
   3. Failure: libre (@test-strip.R#29) 
@@ -3599,11 +3493,30 @@ Consider adding
 to your NAMESPACE file.
 ```
 
-## taxize (0.8.0)
+## taxize (0.8.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/taxize/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+  3. Failure: taxon with no data returned from classification() works (@test-tax_name.R#54) 
+  `warnings` does not match "no hierarchy data found in ITIS".
+  Actual value: "Unknown column 'itisTerms'"
+  
+  
+  testthat results ================================================================
+  OK: 25 SKIPPED: 151 FAILED: 3
+  1. Failure: taxon with no data returned from classification() works (@test-tax_name.R#42) 
+  2. Failure: taxon with no data returned from classification() works (@test-tax_name.R#48) 
+  3. Failure: taxon with no data returned from classification() works (@test-tax_name.R#54) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
 
 ## TcGSA (0.10.1)
 Maintainer: Boris P. Hejblum <bhejblum@hsph.harvard.edu>  
@@ -3617,6 +3530,17 @@ Package required but not available: ‘multtest’
 
 See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
 manual.
+```
+
+## templates (0.1.0)
+Maintainer: Sebastian Warnholz <wahani@gmail.com>
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking whether package ‘templates’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/templates.Rcheck/00install.out’ for details.
 ```
 
 ## text2vec (0.4.0)
@@ -3646,20 +3570,92 @@ Bug reports: https://github.com/TommyJones/textmineR/issues
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>  
 Bug reports: https://github.com/ropensci/textreuse/issues
 
-0 errors | 0 warnings | 0 notes
+2 errors | 1 warning  | 0 notes
 
-## tidyquant (0.1.0)
+```
+checking examples ... ERROR
+Running examples in ‘textreuse-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: lsh_query
+> ### Title: Query a LSH cache for matches to a single document
+> ### Aliases: lsh_query
+> 
+> ### ** Examples
+> 
+> dir <- system.file("extdata/legal", package = "textreuse")
+> minhash <- minhash_generator(200, seed = 235)
+> corpus <- TextReuseCorpus(dir = dir,
++                           tokenizer = tokenize_ngrams, n = 5,
++                           minhash_func = minhash)
+> buckets <- lsh(corpus, bands = 50)
+> lsh_query(buckets, "ny1850-match")
+Error in "buckets"$NULL : 1 argument passed to '$' which requires 2
+Calls: lsh_query -> %>% -> withVisible -> pipeline
+Execution halted
+
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  1. Error: can be queried for a single document (@test-lsh.R#53) ----------------
+  1 argument passed to '$' which requires 2
+  1: lsh_query(buckets, "ca1851-match") at testthat/test-lsh.R:53
+  2: buckets %>% dplyr::filter_(~doc == id) %>% "buckets"$NULL
+  3: withVisible(pipeline(.)) at /private/tmp/Rtmp2pXcOy/devtoolsd8ec7d07be96/smbache-magrittr-3b09db4/R/pipe.R:13
+  4: pipeline(.)
+  
+  testthat results ================================================================
+  OK: 143 SKIPPED: 2 FAILED: 1
+  1. Error: can be queried for a single document (@test-lsh.R#53) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+
+checking re-building of vignette outputs ... WARNING
+Error in re-building vignettes:
+  ...
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Quitting from lines 75-79 (textreuse-minhash.Rmd) 
+Error: processing vignette 'textreuse-minhash.Rmd' failed with diagnostics:
+1 argument passed to '$' which requires 2
+Execution halted
+
+```
+
+## tidyquant (0.2.0)
 Maintainer: Matt Dancho <mdancho@gmail.com>  
 Bug reports: https://github.com/mdancho84/tidyquant/issues
 
-0 errors | 1 warning  | 0 notes
+1 error  | 0 warnings | 0 notes
 
 ```
-checking whether package ‘tidyquant’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘zoo’ was built under R version 3.3.2
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/tidyquant.Rcheck/00install.out’ for details.
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+         AAPL %>% tq_mutate_(ohlc_fun = "close", mutate_fun = mutate_fun)
+     }, paste0("fun = ", mutate_fun, " not a valid option.")) at testthat/test_tq_transform.R:118
+  2: paste0("fun = ", mutate_fun, " not a valid option.") at /Users/hadley/Documents/devtools/testthat/R/expect-output.R:147
+  
+  testthat results ================================================================
+  OK: 133 SKIPPED: 1 FAILED: 4
+  1. Error: Test error on invalid ohlc_fun, x and y inputs. (@test_tq_mutate.R#133) 
+  2. Error: Test error on invalid ohlc_fun, x and y inputs. (@test_tq_mutate.R#151) 
+  3. Error: Test error on invalid ohlc_fun, x and y inputs. (@test_tq_transform.R#100) 
+  4. Error: Test error on invalid ohlc_fun, x and y inputs. (@test_tq_transform.R#118) 
+  
+  Error: testthat unit tests failed
+  Execution halted
 ```
 
 ## tidytext (0.1.2)
@@ -3668,18 +3664,11 @@ Bug reports: http://github.com/juliasilge/tidytext/issues
 
 0 errors | 0 warnings | 0 notes
 
-## tidyverse (1.0.0)
+## tidyverse (1.1.0)
 Maintainer: Hadley Wickham <hadley@rstudio.com>  
-Bug reports: https://github.com/hadley/tidyverse/issues
+Bug reports: https://github.com/tidyverse/tidyverse/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘tidyverse’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/tidyverse.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## tigris (0.3.3)
 Maintainer: Kyle Walker <kyle.walker@tcu.edu>
@@ -3744,14 +3733,7 @@ to your NAMESPACE file.
 Maintainer: Bernd Bischl <bernd_bischl@gmx.net>  
 Bug reports: https://github.com/berndbischl/tspmeta/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘tspmeta’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/tspmeta.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## TSTr (1.2)
 Maintainer: Ricardo Merino <ricardo.merino.raldua@gmail.com>
@@ -3799,57 +3781,26 @@ Bug reports: https://github.com/dmpe/urlshorteneR/issues
 Maintainer: Jay Hesselberth <jay.hesselberth@gmail.com>  
 Bug reports: https://github.com/jayhesselberth/valr/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
 
-## vardpoor (0.8.0)
+```
+checking whether package ‘valr’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/valr.Rcheck/00install.out’ for details.
+```
+
+## vardpoor (0.8.2)
 Maintainer: Juris Breidaks <Juris.Breidaks@csb.gov.lv>  
 Bug reports: https://github.com/CSBLatvia/vardpoor/issues/
 
-1 error  | 1 warning  | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘vardpoor-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: vardchangannual
-> ### Title: Variance estimation for measures of annual net change for single
-> ###   and multistage stage cluster sampling designs
-> ### Aliases: vardchangannual
-> ### Keywords: vardchangannual
-... 27 lines ...
-> result <- vardchangannual(Y = "employed", H = "strata",
-+                           PSU = "PSU", w_final = "rb050",
-+                           ID_level1 = "db030", ID_level2 = "id_lv2",
-+                           Dom = NULL, Z = NULL, country = "country",
-+                           years = "year", subperiods = "quarter",
-+                           dataset = data, year1 = 2010, year2 = 2011,
-+                           percentratio = 100, confidence = 0.95)
-Error in gsd(employed, na.rm = TRUE) : 
-  negative length vectors are not allowed
-Calls: vardchangannual ... vardcros -> [ -> [.data.table -> eval -> eval -> gsd
-Execution halted
-
-checking whether package ‘vardpoor’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘data.table’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/vardpoor.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## VarfromPDB (2.1.11)
 Maintainer: Zongfu Cao <caozongfu@gmail.com>
 
-0 errors | 1 warning  | 0 notes
+0 errors | 0 warnings | 0 notes
 
-```
-checking whether package ‘VarfromPDB’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘XML’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/VarfromPDB.Rcheck/00install.out’ for details.
-```
-
-## vcfR (1.3.0)
+## vcfR (1.4.0)
 Maintainer: Brian J. Knaus <briank.lists@gmail.com>
 
 0 errors | 0 warnings | 0 notes
@@ -3857,16 +3808,9 @@ Maintainer: Brian J. Knaus <briank.lists@gmail.com>
 ## VDAP (2.0.0)
 Maintainer: Cody Moore <Jumper9400@gmail.com>
 
-0 errors | 1 warning  | 0 notes
+0 errors | 0 warnings | 0 notes
 
-```
-checking whether package ‘VDAP’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘ggplot2’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/VDAP.Rcheck/00install.out’ for details.
-```
-
-## vembedr (0.1.1)
+## vembedr (0.1.2)
 Maintainer: Ian Lyttle <ian.lyttle@schneider-electric.com>  
 Bug reports: https://github.com/ijlyttle/vembedr/issues
 
@@ -3876,14 +3820,9 @@ Bug reports: https://github.com/ijlyttle/vembedr/issues
 Maintainer: Andrew Sajo-Castelli <asajo@usb.ve>  
 Bug reports: https://github.com/talassio/vetools/issues
 
-0 errors | 1 warning  | 1 note 
+0 errors | 0 warnings | 1 note 
 
 ```
-checking whether package ‘vetools’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/vetools.Rcheck/00install.out’ for details.
-
 checking R code for possible problems ... NOTE
 complete.series: no visible global function definition for ‘kmeans’
 complete.series: no visible binding for global variable ‘sd’
@@ -3911,15 +3850,7 @@ contains 'methods').
 ## ViSiElse (1.2.0)
 Maintainer: Nastasia Fouret <nastasia.fouret@chu-reunion.fr>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘ViSiElse’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘chron’ was built under R version 3.3.2
-  Warning: package ‘colorspace’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/ViSiElse.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## vkR (0.1)
 Maintainer: Dmitriy Sorokin <dementiy@yandex.ru>  
@@ -3935,14 +3866,7 @@ Maintainer: Philip Reiss <phil.reiss@nyumc.org>
 ## vqtl (1.0)
 Maintainer: Robert Corty <rcorty@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘vqtl’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘statmod’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/vqtl.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## webchem (0.1.1.1)
 Maintainer: Eduard Szöcs <eduardszoecs@gmail.com>  
@@ -3956,6 +3880,12 @@ JavaVM: requested Java version ((null)) not available. Using Java at "" instead.
 JavaVM: Failed to load JVM: /bundle/Libraries/libserver.dylib
 JavaVM FATAL: Failed to load the jvm library.
 ```
+
+## wikilake (0.1)
+Maintainer: Joseph Stachelek <stachel2@msu.edu>  
+Bug reports: https://github.com/jsta/wikilake/issues
+
+0 errors | 0 warnings | 0 notes
 
 ## wikipediatrend (1.1.10)
 Maintainer: Peter Meissner <retep.meissner@gmail.com>  
@@ -3977,14 +3907,7 @@ Maintainer: Leo Joubert <joubert.leo@gmail.com>
 ## wingui (0.2)
 Maintainer: Andrew Redd <amredd@gmail.com>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘wingui’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘Rcpp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/wingui.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## wordbankr (0.2.0)
 Maintainer: Mika Braginsky <mika.br@gmail.com>  
@@ -3996,27 +3919,12 @@ Bug reports: http://github.com/langcog/wordbankr/issues
 Maintainer: He Zhao <Simon.Yansen.Zhao@gmail.com>  
 Bug reports: https://github.com/SimonYansenZhao/wsrf/issues
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘wsrf’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘Rcpp’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/wsrf.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## wux (2.2-1)
 Maintainer: Thomas Mendlik <thomas.mendlik@uni-graz.at>
 
-0 errors | 1 warning  | 0 notes
-
-```
-checking whether package ‘wux’ can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package ‘sp’ was built under R version 3.3.2
-  Warning: package ‘fields’ was built under R version 3.3.2
-See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks/wux.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## x.ent (1.1.6)
 Maintainer: Tien T. Phan <phantien84@gmail.com>  
