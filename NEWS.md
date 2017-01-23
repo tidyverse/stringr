@@ -1,30 +1,36 @@
 # stringr 1.1.0.9000
 
+## API changes
+
 * `str_match_all()` now returns NA if an optional group doesn't match 
   (previously it returned ""). This is more consistent with `str_match()`
   and other match failures (#134).
 
-* `str_order()` and `str_sort()` gain explicit `numeric` argument for sorting
-  mixed numbers and strings.
+## New features
 
 * In `str_replace()`, `replacement` can now be a function that is called once
   for each match and who's return value is used to replace the match.
 
-* `str_replace_all()` now throws an error if `replacement` is not a character
-  vector. If `replacement` is `NA_character_` it replaces the complete string 
-  with replaces with `NA` (#124).
-
 * New `str_which()` mimics `grep()` (#129).
 
-* All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
-  default to "en" (English) to ensure that the default is consistent across
-  platforms.
-  
 * A new vignette (`vignette("regular-expressions")`) describes the 
   details of the regular expressions supported by stringr.
   The main vignette (`vignette("stringr")`) has been updated to 
   give a high-level overview of the package.
 
+## Minor improvements and bug fixes
+
+* `str_order()` and `str_sort()` gain explicit `numeric` argument for sorting
+  mixed numbers and strings.
+
+* `str_replace_all()` now throws an error if `replacement` is not a character
+  vector. If `replacement` is `NA_character_` it replaces the complete string 
+  with replaces with `NA` (#124).
+
+* All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
+  default to "en" (English) to ensure that the default is consistent across
+  platforms.
+  
 # stringr 1.1.0
 
 * Add sample datasets: `fruit`, `words` and `sentences`.
