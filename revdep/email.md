@@ -1,29 +1,19 @@
 Hi,
 
-This is an automated email to let you know that {{{ my_package }}} will be submitted to CRAN on {{{ date }}} (today!).  To check for potential problems, I ran `R CMD check` on your package {{{your_package}}} ({{{your_version}}}). 
+This is an automated email to let you know that {{{ my_package }}} will be submitted to CRAN on {{{ date }}} (in two weeks). This release is mostly minor improvements and bug fixes, but there has been one API change in the interest of increasing internal API consistency:
 
-I found: {{{your_summary}}}.
+* `str_match_all()` now returns NA if an optional group doesn't match 
+  (previously it returned ""). This is more consistent with `str_match()`
+  and other match failures (#134).
 
-{{#you_have_problems}}
-{{{your_results}}}
+This only seems to affect R CMD check for two packages (docxtools, striprtf), but you may be relying on this behaviour in your code that is not tested. If you are using `str_match_all()` please update your code to be compatible with both released and development stringr by checking for both missing values and empty strings (i.e. `is.na(x) | x == "").
 
-If I got an ERROR because I couldn't install your package (or one of it's dependencies), my apologies. You'll have to run the checks yourself (unfortunately I don't have the time to diagnose installation failures as I have to run checks on hundreds of packages).
-
-Otherwise, please carefully look at the results, and let me know if I've introduced a bug in {{{ my_package }}}. If I have, I'd really appreciate a minimal reproducible example that uses only {{{ my_package }}} functions. That way I can find and fix the bug as quickly as possible.
-
-If it doesn't look like a bug in {{{ my_package }}}, please prepare an update for CRAN. Ideally you'll tweak your package so it works with both the released and development versions of dplyr. Otherwise, be prepared to submit your package to CRAN soon after I let you know that I've submitted.
-
-To get the development version of {{{ my_package }}} so you can run the checks yourself, you can run:
+To get the development version of {{{ my_package }}} to try it out yourself, you can run:
 
     # install.packages("devtools")
     devtools::install_github("{{my_github}}")
     
-To see what's changed visit <https://github.com/{{{my_github}}}/blob/master/NEWS.md>.
-
-{{/you_have_problems}}
-{{^you_have_problems}}
-It looks like everything is ok, so you don't need to take any action, but you might want to read the NEWS, <https://github.com/{{{my_github}}}/blob/master/NEWS.md>, to see what's changed.
-{{/you_have_problems}}
+You can see a complete list of changes at <https://github.com/{{{my_github}}}/blob/master/NEWS.md>.
 
 If you have any questions about this email, please feel free to respond directly.
 

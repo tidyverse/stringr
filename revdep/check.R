@@ -7,4 +7,4 @@ revdep_check(threads = 4, ignore = c("blkbox"))
 revdep_check_save_summary()
 revdep_check_print_problems()
 
-# revdep_email(date = "Aug 19", only_problems = TRUE, draft = FALSE)
+# revdep_email(date = "Feb 6", only_problems = FALSE, draft = FALSE)
