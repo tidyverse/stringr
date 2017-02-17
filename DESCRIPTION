@@ -1,5 +1,5 @@
 Package: stringr
-Version: 1.1.0.9000
+Version: 1.2.0
 Title: Simple, Consistent Wrappers for Common String Operations
 Description: A consistent, simple and easy to use set of wrappers around the
     fantastic 'stringi' package. All function and argument names (and positions)
@@ -27,5 +27,5 @@ VignetteBuilder: knitr
 URL: http://stringr.tidyverse.org, 
      https://github.com/tidyverse/stringr
 BugReports: https://github.com/tidyverse/stringr/issues
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.0.1
 LazyData: true
