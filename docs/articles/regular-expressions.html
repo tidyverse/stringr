@@ -50,6 +50,9 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Release notes</li>
     <li>
+      <a href="../articles/releases/stringr-1.2.0.html">Version 1.2.0</a>
+    </li>
+    <li>
       <a href="../articles/releases/stringr-1.1.0.html">Version 1.1.0</a>
     </li>
     <li>
@@ -281,19 +284,13 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pattern &lt;-<span class="st"> "(..)</span><span class="ch">\\</span><span class="st">1"</span>
 fruit %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(pattern)
-<span class="co">#&gt; [1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"     </span>
-<span class="co">#&gt; [6] "salal berry"</span>
+<span class="co">#&gt; [1] "banana"</span>
 
 fruit %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(pattern) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(pattern)
 <span class="co">#&gt;      [,1]   [,2]</span>
-<span class="co">#&gt; [1,] "anan" "an"</span>
-<span class="co">#&gt; [2,] "coco" "co"</span>
-<span class="co">#&gt; [3,] "cucu" "cu"</span>
-<span class="co">#&gt; [4,] "juju" "ju"</span>
-<span class="co">#&gt; [5,] "papa" "pa"</span>
-<span class="co">#&gt; [6,] "alal" "al"</span></code></pre></div>
+<span class="co">#&gt; [1,] "anan" "an"</span></code></pre></div>
 <p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)
 <span class="co">#&gt;      [,1]   [,2]</span>
