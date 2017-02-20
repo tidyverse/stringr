@@ -1,5 +1,5 @@
 Package: stringr
-Version: 1.2.0
+Version: 1.2.0.9000
 Title: Simple, Consistent Wrappers for Common String Operations
 Description: A consistent, simple and easy to use set of wrappers around the
     fantastic 'stringi' package. All function and argument names (and positions)
