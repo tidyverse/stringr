@@ -8,7 +8,7 @@ Description: A consistent, simple and easy to use set of wrappers around the
     the input of another.
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre", "cph")),
-    person("RStudio", role = "cph")
+    person("RStudio", role = c("cph", "fnd"))
     )
 License: GPL-2 | file LICENSE
 Depends:
