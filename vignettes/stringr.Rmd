@@ -20,14 +20,14 @@ There are four main families of functions in stringr:
 1.  Character manipulation: these functions allow you to manipulate the 
     individual characters inside the strings inside character vectors.
    
-1.  Whitespace tools to add, remove, and manipulation whitespace.
+1.  Whitespace tools to add, remove, and manipulate whitespace.
 
-1.  Locale sensitive operation whose operation will vary for locale
-    to locale
+1.  Locale sensitive operations whose operations will vary from locale
+    to locale.
     
 1.  Pattern matching functions. These recognise four engines of
     pattern description. The most common is regular expresssions, but there
-    are a three other tools.
+    are three other tools.
 
 ## Getting and setting individual characters
 
@@ -122,7 +122,7 @@ Three functions add, remove, or modify whitespace:
 
 ## Locale sensitive
 
-A handful of stringr are functions are locale-sensitive: they will perform differently in different regions of the world. These functions case transformation functions:
+A handful of stringr functions are locale-sensitive: they will perform differently in different regions of the world. These functions are case transformation functions:
 
 ```{r}
 x <- "I like horses."
@@ -145,7 +145,7 @@ str_sort(x)
 str_sort(x, locale = "lt")
 ```
 
-The locale always defaults to English to ensure that the default behaviour is identically across systems. Locales always include a two letter ISO-639-1 language code (like "en" for English or "zh" for Chinese), and optionally a ISO-3166 country code (like "en_UK" vs "en_US"). You can see a complete list of available locales by running `stringi::stri_locale_list()`.
+The locale always defaults to English to ensure that the default behaviour is identical across systems. Locales always include a two letter ISO-639-1 language code (like "en" for English or "zh" for Chinese), and optionally a ISO-3166 country code (like "en_UK" vs "en_US"). You can see a complete list of available locales by running `stringi::stri_locale_list()`.
 
 ## Pattern matching
 
@@ -269,7 +269,7 @@ str_detect(a1, coll(a2))
     
 #### Collation search
     
-`coll(x)` looks for a match to `x` using human-language **coll**ation rules, and is particularly important if you want to do case insensitive matching. Collation rules diffe around the world, so you'll also need to supply a `locale` parameter.
+`coll(x)` looks for a match to `x` using human-language **coll**ation rules, and is particularly important if you want to do case insensitive matching. Collation rules differ around the world, so you'll also need to supply a `locale` parameter.
 
 ```{r}
 i <- c("I", "İ", "i", "ı")
@@ -279,11 +279,11 @@ str_subset(i, coll("i", ignore_case = TRUE))
 str_subset(i, coll("i", ignore_case = TRUE, locale = "tr"))
 ```
 
-The downside of `coll()` is speed; because the rules for recognising which characters are the same are complicated, `coll()` is relatively slow compared to `regex()` and `fixed()`. Note that will both `fixed()` and `regex()` have `ignore_case` arguments, they perform a much simpler comparison than `coll()`.
+The downside of `coll()` is speed; because the rules for recognising which characters are the same are complicated, `coll()` is relatively slow compared to `regex()` and `fixed()`. Note that when both `fixed()` and `regex()` have `ignore_case` arguments, they perform a much simpler comparison than `coll()`.
 
 #### Boundary
 
-`boundary()` matches boundaries between characters, lines, sentences or words. It's most useful with `str_split()`, but can used with all pattern matching functions
+`boundary()` matches boundaries between characters, lines, sentences or words. It's most useful with `str_split()`, but can be used with all pattern matching functions:
 
 ```{r}
 x <- "This is a sentence."
