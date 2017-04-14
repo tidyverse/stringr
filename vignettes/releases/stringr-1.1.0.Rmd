@@ -5,6 +5,7 @@ date: "2016-08-24"
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(comment = "#>", collapse = T)
+library(stringr)
 ```
 
 This release is mostly bug fixes, but there are a couple of new features you might care out.

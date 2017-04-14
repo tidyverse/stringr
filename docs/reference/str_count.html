@@ -107,15 +107,19 @@
     <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
     
 
-    <pre><span class='fu'>str_count</span>(<span class='no'>string</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+    <pre class="usage"><span class='fu'>str_count</span>(<span class='no'>string</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>string</dt>
-      <dd><p>Input vector. Either a character vector, or something
-coercible to one.</p></dd>
-      <dt>pattern</dt>
-      <dd><p>Pattern to look for.</p>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p>Input vector. Either a character vector, or something
+coercible to one.</p></td>
+    </tr>
+    <tr>
+      <th>pattern</th>
+      <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
   in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
   <code><a href='modifiers.html'>regex</a>()</code>.</p>
@@ -125,8 +129,9 @@ coercible to one.</p></dd>
   respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
   <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
-  <code>boundary("character")</code>.</p></dd>
-    </dl>
+  <code>boundary("character")</code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

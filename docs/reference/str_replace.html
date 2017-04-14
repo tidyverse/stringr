@@ -107,17 +107,21 @@
     <p>Vectorised over <code>string</code>, <code>pattern</code> and <code>replacement</code>.</p>
     
 
-    <pre><span class='fu'>str_replace</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)
+    <pre class="usage"><span class='fu'>str_replace</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)
 
 <span class='fu'>str_replace_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>string</dt>
-      <dd><p>Input vector. Either a character vector, or something
-coercible to one.</p></dd>
-      <dt>pattern</dt>
-      <dd><p>Pattern to look for.</p>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p>Input vector. Either a character vector, or something
+coercible to one.</p></td>
+    </tr>
+    <tr>
+      <th>pattern</th>
+      <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
   in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
   <code><a href='modifiers.html'>regex</a>()</code>.</p>
@@ -127,9 +131,11 @@ coercible to one.</p></dd>
   respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
   <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
-  <code>boundary("character")</code>.</p></dd>
-      <dt>replacement</dt>
-      <dd><p>A character vector of replacements. Should be either
+  <code>boundary("character")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>replacement</th>
+      <td><p>A character vector of replacements. Should be either
   length one, or the same length as <code>string</code> or <code>pattern</code>.
   References of the form <code>\1</code>, <code>\2</code>, etc will be replaced with
   the contents of the respective matched group (created by <code>()</code>).</p>
@@ -139,8 +145,9 @@ coercible to one.</p></dd>
   <code>replacement</code>: it will be called once for each match and its
   return value will be used to replace the match.</p>
 <p>To replace the complete string with <code>NA</code>, use
-  <code>replacement = NA_character_</code>.</p></dd>
-    </dl>
+  <code>replacement = NA_character_</code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

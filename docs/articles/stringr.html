@@ -98,7 +98,7 @@
 </ol>
 <div id="getting-and-setting-individual-characters" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#getting-and-setting-individual-characters" class="anchor"> </a></body></html>Getting and setting individual characters</h2>
+<a href="#getting-and-setting-individual-characters" class="anchor"></a>Getting and setting individual characters</h2>
 <p>You can get the length of the string with <code><a href="../reference/str_length.html">str_length()</a></code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_length.html">str_length</a></span>(<span class="st">"abc"</span>)
 <span class="co">#&gt; [1] 3</span></code></pre></div>
@@ -123,7 +123,7 @@ x
 </div>
 <div id="whitespace" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#whitespace" class="anchor"> </a></body></html>Whitespace</h2>
+<a href="#whitespace" class="anchor"></a>Whitespace</h2>
 <p>Three functions add, remove, or modify whitespace:</p>
 <ol style="list-style-type: decimal">
 <li>
@@ -171,7 +171,7 @@ x %&gt;%<span class="st"> </span>
 </div>
 <div id="locale-sensitive" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#locale-sensitive" class="anchor"> </a></body></html>Locale sensitive</h2>
+<a href="#locale-sensitive" class="anchor"></a>Locale sensitive</h2>
 <p>A handful of stringr are functions are locale-sensitive: they will perform differently in different regions of the world. These functions case transformation functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "I like horses."</span>
 <span class="kw"><a href="../reference/case.html">str_to_upper</a></span>(x)
@@ -198,11 +198,11 @@ x %&gt;%<span class="st"> </span>
 </div>
 <div id="pattern-matching" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#pattern-matching" class="anchor"> </a></body></html>Pattern matching</h2>
+<a href="#pattern-matching" class="anchor"></a>Pattern matching</h2>
 <p>The vast majority of stringr functions work with patterns. These are parameterised by the task they perform and the types of patterns they match.</p>
 <div id="tasks" class="section level3">
 <h3 class="hasAnchor">
-<html><body><a href="#tasks" class="anchor"> </a></body></html>Tasks</h3>
+<a href="#tasks" class="anchor"></a>Tasks</h3>
 <p>Each pattern matching function has the same first two arguments, a character vector of <code>string</code>s to process and a single <code>pattern</code> to match. stringr provides pattern matching functions to <strong>detect</strong>, <strong>locate</strong>, <strong>extract</strong>, <strong>match</strong>, <strong>replace</strong>, and <strong>split</strong> strings. I’ll illustrate how they work with some strings and a regular expression designed to match (US) phone numbers:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">strings &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="st">"apple"</span>, 
@@ -330,7 +330,7 @@ phone &lt;-<span class="st"> "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</sp
 </div>
 <div id="engines" class="section level3">
 <h3 class="hasAnchor">
-<html><body><a href="#engines" class="anchor"> </a></body></html>Engines</h3>
+<a href="#engines" class="anchor"></a>Engines</h3>
 <p>There are four main engines that stringr can use to describe patterns:</p>
 <ul>
 <li><p>Regular expressions, the default, as shown above, and described in <code><a href="../articles/regular-expressions.html">vignette("regular-expressions")</a></code>.</p></li>
@@ -340,7 +340,7 @@ phone &lt;-<span class="st"> "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</sp
 </ul>
 <div id="fixed-matches" class="section level4">
 <h4 class="hasAnchor">
-<html><body><a href="#fixed-matches" class="anchor"> </a></body></html>Fixed matches</h4>
+<a href="#fixed-matches" class="anchor"></a>Fixed matches</h4>
 <p><code><a href="../reference/modifiers.html">fixed(x)</a></code> only matches the exact sequence of bytes specified by <code>x</code>. This is a very limited “pattern”, but the restriction can make matching much faster. Beware using <code><a href="../reference/modifiers.html">fixed()</a></code> with non-English data. It is problematic because there are often multiple ways of representing the same character. For example, there are two ways to define “á”: either as a single character or as an “a” plus an accent:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a1 &lt;-<span class="st"> "\u00e1"</span>
 a2 &lt;-<span class="st"> "a\u0301"</span>
@@ -356,7 +356,7 @@ a1 ==<span class="st"> </span>a2
 </div>
 <div id="collation-search" class="section level4">
 <h4 class="hasAnchor">
-<html><body><a href="#collation-search" class="anchor"> </a></body></html>Collation search</h4>
+<a href="#collation-search" class="anchor"></a>Collation search</h4>
 <p><code><a href="../reference/modifiers.html">coll(x)</a></code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules diffe around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"I"</span>, <span class="st">"İ"</span>, <span class="st">"i"</span>, <span class="st">"ı"</span>)
 i
@@ -370,7 +370,7 @@ i
 </div>
 <div id="boundary" class="section level4">
 <h4 class="hasAnchor">
-<html><body><a href="#boundary" class="anchor"> </a></body></html>Boundary</h4>
+<a href="#boundary" class="anchor"></a>Boundary</h4>
 <p><code><a href="../reference/modifiers.html">boundary()</a></code> matches boundaries between characters, lines, sentences or words. It’s most useful with <code><a href="../reference/str_split.html">str_split()</a></code>, but can used with all pattern matching functions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "This is a sentence."</span>
 <span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))

@@ -107,33 +107,46 @@
     <p>Order or sort a character vector.</p>
     
 
-    <pre><span class='fu'>str_order</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na_last</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>,
+    <pre class="usage"><span class='fu'>str_order</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na_last</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>,
   <span class='kw'>numeric</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>str_sort</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na_last</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>,
   <span class='kw'>numeric</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd><p>A character vector to sort.</p></dd>
-      <dt>decreasing</dt>
-      <dd><p>A boolean. If <code>FALSE</code>, the default, sorts from
-lowest to highest; if <code>TRUE</code> sorts from highest to lowest.</p></dd>
-      <dt>na_last</dt>
-      <dd><p>Where should <code>NA</code> go? <code>TRUE</code> at the end,
-<code>FALSE</code> at the beginning, <code>NA</code> dropped.</p></dd>
-      <dt>locale</dt>
-      <dd><p>In which locale should the sorting occur? Defaults to
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A character vector to sort.</p></td>
+    </tr>
+    <tr>
+      <th>decreasing</th>
+      <td><p>A boolean. If <code>FALSE</code>, the default, sorts from
+lowest to highest; if <code>TRUE</code> sorts from highest to lowest.</p></td>
+    </tr>
+    <tr>
+      <th>na_last</th>
+      <td><p>Where should <code>NA</code> go? <code>TRUE</code> at the end,
+<code>FALSE</code> at the beginning, <code>NA</code> dropped.</p></td>
+    </tr>
+    <tr>
+      <th>locale</th>
+      <td><p>In which locale should the sorting occur? Defaults to
 the English. This ensures that code behaves the same way across
-platforms.</p></dd>
-      <dt>numeric</dt>
-      <dd><p>If <code>TRUE</code>, will sort digits numerically, instead
-of as strings.</p></dd>
-      <dt>...</dt>
-      <dd><p>Other options used to control sorting order. Passed on to
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stri_opts_collator</a></code>.</p></dd>
-    </dl>
+platforms.</p></td>
+    </tr>
+    <tr>
+      <th>numeric</th>
+      <td><p>If <code>TRUE</code>, will sort digits numerically, instead
+of as strings.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other options used to control sorting order. Passed on to
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stri_opts_collator</a></code>.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

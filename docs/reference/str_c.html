@@ -113,24 +113,31 @@ non-<code>NULL</code> that string is inserted at the end of each row, and
 the entire matrix collapsed to a single string.</p>
     
 
-    <pre><span class='fu'>str_c</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>str_c</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>...</dt>
-      <dd><p>One or more character vectors. Zero length arguments
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>One or more character vectors. Zero length arguments
   are removed. Short arguments are recycled to the length of the
   longest.</p>
 <p>Like most other R functions, missing values are "infectious": whenever
   a missing value is combined with another string the result will always
   be missing. Use <code><a href='str_replace_na.html'>str_replace_na</a></code> to convert <code>NA</code> to
-  <code>"NA"</code></p></dd>
-      <dt>sep</dt>
-      <dd><p>String to insert between input vectors.</p></dd>
-      <dt>collapse</dt>
-      <dd><p>Optional string used to combine input vectors into single
-string.</p></dd>
-    </dl>
+  <code>"NA"</code></p></td>
+    </tr>
+    <tr>
+      <th>sep</th>
+      <td><p>String to insert between input vectors.</p></td>
+    </tr>
+    <tr>
+      <th>collapse</th>
+      <td><p>Optional string used to combine input vectors into single
+string.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

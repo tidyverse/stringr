@@ -93,13 +93,13 @@
 
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
-<a href="#overview" class="anchor"> </a>Overview</h2>
+<a href="#overview" class="anchor"></a>Overview</h2>
 <p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you’re not familiar with strings, the best place to start is the <a href="http://r4ds.had.co.nz/strings.html">chapter on strings</a> in R for Data Science.</p>
 <p>stringr is built on top of <a href="https://github.com/gagolews/stringi">stringi</a>, which uses the <a href="http://site.icu-project.org">ICU</a> C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you’ve mastered stringr, you should find stringi similarly easy to use.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"> </a>Installation</h2>
+<a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the released version from CRAN:</span>
 <span class="kw">install.packages</span>(<span class="st">"stringr"</span>)
 
@@ -109,7 +109,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"> </a>Usage</h2>
+<a href="#usage" class="anchor"></a>Usage</h2>
 <p>All functions in stringr start with <code>str_</code> and take a vector of strings as the first argument.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"why"</span>, <span class="st">"video"</span>, <span class="st">"cross"</span>, <span class="st">"extra"</span>, <span class="st">"deal"</span>, <span class="st">"authority"</span>)
 <span class="kw"><a href="reference/str_length.html">str_length</a></span>(x) 
@@ -195,7 +195,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 </div>
 <div id="compared-to-base-r" class="section level2">
 <h2 class="hasAnchor">
-<a href="#compared-to-base-r" class="anchor"> </a>Compared to base R</h2>
+<a href="#compared-to-base-r" class="anchor"></a>Compared to base R</h2>
 <p>R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R.</p>
 <ul>
 <li>
@@ -235,14 +235,12 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 <li>
 <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a> <br><small class="roles"> Copyright holder, funder </small> </li>
 </ul>
-<html><body>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/tidyverse/stringr"><img src="https://travis-ci.org/tidyverse/stringr.svg?branch=master" alt="Build Status"></a></li>
 <li><a href="https://codecov.io/github/tidyverse/stringr?branch=master"><img src="https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg" alt="Coverage Status"></a></li>
 <li><a href="https://cran.r-project.org/package=stringr"><img src="http://www.r-pkg.org/badges/version/stringr" alt="CRAN Status"></a></li>
 </ul>
-</body></html>
 </div>
 
 </div>

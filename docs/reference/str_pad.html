@@ -107,19 +107,28 @@
     <p>Vectorised over <code>string</code>, <code>width</code> and <code>pad</code>.</p>
     
 
-    <pre><span class='fu'>str_pad</span>(<span class='no'>string</span>, <span class='no'>width</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"both"</span>), <span class='kw'>pad</span> <span class='kw'>=</span> <span class='st'>" "</span>)</pre>
+    <pre class="usage"><span class='fu'>str_pad</span>(<span class='no'>string</span>, <span class='no'>width</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"both"</span>), <span class='kw'>pad</span> <span class='kw'>=</span> <span class='st'>" "</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>string</dt>
-      <dd><p>A character vector.</p></dd>
-      <dt>width</dt>
-      <dd><p>Minimum width of padded strings.</p></dd>
-      <dt>side</dt>
-      <dd><p>Side on which padding character is added (left, right or both).</p></dd>
-      <dt>pad</dt>
-      <dd><p>Single padding character (default is a space).</p></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p>A character vector.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>Minimum width of padded strings.</p></td>
+    </tr>
+    <tr>
+      <th>side</th>
+      <td><p>Side on which padding character is added (left, right or both).</p></td>
+    </tr>
+    <tr>
+      <th>pad</th>
+      <td><p>Single padding character (default is a space).</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

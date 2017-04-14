@@ -113,7 +113,7 @@
 </dl>
     
 
-    <pre><span class='fu'>fixed</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>fixed</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>coll</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>, <span class='no'>...</span>)
 
@@ -124,37 +124,56 @@
   <span class='kw'>skip_word_none</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>pattern</dt>
-      <dd><p>Pattern to modify behaviour.</p></dd>
-      <dt>ignore_case</dt>
-      <dd><p>Should case differences be ignored in the match?</p></dd>
-      <dt>locale</dt>
-      <dd><p>Locale to use for comparisons. See
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pattern</th>
+      <td><p>Pattern to modify behaviour.</p></td>
+    </tr>
+    <tr>
+      <th>ignore_case</th>
+      <td><p>Should case differences be ignored in the match?</p></td>
+    </tr>
+    <tr>
+      <th>locale</th>
+      <td><p>Locale to use for comparisons. See
 <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locale_list'>stri_locale_list</a>()</code> for all possible options.
 Defaults to "en" (English) to ensure that the default collation is
-consistent across platforms.</p></dd>
-      <dt>...</dt>
-      <dd><p>Other less frequently used arguments passed on to
+consistent across platforms.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other less frequently used arguments passed on to
 <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stri_opts_collator</a></code>,
 <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_regex'>stri_opts_regex</a></code>, or
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stri_opts_brkiter</a></code></p></dd>
-      <dt>multiline</dt>
-      <dd><p>If <code>TRUE</code>, <code>$</code> and <code>^</code> match
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stri_opts_brkiter</a></code></p></td>
+    </tr>
+    <tr>
+      <th>multiline</th>
+      <td><p>If <code>TRUE</code>, <code>$</code> and <code>^</code> match
 the beginning and end of each line. If <code>FALSE</code>, the
-default, only match the start and end of the input.</p></dd>
-      <dt>comments</dt>
-      <dd><p>If <code>TRUE</code>, white space and comments beginning with
-<code>#</code> are ignored. Escape literal spaces with <code>\ </code>.</p></dd>
-      <dt>dotall</dt>
-      <dd><p>If <code>TRUE</code>, <code>.</code> will also match line terminators.</p></dd>
-      <dt>type</dt>
-      <dd><p>Boundary type to detect.</p></dd>
-      <dt>skip_word_none</dt>
-      <dd><p>Ignore "words" that don't contain any characters
+default, only match the start and end of the input.</p></td>
+    </tr>
+    <tr>
+      <th>comments</th>
+      <td><p>If <code>TRUE</code>, white space and comments beginning with
+<code>#</code> are ignored. Escape literal spaces with <code>\ </code>.</p></td>
+    </tr>
+    <tr>
+      <th>dotall</th>
+      <td><p>If <code>TRUE</code>, <code>.</code> will also match line terminators.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>Boundary type to detect.</p></td>
+    </tr>
+    <tr>
+      <th>skip_word_none</th>
+      <td><p>Ignore "words" that don't contain any characters
 or numbers - i.e. punctuation. Default <code>NA</code> will skip such "words"
-only when splitting on <code>word</code> boundaries.</p></dd>
-    </dl>
+only when splitting on <code>word</code> boundaries.</p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

@@ -107,17 +107,21 @@
     <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
     
 
-    <pre><span class='fu'>str_split</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>str_split</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>str_split_fixed</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>string</dt>
-      <dd><p>Input vector. Either a character vector, or something
-coercible to one.</p></dd>
-      <dt>pattern</dt>
-      <dd><p>Pattern to look for.</p>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p>Input vector. Either a character vector, or something
+coercible to one.</p></td>
+    </tr>
+    <tr>
+      <th>pattern</th>
+      <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
   in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
   <code><a href='modifiers.html'>regex</a>()</code>.</p>
@@ -127,16 +131,21 @@ coercible to one.</p></dd>
   respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
   <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
-  <code>boundary("character")</code>.</p></dd>
-      <dt>n</dt>
-      <dd><p>number of pieces to return.  Default (Inf) uses all
+  <code>boundary("character")</code>.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>number of pieces to return.  Default (Inf) uses all
   possible split positions.</p>
 <p>For <code>str_split_fixed</code>, if n is greater than the number of pieces,
-  the result will be padded with empty strings.</p></dd>
-      <dt>simplify</dt>
-      <dd><p>If <code>FALSE</code>, the default, returns a list of character
-vectors. If <code>TRUE</code> returns a character matrix.</p></dd>
-    </dl>
+  the result will be padded with empty strings.</p></td>
+    </tr>
+    <tr>
+      <th>simplify</th>
+      <td><p>If <code>FALSE</code>, the default, returns a list of character
+vectors. If <code>TRUE</code> returns a character matrix.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 

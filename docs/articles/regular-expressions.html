@@ -98,7 +98,7 @@
 <p>You will need to use <code><a href="../reference/modifiers.html">regex()</a></code> explicitly if you want to override the default options, as you’ll see in examples below.</p>
 <div id="basic-matches" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#basic-matches" class="anchor"> </a></body></html>Basic matches</h2>
+<a href="#basic-matches" class="anchor"></a>Basic matches</h2>
 <p>The simplest patterns match exact strings:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"an"</span>)
@@ -120,7 +120,7 @@
 </div>
 <div id="escaping" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#escaping" class="anchor"> </a></body></html>Escaping</h2>
+<a href="#escaping" class="anchor"></a>Escaping</h2>
 <p>If “<code>.</code>” matches any character, how do you match a literal “<code>.</code>”? You need to use an “escape” to tell the regular expression you want to match it exactly, not use its special behaviour. Like strings, regexps use the backslash, <code>\</code>, to escape special behaviour. So to match an <code>.</code>, you need the regexp <code>\.</code>. Unfortunately this creates a problem. We use strings to represent regular expressions, and <code>\</code> is also used as an escape symbol in strings. So to create the regular expression <code>\.</code> we need the string <code>"\\."</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To create the regular expression, we need \\</span>
 dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."</span>
@@ -151,7 +151,7 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 </div>
 <div id="special-characters" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#special-characters" class="anchor"> </a></body></html>Special characters</h2>
+<a href="#special-characters" class="anchor"></a>Special characters</h2>
 <p>Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p>
 <ul>
 <li><p><code>\xhh</code>: 2 hex digits.</p></li>
@@ -175,7 +175,7 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 </div>
 <div id="matching-multiple-characters" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#matching-multiple-characters" class="anchor"> </a></body></html>Matching multiple characters</h2>
+<a href="#matching-multiple-characters" class="anchor"></a>Matching multiple characters</h2>
 <p>There are a number of patterns that match more than one character. You’ve already seen <code>.</code>, which matches any character (except a newline). A closely related operator is <code>\X</code>, which matches a <strong>grapheme cluster</strong>, a set of individual elements that form a single symbol. For example, one way of representing “á” is as the letter “a” plus an accent: <code>.</code> will match the component “a”, while <code>\X</code> will match the complete symbol:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "a\u0301"</span>
 <span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"."</span>)
@@ -266,7 +266,7 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 </div>
 <div id="alternation" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#alternation" class="anchor"> </a></body></html>Alternation</h2>
+<a href="#alternation" class="anchor"></a>Alternation</h2>
 <p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span>), <span class="st">"abc|def"</span>)
 <span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
@@ -274,7 +274,7 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 </div>
 <div id="grouping" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#grouping" class="anchor"> </a></body></html>Grouping</h2>
+<a href="#grouping" class="anchor"></a>Grouping</h2>
 <p>You can use parentheses to override the default precedence rules:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gre|ay"</span>)
 <span class="co">#&gt; [1] "gre" "ay"</span>
@@ -284,13 +284,19 @@ starts_with &lt;-<span class="st"> "a.b"</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pattern &lt;-<span class="st"> "(..)</span><span class="ch">\\</span><span class="st">1"</span>
 fruit %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(pattern)
-<span class="co">#&gt; [1] "banana"</span>
+<span class="co">#&gt; [1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"     </span>
+<span class="co">#&gt; [6] "salal berry"</span>
 
 fruit %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(pattern) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(pattern)
 <span class="co">#&gt;      [,1]   [,2]</span>
-<span class="co">#&gt; [1,] "anan" "an"</span></code></pre></div>
+<span class="co">#&gt; [1,] "anan" "an"</span>
+<span class="co">#&gt; [2,] "coco" "co"</span>
+<span class="co">#&gt; [3,] "cucu" "cu"</span>
+<span class="co">#&gt; [4,] "juju" "ju"</span>
+<span class="co">#&gt; [5,] "papa" "pa"</span>
+<span class="co">#&gt; [6,] "alal" "al"</span></code></pre></div>
 <p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)
 <span class="co">#&gt;      [,1]   [,2]</span>
@@ -304,7 +310,7 @@ fruit %&gt;%<span class="st"> </span>
 </div>
 <div id="anchors" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#anchors" class="anchor"> </a></body></html>Anchors</h2>
+<a href="#anchors" class="anchor"></a>Anchors</h2>
 <p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
 <ul>
 <li>
@@ -336,7 +342,7 @@ fruit %&gt;%<span class="st"> </span>
 </div>
 <div id="repetition" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#repetition" class="anchor"> </a></body></html>Repetition</h2>
+<a href="#repetition" class="anchor"></a>Repetition</h2>
 <p>You can control how many times a pattern matches with the repetition operators:</p>
 <ul>
 <li>
@@ -410,7 +416,7 @@ fruit %&gt;%<span class="st"> </span>
 </div>
 <div id="look-arounds" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#look-arounds" class="anchor"> </a></body></html>Look arounds</h2>
+<a href="#look-arounds" class="anchor"></a>Look arounds</h2>
 <p>These assertions look ahead or behind the current match without “consuming” any characters (i.e. changing the input position).</p>
 <ul>
 <li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the current input.</p></li>
@@ -431,7 +437,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"100"
 </div>
 <div id="comments" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#comments" class="anchor"> </a></body></html>Comments</h2>
+<a href="#comments" class="anchor"></a>Comments</h2>
 <p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span>)
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>

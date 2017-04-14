@@ -5,6 +5,7 @@ date: "2015-05-05"
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(comment = "#>", collapse = T)
+library(stringr)
 ```
 
 I'm very excited to announce the 1.0.0 release of the stringr package. If you haven't heard of stringr before, it makes string manipulation easier by:

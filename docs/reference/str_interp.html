@@ -114,16 +114,21 @@ can be evaluated in the given environment, and <code>format</code> is a format
 specification valid for use with <code>sprintf</code>.</p>
     
 
-    <pre><span class='fu'>str_interp</span>(<span class='no'>string</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
+    <pre class="usage"><span class='fu'>str_interp</span>(<span class='no'>string</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>string</dt>
-      <dd><p>A template character string. This function is not vectorised:
-a character vector will be collapsed into a single string.</p></dd>
-      <dt>env</dt>
-      <dd><p>The environment in which to evaluate the expressions.</p></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p>A template character string. This function is not vectorised:
+a character vector will be collapsed into a single string.</p></td>
+    </tr>
+    <tr>
+      <th>env</th>
+      <td><p>The environment in which to evaluate the expressions.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
