@@ -92,9 +92,9 @@
 <p>There are four main families of functions in stringr:</p>
 <ol style="list-style-type: decimal">
 <li><p>Character manipulation: these functions allow you to manipulate the individual characters inside the strings inside character vectors.</p></li>
-<li><p>Whitespace tools to add, remove, and manipulation whitespace.</p></li>
-<li><p>Locale sensitive operation whose operation will vary for locale to locale</p></li>
-<li><p>Pattern matching functions. These recognise four engines of pattern description. The most common is regular expresssions, but there are a three other tools.</p></li>
+<li><p>Whitespace tools to add, remove, and manipulate whitespace.</p></li>
+<li><p>Locale sensitive operations whose operations will vary from locale to locale.</p></li>
+<li><p>Pattern matching functions. These recognise four engines of pattern description. The most common is regular expresssions, but there are three other tools.</p></li>
 </ol>
 <div id="getting-and-setting-individual-characters" class="section level2">
 <h2 class="hasAnchor">
@@ -172,7 +172,7 @@ x %&gt;%<span class="st"> </span>
 <div id="locale-sensitive" class="section level2">
 <h2 class="hasAnchor">
 <a href="#locale-sensitive" class="anchor"></a>Locale sensitive</h2>
-<p>A handful of stringr are functions are locale-sensitive: they will perform differently in different regions of the world. These functions case transformation functions:</p>
+<p>A handful of stringr functions are locale-sensitive: they will perform differently in different regions of the world. These functions are case transformation functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "I like horses."</span>
 <span class="kw"><a href="../reference/case.html">str_to_upper</a></span>(x)
 <span class="co">#&gt; [1] "I LIKE HORSES."</span>
@@ -194,7 +194,7 @@ x %&gt;%<span class="st"> </span>
 <span class="co"># In Lithuanian, y comes between i and k</span>
 <span class="kw"><a href="../reference/str_order.html">str_sort</a></span>(x, <span class="dt">locale =</span> <span class="st">"lt"</span>)
 <span class="co">#&gt; [1] "i" "y" "k"</span></code></pre></div>
-<p>The locale always defaults to English to ensure that the default behaviour is identically across systems. Locales always include a two letter ISO-639-1 language code (like “en” for English or “zh” for Chinese), and optionally a ISO-3166 country code (like “en_UK” vs “en_US”). You can see a complete list of available locales by running <code>stringi::stri_locale_list()</code>.</p>
+<p>The locale always defaults to English to ensure that the default behaviour is identical across systems. Locales always include a two letter ISO-639-1 language code (like “en” for English or “zh” for Chinese), and optionally a ISO-3166 country code (like “en_UK” vs “en_US”). You can see a complete list of available locales by running <code>stringi::stri_locale_list()</code>.</p>
 </div>
 <div id="pattern-matching" class="section level2">
 <h2 class="hasAnchor">
@@ -357,7 +357,7 @@ a1 ==<span class="st"> </span>a2
 <div id="collation-search" class="section level4">
 <h4 class="hasAnchor">
 <a href="#collation-search" class="anchor"></a>Collation search</h4>
-<p><code><a href="../reference/modifiers.html">coll(x)</a></code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules diffe around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
+<p><code><a href="../reference/modifiers.html">coll(x)</a></code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules differ around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"I"</span>, <span class="st">"İ"</span>, <span class="st">"i"</span>, <span class="st">"ı"</span>)
 i
 <span class="co">#&gt; [1] "I" "İ" "i" "ı"</span>
@@ -366,12 +366,12 @@ i
 <span class="co">#&gt; [1] "I" "i"</span>
 <span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(i, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(<span class="st">"i"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>, <span class="dt">locale =</span> <span class="st">"tr"</span>))
 <span class="co">#&gt; [1] "İ" "i"</span></code></pre></div>
-<p>The downside of <code><a href="../reference/modifiers.html">coll()</a></code> is speed; because the rules for recognising which characters are the same are complicated, <code><a href="../reference/modifiers.html">coll()</a></code> is relatively slow compared to <code><a href="../reference/modifiers.html">regex()</a></code> and <code><a href="../reference/modifiers.html">fixed()</a></code>. Note that will both <code><a href="../reference/modifiers.html">fixed()</a></code> and <code><a href="../reference/modifiers.html">regex()</a></code> have <code>ignore_case</code> arguments, they perform a much simpler comparison than <code><a href="../reference/modifiers.html">coll()</a></code>.</p>
+<p>The downside of <code><a href="../reference/modifiers.html">coll()</a></code> is speed; because the rules for recognising which characters are the same are complicated, <code><a href="../reference/modifiers.html">coll()</a></code> is relatively slow compared to <code><a href="../reference/modifiers.html">regex()</a></code> and <code><a href="../reference/modifiers.html">fixed()</a></code>. Note that when both <code><a href="../reference/modifiers.html">fixed()</a></code> and <code><a href="../reference/modifiers.html">regex()</a></code> have <code>ignore_case</code> arguments, they perform a much simpler comparison than <code><a href="../reference/modifiers.html">coll()</a></code>.</p>
 </div>
 <div id="boundary" class="section level4">
 <h4 class="hasAnchor">
 <a href="#boundary" class="anchor"></a>Boundary</h4>
-<p><code><a href="../reference/modifiers.html">boundary()</a></code> matches boundaries between characters, lines, sentences or words. It’s most useful with <code><a href="../reference/str_split.html">str_split()</a></code>, but can used with all pattern matching functions</p>
+<p><code><a href="../reference/modifiers.html">boundary()</a></code> matches boundaries between characters, lines, sentences or words. It’s most useful with <code><a href="../reference/str_split.html">str_split()</a></code>, but can be used with all pattern matching functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "This is a sentence."</span>
 <span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))
 <span class="co">#&gt; [[1]]</span>
