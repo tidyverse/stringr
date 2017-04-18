@@ -11,7 +11,7 @@
 ## New features
 
 * In `str_replace()`, `replacement` can now be a function that is called once
-  for each match and who's return value is used to replace the match.
+  for each match and whose return value is used to replace the match.
 
 * New `str_which()` mimics `grep()` (#129).
 
