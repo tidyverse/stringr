@@ -64,6 +64,9 @@
   
 * `word()` returns `NA` for indexes greater than number of words (#112).
 
+* `boundary()` has a different default argument which works for splitting on
+   sentence boundaries (#58, @lmullen).
+
 # stringr 1.0.0
 
 * stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
