@@ -55,6 +55,12 @@ str_interp(c(
   "This particular line is so long that it is hard to write ",
   "without breaking the ${max_char}-char barrier!"
 ))
+
+# Interpolated expressions are cycled over:
+student <- "Bob"
+test <- c(1, 2)
+grade <- c(1.3, 2.7)
+str_interp("${student} got a ${grade} in test ${test}.")
 }
 \author{
 Stefan Milton Bache
