@@ -45,9 +45,7 @@ NULL
 #' @export
 #' @rdname modifiers
 fixed <- function(pattern, ignore_case = FALSE) {
-  if (!is_bare_character(pattern)) {
-    stop("Can only modify plain character vectors.", call. = FALSE)
-  }
+  pattern <- coerce_to_bare_character(pattern)
 
   options <- stri_opts_fixed(case_insensitive = ignore_case)
 
@@ -69,9 +67,7 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   \code{\link[stringi]{stri_opts_regex}}, or
 #'   \code{\link[stringi]{stri_opts_brkiter}}
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
-  if (!is_bare_character(pattern)) {
-    stop("Can only modify plain character vectors.", call. = FALSE)
-  }
+  pattern <- coerce_to_bare_character(pattern)
 
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
@@ -96,9 +92,7 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
 #' @param dotall If \code{TRUE}, \code{.} will also match line terminators.
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
-  if (!is_bare_character(pattern)) {
-    stop("Can only modify plain character vectors.", call. = FALSE)
-  }
+  pattern <- coerce_to_bare_character(pattern)
 
   options <- stri_opts_regex(
     case_insensitive = ignore_case,
@@ -179,6 +173,15 @@ perl <- function(pattern) {
   regex(pattern)
 }
 
-is_bare_character <- function(x) {
-  is.character(x) && !is.object(x)
+coerce_to_bare_character <- function(x) {
+  if(is.character(x) && !is.object(x)) {
+    # All OK!
+    return(x)
+  }
+  xname <- deparse(substitute(x))
+  warning(
+    sprintf("Coercing %s to be a plain character vector.", xname),
+    call. = FALSE
+  )
+  unclass(as.character(x))
 }
