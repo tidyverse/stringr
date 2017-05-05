@@ -69,14 +69,15 @@ str_interp <- function(string, env = parent.frame()) {
     # check that lengths are valid
     lengths <- sapply(replacements, length)
     max_length <- max(lengths)
-    if (!all(lengths %in% c(1, max_length))) {
+    if (!all(lengths == 1L | lengths == max_length)) {
       stop("Not all expressions in interpolated strings ",
            "have same length or length 1.")
     }
 
     # extend length 1 vectors
-    replacements <- lapply(replacements,
-                           function(x) rep(x, length.out = max_length))
+    to_recycle <- lengths == 1L
+    replacements[to_recycle] <- lapply(replacements[to_recycle],
+                                       function(x) rep.int(x, max_length))
 
     n_matches <- length(matches$matches)
     replacements <- matrix(unlist(replacements), ncol = n_matches)
