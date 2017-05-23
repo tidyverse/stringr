@@ -79,6 +79,7 @@ str_interp <- function(string, env = parent.frame()) {
     replacements[to_recycle] <- lapply(replacements[to_recycle],
                                        function(x) rep.int(x, max_length))
 
+    # do the replacements
     n_matches <- length(matches$matches)
     replacements <- matrix(unlist(replacements), ncol = n_matches)
 
