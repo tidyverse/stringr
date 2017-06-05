@@ -360,7 +360,7 @@ str_detect("ABC", "(?>A|.B)C")
 str_detect("ABC", "(?:A|.B)C")
 ```
 
-The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match suceeds because it matches A, but then C doesn't match, so it back-tracks and tries B instead.
+The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match succeeds because it matches A, but then C doesn't match, so it back-tracks and tries B instead.
 
 ## Look arounds
 
@@ -370,7 +370,7 @@ These assertions look ahead or behind the current match without "consuming" any 
   current input.
   
 * `(?!...)`: negative look-ahead assertion. Matches if `...` __does not__ 
-  matche at the current input.
+  match at the current input.
   
 * `(?<=...)`: positive look-behind assertion. Matches if `...` matches text 
   preceding the current position, with the last character of the match 

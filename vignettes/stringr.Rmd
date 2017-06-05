@@ -26,7 +26,7 @@ There are four main families of functions in stringr:
     to locale.
     
 1.  Pattern matching functions. These recognise four engines of
-    pattern description. The most common is regular expresssions, but there
+    pattern description. The most common is regular expressions, but there
     are three other tools.
 
 ## Getting and setting individual characters
@@ -243,7 +243,7 @@ There are four main engines that stringr can use to describe patterns:
   
 * Fixed bytewise matching, with `fixed()`.
 
-* Locale-sensitve character matching, with `coll()`
+* Locale-sensitive character matching, with `coll()`
 
 * Text boundary analysis with `boundary()`.
 
