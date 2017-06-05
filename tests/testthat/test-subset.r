@@ -8,3 +8,9 @@ test_that("basic subsetting for fixed patterns works", {
   )
 })
 
+test_that("str_which is equivalent to grep", {
+  expect_equal(
+    str_which(head(letters), "[aeiou]"),
+    grep("[aeiou]", head(letters))
+  )
+})

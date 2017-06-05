@@ -64,3 +64,7 @@ test_that("str_interp fails when encountering nested placeholders", {
     "Invalid template string for interpolation"
   )
 })
+
+test_that("str_interp fails when input is not a character string", {
+  expect_error(str_interp(3L))
+})

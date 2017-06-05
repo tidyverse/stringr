@@ -63,3 +63,8 @@ test_that("multiple match works", {
 
   expect_equal(multi_match[[1]], single_matches)
 })
+
+test_that("match and match_all fail when pattern is not a regex", {
+  expect_error(str_match(phones, fixed("3")))
+  expect_error(str_match_all(phones, coll("9")))
+})
