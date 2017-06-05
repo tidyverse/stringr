@@ -35,11 +35,16 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
 
   switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    bound = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify, opts_fixed = opts(pattern)),
-    regex = stri_split_regex(string, pattern, n = n, simplify = simplify, opts_regex = opts(pattern)),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
+    empty = stri_split_boundaries(string, n = n, simplify = simplify,
+                                  opts_brkiter = opts(pattern)),
+    bound = stri_split_boundaries(string, n = n, simplify = simplify,
+                                  opts_brkiter = opts(pattern)),
+    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify,
+                             opts_fixed = opts(pattern)),
+    regex = stri_split_regex(string, pattern, n = n, simplify = simplify,
+                             opts_regex = opts(pattern)),
+    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify,
+                            opts_collator = opts(pattern))
   )
 }
 

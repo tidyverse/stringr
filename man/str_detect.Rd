@@ -44,6 +44,6 @@ str_detect("aecfg", letters)
 }
 \seealso{
 \code{\link[stringi]{stri_detect}} which this function wraps,
-  \code{\link{str_subset}} for a convenient wrapper around 
+  \code{\link{str_subset}} for a convenient wrapper around
   \code{x[str_detect(x, pattern)]}
 }

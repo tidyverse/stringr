@@ -20,7 +20,7 @@
 #'   \code{boundary("character")}.
 #' @return A logical vector.
 #' @seealso \code{\link[stringi]{stri_detect}} which this function wraps,
-#'   \code{\link{str_subset}} for a convenient wrapper around 
+#'   \code{\link{str_subset}} for a convenient wrapper around
 #'   \code{x[str_detect(x, pattern)]}
 #' @export
 #' @examples
@@ -42,4 +42,3 @@ str_detect <- function(string, pattern) {
     regex = stri_detect_regex(string, pattern, opts_regex = opts(pattern))
   )
 }
-

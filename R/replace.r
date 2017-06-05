@@ -72,8 +72,8 @@ str_replace <- function(string, pattern, replacement) {
       opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
       opts_collator = opts(pattern)),
-    regex = stri_replace_first_regex(string, pattern, fix_replacement(replacement),
-      opts_regex = opts(pattern))
+    regex = stri_replace_first_regex(string, pattern,
+      fix_replacement(replacement), opts_regex = opts(pattern))
   )
 }
 
@@ -100,8 +100,9 @@ str_replace_all <- function(string, pattern, replacement) {
       vectorize_all = vec, opts_fixed = opts(pattern)),
     coll  = stri_replace_all_coll(string, pattern, replacement,
       vectorize_all = vec, opts_collator = opts(pattern)),
-    regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
-      vectorize_all = vec, opts_regex = opts(pattern))
+    regex = stri_replace_all_regex(string, pattern,
+      fix_replacement(replacement), vectorize_all = vec,
+      opts_regex = opts(pattern))
   )
 }
 
@@ -177,7 +178,8 @@ str_transform_all <- function(string, pattern, replacement) {
   for (i in seq_along(string)) {
     for (j in rev(seq_len(nrow(locs[[i]])))) {
       loc <- locs[[i]]
-      str_sub(string[[i]], loc[j, 1], loc[j, 2]) <- replacement(str_sub(string[[i]], loc[j, 1], loc[j, 2]))
+      str_sub(string[[i]], loc[j, 1], loc[j, 2]) <-
+        replacement(str_sub(string[[i]], loc[j, 1], loc[j, 2]))
     }
   }
 

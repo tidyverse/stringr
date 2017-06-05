@@ -24,7 +24,8 @@
 #'
 #' # Longer strings are returned unchanged
 #' str_pad("hadley", 3)
-str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ") {
+str_pad <- function(string, width, side = c("left", "right", "both"),
+                    pad = " ") {
   side <- match.arg(side)
 
   switch(side,
