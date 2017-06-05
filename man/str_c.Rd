@@ -31,7 +31,7 @@ If \code{collapse = NULL} (the default) a character vector with
 To understand how \code{str_c} works, you need to imagine that you are
 building up a matrix of strings. Each input argument forms a column, and
 is expanded to the length of the longest argument, using the usual
-recyling rules.  The \code{sep} string is inserted between each column. If
+recycling rules.  The \code{sep} string is inserted between each column. If
 collapse is \code{NULL} each row is collapsed into a single string. If
 non-\code{NULL} that string is inserted at the end of each row, and
 the entire matrix collapsed to a single string.

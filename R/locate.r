@@ -6,7 +6,7 @@
 #'
 #' @inheritParams str_detect
 #' @return For \code{str_locate}, an integer matrix. First column gives start
-#'   postion of match, and second column gives end position. For
+#'   position of match, and second column gives end position. For
 #'   \code{str_locate_all} a list of integer matrices.
 #' @seealso
 #'   \code{\link{str_extract}} for a convenient way of extracting matches,
