@@ -17,8 +17,8 @@ test_that("side argument restricts trimming", {
   expect_equal(str_trim(" abc ", "right"), " abc")
 })
 
-test_that("trimming all removes spaces tabs", {
-  expect_equal(str_trim_all("ab\t\tc\t"),   "ab c")
-  expect_equal(str_trim_all("\ta  bc"),   "a bc")
-  expect_equal(str_trim_all("\ta\t bc\t"), "a bc")
+test_that("squishing all removes all excess spaces and tabs", {
+  expect_equal(str_squish("ab\t\tc\t"),   "ab c")
+  expect_equal(str_squish("\ta  bc"),   "a bc")
+  expect_equal(str_squish("\ta\t bc\t"), "a bc")
 })
