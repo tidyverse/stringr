@@ -12,11 +12,11 @@
 #' str_remove(fruits, "[aeiou]")
 #' str_remove_all(fruits, "[aeiou]")
 str_remove <- function(string, pattern) {
-	str_replace(string, pattern, "")
+  str_replace(string, pattern, "")
 }
 
 #' @export
 #' @rdname str_remove
 str_remove_all <- function(string, pattern) {
-	str_replace_all(string, pattern, "")
+  str_replace_all(string, pattern, "")
 }
