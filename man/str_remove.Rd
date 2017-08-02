@@ -2,9 +2,12 @@
 % Please edit documentation in R/remove.r
 \name{str_remove}
 \alias{str_remove}
+\alias{str_remove_all}
 \title{Remove matched patterns in a string.}
 \usage{
 str_remove(string, pattern)
+
+str_remove_all(string, pattern)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something

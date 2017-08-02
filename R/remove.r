@@ -16,7 +16,7 @@ str_remove <- function(string, pattern) {
 }
 
 #' @export
-#' @rdname str_replace
+#' @rdname str_remove
 str_remove_all <- function(string, pattern) {
 	str_replace_all(string, pattern, "")
 }
