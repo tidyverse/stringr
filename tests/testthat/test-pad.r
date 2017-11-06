@@ -18,3 +18,8 @@ test_that("directions work for simple case", {
   expect_equal(pad("left"),   "       had")
   expect_equal(pad("both"),   "   had    ")
 })
+
+test_that("padding based of length works", {
+  expect_identical(str_pad("\u4e2d", width = 6, side = "both"),                    "  \u4e2d  ")
+  expect_identical(str_pad("\u4e2d", width = 5, side = "both", use_length = TRUE), "  \u4e2d  ")
+})
