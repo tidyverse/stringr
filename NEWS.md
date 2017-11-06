@@ -1,5 +1,8 @@
 # stringr 1.2.0.9000
 
+* `str_pad()` gains `use_length` argument to control whether to use the total code
+  point width or the number of code points as "width" of a string (#190).
+
 # stringr 1.2.0
 
 ## API changes
