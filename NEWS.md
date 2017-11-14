@@ -1,5 +1,7 @@
 # stringr 1.2.0.9000
 
+* `str_trunc()` now preserves NAs (@ClaytonJY, #162)
+
 # stringr 1.2.0
 
 ## API changes
