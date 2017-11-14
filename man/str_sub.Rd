@@ -13,17 +13,17 @@ str_sub(string, start = 1L, end = -1L) <- value
 \item{string}{input character vector.}
 
 \item{start, end}{Two integer vectors. \code{start} gives the position
-  of the first character (defaults to first), \code{end} gives the position
-  of the last (defaults to last character). Alternatively, pass a two-column
-  matrix to \code{start}.
+of the first character (defaults to first), \code{end} gives the position
+of the last (defaults to last character). Alternatively, pass a two-column
+matrix to \code{start}.
 
-  Negative values count backwards from the last character.}
+Negative values count backwards from the last character.}
 
 \item{value}{replacement string}
 }
 \value{
 A character vector of substring from \code{start} to \code{end}
-  (inclusive). Will be length of longest input argument.
+(inclusive). Will be length of longest input argument.
 }
 \description{
 \code{str_sub} will recycle all arguments to be the same length as the
@@ -67,5 +67,5 @@ str_sub(x, -2, -2) <- "GHIJ"; x
 str_sub(x, 2, -2) <- ""; x
 }
 \seealso{
-The underlying implementation in \code{\link[stringi]{stri_sub}}
+The underlying implementation in \code{\link[stringi:stri_sub]{stringi::stri_sub()}}
 }

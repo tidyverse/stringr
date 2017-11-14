@@ -1,16 +1,16 @@
 #' Extract matched groups from a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern to look for, as defined by an ICU regular
-#'   expression. See \link[stringi]{stringi-search-regex} for more details.
-#' @return For \code{str_match}, a character matrix. First column is the
+#'   expression. See [stringi::stringi-search-regex] for more details.
+#' @return For `str_match`, a character matrix. First column is the
 #'   complete match, followed by one column for each capture group.
-#'   For \code{str_match_all}, a list of character matrices.
+#'   For `str_match_all`, a list of character matrices.
 #'
-#' @seealso \code{\link{str_extract}} to extract the complete match,
-#'   \code{\link[stringi]{stri_match}} for the underlying
+#' @seealso [str_extract()] to extract the complete match,
+#'   [stringi::stri_match()] for the underlying
 #'   implementation.
 #' @export
 #' @examples

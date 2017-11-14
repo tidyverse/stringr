@@ -17,6 +17,7 @@ test_that("modifiers work", {
   expect_true(str_detect("abc", "ab[c]"))
   expect_false(str_detect("abc", fixed("ab[c]")))
   expect_true(str_detect("ab[c]", fixed("ab[c]")))
+  expect_true(str_detect("ab[c]", coll("ab[c]")))
 
   expect_true(str_detect("abc", "(?x)a b c"))
 })

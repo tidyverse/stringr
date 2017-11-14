@@ -1,13 +1,13 @@
 #' Count the number of matches in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @return An integer vector.
 #' @seealso
-#'  \code{\link[stringi]{stri_count}} which this function wraps.
+#'  [stringi::stri_count()] which this function wraps.
 #'
-#'  \code{\link{str_locate}}/\code{\link{str_locate_all}} to locate position
+#'  [str_locate()]/[str_locate_all()] to locate position
 #'  of matches
 #'
 #' @export

@@ -24,21 +24,21 @@ boundary(type = c("character", "line_break", "sentence", "word"),
 \item{ignore_case}{Should case differences be ignored in the match?}
 
 \item{locale}{Locale to use for comparisons. See
-\code{\link[stringi]{stri_locale_list}()} for all possible options.
+\code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
 Defaults to "en" (English) to ensure that the default collation is
 consistent across platforms.}
 
 \item{...}{Other less frequently used arguments passed on to
-\code{\link[stringi]{stri_opts_collator}},
-\code{\link[stringi]{stri_opts_regex}}, or
-\code{\link[stringi]{stri_opts_brkiter}}}
+\code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}},
+\code{\link[stringi:stri_opts_regex]{stringi::stri_opts_regex()}}, or
+\code{\link[stringi:stri_opts_brkiter]{stringi::stri_opts_brkiter()}}}
 
 \item{multiline}{If \code{TRUE}, \code{$} and \code{^} match
 the beginning and end of each line. If \code{FALSE}, the
 default, only match the start and end of the input.}
 
 \item{comments}{If \code{TRUE}, white space and comments beginning with
-\code{#} are ignored. Escape literal spaces with \code{\\ }.}
+\code{#} are ignored. Escape literal spaces with \code{\\}.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 
@@ -50,11 +50,11 @@ only when splitting on \code{word} boundaries.}
 }
 \description{
 \describe{
- \item{fixed}{Compare literal bytes in the string. This is very fast, but
-   not usually what you want for non-ASCII character sets.}
- \item{coll}{Compare strings respecting standard collation rules.}
- \item{regex}{The default. Uses ICU regular expressions.}
- \item{boundary}{Match boundaries between things.}
+\item{fixed}{Compare literal bytes in the string. This is very fast, but
+not usually what you want for non-ASCII character sets.}
+\item{coll}{Compare strings respecting standard collation rules.}
+\item{regex}{The default. Uses ICU regular expressions.}
+\item{boundary}{Match boundaries between things.}
 }
 }
 \examples{

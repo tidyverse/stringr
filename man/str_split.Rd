@@ -15,31 +15,31 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-  The default interpretation is a regular expression, as described
-  in \link[stringi]{stringi-search-regex}. Control options with
-  \code{\link{regex}()}.
+The default interpretation is a regular expression, as described
+in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+\code{\link[=regex]{regex()}}.
 
-  Match a fixed string (i.e. by comparing only bytes), using
-  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-  for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.
+Match a fixed string (i.e. by comparing only bytes), using
+\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
+for matching human text, you'll want \code{\link[=coll]{coll()}} which
+respects character matching rules for the specified locale.
 
-  Match character, word, line and sentence boundaries with
-  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-  \code{boundary("character")}.}
+Match character, word, line and sentence boundaries with
+\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
+\code{boundary("character")}.}
 
 \item{n}{number of pieces to return.  Default (Inf) uses all
-  possible split positions.
+possible split positions.
 
-  For \code{str_split_fixed}, if n is greater than the number of pieces,
-  the result will be padded with empty strings.}
+For \code{str_split_fixed}, if n is greater than the number of pieces,
+the result will be padded with empty strings.}
 
 \item{simplify}{If \code{FALSE}, the default, returns a list of character
 vectors. If \code{TRUE} returns a character matrix.}
 }
 \value{
 For \code{str_split_fixed}, a character matrix with \code{n} columns.
-  For \code{str_split}, a list of character vectors.
+For \code{str_split}, a list of character vectors.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
@@ -64,5 +64,5 @@ str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 }
 \seealso{
-\code{\link{stri_split}} for the underlying implementation.
+\code{\link[=stri_split]{stri_split()}} for the underlying implementation.
 }

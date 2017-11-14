@@ -1,9 +1,9 @@
 #' Sample character vectors for practicing string manipulations.
 #'
-#' \code{fruit} and \code{word} come from the \code{rcorpora} package
+#' `fruit` and `word` come from the `rcorpora` package
 #' written by Gabor Csardi; the data was collected by Darius Kazemi
 #' and made available at \url{https://github.com/dariusk/corpora}.
-#' \code{sentences} is a collection of "Harvard sentences" used for
+#' `sentences` is a collection of "Harvard sentences" used for
 #' standardised testing of voice.
 #'
 #' @format A character vector.

@@ -1,27 +1,27 @@
 #' Detect the presence or absence of a pattern in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.
 #' @param pattern Pattern to look for.
 #'
 #'   The default interpretation is a regular expression, as described
-#'   in \link[stringi]{stringi-search-regex}. Control options with
-#'   \code{\link{regex}()}.
+#'   in [stringi::stringi-search-regex]. Control options with
+#'   [regex()].
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
-#'   \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-#'   for matching human text, you'll want \code{\link{coll}(x)} which
+#'   [fixed()]. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
 #'
 #'   Match character, word, line and sentence boundaries with
-#'   \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-#'   \code{boundary("character")}.
+#'   [boundary()]. An empty pattern, "", is equivalent to
+#'   `boundary("character")`.
 #' @return A logical vector.
-#' @seealso \code{\link[stringi]{stri_detect}} which this function wraps,
-#'   \code{\link{str_subset}} for a convenient wrapper around 
-#'   \code{x[str_detect(x, pattern)]}
+#' @seealso [stringi::stri_detect()] which this function wraps,
+#'   [str_subset()] for a convenient wrapper around
+#'   `x[str_detect(x, pattern)]`
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
@@ -42,4 +42,3 @@ str_detect <- function(string, pattern) {
     regex = stri_detect_regex(string, pattern, opts_regex = opts(pattern))
   )
 }
-
