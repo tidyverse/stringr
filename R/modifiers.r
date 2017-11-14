@@ -58,13 +58,13 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #' @export
 #' @rdname modifiers
 #' @param locale Locale to use for comparisons. See
-#'   \code{\link[stringi]{stri_locale_list}()} for all possible options.
+#'   [stringi::stri_locale_list()] for all possible options.
 #'   Defaults to "en" (English) to ensure that the default collation is
 #'   consistent across platforms.
 #' @param ... Other less frequently used arguments passed on to
-#'   \code{\link[stringi]{stri_opts_collator}},
-#'   \code{\link[stringi]{stri_opts_regex}}, or
-#'   \code{\link[stringi]{stri_opts_brkiter}}
+#'   [stringi::stri_opts_collator()],
+#'   [stringi::stri_opts_regex()], or
+#'   [stringi::stri_opts_brkiter()]
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   pattern <- as_bare_character(pattern)
   options <- stri_opts_collator(
@@ -82,12 +82,12 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
 
 #' @export
 #' @rdname modifiers
-#' @param multiline If \code{TRUE}, \code{$} and \code{^} match
-#'   the beginning and end of each line. If \code{FALSE}, the
+#' @param multiline If `TRUE`, `$` and `^` match
+#'   the beginning and end of each line. If `FALSE`, the
 #'   default, only match the start and end of the input.
-#' @param comments If \code{TRUE}, white space and comments beginning with
-#'   \code{#} are ignored. Escape literal spaces with \code{\\ }.
-#' @param dotall If \code{TRUE}, \code{.} will also match line terminators.
+#' @param comments If `TRUE`, white space and comments beginning with
+#'   `#` are ignored. Escape literal spaces with `\\ `.
+#' @param dotall If `TRUE`, `.` will also match line terminators.
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
   pattern <- as_bare_character(pattern)
@@ -108,8 +108,8 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 
 #' @param type Boundary type to detect.
 #' @param skip_word_none Ignore "words" that don't contain any characters
-#'   or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
-#'   only when splitting on \code{word} boundaries.
+#'   or numbers - i.e. punctuation. Default `NA` will skip such "words"
+#'   only when splitting on `word` boundaries.
 #' @export
 #' @rdname modifiers
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
@@ -160,7 +160,7 @@ as_bare_character <- function(x) {
 
 #' Deprecated modifier functions.
 #'
-#' Please use \code{\link{regex}} and \code{\link{coll}} instead.
+#' Please use [regex()] and [coll()] instead.
 #'
 #' @name modifier-deprecated
 #' @keywords internal

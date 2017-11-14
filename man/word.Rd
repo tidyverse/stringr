@@ -21,7 +21,7 @@ character.}
 }
 \value{
 character vector of words from \code{start} to \code{end}
-  (inclusive). Will be length of longest input argument.
+(inclusive). Will be length of longest input argument.
 }
 \description{
 Extract words from a sentence.

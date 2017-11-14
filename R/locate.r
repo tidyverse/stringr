@@ -1,16 +1,16 @@
 #' Locate the position of patterns in a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}. If the match is of length
-#' 0, (e.g. from a special match like \code{$}) end will be one character less
+#' Vectorised over `string` and `pattern`. If the match is of length
+#' 0, (e.g. from a special match like `$`) end will be one character less
 #' than start.
 #'
 #' @inheritParams str_detect
-#' @return For \code{str_locate}, an integer matrix. First column gives start
+#' @return For `str_locate`, an integer matrix. First column gives start
 #'   postion of match, and second column gives end position. For
-#'   \code{str_locate_all} a list of integer matrices.
+#'   `str_locate_all` a list of integer matrices.
 #' @seealso
-#'   \code{\link{str_extract}} for a convenient way of extracting matches,
-#'   \code{\link[stringi]{stri_locate}} for the underlying implementation.
+#'   [str_extract()] for a convenient way of extracting matches,
+#'   [stringi::stri_locate()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
@@ -55,7 +55,7 @@ str_locate_all <- function(string, pattern) {
 #' Invert a matrix of match locations to match the opposite of what was
 #' previously matched.
 #'
-#' @param loc matrix of match locations, as from \code{\link{str_locate_all}}
+#' @param loc matrix of match locations, as from [str_locate_all()]
 #' @return numeric match giving locations of non-matches
 #' @export
 #' @examples

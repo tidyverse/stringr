@@ -14,12 +14,12 @@ str_match_all(string, pattern)
 coercible to one.}
 
 \item{pattern}{Pattern to look for, as defined by an ICU regular
-expression. See \link[stringi]{stringi-search-regex} for more details.}
+expression. See \link[stringi:stringi-search-regex]{stringi::stringi-search-regex} for more details.}
 }
 \value{
 For \code{str_match}, a character matrix. First column is the
-  complete match, followed by one column for each capture group.
-  For \code{str_match_all}, a list of character matrices.
+complete match, followed by one column for each capture group.
+For \code{str_match_all}, a list of character matrices.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
@@ -46,7 +46,7 @@ str_extract(x, "<.*?>")
 str_extract_all(x, "<.*?>")
 }
 \seealso{
-\code{\link{str_extract}} to extract the complete match,
-  \code{\link[stringi]{stri_match}} for the underlying
-  implementation.
+\code{\link[=str_extract]{str_extract()}} to extract the complete match,
+\code{\link[stringi:stri_match]{stringi::stri_match()}} for the underlying
+implementation.
 }

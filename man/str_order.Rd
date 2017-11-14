@@ -28,7 +28,7 @@ platforms.}
 of as strings.}
 
 \item{...}{Other options used to control sorting order. Passed on to
-\code{\link[stringi]{stri_opts_collator}}.}
+\code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{
 Order or sort a character vector.
@@ -45,5 +45,5 @@ str_sort(x)
 str_sort(x, numeric = TRUE)
 }
 \seealso{
-\code{\link[stringi]{stri_order}} for the underlying implementation.
+\code{\link[stringi:stri_order]{stringi::stri_order()}} for the underlying implementation.
 }

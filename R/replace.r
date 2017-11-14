@@ -1,24 +1,24 @@
 #' Replace matched patterns in a string.
 #'
-#' Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+#' Vectorised over `string`, `pattern` and `replacement`.
 #'
 #' @inheritParams str_detect
 #' @param replacement A character vector of replacements. Should be either
-#'   length one, or the same length as \code{string} or \code{pattern}.
-#'   References of the form \code{\1}, \code{\2}, etc will be replaced with
-#'   the contents of the respective matched group (created by \code{()}).
+#'   length one, or the same length as `string` or `pattern`.
+#'   References of the form `\1`, `\2`, etc will be replaced with
+#'   the contents of the respective matched group (created by `()`).
 #'
-#'   To perform multiple replacements in each element of \code{string},
-#'   pass a named vector (\code{c(pattern1 = replacement1)}) to
-#'   \code{str_replace_all}. Alternatively, pass a function to
-#'   \code{replacement}: it will be called once for each match and its
+#'   To perform multiple replacements in each element of `string`,
+#'   pass a named vector (`c(pattern1 = replacement1)`) to
+#'   `str_replace_all`. Alternatively, pass a function to
+#'   `replacement`: it will be called once for each match and its
 #'   return value will be used to replace the match.
 #'
-#'   To replace the complete string with \code{NA}, use
-#'   \code{replacement = NA_character_}.
+#'   To replace the complete string with `NA`, use
+#'   `replacement = NA_character_`.
 #' @return A character vector.
-#' @seealso \code{\link{str_replace_na}} to turn missing values into "NA";
-#'   \code{\link{stri_replace}} for the underlying implementation.
+#' @seealso [str_replace_na()] to turn missing values into "NA";
+#'   [stri_replace()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c("one apple", "two pears", "three bananas")

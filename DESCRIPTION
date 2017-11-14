@@ -29,3 +29,4 @@ URL: http://stringr.tidyverse.org,
 BugReports: https://github.com/tidyverse/stringr/issues
 RoxygenNote: 6.0.1
 LazyData: true
+Roxygen: list(markdown = TRUE)

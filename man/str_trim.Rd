@@ -22,5 +22,5 @@ str_trim("  String with trailing and leading white space\\t")
 str_trim("\\n\\nString with trailing and leading white space\\n\\n")
 }
 \seealso{
-\code{\link{str_pad}} to add whitespace
+\code{\link[=str_pad]{str_pad()}} to add whitespace
 }

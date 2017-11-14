@@ -22,7 +22,7 @@ each paragraph}
 A character vector of re-wrapped strings.
 }
 \description{
-This is a wrapper around \code{\link[stringi]{stri_wrap}} which implements
+This is a wrapper around \code{\link[stringi:stri_wrap]{stringi::stri_wrap()}} which implements
 the Knuth-Plass paragraph wrapping algorithm.
 }
 \examples{

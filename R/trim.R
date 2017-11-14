@@ -4,7 +4,7 @@
 #' @param side Side on which to remove whitespace (left, right or both).
 #' @return A character vector.
 #' @export
-#' @seealso \code{\link{str_pad}} to add whitespace
+#' @seealso [str_pad()] to add whitespace
 #' @examples
 #' str_trim("  String with trailing and leading white space\t")
 #' str_trim("\n\nString with trailing and leading white space\n\n")

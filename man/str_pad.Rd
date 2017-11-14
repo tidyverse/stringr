@@ -37,6 +37,6 @@ str_pad("a", 10, pad = c("-", "_", " "))
 str_pad("hadley", 3)
 }
 \seealso{
-\code{\link{str_trim}} to remove whitespace;
-  \code{\link{str_trunc}} to decrease the maximum width of a string.
+\code{\link[=str_trim]{str_trim()}} to remove whitespace;
+\code{\link[=str_trunc]{str_trunc()}} to decrease the maximum width of a string.
 }

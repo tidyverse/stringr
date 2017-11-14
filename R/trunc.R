@@ -4,7 +4,7 @@
 #' @param width Maximum width of string.
 #' @param side,ellipsis Location and content of ellipsis that indicates
 #'   content has been removed.
-#' @seealso \code{\link{str_pad}} to increase the minimum width of a string.
+#' @seealso [str_pad()] to increase the minimum width of a string.
 #' @export
 #' @examples
 #' x <- "This string is moderately long"

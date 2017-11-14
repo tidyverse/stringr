@@ -15,23 +15,23 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-  The default interpretation is a regular expression, as described
-  in \link[stringi]{stringi-search-regex}. Control options with
-  \code{\link{regex}()}.
+The default interpretation is a regular expression, as described
+in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+\code{\link[=regex]{regex()}}.
 
-  Match a fixed string (i.e. by comparing only bytes), using
-  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-  for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.
+Match a fixed string (i.e. by comparing only bytes), using
+\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
+for matching human text, you'll want \code{\link[=coll]{coll()}} which
+respects character matching rules for the specified locale.
 
-  Match character, word, line and sentence boundaries with
-  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-  \code{boundary("character")}.}
+Match character, word, line and sentence boundaries with
+\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
+\code{boundary("character")}.}
 }
 \value{
 For \code{str_locate}, an integer matrix. First column gives start
-  postion of match, and second column gives end position. For
-  \code{str_locate_all} a list of integer matrices.
+postion of match, and second column gives end position. For
+\code{str_locate_all} a list of integer matrices.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}. If the match is of length
@@ -53,6 +53,6 @@ str_locate_all(fruit, c("a", "b", "p", "p"))
 str_locate_all(fruit, "")
 }
 \seealso{
-\code{\link{str_extract}} for a convenient way of extracting matches,
-  \code{\link[stringi]{stri_locate}} for the underlying implementation.
+\code{\link[=str_extract]{str_extract()}} for a convenient way of extracting matches,
+\code{\link[stringi:stri_locate]{stringi::stri_locate()}} for the underlying implementation.
 }
