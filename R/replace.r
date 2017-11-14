@@ -57,8 +57,8 @@ str_replace <- function(string, pattern, replacement) {
   }
 
   switch(type(pattern),
-    empty = ,
-    bound = stop("Not implemented", call. = FALSE),
+    empty = stop("Empty `pattern`` not supported", call. = FALSE),
+    bound = stop("Boundary `pattern` not supported", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
@@ -85,8 +85,8 @@ str_replace_all <- function(string, pattern, replacement) {
   }
 
   switch(type(pattern),
-    empty = ,
-    bound = stop("Not implemented", call. = FALSE),
+    empty = stop("Empty `pattern`` not supported", call. = FALSE),
+    bound = stop("Boundary `pattern` not supported", call. = FALSE),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
       vectorize_all = vec, opts_fixed = opts(pattern)),
     coll  = stri_replace_all_coll(string, pattern, replacement,
