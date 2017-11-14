@@ -12,3 +12,4 @@
 ^docs$
 ^README\.Rmd$
 ^README-.*\.png$
+^appveyor\.yml$

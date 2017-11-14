@@ -1,26 +1,26 @@
 #' Extract and replace substrings from a character vector.
 #'
-#' \code{str_sub} will recycle all arguments to be the same length as the
+#' `str_sub` will recycle all arguments to be the same length as the
 #' longest argument. If any arguments are of length 0, the output will be
 #' a zero length character vector.
 #'
 #' Substrings are inclusive - they include the characters at both start and
-#' end positions. \code{str_sub(string, 1, -1)} will return the complete
+#' end positions. `str_sub(string, 1, -1)` will return the complete
 #' substring, from the first character to the last.
 #'
 #' @param string input character vector.
-#' @param start,end Two integer vectors. \code{start} gives the position
-#'   of the first character (defaults to first), \code{end} gives the position
+#' @param start,end Two integer vectors. `start` gives the position
+#'   of the first character (defaults to first), `end` gives the position
 #'   of the last (defaults to last character). Alternatively, pass a two-column
-#'   matrix to \code{start}.
+#'   matrix to `start`.
 #'
 #'   Negative values count backwards from the last character.
 #' @param omit_na single logical value; if \code{TRUE}, missing values in any of the arguments
 #' provided will result in an unchanged input; replacement function only
 #' @param value replacement string
-#' @return A character vector of substring from \code{start} to \code{end}
+#' @return A character vector of substring from `start` to `end`
 #'   (inclusive). Will be length of longest input argument.
-#' @seealso The underlying implementation in \code{\link[stringi]{stri_sub}}
+#' @seealso The underlying implementation in [stringi::stri_sub()]
 #' @export
 #' @examples
 #' hw <- "Hadley Wickham"

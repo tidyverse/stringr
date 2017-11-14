@@ -1,13 +1,13 @@
 #' Extract matching patterns from a string.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
-#' @seealso \code{\link{str_match}} to extract matched groups;
-#'   \code{\link[stringi]{stri_extract}} for the underlying implementation.
-#' @param simplify If \code{FALSE}, the default, returns a list of character
-#'   vectors. If \code{TRUE} returns a character matrix.
+#' @seealso [str_match()] to extract matched groups;
+#'   [stringi::stri_extract()] for the underlying implementation.
+#' @param simplify If `FALSE`, the default, returns a list of character
+#'   vectors. If `TRUE` returns a character matrix.
 #' @export
 #' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")

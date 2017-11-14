@@ -1,6 +1,6 @@
 #' Duplicate and concatenate strings within a character vector.
 #'
-#' Vectorised over \code{string} and \code{times}.
+#' Vectorised over `string` and `times`.
 #'
 #' @param string Input character vector.
 #' @param times Number of times to duplicate each string.

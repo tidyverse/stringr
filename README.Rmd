@@ -16,12 +16,13 @@ library(stringr)
 # stringr <img src="man/figures/logo.png" align="right" />
 
 [![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master)
 [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
 
 ## Overview
 
-Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you're not familiar with strings, the best place to start is the [chapter on strings](http://r4ds.had.co.nz/strings.html) in R for Data Science.
+Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as possible. If you're not familiar with strings, the best place to start is the [chapter on strings](http://r4ds.had.co.nz/strings.html) in R for Data Science.
 
 stringr is built on top of [stringi](https://github.com/gagolews/stringi), which uses the [ICU](http://site.icu-project.org) C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you've mastered stringr, you should find stringi similarly easy to use.
 
@@ -87,7 +88,7 @@ There are seven main verbs that work with patterns:
     str_match(x, "(.)[aeiou](.)")
     ```
 
-*   `str_replace(x, pattern, replacemnt)` replaces the matches with new text.
+*   `str_replace(x, pattern, replacement)` replaces the matches with new text.
     ```{r}
     str_replace(x, "[aeiou]", "?")
     ```

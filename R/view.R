@@ -1,12 +1,12 @@
 #' View HTML rendering of regular expression match.
 #'
-#' \code{str_view} shows the first match; \code{str_view_all} shows all
+#' `str_view` shows the first match; `str_view_all` shows all
 #' the matches.
 #'
 #' @inheritParams str_detect
-#' @param match If \code{TRUE}, shows only strings that match the pattern.
-#'   If \code{FALSE}, shows only the strings that don't match the pattern.
-#'   Otherwise (the default, \code{NA}) displays both matches and non-matches.
+#' @param match If `TRUE`, shows only strings that match the pattern.
+#'   If `FALSE`, shows only the strings that don't match the pattern.
+#'   Otherwise (the default, `NA`) displays both matches and non-matches.
 #' @export
 #' @examples
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")

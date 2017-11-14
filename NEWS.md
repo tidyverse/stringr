@@ -1,5 +1,17 @@
 # stringr 1.2.0.9000
 
+* New `str_glue()` and `str_glue_data()` provide convenient wrappers around
+  `glue` and `glue_data()` from the [glue](http://glue.tidyverse.org/) package
+  (#157).
+
+* Long deprecated `str_join()`, `ignore.case()` and `perl()` have now been 
+  removed.
+
+* New `str_flatten()` is a wrapper around `stri_flatten()` and clearly
+  conveys flattening a character vector into a single string (#186).
+
+* `str_trunc()` now preserves NAs (@ClaytonJY, #162)
+
 # stringr 1.2.0
 
 ## API changes

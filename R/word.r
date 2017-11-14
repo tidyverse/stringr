@@ -8,7 +8,7 @@
 #'   Defaults to first word. If negative, counts backwards from last
 #'   character.
 #' @param sep separator between words.  Defaults to single space.
-#' @return character vector of words from \code{start} to \code{end}
+#' @return character vector of words from `start` to `end`
 #'   (inclusive). Will be length of longest input argument.
 #' @export
 #' @examples
@@ -54,4 +54,3 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
 
   str_sub(string, starts, ends)
 }
-
