@@ -16,6 +16,34 @@ test_that("str_interp works with default env", {
   )
 })
 
+test_that("str_interp is vectorised", {
+  name <- c("Alice", "Alice", "Bob", "Bob")
+  lap <- rep(1:2, 2)
+  time <- c(6.656, 7.032, 6.293, 7.2)
+
+  expect_equal(
+    str_interp("name: ${name}. lap: $[d]{lap}. time $[.2f]{time}."),
+    c("name: Alice. lap: 1. time 6.66.", "name: Alice. lap: 2. time 7.03.",
+      "name: Bob. lap: 1. time 6.29.", "name: Bob. lap: 2. time 7.20." )
+  )
+})
+
+test_that("str_interp recycles length 1 vectors", {
+  lap <- 1:3
+  time <- 6.656
+
+  expect_equal(
+    str_interp("lap: $[d]{lap}. time: $[.2f]{time}."),
+    c("lap: 1. time: 6.66.", "lap: 2. time: 6.66.", "lap: 3. time: 6.66.")
+  )
+
+  time <- c(6.656, 6.7)
+  expect_error(
+    str_interp("lap: $[d]{lap}. time: $[.2f]{time}."),
+    "Not all expressions in interpolated strings have same length or length 1."
+  )
+})
+
 test_that("str_interp works with lists and data frames.", {
   expect_equal(
     str_interp(

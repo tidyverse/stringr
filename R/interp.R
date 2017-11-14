@@ -45,6 +45,12 @@
 #'   "This particular line is so long that it is hard to write ",
 #'   "without breaking the ${max_char}-char barrier!"
 #' ))
+#'
+#' # Interpolated expressions are cycled over:
+#' student <- "Bob"
+#' test <- c(1, 2)
+#' grade <- c(1.3, 2.7)
+#' str_interp("${student} got a ${grade} in test ${test}.")
 str_interp <- function(string, env = parent.frame()) {
   if (!is.character(string)) {
     stop("string argument is not character.", call. = FALSE)
@@ -58,11 +64,32 @@ str_interp <- function(string, env = parent.frame()) {
   if (matches$indices[1] <= 0) {
     string
   } else {
-    # Evaluate them to get the replacement strings.
-    replacements <- eval_interp_matches(matches$matches, env)
+    replacements <- eval_interp_matches(matches$matches, env, FALSE)
 
-    # Replace the expressions by their values and return.
-    `regmatches<-`(string, list(matches$indices), FALSE, list(replacements))
+    # check that lengths are valid
+    lengths <- sapply(replacements, length)
+    max_length <- max(lengths)
+    if (!all(lengths == 1L | lengths == max_length)) {
+      stop("Not all expressions in interpolated strings ",
+           "have same length or length 1.")
+    }
+
+    # extend length 1 vectors
+    to_recycle <- lengths == 1L
+    replacements[to_recycle] <- lapply(replacements[to_recycle],
+                                       function(x) rep.int(x, max_length))
+
+    # do the replacements
+    n_matches <- length(matches$matches)
+    replacements <- matrix(unlist(replacements), ncol = n_matches)
+
+    sapply(
+      1:max_length,
+      function(row) {
+        `regmatches<-`(string, list(matches$indices), FALSE,
+                       list(replacements[row, ]))
+      }
+    )
   }
 }
 
@@ -128,7 +155,7 @@ interp_placeholders <- function(string) {
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-eval_interp_matches <- function(matches, env) {
+eval_interp_matches <- function(matches, env, SIMPLIFY = TRUE) {
   # Extract expressions from the matches
   expressions <- extract_expressions(matches)
 
@@ -140,7 +167,7 @@ eval_interp_matches <- function(matches, env) {
   formats <- extract_formats(matches)
 
   # Format the values and return.
-  mapply(sprintf, formats, values)
+  mapply(sprintf, formats, values, SIMPLIFY = SIMPLIFY)
 }
 
 #' Extract Expression Objects from String Interpolation Matches
