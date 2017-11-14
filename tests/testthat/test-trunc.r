@@ -10,3 +10,16 @@ test_that("NA values in input pass through unchanged", {
     c("fo...", NA)
   )
 })
+
+test_that("truncations work for all sides", {
+
+  trunc <- function(direction) str_trunc(
+    "This string is moderately long",
+    direction,
+    width = 20
+  )
+
+  expect_equal(trunc("right"),   "This string is mo...")
+  expect_equal(trunc("left"),    "...s moderately long")
+  expect_equal(trunc("center"),  "This stri...ely long")
+})

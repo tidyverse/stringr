@@ -21,9 +21,3 @@ test_that("modifiers work", {
 
   expect_true(str_detect("abc", "(?x)a b c"))
 })
-
-test_that("modifiers fail when pattern is not a plain character vector", {
-  expect_error(str_detect("1234", fixed(1)))
-  expect_error(str_detect("1234", coll(1)))
-  expect_error(str_detect("1234", regex(1)))
-})
