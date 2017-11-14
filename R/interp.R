@@ -8,11 +8,13 @@
 #' `$[format]{expression}`, where expressions are valid R expressions that
 #' can be evaluated in the given environment, and `format` is a format
 #' specification valid for use with [sprintf()].
-#' A tidyverse friendly alternative is [glue::glue()].
 #'
 #' @param string A template character string. This function is not vectorised:
 #'   a character vector will be collapsed into a single string.
 #' @param env The environment in which to evaluate the expressions.
+#' @seealso [str_glue()] and [str_glue_data()] for alternative approaches to
+#'   the same problem.
+#' @keywords internal
 #' @return An interpolated character string.
 #' @author Stefan Milton Bache
 #' @export

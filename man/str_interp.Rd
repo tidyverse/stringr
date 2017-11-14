@@ -24,7 +24,6 @@ include expression placeholders of the form \code{${expression}} or
 \code{$[format]{expression}}, where expressions are valid R expressions that
 can be evaluated in the given environment, and \code{format} is a format
 specification valid for use with \code{\link[=sprintf]{sprintf()}}.
-A tidyverse friendly alternative is \code{\link[glue:glue]{glue::glue()}}.
 }
 \examples{
 
@@ -57,6 +56,11 @@ str_interp(c(
   "without breaking the ${max_char}-char barrier!"
 ))
 }
+\seealso{
+\code{\link[=str_glue]{str_glue()}} and \code{\link[=str_glue_data]{str_glue_data()}} for alternative approaches to
+the same problem.
+}
 \author{
 Stefan Milton Bache
 }
+\keyword{internal}

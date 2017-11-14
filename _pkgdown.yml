@@ -60,8 +60,8 @@ reference:
   - str_c
   - str_conv
   - str_dup
+  - str_glue
   - str_length
-  - str_interp
   - str_replace_na
   - str_trunc
   - str_sub
