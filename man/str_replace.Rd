@@ -60,15 +60,6 @@ str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
 
-fruits <- c("one apple", "two pears", "three bananas")
-str_replace(fruits, "[aeiou]", "-")
-str_replace_all(fruits, "[aeiou]", "-")
-
-str_replace_all(fruits, "([aeiou])", "")
-str_replace_all(fruits, "([aeiou])", "\\\\1\\\\1")
-str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
-str_replace_all(fruits, c("a", "e", "i"), "-")
-
 # If you want to apply multiple patterns and replacements to the same
 # string, pass a named vector to pattern.
 fruits \%>\%

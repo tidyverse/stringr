@@ -24,6 +24,7 @@ include expression placeholders of the form \code{${expression}} or
 \code{$[format]{expression}}, where expressions are valid R expressions that
 can be evaluated in the given environment, and \code{format} is a format
 specification valid for use with \code{\link{sprintf}}.
+A tidyverse friendly alternative is \code{\link{glue}}.
 }
 \examples{
 
