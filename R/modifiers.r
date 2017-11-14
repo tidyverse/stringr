@@ -45,8 +45,7 @@ NULL
 #' @export
 #' @rdname modifiers
 fixed <- function(pattern, ignore_case = FALSE) {
-  pattern <- coerce_to_bare_character(pattern)
-
+  pattern <- as_bare_character(pattern)
   options <- stri_opts_fixed(case_insensitive = ignore_case)
 
   structure(
@@ -67,8 +66,7 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   \code{\link[stringi]{stri_opts_regex}}, or
 #'   \code{\link[stringi]{stri_opts_brkiter}}
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
-  pattern <- coerce_to_bare_character(pattern)
-
+  pattern <- as_bare_character(pattern)
   options <- stri_opts_collator(
     strength = if (ignore_case) 2L else 3L,
     locale = locale,
@@ -92,8 +90,7 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
 #' @param dotall If \code{TRUE}, \code{.} will also match line terminators.
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
-  pattern <- coerce_to_bare_character(pattern)
-
+  pattern <- as_bare_character(pattern)
   options <- stri_opts_regex(
     case_insensitive = ignore_case,
     multiline = multiline,
@@ -151,6 +148,16 @@ type.coll <- function(x) "coll"
 type.fixed <- function(x) "fixed"
 type.character <- function(x) if (identical(x, "")) "empty" else "regex"
 
+as_bare_character <- function(x) {
+  if (is.character(x) && !is.object(x)) {
+    # All OK!
+    return(x)
+  }
+
+  warning("Coercing `pattern` to a plain character vector.", call. = FALSE)
+  as.character(x)
+}
+
 #' Deprecated modifier functions.
 #'
 #' Please use \code{\link{regex}} and \code{\link{coll}} instead.
@@ -171,17 +178,4 @@ ignore.case <- function(string) {
 perl <- function(pattern) {
   message("perl is deprecated. Please use regex() instead")
   regex(pattern)
-}
-
-coerce_to_bare_character <- function(x) {
-  if(is.character(x) && !is.object(x)) {
-    # All OK!
-    return(x)
-  }
-  xname <- deparse(substitute(x))
-  warning(
-    sprintf("Coercing %s to be a plain character vector.", xname),
-    call. = FALSE
-  )
-  unclass(as.character(x))
 }
