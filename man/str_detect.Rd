@@ -12,18 +12,18 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-  The default interpretation is a regular expression, as described
-  in \link[stringi]{stringi-search-regex}. Control options with
-  \code{\link{regex}()}.
+The default interpretation is a regular expression, as described
+in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+\code{\link[=regex]{regex()}}.
 
-  Match a fixed string (i.e. by comparing only bytes), using
-  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-  for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.
+Match a fixed string (i.e. by comparing only bytes), using
+\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
+for matching human text, you'll want \code{\link[=coll]{coll()}} which
+respects character matching rules for the specified locale.
 
-  Match character, word, line and sentence boundaries with
-  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-  \code{boundary("character")}.}
+Match character, word, line and sentence boundaries with
+\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
+\code{boundary("character")}.}
 }
 \value{
 A logical vector.
@@ -43,7 +43,7 @@ str_detect(fruit, "[aeiou]")
 str_detect("aecfg", letters)
 }
 \seealso{
-\code{\link[stringi]{stri_detect}} which this function wraps,
-  \code{\link{str_subset}} for a convenient wrapper around 
-  \code{x[str_detect(x, pattern)]}
+\code{\link[stringi:stri_detect]{stringi::stri_detect()}} which this function wraps,
+\code{\link[=str_subset]{str_subset()}} for a convenient wrapper around
+\code{x[str_detect(x, pattern)]}
 }

@@ -9,7 +9,7 @@ str_conv(string, encoding)
 \arguments{
 \item{string}{String to re-encode.}
 
-\item{encoding}{Name of encoding. See \code{\link[stringi]{stri_enc_list}}
+\item{encoding}{Name of encoding. See \code{\link[stringi:stri_enc_list]{stringi::stri_enc_list()}}
 for a complete list.}
 }
 \description{

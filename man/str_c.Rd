@@ -2,20 +2,19 @@
 % Please edit documentation in R/c.r
 \name{str_c}
 \alias{str_c}
-\alias{str_join}
 \title{Join multiple strings into a single string.}
 \usage{
 str_c(..., sep = "", collapse = NULL)
 }
 \arguments{
 \item{...}{One or more character vectors. Zero length arguments
-  are removed. Short arguments are recycled to the length of the
-  longest.
+are removed. Short arguments are recycled to the length of the
+longest.
 
-  Like most other R functions, missing values are "infectious": whenever
-  a missing value is combined with another string the result will always
-  be missing. Use \code{\link{str_replace_na}} to convert \code{NA} to
-  \code{"NA"}}
+Like most other R functions, missing values are "infectious": whenever
+a missing value is combined with another string the result will always
+be missing. Use \code{\link[=str_replace_na]{str_replace_na()}} to convert \code{NA} to
+\code{"NA"}}
 
 \item{sep}{String to insert between input vectors.}
 
@@ -24,8 +23,8 @@ string.}
 }
 \value{
 If \code{collapse = NULL} (the default) a character vector with
-  length equal to the longest input string. If \code{collapse} is
-  non-NULL, a character vector of length 1.
+length equal to the longest input string. If \code{collapse} is
+non-NULL, a character vector of length 1.
 }
 \description{
 To understand how \code{str_c} works, you need to imagine that you are
@@ -51,6 +50,6 @@ str_c(c("a", NA, "b"), "-d")
 str_c(str_replace_na(c("a", NA, "b")), "-d")
 }
 \seealso{
-\code{\link{paste}} for equivalent base R functionality, and
-   \code{\link[stringi]{stri_join}} which this function wraps
+\code{\link[=paste]{paste()}} for equivalent base R functionality, and
+\code{\link[stringi:stri_join]{stringi::stri_join()}} which this function wraps
 }

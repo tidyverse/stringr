@@ -12,7 +12,7 @@ coercible to one.}
 }
 \value{
 A numeric vector giving number of characters (code points) in each
-   element of the character vector. Missing string have missing length.
+element of the character vector. Missing string have missing length.
 }
 \description{
 Technically this returns the number of "code points", in a string. One
@@ -40,5 +40,5 @@ str_count(u1)
 str_count(u2)
 }
 \seealso{
-\code{\link[stringi]{stri_length}} which this function wraps.
+\code{\link[stringi:stri_length]{stringi::stri_length()}} which this function wraps.
 }

@@ -15,32 +15,32 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-  The default interpretation is a regular expression, as described
-  in \link[stringi]{stringi-search-regex}. Control options with
-  \code{\link{regex}()}.
+The default interpretation is a regular expression, as described
+in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+\code{\link[=regex]{regex()}}.
 
-  Match a fixed string (i.e. by comparing only bytes), using
-  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-  for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.
+Match a fixed string (i.e. by comparing only bytes), using
+\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
+for matching human text, you'll want \code{\link[=coll]{coll()}} which
+respects character matching rules for the specified locale.
 
-  Match character, word, line and sentence boundaries with
-  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-  \code{boundary("character")}.}
+Match character, word, line and sentence boundaries with
+\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
+\code{boundary("character")}.}
 
 \item{replacement}{A character vector of replacements. Should be either
-  length one, or the same length as \code{string} or \code{pattern}.
-  References of the form \code{\1}, \code{\2}, etc will be replaced with
-  the contents of the respective matched group (created by \code{()}).
+length one, or the same length as \code{string} or \code{pattern}.
+References of the form \code{\1}, \code{\2}, etc will be replaced with
+the contents of the respective matched group (created by \code{()}).
 
-  To perform multiple replacements in each element of \code{string},
-  pass a named vector (\code{c(pattern1 = replacement1)}) to
-  \code{str_replace_all}. Alternatively, pass a function to
-  \code{replacement}: it will be called once for each match and its
-  return value will be used to replace the match.
+To perform multiple replacements in each element of \code{string},
+pass a named vector (\code{c(pattern1 = replacement1)}) to
+\code{str_replace_all}. Alternatively, pass a function to
+\code{replacement}: it will be called once for each match and its
+return value will be used to replace the match.
 
-  To replace the complete string with \code{NA}, use
-  \code{replacement = NA_character_}.}
+To replace the complete string with \code{NA}, use
+\code{replacement = NA_character_}.}
 }
 \value{
 A character vector.
@@ -59,15 +59,6 @@ str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
-
-fruits <- c("one apple", "two pears", "three bananas")
-str_replace(fruits, "[aeiou]", "-")
-str_replace_all(fruits, "[aeiou]", "-")
-
-str_replace_all(fruits, "([aeiou])", "")
-str_replace_all(fruits, "([aeiou])", "\\\\1\\\\1")
-str_replace_all(fruits, "[aeiou]", c("1", "2", "3"))
-str_replace_all(fruits, c("a", "e", "i"), "-")
 
 # If you want to apply multiple patterns and replacements to the same
 # string, pass a named vector to pattern.
@@ -90,6 +81,6 @@ x <- c(
 str_replace_all(x, colours, col2hex)
 }
 \seealso{
-\code{\link{str_replace_na}} to turn missing values into "NA";
-  \code{\link{stri_replace}} for the underlying implementation.
+\code{\link[=str_replace_na]{str_replace_na()}} to turn missing values into "NA";
+\code{\link[=stri_replace]{stri_replace()}} for the underlying implementation.
 }
