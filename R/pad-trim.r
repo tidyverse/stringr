@@ -91,3 +91,17 @@ str_trim <- function(string, side = c("both", "left", "right")) {
     both =  stri_trim_both(string)
   )
 }
+
+#' Trim whitespace from start, middle, and end of string.
+#'
+#' @param string A character vector.
+#' @return A character vector.
+#' @export
+#' @seealso \code{\link{str_trim}} to see end-only trimming
+#' @examples
+#' str_squish("  String with trailing,  middle, and leading white space\t")
+#' str_squish("\n\nString with excess,  trailing and leading white   space\n\n")
+str_squish <- function(string) {
+   stri_trim_both(str_replace_all(string,"\\s+"," "))
+}
+
