@@ -105,7 +105,7 @@ There are seven main verbs that work with patterns:
     #> [6,] "aut" "a"  "t"
     ```
 
--   `str_replace(x, pattern, replacemnt)` replaces the matches with new text.
+-   `str_replace(x, pattern, replacement)` replaces the matches with new text.
 
     ``` r
     str_replace(x, "[aeiou]", "?")
