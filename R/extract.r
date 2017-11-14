@@ -29,16 +29,11 @@
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern) {
   switch(type(pattern),
-    empty = stri_extract_first_boundaries(string, pattern,
-                                          opts_brkiter = opts(pattern)),
-    bound = stri_extract_first_boundaries(string, pattern,
-                                          opts_brkiter = opts(pattern)),
-    fixed = stri_extract_first_fixed(string, pattern,
-                                     opts_fixed = opts(pattern)),
-    coll  = stri_extract_first_coll(string, pattern,
-                                    opts_collator = opts(pattern)),
-    regex = stri_extract_first_regex(string, pattern,
-                                     opts_regex = opts(pattern))
+    empty = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
+    bound = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
+    fixed = stri_extract_first_fixed(string, pattern, opts_fixed = opts(pattern)),
+    coll  = stri_extract_first_coll(string, pattern, opts_collator = opts(pattern)),
+    regex = stri_extract_first_regex(string, pattern, opts_regex = opts(pattern))
   )
 }
 

@@ -32,8 +32,7 @@ A tidyverse friendly alternative is \code{\link[glue:glue]{glue::glue()}}.
 user_name <- "smbache"
 amount <- 6.656
 account <- 1337
-str_interp("User ${user_name} (account $[08d]{account}) has
-$$[.2f]{amount}.")
+str_interp("User ${user_name} (account $[08d]{account}) has $$[.2f]{amount}.")
 
 # Nested brace pairs work inside expressions too, and any braces can be
 # placed outside the expressions.

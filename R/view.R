@@ -34,9 +34,7 @@ str_view <- function(string, pattern, match = NA) {
 
   has_match <- !is.na(loc[, "start"])
   str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
-    paste0("<span class='match'>",
-           str_sub(string[has_match], loc[has_match, , drop = FALSE]),
-           "</span>")
+    paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
 
   bullets <- htmltools::HTML(str_c(
     "<ul>\n",
@@ -70,9 +68,7 @@ str_view_all <- function(string, pattern, match = NA) {
 
     for (i in rev(seq_len(nrow(loc)))) {
       str_sub(string, loc[i, , drop = FALSE]) <-
-        paste0("<span class='match'>",
-               str_sub(string, loc[i, , drop = FALSE]),
-               "</span>")
+        paste0("<span class='match'>", str_sub(string, loc[i, , drop = FALSE]), "</span>")
     }
     string
   })

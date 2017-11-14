@@ -5,8 +5,7 @@ test_that("basic replacement works", {
   expect_equal(str_replace("abababa", "ba", "BA"), "aBAbaba")
 })
 
-test_that("replacement strings with capture groups refs and dollar signs
-          work", {
+test_that("replacement strings with capture groups refs and dollar signs work", {
   expect_equal(str_replace_all("abc$a$1$2", fixed("a"), "$1"), "$1bc$$1$1$2")
   expect_equal(str_replace("abc$a$1$2", fixed("a"), "$1"), "$1bc$a$1$2")
 

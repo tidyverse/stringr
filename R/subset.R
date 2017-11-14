@@ -29,12 +29,9 @@ str_subset <- function(string, pattern) {
   switch(type(pattern),
     empty = ,
     bound = string[str_detect(string, pattern)],
-    fixed = stri_subset_fixed(string, pattern, omit_na = TRUE,
-                              opts_fixed = opts(pattern)),
-    coll  = stri_subset_coll(string, pattern, omit_na = TRUE,
-                             opts_collator = opts(pattern)),
-    regex = stri_subset_regex(string, pattern, omit_na = TRUE,
-                              opts_regex = opts(pattern))
+    fixed = stri_subset_fixed(string, pattern, omit_na = TRUE, opts_fixed = opts(pattern)),
+    coll  = stri_subset_coll(string, pattern, omit_na = TRUE, opts_collator = opts(pattern)),
+    regex = stri_subset_regex(string, pattern, omit_na = TRUE, opts_regex = opts(pattern))
   )
 }
 
