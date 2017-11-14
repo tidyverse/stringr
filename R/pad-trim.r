@@ -55,6 +55,8 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
   side <- match.arg(side)
 
   too_long <- str_length(string) > width
+  too_long[is.na(too_long)] <- FALSE
+
   width... <- width - str_length(ellipsis)
 
   string[too_long] <- switch(side,
