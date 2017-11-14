@@ -18,3 +18,16 @@ test_that("directions work for simple case", {
   expect_equal(pad("left"),   "       had")
   expect_equal(pad("both"),   "   had    ")
 })
+
+test_that("truncations work for all sides", {
+
+  trunc <- function(direction) str_trunc(
+    "This string is moderately long",
+    direction,
+    width = 20
+  )
+
+  expect_equal(trunc("right"),   "This string is mo...")
+  expect_equal(trunc("left"),    "...s moderately long")
+  expect_equal(trunc("center"),  "This stri...ely long")
+})
