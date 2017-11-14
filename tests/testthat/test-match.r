@@ -5,7 +5,7 @@ num <- matrix(sample(9, 10 * 10, replace = T), ncol = 10)
 num_flat <- apply(num, 1, str_c, collapse = "")
 
 phones <- str_c(
-  "(", num[, 1], num[ ,2], num[, 3], ") ",
+  "(", num[, 1], num[, 2], num[, 3], ") ",
   num[, 4], num[, 5], num[, 6], " ",
   num[, 7], num[, 8], num[, 9], num[, 10])
 
@@ -47,10 +47,10 @@ test_that("match returns NA when some inputs don't match", {
 })
 
 test_that("match returns NA when optional group doesn't match", {
-  expect_equal(str_match(c("ab", "a"), "(a)(b)?")[,3], c("b", NA))
+  expect_equal(str_match(c("ab", "a"), "(a)(b)?")[, 3], c("b", NA))
 })
 
-test_that("match_all returns NA when option group doesn't match",{
+test_that("match_all returns NA when option group doesn't match", {
   expect_equal(str_match_all("a", "(a)(b)?")[[1]][1, ], c("a", "a", NA))
 })
 
@@ -62,4 +62,9 @@ test_that("multiple match works", {
     "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
 
   expect_equal(multi_match[[1]], single_matches)
+})
+
+test_that("match and match_all fail when pattern is not a regex", {
+  expect_error(str_match(phones, fixed("3")))
+  expect_error(str_match_all(phones, coll("9")))
 })

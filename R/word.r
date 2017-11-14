@@ -54,4 +54,3 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
 
   str_sub(string, starts, ends)
 }
-

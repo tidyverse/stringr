@@ -42,4 +42,3 @@ str_detect <- function(string, pattern) {
     regex = stri_detect_regex(string, pattern, opts_regex = opts(pattern))
   )
 }
-
