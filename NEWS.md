@@ -1,5 +1,8 @@
 # stringr 1.2.0.9000
 
+* New `str_flatten()` is a wrapper around `stri_flatten()` and clearly
+  conveys flattening a character vector into a single string (#186).
+
 * `str_trunc()` now preserves NAs (@ClaytonJY, #162)
 
 # stringr 1.2.0
