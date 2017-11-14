@@ -15,8 +15,8 @@
 #'   matrix to `start`.
 #'
 #'   Negative values count backwards from the last character.
-#' @param omit_na single logical value; if \code{TRUE}, missing values in any of the arguments
-#' provided will result in an unchanged input; replacement function only
+#' @param omit_na Single logical value. If `TRUE`, missing values in any of the
+#'   arguments provided will result in an unchanged input.
 #' @param value replacement string
 #' @return A character vector of substring from `start` to `end`
 #'   (inclusive). Will be length of longest input argument.

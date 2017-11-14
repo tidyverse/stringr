@@ -19,8 +19,8 @@ matrix to \code{start}.
 
 Negative values count backwards from the last character.}
 
-\item{omit_na}{single logical value; if \code{TRUE}, missing values in any of the arguments
-provided will result in an unchanged input; replacement function only}
+\item{omit_na}{Single logical value. If \code{TRUE}, missing values in any of the
+arguments provided will result in an unchanged input.}
 
 \item{value}{replacement string}
 }
