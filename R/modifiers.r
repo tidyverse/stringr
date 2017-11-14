@@ -157,25 +157,3 @@ as_bare_character <- function(x) {
   warning("Coercing `pattern` to a plain character vector.", call. = FALSE)
   as.character(x)
 }
-
-#' Deprecated modifier functions.
-#'
-#' Please use [regex()] and [coll()] instead.
-#'
-#' @name modifier-deprecated
-#' @keywords internal
-NULL
-
-#' @export
-#' @rdname modifier-deprecated
-ignore.case <- function(string) {
-  message("Please use (fixed|coll|regex)(x, ignore_case = TRUE) instead of ignore.case(x)")
-  fixed(string, ignore_case = TRUE)
-}
-
-#' @export
-#' @rdname modifier-deprecated
-perl <- function(pattern) {
-  message("perl is deprecated. Please use regex() instead")
-  regex(pattern)
-}

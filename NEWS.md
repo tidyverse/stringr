@@ -1,6 +1,7 @@
 # stringr 1.2.0.9000
 
-* Long deprecated `str_join()` has now been removed.
+* Long deprecated `str_join()`, `ignore.case()` and `perl()` have now been 
+  removed.
 
 * New `str_flatten()` is a wrapper around `stri_flatten()` and clearly
   conveys flattening a character vector into a single string (#186).
