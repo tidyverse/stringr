@@ -133,7 +133,7 @@ eval_interp_matches <- function(matches, env) {
   expressions <- extract_expressions(matches)
 
   # Evaluate them in the given environment
-  values <- lapply(expressions, eval, env = env,
+  values <- lapply(expressions, eval, envir = env,
                    enclos = if (is.environment(env)) env else environment(env))
 
   # Find the formats to be used
