@@ -3,7 +3,7 @@
 stringr <img src="man/figures/logo.png" align="right" />
 ========================================================
 
-[![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr) [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master) [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
+[![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr) [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master) [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
 
 Overview
 --------
@@ -105,7 +105,7 @@ There are seven main verbs that work with patterns:
     #> [6,] "aut" "a"  "t"
     ```
 
--   `str_replace(x, pattern, replacemnt)` replaces the matches with new text.
+-   `str_replace(x, pattern, replacement)` replaces the matches with new text.
 
     ``` r
     str_replace(x, "[aeiou]", "?")

@@ -344,14 +344,14 @@ str_extract(x, c("C{2,3}", "C{2,3}?"))
 str_extract(x, c("C[LX]+", "C[LX]+?"))
 ```
 
-You can also make the matches possessive, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called "catastrophic backtracking").
+You can also make the matches possessive by putting a `+` after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called "catastrophic backtracking").
 
-* `??`: 0 or 1, possessive.
-* `+?`: 1 or more, possessive.
-* `*?`: 0 or more, possessive.
-* `{n}?`: exactly n, possessive.
-* `{n,}?`: n or more, possessive.
-* `{n,m}?`: between n and m, possessive.
+* `?+`: 0 or 1, possessive.
+* `++`: 1 or more, possessive.
+* `*+`: 0 or more, possessive.
+* `{n}+`: exactly n, possessive.
+* `{n,}+`: n or more, possessive.
+* `{n,m}+`: between n and m, possessive.
 
 A related concept is the __atomic-match__ parenthesis, `(?>...)`. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:
 

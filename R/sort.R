@@ -1,18 +1,18 @@
 #' Order or sort a character vector.
 #'
 #' @param x A character vector to sort.
-#' @param decreasing A boolean. If \code{FALSE}, the default, sorts from
-#'   lowest to highest; if \code{TRUE} sorts from highest to lowest.
-#' @param na_last Where should \code{NA} go? \code{TRUE} at the end,
-#'   \code{FALSE} at the beginning, \code{NA} dropped.
+#' @param decreasing A boolean. If `FALSE`, the default, sorts from
+#'   lowest to highest; if `TRUE` sorts from highest to lowest.
+#' @param na_last Where should `NA` go? `TRUE` at the end,
+#'   `FALSE` at the beginning, `NA` dropped.
 #' @param locale In which locale should the sorting occur? Defaults to
 #'   the English. This ensures that code behaves the same way across
 #'   platforms.
-#' @param numeric If \code{TRUE}, will sort digits numerically, instead
+#' @param numeric If `TRUE`, will sort digits numerically, instead
 #'    of as strings.
 #' @param ... Other options used to control sorting order. Passed on to
-#'   \code{\link[stringi]{stri_opts_collator}}.
-#' @seealso \code{\link[stringi]{stri_order}} for the underlying implementation.
+#'   [stringi::stri_opts_collator()].
+#' @seealso [stringi::stri_order()] for the underlying implementation.
 #' @export
 #' @examples
 #' str_order(letters)

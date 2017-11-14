@@ -1,17 +1,17 @@
 #' Split up a string into pieces.
 #'
-#' Vectorised over \code{string} and \code{pattern}.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @inheritParams str_extract
 #' @param n number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.
 #'
-#'   For \code{str_split_fixed}, if n is greater than the number of pieces,
+#'   For `str_split_fixed`, if n is greater than the number of pieces,
 #'   the result will be padded with empty strings.
-#' @return For \code{str_split_fixed}, a character matrix with \code{n} columns.
-#'   For \code{str_split}, a list of character vectors.
-#' @seealso \code{\link{stri_split}} for the underlying implementation.
+#' @return For `str_split_fixed`, a character matrix with `n` columns.
+#'   For `str_split`, a list of character vectors.
+#' @seealso [stri_split()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c(

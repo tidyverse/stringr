@@ -1,16 +1,16 @@
 #' Keep strings matching a pattern, or find positions.
 #'
-#' \code{str_subset()} is a wrapper around \code{x[str_detect(x, pattern)]},
-#' and is equivalent to \code{grep(pattern, x, value = TRUE)}.
-#' \code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
-#' and is equivalent to \code{grep(pattern, x)}.
+#' `str_subset()` is a wrapper around `x[str_detect(x, pattern)]`,
+#' and is equivalent to `grep(pattern, x, value = TRUE)`.
+#' `str_which()` is a wrapper around `which(str_detect(x, pattern))`,
+#' and is equivalent to `grep(pattern, x)`.
 #'
-#' Vectorised over \code{string} and \code{pattern}
+#' Vectorised over `string` and `pattern`
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
-#' @seealso \code{\link{grep}} with argument \code{value = TRUE},
-#'    \code{\link[stringi]{stri_subset}} for the underlying implementation.
+#' @seealso [grep()] with argument `value = TRUE`,
+#'    [stringi::stri_subset()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
