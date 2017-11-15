@@ -1,11 +1,11 @@
 #' Join multiple strings into a single string.
 #'
-#' To understand how \code{str_c} works, you need to imagine that you are
+#' To understand how `str_c` works, you need to imagine that you are
 #' building up a matrix of strings. Each input argument forms a column, and
 #' is expanded to the length of the longest argument, using the usual
-#' recyling rules.  The \code{sep} string is inserted between each column. If
-#' collapse is \code{NULL} each row is collapsed into a single string. If
-#' non-\code{NULL} that string is inserted at the end of each row, and
+#' recyling rules.  The `sep` string is inserted between each column. If
+#' collapse is `NULL` each row is collapsed into a single string. If
+#' non-`NULL` that string is inserted at the end of each row, and
 #' the entire matrix collapsed to a single string.
 #'
 #' @param ... One or more character vectors. Zero length arguments
@@ -14,16 +14,16 @@
 #'
 #'   Like most other R functions, missing values are "infectious": whenever
 #'   a missing value is combined with another string the result will always
-#'   be missing. Use \code{\link{str_replace_na}} to convert \code{NA} to
-#'   \code{"NA"}
+#'   be missing. Use [str_replace_na()] to convert `NA` to
+#'   `"NA"`
 #' @param sep String to insert between input vectors.
 #' @param collapse Optional string used to combine input vectors into single
 #'   string.
-#' @return If \code{collapse = NULL} (the default) a character vector with
-#'   length equal to the longest input string. If \code{collapse} is
+#' @return If `collapse = NULL` (the default) a character vector with
+#'   length equal to the longest input string. If `collapse` is
 #'   non-NULL, a character vector of length 1.
-#' @seealso \code{\link{paste}} for equivalent base R functionality, and
-#'    \code{\link[stringi]{stri_join}} which this function wraps
+#' @seealso [paste()] for equivalent base R functionality, and
+#'    [stringi::stri_join()] which this function wraps
 #' @export str_c
 #' @examples
 #' str_c("Letter: ", letters)
@@ -40,13 +40,5 @@
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
 #' @import stringi
 str_c <- function(..., sep = "", collapse = NULL) {
-  stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
-}
-
-#' @export
-#' @rdname str_c
-#' @usage NULL
-str_join <- function(..., sep = "", collapse = NULL) {
-  .Deprecated("str_c")
   stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
 }

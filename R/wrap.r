@@ -1,6 +1,6 @@
 #' Wrap strings into nicely formatted paragraphs.
 #'
-#' This is a wrapper around \code{\link[stringi]{stri_wrap}} which implements
+#' This is a wrapper around [stringi::stri_wrap()] which implements
 #' the Knuth-Plass paragraph wrapping algorithm.
 #'
 #' @param string character vector of strings to reformat.

@@ -8,7 +8,7 @@
 #' @inheritParams str_detect
 #' @return A numeric vector giving number of characters (code points) in each
 #'    element of the character vector. Missing string have missing length.
-#' @seealso \code{\link[stringi]{stri_length}} which this function wraps.
+#' @seealso [stringi::stri_length()] which this function wraps.
 #' @export
 #' @examples
 #' str_length(letters)

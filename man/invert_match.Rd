@@ -7,7 +7,7 @@
 invert_match(loc)
 }
 \arguments{
-\item{loc}{matrix of match locations, as from \code{\link{str_locate_all}}}
+\item{loc}{matrix of match locations, as from \code{\link[=str_locate_all]{str_locate_all()}}}
 }
 \value{
 numeric match giving locations of non-matches

@@ -3,15 +3,18 @@
 #' String interpolation is a useful way of specifying a character string which
 #' depends on values in a certain environment. It allows for string creation
 #' which is easier to read and write when compared to using e.g.
-#' \code{\link{paste}} or \code{\link{sprintf}}. The (template) string can
-#' include expression placeholders of the form \code{${expression}} or
-#' \code{$[format]{expression}}, where expressions are valid R expressions that
-#' can be evaluated in the given environment, and \code{format} is a format
-#' specification valid for use with \code{\link{sprintf}}.
+#' [paste()] or [sprintf()]. The (template) string can
+#' include expression placeholders of the form `${expression}` or
+#' `$[format]{expression}`, where expressions are valid R expressions that
+#' can be evaluated in the given environment, and `format` is a format
+#' specification valid for use with [sprintf()].
 #'
 #' @param string A template character string. This function is not vectorised:
 #'   a character vector will be collapsed into a single string.
 #' @param env The environment in which to evaluate the expressions.
+#' @seealso [str_glue()] and [str_glue_data()] for alternative approaches to
+#'   the same problem.
+#' @keywords internal
 #' @return An interpolated character string.
 #' @author Stefan Milton Bache
 #' @export
@@ -69,12 +72,12 @@ str_interp <- function(string, env = parent.frame()) {
 #' Match String Interpolation Placeholders
 #'
 #' Given a character string a set of expression placeholders are matched. They
-#' are of the form \code{${...}} or optionally \code{$[f]{...}} where \code{f}
-#' is a valid format for \code{\link{sprintf}}.
+#' are of the form \code{${...}} or optionally \code{$[f]{...}} where `f`
+#' is a valid format for [sprintf()].
 #'
 #' @param string character: The string to be interpolated.
 #'
-#' @return list containing \code{indices} (regex match data) and \code{matches},
+#' @return list containing `indices` (regex match data) and `matches`,
 #'   the string representations of matched expressions.
 #'
 #' @noRd
@@ -118,7 +121,7 @@ interp_placeholders <- function(string) {
 #'
 #' The expression part of string interpolation matches are evaluated in a
 #' specified environment and formatted for replacement in the original string.
-#' Used internally by \code{\link{str_interp}}.
+#' Used internally by [str_interp()].
 #'
 #' @param matches Match data
 #'
@@ -133,7 +136,7 @@ eval_interp_matches <- function(matches, env) {
   expressions <- extract_expressions(matches)
 
   # Evaluate them in the given environment
-  values <- lapply(expressions, eval, env = env,
+  values <- lapply(expressions, eval, envir = env,
                    enclos = if (is.environment(env)) env else environment(env))
 
   # Find the formats to be used
@@ -175,7 +178,7 @@ extract_expressions <- function(matches) {
 #' Extract String Interpolation Formats from Matched Placeholders
 #'
 #' An expression placeholder for string interpolation may optionally contain a
-#' format valid for \code{\link{sprintf}}. This function will extract such or
+#' format valid for [sprintf()]. This function will extract such or
 #' default to "s" the format for strings.
 #'
 #' @param matches Match data
@@ -194,7 +197,7 @@ extract_formats <- function(matches) {
 
 #' Utility Function for Matching a Closing Brace
 #'
-#' Given positions of opening and closing braces \code{match_brace} identifies
+#' Given positions of opening and closing braces `match_brace` identifies
 #' the closing brace matching the first opening brace.
 #'
 #' @param opening integer: Vector with positions of opening braces.
