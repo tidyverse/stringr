@@ -15,24 +15,24 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-  The default interpretation is a regular expression, as described
-  in \link[stringi]{stringi-search-regex}. Control options with
-  \code{\link{regex}()}.
+The default interpretation is a regular expression, as described
+in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+\code{\link[=regex]{regex()}}.
 
-  Match a fixed string (i.e. by comparing only bytes), using
-  \code{\link{fixed}(x)}. This is fast, but approximate. Generally,
-  for matching human text, you'll want \code{\link{coll}(x)} which
-  respects character matching rules for the specified locale.
+Match a fixed string (i.e. by comparing only bytes), using
+\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
+for matching human text, you'll want \code{\link[=coll]{coll()}} which
+respects character matching rules for the specified locale.
 
-  Match character, word, line and sentence boundaries with
-  \code{\link{boundary}()}. An empty pattern, "", is equivalent to
-  \code{boundary("character")}.}
+Match character, word, line and sentence boundaries with
+\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
+\code{boundary("character")}.}
 }
 \value{
 A character vector.
 }
 \description{
-Alias for str_replace(string, pattern, "").
+Alias for \code{str_replace(string, pattern, "")}.
 }
 \examples{
 fruits <- c("one apple", "two pears", "three bananas")
@@ -40,5 +40,5 @@ str_remove(fruits, "[aeiou]")
 str_remove_all(fruits, "[aeiou]")
 }
 \seealso{
-\code{\link{str_replace}} for the underlying implementation.
+\code{\link[=str_replace]{str_replace()}} for the underlying implementation.
 }

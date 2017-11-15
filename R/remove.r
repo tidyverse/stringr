@@ -1,11 +1,10 @@
 #' Remove matched patterns in a string.
 #'
-#' Alias for str_replace(string, pattern, "").
+#' Alias for `str_replace(string, pattern, "")`.
 #'
 #' @inheritParams str_detect
-#'
 #' @return A character vector.
-#' @seealso \code{\link{str_replace}} for the underlying implementation.
+#' @seealso [str_replace()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c("one apple", "two pears", "three bananas")
