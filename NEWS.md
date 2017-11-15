@@ -12,6 +12,10 @@
 
 * `str_trunc()` now preserves NAs (@ClaytonJY, #162)
 
+* New `str_remove()` and `str_remove_all()` functions. These wrap 
+  `str_replace()` and `str_replace_all()` to remove patterns from strings.
+  (@Shians, #178)
+
 # stringr 1.2.0
 
 ## API changes
