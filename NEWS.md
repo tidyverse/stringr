@@ -16,6 +16,10 @@
   `str_replace()` and `str_replace_all()` to remove patterns from strings.
   (@Shians, #178)
 
+* `str_sub()` gains `omit_na` argument for ignoring `NA`. Accordingly,
+  `str_replace()` now ignores `NA`s and keeps the original strings.
+  (@yutannihilation, #164)
+
 # stringr 1.2.0
 
 ## API changes
