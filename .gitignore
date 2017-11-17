@@ -5,3 +5,8 @@ packrat/lib*/
 packrat/src
 inst/doc
 .httr-oauth
+revdep/checks
+revdep/library
+revdep/checks.noindex
+revdep/library.noindex
+revdep/data.sqlite
