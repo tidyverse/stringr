@@ -1,20 +1,24 @@
 # stringr 1.2.0.9000
 
-* New `str_glue()` and `str_glue_data()` provide convenient wrappers around
+## New features
+
+* `str_glue()` and `str_glue_data()` provide convenient wrappers around
   `glue` and `glue_data()` from the [glue](http://glue.tidyverse.org/) package
   (#157).
 
-* Long deprecated `str_join()`, `ignore.case()` and `perl()` have now been 
-  removed.
-
-* New `str_flatten()` is a wrapper around `stri_flatten()` and clearly
+* `str_flatten()` is a wrapper around `stri_flatten()` and clearly
   conveys flattening a character vector into a single string (#186).
+
+* `str_remove()` and `str_remove_all()` functions. These wrap 
+  `str_replace()` and `str_replace_all()` to remove patterns from strings.
+  (@Shians, #178)
+
+## Bug fixes and minor improvements
 
 * `str_trunc()` now preserves NAs (@ClaytonJY, #162)
 
-* New `str_remove()` and `str_remove_all()` functions. These wrap 
-  `str_replace()` and `str_replace_all()` to remove patterns from strings.
-  (@Shians, #178)
+* Long deprecated `str_join()`, `ignore.case()` and `perl()` have now been 
+  removed.
 
 # stringr 1.2.0
 
