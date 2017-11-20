@@ -2,9 +2,12 @@
 % Please edit documentation in R/trim.R
 \name{str_trim}
 \alias{str_trim}
+\alias{str_squish}
 \title{Trim whitespace from start and end of string.}
 \usage{
 str_trim(string, side = c("both", "left", "right"))
+
+str_squish(string)
 }
 \arguments{
 \item{string}{A character vector.}
@@ -16,10 +19,14 @@ A character vector.
 }
 \description{
 Trim whitespace from start and end of string.
+
+Trim whitespace from start, middle, and end of string.
 }
 \examples{
 str_trim("  String with trailing and leading white space\\t")
 str_trim("\\n\\nString with trailing and leading white space\\n\\n")
+str_squish("  String with trailing,  middle, and leading white space\\t")
+str_squish("\\n\\nString with excess,  trailing and leading white   space\\n\\n")
 }
 \seealso{
 \code{\link[=str_pad]{str_pad()}} to add whitespace
