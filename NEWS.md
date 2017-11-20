@@ -17,6 +17,9 @@
 
 * `str_trunc()` now preserves NAs (@ClaytonJY, #162)
 
+* `str_trunc()` now throws an error when `width` is shorter than `ellipsis`
+  (@ClaytonJY, #163).
+
 * Long deprecated `str_join()`, `ignore.case()` and `perl()` have now been 
   removed.
 

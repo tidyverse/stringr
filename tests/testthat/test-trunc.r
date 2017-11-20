@@ -23,3 +23,9 @@ test_that("truncations work for all sides", {
   expect_equal(trunc("left"),    "...s moderately long")
   expect_equal(trunc("center"),  "This stri...ely long")
 })
+
+test_that("does not truncate to a length shorter than elipsis", {
+
+  expect_error(str_trunc("foobar", 2))
+  expect_error(str_trunc("foobar", 3, ellipsis = "...."))
+})
