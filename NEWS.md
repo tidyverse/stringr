@@ -12,6 +12,8 @@
 * `str_remove()` and `str_remove_all()` functions. These wrap 
   `str_replace()` and `str_replace_all()` to remove patterns from strings.
   (@Shians, #178)
+  
+* `str_squish()` removes spaces from both the left and right side of strings, and also converts multiple space (or space-like characters) to a single space within strings. (@stephlocke #197)
 
 ## Bug fixes and minor improvements
 
