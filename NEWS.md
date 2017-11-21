@@ -1,4 +1,4 @@
-# stringr 1.2.0.9000
+# stringr 1.3.0
 
 ## New features
 
