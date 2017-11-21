@@ -1,44 +1,40 @@
 ## Test environments
-* local OS X install, R 3.3.2
-* ubuntu 12.04 (on travis-ci), R 3.3.2
-* win-builder (devel and release)
+
+* local OS X install (R-release)
+* travis-ci.org (R-3.1, R-3.2, R-oldrel, R-release, R-devel)
+* win-builder (R-devel)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
 
-## Reverse dependencies
+## revdepcheck results
 
-I have run R CMD check on the 341 downstream dependencies. 
-Summary at https://github.com/hadley/stringr/tree/master/revdep. 
+We checked 573 reverse dependencies (510 from CRAN + 63 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
 
-I saw the following failures:
+ * We saw 1 new problems
+ * We failed to check 10 packages
 
-* Failed to install dependencies for: AFM, aslib, biomartr, GenomicTools, hoardeR, HTSSIP, HydeNet, IATscores, metagear, MetaIntegrator, mglR, mrMLM, NFP, nucim, PepPrep, RbioRXN, TcGSA
-* Failed to install: BTLLasso, CollapsABEL, dynamichazard, EasyMARK, Fgmutils, FRESA.CAD, KoNLP, mailR, morse, RcppOctave, rEHR, RJafroc, rpcdsearch, rsgcc, sdcTable, spatsurv, stm, subspace, x.ent, x12GUI
-* abjutils: checking tests ... ERROR
-* ALA4R: checking re-building of vignette outputs ... WARNING
-* bibliometrix: checking re-building of vignette outputs ... WARNING
-* broom: checking examples ... ERROR
-* dataone: checking tests ... ERROR
-* docxtools: checking examples ... ERROR
-* eclust: checking examples ... ERROR
-* elementR: checking examples ... ERROR
-* fitbitScraper: checking re-building of vignette outputs ... WARNING
-* Greg: checking examples ... ERROR
-* imager: checking tests ... ERROR
-* modules: checking tests ... ERROR
-* mtconnectR: checking tests ... ERROR
-* optparse: checking re-building of vignette outputs ... WARNING
-* phrasemachine: checking examples ... ERROR
-* RSentiment: checking re-building of vignette outputs ... WARNING
-* RSMET: checking examples ... ERROR
-* simcausal: checking re-building of vignette outputs ... WARNING
-* sjmisc: checking re-building of vignette outputs ... WARNING
-* stormwindmodel: checking re-building of vignette outputs ... WARNING
-* stplanr: checking re-building of vignette outputs ... WARNING
-* striprtf: checking tests ... ERROR
-* tidytext: checking tests ... ERROR
+Issues with CRAN packages are summarised below.
 
-After carefully reading the reports, I believe that none of them are related to this release of stringr. This release is mostly small. There was one API change - I notified all maintainers about it on Jan 23.
+### New problems
+(This reports the first line of each new failure)
 
+* alphavantager
+  checking tests ...
+  
+  This appears to be a web test that is failing because the server is 
+  down.
+
+### Failed to check
+
+* ALA4R          (check timed out)
+* aslib          (failed to install)
+* blastula       (failed to install)
+* bridgesampling (check timed out)
+* CollapsABEL    (failed to install)
+* dtree          (failed to install)
+* ggmap          (failed to install)
+* GSIF           (failed to install)
+* heemod         (failed to install)
+* taRifx         (failed to install)
