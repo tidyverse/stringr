@@ -69,6 +69,10 @@ test_that("replacement can be different length", {
   expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
 })
 
+test_that("replacement with NA works", {
+  expect_equal(str_replace("abc", "z", toupper), "abc")
+})
+
 # fix_replacement ---------------------------------------------------------
 
 test_that("$ are escaped", {

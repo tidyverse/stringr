@@ -159,7 +159,7 @@ str_replace_na <- function(string, replacement = "NA") {
 
 str_transform <- function(string, pattern, replacement) {
   loc <- str_locate(string, pattern)
-  str_sub(string, loc) <- replacement(str_sub(string, loc))
+  str_sub(string, loc, omit_na = TRUE) <- replacement(str_sub(string, loc))
   string
 }
 str_transform_all <- function(string, pattern, replacement) {

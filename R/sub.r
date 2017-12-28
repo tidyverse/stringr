@@ -15,6 +15,8 @@
 #'   matrix to `start`.
 #'
 #'   Negative values count backwards from the last character.
+#' @param omit_na Single logical value. If `TRUE`, missing values in any of the
+#'   arguments provided will result in an unchanged input.
 #' @param value replacement string
 #' @return A character vector of substring from `start` to `end`
 #'   (inclusive). Will be length of longest input argument.
@@ -50,6 +52,15 @@
 #' str_sub(x, -1, -1) <- "K"; x
 #' str_sub(x, -2, -2) <- "GHIJ"; x
 #' str_sub(x, 2, -2) <- ""; x
+#'
+#' # If you want to keep the original if some argument is NA,
+#' # use omit_na = TRUE
+#' x1 <- x2 <- x3 <- x4 <- "AAA"
+#' str_sub(x1, 1, NA) <- "B"
+#' str_sub(x2, 1, 2) <- NA
+#' str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
+#' str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+#' x1; x2; x3; x4
 str_sub <- function(string, start = 1L, end = -1L) {
   if (is.matrix(start)) {
     stri_sub(string, from = start)
@@ -61,11 +72,11 @@ str_sub <- function(string, start = 1L, end = -1L) {
 
 #' @export
 #' @rdname str_sub
-"str_sub<-" <- function(string, start = 1L, end = -1L, value) {
+"str_sub<-" <- function(string, start = 1L, end = -1L, omit_na = FALSE,  value) {
   if (is.matrix(start)) {
-    stri_sub(string, from = start) <- value
+    stri_sub(string, from = start, omit_na = omit_na) <- value
   } else {
-    stri_sub(string, from = start, to = end) <- value
+    stri_sub(string, from = start, to = end, omit_na = omit_na) <- value
   }
   string
 }

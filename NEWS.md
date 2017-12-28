@@ -17,6 +17,10 @@
   and also converts multiple space (or space-like characters) to a single 
   space within strings (@stephlocke, #197).
 
+* `str_sub()` gains `omit_na` argument for ignoring `NA`. Accordingly,
+  `str_replace()` now ignores `NA`s and keeps the original strings.
+  (@yutannihilation, #164)
+
 ## Bug fixes and minor improvements
 
 * `str_trunc()` now preserves NAs (@ClaytonJY, #162)
