@@ -1,5 +1,12 @@
 # stringr 1.3.0
 
+## API changes
+
+* During package build, you may see 
+  `Error : object ‘ignore.case’ is not exported by 'namespace:stringr'`.
+  This is because the long deprecated `str_join()`, `ignore.case()` and 
+  `perl()` have now been removed. 
+
 ## New features
 
 * `str_glue()` and `str_glue_data()` provide convenient wrappers around
