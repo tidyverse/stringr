@@ -39,6 +39,13 @@ Version: 0.18-0
 
 ## In both
 
+*   checking whether package ‘afex’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘lme4’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/afex/new/afex.Rcheck/00install.out’ for details.
+    ```
+
 *   checking Rd cross-references ... NOTE
     ```
     Packages unavailable to check Rd xrefs: ‘ez’, ‘ascii’
@@ -109,6 +116,38 @@ Version: 0.1.0
     ```
     Namespace in Imports field not imported from: ‘devtools’
       All declared Imports should be used.
+    ```
+
+# alpine
+
+Version: 1.2.0
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > library(rtracklayer)
+    > gap <- ERR188088()
+    snapshotDate(): 2016-10-01
+    see ?alpineData and browseVignettes('alpineData') for documentation
+    loading from cache ‘/Users/hadley//.ExperimentHub/167’
+    > dir <- system.file(package="alpineData", "extdata")
+    > bam.file <- c("ERR188088" = file.path(dir,"ERR188088.bam"))
+    > export(gap, con=bam.file)
+    > 
+    > data(preprocessedData)
+    > 
+    > w <- getFragmentWidths(bam.file, ebt.fit[[2]])
+    Warning in doTryCatch(return(expr), name, parentenv, handler) :
+      [bam_header_read] EOF marker is absent. The input is probably truncated.
+    Warning in doTryCatch(return(expr), name, parentenv, handler) :
+      [bam_header_read] invalid BAM binary header (this is not a BAM file).
+    Error in value[[3L]](cond) : 
+      failed to open BamFile: SAM/BAM header missing or empty
+      file: '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/alpine/alpineData/extdata/ERR188088.bam'
+    Calls: getFragmentWidths ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
+    Execution halted
     ```
 
 # AmostraBrasil
@@ -191,6 +230,13 @@ Version: 1.0.0
 
 ## In both
 
+*   checking whether package ‘banocc’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘rstan’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00install.out’ for details.
+    ```
+
 *   checking R code for possible problems ... NOTE
     ```
     calc_snc: no visible global function definition for ‘sd’
@@ -242,6 +288,7 @@ Version: 1.0.1
 *   checking whether package ‘basecallQC’ can be installed ... WARNING
     ```
     Found the following significant warnings:
+      Warning: package ‘knitr’ was built under R version 3.4.3
       Warning: package ‘yaml’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/basecallQC/new/basecallQC.Rcheck/00install.out’ for details.
     ```
@@ -360,6 +407,7 @@ Version: 1.4.0
     ```
     Found the following significant warnings:
       Warning: package ‘cgdsr’ was built under R version 3.4.3
+      Warning: package ‘RCurl’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioCancer/new/bioCancer.Rcheck/00install.out’ for details.
     ```
 
@@ -453,7 +501,7 @@ Version: 0.3.1
          }(28L, "<not set>", TRUE)
       
       ══ testthat results  ═══════════════════════════════════════════════════════════
-      OK: 68 SKIPPED: 0 FAILED: 1
+      OK: 69 SKIPPED: 0 FAILED: 1
       1. Error: download.file.custom is.dir (@test_utils.R#138) 
       
       Error: testthat unit tests failed
@@ -464,33 +512,7 @@ Version: 0.3.1
 
 Version: 0.5.2
 
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > ### Name: getDatasets
-    > ### Title: Retrieve All Available Datasets for a BioMart Database
-    > ### Aliases: getDatasets
-    > 
-    > ### ** Examples
-    > 
-    > # search for available datasets
-    > getMarts()
-    Opening and ending tag mismatch: link line 7 and head
-    Opening and ending tag mismatch: link line 6 and html
-    Premature end of data in tag link line 5
-    Premature end of data in tag base line 3
-    Premature end of data in tag head line 2
-    Premature end of data in tag html line 1
-    Error: 1: Opening and ending tag mismatch: link line 7 and head
-    2: Opening and ending tag mismatch: link line 6 and html
-    3: Premature end of data in tag link line 5
-    4: Premature end of data in tag base line 3
-    5: Premature end of data in tag head line 2
-    6: Premature end of data in tag html line 1
-    Execution halted
-    ```
+## Newly fixed
 
 *   checking tests ...
     ```
@@ -498,31 +520,31 @@ Version: 0.5.2
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
       trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/viral/assembly_summary.txt'
-      Content type 'unknown' length 2242553 bytes (2.1 MB)
+      Content type 'unknown' length 2243299 bytes (2.1 MB)
       ==================================================
       trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/overview.txt'
-      Content type 'unknown' length 3045016 bytes (2.9 MB)
+      Content type 'unknown' length 3047611 bytes (2.9 MB)
       ==================================================
       trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/metagenomes/assembly_summary.txt'
-      Content type 'unknown' length 389585 bytes (380 KB)
+      Content type 'unknown' length 666851 bytes (651 KB)
       ==================================================
       ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 5 SKIPPED: 60 FAILED: 1
-      1. Error: The biomart() interface works properly.. (@test-biomart.R#10) 
+      1. Error: The biomart() interface works properly.. (@test-biomart.R#14) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+## In both
+
 *   checking re-building of vignette outputs ... WARNING
     ```
     Error in re-building vignettes:
       ...
-    Quitting from lines 42-51 (Functional_Annotation.Rmd) 
+    Quitting from lines 97-112 (Functional_Annotation.Rmd) 
     Error: processing vignette 'Functional_Annotation.Rmd' failed with diagnostics:
-    Unexpected format to the list of available marts.
-    Please check the following URL manually, and try ?listMarts for advice.
-    http://www.ensembl.org:80/biomart/martservice?type=registry&requestid=biomaRt
+    The given dataset:  hsapiens_gene_ensembl , is not valid.  Correct dataset names can be obtained with the listDatasets() function.
     Execution halted
     ```
 
@@ -592,57 +614,11 @@ Version: 1.0.0
 
 ## In both
 
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘branchpointer-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: snpToQuery
-    > ### Title: Gets a branchpointer formatted query from refsnp ids
-    > ### Aliases: snpToQuery
-    > 
-    > ### ** Examples
-    > 
-    > mart.snp <- biomaRt::useMart("ENSEMBL_MART_SNP", dataset="hsapiens_snp", host="www.ensembl.org")
-    Error in listMarts(host = host, path = path, port = port, includeHosts = TRUE,  : 
-      Unexpected format to the list of available marts.
-    Please check the following URL manually, and try ?listMarts for advice.
-    http://www.ensembl.org:80/biomart/martservice?type=registry&requestid=biomaRt
-    Calls: <Anonymous> -> listMarts
-    Execution halted
-    ```
-
 *   checking whether package ‘branchpointer’ can be installed ... WARNING
     ```
     Found the following significant warnings:
       Warning: package ‘caret’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/branchpointer/new/branchpointer.Rcheck/00install.out’ for details.
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    Loading required package: GenomeInfoDb
-    Loading required package: GenomicRanges
-    Loading required package: Biostrings
-    Loading required package: XVector
-    
-    Attaching package: 'Biostrings'
-    
-    The following object is masked from 'package:base':
-    
-        strsplit
-    
-    Loading required package: rtracklayer
-    Loading required package: caret
-    Loading required package: lattice
-    Loading required package: ggplot2
-    Quitting from lines 210-213 (branchpointer.Rnw) 
-    Error: processing vignette 'branchpointer.Rnw' failed with diagnostics:
-    Unexpected format to the list of available marts.
-    Please check the following URL manually, and try ?listMarts for advice.
-    http://www.ensembl.org:80/biomart/martservice?type=registry&requestid=biomaRt
-    Execution halted
     ```
 
 # breathtestcore
@@ -713,6 +689,7 @@ Version: 4.2-0
 *   checking whether package ‘Causata’ can be installed ... WARNING
     ```
     Found the following significant warnings:
+      Warning: package ‘RCurl’ was built under R version 3.4.3
       Warning: package ‘foreach’ was built under R version 3.4.3
       Warning: package ‘doMC’ was built under R version 3.4.3
       Warning: package ‘iterators’ was built under R version 3.4.3
@@ -873,9 +850,9 @@ Version: 1.4.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 18.4Mb
+      installed size is 18.7Mb
       sub-directories of 1Mb or more:
-        data  17.7Mb
+        data  18.0Mb
     ```
 
 *   checking R code for possible problems ... NOTE
@@ -890,6 +867,19 @@ Version: 1.4.0
       ‘stain’
     Undefined global functions or variables:
       ID chrom dataMatrix midpoint name stain
+    ```
+
+# CLME
+
+Version: 2.0-8
+
+## In both
+
+*   checking whether package ‘CLME’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘lme4’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CLME/new/CLME.Rcheck/00install.out’ for details.
     ```
 
 # compcodeR
@@ -938,7 +928,7 @@ Version: 1.12.0
 
 # configr
 
-Version: 0.3.1.1
+Version: 0.3.2
 
 ## In both
 
@@ -1224,7 +1214,7 @@ Version: 1.16.0
     +             splice_matrix=FALSE, COSMIC=FALSE)
     Build TranscriptDB object (txdb.sqlite) ... 
     Error in names(trackIds) <- sub("^ ", "", sapply(nodes, xmlValue)) : 
-      'names' attribute [211] must be the same length as the vector [209]
+      'names' attribute [212] must be the same length as the vector [210]
     Calls: PrepareAnnotationRefseq ... trackNames -> .local -> ucscTracks -> ucscTracks -> .local
     Execution halted
     ```
@@ -1291,7 +1281,7 @@ Version: 1.16.0
     Error: processing vignette 'customProDB.Rnw' failed with diagnostics:
      chunk 1 (label = dbSNPversion) 
     Error in names(trackIds) <- sub("^ ", "", sapply(nodes, xmlValue)) : 
-      'names' attribute [211] must be the same length as the vector [209]
+      'names' attribute [212] must be the same length as the vector [210]
     Execution halted
     ```
 
@@ -1453,6 +1443,13 @@ Version: 1.2.10
 
 *   R CMD check timed out
     
+
+*   checking whether package ‘DeepBlueR’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘RCurl’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DeepBlueR/new/DeepBlueR.Rcheck/00install.out’ for details.
+    ```
 
 # DeLorean
 
@@ -1662,6 +1659,7 @@ Version: 1.1.0
     ```
     Error in re-building vignettes:
       ...
+    Warning: package 'knitr' was built under R version 3.4.3
     Loading required package: ggplot2
     Quitting from lines 172-181 (intro.Rmd) 
     Error: processing vignette 'intro.Rmd' failed with diagnostics:
@@ -1679,6 +1677,7 @@ Version: 2.1
 *   checking whether package ‘eiCompare’ can be installed ... WARNING
     ```
     Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
       Warning: package ‘msm’ was built under R version 3.4.3
       Warning: package ‘foreach’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/eiCompare/new/eiCompare.Rcheck/00install.out’ for details.
@@ -1866,7 +1865,7 @@ Version: 1.0.0
         expand
     
     Warning in in_dir(input_dir(), evaluate(code, envir = env, new_device = FALSE,  :
-      You changed the working directory to /private/tmp/Rtmpekf1iu (probably via setwd()). It will be restored to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/vign_test/EventPointer/vignettes. See the Note section in ?knitr::knit
+      You changed the working directory to /private/tmp/RtmpdZPWKr (probably via setwd()). It will be restored to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/vign_test/EventPointer/vignettes. See the Note section in ?knitr::knit
     Error: processing vignette 'EventPointer.Rmd' failed with diagnostics:
     path for html_dependency not found: 
     Execution halted
@@ -2006,32 +2005,17 @@ Version: 2.0
     contains 'methods').
     ```
 
-# FedData
+# fergm
 
-Version: 2.5.0
+Version: 0.2.1
 
-## Newly broken
+## In both
 
-*   checking tests ...
+*   checking whether package ‘fergm’ can be installed ... WARNING
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > test_check("FedData")
-      ── 1. Error: ITRDB version files are available (@test.ITRDB.R#23)  ─────────────
-      Got a 530 ftp-server response when 220 was expected
-      1: readLines(curl::curl(url, handle = hand)) at testthat/test.ITRDB.R:23
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════
-      OK: 27 SKIPPED: 0 FAILED: 1
-      1. Error: ITRDB version files are available (@test.ITRDB.R#23) 
-      
-      Error: testthat unit tests failed
-      In addition: Warning messages:
-      1: closing unused connection 3 (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/treering/chronologies/) 
-      2: closing unused connection 4 (http://websoilsurvey.sc.egov.usda.gov/DSD/Download/Cache/SSA/blah.zip) 
-      3: closing unused connection 3 (https://websoilsurvey.sc.egov.usda.gov/DSD/Download/Cache/SSA/wss_SSA_CO670_[2017-09-06].zip) 
-      Execution halted
+    Found the following significant warnings:
+      Warning: package ‘rstan’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/fergm/new/fergm.Rcheck/00install.out’ for details.
     ```
 
 # FFTrees
@@ -2072,13 +2056,6 @@ Version: 0.3.0
 *   checking package dependencies ... NOTE
     ```
     Package suggested but not available for checking: ‘fivethirtyeight’
-    ```
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  5.3Mb
-      sub-directories of 1Mb or more:
-        data   4.5Mb
     ```
 
 *   checking data for non-ASCII characters ... NOTE
@@ -2253,6 +2230,19 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
+# frequencyConnectedness
+
+Version: 0.1.6
+
+## In both
+
+*   checking whether package ‘frequencyConnectedness’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/frequencyConnectedness/new/frequencyConnectedness.Rcheck/00install.out’ for details.
+    ```
+
 # FRESA.CAD
 
 Version: 2.2.1
@@ -2331,6 +2321,13 @@ Version: 1.1.2
 
 ## In both
 
+*   checking whether package ‘games’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/games/new/games.Rcheck/00install.out’ for details.
+    ```
+
 *   checking R code for possible problems ... NOTE
     ```
     ...
@@ -2406,6 +2403,24 @@ Version: 0.2.6
     Found the following significant warnings:
       Warning: package ‘Rcpp’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GenomicTools/new/GenomicTools.Rcheck/00install.out’ for details.
+    ```
+
+# GetITRData
+
+Version: 0.6
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 100-113 (gitrd-vignette-introduction.Rmd) 
+    Error: processing vignette 'gitrd-vignette-introduction.Rmd' failed with diagnostics:
+    Zipped file contains 0 files. This is likelly a problem with the downloaded file. Try running the code again as the corrupted zip file was deleted and will be downloaded again.
+    
+    If the problem persists, my suggestions is to remove the time period with problem.
+    Execution halted
     ```
 
 # ggenealogy
@@ -2493,7 +2508,7 @@ Version: 1.0
 
 Version: 1.10.0
 
-## In both
+## Newly fixed
 
 *   checking installed package size ... NOTE
     ```
@@ -2501,6 +2516,8 @@ Version: 1.10.0
       sub-directories of 1Mb or more:
         data   4.3Mb
     ```
+
+## In both
 
 *   checking R code for possible problems ... NOTE
     ```
@@ -2580,6 +2597,7 @@ Version: 0.1
     ```
     Found the following significant warnings:
       Warning: package ‘msm’ was built under R version 3.4.3
+      Warning: package ‘MASS’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GUIgems/new/GUIgems.Rcheck/00install.out’ for details.
     ```
 
@@ -2667,7 +2685,7 @@ Version: 0.3.2
 
 # htmlTable
 
-Version: 1.11.0
+Version: 1.11.1
 
 ## In both
 
@@ -2873,6 +2891,85 @@ ERROR: lazy loading failed for package ‘HydeNet’
 * DONE (HydeNet)
 
 ```
+# hydroscoper
+
+Version: 0.1.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 474 marked UTF-8 strings
+    ```
+
+# IATscores
+
+Version: 0.1-2
+
+## Newly broken
+
+*   checking whether package ‘IATscores’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IATscores/new/IATscores.Rcheck/00install.out’ for details.
+    ```
+
+## Newly fixed
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    Gscores: no visible global function definition for ‘filter’
+    MiniDscores: no visible global function definition for ‘filter’
+    MiniDscores: no visible global function definition for ‘object.size’
+    RobustScores: no visible global function definition for ‘filter’
+    SplitHalf: no visible global function definition for ‘cor’
+    TestRetest: no visible global function definition for ‘filter’
+    TestRetest: no visible global function definition for ‘cor’
+    WPRscores: no visible global function definition for ‘filter’
+    WPRscores: no visible global function definition for ‘quantile’
+    WPRscores: no visible global function definition for ‘sd’
+    computeMinid: no visible global function definition for ‘sd’
+    doP1P2: no visible global function definition for ‘filter’
+    doP1P2: no visible global function definition for ‘sd’
+    doP1P2P3P4: no visible global function definition for ‘filter’
+    specialvar: no visible global function definition for ‘var’
+    Undefined global functions or variables:
+      cor filter object.size quantile sd var
+    Consider adding
+      importFrom("stats", "cor", "filter", "quantile", "sd", "var")
+      importFrom("utils", "object.size")
+    to your NAMESPACE file.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘IATscores’ ...
+** package ‘IATscores’ successfully unpacked and MD5 sums checked
+** R
+** preparing package for lazy loading
+Error : object ‘str_join’ is not exported by 'namespace:stringr'
+ERROR: lazy loading failed for package ‘IATscores’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IATscores/new/IATscores.Rcheck/IATscores’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘IATscores’ ...
+** package ‘IATscores’ successfully unpacked and MD5 sums checked
+** R
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (IATscores)
+
+```
 # icd
 
 Version: 2.3.1
@@ -2899,9 +2996,6 @@ Version: 1.0.0
 
 ## In both
 
-*   R CMD check timed out
-    
-
 *   checking for hidden files and directories ... NOTE
     ```
     Found the following hidden files and directories:
@@ -2919,89 +3013,6 @@ Version: 1.0.0
       airway ideal_env
     ```
 
-# imager
-
-Version: 0.40.2
-
-## In both
-
-*   checking whether package ‘imager’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/new/imager.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package which this enhances but not available for checking: ‘spatstat’
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘imager’ ...
-** package ‘imager’ successfully unpacked and MD5 sums checked
-checking for gcc... gcc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether gcc accepts -g... yes
-checking for gcc option to accept ISO C89... none needed
-checking how to run the C preprocessor... gcc -E
-checking for X... libraries /usr/X11/lib, headers /usr/X11/include
-configure: Checking if FFTW3 library is available using pkg-config
-checking for pkg-config... /usr/local/bin/pkg-config
-checking pkg-config is at least version 0.9.0... yes
-checking for FFTW... no
-FFTW library not found, please install fftw3 for better FFT support.
-checking for TIFFOpen in -ltiff... yes
-configure: creating ./config.status
-config.status: creating src/Makevars
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -fopenmp  -I/usr/X11/include   -Dcimg_use_tiff -I../inst/include -DCIMG_COMPILING -Dcimg_use_rng -Dcimg_use_r -Dcimg_use_fftw3_singlethread -Dcimg_verbosity=1 -Dcimg_date='""' -Dcimg_time='""' -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/imager/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
-ERROR: compilation failed for package ‘imager’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/new/imager.Rcheck/imager’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘imager’ ...
-** package ‘imager’ successfully unpacked and MD5 sums checked
-checking for gcc... gcc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether gcc accepts -g... yes
-checking for gcc option to accept ISO C89... none needed
-checking how to run the C preprocessor... gcc -E
-checking for X... libraries /usr/X11/lib, headers /usr/X11/include
-configure: Checking if FFTW3 library is available using pkg-config
-checking for pkg-config... /usr/local/bin/pkg-config
-checking pkg-config is at least version 0.9.0... yes
-checking for FFTW... no
-FFTW library not found, please install fftw3 for better FFT support.
-checking for TIFFOpen in -ltiff... yes
-configure: creating ./config.status
-config.status: creating src/Makevars
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -fopenmp  -I/usr/X11/include   -Dcimg_use_tiff -I../inst/include -DCIMG_COMPILING -Dcimg_use_rng -Dcimg_use_r -Dcimg_use_fftw3_singlethread -Dcimg_verbosity=1 -Dcimg_date='""' -Dcimg_time='""' -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/imager/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
-ERROR: compilation failed for package ‘imager’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/old/imager.Rcheck/imager’
-
-```
 # IONiseR
 
 Version: 2.0.0
@@ -3068,29 +3079,11 @@ Version: 2.0.0
       time_group x y zvalue
     ```
 
-# ISOweek
-
-Version: 0.6-2
-
-## In both
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Package unavailable to check Rd xrefs: ‘surveillance’
-    ```
-
 # jpmesh
 
 Version: 1.0.1
 
 ## In both
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  5.5Mb
-      sub-directories of 1Mb or more:
-        R   4.6Mb
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -3169,7 +3162,7 @@ Version: 0.6.1
 
 # knitr
 
-Version: 1.17
+Version: 1.18
 
 ## Newly broken
 
@@ -3451,6 +3444,7 @@ Version: 1.2.1
     Error in re-building vignettes:
       ...
     Warning: package 'reshape2' was built under R version 3.4.3
+    Warning: package 'knitr' was built under R version 3.4.3
     Warning: package 'registry' was built under R version 3.4.3
     Warning: package 'rsvd' was built under R version 3.4.3
     Quitting from lines 90-102 (MAITAnalysis.Rmd) 
@@ -3504,9 +3498,8 @@ Version: 1.8.1
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  8.8Mb
+      installed size is  8.7Mb
       sub-directories of 1Mb or more:
-        data      1.0Mb
         extdata   6.7Mb
     ```
 
@@ -4170,9 +4163,6 @@ Version: 1.10.0
 
 ## In both
 
-*   R CMD check timed out
-    
-
 *   checking R code for possible problems ... NOTE
     ```
     combinePvalues: no visible global function definition for ‘pnorm’
@@ -4202,6 +4192,8 @@ Version: 1.1.0
 *   checking whether package ‘nauf’ can be installed ... WARNING
     ```
     Found the following significant warnings:
+      Warning: package ‘lme4’ was built under R version 3.4.3
+      Warning: package ‘rstanarm’ was built under R version 3.4.3
       Warning: package ‘Rcpp’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nauf/new/nauf.Rcheck/00install.out’ for details.
     ```
@@ -4219,9 +4211,9 @@ Version: 0.99.2
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  8.5Mb
+      installed size is  8.6Mb
       sub-directories of 1Mb or more:
-        data   8.1Mb
+        data   8.2Mb
     ```
 
 # Nippon
@@ -4398,32 +4390,31 @@ Version: 1.1.0
 
 Version: 1.6.0
 
-## Newly fixed
-
-*   R CMD check timed out
-    
-
 ## In both
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘PGA-Ex.R’ failed
-    The error most likely occurred in:
+    ...
     
-    > ### Name: PrepareAnnotationEnsembl2
-    > ### Title: Prepare annotation from ENSEMBL
-    > ### Aliases: PrepareAnnotationEnsembl2
+    > ### Name: PrepareAnnotationRefseq2
+    > ### Title: Prepare annotation from Refseq
+    > ### Aliases: PrepareAnnotationRefseq2
     > 
     > ### ** Examples
     > 
-    > ensembl <- biomaRt::useMart("ENSEMBL_MART_ENSEMBL", dataset="hsapiens_gene_ensembl",
-    +                     host="grch37.ensembl.org", path="/biomart/martservice",
-    +                     archive=FALSE)
-    Error in listMarts(host = host, path = path, port = port, includeHosts = TRUE,  : 
-      Unexpected format to the list of available marts.
-    Please check the following URL manually, and try ?listMarts for advice.
-    http://grch37.ensembl.org:80/biomart/martservice?type=registry&requestid=biomaRt
-    Calls: <Anonymous> -> listMarts
+    > transcript_ids <- c("NM_001126112", "NM_033360", "NR_073499")
+    > pepfasta <- system.file("extdata", "refseq_pro_seq.fasta",
+    +                         package="customProDB")
+    > CDSfasta <- system.file("extdata", "refseq_coding_seq.fasta",
+    +                         package="customProDB")
+    > annotation_path <- tempdir()
+    > PrepareAnnotationRefseq2(genome='hg19', CDSfasta, pepfasta, annotation_path,
+    +                         dbsnp=NULL, transcript_ids=transcript_ids,
+    +                         splice_matrix=FALSE, COSMIC=FALSE)
+    Build TranscriptDB object (txdb.sqlite) ... 
+    Error in names(trackIds) <- sub("^ ", "", sapply(nodes, xmlValue)) : 
+      'names' attribute [212] must be the same length as the vector [210]
+    Calls: PrepareAnnotationRefseq2 ... trackNames -> .local -> ucscTracks -> ucscTracks -> .local
     Execution halted
     ```
 
@@ -4668,17 +4659,8 @@ Version: 1.9.1
 
 ## In both
 
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
-    Quitting from lines 2-32 (case_study.Rmd) 
-    Error: processing vignette 'case_study.Rmd' failed with diagnostics:
-    could not find function "doc_date"
-    Execution halted
-    ```
+*   R CMD check timed out
+    
 
 *   checking installed package size ... NOTE
     ```
@@ -5036,6 +5018,13 @@ Version: 0.2.1
 
 ## In both
 
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        data   5.0Mb
+    ```
+
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 6543 marked UTF-8 strings
@@ -5132,6 +5121,19 @@ Version: 1.0
     to your NAMESPACE file.
     ```
 
+# RGENERATEPREC
+
+Version: 1.2
+
+## In both
+
+*   checking whether package ‘RGENERATEPREC’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RGENERATEPREC/new/RGENERATEPREC.Rcheck/00install.out’ for details.
+    ```
+
 # rmarkdown
 
 Version: 1.8
@@ -5155,6 +5157,7 @@ Version: 1.4
     ```
     Found the following significant warnings:
       Warning: package ‘irtoys’ was built under R version 3.4.3
+      Warning: package ‘MASS’ was built under R version 3.4.3
       Warning: package ‘msm’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RndTexExams/new/RndTexExams.Rcheck/00install.out’ for details.
     ```
@@ -5216,6 +5219,26 @@ Version: 1.2.4
 Version: 1.10.0
 
 ## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in block_exec(params) :
+      failed to tidy R code in chunk <loaddata>
+    reason: Error in loadNamespace(name) : there is no package called 'formatR'
+    
+    Warning in download.file(sprintf("https://ftp.ncbi.nlm.nih.gov/geo/series/%s/%s/matrix/%s",  :
+      URL https://ftp.ncbi.nlm.nih.gov/geo/series/GSE4nnn/GSE4158/matrix//geo/series/GSE4nnn/GSE4158/: cannot open destfile '/tmp/RtmpmAg0LG//geo/series/GSE4nnn/GSE4158/', reason 'No such file or directory'
+    Warning in download.file(sprintf("https://ftp.ncbi.nlm.nih.gov/geo/series/%s/%s/matrix/%s",  :
+      download had nonzero exit status
+    Warning in file(con, "r") :
+      cannot open file '/tmp/RtmpmAg0LG//geo/series/GSE4nnn/GSE4158/': No such file or directory
+    Quitting from lines 90-114 (Rnits-vignette.Rnw) 
+    Error: processing vignette 'Rnits-vignette.Rnw' failed with diagnostics:
+    cannot open the connection
+    Execution halted
+    ```
 
 *   checking DESCRIPTION meta-information ... NOTE
     ```
@@ -5549,6 +5572,19 @@ Version: 0.2.4
       All declared Imports should be used.
     ```
 
+# sim1000G
+
+Version: 1.33
+
+## In both
+
+*   checking whether package ‘sim1000G’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sim1000G/new/sim1000G.Rcheck/00install.out’ for details.
+    ```
+
 # simPop
 
 Version: 1.0.0
@@ -5639,6 +5675,18 @@ Version: 1.8.0
     write to stdout/stderr instead of to the console, nor the system RNG.
     
     See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+    ```
+
+# skimr
+
+Version: 1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘knitr’
+      All declared Imports should be used.
     ```
 
 # SomaticCancerAlterations
@@ -5943,7 +5991,7 @@ Version: 1.0.4
     ```
       installed size is  5.6Mb
       sub-directories of 1Mb or more:
-        R         1.9Mb
+        R         1.8Mb
         extdata   3.1Mb
     ```
 
@@ -6022,33 +6070,7 @@ Version: 0.1.1
 
 Version: 2.5.9
 
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    Error in checkProjectInput(project) : 
-      Please set a valid project argument from the column id above. Project TCGA-ACC was not found.
-    Calls: GDCquery -> checkProjectInput
-    Execution halted
-    ```
+## Newly broken
 
 *   checking tests ...
     ```
@@ -6098,6 +6120,44 @@ Version: 2.5.9
     Execution halted
     ```
 
+*   checking for unstated dependencies in vignettes ... NOTE
+    ```
+    'library' or 'require' call not declared from: ‘DT’
+    ```
+
+## Newly fixed
+
+*   R CMD check timed out
+    
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    |NA                          |NA                             |NA                   |NA                           |
+    |Thymic Epithelial Neoplasms |Neuroepitheliomatous Neoplasms |Basal Cell Neoplasms |Ductal and Lobular Neoplasms |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    Error in checkProjectInput(project) : 
+      Please set a valid project argument from the column id above. Project TCGA-ACC was not found.
+    Calls: GDCquery -> checkProjectInput
+    Execution halted
+    ```
+
 *   checking installed package size ... NOTE
     ```
       installed size is 61.0Mb
@@ -6131,11 +6191,6 @@ Version: 2.5.9
       c3net dCommSignif dNetInduce dNetPipeline ignore.case knnmi.cross
       limmacontrasts.fit limmamakeContrasts minet portions promoters value
       visNet
-    ```
-
-*   checking for unstated dependencies in vignettes ... NOTE
-    ```
-    'library' or 'require' call not declared from: ‘DT’
     ```
 
 # TCGAbiolinksGUI
@@ -6542,11 +6597,31 @@ Version: 1.0.0
     to your NAMESPACE file.
     ```
 
+# tspmeta
+
+Version: 1.2
+
+## In both
+
+*   checking whether package ‘tspmeta’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tspmeta/new/tspmeta.Rcheck/00install.out’ for details.
+    ```
+
 # tumblR
 
 Version: 1.1
 
 ## In both
+
+*   checking whether package ‘tumblR’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘RCurl’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tumblR/new/tumblR.Rcheck/00install.out’ for details.
+    ```
 
 *   checking R code for possible problems ... NOTE
     ```
@@ -6642,6 +6717,13 @@ Version: 0.9.11
     Execution halted
     ```
 
+*   checking whether package ‘vardpoor’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vardpoor/new/vardpoor.Rcheck/00install.out’ for details.
+    ```
+
 # VarfromPDB
 
 Version: 2.2.7
@@ -6653,6 +6735,19 @@ Version: 2.2.7
     Found the following significant warnings:
       Warning: package ‘curl’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VarfromPDB/new/VarfromPDB.Rcheck/00install.out’ for details.
+    ```
+
+# VDAP
+
+Version: 2.0.0
+
+## In both
+
+*   checking whether package ‘VDAP’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘MASS’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VDAP/new/VDAP.Rcheck/00install.out’ for details.
     ```
 
 # vetools
@@ -6685,6 +6780,19 @@ Version: 1.3-28
       importFrom("utils", "read.csv")
     to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
     contains 'methods').
+    ```
+
+# vows
+
+Version: 0.5
+
+## In both
+
+*   checking whether package ‘vows’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: package ‘lme4’ was built under R version 3.4.3
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vows/new/vows.Rcheck/00install.out’ for details.
     ```
 
 # vqtl
@@ -6821,6 +6929,7 @@ Version: 2.2-1
 *   checking whether package ‘wux’ can be installed ... WARNING
     ```
     Found the following significant warnings:
+      Warning: package ‘spam’ was built under R version 3.4.3
       Warning: package ‘dotCall64’ was built under R version 3.4.3
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wux/new/wux.Rcheck/00install.out’ for details.
     ```
@@ -6843,31 +6952,29 @@ Version: 0.13.0
 
 Version: 0.4.0
 
-## Newly broken
+## In both
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-             ...)
-      8: all.equal.tbl_df(target[[i]], current[[i]], check.attributes = check.attributes, 
-             use.names = use.names, ...)
       9: equal_data_frame(target, current, ignore_col_order = ignore_col_order, ignore_row_order = ignore_row_order, 
              convert = convert)
       
       ══ testthat results  ═══════════════════════════════════════════════════════════
-      OK: 525 SKIPPED: 0 FAILED: 4
-      1. Failure: summary is properly created with the appropriate information (@test-model-summary.R#43) 
-      2. Failure: Termination messages are parsed when minimization is terminated (@test-model-summary.R#108) 
-      3. Error: properly creates the xpdb when using the file argument (@test-xpose_data.R#39) 
-      4. Error: properly creates the xpdb when using the runno argument (@test-xpose_data.R#52) 
+      OK: 522 SKIPPED: 0 FAILED: 7
+      1. Failure: Check list_data returns a proper message (@test-console_outputs.R#43) 
+      2. Failure: Check list_files returns a proper message (@test-console_outputs.R#47) 
+      3. Failure: Check list_special returns a proper message (@test-console_outputs.R#51) 
+      4. Failure: summary is properly created with the appropriate information (@test-model-summary.R#43) 
+      5. Failure: Termination messages are parsed when minimization is terminated (@test-model-summary.R#108) 
+      6. Error: properly creates the xpdb when using the file argument (@test-xpose_data.R#39) 
+      7. Error: properly creates the xpdb when using the runno argument (@test-xpose_data.R#52) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
-
-## In both
 
 *   checking dependencies in R code ... NOTE
     ```
