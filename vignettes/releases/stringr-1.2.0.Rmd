@@ -21,7 +21,7 @@ x %>% str_match_all("(.)=(\\d)?,?")
 
 ## New features
 
-There are three new featuers:
+There are three new features:
 
 *   In `str_replace()`, `replacement` can now be a function that is called once
     for each match and who's return value is used to replace the match.
