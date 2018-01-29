@@ -10,31 +10,52 @@
 
 ## revdepcheck results
 
-We checked 573 reverse dependencies (510 from CRAN + 63 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 612 reverse dependencies (551 from CRAN + 61 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 1 new problems
- * We failed to check 10 packages
+ * We saw 4 new problems
+ * We failed to check 9 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
 
-* alphavantager
-  checking tests ...
+* banR
+  checking re-building of vignette outputs ... WARNING
   
-  This appears to be a web test that is failing because the server is 
-  down.
+  Unrelated to stringr, error is "The API sent back an error 502"
+
+* RSMET
+  checking examples ... ERROR
+  
+  Unrelated to stringr, error is 
+  Warning: geocode failed with status OVER_QUERY_LIMIT, location = "France"
+
+* stormwindmodel
+  checking re-building of vignette outputs ... WARNING
+  
+  Unrelated to stringr, error is:
+  Warning: geocode failed with status OVER_QUERY_LIMIT, location = "georgia"
+
+* vardpoor
+  checking examples ... ERROR
+  
+  Seems unrelated to stringr. Error is:
+  Error in gsd(employed, na.rm = TRUE) : 
+    negative length vectors are not allowed
+  Calls: vardannual -> vardcros -> [ -> [.data.table -> gforce -> gsd
+  
+  I did not see this error when I last ran the checks, but I have
+  notified the author today.
 
 ### Failed to check
 
-* ALA4R          (check timed out)
-* aslib          (failed to install)
-* blastula       (failed to install)
-* bridgesampling (check timed out)
-* CollapsABEL    (failed to install)
-* dtree          (failed to install)
-* ggmap          (failed to install)
-* GSIF           (failed to install)
-* heemod         (failed to install)
-* taRifx         (failed to install)
+* CoFRA         (NA)
+* dynamichazard (failed to install)
+* EasyMARK      (failed to install)
+* fastLink      (failed to install)
+* FRESA.CAD     (failed to install)
+* IATscores     (failed to install)
+* imager        (failed to install)
+* morse         (failed to install)
+* rsunlight     (failed to install)
