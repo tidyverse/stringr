@@ -11,7 +11,8 @@
 #'
 #' @seealso [str_extract()] to extract the complete match,
 #'   [stringi::stri_match()] for the underlying
-#'   implementation.
+#'   implementation, [tidyr::extract()] for convenient form using capturing
+#'   parens to create new columns.
 #' @export
 #' @examples
 #' strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
