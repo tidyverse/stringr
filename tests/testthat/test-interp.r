@@ -73,9 +73,7 @@ test_that("str_interp formats list independetly of other placeholders", {
   a_list <- c("item1", "item2", "item3")
   other <- "1"
   extract <- function(text) regmatches(text, regexpr("xx[^x]+xx", text))
-
   from_list <- extract(str_interp("list: xx${a_list}xx"))
   from_both <- extract(str_interp("list: xx${a_list}xx, and another ${other}"))
-
   expect_equal(from_list, from_both)
 })
