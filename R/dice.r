@@ -1,7 +1,7 @@
 #' Dice a character vector into pieces of fixed length.
 #' 
 #' Wraps stri_sub for situations where completely decomposing a string 
-#' into fixed-length substrings is appropriate.
+#' into fixed-length substrings is appropriate. The last
 #' 
 #' This is useful for example for breaking a coding sequence of DNA
 #' into codon-sized triplets.
@@ -10,8 +10,9 @@
 #' @param string input character vector.
 #' @param width integer giving the width in letters of each piece to return.
 #'
-#' @return A character vector of substring from `start` to `end`
-#'   (inclusive). Will be length of longest input argument.
+#' @return A character vector of substrings each of length `width`, except
+#'   the last will be shorter if `length(string)` is not a multiple of `width`.
+#' 
 #' @seealso The underlying implementation in [stringi::stri_sub()]
 #' @export
 #' @examples

@@ -15,12 +15,12 @@ str_dice(string, width = 1L) <- value
 \item{width}{integer giving the width in letters of each piece to return.}
 }
 \value{
-A character vector of substring from \code{start} to \code{end}
-(inclusive). Will be length of longest input argument.
+A character vector of substrings each of length \code{width}, except
+the last will be shorter if \code{length(string)} is not a multiple of \code{width}.
 }
 \description{
 Wraps stri_sub for situations where completely decomposing a string
-into fixed-length substrings is appropriate.
+into fixed-length substrings is appropriate. The last
 }
 \details{
 This is useful for example for breaking a coding sequence of DNA
