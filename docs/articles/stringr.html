@@ -103,7 +103,7 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/str_length.html">str_length</a></span>(<span class="st">"abc"</span>)
 <span class="co">#&gt; [1] 3</span></code></pre></div>
 <p>This is now equivalent to the base R function <code>nchar()</code>. Previously it was needed to work around issues with <code>nchar()</code> such as the fact that it returned 2 for <code>nchar(NA)</code>. This has been fixed as of R 3.3.0, so it is no longer so important.</p>
-<p>You can access individual character using <code>sub_str()</code>. It takes three arguments: a character vector, a starting position and an end position. Either position can either be a positive integer, which counts from the length, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.</p>
+<p>You can access individual character using <code>str_sub()</code>. It takes three arguments: a character vector, a starting position and an end position. Either position can either be a positive integer, which counts from the length, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abcdef"</span>, <span class="st">"ghifjk"</span>)
 
 <span class="co"># The 3rd letter</span>
