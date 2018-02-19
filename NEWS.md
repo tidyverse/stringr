@@ -1,3 +1,5 @@
+# stringr 1.3.0.9000
+
 # stringr 1.3.0
 
 ## API changes
