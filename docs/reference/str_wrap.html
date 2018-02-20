@@ -104,7 +104,7 @@
     </div>
 
     
-    <p>This is a wrapper around <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_wrap'>stri_wrap</a></code> which implements
+    <p>This is a wrapper around <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_wrap'>stringi::stri_wrap()</a></code> which implements
 the Knuth-Plass paragraph wrapping algorithm.</p>
     
 
@@ -143,40 +143,41 @@ each paragraph</p></td>
     <pre class="examples"><div class='input'><span class='no'>thanks_path</span> <span class='kw'>&lt;-</span> <span class='fu'>file.path</span>(<span class='fu'>R.home</span>(<span class='st'>"doc"</span>), <span class='st'>"THANKS"</span>)
 <span class='no'>thanks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='str_c.html'>str_c</a></span>(<span class='fu'>readLines</span>(<span class='no'>thanks_path</span>), <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='st'>"\n"</span>)
 <span class='no'>thanks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='word.html'>word</a></span>(<span class='no'>thanks</span>, <span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>"\n\n"</span>))
-<span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today without the invaluable help of these people,
-#&gt; who contributed by donating code, bug fixes and documentation: Valerio Aimale,
-#&gt; Thomas Baier, Henrik Bengtsson, Roger Bivand, Ben Bolker, David Brahm, G"oran
-#&gt; Brostr"om, Patrick Burns, Vince Carey, Saikat DebRoy, Matt Dowle, Brian D'Urso,
-#&gt; Lyndon Drake, Dirk Eddelbuettel, Claus Ekstrom, Sebastian Fischmeister, John
-#&gt; Fox, Paul Gilbert, Yu Gong, Gabor Grothendieck, Frank E Harrell Jr, Torsten
-#&gt; Hothorn, Robert King, Kjetil Kjernsmo, Roger Koenker, Philippe Lambert, Jan
-#&gt; de Leeuw, Jim Lindsey, Patrick Lindsey, Catherine Loader, Gordon Maclean, John
-#&gt; Maindonald, David Meyer, Ei-ji Nakama, Jens Oehlschaegel, Steve Oncley, Richard
-#&gt; O'Keefe, Hubert Palme, Roger D. Peng, Jose' C. Pinheiro, Tony Plate, Anthony
-#&gt; Rossini, Jonathan Rougier, Petr Savicky, Guenther Sawitzki, Marc Schwartz, Arun
-#&gt; Srinivasan, Detlef Steuer, Bill Simpson, Gordon Smyth, Adrian Trapletti, Terry
-#&gt; Therneau, Rolf Turner, Bill Venables, Gregory R. Warnes, Andreas Weingessel,
-#&gt; Morten Welinder, James Wettenhall, Simon Wood, and Achim Zeileis. Others have
-#&gt; written code that has been adopted by R and is acknowledged in the code files,
-#&gt; including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>40</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today
+<span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today without the invaluable help of these people
+#&gt; outside of the R core team, who contributed by donating code, bug fixes and
+#&gt; documentation: Valerio Aimale, Thomas Baier, Henrik Bengtsson, Roger Bivand,
+#&gt; Ben Bolker, David Brahm, G"oran Brostr"om, Patrick Burns, Vince Carey, Saikat
+#&gt; DebRoy, Matt Dowle, Brian D'Urso, Lyndon Drake, Dirk Eddelbuettel, Claus
+#&gt; Ekstrom, Sebastian Fischmeister, John Fox, Paul Gilbert, Yu Gong, Gabor
+#&gt; Grothendieck, Frank E Harrell Jr, Torsten Hothorn, Robert King, Kjetil Kjernsmo,
+#&gt; Roger Koenker, Philippe Lambert, Jan de Leeuw, Jim Lindsey, Patrick Lindsey,
+#&gt; Catherine Loader, Gordon Maclean, John Maindonald, David Meyer, Ei-ji Nakama,
+#&gt; Jens Oehlschaegel, Steve Oncley, Richard O'Keefe, Hubert Palme, Roger D. Peng,
+#&gt; Jose' C. Pinheiro, Tony Plate, Anthony Rossini, Jonathan Rougier, Petr Savicky,
+#&gt; Guenther Sawitzki, Marc Schwartz, Arun Srinivasan, Detlef Steuer, Bill Simpson,
+#&gt; Gordon Smyth, Adrian Trapletti, Terry Therneau, Rolf Turner, Bill Venables,
+#&gt; Gregory R. Warnes, Andreas Weingessel, Morten Welinder, James Wettenhall, Simon
+#&gt; Wood, and Achim Zeileis. Others have written code that has been adopted by R and
+#&gt; is acknowledged in the code files, including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>40</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today
 #&gt; without the invaluable help of these
-#&gt; people, who contributed by donating
-#&gt; code, bug fixes and documentation:
-#&gt; Valerio Aimale, Thomas Baier, Henrik
-#&gt; Bengtsson, Roger Bivand, Ben Bolker,
-#&gt; David Brahm, G"oran Brostr"om, Patrick
-#&gt; Burns, Vince Carey, Saikat DebRoy,
-#&gt; Matt Dowle, Brian D'Urso, Lyndon Drake,
-#&gt; Dirk Eddelbuettel, Claus Ekstrom,
-#&gt; Sebastian Fischmeister, John Fox, Paul
-#&gt; Gilbert, Yu Gong, Gabor Grothendieck,
-#&gt; Frank E Harrell Jr, Torsten Hothorn,
-#&gt; Robert King, Kjetil Kjernsmo, Roger
-#&gt; Koenker, Philippe Lambert, Jan de
-#&gt; Leeuw, Jim Lindsey, Patrick Lindsey,
-#&gt; Catherine Loader, Gordon Maclean, John
-#&gt; Maindonald, David Meyer, Ei-ji Nakama,
-#&gt; Jens Oehlschaegel, Steve Oncley, Richard
+#&gt; people outside of the R core team,
+#&gt; who contributed by donating code,
+#&gt; bug fixes and documentation: Valerio
+#&gt; Aimale, Thomas Baier, Henrik Bengtsson,
+#&gt; Roger Bivand, Ben Bolker, David Brahm,
+#&gt; G"oran Brostr"om, Patrick Burns, Vince
+#&gt; Carey, Saikat DebRoy, Matt Dowle,
+#&gt; Brian D'Urso, Lyndon Drake, Dirk
+#&gt; Eddelbuettel, Claus Ekstrom, Sebastian
+#&gt; Fischmeister, John Fox, Paul Gilbert,
+#&gt; Yu Gong, Gabor Grothendieck, Frank E
+#&gt; Harrell Jr, Torsten Hothorn, Robert
+#&gt; King, Kjetil Kjernsmo, Roger Koenker,
+#&gt; Philippe Lambert, Jan de Leeuw, Jim
+#&gt; Lindsey, Patrick Lindsey, Catherine
+#&gt; Loader, Gordon Maclean, John Maindonald,
+#&gt; David Meyer, Ei-ji Nakama, Jens
+#&gt; Oehlschaegel, Steve Oncley, Richard
 #&gt; O'Keefe, Hubert Palme, Roger D. Peng,
 #&gt; Jose' C. Pinheiro, Tony Plate, Anthony
 #&gt; Rossini, Jonathan Rougier, Petr Savicky,
@@ -189,44 +190,44 @@ each paragraph</p></td>
 #&gt; Wood, and Achim Zeileis. Others have
 #&gt; written code that has been adopted by R
 #&gt; and is acknowledged in the code files,
-#&gt; including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>indent</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt;   R would not be what it is today without the invaluable
-#&gt; help of these people, who contributed by donating code,
-#&gt; bug fixes and documentation: Valerio Aimale, Thomas Baier,
-#&gt; Henrik Bengtsson, Roger Bivand, Ben Bolker, David Brahm,
-#&gt; G"oran Brostr"om, Patrick Burns, Vince Carey, Saikat
-#&gt; DebRoy, Matt Dowle, Brian D'Urso, Lyndon Drake, Dirk
-#&gt; Eddelbuettel, Claus Ekstrom, Sebastian Fischmeister, John
-#&gt; Fox, Paul Gilbert, Yu Gong, Gabor Grothendieck, Frank E
-#&gt; Harrell Jr, Torsten Hothorn, Robert King, Kjetil Kjernsmo,
-#&gt; Roger Koenker, Philippe Lambert, Jan de Leeuw, Jim Lindsey,
-#&gt; Patrick Lindsey, Catherine Loader, Gordon Maclean, John
-#&gt; Maindonald, David Meyer, Ei-ji Nakama, Jens Oehlschaegel,
-#&gt; Steve Oncley, Richard O'Keefe, Hubert Palme, Roger D. Peng,
-#&gt; Jose' C. Pinheiro, Tony Plate, Anthony Rossini, Jonathan
-#&gt; Rougier, Petr Savicky, Guenther Sawitzki, Marc Schwartz,
-#&gt; Arun Srinivasan, Detlef Steuer, Bill Simpson, Gordon
-#&gt; Smyth, Adrian Trapletti, Terry Therneau, Rolf Turner, Bill
-#&gt; Venables, Gregory R. Warnes, Andreas Weingessel, Morten
+#&gt; including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>indent</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt;   R would not be what it is today without the invaluable help
+#&gt; of these people outside of the R core team, who contributed
+#&gt; by donating code, bug fixes and documentation: Valerio
+#&gt; Aimale, Thomas Baier, Henrik Bengtsson, Roger Bivand,
+#&gt; Ben Bolker, David Brahm, G"oran Brostr"om, Patrick Burns,
+#&gt; Vince Carey, Saikat DebRoy, Matt Dowle, Brian D'Urso,
+#&gt; Lyndon Drake, Dirk Eddelbuettel, Claus Ekstrom, Sebastian
+#&gt; Fischmeister, John Fox, Paul Gilbert, Yu Gong, Gabor
+#&gt; Grothendieck, Frank E Harrell Jr, Torsten Hothorn, Robert
+#&gt; King, Kjetil Kjernsmo, Roger Koenker, Philippe Lambert, Jan
+#&gt; de Leeuw, Jim Lindsey, Patrick Lindsey, Catherine Loader,
+#&gt; Gordon Maclean, John Maindonald, David Meyer, Ei-ji Nakama,
+#&gt; Jens Oehlschaegel, Steve Oncley, Richard O'Keefe, Hubert
+#&gt; Palme, Roger D. Peng, Jose' C. Pinheiro, Tony Plate, Anthony
+#&gt; Rossini, Jonathan Rougier, Petr Savicky, Guenther Sawitzki,
+#&gt; Marc Schwartz, Arun Srinivasan, Detlef Steuer, Bill Simpson,
+#&gt; Gordon Smyth, Adrian Trapletti, Terry Therneau, Rolf Turner,
+#&gt; Bill Venables, Gregory R. Warnes, Andreas Weingessel, Morten
 #&gt; Welinder, James Wettenhall, Simon Wood, and Achim Zeileis.
 #&gt; Others have written code that has been adopted by R and is
-#&gt; acknowledged in the code files, including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>exdent</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today without the invaluable
-#&gt;   help of these people, who contributed by donating code,
-#&gt;   bug fixes and documentation: Valerio Aimale, Thomas Baier,
-#&gt;   Henrik Bengtsson, Roger Bivand, Ben Bolker, David Brahm,
-#&gt;   G"oran Brostr"om, Patrick Burns, Vince Carey, Saikat
-#&gt;   DebRoy, Matt Dowle, Brian D'Urso, Lyndon Drake, Dirk
-#&gt;   Eddelbuettel, Claus Ekstrom, Sebastian Fischmeister, John
-#&gt;   Fox, Paul Gilbert, Yu Gong, Gabor Grothendieck, Frank E
-#&gt;   Harrell Jr, Torsten Hothorn, Robert King, Kjetil Kjernsmo,
-#&gt;   Roger Koenker, Philippe Lambert, Jan de Leeuw, Jim Lindsey,
-#&gt;   Patrick Lindsey, Catherine Loader, Gordon Maclean, John
-#&gt;   Maindonald, David Meyer, Ei-ji Nakama, Jens Oehlschaegel,
-#&gt;   Steve Oncley, Richard O'Keefe, Hubert Palme, Roger D. Peng,
-#&gt;   Jose' C. Pinheiro, Tony Plate, Anthony Rossini, Jonathan
-#&gt;   Rougier, Petr Savicky, Guenther Sawitzki, Marc Schwartz,
-#&gt;   Arun Srinivasan, Detlef Steuer, Bill Simpson, Gordon
-#&gt;   Smyth, Adrian Trapletti, Terry Therneau, Rolf Turner, Bill
-#&gt;   Venables, Gregory R. Warnes, Andreas Weingessel, Morten
+#&gt; acknowledged in the code files, including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>exdent</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R would not be what it is today without the invaluable help
+#&gt;   of these people outside of the R core team, who contributed
+#&gt;   by donating code, bug fixes and documentation: Valerio
+#&gt;   Aimale, Thomas Baier, Henrik Bengtsson, Roger Bivand,
+#&gt;   Ben Bolker, David Brahm, G"oran Brostr"om, Patrick Burns,
+#&gt;   Vince Carey, Saikat DebRoy, Matt Dowle, Brian D'Urso,
+#&gt;   Lyndon Drake, Dirk Eddelbuettel, Claus Ekstrom, Sebastian
+#&gt;   Fischmeister, John Fox, Paul Gilbert, Yu Gong, Gabor
+#&gt;   Grothendieck, Frank E Harrell Jr, Torsten Hothorn, Robert
+#&gt;   King, Kjetil Kjernsmo, Roger Koenker, Philippe Lambert, Jan
+#&gt;   de Leeuw, Jim Lindsey, Patrick Lindsey, Catherine Loader,
+#&gt;   Gordon Maclean, John Maindonald, David Meyer, Ei-ji Nakama,
+#&gt;   Jens Oehlschaegel, Steve Oncley, Richard O'Keefe, Hubert
+#&gt;   Palme, Roger D. Peng, Jose' C. Pinheiro, Tony Plate, Anthony
+#&gt;   Rossini, Jonathan Rougier, Petr Savicky, Guenther Sawitzki,
+#&gt;   Marc Schwartz, Arun Srinivasan, Detlef Steuer, Bill Simpson,
+#&gt;   Gordon Smyth, Adrian Trapletti, Terry Therneau, Rolf Turner,
+#&gt;   Bill Venables, Gregory R. Warnes, Andreas Weingessel, Morten
 #&gt;   Welinder, James Wettenhall, Simon Wood, and Achim Zeileis.
 #&gt;   Others have written code that has been adopted by R and is
 #&gt;   acknowledged in the code files, including </div><div class='input'><span class='fu'>cat</span>(<span class='fu'>str_wrap</span>(<span class='no'>thanks</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>exdent</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='st'>"\n"</span>)</div><div class='output co'>#&gt; R
@@ -243,7 +244,13 @@ each paragraph</p></td>
 #&gt;   help
 #&gt;   of
 #&gt;   these
-#&gt;   people,
+#&gt;   people
+#&gt;   outside
+#&gt;   of
+#&gt;   the
+#&gt;   R
+#&gt;   core
+#&gt;   team,
 #&gt;   who
 #&gt;   contributed
 #&gt;   by
@@ -420,7 +427,7 @@ each paragraph</p></td>
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

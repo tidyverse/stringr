@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract words from a sentence. — word • stringr</title>
+<title>Format and interpolate a string with glue — str_glue • stringr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -100,62 +100,107 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract words from a sentence.</h1>
+    <h1>Format and interpolate a string with glue</h1>
     </div>
 
     
-    <p>Extract words from a sentence.</p>
+    <p>These functions are wrappers around <code><a href='http://www.rdocumentation.org/packages/glue/topics/glue'>glue::glue()</a></code> and <code><a href='http://www.rdocumentation.org/packages/glue/topics/glue'>glue::glue_data()</a></code>,
+which provide a powerful and elegant syntax for interpolating strings.
+These wrappers provide a small set of the full options. Use the functions
+directly from glue for more control.</p>
     
 
-    <pre class="usage"><span class='fu'>word</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='no'>start</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>" "</span>))</pre>
+    <pre class="usage"><span class='fu'>str_glue</span>(<span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
+
+<span class='fu'>str_glue_data</span>(<span class='no'>.x</span>, <span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>(), <span class='kw'>.na</span> <span class='kw'>=</span> <span class='st'>"NA"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>string</th>
-      <td><p>input character vector.</p></td>
+      <th>...</th>
+      <td><p>[<code>expressions</code>] Expressions string(s) to format, multiple inputs are concatenated together before formatting.</p></td>
     </tr>
     <tr>
-      <th>start</th>
-      <td><p>integer vector giving position of first word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></td>
+      <th>.sep</th>
+      <td><p>[<code>character(1)</code>: &#8216;""&#8217;] Separator used to separate elements.</p></td>
     </tr>
     <tr>
-      <th>end</th>
-      <td><p>integer vector giving position of last word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></td>
+      <th>.envir</th>
+      <td><p>[<code>environment</code>: <code>parent.frame()</code>] Environment to evaluate each expression in. Expressions are
+evaluated from left to right. If <code>.x</code> is an environment, the expressions are
+evaluated in that environment and <code>.envir</code> is ignored.</p></td>
     </tr>
     <tr>
-      <th>sep</th>
-      <td><p>separator between words.  Defaults to single space.</p></td>
+      <th>.x</th>
+      <td><p>[<code>listish</code>] An environment, list or data frame used to lookup values.</p></td>
+    </tr>
+    <tr>
+      <th>.na</th>
+      <td><p>[<code>character(1)</code>: &#8216;NA&#8217;] Value to replace NA values
+with. If <code>NULL</code> missing values are propegated, that is an <code>NA</code> result will
+cause <code>NA</code> output. Otherwise the value is replaced by the value of <code>.na</code>.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>character vector of words from <code>start</code> to <code>end</code>
-(inclusive). Will be length of longest input argument.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>sentences</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"Jane saw a cat"</span>, <span class='st'>"Jane sat down"</span>)
-<span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane" "Jane"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "saw" "sat"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "cat"  "down"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "saw a cat" "sat down" </div><div class='input'>
-<span class='co'># Also vectorised over start and end</span>
-<span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>:<span class='fl'>3</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane saw a cat" "saw a cat"      "a cat"         </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "Jane"           "Jane saw"       "Jane saw a"     "Jane saw a cat"</div><div class='input'>
-<span class='co'># Can define words by other separators</span>
-<span class='no'>str</span> <span class='kw'>&lt;-</span> <span class='st'>'abc.def..123.4568.999'</span>
-<span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>1</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "abc.def"</div><div class='input'><span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "123.4568.999"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>name</span> <span class='kw'>&lt;-</span> <span class='st'>"Fred"</span>
+<span class='no'>age</span> <span class='kw'>&lt;-</span> <span class='fl'>50</span>
+<span class='no'>anniversary</span> <span class='kw'>&lt;-</span> <span class='fu'>as.Date</span>(<span class='st'>"1991-10-12"</span>)
+<span class='fu'>str_glue</span>(
+  <span class='st'>"My name is {name}, "</span>,
+  <span class='st'>"my age next year is {age + 1}, "</span>,
+  <span class='st'>"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."</span>
+)</div><div class='output co'>#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</div><div class='input'>
+<span class='co'># single braces can be inserted by doubling them</span>
+<span class='fu'>str_glue</span>(<span class='st'>"My name is {name}, not {{name}}."</span>)</div><div class='output co'>#&gt; My name is Fred, not {name}.</div><div class='input'>
+<span class='co'># You can also used named arguments</span>
+<span class='fu'>str_glue</span>(
+  <span class='st'>"My name is {name}, "</span>,
+  <span class='st'>"and my age next year is {age + 1}."</span>,
+  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Joe"</span>,
+  <span class='kw'>age</span> <span class='kw'>=</span> <span class='fl'>40</span>
+)</div><div class='output co'>#&gt; My name is Joe, and my age next year is 41.</div><div class='input'>
+<span class='co'># `str_glue_data()` is useful in data pipelines</span>
+<span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>str_glue_data</span>(<span class='st'>"{rownames(.)} has {hp} hp"</span>)</div><div class='output co'>#&gt; Mazda RX4 has 110 hp
+#&gt; Mazda RX4 Wag has 110 hp
+#&gt; Datsun 710 has 93 hp
+#&gt; Hornet 4 Drive has 110 hp
+#&gt; Hornet Sportabout has 175 hp
+#&gt; Valiant has 105 hp
+#&gt; Duster 360 has 245 hp
+#&gt; Merc 240D has 62 hp
+#&gt; Merc 230 has 95 hp
+#&gt; Merc 280 has 123 hp
+#&gt; Merc 280C has 123 hp
+#&gt; Merc 450SE has 180 hp
+#&gt; Merc 450SL has 180 hp
+#&gt; Merc 450SLC has 180 hp
+#&gt; Cadillac Fleetwood has 205 hp
+#&gt; Lincoln Continental has 215 hp
+#&gt; Chrysler Imperial has 230 hp
+#&gt; Fiat 128 has 66 hp
+#&gt; Honda Civic has 52 hp
+#&gt; Toyota Corolla has 65 hp
+#&gt; Toyota Corona has 97 hp
+#&gt; Dodge Challenger has 150 hp
+#&gt; AMC Javelin has 150 hp
+#&gt; Camaro Z28 has 245 hp
+#&gt; Pontiac Firebird has 175 hp
+#&gt; Fiat X1-9 has 66 hp
+#&gt; Porsche 914-2 has 91 hp
+#&gt; Lotus Europa has 113 hp
+#&gt; Ford Pantera L has 264 hp
+#&gt; Ferrari Dino has 175 hp
+#&gt; Maserati Bora has 335 hp
+#&gt; Volvo 142E has 109 hp</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

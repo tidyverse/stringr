@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract words from a sentence. — word • stringr</title>
+<title>Remove matched patterns in a string. — str_remove • stringr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -100,54 +100,53 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract words from a sentence.</h1>
+    <h1>Remove matched patterns in a string.</h1>
     </div>
 
     
-    <p>Extract words from a sentence.</p>
+    <p>Alias for <code><a href='str_replace.html'>str_replace(string, pattern, "")</a></code>.</p>
     
 
-    <pre class="usage"><span class='fu'>word</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='no'>start</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>" "</span>))</pre>
+    <pre class="usage"><span class='fu'>str_remove</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)
+
+<span class='fu'>str_remove_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>string</th>
-      <td><p>input character vector.</p></td>
+      <td><p>Input vector. Either a character vector, or something
+coercible to one.</p></td>
     </tr>
     <tr>
-      <th>start</th>
-      <td><p>integer vector giving position of first word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></td>
-    </tr>
-    <tr>
-      <th>end</th>
-      <td><p>integer vector giving position of last word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></td>
-    </tr>
-    <tr>
-      <th>sep</th>
-      <td><p>separator between words.  Defaults to single space.</p></td>
+      <th>pattern</th>
+      <td><p>Pattern to look for.</p>
+<p>The default interpretation is a regular expression, as described
+in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi::stringi-search-regex</a>. Control options with
+<code><a href='modifiers.html'>regex()</a></code>.</p>
+<p>Match a fixed string (i.e. by comparing only bytes), using
+<code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
+for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></code> which
+respects character matching rules for the specified locale.</p>
+<p>Match character, word, line and sentence boundaries with
+<code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
+<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>character vector of words from <code>start</code> to <code>end</code>
-(inclusive). Will be length of longest input argument.</p>
+    <p>A character vector.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='str_replace.html'>str_replace()</a></code> for the underlying implementation.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>sentences</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"Jane saw a cat"</span>, <span class='st'>"Jane sat down"</span>)
-<span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane" "Jane"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "saw" "sat"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "cat"  "down"</div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>, <span class='fl'>2</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "saw a cat" "sat down" </div><div class='input'>
-<span class='co'># Also vectorised over start and end</span>
-<span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>:<span class='fl'>3</span>, -<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "Jane saw a cat" "saw a cat"      "a cat"         </div><div class='input'><span class='fu'>word</span>(<span class='no'>sentences</span>[<span class='fl'>1</span>], <span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "Jane"           "Jane saw"       "Jane saw a"     "Jane saw a cat"</div><div class='input'>
-<span class='co'># Can define words by other separators</span>
-<span class='no'>str</span> <span class='kw'>&lt;-</span> <span class='st'>'abc.def..123.4568.999'</span>
-<span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>1</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "abc.def"</div><div class='input'><span class='fu'>word</span>(<span class='no'>str</span>, <span class='fl'>2</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='fu'><a href='modifiers.html'>fixed</a></span>(<span class='st'>'..'</span>))</div><div class='output co'>#&gt; [1] "123.4568.999"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
+<span class='fu'>str_remove</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; [1] "ne apple"     "tw pears"     "thre bananas"</div><div class='input'><span class='fu'>str_remove_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; [1] "n ppl"    "tw prs"   "thr bnns"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -155,6 +154,8 @@ character.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
