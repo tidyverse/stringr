@@ -105,11 +105,11 @@
 
     
     <dl class='dl-horizontal'>
- <dt>fixed</dt><dd><p>Compare literal bytes in the string. This is very fast, but
-   not usually what you want for non-ASCII character sets.</p></dd>
- <dt>coll</dt><dd><p>Compare strings respecting standard collation rules.</p></dd>
- <dt>regex</dt><dd><p>The default. Uses ICU regular expressions.</p></dd>
- <dt>boundary</dt><dd><p>Match boundaries between things.</p></dd>
+<dt>fixed</dt><dd><p>Compare literal bytes in the string. This is very fast, but
+not usually what you want for non-ASCII character sets.</p></dd>
+<dt>coll</dt><dd><p>Compare strings respecting standard collation rules.</p></dd>
+<dt>regex</dt><dd><p>The default. Uses ICU regular expressions.</p></dd>
+<dt>boundary</dt><dd><p>Match boundaries between things.</p></dd>
 </dl>
     
 
@@ -137,16 +137,16 @@
     <tr>
       <th>locale</th>
       <td><p>Locale to use for comparisons. See
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locale_list'>stri_locale_list</a>()</code> for all possible options.
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locale_list'>stringi::stri_locale_list()</a></code> for all possible options.
 Defaults to "en" (English) to ensure that the default collation is
 consistent across platforms.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Other less frequently used arguments passed on to
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stri_opts_collator</a></code>,
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_regex'>stri_opts_regex</a></code>, or
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stri_opts_brkiter</a></code></p></td>
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stringi::stri_opts_collator()</a></code>,
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_regex'>stringi::stri_opts_regex()</a></code>, or
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stringi::stri_opts_brkiter()</a></code></p></td>
     </tr>
     <tr>
       <th>multiline</th>
@@ -157,7 +157,7 @@ default, only match the start and end of the input.</p></td>
     <tr>
       <th>comments</th>
       <td><p>If <code>TRUE</code>, white space and comments beginning with
-<code>#</code> are ignored. Escape literal spaces with <code>\ </code>.</p></td>
+<code>#</code> are ignored. Escape literal spaces with <code>\</code>.</p></td>
     </tr>
     <tr>
       <th>dotall</th>
@@ -221,7 +221,7 @@ only when splitting on <code>word</code> boundaries.</p></td>
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

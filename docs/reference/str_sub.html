@@ -111,7 +111,7 @@ a zero length character vector.</p>
 
     <pre class="usage"><span class='fu'>str_sub</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> -<span class='fl'>1L</span>)
 
-<span class='fu'>str_sub</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> -<span class='fl'>1L</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
+<span class='fu'>str_sub</span>(<span class='no'>string</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>end</span> <span class='kw'>=</span> -<span class='fl'>1L</span>, <span class='kw'>omit_na</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -123,10 +123,15 @@ a zero length character vector.</p>
     <tr>
       <th>start, end</th>
       <td><p>Two integer vectors. <code>start</code> gives the position
-  of the first character (defaults to first), <code>end</code> gives the position
-  of the last (defaults to last character). Alternatively, pass a two-column
-  matrix to <code>start</code>.</p>
+of the first character (defaults to first), <code>end</code> gives the position
+of the last (defaults to last character). Alternatively, pass a two-column
+matrix to <code>start</code>.</p>
 <p>Negative values count backwards from the last character.</p></td>
+    </tr>
+    <tr>
+      <th>omit_na</th>
+      <td><p>Single logical value. If <code>TRUE</code>, missing values in any of the
+arguments provided will result in an unchanged input.</p></td>
     </tr>
     <tr>
       <th>value</th>
@@ -137,7 +142,7 @@ a zero length character vector.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A character vector of substring from <code>start</code> to <code>end</code>
-  (inclusive). Will be length of longest input argument.</p>
+(inclusive). Will be length of longest input argument.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -147,7 +152,7 @@ substring, from the first character to the last.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>The underlying implementation in <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_sub'>stri_sub</a></code></p>
+    <p>The underlying implementation in <code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_sub'>stringi::stri_sub()</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -170,7 +175,15 @@ substring, from the first character to the last.</p>
 #&gt; [13] "Hadley Wickha"  "Hadley Wickham"</div><div class='input'>
 <span class='co'># Replacement form</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='st'>"BBCDEF"</span>
-<span class='fu'>str_sub</span>(<span class='no'>x</span>, <span class='fl'>1</span>, <span class='fl'>1</span>) <span class='kw'>&lt;-</span> <span class='st'>"A"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDEF"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, -<span class='fl'>1</span>, -<span class='fl'>1</span>) <span class='kw'>&lt;-</span> <span class='st'>"K"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDEK"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, -<span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>"GHIJ"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDGHIJK"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, <span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>""</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "AK"</div></pre>
+<span class='fu'>str_sub</span>(<span class='no'>x</span>, <span class='fl'>1</span>, <span class='fl'>1</span>) <span class='kw'>&lt;-</span> <span class='st'>"A"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDEF"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, -<span class='fl'>1</span>, -<span class='fl'>1</span>) <span class='kw'>&lt;-</span> <span class='st'>"K"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDEK"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, -<span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>"GHIJ"</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "ABCDGHIJK"</div><div class='input'><span class='fu'>str_sub</span>(<span class='no'>x</span>, <span class='fl'>2</span>, -<span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='st'>""</span>; <span class='no'>x</span></div><div class='output co'>#&gt; [1] "AK"</div><div class='input'>
+<span class='co'># If you want to keep the original if some argument is NA,</span>
+<span class='co'># use omit_na = TRUE</span>
+<span class='no'>x1</span> <span class='kw'>&lt;-</span> <span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='no'>x3</span> <span class='kw'>&lt;-</span> <span class='no'>x4</span> <span class='kw'>&lt;-</span> <span class='st'>"AAA"</span>
+<span class='fu'>str_sub</span>(<span class='no'>x1</span>, <span class='fl'>1</span>, <span class='fl'>NA</span>) <span class='kw'>&lt;-</span> <span class='st'>"B"</span>
+<span class='fu'>str_sub</span>(<span class='no'>x2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>) <span class='kw'>&lt;-</span> <span class='fl'>NA</span>
+<span class='fu'>str_sub</span>(<span class='no'>x3</span>, <span class='fl'>1</span>, <span class='fl'>NA</span>, <span class='kw'>omit_na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>&lt;-</span> <span class='st'>"B"</span>
+<span class='fu'>str_sub</span>(<span class='no'>x4</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='kw'>omit_na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>&lt;-</span> <span class='fl'>NA</span>
+<span class='no'>x1</span>; <span class='no'>x2</span>; <span class='no'>x3</span>; <span class='no'>x4</span></div><div class='output co'>#&gt; [1] NA</div><div class='output co'>#&gt; [1] NA</div><div class='output co'>#&gt; [1] "AAA"</div><div class='output co'>#&gt; [1] "AAA"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -196,7 +209,7 @@ substring, from the first character to the last.</p>
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

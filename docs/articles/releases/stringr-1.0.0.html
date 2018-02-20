@@ -96,61 +96,56 @@
 <li><p>Eliminating options that you don’t need 95% of the time.</p></li>
 </ul>
 <p>To get started with stringr, check out the <a href="http://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">new vignette</a>.</p>
-<div id="whats-new" class="section level2">
-<h2 class="hasAnchor">
-<a href="#whats-new" class="anchor"></a>What’s new?</h2>
+<section id="whats-new" class="level2"><h2>What’s new?</h2>
 <p>The biggest change in this release is that stringr is now powered by the <a href="https://github.com/Rexamine/stringi">stringi</a> package instead of base R. This has two big benefits: stringr is now much faster, and has much better unicode support.</p>
 <p>If you’ve used stringi before, you might wonder why stringr is still necessary: stringi does everything that stringr does, and much much more. There are two reasons that I think stringr is still important:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Lots of people use it already, so this update will give many people a performance boost for free.</p></li>
 <li><p>The smaller API of stringr makes it a little easier to learn.</p></li>
 </ol>
 <p>That said, once you’ve learned stringr, using stringi should be easy, so it’s a great place to start if you need a tool that doesn’t exist in stringr.</p>
-</div>
-<div id="new-features-and-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-features-and-functions" class="anchor"></a>New features and functions</h2>
+</section><section id="new-features-and-functions" class="level2"><h2>New features and functions</h2>
 <ul>
 <li>
 <p><code><a href="../../reference/str_replace.html">str_replace_all()</a></code> gains a convenient syntax for applying multiple pairs of pattern and replacement to the same vector:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)
-<span class="kw"><a href="../../reference/str_replace.html">str_replace_all</a></span>(x, <span class="kw">c</span>(<span class="st">"[ad]"</span> =<span class="st"> "!"</span>, <span class="st">"[cf]"</span> =<span class="st"> "?"</span>))
-<span class="co">#&gt; [1] "!b?" "!e?"</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../../reference/str_replace.html">str_replace_all</a></span>(x, <span class="kw">c</span>(<span class="st">"[ad]"</span> =<span class="st"> "!"</span>, <span class="st">"[cf]"</span> =<span class="st"> "?"</span>))</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; [1] "!b?" "!e?"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="../../reference/str_subset.html">str_subset()</a></code> keeps values that match a pattern:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"jhi"</span>, <span class="st">"klm"</span>, <span class="st">"nop"</span>)
-<span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] "abc" "def" "jhi" "nop"</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"jhi"</span>, <span class="st">"klm"</span>, <span class="st">"nop"</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] "abc" "def" "jhi" "nop"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="../../reference/str_order.html">str_order()</a></code> and <code><a href="../../reference/str_order.html">str_sort()</a></code> sort and order strings in a specified locale. <code><a href="../../reference/str_conv.html">str_conv()</a></code> to converts strings from specified encoding to UTF-8.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The vowels come before the consonants in Hawaiian</span>
-<span class="kw"><a href="../../reference/str_order.html">str_sort</a></span>(letters[<span class="dv">1</span>:<span class="dv">10</span>], <span class="dt">locale =</span> <span class="st">"haw"</span>)
-<span class="co">#&gt;  [1] "a" "e" "i" "b" "c" "d" "f" "g" "h" "j"</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># The vowels come before the consonants in Hawaiian</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../../reference/str_order.html">str_sort</a></span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">locale =</span> <span class="st">"haw"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;  [1] "a" "e" "i" "b" "c" "d" "f" "g" "h" "j"</span></a></code></pre></div>
 </li>
 <li>
 <p>New modifier <code><a href="../../reference/modifiers.html">boundary()</a></code> allows you to count, locate and split by character, word, line and sentence boundaries.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"These are   some words. Some more words."</span>)
-<span class="kw"><a href="../../reference/str_count.html">str_count</a></span>(words, <span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))
-<span class="co">#&gt; [1] 7</span>
-<span class="kw"><a href="../../reference/str_split.html">str_split</a></span>(words, <span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "These" "are"   "some"  "words" "Some"  "more"  "words"</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"These are   some words. Some more words."</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="../../reference/str_count.html">str_count</a></span>(words, <span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] 7</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="../../reference/str_split.html">str_split</a></span>(words, <span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [[1]]</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [1] "These" "are"   "some"  "words" "Some"  "more"  "words"</span></a></code></pre></div>
 </li>
 </ul>
 <p>There were two minor changes to make stringr a little more consistent:</p>
 <ul>
 <li><p><code><a href="../../reference/str_c.html">str_c()</a></code> now returns a zero length vector if any of its inputs are zero length vectors. This is consistent with all other functions, and standard R recycling rules. Similarly, using <code><a href="../../reference/str_c.html">str_c("x", NA)</a></code> now yields <code>NA</code>. If you want <code>"xNA"</code>, use <code><a href="../../reference/str_replace_na.html">str_replace_na()</a></code> on the inputs.</p></li>
 <li><p><code><a href="../../reference/str_match.html">str_match()</a></code> now returns NA if an optional group doesn’t match (previously it returned “”). This is more consistent with <code><a href="../../reference/str_extract.html">str_extract()</a></code> and other match failures.</p></li>
-</ul>
-</div>
+</ul></section>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#whats-new">What’s new?</a></li>
       <li><a href="#new-features-and-functions">New features and functions</a></li>
@@ -167,7 +162,7 @@
 
 <div class="author">
   <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

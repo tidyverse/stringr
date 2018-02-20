@@ -123,22 +123,22 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-  in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
-  <code><a href='modifiers.html'>regex</a>()</code>.</p>
+in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi::stringi-search-regex</a>. Control options with
+<code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
-  <code><a href='modifiers.html'>fixed</a>(x)</code>. This is fast, but approximate. Generally,
-  for matching human text, you'll want <code><a href='modifiers.html'>coll</a>(x)</code> which
-  respects character matching rules for the specified locale.</p>
+<code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
+for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></code> which
+respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
-  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
-  <code>boundary("character")</code>.</p></td>
+<code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
+<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
     </tr>
     <tr>
       <th>n</th>
       <td><p>number of pieces to return.  Default (Inf) uses all
-  possible split positions.</p>
+possible split positions.</p>
 <p>For <code>str_split_fixed</code>, if n is greater than the number of pieces,
-  the result will be padded with empty strings.</p></td>
+the result will be padded with empty strings.</p></td>
     </tr>
     <tr>
       <th>simplify</th>
@@ -150,11 +150,11 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>For <code>str_split_fixed</code>, a character matrix with <code>n</code> columns.
-  For <code>str_split</code>, a list of character vectors.</p>
+For <code>str_split</code>, a list of character vectors.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code>stri_split</code> for the underlying implementation.</p>
+    <p><code>stri_split()</code> for the underlying implementation.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -218,7 +218,7 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

@@ -125,18 +125,18 @@ coercible to one.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A numeric vector giving number of characters (code points) in each
-   element of the character vector. Missing string have missing length.</p>
+element of the character vector. Missing string have missing length.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_length'>stri_length</a></code> which this function wraps.</p>
+    <p><code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_length'>stringi::stri_length()</a></code> which this function wraps.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>str_length</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</div><div class='input'><span class='fu'>str_length</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>factor</span>(<span class='st'>"abc"</span>))</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'>c</span>(<span class='st'>"i"</span>, <span class='st'>"like"</span>, <span class='st'>"programming"</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1]  1  4 11 NA</div><div class='input'>
 <span class='co'># Two ways of representing a u with an umlaut</span>
 <span class='no'>u1</span> <span class='kw'>&lt;-</span> <span class='st'>"\u00fc"</span>
-<span class='no'>u2</span> <span class='kw'>&lt;-</span> <span class='kw'>stringi</span><span class='kw'>::</span><span class='fu'>stri_trans_nfd</span>(<span class='no'>u1</span>)
+<span class='no'>u2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stringi</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_trans_nf'>stri_trans_nfd</a></span>(<span class='no'>u1</span>)
 <span class='co'># The print the same:</span>
 <span class='no'>u1</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='no'>u2</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='co'># But have a different length</span>
 <span class='fu'>str_length</span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>str_length</span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 2</div><div class='input'><span class='co'># Even though they have the same number of characters</span>
@@ -164,7 +164,7 @@ coercible to one.</p></td>
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

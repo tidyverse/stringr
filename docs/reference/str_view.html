@@ -124,15 +124,15 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-  in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi-search-regex</a>. Control options with
-  <code><a href='modifiers.html'>regex</a>()</code>.</p>
+in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi::stringi-search-regex</a>. Control options with
+<code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
-  <code><a href='modifiers.html'>fixed</a>(x)</code>. This is fast, but approximate. Generally,
-  for matching human text, you'll want <code><a href='modifiers.html'>coll</a>(x)</code> which
-  respects character matching rules for the specified locale.</p>
+<code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
+for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></code> which
+respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
-  <code><a href='modifiers.html'>boundary</a>()</code>. An empty pattern, "", is equivalent to
-  <code>boundary("character")</code>.</p></td>
+<code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
+<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
     </tr>
     <tr>
       <th>match</th>
@@ -144,11 +144,11 @@ Otherwise (the default, <code>NA</code>) displays both matches and non-matches.<
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"^"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>".."</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"^"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>".."</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
 <span class='co'># Show all matches with str_view_all</span>
-<span class='fu'>str_view_all</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'>
+<span class='fu'>str_view_all</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'>
 <span class='co'># Use match to control what is shown</span>
-<span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: file("") only supports open = "w+" and open = "w+b": using the former</span></div><div class='output co'>#&gt; <span class='error'>Error in dirname(to): a character vector argument expected</span></div></pre>
+<span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div><div class='input'><span class='fu'>str_view</span>(<span class='fu'>c</span>(<span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span>), <span class='st'>"d|e"</span>, <span class='kw'>match</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in yaml.load(readLines(con), error.label = error.label, ...): argument "error.label" is missing, with no default</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -168,7 +168,7 @@ Otherwise (the default, <code>NA</code>) displays both matches and non-matches.<
 
 <div class="author">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>

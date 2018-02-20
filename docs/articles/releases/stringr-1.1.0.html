@@ -94,22 +94,22 @@
 <ul>
 <li>
 <p>There are three new datasets, <code>fruit</code>, <code>words</code> and <code>sentences</code>, to help you practice your regular expression skills:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(fruit, <span class="st">"(..)</span><span class="ch">\\</span><span class="st">1"</span>)
-<span class="co">#&gt; [1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"     </span>
-<span class="co">#&gt; [6] "salal berry"</span>
-<span class="kw">head</span>(words)
-<span class="co">#&gt; [1] "a"        "able"     "about"    "absolute" "accept"   "account"</span>
-sentences[<span class="dv">1</span>]
-<span class="co">#&gt; [1] "The birch canoe slid on the smooth planks."</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(fruit, <span class="st">"(..)</span><span class="ch">\\</span><span class="st">1"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; [1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"     </span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; [6] "salal berry"</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">head</span>(words)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; [1] "a"        "able"     "about"    "absolute" "accept"   "account"</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">sentences[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; [1] "The birch canoe slid on the smooth planks."</span></a></code></pre></div>
 </li>
 <li>
 <p>More functions work with <code><a href="../../reference/modifiers.html">boundary()</a></code>: <code><a href="../../reference/str_detect.html">str_detect()</a></code> and <code><a href="../../reference/str_subset.html">str_subset()</a></code> can detect boundaries, and <code><a href="../../reference/str_extract.html">str_extract()</a></code> and <code><a href="../../reference/str_extract.html">str_extract_all()</a></code> pull out the components between boundaries. This is particularly useful if you want to extract logical constructs like words or sentences.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> "This is harder than you might expect, e.g. punctuation!"</span>
-x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_extract.html">str_extract_all</a></span>(<span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>)) %&gt;%<span class="st"> </span>.[[<span class="dv">1</span>]]
-<span class="co">#&gt; [1] "This"        "is"          "harder"      "than"        "you"        </span>
-<span class="co">#&gt; [6] "might"       "expect"      "e.g"         "punctuation"</span>
-x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"sentence"</span>))
-<span class="co">#&gt; [1] "This is harder than you might expect, e.g. punctuation!"</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> "This is harder than you might expect, e.g. punctuation!"</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/str_extract.html">str_extract_all</a></span>(<span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>)) <span class="op">%&gt;%</span><span class="st"> </span>.[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] "This"        "is"          "harder"      "than"        "you"        </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; [6] "might"       "expect"      "e.g"         "punctuation"</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="../../reference/modifiers.html">boundary</a></span>(<span class="st">"sentence"</span>))</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; [1] "This is harder than you might expect, e.g. punctuation!"</span></a></code></pre></div>
 </li>
 <li><p><code><a href="../../reference/str_view.html">str_view()</a></code> and <code><a href="../../reference/str_view.html">str_view_all()</a></code> create HTML widgets that display regular expression matches. This is particularly useful for teaching.</p></li>
 </ul>
@@ -128,7 +128,7 @@ x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_e
 
 <div class="author">
   <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
 <script>
