@@ -88,19 +88,28 @@
     
 <div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<section id="stringr" class="level1">
+<div id="stringr" class="section level1">
 
-<section id="overview" class="level2"><h2>Overview</h2>
+
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
 <p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as possible. If you’re not familiar with strings, the best place to start is the <a href="http://r4ds.had.co.nz/strings.html">chapter on strings</a> in R for Data Science.</p>
 <p>stringr is built on top of <a href="https://github.com/gagolews/stringi">stringi</a>, which uses the <a href="http://site.icu-project.org">ICU</a> C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you’ve mastered stringr, you should find stringi similarly easy to use.</p>
-</section><section id="installation" class="level2"><h2>Installation</h2>
+</div>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install the released version from CRAN:</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">"stringr"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install the cutting edge development version from GitHub:</span></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"tidyverse/stringr"</span>)</a></code></pre></div>
-</section><section id="usage" class="level2"><h2>Usage</h2>
+</div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
 <p>All functions in stringr start with <code>str_</code> and take a vector of strings as the first argument.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"why"</span>, <span class="st">"video"</span>, <span class="st">"cross"</span>, <span class="st">"extra"</span>, <span class="st">"deal"</span>, <span class="st">"authority"</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/str_length.html">str_length</a></span>(x) </a>
@@ -182,7 +191,11 @@
 <code><a href="reference/modifiers.html">coll()</a></code>: match human letters</li>
 <li>
 <code><a href="reference/modifiers.html">boundary()</a></code>: match boundaries</li>
-</ul></section><section id="compared-to-base-r" class="level2"><h2>Compared to base R</h2>
+</ul>
+</div>
+<div id="compared-to-base-r" class="section level2">
+<h2 class="hasAnchor">
+<a href="#compared-to-base-r" class="anchor"></a>Compared to base R</h2>
 <p>R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R.</p>
 <ul>
 <li>
@@ -195,7 +208,9 @@
 </li>
 <li><p>Simplifies string operations by eliminating options that you don’t need 95% of the time.</p></li>
 <li><p>Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.</p></li>
-</ul></section></section>
+</ul>
+</div>
+</div>
 </div>
   </div>
 
@@ -213,13 +228,13 @@
 </li>
 </ul>
 <h2>License</h2>
-<p><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE.html">LICENSE</a></p>
+<p><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE-text.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer, copyright holder </small> </li>
+<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer, copyright holder </small>  </li>
 <li>
-<a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a> <br><small class="roles"> Copyright holder, funder </small> </li>
+<a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a> <br><small class="roles"> Copyright holder, funder </small>  </li>
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
@@ -238,7 +253,7 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
