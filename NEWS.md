@@ -1,6 +1,8 @@
 # stringr 1.3.0.9000
 
-* `str_view()` handles `NA` values more gracefully (#217)
+* `str_view()` handles `NA` values more gracefully (#217). I've also
+  tweaked the sizing policy so hopefully it should work better in notebooks,
+  while preserving the existing behaviour in knit documents (#232).
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)
 
