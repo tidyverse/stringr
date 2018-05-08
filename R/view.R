@@ -37,18 +37,12 @@ str_view <- function(string, pattern, match = NA) {
     paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
 
   string <- str_replace_na(string)
-  bullets <- htmltools::HTML(str_c(
+  bullets <- str_c(
     "<ul>\n",
     str_c("  <li>", string, "</li>", collapse = "\n"),
     "\n</ul>"
-  ))
-
-  htmlwidgets::createWidget("str_view", list(html = bullets),
-    sizingPolicy = htmlwidgets::sizingPolicy(
-      knitr.figure = FALSE,
-      defaultHeight = "auto"
-    ),
-    package = "stringr")
+  )
+  str_view_widget(bullets)
 }
 
 #' @rdname str_view
@@ -75,16 +69,24 @@ str_view_all <- function(string, pattern, match = NA) {
   })
   string <- unlist(string_list)
 
-  bullets <- htmltools::HTML(str_c(
+  bullets <- str_c(
     "<ul>\n",
     str_c("  <li>", string, "</li>", collapse = "\n"),
     "\n</ul>"
-  ))
+  )
+  str_view_widget(bullets)
+}
 
-  htmlwidgets::createWidget("str_view", list(html = bullets),
-    sizingPolicy = htmlwidgets::sizingPolicy(
-      knitr.figure = FALSE,
-      defaultHeight = "auto"
-    ),
-    package = "stringr")
+str_view_widget <- function(html) {
+  size <- htmlwidgets::sizingPolicy(
+    knitr.figure = FALSE,
+    defaultHeight = "auto"
+  )
+
+  htmlwidgets::createWidget(
+    "str_view",
+    list(html = htmltools::HTML(html)),
+    sizingPolicy = size,
+    package = "stringr"
+  )
 }
