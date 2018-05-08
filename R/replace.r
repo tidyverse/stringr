@@ -79,7 +79,7 @@ str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
     vec <- FALSE
     replacement <- unname(pattern)
-    pattern <- names(pattern)
+    pattern[] <- names(pattern)
   } else {
     vec <- TRUE
   }

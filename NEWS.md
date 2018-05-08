@@ -1,5 +1,7 @@
 # stringr 1.3.0.9000
 
+* `str_replace_all()` with a named vector now respects modifier functions (#207)
+
 * `str_trunc()` is once again vectorised correctly (#203, @austin3dickey).
 
 # stringr 1.3.0
