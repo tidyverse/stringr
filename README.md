@@ -151,7 +151,10 @@ pattern matching engines:
 
   - `fixed()`: match exact bytes
   - `coll()`: match human letters
-  - `boundary()`: match boundaries
+  - `boundary()`: match
+boundaries
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="man/figures/cheatsheet-thumb.png" align="right" dpi="600"/></a>
 
 ## Compared to base R
 
