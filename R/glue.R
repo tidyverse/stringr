@@ -6,7 +6,6 @@
 #' directly from glue for more control.
 #'
 #' @export
-#' @inheritParams glue::data
 #' @examples
 #' name <- "Fred"
 #' age <- 50
