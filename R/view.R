@@ -36,6 +36,7 @@ str_view <- function(string, pattern, match = NA) {
   str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
     paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
 
+  string <- str_replace_na(string)
   bullets <- htmltools::HTML(str_c(
     "<ul>\n",
     str_c("  <li>", string, "</li>", collapse = "\n"),
