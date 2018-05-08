@@ -18,7 +18,7 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
   side <- match.arg(side)
 
-  too_long <- !is.na(string) && str_length(string) > width
+  too_long <- !is.na(string) & str_length(string) > width
   width... <- width - str_length(ellipsis)
 
   if (width... < 0) stop("`width` is shorter than `ellipsis`", .call = FALSE)
