@@ -17,7 +17,7 @@ BugReports: https://github.com/tidyverse/stringr/issues
 Depends: 
     R (>= 3.1)
 Imports: 
-    glue,
+    glue (>= 1.2.0),
     magrittr,
     stringi (>= 1.2.2)
 Suggests: 
