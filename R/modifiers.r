@@ -107,9 +107,22 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 }
 
 #' @param type Boundary type to detect.
+#' \describe{
+#'  \item{`character`}{Every character is a boundary.}
+#'  \item{`line_break`}{Boundaries are places where it is acceptable to have
+#'    a line break in the current locale.}
+#'  \item{`sentence`}{The beginnings and ends of sentences are boundaries,
+#'    using intelligent rules to avoid counting abbreviations
+#'    ([details](https://www.unicode.org/reports/tr29/#Sentence_Boundaries)).}
+#'  \item{`word`}{The beginnings and ends of words are boundaries.}
+#' }
 #' @param skip_word_none Ignore "words" that don't contain any characters
 #'   or numbers - i.e. punctuation. Default `NA` will skip such "words"
 #'   only when splitting on `word` boundaries.
+#'
+#' @seealso [str_wrap()] for breaking text to form paragraphs
+#' @seealso [`stringi::stringi-search-boundaries`] for more detail on the
+#'   various boundaries
 #' @export
 #' @rdname modifiers
 boundary <- function(type = c("character", "line_break", "sentence", "word"),

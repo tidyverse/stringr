@@ -42,7 +42,16 @@ default, only match the start and end of the input.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 
-\item{type}{Boundary type to detect.}
+\item{type}{Boundary type to detect.
+\describe{
+\item{\code{character}}{Every character is a boundary.}
+\item{\code{line_break}}{Boundaries are places where it is acceptable to have
+a line break in the current locale.}
+\item{\code{sentence}}{The beginnings and ends of sentences are boundaries,
+using intelligent rules to avoid counting abbreviations
+(\href{https://www.unicode.org/reports/tr29/#Sentence_Boundaries}{details}).}
+\item{\code{word}}{The beginnings and ends of words are boundaries.}
+}}
 
 \item{skip_word_none}{Ignore "words" that don't contain any characters
 or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
@@ -86,4 +95,10 @@ str_extract_all("a\\nb\\nc", regex("^.", multiline = TRUE))
 
 str_extract_all("a\\nb\\nc", "a.")
 str_extract_all("a\\nb\\nc", regex("a.", dotall = TRUE))
+}
+\seealso{
+\code{\link[=str_wrap]{str_wrap()}} for breaking text to form paragraphs
+
+\code{\link[stringi:stringi-search-boundaries]{stringi::stringi-search-boundaries}} for more detail on the
+various boundaries
 }
