@@ -206,7 +206,7 @@ You can also create your own __character classes__ using `[]`:
 * `[a-z]`: matches every character between a and z 
    (in Unicode code point order).
 * `[^abc]`: matches anything except a, b, or c.
-* `[\^\-]`: matches `-` or `\`.
+* `[\^\-]`: matches `^` or `-`.
 
 There are a number of pre-built classes that you can use inside `[]`:
 
