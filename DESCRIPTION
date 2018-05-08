@@ -19,7 +19,7 @@ Depends:
 Imports: 
     glue,
     magrittr,
-    stringi (>= 1.1.6)
+    stringi (>= 1.2.2)
 Suggests: 
     covr,
     htmltools,
