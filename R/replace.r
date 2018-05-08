@@ -3,6 +3,16 @@
 #' Vectorised over `string`, `pattern` and `replacement`.
 #'
 #' @inheritParams str_detect
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression, as described
+#'   in [stringi::stringi-search-regex]. Control options with
+#'   [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using
+#'   [fixed()]. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want [coll()] which
+#'   respects character matching rules for the specified locale.
 #' @param replacement A character vector of replacements. Should be either
 #'   length one, or the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
