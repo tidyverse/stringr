@@ -57,7 +57,7 @@ str_replace <- function(string, pattern, replacement) {
   }
 
   switch(type(pattern),
-    empty = stop("Empty `pattern`` not supported", call. = FALSE),
+    empty = stop("Empty `pattern` not supported", call. = FALSE),
     bound = stop("Boundary `pattern` not supported", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
