@@ -29,7 +29,7 @@ stringr is built on top of [stringi](https://github.com/gagolews/stringi), which
 
 ## Installation
 
-```R
+```r
 # Install the released version from CRAN:
 install.packages("stringr")
 
@@ -104,6 +104,10 @@ As well as regular expressions (the default), there are three other pattern matc
 * `fixed()`: match exact bytes
 * `coll()`: match human letters
 * `boundary()`: match boundaries
+
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="man/figures/cheatsheet-thumb.png" align="right" dpi="600"/></a>  
+
 
 ## Compared to base R
 
