@@ -10,6 +10,8 @@ phones <- str_c(
   num[, 7], num[, 8], num[, 9], num[, 10])
 
 test_that("empty strings return correct matrix of correct size", {
+  skip_if_not_installed("stringi", "1.2.2")
+
   expect_equal(str_match(NA, "(a)"), matrix(NA_character_, 1, 2))
   expect_equal(str_match(character(), "(a)"), matrix(character(), 0, 2))
 })
