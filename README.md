@@ -58,6 +58,11 @@ str_sub(x, 1, 2)
 #> [1] "wh" "vi" "cr" "ex" "de" "au"
 ```
 
+See a complete list on the
+cheatsheet:
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="man/figures/cheatsheet-thumb.png" width="300" height="232"/></a>
+
 Most string functions work with regular expressions, a concise language
 for describing patterns of text. For example, the regular expression
 `"[aeiou]"` matches any single character that is a vowel:
@@ -152,10 +157,7 @@ pattern matching engines:
 
   - `fixed()`: match exact bytes
   - `coll()`: match human letters
-  - `boundary()`: match
-boundaries
-
-<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="man/figures/cheatsheet-thumb.png" align="right" dpi="600"/></a>
+  - `boundary()`: match boundaries
 
 ## Compared to base R
 
