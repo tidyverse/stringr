@@ -1,3 +1,5 @@
+# stringr 1.3.1.9000
+
 # stringr 1.3.1
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)
