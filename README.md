@@ -43,6 +43,10 @@ install.packages("stringr")
 devtools::install_github("tidyverse/stringr")
 ```
 
+## Cheatsheet
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>
+
 ## Usage
 
 All functions in stringr start with `str_` and take a vector of strings
@@ -57,11 +61,6 @@ str_c(x, collapse = ", ")
 str_sub(x, 1, 2)
 #> [1] "wh" "vi" "cr" "ex" "de" "au"
 ```
-
-See a complete list on the
-cheatsheet:
-
-<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>
 
 Most string functions work with regular expressions, a concise language
 for describing patterns of text. For example, the regular expression
