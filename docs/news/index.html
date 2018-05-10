@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • stringr</title>
+<title>Changelog • stringr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -97,86 +97,106 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/tidyverse/stringr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="contents">
-    <div class="section level1">
-<h1>stringr 1.3.0.9000</h1>
+    <div id="stringr-1-3-1" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-1-3-1" class="anchor"></a>stringr 1.3.1<small> Unreleased </small>
+</h1>
+<ul>
+<li><p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> with a named vector now respects modifier functions (<a href='https://github.com/tidyverse/stringr/issues/207'>#207</a>)</p></li>
+<li><p><code><a href="../reference/str_trunc.html">str_trunc()</a></code> is once again vectorised correctly (<a href='https://github.com/tidyverse/stringr/issues/203'>#203</a>, <a href='http://github.com/austin3dickey'>@austin3dickey</a>).</p></li>
+<li><p><code><a href="../reference/str_view.html">str_view()</a></code> handles <code>NA</code> values more gracefully (<a href='https://github.com/tidyverse/stringr/issues/217'>#217</a>). I’ve also tweaked the sizing policy so hopefully it should work better in notebooks, while preserving the existing behaviour in knit documents (<a href='https://github.com/tidyverse/stringr/issues/232'>#232</a>).</p></li>
+</ul>
 </div>
-    <div class="section level1">
-<h1>stringr 1.3.0</h1>
-<div class="section level2">
-<h2>API changes</h2>
+    <div id="stringr-1-3-0" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-1-3-0" class="anchor"></a>stringr 1.3.0<small> 2018-02-19 </small>
+</h1>
+<div id="api-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#api-changes" class="anchor"></a>API changes</h2>
 <ul>
 <li>During package build, you may see <code>Error : object ‘ignore.case’ is not exported by 'namespace:stringr'</code>. This is because the long deprecated <code>str_join()</code>, <code>ignore.case()</code> and <code>perl()</code> have now been removed.</li>
 </ul>
 </div>
-<div class="section level2">
-<h2>New features</h2>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
-<li><p><code><a href="../reference/str_glue.html">str_glue()</a></code> and <code><a href="../reference/str_glue.html">str_glue_data()</a></code> provide convenient wrappers around <code>glue</code> and <code>glue_data()</code> from the <a href="http://glue.tidyverse.org/">glue</a> package (#157).</p></li>
-<li><p><code><a href="../reference/str_flatten.html">str_flatten()</a></code> is a wrapper around <code>stri_flatten()</code> and clearly conveys flattening a character vector into a single string (#186).</p></li>
-<li><p><code><a href="../reference/str_remove.html">str_remove()</a></code> and <code><a href="../reference/str_remove.html">str_remove_all()</a></code> functions. These wrap <code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> to remove patterns from strings. (@Shians, #178)</p></li>
-<li><p><code><a href="../reference/str_trim.html">str_squish()</a></code> removes spaces from both the left and right side of strings, and also converts multiple space (or space-like characters) to a single space within strings (@stephlocke, #197).</p></li>
-<li><p><code><a href="../reference/str_sub.html">str_sub()</a></code> gains <code>omit_na</code> argument for ignoring <code>NA</code>. Accordingly, <code><a href="../reference/str_replace.html">str_replace()</a></code> now ignores <code>NA</code>s and keeps the original strings. (@yutannihilation, #164)</p></li>
+<li><p><code><a href="../reference/str_glue.html">str_glue()</a></code> and <code><a href="../reference/str_glue.html">str_glue_data()</a></code> provide convenient wrappers around <code>glue</code> and <code>glue_data()</code> from the <a href="http://glue.tidyverse.org/">glue</a> package (<a href='https://github.com/tidyverse/stringr/issues/157'>#157</a>).</p></li>
+<li><p><code><a href="../reference/str_flatten.html">str_flatten()</a></code> is a wrapper around <code>stri_flatten()</code> and clearly conveys flattening a character vector into a single string (<a href='https://github.com/tidyverse/stringr/issues/186'>#186</a>).</p></li>
+<li><p><code><a href="../reference/str_remove.html">str_remove()</a></code> and <code><a href="../reference/str_remove.html">str_remove_all()</a></code> functions. These wrap <code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> to remove patterns from strings. (<a href='http://github.com/Shians'>@Shians</a>, <a href='https://github.com/tidyverse/stringr/issues/178'>#178</a>)</p></li>
+<li><p><code><a href="../reference/str_trim.html">str_squish()</a></code> removes spaces from both the left and right side of strings, and also converts multiple space (or space-like characters) to a single space within strings (<a href='http://github.com/stephlocke'>@stephlocke</a>, <a href='https://github.com/tidyverse/stringr/issues/197'>#197</a>).</p></li>
+<li><p><code><a href="../reference/str_sub.html">str_sub()</a></code> gains <code>omit_na</code> argument for ignoring <code>NA</code>. Accordingly, <code><a href="../reference/str_replace.html">str_replace()</a></code> now ignores <code>NA</code>s and keeps the original strings. (<a href='http://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/stringr/issues/164'>#164</a>)</p></li>
 </ul>
 </div>
-<div class="section level2">
-<h2>Bug fixes and minor improvements</h2>
+<div id="bug-fixes-and-minor-improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes-and-minor-improvements" class="anchor"></a>Bug fixes and minor improvements</h2>
 <ul>
-<li><p><code><a href="../reference/str_trunc.html">str_trunc()</a></code> now preserves NAs (@ClaytonJY, #162)</p></li>
-<li><p><code><a href="../reference/str_trunc.html">str_trunc()</a></code> now throws an error when <code>width</code> is shorter than <code>ellipsis</code> (@ClaytonJY, #163).</p></li>
+<li><p><code><a href="../reference/str_trunc.html">str_trunc()</a></code> now preserves NAs (<a href='http://github.com/ClaytonJY'>@ClaytonJY</a>, <a href='https://github.com/tidyverse/stringr/issues/162'>#162</a>)</p></li>
+<li><p><code><a href="../reference/str_trunc.html">str_trunc()</a></code> now throws an error when <code>width</code> is shorter than <code>ellipsis</code> (<a href='http://github.com/ClaytonJY'>@ClaytonJY</a>, <a href='https://github.com/tidyverse/stringr/issues/163'>#163</a>).</p></li>
 <li><p>Long deprecated <code>str_join()</code>, <code>ignore.case()</code> and <code>perl()</code> have now been removed.</p></li>
 </ul>
 </div>
 </div>
-    <div class="section level1">
-<h1>stringr 1.2.0</h1>
-<div class="section level2">
-<h2>API changes</h2>
+    <div id="stringr-1-2-0" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-1-2-0" class="anchor"></a>stringr 1.2.0<small> 2017-02-18 </small>
+</h1>
+<div id="api-changes-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#api-changes-1" class="anchor"></a>API changes</h2>
 <ul>
 <li>
-<code><a href="../reference/str_match.html">str_match_all()</a></code> now returns NA if an optional group doesn’t match (previously it returned “”). This is more consistent with <code><a href="../reference/str_match.html">str_match()</a></code> and other match failures (#134).</li>
+<code><a href="../reference/str_match.html">str_match_all()</a></code> now returns NA if an optional group doesn’t match (previously it returned “”). This is more consistent with <code><a href="../reference/str_match.html">str_match()</a></code> and other match failures (<a href='https://github.com/tidyverse/stringr/issues/134'>#134</a>).</li>
 </ul>
 </div>
-<div class="section level2">
-<h2>New features</h2>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New features</h2>
 <ul>
 <li><p>In <code><a href="../reference/str_replace.html">str_replace()</a></code>, <code>replacement</code> can now be a function that is called once for each match and whose return value is used to replace the match.</p></li>
-<li><p>New <code><a href="../reference/str_subset.html">str_which()</a></code> mimics <code>grep()</code> (#129).</p></li>
+<li><p>New <code><a href="../reference/str_subset.html">str_which()</a></code> mimics <code>grep()</code> (<a href='https://github.com/tidyverse/stringr/issues/129'>#129</a>).</p></li>
 <li><p>A new vignette (<code><a href="../articles/regular-expressions.html">vignette("regular-expressions")</a></code>) describes the details of the regular expressions supported by stringr. The main vignette (<code><a href="../articles/stringr.html">vignette("stringr")</a></code>) has been updated to give a high-level overview of the package.</p></li>
 </ul>
 </div>
-<div class="section level2">
-<h2>Minor improvements and bug fixes</h2>
+<div id="minor-improvements-and-bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-improvements-and-bug-fixes" class="anchor"></a>Minor improvements and bug fixes</h2>
 <ul>
 <li><p><code><a href="../reference/str_order.html">str_order()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code> gain explicit <code>numeric</code> argument for sorting mixed numbers and strings.</p></li>
-<li><p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> now throws an error if <code>replacement</code> is not a character vector. If <code>replacement</code> is <code>NA_character_</code> it replaces the complete string with replaces with <code>NA</code> (#124).</p></li>
+<li><p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> now throws an error if <code>replacement</code> is not a character vector. If <code>replacement</code> is <code>NA_character_</code> it replaces the complete string with replaces with <code>NA</code> (<a href='https://github.com/tidyverse/stringr/issues/124'>#124</a>).</p></li>
 <li><p>All functions that take a locale (e.g. <code><a href="../reference/case.html">str_to_lower()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code>) default to “en” (English) to ensure that the default is consistent across platforms.</p></li>
 </ul>
 </div>
 </div>
-    <div class="section level1">
-<h1>stringr 1.1.0</h1>
+    <div id="stringr-1-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-1-1-0" class="anchor"></a>stringr 1.1.0<small> 2016-08-19 </small>
+</h1>
 <ul>
 <li><p>Add sample datasets: <code>fruit</code>, <code>words</code> and <code>sentences</code>.</p></li>
-<li><p><code><a href="../reference/modifiers.html">fixed()</a></code>, <code><a href="../reference/modifiers.html">regex()</a></code>, and <code><a href="../reference/modifiers.html">coll()</a></code> now throw an error if you use them with anything other than a plain string (#60). I’ve clarified that the replacement for <code>perl()</code> is <code><a href="../reference/modifiers.html">regex()</a></code> not <code>regexp()</code> (#61). <code><a href="../reference/modifiers.html">boundary()</a></code> has improved defaults when splitting on non-word boundaries (#58, @lmullen).</p></li>
-<li><p><code><a href="../reference/str_detect.html">str_detect()</a></code> now can detect boundaries (by checking for a <code><a href="../reference/str_count.html">str_count()</a></code> &gt; 0) (#120). <code><a href="../reference/str_subset.html">str_subset()</a></code> works similarly.</p></li>
+<li><p><code><a href="../reference/modifiers.html">fixed()</a></code>, <code><a href="../reference/modifiers.html">regex()</a></code>, and <code><a href="../reference/modifiers.html">coll()</a></code> now throw an error if you use them with anything other than a plain string (<a href='https://github.com/tidyverse/stringr/issues/60'>#60</a>). I’ve clarified that the replacement for <code>perl()</code> is <code><a href="../reference/modifiers.html">regex()</a></code> not <code>regexp()</code> (<a href='https://github.com/tidyverse/stringr/issues/61'>#61</a>). <code><a href="../reference/modifiers.html">boundary()</a></code> has improved defaults when splitting on non-word boundaries (<a href='https://github.com/tidyverse/stringr/issues/58'>#58</a>, <a href='http://github.com/lmullen'>@lmullen</a>).</p></li>
+<li><p><code><a href="../reference/str_detect.html">str_detect()</a></code> now can detect boundaries (by checking for a <code><a href="../reference/str_count.html">str_count()</a></code> &gt; 0) (<a href='https://github.com/tidyverse/stringr/issues/120'>#120</a>). <code><a href="../reference/str_subset.html">str_subset()</a></code> works similarly.</p></li>
 <li><p><code><a href="../reference/str_extract.html">str_extract()</a></code> and <code><a href="../reference/str_extract.html">str_extract_all()</a></code> now work with <code><a href="../reference/modifiers.html">boundary()</a></code>. This is particularly useful if you want to extract logical constructs like words or sentences. <code><a href="../reference/str_extract.html">str_extract_all()</a></code> respects the <code>simplify</code> argument when used with <code><a href="../reference/modifiers.html">fixed()</a></code> matches.</p></li>
-<li><p><code><a href="../reference/str_subset.html">str_subset()</a></code> now respects custom options for <code><a href="../reference/modifiers.html">fixed()</a></code> patterns (#79, @gagolews).</p></li>
-<li><p><code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> now behave correctly when a replacement string contains <code>$</code>s, <code>\\\\1</code>, etc. (#83, #99).</p></li>
+<li><p><code><a href="../reference/str_subset.html">str_subset()</a></code> now respects custom options for <code><a href="../reference/modifiers.html">fixed()</a></code> patterns (<a href='https://github.com/tidyverse/stringr/issues/79'>#79</a>, <a href='http://github.com/gagolews'>@gagolews</a>).</p></li>
+<li><p><code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> now behave correctly when a replacement string contains <code>$</code>s, <code>\\\\1</code>, etc. (<a href='https://github.com/tidyverse/stringr/issues/83'>#83</a>, <a href='https://github.com/tidyverse/stringr/issues/99'>#99</a>).</p></li>
 <li><p><code><a href="../reference/str_split.html">str_split()</a></code> gains a <code>simplify</code> argument to match <code><a href="../reference/str_extract.html">str_extract_all()</a></code> etc.</p></li>
-<li><p><code><a href="../reference/str_view.html">str_view()</a></code> and <code><a href="../reference/str_view.html">str_view_all()</a></code> create HTML widgets that display regular expression matches (#96).</p></li>
-<li><p><code><a href="../reference/word.html">word()</a></code> returns <code>NA</code> for indexes greater than number of words (#112).</p></li>
+<li><p><code><a href="../reference/str_view.html">str_view()</a></code> and <code><a href="../reference/str_view.html">str_view_all()</a></code> create HTML widgets that display regular expression matches (<a href='https://github.com/tidyverse/stringr/issues/96'>#96</a>).</p></li>
+<li><p><code><a href="../reference/word.html">word()</a></code> returns <code>NA</code> for indexes greater than number of words (<a href='https://github.com/tidyverse/stringr/issues/112'>#112</a>).</p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 1.0.0</h1>
+    <div id="stringr-1-0-0" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-1-0-0" class="anchor"></a>stringr 1.0.0<small> 2015-04-30 </small>
+</h1>
 <ul>
 <li><p>stringr is now powered by <a href="https://github.com/Rexamine/stringi">stringi</a> instead of base R regular expressions. This improves unicode and support, and makes most operations considerably faster. If you find stringr inadequate for your string processing needs, I highly recommend looking at stringi in more detail.</p></li>
 <li><p>stringr gains a vignette, currently a straight forward update of the article that appeared in the R Journal.</p></li>
@@ -187,7 +207,7 @@
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(input, <span class="kw">c</span>(<span class="st">"[ad]"</span> =<span class="st"> "!"</span>, <span class="st">"[cf]"</span> =<span class="st"> "?"</span>))</a></code></pre></div>
 </li>
 <li><p><code><a href="../reference/str_match.html">str_match()</a></code> now returns NA if an optional group doesn’t match (previously it returned “”). This is more consistent with <code><a href="../reference/str_extract.html">str_extract()</a></code> and other match failures.</p></li>
-<li><p>New <code><a href="../reference/str_subset.html">str_subset()</a></code> keeps values that match a pattern. It’s a convenient wrapper for <code>x[str_detect(x)]</code> (#21, @jiho).</p></li>
+<li><p>New <code><a href="../reference/str_subset.html">str_subset()</a></code> keeps values that match a pattern. It’s a convenient wrapper for <code>x[str_detect(x)]</code> (<a href='https://github.com/tidyverse/stringr/issues/21'>#21</a>, <a href='http://github.com/jiho'>@jiho</a>).</p></li>
 <li><p>New <code><a href="../reference/str_order.html">str_order()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code> allow you to sort and order strings in a specified locale.</p></li>
 <li><p>New <code><a href="../reference/str_conv.html">str_conv()</a></code> to convert strings from specified encoding to UTF-8.</p></li>
 <li><p>New modifier <code><a href="../reference/modifiers.html">boundary()</a></code> allows you to count, locate and split by character, word, line and sentence boundaries.</p></li>
@@ -196,29 +216,37 @@
 <li><p><code>str_join()</code> is deprecated, please use <code><a href="../reference/str_c.html">str_c()</a></code> instead.</p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.6.2</h1>
+    <div id="stringr-0-6-2" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-6-2" class="anchor"></a>stringr 0.6.2<small> 2012-12-06 </small>
+</h1>
 <ul>
 <li><p>fixed path in <code>str_wrap</code> example so works for more R installations.</p></li>
 <li><p>remove dependency on plyr</p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.6.1</h1>
+    <div id="stringr-0-6-1" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-6-1" class="anchor"></a>stringr 0.6.1<small> 2012-07-25 </small>
+</h1>
 <ul>
 <li><p>Zero input to <code>str_split_fixed</code> returns 0 row matrix with <code>n</code> columns</p></li>
 <li><p>Export <code>str_join</code></p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.6</h1>
+    <div id="stringr-0-6" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-6" class="anchor"></a>stringr 0.6<small> 2011-12-08 </small>
+</h1>
 <ul>
 <li><p>new modifier <code>perl</code> that switches to Perl regular expressions</p></li>
 <li><p><code>str_match</code> now uses new base function <code>regmatches</code> to extract matches - this should hopefully be faster than my previous pure R algorithm</p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.5</h1>
+    <div id="stringr-0-5" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-5" class="anchor"></a>stringr 0.5<small> 2011-06-30 </small>
+</h1>
 <ul>
 <li><p>new <code>str_wrap</code> function which gives <code>strwrap</code> output in a more convenient format</p></li>
 <li><p>new <code>word</code> function extract words from a string given user defined separator (thanks to suggestion by David Cooper)</p></li>
@@ -229,8 +257,10 @@
 <li><p>fix small bug in internal <code>recyclable</code> function</p></li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.4</h1>
+    <div id="stringr-0-4" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-4" class="anchor"></a>stringr 0.4<small> 2010-08-24 </small>
+</h1>
 <ul>
 <li>all functions now vectorised with respect to string, pattern (and where appropriate) replacement parameters</li>
 <li>fixed() function now tells stringr functions to use fixed matching, rather than escaping the regular expression. Should improve performance for large vectors.</li>
@@ -243,8 +273,10 @@
 <li>stringr now has a namespace and imports plyr (rather than requiring it)</li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.3</h1>
+    <div id="stringr-0-3" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-3" class="anchor"></a>stringr 0.3<small> 2010-02-15 </small>
+</h1>
 <ul>
 <li>fixed() now also escapes |</li>
 <li>str_join() renamed to str_c()</li>
@@ -253,8 +285,10 @@
 <li>add fixed() function to allow matching of fixed strings.</li>
 </ul>
 </div>
-    <div class="section level1">
-<h1>stringr 0.2</h1>
+    <div id="stringr-0-2" class="section level1">
+<h1 class="page-header">
+<a href="#stringr-0-2" class="anchor"></a>stringr 0.2<small> 2009-11-16 </small>
+</h1>
 <ul>
 <li>str_length now returns correct results when used with factors</li>
 <li>str_sub now correctly replaces Inf in end argument with length of string</li>
@@ -262,25 +296,24 @@
 <li>str_split no longer uses strsplit to preserve trailing breaks</li>
 </ul>
 </div>
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#NA">1.3.0.9000</a></li>
-        <li><a href="#NA">1.3.0</a></li>
-        <li><a href="#NA">1.2.0</a></li>
-        <li><a href="#NA">1.1.0</a></li>
-        <li><a href="#NA">1.0.0</a></li>
-        <li><a href="#NA">0.6.2</a></li>
-        <li><a href="#NA">0.6.1</a></li>
-        <li><a href="#NA">0.6</a></li>
-        <li><a href="#NA">0.5</a></li>
-        <li><a href="#NA">0.4</a></li>
-        <li><a href="#NA">0.3</a></li>
-        <li><a href="#NA">0.2</a></li>
+        <li><a href="#stringr-1-3-1">1.3.1</a></li>
+        <li><a href="#stringr-1-3-0">1.3.0</a></li>
+        <li><a href="#stringr-1-2-0">1.2.0</a></li>
+        <li><a href="#stringr-1-1-0">1.1.0</a></li>
+        <li><a href="#stringr-1-0-0">1.0.0</a></li>
+        <li><a href="#stringr-0-6-2">0.6.2</a></li>
+        <li><a href="#stringr-0-6-1">0.6.1</a></li>
+        <li><a href="#stringr-0-6">0.6</a></li>
+        <li><a href="#stringr-0-5">0.5</a></li>
+        <li><a href="#stringr-0-4">0.4</a></li>
+        <li><a href="#stringr-0-3">0.3</a></li>
+        <li><a href="#stringr-0-2">0.2</a></li>
       </ul>
     </div>
   </div>
@@ -293,21 +326,23 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

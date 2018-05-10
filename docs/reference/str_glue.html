@@ -97,48 +97,52 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Format and interpolate a string with glue</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/glue.R'><code>R/glue.R</code></a></small>
+    <div class="hidden name"><code>str_glue.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>These functions are wrappers around <code><a href='http://www.rdocumentation.org/packages/glue/topics/glue'>glue::glue()</a></code> and <code><a href='http://www.rdocumentation.org/packages/glue/topics/glue'>glue::glue_data()</a></code>,
 which provide a powerful and elegant syntax for interpolating strings.
 These wrappers provide a small set of the full options. Use the functions
 directly from glue for more control.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>str_glue</span>(<span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
 
 <span class='fu'>str_glue_data</span>(<span class='no'>.x</span>, <span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>(), <span class='kw'>.na</span> <span class='kw'>=</span> <span class='st'>"NA"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>[<code>expressions</code>] Expressions string(s) to format, multiple inputs are concatenated together before formatting.</p></td>
+      <td><p>[<code>expressions</code>]<br /> Expressions string(s) to format, multiple inputs are concatenated together before formatting.</p></td>
     </tr>
     <tr>
       <th>.sep</th>
-      <td><p>[<code>character(1)</code>: &#8216;""&#8217;] Separator used to separate elements.</p></td>
+      <td><p>[<code>character(1)</code>: &#8216;""&#8217;]<br /> Separator used to separate elements.</p></td>
     </tr>
     <tr>
       <th>.envir</th>
-      <td><p>[<code>environment</code>: <code>parent.frame()</code>] Environment to evaluate each expression in. Expressions are
+      <td><p>[<code>environment</code>: <code>parent.frame()</code>]<br /> Environment to evaluate each expression in. Expressions are
 evaluated from left to right. If <code>.x</code> is an environment, the expressions are
 evaluated in that environment and <code>.envir</code> is ignored.</p></td>
     </tr>
     <tr>
       <th>.x</th>
-      <td><p>[<code>listish</code>] An environment, list or data frame used to lookup values.</p></td>
+      <td><p>[<code>listish</code>]<br /> An environment, list or data frame used to lookup values.</p></td>
     </tr>
     <tr>
       <th>.na</th>
-      <td><p>[<code>character(1)</code>: &#8216;NA&#8217;] Value to replace NA values
-with. If <code>NULL</code> missing values are propegated, that is an <code>NA</code> result will
+      <td><p>[<code>character(1)</code>: &#8216;NA&#8217;]<br /> Value to replace NA values
+with. If <code>NULL</code> missing values are propagated, that is an <code>NA</code> result will
 cause <code>NA</code> output. Otherwise the value is replaced by the value of <code>.na</code>.</p></td>
     </tr>
     </table>
@@ -213,21 +217,23 @@ cause <code>NA</code> output. Otherwise the value is replaced by the value of <c
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

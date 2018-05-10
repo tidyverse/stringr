@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -80,15 +80,18 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Regular expressions</h1>
             
-          </div>
+      
+      <small class="dont-index">Source: <a href="https://github.com/tidyverse/stringr/blob/master/vignettes/regular-expressions.Rmd"><code>vignettes/regular-expressions.Rmd</code></a></small>
+      <div class="hidden name"><code>regular-expressions.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
 <p>Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr’s regular expressions, as implemented by <a href="https://github.com/gagolews/stringi">stringi</a>. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at <a href="http://r4ds.had.co.nz/strings.html" class="uri">http://r4ds.had.co.nz/strings.html</a>. If you want to master the details, I’d recommend reading the classic <a href="https://amzn.com/0596528124"><em>Mastering Regular Expressions</em></a> by Jeffrey E. F. Fried.</p>
 <p>Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it’s equivalent to wrapping it in a call to <code><a href="../reference/modifiers.html">regex()</a></code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># The regular call:</span></a>
@@ -96,7 +99,9 @@
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Is shorthand for</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(fruit, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"nana"</span>))</a></code></pre></div>
 <p>You will need to use <code><a href="../reference/modifiers.html">regex()</a></code> explicitly if you want to override the default options, as you’ll see in examples below.</p>
-<section id="basic-matches" class="level2"><h2>Basic matches</h2>
+<div id="basic-matches" class="section level2">
+<h2 class="hasAnchor">
+<a href="#basic-matches" class="anchor"></a>Basic matches</h2>
 <p>The simplest patterns match exact strings:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"an"</span>)</a>
@@ -115,7 +120,10 @@
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] FALSE</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"</span><span class="ch">\n</span><span class="st">X</span><span class="ch">\n</span><span class="st">"</span>, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">".X."</span>, <span class="dt">dotall =</span> <span class="ot">TRUE</span>))</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
-</section><section id="escaping" class="level2"><h2>Escaping</h2>
+</div>
+<div id="escaping" class="section level2">
+<h2 class="hasAnchor">
+<a href="#escaping" class="anchor"></a>Escaping</h2>
 <p>If “<code>.</code>” matches any character, how do you match a literal “<code>.</code>”? You need to use an “escape” to tell the regular expression you want to match it exactly, not use its special behaviour. Like strings, regexps use the backslash, <code>\</code>, to escape special behaviour. So to match an <code>.</code>, you need the regexp <code>\.</code>. Unfortunately this creates a problem. We use strings to represent regular expressions, and <code>\</code> is also used as an escape symbol in strings. So to create the regular expression <code>\.</code> we need the string <code>"\\."</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># To create the regular expression, we need \\</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."</span></a>
@@ -143,7 +151,10 @@
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; [1] TRUE TRUE</span></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw">paste0</span>(<span class="st">"^</span><span class="ch">\\</span><span class="st">Q"</span>, starts_with, <span class="st">"</span><span class="ch">\\</span><span class="st">E"</span>))</a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; [1]  TRUE FALSE</span></a></code></pre></div>
-</section><section id="special-characters" class="level2"><h2>Special characters</h2>
+</div>
+<div id="special-characters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#special-characters" class="anchor"></a>Special characters</h2>
 <p>Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p>
 <ul>
 <li><p><code>\xhh</code>: 2 hex digits.</p></li>
@@ -164,7 +175,10 @@
 <li><p><code>\0ooo</code> match an octal character. ‘ooo’ is from one to three octal digits, from 000 to 0377. The leading zero is required.</p></li>
 </ul>
 <p>(Many of these are only of historical interest and are only included here for the sake of completeness.)</p>
-</section><section id="matching-multiple-characters" class="level2"><h2>Matching multiple characters</h2>
+</div>
+<div id="matching-multiple-characters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#matching-multiple-characters" class="anchor"></a>Matching multiple characters</h2>
 <p>There are a number of patterns that match more than one character. You’ve already seen <code>.</code>, which matches any character (except a newline). A closely related operator is <code>\X</code>, which matches a <strong>grapheme cluster</strong>, a set of individual elements that form a single symbol. For example, one way of representing “á” is as the letter “a” plus an accent: <code>.</code> will match the component “a”, while <code>\X</code> will match the complete symbol:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">x &lt;-<span class="st"> "a\u0301"</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"."</span>)</a>
@@ -221,7 +235,7 @@
 <li>
 <code>[^abc]</code>: matches anything except a, b, or c.</li>
 <li>
-<code>[\^\-]</code>: matches <code>-</code> or <code>\</code>.</li>
+<code>[\^\-]</code>: matches <code>^</code> or <code>-</code>.</li>
 </ul>
 <p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p>
 <ul>
@@ -252,12 +266,18 @@
 </ul>
 <p>These all go inside the <code>[]</code> for character classes, i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p>
 <p>You can also using Unicode properties, like <code>[\p{Letter}]</code>, and various set operations, like <code>[\p{Letter}--\p{script=latin}]</code>. See <code>?"stringi-search-charclass"</code> for details.</p>
-</section><section id="alternation" class="level2"><h2>Alternation</h2>
+</div>
+<div id="alternation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#alternation" class="anchor"></a>Alternation</h2>
 <p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw">c</span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span>), <span class="st">"abc|def"</span>)</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></a></code></pre></div>
 <p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
-</section><section id="grouping" class="level2"><h2>Grouping</h2>
+</div>
+<div id="grouping" class="section level2">
+<h2 class="hasAnchor">
+<a href="#grouping" class="anchor"></a>Grouping</h2>
 <p>You can use parentheses to override the default precedence rules:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw">c</span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gre|ay"</span>)</a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#&gt; [1] "gre" "ay"</span></a>
@@ -290,7 +310,10 @@
 <a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co">#&gt; [1,] "grey"</span></a>
 <a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co">#&gt; [2,] "gray"</span></a></code></pre></div>
 <p>This is most useful for more complex cases where you need to capture matches and control precedence independently.</p>
-</section><section id="anchors" class="level2"><h2>Anchors</h2>
+</div>
+<div id="anchors" class="section level2">
+<h2 class="hasAnchor">
+<a href="#anchors" class="anchor"></a>Anchors</h2>
 <p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
 <ul>
 <li>
@@ -319,7 +342,10 @@
 <a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt; [1] "Line 1" "Line 2" "Line 3"</span></a>
 <a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">ALine.."</span>, <span class="dt">multiline =</span> <span class="ot">TRUE</span>))[[<span class="dv">1</span>]]</a>
 <a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; [1] "Line 1"</span></a></code></pre></div>
-</section><section id="repetition" class="level2"><h2>Repetition</h2>
+</div>
+<div id="repetition" class="section level2">
+<h2 class="hasAnchor">
+<a href="#repetition" class="anchor"></a>Repetition</h2>
 <p>You can control how many times a pattern matches with the repetition operators:</p>
 <ul>
 <li>
@@ -390,7 +416,10 @@
 <a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"ABC"</span>, <span class="st">"(?:A|.B)C"</span>)</a>
 <a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
 <p>The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match succeeds because it matches A, but then C doesn’t match, so it back-tracks and tries B instead.</p>
-</section><section id="look-arounds" class="level2"><h2>Look arounds</h2>
+</div>
+<div id="look-arounds" class="section level2">
+<h2 class="hasAnchor">
+<a href="#look-arounds" class="anchor"></a>Look arounds</h2>
 <p>These assertions look ahead or behind the current match without “consuming” any characters (i.e. changing the input position).</p>
 <ul>
 <li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the current input.</p></li>
@@ -408,7 +437,10 @@
 <a class="sourceLine" id="cb26-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"100"</span>, <span class="st">"$400"</span>)</a>
 <a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(y, <span class="st">"(?&lt;=</span><span class="ch">\\</span><span class="st">$)</span><span class="ch">\\</span><span class="st">d+"</span>)</a>
 <a class="sourceLine" id="cb26-7" data-line-number="7"><span class="co">#&gt; [1] NA    "400"</span></a></code></pre></div>
-</section><section id="comments" class="level2"><h2>Comments</h2>
+</div>
+<div id="comments" class="section level2">
+<h2 class="hasAnchor">
+<a href="#comments" class="anchor"></a>Comments</h2>
 <p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span>)</a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
@@ -425,7 +457,6 @@
 <a class="sourceLine" id="cb28-10" data-line-number="10"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="st">"514-791-8141"</span>, phone)</a>
 <a class="sourceLine" id="cb28-11" data-line-number="11"><span class="co">#&gt;      [,1]          [,2]  [,3]  [,4] </span></a>
 <a class="sourceLine" id="cb28-12" data-line-number="12"><span class="co">#&gt; [1,] "514-791-814" "514" "791" "814"</span></a></code></pre></div>
-</section>
 </div>
   </div>
 
@@ -456,20 +487,20 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
   <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>
