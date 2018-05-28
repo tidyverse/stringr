@@ -40,6 +40,12 @@ test_that("can replace multiple matches", {
   expect_equal(y, c("11", "22"))
 })
 
+test_that("multiple matches respects class", {
+  x <- c("x", "y")
+  y <- str_replace_all(x, regex(c("X" = "a"), ignore_case = TRUE))
+  expect_equal(y, c("a", "y"))
+})
+
 test_that("replacement must be a string", {
   expect_error(str_replace("x", "x", 1), "must be a character vector")
 })

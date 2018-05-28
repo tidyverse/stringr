@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trim whitespace from start and end of string. — str_trim • stringr</title>
+<title>Trim whitespace from a string — str_trim • stringr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -97,19 +97,26 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Trim whitespace from start and end of string.</h1>
+    <h1>Trim whitespace from a string</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/trim.R'><code>R/trim.R</code></a></small>
+    <div class="hidden name"><code>str_trim.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
-    <p>Trim whitespace from start and end of string.</p>
+    <p><code>str_trim()</code> removes whitespace from start and end of string; <code>str_squish()</code>
+also reduces repeated whitespace inside a string.</p>
     
+    </div>
 
-    <pre class="usage"><span class='fu'>str_trim</span>(<span class='no'>string</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>))</pre>
+    <pre class="usage"><span class='fu'>str_trim</span>(<span class='no'>string</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"both"</span>, <span class='st'>"left"</span>, <span class='st'>"right"</span>))
+
+<span class='fu'>str_squish</span>(<span class='no'>string</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -128,11 +135,12 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='str_pad.html'>str_pad</a></code> to add whitespace</p>
+    <div class='dont-index'><p><code><a href='str_pad.html'>str_pad()</a></code> to add whitespace</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_trim</span>(<span class='st'>"  String with trailing and leading white space\t"</span>)</div><div class='output co'>#&gt; [1] "String with trailing and leading white space"</div><div class='input'><span class='fu'>str_trim</span>(<span class='st'>"\n\nString with trailing and leading white space\n\n"</span>)</div><div class='output co'>#&gt; [1] "String with trailing and leading white space"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>str_trim</span>(<span class='st'>"  String with trailing and leading white space\t"</span>)</div><div class='output co'>#&gt; [1] "String with trailing and leading white space"</div><div class='input'><span class='fu'>str_trim</span>(<span class='st'>"\n\nString with trailing and leading white space\n\n"</span>)</div><div class='output co'>#&gt; [1] "String with trailing and leading white space"</div><div class='input'>
+<span class='fu'>str_squish</span>(<span class='st'>"  String with trailing,  middle, and leading white space\t"</span>)</div><div class='output co'>#&gt; [1] "String with trailing, middle, and leading white space"</div><div class='input'><span class='fu'>str_squish</span>(<span class='st'>"\n\nString with excess,  trailing and leading white   space\n\n"</span>)</div><div class='output co'>#&gt; [1] "String with excess, trailing and leading white space"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -155,21 +163,23 @@
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

@@ -22,11 +22,7 @@ in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control o
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
+respects character matching rules for the specified locale.}
 
 \item{replacement}{A character vector of replacements. Should be either
 length one, or the same length as \code{string} or \code{pattern}.

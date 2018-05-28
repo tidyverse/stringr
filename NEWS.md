@@ -1,3 +1,13 @@
+# stringr 1.3.1
+
+* `str_replace_all()` with a named vector now respects modifier functions (#207)
+
+* `str_trunc()` is once again vectorised correctly (#203, @austin3dickey).
+
+* `str_view()` handles `NA` values more gracefully (#217). I've also
+  tweaked the sizing policy so hopefully it should work better in notebooks,
+  while preserving the existing behaviour in knit documents (#232).
+
 # stringr 1.3.0
 
 ## API changes

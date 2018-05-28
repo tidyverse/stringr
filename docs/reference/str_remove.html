@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pad a string. — str_pad • stringr</title>
+<title>Remove matched patterns in a string. — str_remove • stringr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -100,37 +100,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pad a string.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/pad.r'><code>R/pad.r</code></a></small>
-    <div class="hidden name"><code>str_pad.Rd</code></div>
+    <h1>Remove matched patterns in a string.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/remove.r'><code>R/remove.r</code></a></small>
+    <div class="hidden name"><code>str_remove.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Vectorised over <code>string</code>, <code>width</code> and <code>pad</code>.</p>
+    <p>Alias for <code><a href='str_replace.html'>str_replace(string, pattern, "")</a></code>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>str_pad</span>(<span class='no'>string</span>, <span class='no'>width</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"left"</span>, <span class='st'>"right"</span>, <span class='st'>"both"</span>), <span class='kw'>pad</span> <span class='kw'>=</span> <span class='st'>" "</span>)</pre>
+    <pre class="usage"><span class='fu'>str_remove</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)
+
+<span class='fu'>str_remove_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>string</th>
-      <td><p>A character vector.</p></td>
+      <td><p>Input vector. Either a character vector, or something
+coercible to one.</p></td>
     </tr>
     <tr>
-      <th>width</th>
-      <td><p>Minimum width of padded strings.</p></td>
-    </tr>
-    <tr>
-      <th>side</th>
-      <td><p>Side on which padding character is added (left, right or both).</p></td>
-    </tr>
-    <tr>
-      <th>pad</th>
-      <td><p>Single padding character (default is a space).</p></td>
+      <th>pattern</th>
+      <td><p>Pattern to look for.</p>
+<p>The default interpretation is a regular expression, as described
+in <a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-regex'>stringi::stringi-search-regex</a>. Control options with
+<code><a href='modifiers.html'>regex()</a></code>.</p>
+<p>Match a fixed string (i.e. by comparing only bytes), using
+<code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
+for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></code> which
+respects character matching rules for the specified locale.</p>
+<p>Match character, word, line and sentence boundaries with
+<code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
+<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
     </tr>
     </table>
     
@@ -140,23 +145,12 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='str_trim.html'>str_trim()</a></code> to remove whitespace;
-<code><a href='str_trunc.html'>str_trunc()</a></code> to decrease the maximum width of a string.</p></div>
+    <div class='dont-index'><p><code><a href='str_replace.html'>str_replace()</a></code> for the underlying implementation.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rbind</span>(
-  <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>30</span>, <span class='st'>"left"</span>),
-  <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>30</span>, <span class='st'>"right"</span>),
-  <span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>30</span>, <span class='st'>"both"</span>)
-)</div><div class='output co'>#&gt;      [,1]                            
-#&gt; [1,] "                        hadley"
-#&gt; [2,] "hadley                        "
-#&gt; [3,] "            hadley            "</div><div class='input'>
-<span class='co'># All arguments are vectorised except side</span>
-<span class='fu'>str_pad</span>(<span class='fu'>c</span>(<span class='st'>"a"</span>, <span class='st'>"abc"</span>, <span class='st'>"abcdef"</span>), <span class='fl'>10</span>)</div><div class='output co'>#&gt; [1] "         a" "       abc" "    abcdef"</div><div class='input'><span class='fu'>str_pad</span>(<span class='st'>"a"</span>, <span class='fu'>c</span>(<span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span>))</div><div class='output co'>#&gt; [1] "    a"                "         a"           "                   a"</div><div class='input'><span class='fu'>str_pad</span>(<span class='st'>"a"</span>, <span class='fl'>10</span>, <span class='kw'>pad</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"-"</span>, <span class='st'>"_"</span>, <span class='st'>" "</span>))</div><div class='output co'>#&gt; [1] "---------a" "_________a" "         a"</div><div class='input'>
-<span class='co'># Longer strings are returned unchanged</span>
-<span class='fu'>str_pad</span>(<span class='st'>"hadley"</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "hadley"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
+<span class='fu'>str_remove</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; [1] "ne apple"     "tw pears"     "thre bananas"</div><div class='input'><span class='fu'>str_remove_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; [1] "n ppl"    "tw prs"   "thr bnns"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

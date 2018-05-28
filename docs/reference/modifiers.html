@@ -97,21 +97,25 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Control matching behaviour with modifier functions.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/modifiers.r'><code>R/modifiers.r</code></a></small>
+    <div class="hidden name"><code>modifiers.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <dl class='dl-horizontal'>
- <dt>fixed</dt><dd><p>Compare literal bytes in the string. This is very fast, but
-   not usually what you want for non-ASCII character sets.</p></dd>
- <dt>coll</dt><dd><p>Compare strings respecting standard collation rules.</p></dd>
- <dt>regex</dt><dd><p>The default. Uses ICU regular expressions.</p></dd>
- <dt>boundary</dt><dd><p>Match boundaries between things.</p></dd>
+<dt>fixed</dt><dd><p>Compare literal bytes in the string. This is very fast, but
+not usually what you want for non-ASCII character sets.</p></dd>
+<dt>coll</dt><dd><p>Compare strings respecting standard collation rules.</p></dd>
+<dt>regex</dt><dd><p>The default. Uses ICU regular expressions.</p></dd>
+<dt>boundary</dt><dd><p>Match boundaries between things.</p></dd>
 </dl>
     
+    </div>
 
     <pre class="usage"><span class='fu'>fixed</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
@@ -123,7 +127,7 @@
 <span class='fu'>boundary</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"character"</span>, <span class='st'>"line_break"</span>, <span class='st'>"sentence"</span>, <span class='st'>"word"</span>),
   <span class='kw'>skip_word_none</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -137,16 +141,16 @@
     <tr>
       <th>locale</th>
       <td><p>Locale to use for comparisons. See
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locale_list'>stri_locale_list</a>()</code> for all possible options.
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_locale_list'>stringi::stri_locale_list()</a></code> for all possible options.
 Defaults to "en" (English) to ensure that the default collation is
 consistent across platforms.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Other less frequently used arguments passed on to
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stri_opts_collator</a></code>,
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_regex'>stri_opts_regex</a></code>, or
-<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stri_opts_brkiter</a></code></p></td>
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_collator'>stringi::stri_opts_collator()</a></code>,
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_regex'>stringi::stri_opts_regex()</a></code>, or
+<code><a href='http://www.rdocumentation.org/packages/stringi/topics/stri_opts_brkiter'>stringi::stri_opts_brkiter()</a></code></p></td>
     </tr>
     <tr>
       <th>multiline</th>
@@ -157,7 +161,7 @@ default, only match the start and end of the input.</p></td>
     <tr>
       <th>comments</th>
       <td><p>If <code>TRUE</code>, white space and comments beginning with
-<code>#</code> are ignored. Escape literal spaces with <code>\ </code>.</p></td>
+<code>#</code> are ignored. Escape literal spaces with <code>\</code>.</p></td>
     </tr>
     <tr>
       <th>dotall</th>
@@ -165,7 +169,15 @@ default, only match the start and end of the input.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>Boundary type to detect.</p></td>
+      <td><p>Boundary type to detect.</p><dl class='dl-horizontal'>
+<dt><code>character</code></dt><dd><p>Every character is a boundary.</p></dd>
+<dt><code>line_break</code></dt><dd><p>Boundaries are places where it is acceptable to have
+a line break in the current locale.</p></dd>
+<dt><code>sentence</code></dt><dd><p>The beginnings and ends of sentences are boundaries,
+using intelligent rules to avoid counting abbreviations
+(<a href='https://www.unicode.org/reports/tr29/#Sentence_Boundaries'>details</a>).</p></dd>
+<dt><code>word</code></dt><dd><p>The beginnings and ends of words are boundaries.</p></dd>
+</dl></td>
     </tr>
     <tr>
       <th>skip_word_none</th>
@@ -174,6 +186,12 @@ or numbers - i.e. punctuation. Default <code>NA</code> will skip such "words"
 only when splitting on <code>word</code> boundaries.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='str_wrap.html'>str_wrap()</a></code> for breaking text to form paragraphs</p>
+<p><code><a href='http://www.rdocumentation.org/packages/stringi/topics/stringi-search-boundaries'>stringi::stringi-search-boundaries</a></code> for more detail on the
+various boundaries</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -207,7 +225,9 @@ only when splitting on <code>word</code> boundaries.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -220,21 +240,23 @@ only when splitting on <code>word</code> boundaries.</p></td>
 </div>
 
 <div class="author">
-  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' height='24' /></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://www.rstudio.com'><img src='http://tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

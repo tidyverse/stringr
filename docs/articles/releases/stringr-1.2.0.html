@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -80,67 +80,70 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>stringr 1.2.0</h1>
             
             <h4 class="date">2017-02-18</h4>
-          </div>
+      
+      <small class="dont-index">Source: <a href="https://github.com/tidyverse/stringr/blob/master/vignettes/releases/stringr-1.2.0.Rmd"><code>vignettes/releases/stringr-1.2.0.Rmd</code></a></small>
+      <div class="hidden name"><code>stringr-1.2.0.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::opts_chunk$<span class="kw">set</span>(<span class="dt">comment =</span> <span class="st">"#&gt;"</span>, <span class="dt">collapse =</span> T)
-<span class="kw">library</span>(stringr)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">comment =</span> <span class="st">"#&gt;"</span>, <span class="dt">collapse =</span> T)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(stringr)</a></code></pre></div>
 <div id="api-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#api-changes" class="anchor"></a>API changes</h2>
 <p>This release includes a change to the API: <code><a href="../../reference/str_match.html">str_match_all()</a></code> now returns NA if an optional group doesn’t match (previously it returned “”). This is more consistent with <code><a href="../../reference/str_match.html">str_match()</a></code> and other match failures.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"a=1,b=2"</span>, <span class="st">"c=3"</span>, <span class="st">"d="</span>)
-
-x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_match.html">str_match</a></span>(<span class="st">"(.)=(</span><span class="ch">\\</span><span class="st">d)?"</span>)
-<span class="co">#&gt;      [,1]  [,2] [,3]</span>
-<span class="co">#&gt; [1,] "a=1" "a"  "1" </span>
-<span class="co">#&gt; [2,] "c=3" "c"  "3" </span>
-<span class="co">#&gt; [3,] "d="  "d"  NA</span>
-x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_match.html">str_match_all</a></span>(<span class="st">"(.)=(</span><span class="ch">\\</span><span class="st">d)?,?"</span>)
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt;      [,1]   [,2] [,3]</span>
-<span class="co">#&gt; [1,] "a=1," "a"  "1" </span>
-<span class="co">#&gt; [2,] "b=2"  "b"  "2" </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt;      [,1]  [,2] [,3]</span>
-<span class="co">#&gt; [1,] "c=3" "c"  "3" </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[3]]</span>
-<span class="co">#&gt;      [,1] [,2] [,3]</span>
-<span class="co">#&gt; [1,] "d=" "d"  NA</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"a=1,b=2"</span>, <span class="st">"c=3"</span>, <span class="st">"d="</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/str_match.html">str_match</a></span>(<span class="st">"(.)=(</span><span class="ch">\\</span><span class="st">d)?"</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;      [,1]  [,2] [,3]</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; [1,] "a=1" "a"  "1" </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; [2,] "c=3" "c"  "3" </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; [3,] "d="  "d"  NA</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/str_match.html">str_match_all</a></span>(<span class="st">"(.)=(</span><span class="ch">\\</span><span class="st">d)?,?"</span>)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [[1]]</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;      [,1]   [,2] [,3]</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; [1,] "a=1," "a"  "1" </span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; [2,] "b=2"  "b"  "2" </span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; [[2]]</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;      [,1]  [,2] [,3]</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; [1,] "c=3" "c"  "3" </span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; [[3]]</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;      [,1] [,2] [,3]</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [1,] "d=" "d"  NA</span></a></code></pre></div>
 </div>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
-<p>There are three new featuers:</p>
+<p>There are three new features:</p>
 <ul>
 <li>
 <p>In <code><a href="../../reference/str_replace.html">str_replace()</a></code>, <code>replacement</code> can now be a function that is called once for each match and who’s return value is used to replace the match.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">redact &lt;-<span class="st"> </span>function(x) <span class="kw"><a href="../../reference/str_dup.html">str_dup</a></span>(<span class="st">"-"</span>, <span class="kw"><a href="../../reference/str_length.html">str_length</a></span>(x))
-
-x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"It cost $500"</span>, <span class="st">"We spent $1,200 on stickers"</span>)
-x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_replace.html">str_replace_all</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">$[0-9,]+"</span>, redact)
-<span class="co">#&gt; [1] "It cost ----"                "We spent ------ on stickers"</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">redact &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw"><a href="../../reference/str_dup.html">str_dup</a></span>(<span class="st">"-"</span>, <span class="kw"><a href="../../reference/str_length.html">str_length</a></span>(x))</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"It cost $500"</span>, <span class="st">"We spent $1,200 on stickers"</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/str_replace.html">str_replace_all</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">$[0-9,]+"</span>, redact)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [1] "It cost ----"                "We spent ------ on stickers"</span></a></code></pre></div>
 </li>
 <li>
 <p>New <code><a href="../../reference/str_subset.html">str_which()</a></code> mimics <code>grep()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fruit &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pinapple"</span>)
-
-<span class="co"># Matching positions    </span>
-<span class="kw"><a href="../../reference/str_subset.html">str_which</a></span>(fruit, <span class="st">"p"</span>)
-<span class="co">#&gt; [1] 1 3 4</span>
-
-<span class="co"># Matching values</span>
-<span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(fruit, <span class="st">"p"</span>)
-<span class="co">#&gt; [1] "apple"    "pear"     "pinapple"</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">fruit &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pinapple"</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co"># Matching positions    </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="../../reference/str_subset.html">str_which</a></span>(fruit, <span class="st">"p"</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [1] 1 3 4</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Matching values</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw"><a href="../../reference/str_subset.html">str_subset</a></span>(fruit, <span class="st">"p"</span>)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [1] "apple"    "pear"     "pinapple"</span></a></code></pre></div>
 </li>
 <li><p>A new vignette (<code><a href="../../articles/regular-expressions.html">vignette("regular-expressions")</a></code>) describes the details of the regular expressions supported by stringr. The main vignette (<code><a href="../../articles/stringr.html">vignette("stringr")</a></code>) has been updated to give a high-level overview of the package.</p></li>
 </ul>
@@ -155,12 +158,12 @@ x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_r
 <li><p>All functions that take a locale (e.g. <code><a href="../../reference/case.html">str_to_lower()</a></code> and <code><a href="../../reference/str_order.html">str_sort()</a></code>) default to “en” (English) to ensure that the default is consistent across platforms.</p></li>
 </ul>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#api-changes">API changes</a></li>
       <li><a href="#new-features">New features</a></li>
@@ -177,20 +180,20 @@ x %&gt;%<span class="st"> </span><span class="kw"><a href="../../reference/str_r
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>

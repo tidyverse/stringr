@@ -11,6 +11,13 @@ test_that("NA values in input pass through unchanged", {
   )
 })
 
+test_that("truncations work for all elements of a vector", {
+  expect_equal(
+    str_trunc(c("abcd", "abcde", "abcdef"), width = 5),
+    c("abcd", "abcde", "ab...")
+  )
+})
+
 test_that("truncations work for all sides", {
 
   trunc <- function(direction) str_trunc(

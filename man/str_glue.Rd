@@ -21,7 +21,7 @@ evaluated in that environment and \code{.envir} is ignored.}
 \item{.x}{[\code{listish}]\cr An environment, list or data frame used to lookup values.}
 
 \item{.na}{[\code{character(1)}: \sQuote{NA}]\cr Value to replace NA values
-with. If \code{NULL} missing values are propegated, that is an \code{NA} result will
+with. If \code{NULL} missing values are propagated, that is an \code{NA} result will
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
 \description{

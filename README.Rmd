@@ -19,6 +19,7 @@ library(stringr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master)
 [![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 
 ## Overview
 
@@ -28,7 +29,7 @@ stringr is built on top of [stringi](https://github.com/gagolews/stringi), which
 
 ## Installation
 
-```R
+```r
 # Install the released version from CRAN:
 install.packages("stringr")
 
@@ -36,6 +37,10 @@ install.packages("stringr")
 # install.packages("devtools")
 devtools::install_github("tidyverse/stringr")
 ```
+
+## Cheatsheet
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>  
 
 ## Usage
 
@@ -103,6 +108,7 @@ As well as regular expressions (the default), there are three other pattern matc
 * `fixed()`: match exact bytes
 * `coll()`: match human letters
 * `boundary()`: match boundaries
+
 
 ## Compared to base R
 
