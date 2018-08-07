@@ -1,6 +1,6 @@
 # stringr 1.3.2
 
-* `str_explode()` splits a character vector or list into single-characters (@jonocarroll).
+* `str_explode()` splits a character vector or list into single-characters (#250, @jonocarroll).
 
 # stringr 1.3.1
 
