@@ -1,3 +1,7 @@
+# stringr 1.3.2
+
+* `str_explode()` splits a character vector or list into single-characters (@jonocarroll).
+
 # stringr 1.3.1
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)
