@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr's regular expressions, as implemented by [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so if you're unfamiliar regular expressions, I'd recommend starting at <http://r4ds.had.co.nz/strings.html>. If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://amzn.com/0596528124) by Jeffrey E. F. Fried. 
+Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr's regular expressions, as implemented by [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so if you're unfamiliar regular expressions, I'd recommend starting at <http://r4ds.had.co.nz/strings.html>. If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://amzn.com/0596528124) by Jeffrey E. F. Friedl. 
 
 Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it's equivalent to wrapping it in a call to `regex()`:
 
