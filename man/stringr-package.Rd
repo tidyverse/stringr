@@ -6,6 +6,8 @@
 \alias{stringr-package}
 \title{stringr: Simple, Consistent Wrappers for Common String Operations}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 A consistent, simple and easy to use set of wrappers around the
 fantastic 'stringi' package. All function and argument names (and positions)
 are consistent, all functions deal with "NA"'s and zero length vectors

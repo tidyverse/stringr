@@ -5,9 +5,10 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match.}
 \usage{
-str_view(string, pattern, match = NA)
+str_view(string, pattern, match = NA, output = c("htmlwidget", "markdown"))
 
-str_view_all(string, pattern, match = NA)
+str_view_all(string, pattern, match = NA, output = c("htmlwidget",
+  "markdown"))
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -31,6 +32,14 @@ Match character, word, line and sentence boundaries with
 \item{match}{If \code{TRUE}, shows only strings that match the pattern.
 If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default, \code{NA}) displays both matches and non-matches.}
+
+\item{output}{If \code{"htmlwidgets"}, then output a \url{HTML widget}.
+If \code{"markdown"}, then output a markdown formatted character vector.}
+}
+\value{
+If \code{output = "htmlwidgets"}, then a
+\link[htmlwidgets:createWidget]{HTML widget}. If \code{output = "markdown"}, then
+a character vector of length one.
 }
 \description{
 \code{str_view} shows the first match; \code{str_view_all} shows all
@@ -48,4 +57,8 @@ str_view_all(c("abc", "def", "fgh"), "d|e")
 str_view(c("abc", "def", "fgh"), "d|e")
 str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
+
+# output markdown
+str_view(c("abc", "def", "fgh"), "[aeiou]", output = "markdown")
+str_view_all(c("abc", "def", "fgh"), "d|e", output = "markdown")
 }

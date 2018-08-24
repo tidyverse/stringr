@@ -25,3 +25,10 @@ test_that("view_all shows all matches", {
   a <- str_view_all(x, "d|e", match = FALSE)
   expect_equal(str_count(a$x$html, "match"), 0)
 })
+
+test_that("view works with markdown output", {
+  expect_equal(str_view(x, "[aeiou]", output = "markdown"),
+               "\n-   **a**bc\n-   d**e**f\n-   fgh\n\n")
+  expect_equal(str_view_all(x, "d|e", output = "markdown"),
+               "\n-   abc\n-   **d****e**f\n-   fgh\n\n")
+})

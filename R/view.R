@@ -7,6 +7,11 @@
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
+#' @param output If `"htmlwidgets"`, then output a [HTML widget]().
+#'   If `"markdown"`, then output a markdown formatted character vector.
+#' @return If `output = "htmlwidgets"`, then a
+#'   [HTML widget][htmlwidgets::createWidget()]. If `output = "markdown"`, then
+#'   a character vector of length one.
 #' @export
 #' @examples
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
@@ -20,8 +25,13 @@
 #' str_view(c("abc", "def", "fgh"), "d|e")
 #' str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 #' str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-str_view <- function(string, pattern, match = NA) {
-
+#'
+#' # output markdown
+#' str_view(c("abc", "def", "fgh"), "[aeiou]", output = "markdown")
+#' str_view_all(c("abc", "def", "fgh"), "d|e", output = "markdown")
+str_view <- function(string, pattern, match = NA,
+                     output = c("htmlwidget", "markdown")) {
+  output <- match.arg(output)
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
   } else if (identical(match, FALSE)) {
@@ -31,17 +41,29 @@ str_view <- function(string, pattern, match = NA) {
   loc <- str_locate(string, pattern)
 
   # How to do escaping? Need to update x and loc
-
   has_match <- !is.na(loc[, "start"])
-  str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
-    paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
 
-  str_view_widget(string)
+  if (output == "htmlwidget") {
+    str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
+      paste0("<span class='match'>",
+             str_sub(string[has_match], loc[has_match, , drop = FALSE]),
+             "</span>")
+    str_view_widget(string)
+  } else if (output == "markdown") {
+    str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
+      str_c("**",
+            escape_markdown(str_sub(string[has_match],
+                                    loc[has_match, , drop = FALSE])),
+            "**")
+    str_view_markdown(string)
+  }
 }
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern, match = NA) {
+str_view_all <- function(string, pattern, match = NA,
+                         output = c("htmlwidget", "markdown")) {
+  output <- match.arg(output)
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -56,13 +78,26 @@ str_view_all <- function(string, pattern, match = NA) {
       return(string)
 
     for (i in rev(seq_len(nrow(loc)))) {
-      str_sub(string, loc[i, , drop = FALSE]) <-
-        paste0("<span class='match'>", str_sub(string, loc[i, , drop = FALSE]), "</span>")
+      if (output == "htmlwidget") {
+        str_sub(string, loc[i, , drop = FALSE]) <-
+          paste0("<span class='match'>",
+                 str_sub(string, loc[i, , drop = FALSE]),
+                 "</span>")
+      } else if (output == "markdown") {
+        str_sub(string, loc[i, , drop = FALSE]) <-
+          paste0("**",
+                 escape_markdown(str_sub(string, loc[i, , drop = FALSE])),
+                 "**")
+      }
     }
     string
   })
   string <- unlist(string_list)
-  str_view_widget(string)
+  if (output == "htmlwidget") {
+    str_view_widget(string)
+  } else if (output == "markdown") {
+    str_view_markdown(string)
+  }
 }
 
 str_view_widget <- function(lines) {
@@ -86,4 +121,13 @@ str_view_widget <- function(lines) {
     sizingPolicy = size,
     package = "stringr"
   )
+}
+
+escape_markdown <- function(x) {
+  str_replace_all(x, "[\\\\`*_{}\\[\\]()#+.!-]", "\\\\\\0")
+}
+
+str_view_markdown <- function(lines) {
+  lines <- str_replace_na(lines)
+  str_c("\n", str_c("-   ", lines, collapse = "\n"), "\n\n")
 }
