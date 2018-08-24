@@ -50,3 +50,25 @@ str_split_fixed <- function(string, pattern, n) {
   out[is.na(out)] <- ""
   out
 }
+
+#' Explode a string into single characters
+#'
+#' Returns the same class as the input `string`: either a `list` or an atomic
+#' vector.
+#'
+#' @md
+#' @param string Input string as a list or character vector (or something
+#'   coercible to one)
+#' @export
+#' @examples
+#' str_explode("apple")
+#' str_explode(c("apple", "banana"))
+#' str_explode(list("apple", "banana"))
+str_explode <- function(string) {
+  exploded <- str_split(string, "")
+  if (inherits(string, "list")) {
+    return(exploded)
+  } else if (is.atomic(string)) {
+    return(unlist(exploded))
+  }
+}
