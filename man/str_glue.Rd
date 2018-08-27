@@ -7,7 +7,8 @@
 \usage{
 str_glue(..., .sep = "", .envir = parent.frame())
 
-str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
+str_glue_data(.x, ..., .sep = "", .envir = parent.frame(),
+  .na = "NA")
 }
 \arguments{
 \item{...}{[\code{expressions}]\cr Expressions string(s) to format, multiple inputs are concatenated together before formatting.}
