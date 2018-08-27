@@ -4,6 +4,7 @@
 #' and is equivalent to `grep(pattern, x, value = TRUE)`.
 #' `str_which()` is a wrapper around `which(str_detect(x, pattern))`,
 #' and is equivalent to `grep(pattern, x)`.
+#' See [str_detect()] for an equivalent to `grepl(pattern, x)`.
 #'
 #' Vectorised over `string` and `pattern`
 #'

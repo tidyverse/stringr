@@ -36,6 +36,7 @@ A character vector.
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
 \code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
 and is equivalent to \code{grep(pattern, x)}.
+See \code{\link[=str_detect]{str_detect()}} for an equivalent to \code{grepl(pattern, x)}.
 }
 \details{
 Vectorised over \code{string} and \code{pattern}
