@@ -1,5 +1,8 @@
 # stringr 1.3.1.9000
 
+* `str_interp()` now renders lists consistently independent on the presence of
+  additional placeholders (@amhrasmussen)
+
 # stringr 1.3.1
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)
