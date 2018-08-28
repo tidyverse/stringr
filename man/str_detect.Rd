@@ -30,6 +30,8 @@ A logical vector.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
+Equivalent to \code{grepl(pattern, x)}.
+See \code{\link[=str_which]{str_which()}} for an equivalent to \code{grep(pattern, x)}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pinapple")

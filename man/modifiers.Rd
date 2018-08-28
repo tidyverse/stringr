@@ -12,8 +12,8 @@ fixed(pattern, ignore_case = FALSE)
 
 coll(pattern, ignore_case = FALSE, locale = "en", ...)
 
-regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
-  dotall = FALSE, ...)
+regex(pattern, ignore_case = FALSE, multiline = FALSE,
+  comments = FALSE, dotall = FALSE, ...)
 
 boundary(type = c("character", "line_break", "sentence", "word"),
   skip_word_none = NA, ...)
