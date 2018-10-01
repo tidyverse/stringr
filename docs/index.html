@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -81,12 +81,11 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     
 
     
     
-<div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="stringr" class="section level1">
 
@@ -94,93 +93,98 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as posssible. If you’re not familiar with strings, the best place to start is the <a href="http://r4ds.had.co.nz/strings.html">chapter on strings</a> in R for Data Science.</p>
+<p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provide a cohesive set of functions designed to make working with strings as easy as possible. If you’re not familiar with strings, the best place to start is the <a href="http://r4ds.had.co.nz/strings.html">chapter on strings</a> in R for Data Science.</p>
 <p>stringr is built on top of <a href="https://github.com/gagolews/stringi">stringi</a>, which uses the <a href="http://site.icu-project.org">ICU</a> C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you’ve mastered stringr, you should find stringi similarly easy to use.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the released version from CRAN:</span>
-<span class="kw">install.packages</span>(<span class="st">"stringr"</span>)
-
-<span class="co"># Install the cutting edge development version from GitHub:</span>
-<span class="co"># install.packages("devtools")</span>
-devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/stringr"</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install the released version from CRAN:</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">"stringr"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install the cutting edge development version from GitHub:</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"tidyverse/stringr"</span>)</a></code></pre></div>
+</div>
+<div id="cheatsheet" class="section level2">
+<h2 class="hasAnchor">
+<a href="#cheatsheet" class="anchor"></a>Cheatsheet</h2>
+<p><a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"></a></p>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>All functions in stringr start with <code>str_</code> and take a vector of strings as the first argument.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"why"</span>, <span class="st">"video"</span>, <span class="st">"cross"</span>, <span class="st">"extra"</span>, <span class="st">"deal"</span>, <span class="st">"authority"</span>)
-<span class="kw"><a href="reference/str_length.html">str_length</a></span>(x) 
-<span class="co">#&gt; [1] 3 5 5 5 4 9</span>
-<span class="kw"><a href="reference/str_c.html">str_c</a></span>(x, <span class="dt">collapse =</span> <span class="st">", "</span>)
-<span class="co">#&gt; [1] "why, video, cross, extra, deal, authority"</span>
-<span class="kw"><a href="reference/str_sub.html">str_sub</a></span>(x, <span class="dv">1</span>, <span class="dv">2</span>)
-<span class="co">#&gt; [1] "wh" "vi" "cr" "ex" "de" "au"</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"why"</span>, <span class="st">"video"</span>, <span class="st">"cross"</span>, <span class="st">"extra"</span>, <span class="st">"deal"</span>, <span class="st">"authority"</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/str_length.html">str_length</a></span>(x) </a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] 3 5 5 5 4 9</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="reference/str_c.html">str_c</a></span>(x, <span class="dt">collapse =</span> <span class="st">", "</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; [1] "why, video, cross, extra, deal, authority"</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw"><a href="reference/str_sub.html">str_sub</a></span>(x, <span class="dv">1</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; [1] "wh" "vi" "cr" "ex" "de" "au"</span></a></code></pre></div>
 <p>Most string functions work with regular expressions, a concise language for describing patterns of text. For example, the regular expression <code>"[aeiou]"</code> matches any single character that is a vowel:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] "video"     "cross"     "extra"     "deal"      "authority"</span>
-<span class="kw"><a href="reference/str_count.html">str_count</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] 0 3 1 2 2 4</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] "video"     "cross"     "extra"     "deal"      "authority"</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/str_count.html">str_count</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] 0 3 1 2 2 4</span></a></code></pre></div>
 <p>There are seven main verbs that work with patterns:</p>
 <ul>
 <li>
 <p><code><a href="reference/str_detect.html">str_detect(x, pattern)</a></code> tells you if there’s any match to the pattern.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_detect.html">str_detect</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/str_detect.html">str_detect</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_count.html">str_count(x, pattern)</a></code> counts the number of patterns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_count.html">str_count</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] 0 3 1 2 2 4</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/str_count.html">str_count</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] 0 3 1 2 2 4</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_subset.html">str_subset(x, pattern)</a></code> extracts the matching components.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] "video"     "cross"     "extra"     "deal"      "authority"</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/str_subset.html">str_subset</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "video"     "cross"     "extra"     "deal"      "authority"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_locate.html">str_locate(x, pattern)</a></code> gives the position of the match.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_locate.html">str_locate</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt;      start end</span>
-<span class="co">#&gt; [1,]    NA  NA</span>
-<span class="co">#&gt; [2,]     2   2</span>
-<span class="co">#&gt; [3,]     3   3</span>
-<span class="co">#&gt; [4,]     1   1</span>
-<span class="co">#&gt; [5,]     2   2</span>
-<span class="co">#&gt; [6,]     1   1</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/str_locate.html">str_locate</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;      start end</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; [1,]    NA  NA</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; [2,]     2   2</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [3,]     3   3</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; [4,]     1   1</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; [5,]     2   2</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; [6,]     1   1</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_extract.html">str_extract(x, pattern)</a></code> extracts the text of the match.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_extract.html">str_extract</a></span>(x, <span class="st">"[aeiou]"</span>)
-<span class="co">#&gt; [1] NA  "i" "o" "e" "e" "a"</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="reference/str_extract.html">str_extract</a></span>(x, <span class="st">"[aeiou]"</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; [1] NA  "i" "o" "e" "e" "a"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_match.html">str_match(x, pattern)</a></code> extracts parts of the match defined by parentheses.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract the characters on either side of the vowel</span>
-<span class="kw"><a href="reference/str_match.html">str_match</a></span>(x, <span class="st">"(.)[aeiou](.)"</span>)
-<span class="co">#&gt;      [,1]  [,2] [,3]</span>
-<span class="co">#&gt; [1,] NA    NA   NA  </span>
-<span class="co">#&gt; [2,] "vid" "v"  "d" </span>
-<span class="co">#&gt; [3,] "ros" "r"  "s" </span>
-<span class="co">#&gt; [4,] NA    NA   NA  </span>
-<span class="co">#&gt; [5,] "dea" "d"  "a" </span>
-<span class="co">#&gt; [6,] "aut" "a"  "t"</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># extract the characters on either side of the vowel</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="reference/str_match.html">str_match</a></span>(x, <span class="st">"(.)[aeiou](.)"</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt;      [,1]  [,2] [,3]</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt; [1,] NA    NA   NA  </span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; [2,] "vid" "v"  "d" </span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; [3,] "ros" "r"  "s" </span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; [4,] NA    NA   NA  </span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt; [5,] "dea" "d"  "a" </span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; [6,] "aut" "a"  "t"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_replace.html">str_replace(x, pattern, replacement)</a></code> replaces the matches with new text.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_replace.html">str_replace</a></span>(x, <span class="st">"[aeiou]"</span>, <span class="st">"?"</span>)
-<span class="co">#&gt; [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="reference/str_replace.html">str_replace</a></span>(x, <span class="st">"[aeiou]"</span>, <span class="st">"?"</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#&gt; [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"</span></a></code></pre></div>
 </li>
 <li>
 <p><code><a href="reference/str_split.html">str_split(x, pattern)</a></code> splits up a string into multiple pieces.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/str_split.html">str_split</a></span>(<span class="kw">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d,e"</span>), <span class="st">","</span>)
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "a" "b"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "c" "d" "e"</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="reference/str_split.html">str_split</a></span>(<span class="kw">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d,e"</span>), <span class="st">","</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; [1] "a" "b"</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; [[2]]</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [1] "c" "d" "e"</span></a></code></pre></div>
 </li>
 </ul>
 <p>As well as regular expressions (the default), there are three other pattern matching engines:</p>
@@ -200,24 +204,24 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 <ul>
 <li>
 <p>Uses consistent function and argument names. The first argument is always the vector of strings to modify, which makes stringr work particularly well in conjunction with the pipe:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters %&gt;%
-<span class="st">  </span>.[<span class="dv">1</span>:<span class="dv">10</span>] %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="reference/str_pad.html">str_pad</a></span>(<span class="dv">3</span>, <span class="st">"right"</span>) %&gt;%
-<span class="st">  </span><span class="kw"><a href="reference/str_c.html">str_c</a></span>(letters[<span class="dv">2</span>:<span class="dv">11</span>])
-<span class="co">#&gt;  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">letters <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span>.[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>] <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/str_pad.html">str_pad</a></span>(<span class="dv">3</span>, <span class="st">"right"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/str_c.html">str_c</a></span>(letters[<span class="dv">2</span><span class="op">:</span><span class="dv">11</span>])</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"</span></a></code></pre></div>
 </li>
 <li><p>Simplifies string operations by eliminating options that you don’t need 95% of the time.</p></li>
 <li><p>Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.</p></li>
 </ul>
 </div>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Links</h2>
+    <div class="links">
+<h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cran.r-project.org/package=stringr">https://​cran.r-project.org/​package=stringr</a>
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=stringr">https://​cloud.r-project.org/​package=stringr</a>
 </li>
 <li>Browse source code at <br><a href="https://github.com/tidyverse/stringr">https://​github.com/​tidyverse/​stringr</a>
 </li>
@@ -226,21 +230,35 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 <li>Learn more at R4DS at <br><a href="http://r4ds.had.co.nz/strings.html">http://​r4ds.had.co.nz/​strings.html</a>
 </li>
 </ul>
+</div>
+<div class="license">
 <h2>License</h2>
-<p><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE">LICENSE</a></p>
+<ul class="list-unstyled">
+<li>
+<a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a> | file <a href="LICENSE-text.html">LICENSE</a>
+</li>
+</ul>
+</div>
+<div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer, copyright holder </small> </li>
+<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author, maintainer, copyright holder </small>  </li>
 <li>
-<a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a> <br><small class="roles"> Copyright holder, funder </small> </li>
+<a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a> <br><small class="roles"> Copyright holder, funder </small>  </li>
 </ul>
+</div>
+
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/tidyverse/stringr"><img src="https://travis-ci.org/tidyverse/stringr.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/tidyverse/stringr"><img src="https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/github/tidyverse/stringr?branch=master"><img src="https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg" alt="Coverage Status"></a></li>
 <li><a href="https://cran.r-project.org/package=stringr"><img src="http://www.r-pkg.org/badges/version/stringr" alt="CRAN Status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></li>
 </ul>
+</div>
 </div>
 
 </div>
@@ -251,20 +269,20 @@ devtools::<span class="kw">install_github</span>(<span class="st">"tidyverse/str
 </div>
 
 <div class="author">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" height="24"></a>.</p>
-  <p>Site built by <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="http://tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
+  <p>Site built by <a href="http://pkgdown.r-lib.org">pkgdown</a>.</p>
 </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  ga('create', 'UA-67989-18', 'auto');
-  ga('send', 'pageview');
+ gtag('config', 'UA-115082821-1');
 </script></footer>
 </div>
+
+  
 
   </body>
 </html>

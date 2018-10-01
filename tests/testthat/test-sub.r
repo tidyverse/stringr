@@ -69,6 +69,15 @@ test_that("replacement works", {
 
   str_sub(x, 2, -2) <- ""
   expect_equal(x, "AH")
+})
 
+test_that("replacement with NA works", {
+  x <- "BBCDEF"
+  str_sub(x, NA) <- "A"
+  expect_equal(x, NA_character_)
 
+  x <- "BBCDEF"
+  str_sub(x, NA, omit_na = TRUE) <- "A"
+  str_sub(x, 1, 1, omit_na = TRUE) <- NA
+  expect_equal(x, "BBCDEF")
 })

@@ -7,7 +7,8 @@
 \usage{
 str_glue(..., .sep = "", .envir = parent.frame())
 
-str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
+str_glue_data(.x, ..., .sep = "", .envir = parent.frame(),
+  .na = "NA")
 }
 \arguments{
 \item{...}{[\code{expressions}]\cr Expressions string(s) to format, multiple inputs are concatenated together before formatting.}
@@ -21,7 +22,7 @@ evaluated in that environment and \code{.envir} is ignored.}
 \item{.x}{[\code{listish}]\cr An environment, list or data frame used to lookup values.}
 
 \item{.na}{[\code{character(1)}: \sQuote{NA}]\cr Value to replace NA values
-with. If \code{NULL} missing values are propegated, that is an \code{NA} result will
+with. If \code{NULL} missing values are propagated, that is an \code{NA} result will
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
 \description{

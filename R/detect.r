@@ -1,6 +1,8 @@
 #' Detect the presence or absence of a pattern in a string.
 #'
 #' Vectorised over `string` and `pattern`.
+#' Equivalent to `grepl(pattern, x)`.
+#' See [str_which()] for an equivalent to `grep(pattern, x)`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.

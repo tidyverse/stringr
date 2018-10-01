@@ -1,6 +1,6 @@
 Package: stringr
 Title: Simple, Consistent Wrappers for Common String Operations
-Version: 1.2.0.9000
+Version: 1.3.1.9000
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre", "cph")),
     person("RStudio", role = c("cph", "fnd"))
@@ -17,9 +17,9 @@ BugReports: https://github.com/tidyverse/stringr/issues
 Depends: 
     R (>= 3.1)
 Imports: 
-    glue,
+    glue (>= 1.2.0),
     magrittr,
-    stringi (>= 0.4.1)
+    stringi (>= 1.1.7)
 Suggests: 
     covr,
     htmltools,
@@ -30,4 +30,4 @@ Suggests:
 VignetteBuilder: knitr
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

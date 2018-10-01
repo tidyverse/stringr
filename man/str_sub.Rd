@@ -7,7 +7,7 @@
 \usage{
 str_sub(string, start = 1L, end = -1L)
 
-str_sub(string, start = 1L, end = -1L) <- value
+str_sub(string, start = 1L, end = -1L, omit_na = FALSE) <- value
 }
 \arguments{
 \item{string}{input character vector.}
@@ -18,6 +18,9 @@ of the last (defaults to last character). Alternatively, pass a two-column
 matrix to \code{start}.
 
 Negative values count backwards from the last character.}
+
+\item{omit_na}{Single logical value. If \code{TRUE}, missing values in any of the
+arguments provided will result in an unchanged input.}
 
 \item{value}{replacement string}
 }
@@ -65,6 +68,15 @@ str_sub(x, 1, 1) <- "A"; x
 str_sub(x, -1, -1) <- "K"; x
 str_sub(x, -2, -2) <- "GHIJ"; x
 str_sub(x, 2, -2) <- ""; x
+
+# If you want to keep the original if some argument is NA,
+# use omit_na = TRUE
+x1 <- x2 <- x3 <- x4 <- "AAA"
+str_sub(x1, 1, NA) <- "B"
+str_sub(x2, 1, 2) <- NA
+str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
+str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+x1; x2; x3; x4
 }
 \seealso{
 The underlying implementation in \code{\link[stringi:stri_sub]{stringi::stri_sub()}}

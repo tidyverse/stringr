@@ -3,6 +3,16 @@
 #' Vectorised over `string`, `pattern` and `replacement`.
 #'
 #' @inheritParams str_detect
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression, as described
+#'   in [stringi::stringi-search-regex]. Control options with
+#'   [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using
+#'   [fixed()]. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want [coll()] which
+#'   respects character matching rules for the specified locale.
 #' @param replacement A character vector of replacements. Should be either
 #'   length one, or the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
@@ -57,7 +67,7 @@ str_replace <- function(string, pattern, replacement) {
   }
 
   switch(type(pattern),
-    empty = stop("Empty `pattern`` not supported", call. = FALSE),
+    empty = stop("Empty `pattern` not supported", call. = FALSE),
     bound = stop("Boundary `pattern` not supported", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
@@ -79,7 +89,7 @@ str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
     vec <- FALSE
     replacement <- unname(pattern)
-    pattern <- names(pattern)
+    pattern[] <- names(pattern)
   } else {
     vec <- TRUE
   }
@@ -159,7 +169,7 @@ str_replace_na <- function(string, replacement = "NA") {
 
 str_transform <- function(string, pattern, replacement) {
   loc <- str_locate(string, pattern)
-  str_sub(string, loc) <- replacement(str_sub(string, loc))
+  str_sub(string, loc, omit_na = TRUE) <- replacement(str_sub(string, loc))
   string
 }
 str_transform_all <- function(string, pattern, replacement) {

@@ -143,7 +143,7 @@ eval_interp_matches <- function(matches, env) {
   formats <- extract_formats(matches)
 
   # Format the values and return.
-  mapply(sprintf, formats, values)
+  mapply(sprintf, formats, values, SIMPLIFY = FALSE)
 }
 
 #' Extract Expression Objects from String Interpolation Matches

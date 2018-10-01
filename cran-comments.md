@@ -1,44 +1,81 @@
 ## Test environments
-* local OS X install, R 3.3.2
-* ubuntu 12.04 (on travis-ci), R 3.3.2
-* win-builder (devel and release)
+
+* local OS X install (R-release)
+* travis-ci.org (R-3.1, R-3.2, R-3.3, R-oldrel, R-release, R-devel)
+* win-builder (R-devel)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
 
-## Reverse dependencies
+## revdepcheck results
 
-I have run R CMD check on the 341 downstream dependencies. 
-Summary at https://github.com/hadley/stringr/tree/master/revdep. 
+We checked 672 reverse dependencies (608 from CRAN + 64 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
 
-I saw the following failures:
+ * We saw 3 new problems
+ * We failed to check 45 packages
 
-* Failed to install dependencies for: AFM, aslib, biomartr, GenomicTools, hoardeR, HTSSIP, HydeNet, IATscores, metagear, MetaIntegrator, mglR, mrMLM, NFP, nucim, PepPrep, RbioRXN, TcGSA
-* Failed to install: BTLLasso, CollapsABEL, dynamichazard, EasyMARK, Fgmutils, FRESA.CAD, KoNLP, mailR, morse, RcppOctave, rEHR, RJafroc, rpcdsearch, rsgcc, sdcTable, spatsurv, stm, subspace, x.ent, x12GUI
-* abjutils: checking tests ... ERROR
-* ALA4R: checking re-building of vignette outputs ... WARNING
-* bibliometrix: checking re-building of vignette outputs ... WARNING
-* broom: checking examples ... ERROR
-* dataone: checking tests ... ERROR
-* docxtools: checking examples ... ERROR
-* eclust: checking examples ... ERROR
-* elementR: checking examples ... ERROR
-* fitbitScraper: checking re-building of vignette outputs ... WARNING
-* Greg: checking examples ... ERROR
-* imager: checking tests ... ERROR
-* modules: checking tests ... ERROR
-* mtconnectR: checking tests ... ERROR
-* optparse: checking re-building of vignette outputs ... WARNING
-* phrasemachine: checking examples ... ERROR
-* RSentiment: checking re-building of vignette outputs ... WARNING
-* RSMET: checking examples ... ERROR
-* simcausal: checking re-building of vignette outputs ... WARNING
-* sjmisc: checking re-building of vignette outputs ... WARNING
-* stormwindmodel: checking re-building of vignette outputs ... WARNING
-* stplanr: checking re-building of vignette outputs ... WARNING
-* striprtf: checking tests ... ERROR
-* tidytext: checking tests ... ERROR
+Issues with CRAN packages are summarised below.
 
-After carefully reading the reports, I believe that none of them are related to this release of stringr. This release is mostly small. There was one API change - I notified all maintainers about it on Jan 23.
+### New problems
+(This reports the first line of each new failure)
 
+* banR
+  checking re-building of vignette outputs ... WARNING
+  Appears to be network related.
+
+* GetITRData
+  checking re-building of vignette outputs ... WARNING
+  Appears to be network related.
+
+* RSMET
+  checking examples ... ERROR
+  Appears to be network related.
+
+### Failed to check
+
+* afex                (failed to install)
+* aqp                 (failed to install)
+* aslib               (failed to install)
+* BETS                (failed to install)
+* bioacoustics        (failed to install)
+* choroplethr         (failed to install)
+* ck37r               (failed to install)
+* Cluster.OBeu        (failed to install)
+* CollapsABEL         (failed to install)
+* drLumi              (failed to install)
+* EasyMARK            (failed to install)
+* eemR                (failed to install)
+* ez                  (failed to install)
+* ggplotgui           (failed to install)
+* Greg                (failed to install)
+* highcharter         (failed to install)
+* HistogramTools      (failed to install)
+* IATscores           (failed to install)
+* imager              (failed to install)
+* kehra               (failed to install)
+* mgm                 (failed to install)
+* modeval             (check timed out)
+* nauf                (failed to install)
+* nhanesA             (failed to install)
+* odkr                (failed to install)
+* olsrr               (failed to install)
+* osmose              (failed to install)
+* PATHChange          (failed to install)
+* Plasmidprofiler     (failed to install)
+* psycho              (failed to install)
+* qualtRics           (failed to install)
+* radiant.model       (failed to install)
+* RmecabKo            (failed to install)
+* rsunlight           (failed to install)
+* rUnemploymentData   (failed to install)
+* rusda               (failed to install)
+* satscanMapper       (failed to install)
+* scorecardModelUtils (failed to install)
+* simr                (failed to install)
+* sjmisc              (failed to install)
+* spatsurv            (failed to install)
+* staRdom             (failed to install)
+* stminsights         (failed to install)
+* templates           (failed to install)
+* VDAP                (failed to install)
