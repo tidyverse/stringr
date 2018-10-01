@@ -20,6 +20,8 @@
 #'   Match character, word, line and sentence boundaries with
 #'   [boundary()]. An empty pattern, "", is equivalent to
 #'   `boundary("character")`.
+#'
+#' @param negate If `TRUE`, return non-matching elements.
 #' @return A logical vector.
 #' @seealso [stringi::stri_detect()] which this function wraps,
 #'   [str_subset()] for a convenient wrapper around
@@ -35,12 +37,15 @@
 #'
 #' # Also vectorised over pattern
 #' str_detect("aecfg", letters)
-str_detect <- function(string, pattern) {
+#'
+#' # Returns TRUE if the pattern do NOT match
+#' str_detect(fruit, "^p", negate = TRUE)
+str_detect <- function(string, pattern, negate = FALSE) {
   switch(type(pattern),
     empty = ,
-    bound = str_count(string, pattern) > 0,
-    fixed = stri_detect_fixed(string, pattern, opts_fixed = opts(pattern)),
-    coll  = stri_detect_coll(string,  pattern, opts_collator = opts(pattern)),
-    regex = stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+    bound = str_count(string, pattern) > 0 & !negate,
+    fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+    regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 }
