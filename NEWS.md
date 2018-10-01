@@ -3,6 +3,10 @@
 * `str_interp()` now renders lists consistently independent on the presence of
   additional placeholders (@amhrasmussen)
 
+* `str_subset()`, `str_detect()`, and `str_which()` gets `negate` argument,
+  which is useful when you want the elements that do NOT match (#259,
+  @yutannihilation).
+
 # stringr 1.3.1
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)
