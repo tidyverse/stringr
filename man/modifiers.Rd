@@ -38,7 +38,7 @@ the beginning and end of each line. If \code{FALSE}, the
 default, only match the start and end of the input.}
 
 \item{comments}{If \code{TRUE}, white space and comments beginning with
-\code{#} are ignored. Escape literal spaces with \code{\\}.}
+\code{#} are ignored. Escape literal spaces with \code{\\ }.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 
