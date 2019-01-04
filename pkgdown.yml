@@ -7,4 +7,7 @@ articles:
   stringr-1.1.0: releases/stringr-1.1.0.html
   stringr-1.2.0: releases/stringr-1.2.0.html
   stringr: stringr.html
+urls:
+  reference: https://stringr.tidyverse.org/reference
+  article: https://stringr.tidyverse.org/articles
 
