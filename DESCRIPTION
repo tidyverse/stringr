@@ -1,18 +1,21 @@
 Package: stringr
 Title: Simple, Consistent Wrappers for Common String Operations
 Version: 1.3.1.9000
-Authors@R: c(
-    person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut", "cre", "cph")),
-    person("RStudio", role = c("cph", "fnd"))
-    )
-Description: A consistent, simple and easy to use set of wrappers around the
-    fantastic 'stringi' package. All function and argument names (and positions)
-    are consistent, all functions deal with "NA"'s and zero length vectors
-    in the same way, and the output from one function is easy to feed into
-    the input of another.
+Authors@R: 
+    c(person(given = "Hadley",
+             family = "Wickham",
+             role = c("aut", "cre", "cph"),
+             email = "hadley@rstudio.com"),
+      person(given = "RStudio",
+             role = c("cph", "fnd")))
+Description: A consistent, simple and easy to use set of
+    wrappers around the fantastic 'stringi' package. All function and
+    argument names (and positions) are consistent, all functions deal with
+    "NA"'s and zero length vectors in the same way, and the output from
+    one function is easy to feed into the input of another.
 License: GPL-2 | file LICENSE
-URL: http://stringr.tidyverse.org, 
-     https://github.com/tidyverse/stringr
+URL: http://stringr.tidyverse.org,
+    https://github.com/tidyverse/stringr
 BugReports: https://github.com/tidyverse/stringr/issues
 Depends: 
     R (>= 3.1)
@@ -27,7 +30,9 @@ Suggests:
     knitr,
     rmarkdown,
     testthat
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
