@@ -1,6 +1,8 @@
 template:
   package: tidytemplate
 
+url: https://stringr.tidyverse.org
+
 home:
   strip_header: true
   links:
