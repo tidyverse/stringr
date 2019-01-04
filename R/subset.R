@@ -23,21 +23,24 @@
 #' str_subset(fruit, "b")
 #' str_subset(fruit, "[aeiou]")
 #'
+#' # Returns elements that do NOT match
+#' str_subset(fruit, "^p", negate = TRUE)
+#'
 #' # Missings never match
 #' str_subset(c("a", NA, "b"), ".")
 #' str_which(c("a", NA, "b"), ".")
-str_subset <- function(string, pattern) {
+str_subset <- function(string, pattern, negate = FALSE) {
   switch(type(pattern),
     empty = ,
-    bound = string[str_detect(string, pattern)],
-    fixed = stri_subset_fixed(string, pattern, omit_na = TRUE, opts_fixed = opts(pattern)),
-    coll  = stri_subset_coll(string, pattern, omit_na = TRUE, opts_collator = opts(pattern)),
-    regex = stri_subset_regex(string, pattern, omit_na = TRUE, opts_regex = opts(pattern))
+    bound = string[str_detect(string, pattern) & !negate],
+    fixed = stri_subset_fixed(string, pattern, omit_na = TRUE, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_subset_coll(string, pattern, omit_na = TRUE, negate = negate, opts_collator = opts(pattern)),
+    regex = stri_subset_regex(string, pattern, omit_na = TRUE, negate = negate, opts_regex = opts(pattern))
   )
 }
 
 #' @export
 #' @rdname str_subset
-str_which <- function(string, pattern) {
-  which(str_detect(string, pattern))
+str_which <- function(string, pattern, negate = FALSE) {
+  which(str_detect(string, pattern, negate = negate))
 }

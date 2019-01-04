@@ -8,6 +8,9 @@ test_that("special cases are correct", {
 test_that("vectorised patterns work", {
   expect_equal(str_detect("ab", c("a", "b", "c")), c(T, T, F))
   expect_equal(str_detect(c("ca", "ab"), c("a", "c")), c(T, F))
+
+  # negation works
+  expect_equal(str_detect("ab", c("a", "b", "c"), negate = TRUE), c(F, F, T))
 })
 
 test_that("modifiers work", {

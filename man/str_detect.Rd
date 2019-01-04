@@ -4,7 +4,7 @@
 \alias{str_detect}
 \title{Detect the presence or absence of a pattern in a string.}
 \usage{
-str_detect(string, pattern)
+str_detect(string, pattern, negate = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -24,6 +24,8 @@ respects character matching rules for the specified locale.
 Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
+
+\item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
 A logical vector.
@@ -43,6 +45,9 @@ str_detect(fruit, "[aeiou]")
 
 # Also vectorised over pattern
 str_detect("aecfg", letters)
+
+# Returns TRUE if the pattern do NOT match
+str_detect(fruit, "^p", negate = TRUE)
 }
 \seealso{
 \code{\link[stringi:stri_detect]{stringi::stri_detect()}} which this function wraps,

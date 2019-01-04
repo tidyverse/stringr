@@ -5,9 +5,9 @@
 \alias{str_which}
 \title{Keep strings matching a pattern, or find positions.}
 \usage{
-str_subset(string, pattern)
+str_subset(string, pattern, negate = FALSE)
 
-str_which(string, pattern)
+str_which(string, pattern, negate = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -27,6 +27,8 @@ respects character matching rules for the specified locale.
 Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
+
+\item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
 A character vector.
@@ -50,6 +52,9 @@ str_subset(fruit, "^a")
 str_subset(fruit, "a$")
 str_subset(fruit, "b")
 str_subset(fruit, "[aeiou]")
+
+# Returns elements that do NOT match
+str_subset(fruit, "^p", negate = TRUE)
 
 # Missings never match
 str_subset(c("a", NA, "b"), ".")
