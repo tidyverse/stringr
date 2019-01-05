@@ -3,15 +3,19 @@
 
 # stringr <a href='https:/stringr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
-[![Build
-Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
+[![Travis build
+status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master)
-[![CRAN
-Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Codecov test
+coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+<!-- badges: end -->
 
 ## Overview
 
