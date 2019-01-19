@@ -5,6 +5,7 @@
 \alias{str_to_upper}
 \alias{str_to_lower}
 \alias{str_to_title}
+\alias{str_to_sentence}
 \title{Convert case of a string.}
 \usage{
 str_to_upper(string, locale = "en")
@@ -12,6 +13,8 @@ str_to_upper(string, locale = "en")
 str_to_lower(string, locale = "en")
 
 str_to_title(string, locale = "en")
+
+str_to_sentence(string, locale = "en")
 }
 \arguments{
 \item{string}{String to modify}
@@ -27,6 +30,7 @@ dog <- "The quick brown dog"
 str_to_upper(dog)
 str_to_lower(dog)
 str_to_title(dog)
+str_to_sentence("the quick brown dog")
 
 # Locale matters!
 str_to_upper("i") # English
