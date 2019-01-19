@@ -230,6 +230,7 @@ mapply(gregexpr,c("a", "b", "p", "p"),fruit)
 `str_match`
 
 
+
 `str_order`
 
 ```{r}
@@ -523,10 +524,9 @@ trimws(" String with trailing and leading white space\t")
 trimws("\n\nString with trailing and leading white space\n\n")
 
 
+## TO DO
 str_squish(" String with trailing, middle, and leading white space\t")
 str_squish("\n\nString with excess, trailing and leading white space\n\n")
-
-trimws(paste(strsplit(" String with trailing, middle, and leading white space\t"," ")[[1]],sep = " ",collapse=" "))
 
 ```
 
@@ -551,4 +551,28 @@ paste(substr(x,1,ceiling(17/2)),"...",substr(x,nchar(x)-floor(17/2)+1,nchar(x)),
 ```
 
 `str_view`
+
+```{r}
+str_view(c("abc", "def", "fgh"), "[aeiou]")
+str_view(c("abc", "def", "fgh"), "^")
+str_view(c("abc", "def", "fgh"), "..")
+```
+
 `str_wrap`
+
+```{r}
+thanks_path <- file.path(R.home("doc"), "THANKS")
+thanks <- str_c(readLines(thanks_path), collapse = "\n")
+thanks <- word(thanks, 1, 3, fixed("\n\n"))
+cat(str_wrap(thanks), "\n")
+cat(str_wrap(thanks, width = 40), "\n")
+cat(str_wrap(thanks, width = 60, indent = 2), "\n")
+cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
+cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
+
+cat(strwrap(thanks,width=80), "\n") ## match default
+cat(strwrap(thanks,width=40),"\n")
+cat(strwrap(thanks, width = 60, indent = 2), "\n")
+cat(strwrap(thanks, width = 60, exdent = 2), "\n")
+cat(strwrap(thanks, width = 0, exdent = 2), "\n")
+```
