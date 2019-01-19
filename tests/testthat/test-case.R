@@ -10,3 +10,7 @@ test_that("to_upper and to_lower have equivalent base versions", {
 test_that("to_title creates one capital letter per word", {
   expect_equal(str_count(x, "\\W+"), str_count(str_to_title(x), "[[:upper:]]"))
 })
+
+test_that("to_sentence capitalizes just the first letter", {
+  expect_identical(str_to_sentence("a Test"), "A test")
+})
