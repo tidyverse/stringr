@@ -16,130 +16,140 @@ knitr::opts_chunk$set(
 )
 ```
 
-[Solving this issue](https://github.com/tidyverse/stringr/issues/266) for tidy-dev-day.
 
-Following groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf)
+Following the groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf), these are the base equivalents to stringr functions.
 
 # Detect Matches
 
 | base | stringr    |
 |------|------------|
-|   grepl   | str_detect |
-|   grep   | str_which  |
-|      | str_count  |
-|  gregexpr    | str_locate |
+|   `grepl()`   | `str_detect()` |
+|   `grep()`   | `str_which()`  |
+|      | `str_count()`  |
+|  `gregexpr()`    | `str_locate()` |
 
 # Subset Strings
 
 | base | stringr    |
 |------|------------|
-|   substr   | str_sub    |
-|    grep  | str_subset |
-|      | str_extract|
-|      | str_match  |
+|   `substr()`   | `str_sub()`    |
+|    `grep()`  | `str_subset()` |
+|      | `str_extract()`|
+|      | `str_match()`  |
 
 # Manage Lengths
 
 | base | stringr    |
 |------|------------|
-|      | str_length |
-|  sprintf    | str_pad    |
-|   substr   | str_trunc  |
-|   trimws   | str_trim   |
+|      | `str_length()` |
+|  `sprintf()`    | `str_pad()`    |
+|   `substr()`   | `str_trunc()`  |
+|   `trimws()`   | `str_trim()`   |
 
 # Mutate Strings
 
 | base | stringr        |
 |------|----------------|
-|  substr    | str_sub        |
-|   sub   | str_replace    |
-|   gsub   | str_replace_all|
-|   tolower   | str_to_lower   |
-|   toupper   | str_to_upper   |
-|  tools::toTitleCase    | str_to_title   |
+|  `substr()`    | `str_sub()`        |
+|   `sub()`   | `str_replace()`    |
+|   `gsub()`   | `str_replace_all()`|
+|   `tolower()`   | `str_to_lower()`   |
+|   `toupper()`   | `str_to_upper()`   |
+|  `tools::toTitleCase()`    | `str_to_title()`   |
 
 
 # Join and Split
 
 | base | stringr        |
 |------|----------------|
-|   paste   | str_c          |
-|  replicate + paste    | str_dup        |
-|  strsplit    | str_split_fixed|
-|   paste + eval   | str_glue       |
-|    paste  | str_glue_data  |
+|   `paste()`   | `str_c()`          |
+|  `replicate()` + `paste()`    | `str_dup()`        |
+|  `strsplit()`    | `str_split_fixed()`|
+|   `paste()` + `eval()`   | `str_glue()`       |
+|    `paste()`  | `str_glue_data()`  |
 
 # Order Strings
 
 | base | stringr        |
 |------|----------------|
-|   order   | str_order      |
-|   sort   | str_sort       |
+|   `order()`   | `str_order()`      |
+|   `sort()`   | `str_sort()`       |
 
 # Helpers
 
 | base | stringr      |
 |------|--------------|
-|  iconv    | str_conv     |
-|  N/A    | str_view     |
-|   N/A   | str_view_all |
-|  strwrap    | str_wrap     |
+|  `iconv()`    | `str_conv()`     |
+|  N/A    | `str_view()`     |
+|   N/A   | `str_view_all()` |
+|  `strwrap()`    | `str_wrap()`     |
 
 ```{r}
 library(stringr)
 ```
 
 
+Note: In the following, I use base `apply` functions (rather than tidy [purrr](https://purrr.tidyverse.org/) functions) when illustrating the base alternative to the [stringr](https://stringr.tidyverse.org/) functions. 
+
 ## `str_c`
 
 ```{r}
+## stringr
 str_c("Letter: ", letters)
-paste("Letter: ",letters,sep="")
+
+## base
+paste("Letter: ", letters, sep = "")
 ```
 
 ```{r}
+## stringr
 str_c("Letter", letters, sep = ": ")
+
+## base
 paste("Letter", letters, sep = ": ")
 ```
 
-`str_conv`
+## `str_conv`
 
 ```{r}
 x <- rawToChar(as.raw(177))
 x
 
+## stringr
 str_conv(x, "ISO-8859-2") # Polish "a with ogonek"
 str_conv(x, "ISO-8859-1") # Plus-minus
 
-
-iconv(x,"ISO-8859-2")
-iconv(x,"ISO-8859-1")
-
+## base
+iconv(x, "ISO-8859-2")
+iconv(x, "ISO-8859-1")
 ```
 
 
 
-`str_count`
+## `str_count`
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pinapple")
 
+## stringr
 str_count(fruit, "a")
 str_count(fruit, "p")
 str_count(fruit, "e")
 str_count(c("a.", "...", ".a.a"), ".")
 
 
+## base
 countCharOccurrences <- function(char, s) {
-    s2 <- gsub(char,"",s)
-    return (nchar(s) - nchar(s2))
-}#https://techoverflow.net/2012/11/10/r-count-occurrences-of-character-in-string/
+  s2 <- gsub(char, "", s)
+  return(nchar(s) - nchar(s2))
+}
+## Example from https://techoverflow.net/2012/11/10/r-count-occurrences-of-character-in-string/
 ## maybe need to change this to length instead of nchar, see str_length
 
-countCharOccurrences("a",fruit)
-countCharOccurrences("p",fruit)
-countCharOccurrences("e",fruit)
-countCharOccurrences(".",c("a.", "...", ".a.a"))
+countCharOccurrences("a", fruit)
+countCharOccurrences("p", fruit)
+countCharOccurrences("e", fruit)
+countCharOccurrences(".", c("a.", "...", ".a.a"))
 ```
 
 
@@ -148,27 +158,26 @@ countCharOccurrences(".",c("a.", "...", ".a.a"))
 str_count(fruit, c("a", "b", "p", "p"))
 str_count(c("a.", "...", ".a.a"), fixed("."))
 
-lapply(c("a", "b", "p", "p"),countCharOccurrences,fruit)
-countCharOccurrences(fixed("."),c("a.", "...", ".a.a"))
+lapply(c("a", "b", "p", "p"), countCharOccurrences, fruit)
+countCharOccurrences(fixed("."), c("a.", "...", ".a.a"))
 ```
 
 
-`str_detect`
+## `str_detect`
 
 ```{r}
+## stringr
 str_detect(fruit, "a")
-grepl("a", fruit)
-
 str_detect(fruit, "^a")
-grepl("^a", fruit)
-
 str_detect(fruit, "a$")
-grepl("a$", fruit)
-
 str_detect(fruit, "b")
-grepl("b", fruit)
-
 str_detect(fruit, "[aeiou]")
+
+## base
+grepl("a", fruit)
+grepl("^a", fruit)
+grepl("a$", fruit)
+grepl("b", fruit)
 grepl("[aeiou]", fruit)
 ```
 
@@ -177,29 +186,38 @@ grepl("[aeiou]", fruit)
 str_detect("aecfg", letters)
 grepl("aecfg", letters)
 
-lapply(unlist(str_split("aecfg","")),function(x){grepl(x,letters)}) 
+lapply(unlist(str_split("aecfg", "")), function(x) {
+  grepl(x, letters)
+})
 ## TO DO: need to collaps via "or"
 ```
 
 
-`str_dup`
+## `str_dup`
 
 ```{r}
+## stringr
 fruit <- c("apple", "pear", "banana")
 str_dup(fruit, 2)
 str_dup(fruit, 1:3)
 str_c("ba", str_dup("na", 0:5))
 
+## base
+unlist(lapply(lapply(fruit, function(x) {
+  replicate(2, x)
+}), paste, collapse = ""))
+## Example from https://stackoverflow.com/questions/22359127/how-to-repeat-a-string-n-times-in-r
 
-#https://stackoverflow.com/questions/22359127/how-to-repeat-a-string-n-times-in-r
-unlist(lapply(lapply(fruit,function(x){replicate(2,x)}),paste,collapse=""))
+unlist(lapply(mapply(function(x, y) {
+  replicate(x, y)
+}, 1:3, fruit), paste, collapse = ""))
 
-unlist(lapply(mapply(function(x,y){replicate(x,y)},1:3,fruit),paste,collapse=""))
-
-paste("ba",unlist(lapply(lapply(0:5,function(x){replicate(x,"na")}),paste,collapse="")),sep="")
+paste("ba", unlist(lapply(lapply(0:5, function(x) {
+  replicate(x, "na")
+}), paste, collapse = "")), sep = "")
 ```
 
-`str_extract`
+## `str_extract`
 
 ```{r}
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
@@ -209,48 +227,55 @@ str_extract(shopping_list, "[a-z]+")
 #https://stackoverflow.com/questions/47678725/how-to-do-str-extract-with-base-r
 ```
 
-`str_flatten`
+## `str_flatten`
 
 ```{r}
+## stringr
 str_flatten(letters)
-paste(letters,collapse="")
-
 str_flatten(letters, "-")
-paste(letters,"-",sep="",collapse="")
+
+## base
+paste(letters, collapse = "")
+paste(letters, "-", sep = "", collapse = "")
 ```
 
-`str_glue`
+## `str_glue`
 
 ```{r}
 name <- "Fred"
 age <- 50
 anniversary <- as.Date("1991-10-12")
+
+## stringr
 str_glue(
-"My name is {name}, ",
-"my age next year is {age + 1}, ",
-"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."
+  "My name is {name}, ",
+  "my age next year is {age + 1}, ",
+  "and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."
 )
 
-
-paste("My name is ",eval(name),", my age next year is ",eval(age+1),", and my anniversary is ",eval(format(anniversary, '%A, %B %d, %Y')),".",sep="")
+## base
+paste("My name is ", eval(name), ", my age next year is ", eval(age + 1), ", and my anniversary is ", eval(format(anniversary, "%A, %B %d, %Y")), ".", sep = "")
 ```
 
 ```{r}
-mtcars %>% str_glue_data("{rownames(.)} has {hp} hp") %>% head
+## stringr
+mtcars %>% str_glue_data("{rownames(.)} has {hp} hp") %>% head()
 
-paste(rownames(mtcars),"has",mtcars$hp,"hp") %>% head
+## base
+paste(rownames(mtcars), "has", mtcars$hp, "hp") %>% head()
 ```
 
-`str_length`
+## `str_length`
 
 ```{r}
+## stringr
 str_length(letters)
-nchar(letters)
-
 str_length(NA)
-nchar(NA)
-
 str_length(c("i", "like", "programming", NA))
+
+## base
+nchar(letters)
+nchar(NA)
 nchar(c("i", "like", "programming", NA))
 ```
 
@@ -263,13 +288,13 @@ nchar(factor("abc")) ## Error in nchar(factor("abc")) : 'nchar()' requires a cha
 ```{r}
 u1 <- "\u00fc"
 u2 <- stringi::stri_trans_nfd(u1)
-# The print the same:
+
 u1
 u2
-# But have a different length
+
 str_length(u1)
 str_length(u2)
-# Even though they have the same number of characters
+
 str_count(u1)
 str_count(u2)
 
@@ -281,36 +306,36 @@ length(u2)
 ```
 
 
-`str_locate`
+## `str_locate`
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pineapple")
+
+## stringr
 str_locate(fruit, "$")
 # "If the match is of length 0, (e.g. from a special match like $) end will be one character less than start."
-
 str_locate(fruit, "a")
 str_locate(fruit, "e")
-str_locate(fruit, "ap") ## adding this
-
+str_locate(fruit, "ap")
 str_locate(fruit, c("a", "b", "p", "p"))
 
-gregexpr("$",fruit) ## ## get stuff out
-
-gregexpr("a",fruit)
-
-gregexpr("e",fruit) ## -1 is the NA
-gregexpr("ap",fruit)
-
-mapply(gregexpr,c("a", "b", "p", "p"),fruit)
+## base
+gregexpr("$", fruit) ## ## get stuff out
+gregexpr("a", fruit)
+gregexpr("e", fruit) ## -1 is the NA
+gregexpr("ap", fruit)
+mapply(gregexpr, c("a", "b", "p", "p"), fruit)
 ```
 
-`str_match`
+## `str_match`
 
 ```{r}
-strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
-"387 287 6718", "apple", "233.398.9187 ", "482 952 3315",
-"239 923 8115 and 842 566 4692", "Work: 579-499-7527", "$1000",
-"Home: 543.355.3679")
+strings <- c(
+  " 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
+  "387 287 6718", "apple", "233.398.9187 ", "482 952 3315",
+  "239 923 8115 and 842 566 4692", "Work: 579-499-7527", "$1000",
+  "Home: 543.355.3679"
+)
 phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
 str_extract(strings, phone)
 str_match(strings, phone)
@@ -328,12 +353,14 @@ str_extract_all(x, "<.*?>")
 ```
 
 
-`str_order`
+## `str_order`
 
 ```{r}
+## stringr
 str_order(letters)
 str_sort(letters)
 
+## base
 order(letters)
 sort(letters)
 ```
@@ -353,86 +380,103 @@ sort(x)
 ## no numeric capability in sort
 ```
 
-`str_pad`
+## `str_pad`
 
 ```{r}
+## stringr
 rbind(
-str_pad("hadley", 30, "left"),
-str_pad("hadley", 30, "right"),
-str_pad("hadley", 30, "both")
+  str_pad("hadley", 30, "left"),
+  str_pad("hadley", 30, "right"),
+  str_pad("hadley", 30, "both")
 )
 
-sprintf("%30s","hadley")
-sprintf("%-30s","hadley")
+## base
+sprintf("%30s", "hadley")
+sprintf("%-30s", "hadley")
 
-leftover=30-nchar("hadley")
-leftpad=nchar("hadley")+floor(leftover/2)
+leftover <- 30 - nchar("hadley")
+leftpad <- nchar("hadley") + floor(leftover / 2)
 
-rbind(sprintf("%30s","hadley"),
-sprintf("%-30s","hadley"),
-sprintf("%-30s",sprintf(paste("%",leftpad,"s",sep=""),"hadley"))
+rbind(
+  sprintf("%30s", "hadley"),
+  sprintf("%-30s", "hadley"),
+  sprintf("%-30s", sprintf(paste("%", leftpad, "s", sep = ""), "hadley"))
 )
 ```
 
 ```{r}
+## stringr
 str_pad(c("a", "abc", "abcdef"), 10)
-
 str_pad("a", c(5, 10, 20))
-
 str_pad("a", 10, pad = c("-", "_", " "))
-
 str_pad("hadley", 3) # Longer strings are returned unchanged
 
 
-sprintf("%10s",c("a", "abc", "abcdef"))
+## base
+sprintf("%10s", c("a", "abc", "abcdef"))
 
-unlist(lapply(c(5, 10, 20),function(x){sprintf(paste("%",x,"s",sep=""),"a")}))
+unlist(lapply(c(5, 10, 20), function(x) {
+  sprintf(paste("%", x, "s", sep = ""), "a")
+}))
+
+unlist(lapply(c("-", "_", " "), function(x) {
+  gsub(" ", x, sprintf("%10s", "a"))
+}))
 
 
-unlist(lapply(c("-", "_", " "),function(x){gsub(" ",x,sprintf("%10s","a"))}))
-
-
-sprintf("%3s","hadley")
+sprintf("%3s", "hadley")
 ```
 
 
-`str_remove`
+##`str_remove`
 
 ```{r}
 fruits <- c("one apple", "two pears", "three bananas")
+
+## stringr
 str_remove(fruits, "[aeiou]")
 str_remove_all(fruits, "[aeiou]")
 
-sub("[aeiou]","",fruits)
-gsub("[aeiou]","",fruits)
+## base
+sub("[aeiou]", "", fruits)
+gsub("[aeiou]", "", fruits)
 ```
 
-`str_replace`
+## `str_replace`
 
 ```{r}
+## stringr
 str_replace(fruits, "[aeiou]", "-")
 str_replace_all(fruits, "[aeiou]", "-")
 
-sub("[aeiou]","-",fruits)
-gsub("[aeiou]","-",fruits)
+## base
+sub("[aeiou]", "-", fruits)
+gsub("[aeiou]", "-", fruits)
 ```
 
 ```{r}
+## stringr
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\1\\1")
 
-sub("([aeiou])","",fruits)
-sub("([aeiou])","\\1\\1",fruits)
+## base
+sub("([aeiou])", "", fruits)
+sub("([aeiou])", "\\1\\1", fruits)
 ```
 
 ```{r}
+## stringr
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
 
+## base
+mapply(function(x, y) {
+  sub("[aeiou]", x, y)
+}, c(1, 2, 3), fruits)
 
-mapply(function(x,y){sub("[aeiou]",x,y)},c(1,2,3),fruits)
-
-unname(mapply(function(x,y){sub(x,"-",y)},c("a","e","i"),fruits))
+unname(mapply(function(x, y) {
+  sub(x, "-", y)
+}, c("a", "e", "i"), fruits))
 ```
 
 ```{r}
@@ -443,39 +487,47 @@ str_replace_all(fruits, "b", NA_character_)
 ```
 
 
-`str_replace_na`
+## `str_replace_na`
 
 ```{r}
+## stringr
 str_replace_na(c(NA, "abc", "def"))
 
-sub(NA,"NA",c(NA, "abc", "def")) ## doesn't work
+## base
+# sub(NA,"NA",c(NA, "abc", "def")) ## doesn't work
 
-input=c(NA, "abc", "def")
-ifelse(is.na(input),"NA",input)
+input <- c(NA, "abc", "def")
+ifelse(is.na(input), "NA", input)
 ```
 
-`str_split`
+## `str_split`
 
 ```{r}
 fruits <- c(
-"apples and oranges and pears and bananas",
-"pineapples and mangos and guavas"
+  "apples and oranges and pears and bananas",
+  "pineapples and mangos and guavas"
 )
 
+## stringr
 str_split(fruits, " and ")
 
+## base
 strsplit(fruits, " and ")
 ```
 
 ```{r}
+## stringr
 str_split(fruits, " and ", simplify = T)
 
-#https://stackoverflow.com/questions/17308551/do-callrbind-list-for-uneven-number-of-column
-output=strsplit(fruits, " and ")
-outputDF=lapply(output,function(x){as.data.frame(t(x),stringsAsFactors=F)})
-simplified = plyr::rbind.fill(outputDF)
-simplified = as.matrix(simplified)
-simplified[which(is.na(simplified))]=""
+## base
+## Example from https://stackoverflow.com/questions/17308551/do-callrbind-list-for-uneven-number-of-column
+output <- strsplit(fruits, " and ")
+outputDF <- lapply(output, function(x) {
+  as.data.frame(t(x), stringsAsFactors = F)
+})
+simplified <- plyr::rbind.fill(outputDF)
+simplified <- as.matrix(simplified)
+simplified[which(is.na(simplified))] <- ""
 unname(simplified)
 ```
 
@@ -491,184 +543,222 @@ str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 ```
 
-`str_sub`
+## `str_sub`
 
 ```{r}
 hw <- "Hadley Wickham"
 
+## stringr
 str_sub(hw, 1, 6)
-substr(hw, 1,6)
-
 str_sub(hw, end = 6)
+
+substr(hw, 1, 6)
 ## no default start and stop, need both
-
-str_sub(hw, 8, 14)
-substr(hw,8,14)
-
-str_sub(hw, 8)
-## no default start and stop, need both
-
-str_sub(hw, c(1, 8), c(6, 14))
-mapply(function(x,y){substr(hw,x,y)},c(1,8),c(6,14))
 ```
 
 ```{r}
-# Negative indices
+## stringr
+str_sub(hw, c(1, 8), c(6, 14))
+
+## base
+mapply(function(x, y) {
+  substr(hw, x, y)
+}, c(1, 8), c(6, 14))
+```
+
+```{r}
+## stringr
 str_sub(hw, -1)
 str_sub(hw, -7)
 str_sub(hw, end = -7)
 
-
-substr(hw,nchar(hw),nchar(hw))
-substr(hw,nchar(hw)-6,nchar(hw))
+## base
+substr(hw, nchar(hw), nchar(hw))
+substr(hw, nchar(hw) - 6, nchar(hw))
 ```
 
 ```{r}
-# Alternatively, you can pass in a two colum matrix, as in the
-# output from str_locate_all
+## stringr
 pos <- str_locate_all(hw, "[aeio]")[[1]]
 str_sub(hw, pos)
 str_sub(hw, pos[, 1], pos[, 2])
 
-apply(pos,1,function(x){substr(hw,x[1],x[2])})
+## base
+apply(pos, 1, function(x) {
+  substr(hw, x[1], x[2])
+})
 ```
 
 ```{r}
-# Vectorisation
+## stringr
 str_sub(hw, seq_len(str_length(hw)))
 str_sub(hw, end = seq_len(str_length(hw)))
 
-unlist(lapply(seq_len(str_length(hw)),function(x){substr(hw,1,x)}))
+## base
+unlist(lapply(seq_len(str_length(hw)), function(x) {
+  substr(hw, 1, x)
+}))
 
 ```
 
 ```{r}
-# Replacement form
+## stringr
 x <- "BBCDEF"
-str_sub(x, 1, 1) <- "A"; x
-str_sub(x, -1, -1) <- "K"; x
-str_sub(x, -2, -2) <- "GHIJ"; x
-str_sub(x, 2, -2) <- ""; x
+str_sub(x, 1, 1) <- "A"
+x
+str_sub(x, -1, -1) <- "K"
+x
+str_sub(x, -2, -2) <- "GHIJ"
+x
+str_sub(x, 2, -2) <- ""
+x
 
+## base
 x <- "BBCDEF"
-substr(x,1,1) <- "A"; x
-substr(x, nchar(x),nchar(x)) <- "K"; x
-substr(x, nchar(x)-1,nchar(x)-1) <- "GHIJ"; x ## different
-substr(x, 2, nchar(x)-1) <- ""; x
+substr(x, 1, 1) <- "A"
+x
+substr(x, nchar(x), nchar(x)) <- "K"
+x
+substr(x, nchar(x) - 1, nchar(x) - 1) <- "GHIJ"
+x ## different
+substr(x, 2, nchar(x) - 1) <- ""
+x
 ```
 
 ```{r,eval=F}
-# If you want to keep the original if some argument is NA,
-# use omit_na = TRUE
+## stringr
 x1 <- x2 <- x3 <- x4 <- "AAA"
 str_sub(x1, 1, NA) <- "B"
 str_sub(x2, 1, 2) <- NA
 str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
 str_sub(x4, 1, 2, omit_na = TRUE) <- NA
-x1; x2; x3; x4
+x1
+x2
+x3
+x4
 
 x1 <- x2 <- x3 <- x4 <- "AAA"
 
-substr(x1,1,NA) <- "B"
-substr(x2,1,2) <- NA ## different
+## base
+substr(x1, 1, NA) <- "B"
+substr(x2, 1, 2) <- NA ## different
 substr(x3, 1, NA) <- "B"
 str_sub(x4, 1, 2, omit_na = TRUE) <- NA
 
-x1; x2; x3; x4
+x1
+x2
+x3
+x4
 ```
 
 
-`str_subset`
+## `str_subset`
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pinapple")
+
+## stringr
 str_subset(fruit, "a")
 str_which(fruit, "a")
 
+## base
 grep("a", fruit, value = TRUE)
 grep("a", fruit)
 ```
 
 ```{r}
+## stringr
 str_subset(fruit, "^a")
 str_subset(fruit, "a$")
 str_subset(fruit, "b")
 str_subset(fruit, "[aeiou]")
 
+## base
 grep("^a", fruit, value = TRUE)
 grep("a$", fruit, value = TRUE)
 grep("b", fruit, value = TRUE)
 grep("[aeiou]", fruit, value = TRUE)
+```
 
-
-# Missings never match
+```{r}
+## stringr
 str_subset(c("a", NA, "b"), ".")
 str_which(c("a", NA, "b"), ".")
 
-grep( ".", c("a", NA, "b"), value = TRUE)
-grep( ".", c("a", NA, "b"))
+## base
+grep(".", c("a", NA, "b"), value = TRUE)
+grep(".", c("a", NA, "b"))
 ```
 
 
-`str_trim`
+## `str_trim`
 
 ```{r}
+## stringr
 str_trim(" String with trailing and leading white space\t")
 str_trim("\n\nString with trailing and leading white space\n\n")
 
-
+## base
 trimws(" String with trailing and leading white space\t")
 trimws("\n\nString with trailing and leading white space\n\n")
-
-
-## TO DO
-str_squish(" String with trailing, middle, and leading white space\t")
-str_squish("\n\nString with excess, trailing and leading white space\n\n")
-
 ```
 
-`str_trunc`
+
+```{r}
+## TO DO
+
+## stringr
+str_squish(" String with trailing, middle, and leading white space\t")
+str_squish("\n\nString with excess, trailing and leading white space\n\n")
+```
+
+## `str_trunc`
 
 ```{r}
 x <- "This string is moderately long"
+
+## stringr
 rbind(
-str_trunc(x, 20, "right"),
-str_trunc(x, 20, "left"),
-str_trunc(x, 20, "center")
+  str_trunc(x, 20, "right"),
+  str_trunc(x, 20, "left"),
+  str_trunc(x, 20, "center")
 )
 
+## base
 rbind(
-paste(substr(x,1,17),"...",sep=""),
+  paste(substr(x, 1, 17), "...", sep = ""),
 
-paste("...",substr(x,nchar(x)-16,nchar(x)),sep=""),
+  paste("...", substr(x, nchar(x) - 16, nchar(x)), sep = ""),
 
-paste(substr(x,1,ceiling(17/2)),"...",substr(x,nchar(x)-floor(17/2)+1,nchar(x)),sep = "")
+  paste(substr(x, 1, ceiling(17 / 2)), "...", substr(x, nchar(x) - floor(17 / 2) + 1, nchar(x)), sep = "")
 )
 
 ```
 
-`str_view`
+## `str_view`
 
 ```{r}
+## stringr
 str_view(c("abc", "def", "fgh"), "[aeiou]")
-str_view(c("abc", "def", "fgh"), "^")
-str_view(c("abc", "def", "fgh"), "..")
 ```
 
-`str_wrap`
+## `str_wrap`
 
 ```{r}
 thanks_path <- file.path(R.home("doc"), "THANKS")
 thanks <- str_c(readLines(thanks_path), collapse = "\n")
 thanks <- word(thanks, 1, 3, fixed("\n\n"))
+
+## stringr
 cat(str_wrap(thanks), "\n")
 cat(str_wrap(thanks, width = 40), "\n")
 cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
 
-cat(strwrap(thanks,width=80), "\n") ## match default
-cat(strwrap(thanks,width=40),"\n")
+## base
+cat(strwrap(thanks, width = 80), "\n") ## match default
+cat(strwrap(thanks, width = 40), "\n")
 cat(strwrap(thanks, width = 60, indent = 2), "\n")
 cat(strwrap(thanks, width = 60, exdent = 2), "\n")
 cat(strwrap(thanks, width = 0, exdent = 2), "\n")
