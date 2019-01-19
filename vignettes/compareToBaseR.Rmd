@@ -286,6 +286,16 @@ sprintf("%3s","hadley")
 
 
 `str_remove`
+
+```{r}
+fruits <- c("one apple", "two pears", "three bananas")
+str_remove(fruits, "[aeiou]")
+str_remove_all(fruits, "[aeiou]")
+
+sub("[aeiou]","",fruits)
+gsub("[aeiou]","",fruits)
+```
+
 `str_replace`
 `str_replace_na`
 `str_split`
