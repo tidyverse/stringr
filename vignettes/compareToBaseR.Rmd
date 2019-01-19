@@ -33,7 +33,39 @@ paste("Letter", letters, sep = ": ")
 
 `str_conv`
 `str_count`
+
+
 `str_detect`
+
+```{r}
+fruit <- c("apple", "banana", "pear", "pinapple")
+
+str_detect(fruit, "a")
+grepl("a", fruit)
+
+str_detect(fruit, "^a")
+grepl("^a", fruit)
+
+str_detect(fruit, "a$")
+grepl("a$", fruit)
+
+str_detect(fruit, "b")
+grepl("b", fruit)
+
+str_detect(fruit, "[aeiou]")
+grepl("[aeiou]", fruit)
+```
+
+```{r}
+## difference
+str_detect("aecfg", letters)
+grepl("aecfg", letters)
+
+lapply(unlist(str_split("aecfg","")),function(x){grepl(x,letters)}) 
+## TO DO: need to collaps via "or"
+```
+
+
 `str_dup`
 `str_extract`
 `str_flatten`
