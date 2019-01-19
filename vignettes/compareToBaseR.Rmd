@@ -243,6 +243,27 @@ sort(x)
 ```
 
 `str_pad`
+
+```{r}
+rbind(
+str_pad("hadley", 30, "left"),
+str_pad("hadley", 30, "right"),
+str_pad("hadley", 30, "both")
+)
+
+sprintf("%30s","hadley")
+sprintf("%-30s","hadley")
+
+leftover=30-nchar("hadley")
+leftpad=nchar("hadley")+floor(leftover/2)
+
+rbind(sprintf("%30s","hadley"),
+sprintf("%-30s","hadley"),
+sprintf("%-30s",sprintf(paste("%",leftpad,"s",sep=""),"hadley"))
+)
+```
+
+
 `str_remove`
 `str_replace`
 `str_replace_na`
