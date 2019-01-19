@@ -382,7 +382,89 @@ str_split_fixed(fruits, " and ", 4)
 
 `str_sub`
 
+```{r}
+hw <- "Hadley Wickham"
 
+str_sub(hw, 1, 6)
+substr(hw, 1,6)
+
+str_sub(hw, end = 6)
+## no default start and stop, need both
+
+str_sub(hw, 8, 14)
+substr(hw,8,14)
+
+str_sub(hw, 8)
+## no default start and stop, need both
+
+str_sub(hw, c(1, 8), c(6, 14))
+mapply(function(x,y){substr(hw,x,y)},c(1,8),c(6,14))
+```
+
+```{r}
+# Negative indices
+str_sub(hw, -1)
+str_sub(hw, -7)
+str_sub(hw, end = -7)
+
+
+substr(hw,nchar(hw),nchar(hw))
+substr(hw,nchar(hw)-6,nchar(hw))
+```
+
+```{r}
+# Alternatively, you can pass in a two colum matrix, as in the
+# output from str_locate_all
+pos <- str_locate_all(hw, "[aeio]")[[1]]
+str_sub(hw, pos)
+str_sub(hw, pos[, 1], pos[, 2])
+
+apply(pos,1,function(x){substr(hw,x[1],x[2])})
+```
+
+```{r}
+# Vectorisation
+str_sub(hw, seq_len(str_length(hw)))
+str_sub(hw, end = seq_len(str_length(hw)))
+
+unlist(lapply(seq_len(str_length(hw)),function(x){substr(hw,1,x)}))
+
+```
+
+```{r}
+# Replacement form
+x <- "BBCDEF"
+str_sub(x, 1, 1) <- "A"; x
+str_sub(x, -1, -1) <- "K"; x
+str_sub(x, -2, -2) <- "GHIJ"; x
+str_sub(x, 2, -2) <- ""; x
+
+x <- "BBCDEF"
+substr(x,1,1) <- "A"; x
+substr(x, nchar(x),nchar(x)) <- "K"; x
+substr(x, nchar(x)-1,nchar(x)-1) <- "GHIJ"; x ## different
+substr(x, 2, nchar(x)-1) <- ""; x
+```
+
+```{r}
+# If you want to keep the original if some argument is NA,
+# use omit_na = TRUE
+x1 <- x2 <- x3 <- x4 <- "AAA"
+str_sub(x1, 1, NA) <- "B"
+str_sub(x2, 1, 2) <- NA
+str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
+str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+x1; x2; x3; x4
+
+x1 <- x2 <- x3 <- x4 <- "AAA"
+
+substr(x1,1,NA) <- "B"
+substr(x2,1,2) <- NA ## different
+substr(x3, 1, NA) <- "B"
+str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+
+x1; x2; x3; x4
+```
 
 
 `str_subset`
