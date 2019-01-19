@@ -137,6 +137,19 @@ paste(letters,"-",sep="",collapse="")
 
 `str_glue`
 
+```{r}
+name <- "Fred"
+age <- 50
+anniversary <- as.Date("1991-10-12")
+str_glue(
+"My name is {name}, ",
+"my age next year is {age + 1}, ",
+"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."
+)
+
+
+paste("My name is ",eval(name),", my age next year is ",eval(age+1),", and my anniversary is ",eval(format(anniversary, '%A, %B %d, %Y')),".",sep="")
+```
 
 `str_length`
 `str_locate`
