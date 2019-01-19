@@ -192,6 +192,28 @@ length(u2)
 
 
 `str_locate`
+
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_locate(fruit, "$")
+# "If the match is of length 0, (e.g. from a special match like $) end will be one character less than start."
+
+str_locate(fruit, "a")
+str_locate(fruit, "e")
+str_locate(fruit, "ap") ## adding this
+
+str_locate(fruit, c("a", "b", "p", "p"))
+
+gregexpr("$",fruit) ## ## get stuff out
+
+gregexpr("a",fruit)
+
+gregexpr("e",fruit) ## -1 is the NA
+gregexpr("ap",fruit)
+
+mapply(gregexpr,c("a", "b", "p", "p"),fruit)
+```
+
 `str_match`
 `str_order`
 `str_pad`
