@@ -117,8 +117,27 @@ paste("ba",unlist(lapply(lapply(0:5,function(x){replicate(x,"na")}),paste,collap
 
 `str_extract`
 
+```{r}
+shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
+str_extract(shopping_list, "\\d")
+str_extract(shopping_list, "[a-z]+")
+
+#https://stackoverflow.com/questions/47678725/how-to-do-str-extract-with-base-r
+```
+
 `str_flatten`
+
+```{r}
+str_flatten(letters)
+paste(letters,collapse="")
+
+str_flatten(letters, "-")
+paste(letters,"-",sep="",collapse="")
+```
+
 `str_glue`
+
+
 `str_length`
 `str_locate`
 `str_match`
