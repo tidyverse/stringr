@@ -33,6 +33,19 @@ paste("Letter", letters, sep = ": ")
 
 `str_conv`
 
+```{r}
+x <- rawToChar(as.raw(177))
+x
+
+str_conv(x, "ISO-8859-2") # Polish "a with ogonek"
+str_conv(x, "ISO-8859-1") # Plus-minus
+
+
+iconv(x,"ISO-8859-2")
+iconv(x,"ISO-8859-1")
+
+```
+
 
 
 `str_count`
@@ -500,6 +513,42 @@ grep( ".", c("a", NA, "b"))
 
 
 `str_trim`
+
+```{r}
+str_trim(" String with trailing and leading white space\t")
+str_trim("\n\nString with trailing and leading white space\n\n")
+
+
+trimws(" String with trailing and leading white space\t")
+trimws("\n\nString with trailing and leading white space\n\n")
+
+
+str_squish(" String with trailing, middle, and leading white space\t")
+str_squish("\n\nString with excess, trailing and leading white space\n\n")
+
+trimws(paste(strsplit(" String with trailing, middle, and leading white space\t"," ")[[1]],sep = " ",collapse=" "))
+
+```
+
 `str_trunc`
+
+```{r}
+x <- "This string is moderately long"
+rbind(
+str_trunc(x, 20, "right"),
+str_trunc(x, 20, "left"),
+str_trunc(x, 20, "center")
+)
+
+rbind(
+paste(substr(x,1,17),"...",sep=""),
+
+paste("...",substr(x,nchar(x)-16,nchar(x)),sep=""),
+
+paste(substr(x,1,ceiling(17/2)),"...",substr(x,nchar(x)-floor(17/2)+1,nchar(x)),sep = "")
+)
+
+```
+
 `str_view`
 `str_wrap`
