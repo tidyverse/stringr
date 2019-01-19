@@ -49,3 +49,43 @@ str_detect <- function(string, pattern, negate = FALSE) {
     regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 }
+
+#' Detect the presence or absence of a pattern at the beginning of a string.
+#'
+#' Vectorised over `string` and `pattern`.
+#' Equivalent to `grepl(paste0("^", pattern), x)`.
+#'
+#' @inheritParams str_detect
+#' @param pattern Pattern with which the string starts. More details at
+#'   \code{\link{str_detect}}.
+#'
+#' @return A logical vector.
+#' @seealso [str_detect()] which this function wraps.
+#' @export
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_starts(fruit, "p")
+#' str_starts(fruit, "p", negate = TRUE)
+str_starts <- function(string, pattern, negate = FALSE) {
+  str_detect(string, paste0("^", pattern), negate)
+}
+
+#' Detect the presence or absence of a pattern at the end of a string.
+#'
+#' Vectorised over `string` and `pattern`.
+#' Equivalent to `grepl(paste0(pattern, "$"), x)`.
+#'
+#' @inheritParams str_detect
+#' @param pattern Pattern with which the string ends. More details at
+#'   \code{\link{str_detect}}.
+#'
+#' @return A logical vector.
+#' @seealso [str_detect()] which this function wraps.
+#' @export
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_ends(fruit, "e")
+#' str_ends(fruit, "e", negate = TRUE)
+str_ends <- function(string, pattern, negate = FALSE) {
+  str_detect(string, paste0(pattern, "$"), negate)
+}

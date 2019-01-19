@@ -24,3 +24,21 @@ test_that("modifiers work", {
 
   expect_true(str_detect("abc", "(?x)a b c"))
 })
+
+test_that("str_starts works", {
+  expect_true(str_starts("ab", "a"))
+  expect_false(str_starts("ab", "b"))
+
+  # negation
+  expect_false(str_starts("ab", "a", TRUE))
+  expect_true(str_starts("ab", "b", TRUE))
+})
+
+test_that("str_ends works", {
+  expect_true(str_ends("ab", "b"))
+  expect_false(str_ends("ab", "a"))
+
+  # negation
+  expect_false(str_ends("ab", "b", TRUE))
+  expect_true(str_ends("ab", "a", TRUE))
+})
