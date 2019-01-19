@@ -242,7 +242,7 @@ sort(x)
 ## no numeric capability in sort
 ```
 
-`str_pad`
+`sp`
 
 ```{r}
 rbind(
@@ -261,6 +261,27 @@ rbind(sprintf("%30s","hadley"),
 sprintf("%-30s","hadley"),
 sprintf("%-30s",sprintf(paste("%",leftpad,"s",sep=""),"hadley"))
 )
+```
+
+```{r}
+str_pad(c("a", "abc", "abcdef"), 10)
+
+str_pad("a", c(5, 10, 20))
+
+str_pad("a", 10, pad = c("-", "_", " "))
+
+str_pad("hadley", 3) # Longer strings are returned unchanged
+
+
+sprintf("%10s",c("a", "abc", "abcdef"))
+
+unlist(lapply(c(5, 10, 20),function(x){sprintf(paste("%",x,"s",sep=""),"a")}))
+
+
+unlist(lapply(c("-", "_", " "),function(x){gsub(" ",x,sprintf("%10s","a"))}))
+
+
+sprintf("%3s","hadley")
 ```
 
 
