@@ -18,8 +18,79 @@ knitr::opts_chunk$set(
 
 [Solving this issue](https://github.com/tidyverse/stringr/issues/266) for tidy-dev-day.
 
+Following groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf)
 
-`str_c`
+# Detect Matches
+
+| base | stringr    |
+|------|------------|
+|   grepl   | str_detect |
+|   grep   | str_which  |
+|      | str_count  |
+|  gregexpr    | str_locate |
+
+# Subset Strings
+
+| base | stringr    |
+|------|------------|
+|   substr   | str_sub    |
+|    grep  | str_subset |
+|      | str_extract|
+|      | str_match  |
+
+# Manage Lengths
+
+| base | stringr    |
+|------|------------|
+|      | str_length |
+|  sprintf    | str_pad    |
+|   substr   | str_trunc  |
+|   trimws   | str_trim   |
+
+# Mutate Strings
+
+| base | stringr        |
+|------|----------------|
+|  substr    | str_sub        |
+|   sub   | str_replace    |
+|   gsub   | str_replace_all|
+|   tolower   | str_to_lower   |
+|   toupper   | str_to_upper   |
+|  tools::toTitleCase    | str_to_title   |
+
+
+# Join and Split
+
+| base | stringr        |
+|------|----------------|
+|   paste   | str_c          |
+|  replicate + paste    | str_dup        |
+|  strsplit    | str_split_fixed|
+|   paste + eval   | str_glue       |
+|    paste  | str_glue_data  |
+
+# Order Strings
+
+| base | stringr        |
+|------|----------------|
+|   order   | str_order      |
+|   sort   | str_sort       |
+
+# Helpers
+
+| base | stringr      |
+|------|--------------|
+|  iconv    | str_conv     |
+|  N/A    | str_view     |
+|   N/A   | str_view_all |
+|  strwrap    | str_wrap     |
+
+```{r}
+library(stringr)
+```
+
+
+## `str_c`
 
 ```{r}
 str_c("Letter: ", letters)
@@ -164,6 +235,12 @@ str_glue(
 paste("My name is ",eval(name),", my age next year is ",eval(age+1),", and my anniversary is ",eval(format(anniversary, '%A, %B %d, %Y')),".",sep="")
 ```
 
+```{r}
+mtcars %>% str_glue_data("{rownames(.)} has {hp} hp") %>% head
+
+paste(rownames(mtcars),"has",mtcars$hp,"hp") %>% head
+```
+
 `str_length`
 
 ```{r}
@@ -177,7 +254,7 @@ str_length(c("i", "like", "programming", NA))
 nchar(c("i", "like", "programming", NA))
 ```
 
-```{r}
+```{r,eval=F}
 ## difference
 str_length(factor("abc"))
 nchar(factor("abc")) ## Error in nchar(factor("abc")) : 'nchar()' requires a character vector
@@ -229,6 +306,26 @@ mapply(gregexpr,c("a", "b", "p", "p"),fruit)
 
 `str_match`
 
+```{r}
+strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
+"387 287 6718", "apple", "233.398.9187 ", "482 952 3315",
+"239 923 8115 and 842 566 4692", "Work: 579-499-7527", "$1000",
+"Home: 543.355.3679")
+phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
+str_extract(strings, phone)
+str_match(strings, phone)
+```
+
+```{r}
+# Extract/match all
+str_extract_all(strings, phone)
+str_match_all(strings, phone)
+x <- c("<a> <b>", "<a> <>", "<a>", "", NA)
+str_match(x, "<(.*?)> <(.*?)>")
+str_match_all(x, "<(.*?)>")
+str_extract(x, "<.*?>")
+str_extract_all(x, "<.*?>")
+```
 
 
 `str_order`
@@ -460,7 +557,7 @@ substr(x, nchar(x)-1,nchar(x)-1) <- "GHIJ"; x ## different
 substr(x, 2, nchar(x)-1) <- ""; x
 ```
 
-```{r}
+```{r,eval=F}
 # If you want to keep the original if some argument is NA,
 # use omit_na = TRUE
 x1 <- x2 <- x3 <- x4 <- "AAA"
