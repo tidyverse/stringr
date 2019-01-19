@@ -297,7 +297,52 @@ gsub("[aeiou]","",fruits)
 ```
 
 `str_replace`
+
+```{r}
+str_replace(fruits, "[aeiou]", "-")
+str_replace_all(fruits, "[aeiou]", "-")
+
+sub("[aeiou]","-",fruits)
+gsub("[aeiou]","-",fruits)
+```
+
+```{r}
+str_replace(fruits, "([aeiou])", "")
+str_replace(fruits, "([aeiou])", "\\1\\1")
+
+sub("([aeiou])","",fruits)
+sub("([aeiou])","\\1\\1",fruits)
+```
+
+```{r}
+str_replace(fruits, "[aeiou]", c("1", "2", "3"))
+str_replace(fruits, c("a", "e", "i"), "-")
+
+
+mapply(function(x,y){sub("[aeiou]",x,y)},c(1,2,3),fruits)
+
+unname(mapply(function(x,y){sub(x,"-",y)},c("a","e","i"),fruits))
+```
+
+```{r}
+## TO DO
+str_replace_all(fruits, "[aeiou]", toupper)
+
+str_replace_all(fruits, "b", NA_character_)
+```
+
+
 `str_replace_na`
+
+```{r}
+str_replace_na(c(NA, "abc", "def"))
+
+sub(NA,"NA",c(NA, "abc", "def")) ## doesn't work
+
+input=c(NA, "abc", "def")
+ifelse(is.na(input),"NA",input)
+```
+
 `str_split`
 `str_sub`
 `str_subset`
