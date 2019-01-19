@@ -32,6 +32,10 @@ test_that("str_starts works", {
   # negation
   expect_false(str_starts("ab", "a", TRUE))
   expect_true(str_starts("ab", "b", TRUE))
+
+  # Special typing of patterns.
+  expect_true(str_starts("ab", fixed("A", ignore_case = TRUE)))
+  expect_true(str_starts("ab", regex("A", ignore_case = TRUE)))
 })
 
 test_that("str_ends works", {
@@ -41,4 +45,7 @@ test_that("str_ends works", {
   # negation
   expect_false(str_ends("ab", "b", TRUE))
   expect_true(str_ends("ab", "a", TRUE))
+
+    # Special typing of patterns.
+  expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })
