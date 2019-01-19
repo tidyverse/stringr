@@ -468,6 +468,37 @@ x1; x2; x3; x4
 
 
 `str_subset`
+
+```{r}
+fruit <- c("apple", "banana", "pear", "pinapple")
+str_subset(fruit, "a")
+str_which(fruit, "a")
+
+grep("a", fruit, value = TRUE)
+grep("a", fruit)
+```
+
+```{r}
+str_subset(fruit, "^a")
+str_subset(fruit, "a$")
+str_subset(fruit, "b")
+str_subset(fruit, "[aeiou]")
+
+grep("^a", fruit, value = TRUE)
+grep("a$", fruit, value = TRUE)
+grep("b", fruit, value = TRUE)
+grep("[aeiou]", fruit, value = TRUE)
+
+
+# Missings never match
+str_subset(c("a", NA, "b"), ".")
+str_which(c("a", NA, "b"), ".")
+
+grep( ".", c("a", NA, "b"), value = TRUE)
+grep( ".", c("a", NA, "b"))
+```
+
+
 `str_trim`
 `str_trunc`
 `str_view`
