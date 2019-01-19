@@ -50,7 +50,7 @@ countCharOccurrences <- function(char, s) {
     s2 <- gsub(char,"",s)
     return (nchar(s) - nchar(s2))
 }#https://techoverflow.net/2012/11/10/r-count-occurrences-of-character-in-string/
-
+## maybe need to change this to length instead of nchar, see str_length
 
 countCharOccurrences("a",fruit)
 countCharOccurrences("p",fruit)
@@ -169,6 +169,27 @@ nchar(c("i", "like", "programming", NA))
 str_length(factor("abc"))
 nchar(factor("abc")) ## Error in nchar(factor("abc")) : 'nchar()' requires a character vector
 ```
+
+```{r}
+u1 <- "\u00fc"
+u2 <- stringi::stri_trans_nfd(u1)
+# The print the same:
+u1
+u2
+# But have a different length
+str_length(u1)
+str_length(u2)
+# Even though they have the same number of characters
+str_count(u1)
+str_count(u2)
+
+nchar(u1) ## matches length not count
+nchar(u2)
+
+length(u1) ## weird
+length(u2)
+```
+
 
 `str_locate`
 `str_match`
