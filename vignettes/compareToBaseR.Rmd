@@ -215,7 +215,33 @@ mapply(gregexpr,c("a", "b", "p", "p"),fruit)
 ```
 
 `str_match`
+
+
 `str_order`
+
+```{r}
+str_order(letters)
+str_sort(letters)
+
+order(letters)
+sort(letters)
+```
+
+```{r}
+str_order(letters, locale = "haw") ## vowels come first
+str_sort(letters, locale = "haw")
+## no locale capability in order, sort
+```
+
+```{r}
+x <- c("100a10", "100a5", "2b", "2a")
+str_sort(x)
+str_sort(x, numeric = TRUE)
+
+sort(x)
+## no numeric capability in sort
+```
+
 `str_pad`
 `str_remove`
 `str_replace`
