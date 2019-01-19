@@ -1,7 +1,8 @@
 #' View HTML rendering of regular expression match.
 #'
 #' `str_view` shows the first match; `str_view_all` shows all
-#' the matches.
+#' the matches. To build regular expressions interactively, check out the
+#' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
 #'
 #' @inheritParams str_detect
 #' @param match If `TRUE`, shows only strings that match the pattern.

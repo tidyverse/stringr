@@ -162,6 +162,23 @@ pattern matching engines:
   - `coll()`: match human letters
   - `boundary()`: match boundaries
 
+## RStudio Addin
+
+The [RegExplain RStudio
+addin](https://www.garrickadenbuie.com/project/regexplain/) provides a
+friendly interface for working with regular expressions and functions
+from stringr. This addin allows you to interactively build your regexp,
+check the output of common string matching functions, consult the
+interactive help pages, or use the included resources to learn regular
+expressions.
+
+This addin can easily be installed with devtools:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("gadenbuie/regexplain")
+```
+
 ## Compared to base R
 
 R provides a solid set of string operations, but because they have grown
