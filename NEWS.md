@@ -6,6 +6,9 @@
 * `str_subset()`, `str_detect()`, and `str_which()` gets `negate` argument,
   which is useful when you want the elements that do NOT match (#259,
   @yutannihilation).
+  
+* New `str_to_sentence()` function to capitalize with sentence case 
+  (@jonthegeek, #202)
 
 # stringr 1.3.1
 
