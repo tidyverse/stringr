@@ -242,7 +242,7 @@ sort(x)
 ## no numeric capability in sort
 ```
 
-`sp`
+`str_pad`
 
 ```{r}
 rbind(
@@ -344,7 +344,47 @@ ifelse(is.na(input),"NA",input)
 ```
 
 `str_split`
+
+```{r}
+fruits <- c(
+"apples and oranges and pears and bananas",
+"pineapples and mangos and guavas"
+)
+
+str_split(fruits, " and ")
+
+strsplit(fruits, " and ")
+```
+
+```{r}
+str_split(fruits, " and ", simplify = T)
+
+#https://stackoverflow.com/questions/17308551/do-callrbind-list-for-uneven-number-of-column
+output=strsplit(fruits, " and ")
+outputDF=lapply(output,function(x){as.data.frame(t(x),stringsAsFactors=F)})
+simplified = plyr::rbind.fill(outputDF)
+simplified = as.matrix(simplified)
+simplified[which(is.na(simplified))]=""
+unname(simplified)
+```
+
+```{r}
+# Specify n to restrict the number of possible matches
+str_split(fruits, " and ", n = 3)
+str_split(fruits, " and ", n = 2)
+# If n greater than number of pieces, no padding occurs
+str_split(fruits, " and ", n = 5)
+# Use fixed to return a character matrix
+str_split_fixed(fruits, " and ", 3)
+## same as str_split(fruits, " and ", 3, simplify = T)
+str_split_fixed(fruits, " and ", 4)
+```
+
 `str_sub`
+
+
+
+
 `str_subset`
 `str_trim`
 `str_trunc`
