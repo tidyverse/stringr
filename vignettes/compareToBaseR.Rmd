@@ -20,6 +20,17 @@ knitr::opts_chunk$set(
 
 
 `str_c`
+
+```{r}
+str_c("Letter: ", letters)
+paste("Letter: ",letters)
+```
+
+```{r}
+str_c("Letter", letters, sep = ": ")
+paste("Letter", letters, sep = ": ")
+```
+
 `str_conv`
 `str_count`
 `str_detect`
