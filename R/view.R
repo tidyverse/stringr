@@ -75,7 +75,8 @@ str_view_widget <- function(lines) {
   html <- htmltools::HTML(bullets)
 
   if (!requireNamespace("htmlwidgets", quietly = TRUE)) {
-    stop("htmlwidgets package required for str_view(). \nPlease install.packages(\"htmlwidgets\") to use this functionality.")
+    stop("htmlwidgets package required for str_view(). \nPlease install.packages(\"htmlwidgets\") to use this functionality.",
+         call. = FALSE)
   }
   size <- htmlwidgets::sizingPolicy(
     knitr.figure = FALSE,
