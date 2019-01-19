@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ```{r}
 str_c("Letter: ", letters)
-paste("Letter: ",letters)
+paste("Letter: ",letters,sep="")
 ```
 
 ```{r}
@@ -32,14 +32,46 @@ paste("Letter", letters, sep = ": ")
 ```
 
 `str_conv`
+
+
+
 `str_count`
+
+```{r}
+fruit <- c("apple", "banana", "pear", "pinapple")
+
+str_count(fruit, "a")
+str_count(fruit, "p")
+str_count(fruit, "e")
+str_count(c("a.", "...", ".a.a"), ".")
+
+
+countCharOccurrences <- function(char, s) {
+    s2 <- gsub(char,"",s)
+    return (nchar(s) - nchar(s2))
+}#https://techoverflow.net/2012/11/10/r-count-occurrences-of-character-in-string/
+
+
+countCharOccurrences("a",fruit)
+countCharOccurrences("p",fruit)
+countCharOccurrences("e",fruit)
+countCharOccurrences(".",c("a.", "...", ".a.a"))
+```
+
+
+```{r}
+## difference
+str_count(fruit, c("a", "b", "p", "p"))
+str_count(c("a.", "...", ".a.a"), fixed("."))
+
+lapply(c("a", "b", "p", "p"),countCharOccurrences,fruit)
+countCharOccurrences(fixed("."),c("a.", "...", ".a.a"))
+```
 
 
 `str_detect`
 
 ```{r}
-fruit <- c("apple", "banana", "pear", "pinapple")
-
 str_detect(fruit, "a")
 grepl("a", fruit)
 
@@ -67,7 +99,24 @@ lapply(unlist(str_split("aecfg","")),function(x){grepl(x,letters)})
 
 
 `str_dup`
+
+```{r}
+fruit <- c("apple", "pear", "banana")
+str_dup(fruit, 2)
+str_dup(fruit, 1:3)
+str_c("ba", str_dup("na", 0:5))
+
+
+#https://stackoverflow.com/questions/22359127/how-to-repeat-a-string-n-times-in-r
+unlist(lapply(lapply(fruit,function(x){replicate(2,x)}),paste,collapse=""))
+
+unlist(lapply(mapply(function(x,y){replicate(x,y)},1:3,fruit),paste,collapse=""))
+
+paste("ba",unlist(lapply(lapply(0:5,function(x){replicate(x,"na")}),paste,collapse="")),sep="")
+```
+
 `str_extract`
+
 `str_flatten`
 `str_glue`
 `str_length`
