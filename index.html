@@ -217,6 +217,14 @@
 <code><a href="reference/modifiers.html">boundary()</a></code>: match boundaries</li>
 </ul>
 </div>
+<div id="rstudio-addin" class="section level2">
+<h2 class="hasAnchor">
+<a href="#rstudio-addin" class="anchor"></a>RStudio Addin</h2>
+<p>The <a href="https://www.garrickadenbuie.com/project/regexplain/">RegExplain RStudio addin</a> provides a friendly interface for working with regular expressions and functions from stringr. This addin allows you to interactively build your regexp, check the output of common string matching functions, consult the interactive help pages, or use the included resources to learn regular expressions.</p>
+<p>This addin can easily be installed with devtools:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"gadenbuie/regexplain"</span>)</a></code></pre></div>
+</div>
 <div id="compared-to-base-r" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compared-to-base-r" class="anchor"></a>Compared to base R</h2>
@@ -224,11 +232,11 @@
 <ul>
 <li>
 <p>Uses consistent function and argument names. The first argument is always the vector of strings to modify, which makes stringr work particularly well in conjunction with the pipe:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">letters <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span>.[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>] <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/str_pad.html">str_pad</a></span>(<span class="dv">3</span>, <span class="st">"right"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/str_c.html">str_c</a></span>(letters[<span class="dv">2</span><span class="op">:</span><span class="dv">11</span>])</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">letters <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span>.[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>] <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/str_pad.html">str_pad</a></span>(<span class="dv">3</span>, <span class="st">"right"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/str_c.html">str_c</a></span>(letters[<span class="dv">2</span><span class="op">:</span><span class="dv">11</span>])</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt;  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"</span></a></code></pre></div>
 </li>
 <li><p>Simplifies string operations by eliminating options that you don’t need 95% of the time.</p></li>
 <li><p>Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.</p></li>
