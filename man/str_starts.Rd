@@ -29,7 +29,7 @@ is fast, but approximate. Generally, for matching human text, you'll want
 A logical vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}. Equivalent to \code{grepl(paste0("^", pattern), x)}.
+Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pinapple")

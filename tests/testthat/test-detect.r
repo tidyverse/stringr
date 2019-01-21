@@ -46,6 +46,6 @@ test_that("str_ends works", {
   expect_false(str_ends("ab", "b", TRUE))
   expect_true(str_ends("ab", "a", TRUE))
 
-    # Special typing of patterns.
+  # Special typing of patterns.
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })

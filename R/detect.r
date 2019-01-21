@@ -53,8 +53,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' Detect the presence or absence of a pattern at the beginning or end of a
 #' string.
 #'
-#' Vectorised over `string` and `pattern`. Equivalent to `grepl(paste0("^",
-#' pattern), x)`.
+#' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern with which the string starts or ends.
@@ -76,16 +75,17 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' str_ends(fruit, "e")
 #' str_ends(fruit, "e", negate = TRUE)
 str_starts <- function(string, pattern, negate = FALSE) {
-  switch(type(pattern),
-         empty = ,
-         bound = stop("bound() patterns are not supported."),
-         fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-         coll  = stri_startswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
-         regex = {
-           pattern2 <- paste0("^", pattern)
-           attributes(pattern2) <- attributes(pattern)
-           str_detect(string, pattern2, negate)
-         }
+  switch(
+    type(pattern),
+    empty = ,
+    bound = stop("boundary() patterns are not supported."),
+    fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_startswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+    regex = {
+      pattern2 <- paste0("^", pattern)
+      attributes(pattern2) <- attributes(pattern)
+      str_detect(string, pattern2, negate)
+    }
   )
 }
 
