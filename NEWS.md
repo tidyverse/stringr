@@ -10,6 +10,9 @@
 * New `str_to_sentence()` function to capitalize with sentence case 
   (@jonthegeek, #202)
 
+* New `str_starts()` and `str_ends()` functions to detect patterns at the 
+  beginning or end of strings (@jonthegeek, #258)
+
 # stringr 1.3.1
 
 * `str_replace_all()` with a named vector now respects modifier functions (#207)

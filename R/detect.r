@@ -49,3 +49,58 @@ str_detect <- function(string, pattern, negate = FALSE) {
     regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 }
+
+#' Detect the presence or absence of a pattern at the beginning or end of a
+#' string.
+#'
+#' Vectorised over `string` and `pattern`.
+#'
+#' @inheritParams str_detect
+#' @param pattern Pattern with which the string starts or ends.
+#'
+#'   The default interpretation is a regular expression, as described in
+#'   [stringi::stringi-search-regex]. Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()]. This
+#'   is fast, but approximate. Generally, for matching human text, you'll want
+#'   [coll()] which respects character matching rules for the specified locale.
+#'
+#' @return A logical vector.
+#' @seealso [str_detect()] which this function wraps when pattern is regex.
+#' @export
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_starts(fruit, "p")
+#' str_starts(fruit, "p", negate = TRUE)
+#' str_ends(fruit, "e")
+#' str_ends(fruit, "e", negate = TRUE)
+str_starts <- function(string, pattern, negate = FALSE) {
+  switch(
+    type(pattern),
+    empty = ,
+    bound = stop("boundary() patterns are not supported."),
+    fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_startswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+    regex = {
+      pattern2 <- paste0("^", pattern)
+      attributes(pattern2) <- attributes(pattern)
+      str_detect(string, pattern2, negate)
+    }
+  )
+}
+
+#' @rdname str_starts
+#' @export
+str_ends <- function(string, pattern, negate = FALSE) {
+  switch(type(pattern),
+         empty = ,
+         bound = stop("boundary() patterns are not supported."),
+         fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+         coll  = stri_endswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+         regex = {
+           pattern2 <- paste0(pattern, "$")
+           attributes(pattern2) <- attributes(pattern)
+           str_detect(string, pattern2, negate)
+         }
+  )
+}
