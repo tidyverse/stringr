@@ -31,12 +31,10 @@
 
 <meta property="og:title" content="Join multiple strings into a single string. — str_c" />
 
-<meta property="og:description" content="To understand how str_c works, you need to imagine that you are building up
-a matrix of strings. Each input argument forms a column, and is expanded to
-the length of the longest argument, using the usual recyling rules.  The
-sep string is inserted between each column. If collapse is NULL each row
-is collapsed into a single string. If non-NULL that string is inserted at
-the end of each row, and the entire matrix collapsed to a single string." />
+<meta property="og:description" content="Joins two or more vectors element-wise into a single character vector,
+optionally inserting sep between input vectors. If collapse is not NULL,
+it will be inserted between elements of the result, returning a character
+vector of length 1." />
 
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -142,12 +140,10 @@ the end of each row, and the entire matrix collapsed to a single string." />
 
     <div class="ref-description">
     
-    <p>To understand how <code>str_c</code> works, you need to imagine that you are building up
-a matrix of strings. Each input argument forms a column, and is expanded to
-the length of the longest argument, using the usual recyling rules.  The
-<code>sep</code> string is inserted between each column. If collapse is <code>NULL</code> each row
-is collapsed into a single string. If non-<code>NULL</code> that string is inserted at
-the end of each row, and the entire matrix collapsed to a single string.</p>
+    <p>Joins two or more vectors element-wise into a single character vector,
+optionally inserting <code>sep</code> between input vectors. If <code>collapse</code> is not <code>NULL</code>,
+it will be inserted between elements of the result, returning a character
+vector of length 1.</p>
     
     </div>
 
@@ -182,6 +178,15 @@ string.</p></td>
     <p>If <code>collapse = NULL</code> (the default) a character vector with
 length equal to the longest input string. If <code>collapse</code> is
 non-NULL, a character vector of length 1.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>To understand how <code>str_c</code> works, you need to imagine that you are building up
+a matrix of strings. Each input argument forms a column, and is expanded to
+the length of the longest argument, using the usual recyling rules.  The
+<code>sep</code> string is inserted between each column. If collapse is <code>NULL</code> each row
+is collapsed into a single string. If non-<code>NULL</code> that string is inserted at
+the end of each row, and the entire matrix collapsed to a single string.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -221,6 +226,8 @@ non-NULL, a character vector of length 1.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
       
