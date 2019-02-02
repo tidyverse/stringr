@@ -27,6 +27,12 @@ length equal to the longest input string. If \code{collapse} is
 non-NULL, a character vector of length 1.
 }
 \description{
+Joins two or more vectors element-wise into a single character vector,
+optionally inserting \code{sep} between input vectors. If \code{collapse} is not \code{NULL},
+it will be inserted between elements of the result, returning a character
+vector of length 1.
+}
+\details{
 To understand how \code{str_c} works, you need to imagine that you are building up
 a matrix of strings. Each input argument forms a column, and is expanded to
 the length of the longest argument, using the usual recyling rules.  The
