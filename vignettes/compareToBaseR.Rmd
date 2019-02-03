@@ -434,6 +434,9 @@ order(letters)
 sort(letters)
 ```
 
+
+Some options in `str_order()` and `str_sort()` don't have analogous base R options.
+
 ```{r}
 str_order(letters, locale = "haw") ## vowels come first
 str_sort(letters, locale = "haw")
@@ -555,10 +558,15 @@ unname(mapply(function(x, y) {
 ```
 
 ```{r}
-## TO DO
+## stringr
 str_replace_all(fruits, "[aeiou]", toupper)
-
 str_replace_all(fruits, "b", NA_character_)
+
+## base
+chartr("[aeiou]","[AEIOU]", fruits)
+
+#chartr("b",NA, fruits) ## NA is an invalid argument
+ifelse(unlist(lapply(fruits,function(x){grepl("b",x)})),NA,fruits)
 ```
 
 
