@@ -602,6 +602,8 @@ str_split(fruits, " and ")
 strsplit(fruits, " and ")
 ```
 
+We need to do some formatting to make the output from `strsplilt()` match that of `str_split()`.
+
 ```{r}
 ## stringr
 str_split(fruits, " and ", simplify = T)
@@ -625,8 +627,13 @@ str_split(fruits, " and ", n = 2)
 
 
 splitRestrict <- function(string, pattern, n){
-#browser()
+
  output= strsplit(string, pattern)
+ 
+ test = max(unlist(lapply(output,length)))
+ if(n>=test){
+   return(output)
+ }else{
   
  out = vector("list",length(output))
  
@@ -638,9 +645,7 @@ splitRestrict <- function(string, pattern, n){
     }
  
  }
-   #browser()
-   
- #out2=  lapply(out,function(x){x[!is.na(x)]})
+
  
  toFinish = lapply(lapply(output, function(x){x[n:length(x)]}),function(x){paste(x,collapse=pattern)})
  
@@ -650,7 +655,7 @@ splitRestrict <- function(string, pattern, n){
   }
  
 lapply(out,unlist)
-
+}
 }
 
 splitRestrict(fruits," and ",3)
@@ -664,7 +669,6 @@ str_split(fruits, " and ", n = 5)
 
 ## base
 splitRestrict(fruits," and ",5)
-
 ```
 
 ```{r}
@@ -677,7 +681,16 @@ str_split_fixed(fruits, " and ", 4)
 
 ## base
 do.call("rbind",splitRestrict(fruits," and ",3))
-do.call("rbind",splitRestrict(fruits," and ",4))
+
+output = splitRestrict(fruits," and ",4)
+outputDF <- lapply(output, function(x) {
+  as.data.frame(t(x), stringsAsFactors = F)
+})
+
+simplified <- plyr::rbind.fill(outputDF)
+toShow = as.matrix(simplified) %>% unname()
+toShow[is.na(toShow)]=""
+toShow
 ```
 
 ## `str_sub`
