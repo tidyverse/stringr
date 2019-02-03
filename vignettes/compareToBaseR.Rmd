@@ -33,8 +33,9 @@ This vignette aims to compare stringr functions to base R equivalents. Following
 |------|------------|
 |   `substr()`   | `str_sub()`    |
 |    `grep()`  | `str_subset()` |
-|      | `str_extract()`|
+|   `regexpr()` + `regmatches()`   | `str_extract()`|
 |      | `str_match()`  |
+
 
 # Manage Lengths
 
