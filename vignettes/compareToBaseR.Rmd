@@ -16,8 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-Following the groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf), these are the base equivalents to stringr functions.
+This vignette aims to compare stringr functions to base R equivalents. Following the groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf), these are the base equivalents to stringr functions.
 
 # Detect Matches
 
@@ -88,10 +87,13 @@ Following the groupings of functions from the [stringr cheat sheet](https://gith
 library(stringr)
 ```
 
+The following examples walk through the examples in the stringr documentation and reproduce the results in base.
 
 Note: In the following, I use base `apply` functions (rather than tidy [purrr](https://purrr.tidyverse.org/) functions) when illustrating the base alternative to the [stringr](https://stringr.tidyverse.org/) functions. 
 
 ## `str_c`
+
+*Join multiple strings into a single string*
 
 ```{r}
 ## stringr
@@ -111,6 +113,8 @@ paste("Letter", letters, sep = ": ")
 
 ## `str_conv`
 
+*Specify the encoding of a string*
+
 ```{r}
 x <- rawToChar(as.raw(177))
 x
@@ -127,6 +131,8 @@ iconv(x, "ISO-8859-1")
 
 
 ## `str_count`
+
+*Count the number of matches in a string.*
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pinapple")
@@ -165,6 +171,8 @@ countCharOccurrences(fixed("."), c("a.", "...", ".a.a"))
 
 ## `str_detect`
 
+*Detect the presence or absence of a pattern in a string*
+
 ```{r}
 ## stringr
 str_detect(fruit, "a")
@@ -195,6 +203,8 @@ lapply(unlist(str_split("aecfg", "")), function(x) {
 
 ## `str_dup`
 
+*Duplicate and concatenate strings within a character vector*
+
 ```{r}
 ## stringr
 fruit <- c("apple", "pear", "banana")
@@ -219,15 +229,24 @@ paste("ba", unlist(lapply(lapply(0:5, function(x) {
 
 ## `str_extract`
 
+*Extract matching patterns from a string*
+
 ```{r}
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
-str_extract(shopping_list, "\\d")
-str_extract(shopping_list, "[a-z]+")
+str_extract(shopping_list, "\\d") ## digits only
+str_extract(shopping_list, "[a-z]+") ## letters only
 
 #https://stackoverflow.com/questions/47678725/how-to-do-str-extract-with-base-r
+matches <-regexpr("\\d",shopping_list)
+regmatches(shopping_list,matches)
+
+matches <-regexpr("[a-z]+",shopping_list)
+regmatches(shopping_list,matches)
 ```
 
 ## `str_flatten`
+
+*Flatten a string*
 
 ```{r}
 ## stringr
@@ -240,6 +259,9 @@ paste(letters, "-", sep = "", collapse = "")
 ```
 
 ## `str_glue`
+
+*Format and interpolate a string with glue*
+
 
 ```{r}
 name <- "Fred"
@@ -266,6 +288,8 @@ paste(rownames(mtcars), "has", mtcars$hp, "hp") %>% head()
 ```
 
 ## `str_length`
+
+*The length of a string*
 
 ```{r}
 ## stringr
@@ -308,6 +332,8 @@ length(u2)
 
 ## `str_locate`
 
+*Locate the position of patterns in a string.*
+
 ```{r}
 fruit <- c("apple", "banana", "pear", "pineapple")
 
@@ -328,6 +354,8 @@ mapply(gregexpr, c("a", "b", "p", "p"), fruit)
 ```
 
 ## `str_match`
+
+*Extract matched groups from a string*
 
 ```{r}
 strings <- c(
@@ -355,6 +383,8 @@ str_extract_all(x, "<.*?>")
 
 ## `str_order`
 
+*Order or sort a character vector*
+
 ```{r}
 ## stringr
 str_order(letters)
@@ -381,6 +411,8 @@ sort(x)
 ```
 
 ## `str_pad`
+
+*Pad a string*
 
 ```{r}
 ## stringr
@@ -430,6 +462,8 @@ sprintf("%3s", "hadley")
 
 ##`str_remove`
 
+*Remove matched patterns in a string*
+
 ```{r}
 fruits <- c("one apple", "two pears", "three bananas")
 
@@ -443,6 +477,8 @@ gsub("[aeiou]", "", fruits)
 ```
 
 ## `str_replace`
+
+*Replace matched patterns in a string*
 
 ```{r}
 ## stringr
@@ -489,6 +525,8 @@ str_replace_all(fruits, "b", NA_character_)
 
 ## `str_replace_na`
 
+*Turn NA into "NA"*
+
 ```{r}
 ## stringr
 str_replace_na(c(NA, "abc", "def"))
@@ -501,6 +539,8 @@ ifelse(is.na(input), "NA", input)
 ```
 
 ## `str_split`
+
+*Split up a string into pieces*
 
 ```{r}
 fruits <- c(
@@ -544,6 +584,8 @@ str_split_fixed(fruits, " and ", 4)
 ```
 
 ## `str_sub`
+
+*Extract and replace substrings from a character vector*
 
 ```{r}
 hw <- "Hadley Wickham"
@@ -654,6 +696,8 @@ x4
 
 ## `str_subset`
 
+*Keep strings matching a pattern, or find positions*
+
 ```{r}
 fruit <- c("apple", "banana", "pear", "pinapple")
 
@@ -693,6 +737,8 @@ grep(".", c("a", NA, "b"))
 
 ## `str_trim`
 
+*Trim whitespace from a string*
+
 ```{r}
 ## stringr
 str_trim(" String with trailing and leading white space\t")
@@ -713,6 +759,8 @@ str_squish("\n\nString with excess, trailing and leading white space\n\n")
 ```
 
 ## `str_trunc`
+
+*Truncate a character string*
 
 ```{r}
 x <- "This string is moderately long"
@@ -737,12 +785,16 @@ rbind(
 
 ## `str_view`
 
+*View HTML rendering of regular expression match*
+
 ```{r}
 ## stringr
 str_view(c("abc", "def", "fgh"), "[aeiou]")
 ```
 
 ## `str_wrap`
+
+*Wrap strings into nicely formatted paragraphs*
 
 ```{r}
 thanks_path <- file.path(R.home("doc"), "THANKS")
