@@ -24,7 +24,7 @@ This vignette aims to compare stringr functions to base R equivalents. Following
 |------|------------|
 |   `grepl()`   | `str_detect()` |
 |   `grep()`   | `str_which()`  |
-|      | `str_count()`  |
+|   `gregexpr()`   | `str_count()`  |
 |  `gregexpr()`    | `str_locate()` |
 
 # Subset Strings
@@ -41,7 +41,7 @@ This vignette aims to compare stringr functions to base R equivalents. Following
 
 | base | stringr    |
 |------|------------|
-|      | `str_length()` |
+|   `nchar()`   | `str_length()` |
 |  `sprintf()`    | `str_pad()`    |
 |   `substr()`   | `str_trunc()`  |
 |   `trimws()`   | `str_trim()`   |
@@ -315,9 +315,15 @@ nchar(NA)
 nchar(c("i", "like", "programming", NA))
 ```
 
+Here are some tricker examples to reproduce in base R.
+
+"Technically this [`str_length()`] returns the number of "code points", in a string. One code point usually corresponds to one character, but not always."
+
 ```{r,eval=F}
-## difference
+## stringr
 str_length(factor("abc"))
+
+## base
 nchar(factor("abc")) ## Error in nchar(factor("abc")) : 'nchar()' requires a character vector
 ```
 
@@ -328,16 +334,18 @@ u2 <- stringi::stri_trans_nfd(u1)
 u1
 u2
 
+## stringr
 str_length(u1)
 str_length(u2)
 
 str_count(u1)
 str_count(u2)
 
+## base 
 nchar(u1) ## matches length not count
 nchar(u2)
 
-length(u1) ## weird
+length(u1) ## matches count not length
 length(u2)
 ```
 
