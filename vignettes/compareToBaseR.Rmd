@@ -354,6 +354,8 @@ length(u2)
 
 *Locate the position of patterns in a string.*
 
+We need to clean up the ouput of `gregexpr()` to match that of `str_locate()`.
+
 ```{r}
 fruit <- c("apple", "banana", "pear", "pineapple")
 
@@ -366,11 +368,28 @@ str_locate(fruit, "ap")
 str_locate(fruit, c("a", "b", "p", "p"))
 
 ## base
-gregexpr("$", fruit) ## ## get stuff out
-gregexpr("a", fruit)
-gregexpr("e", fruit) ## -1 is the NA
-gregexpr("ap", fruit)
-mapply(gregexpr, c("a", "b", "p", "p"), fruit)
+getOrganized <- function(x){
+
+ start = x[1]
+ start = ifelse(start<0,NA,start)
+ 
+ lenEx = attr(x,"match.length")[1] ## just the first one
+ 
+ end = ifelse(lenEx ==0, start-1,start+lenEx-1)
+ end = ifelse(is.null(lenEx),NA,end)
+ 
+ toReturn = cbind(start,end)
+ 
+ toReturn
+}
+
+do.call("rbind",lapply(gregexpr("$", fruit),getOrganized))
+do.call("rbind",lapply(gregexpr("a", fruit),getOrganized))
+do.call("rbind",lapply(gregexpr("e", fruit),getOrganized))
+do.call("rbind",lapply(gregexpr("ap", fruit),getOrganized))
+
+
+do.call("rbind",mapply(function(x,y){do.call("rbind",lapply(gregexpr(x, y),getOrganized))},c("a", "b", "p", "p"),fruit,SIMPLIFY=F))
 ```
 
 ## `str_match`
