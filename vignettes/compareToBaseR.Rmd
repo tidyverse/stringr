@@ -622,12 +622,62 @@ unname(simplified)
 # Specify n to restrict the number of possible matches
 str_split(fruits, " and ", n = 3)
 str_split(fruits, " and ", n = 2)
+
+
+splitRestrict <- function(string, pattern, n){
+#browser()
+ output= strsplit(string, pattern)
+  
+ out = vector("list",length(output))
+ 
+ ## proof of concept
+ ## should streamline to avoid a nested for loop
+ for(j in 1:length(output)){
+   for(i in 1:(n-1)){
+       out[[j]]=c(out[[j]],output[[j]][i])
+    }
+ 
+ }
+   #browser()
+   
+ #out2=  lapply(out,function(x){x[!is.na(x)]})
+ 
+ toFinish = lapply(lapply(output, function(x){x[n:length(x)]}),function(x){paste(x,collapse=pattern)})
+ 
+ ## again both the for loop and the concatenating without prespecifying size are not ideal
+  for(j in 1:length(output)){
+    out[[j]]=c(out[[j]],toFinish[j])
+  }
+ 
+lapply(out,unlist)
+
+}
+
+splitRestrict(fruits," and ",3)
+splitRestrict(fruits," and ",2)
+```
+
+```{r}
+## stringr
 # If n greater than number of pieces, no padding occurs
 str_split(fruits, " and ", n = 5)
+
+## base
+splitRestrict(fruits," and ",5)
+
+```
+
+```{r}
+## stringr
 # Use fixed to return a character matrix
+# same as str_split(fruits, " and ", 3, simplify = T)
+
 str_split_fixed(fruits, " and ", 3)
-## same as str_split(fruits, " and ", 3, simplify = T)
 str_split_fixed(fruits, " and ", 4)
+
+## base
+do.call("rbind",splitRestrict(fruits," and ",3))
+do.call("rbind",splitRestrict(fruits," and ",4))
 ```
 
 ## `str_sub`
