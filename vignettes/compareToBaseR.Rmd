@@ -157,6 +157,7 @@ sapply((gregexpr("e", fruit, fixed=TRUE)), function(i) sum(i > 0))
 sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed=FALSE)), function(i) sum(i > 0))
 ```
 
+Here are some trickier cases to reproduce in base R.
 
 ```{r}
 ## stringr
@@ -190,15 +191,24 @@ grepl("b", fruit)
 grepl("[aeiou]", fruit)
 ```
 
-```{r}
-## difference
-str_detect("aecfg", letters)
-grepl("aecfg", letters)
+Here is a trickier case to reproduce in base R.
 
-lapply(unlist(str_split("aecfg", "")), function(x) {
+```{r}
+## stringr
+str_detect("aecfg", letters)
+
+
+## base
+
+eachResult <- lapply(unlist(str_split("aecfg", "")), function(x) {
   grepl(x, letters)
-})
-## TO DO: need to collaps via "or"
+}) 
+
+allResults = do.call("cbind",eachResult)
+
+total = apply(allResults,1,sum) # is the letter one of c(a,e,c,f,g)?
+
+ifelse(total>=1,T,F) # change to T/F
 ```
 
 
