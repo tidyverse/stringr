@@ -92,6 +92,65 @@ The following examples walk through the examples in the stringr documentation an
 
 Note: In the following, I use base `apply` functions (rather than tidy [purrr](https://purrr.tidyverse.org/) functions) when illustrating the base alternative to the [stringr](https://stringr.tidyverse.org/) functions. 
 
+## case
+
+*Convert case of a string*
+
+```{r}
+dog <- "The quick brown dog"
+
+## stringr
+str_to_upper(dog)
+str_to_lower(dog)
+str_to_title(dog)
+
+## base
+toupper(dog)
+tolower(dog)
+tools::toTitleCase(dog)
+```
+
+Locale distinctions are not made in base R.
+
+```{r}
+# Locale matters!
+str_to_upper("i") # English
+str_to_upper("i", "tr") # Turkish
+
+## no equivalent in base
+```
+
+## `invert_match`
+
+*Switch location of matches to location of non-matches*
+
+```{r}
+## TO DO
+numbers <- "1 and 2 and 4 and 456"
+num_loc <- str_locate_all(numbers, "[0-9]+")[[1]]
+str_sub(numbers, num_loc[, "start"], num_loc[, "end"])
+text_loc <- invert_match(num_loc)
+str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
+```
+
+## `modifiers`
+
+These are unique to stringr. However, many of the base R string functions have a `fixed` parameter that when true is equivalent to stringr's `fixed()` and when false is equivalent to stringr's `regex()`.
+
+
+```{r}
+pattern <- "a.b"
+
+## stringr
+strings <- c("abb", "a.b")
+str_detect(strings, pattern) ## default is regex(pattern)
+str_detect(strings, fixed(pattern))
+
+## base
+grepl(pattern,strings)
+grepl(pattern,strings,fixed =T)
+```
+
 ## `str_c`
 
 *Join multiple strings into a single string*
