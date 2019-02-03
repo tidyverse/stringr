@@ -753,6 +753,8 @@ unlist(lapply(seq_len(str_length(hw)), function(x) {
 
 ```
 
+There are some differences in behavior between `str_sub()` and `substr()`.
+
 ```{r}
 ## stringr
 x <- "BBCDEF"
@@ -771,13 +773,21 @@ substr(x, 1, 1) <- "A"
 x
 substr(x, nchar(x), nchar(x)) <- "K"
 x
-substr(x, nchar(x) - 1, nchar(x) - 1) <- "GHIJ"
-x ## different
-substr(x, 2, nchar(x) - 1) <- ""
+y = paste(substr(x,1,nchar(x)-2),"GHIJ", substr(x,nchar(x),nchar(x)),sep="")
+y
+## this doesn't work as expected
+substr(x, -2, -2) <- "GHIJ"
 x
+z=y
+## this doesn't work as expected
+substr(y,2,-2) <- ""
+y
+paste(substr(z,1,1),substr(z,nchar(z),nchar(z)),sep="")
 ```
 
-```{r,eval=F}
+`substr()` has less capability to handle NAs.
+
+```{r}
 ## stringr
 x1 <- x2 <- x3 <- x4 <- "AAA"
 str_sub(x1, 1, NA) <- "B"
@@ -793,14 +803,16 @@ x1 <- x2 <- x3 <- x4 <- "AAA"
 
 ## base
 substr(x1, 1, NA) <- "B"
-substr(x2, 1, 2) <- NA ## different
-substr(x3, 1, NA) <- "B"
-str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+#substr(x2, 1, 2) <- NA ## Error: NA is invalid value
+x2 <- NA
+
+substr(x3, 1, NA) <- "B" ## no omit_na capability
+#substr(x4, 1, 2) <- NA ## no omit_na capability, Error: NA is invalid value
 
 x1
 x2
 x3
-x4
+#x4
 ```
 
 
