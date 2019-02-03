@@ -145,27 +145,28 @@ str_count(c("a.", "...", ".a.a"), ".")
 
 
 ## base
-countCharOccurrences <- function(char, s) {
-  s2 <- gsub(char, "", s)
-  return(nchar(s) - nchar(s2))
-}
-## Example from https://techoverflow.net/2012/11/10/r-count-occurrences-of-character-in-string/
-## maybe need to change this to length instead of nchar, see str_length
 
-countCharOccurrences("a", fruit)
-countCharOccurrences("p", fruit)
-countCharOccurrences("e", fruit)
-countCharOccurrences(".", c("a.", "...", ".a.a"))
+# Example from: https://stackoverflow.com/questions/42394489/count-the-number-of-occurrences-of-in-a-string
+
+# gregexpr returns starting positions of every (disjoint) match and a -1 if no match
+# then we cnan sum the number of positions that are positive to get the number of matches
+
+sapply((gregexpr("a", fruit, fixed=TRUE)), function(i) sum(i > 0))
+sapply((gregexpr("p", fruit, fixed=TRUE)), function(i) sum(i > 0))
+sapply((gregexpr("e", fruit, fixed=TRUE)), function(i) sum(i > 0))
+sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed=FALSE)), function(i) sum(i > 0))
 ```
 
 
 ```{r}
-## difference
+## stringr
 str_count(fruit, c("a", "b", "p", "p"))
 str_count(c("a.", "...", ".a.a"), fixed("."))
 
-lapply(c("a", "b", "p", "p"), countCharOccurrences, fruit)
-countCharOccurrences(fixed("."), c("a.", "...", ".a.a"))
+## base
+mapply(function(x,y){sapply(gregexpr(x, y, fixed=TRUE), function(i) sum(i > 0))},c("a", "b", "p", "p"),fruit) %>% unname()
+
+sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed=TRUE)), function(i) sum(i > 0))
 ```
 
 
