@@ -456,6 +456,7 @@ do.call("rbind",mapply(function(x,y){do.call("rbind",lapply(gregexpr(x, y),getOr
 *Extract matched groups from a string*
 
 ```{r}
+## TO DO: find equivalent for table and show examples
 strings <- c(
   " 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
   "387 287 6718", "apple", "233.398.9187 ", "482 952 3315",
@@ -985,6 +986,7 @@ str_view(c("abc", "def", "fgh"), "[aeiou]")
 *Wrap strings into nicely formatted paragraphs*
 
 ```{r}
+## TO DO: these differ
 thanks_path <- file.path(R.home("doc"), "THANKS")
 thanks <- str_c(readLines(thanks_path), collapse = "\n")
 thanks <- word(thanks, 1, 3, fixed("\n\n"))
