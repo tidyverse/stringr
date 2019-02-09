@@ -1,4 +1,4 @@
-# stringr 1.3.1.9000
+# stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
   additional placeholders (@amhrasmussen).
