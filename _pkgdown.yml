@@ -38,7 +38,9 @@ reference:
   - str_extract
   - str_locate
   - str_match
+  - str_remove
   - str_replace
+  - str_starts
   - str_split
   - str_subset
   - str_view
@@ -61,6 +63,7 @@ reference:
   - str_c
   - str_conv
   - str_dup
+  - str_flatten
   - str_glue
   - str_length
   - str_replace_na
