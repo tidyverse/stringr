@@ -48,6 +48,9 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   start[start > len] <- NA
   end[end > len] <- NA
 
+  # To return all words when trying to extract more words than available
+  start[start < 1L] <- 1
+
   # Extract locations
   starts <- mapply(function(word, loc) word[loc, "start"], words, start)
   ends <-   mapply(function(word, loc) word[loc, "end"], words, end)
