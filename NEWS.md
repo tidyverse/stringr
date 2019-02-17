@@ -1,3 +1,5 @@
+# stringr (development version)
+
 # stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
