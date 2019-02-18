@@ -36,3 +36,9 @@ test_that("does not truncate to a length shorter than elipsis", {
   expect_error(str_trunc("foobar", 2))
   expect_error(str_trunc("foobar", 3, ellipsis = "...."))
 })
+
+test_that("does not take into account size of ellipsis in the width", {
+
+  expect_equal(str_trunc("foobar", 2, replace = FALSE), "fo...")
+  expect_equal(str_trunc("foobar", 3, ellipsis = "....", replace = FALSE), "foo....")
+})

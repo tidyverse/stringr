@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_trunc` has a new `replace` parameter which allow ellipsis to be added
+to the string without being counted by the `width` argument.
+
 # stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of

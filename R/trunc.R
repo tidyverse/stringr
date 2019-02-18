@@ -4,6 +4,8 @@
 #' @param width Maximum width of string.
 #' @param side,ellipsis Location and content of ellipsis that indicates
 #'   content has been removed.
+#' @param replace if TRUE (default), ellipsis is taken into account in
+#' the width, otherwise ellipsis is added after resizing the string.
 #' @seealso [str_pad()] to increase the minimum width of a string.
 #' @export
 #' @examples
@@ -15,11 +17,11 @@
 #' )
 #'
 str_trunc <- function(string, width, side = c("right", "left", "center"),
-                      ellipsis = "...") {
+                      ellipsis = "...", replace = TRUE) {
   side <- match.arg(side)
 
   too_long <- !is.na(string) & str_length(string) > width
-  width... <- width - str_length(ellipsis)
+  width... <- width - str_length(ellipsis) * replace
 
   if (width... < 0) stop("`width` is shorter than `ellipsis`", .call = FALSE)
 
