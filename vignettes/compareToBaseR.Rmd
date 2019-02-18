@@ -1003,30 +1003,58 @@ str_view(c("abc", "def", "fgh"), "[aeiou]")
 
 *Wrap strings into nicely formatted paragraphs*
 
+I'm not sure why these outputs don't match. `str_wrap()` is a wrapper around `stringi::stri_wrap()` which has defaults that are supposed to be compatible with `strwrap()`.
+
 ```{r}
-## TO DO: these differ
 thanks_path <- file.path(R.home("doc"), "THANKS")
 thanks <- str_c(readLines(thanks_path), collapse = "\n")
 thanks <- word(thanks, 1, 3, fixed("\n\n"))
 
 ## stringr
 cat(str_wrap(thanks), "\n")
+
+## base
+cat(strwrap(thanks, width = 80)) ## match default
+```
+
+```{r}
+## stringr
 cat(str_wrap(thanks, width = 40), "\n")
+
+## base 
+cat(strwrap(thanks, width = 40), "\n")
+```
+
+```{r}
+## stringr
 cat(str_wrap(thanks, width = 60, indent = 2), "\n")
+
+## base
+cat(strwrap(thanks, width = 60, indent = 2), "\n")
+```
+
+```{r}
+## stringr 
 cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
+
+## base
+cat(strwrap(thanks, width = 60, exdent = 2), "\n")
+```
+
+```{r}
+## stringr
 cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
 
 ## base
-cat(strwrap(thanks, width = 80), "\n") ## match default
-cat(strwrap(thanks, width = 40), "\n")
-cat(strwrap(thanks, width = 60, indent = 2), "\n")
-cat(strwrap(thanks, width = 60, exdent = 2), "\n")
 cat(strwrap(thanks, width = 0, exdent = 2), "\n")
 ```
 
 # New in stringr 1.4.0
 
 ## `str_starts`
+
+*Detect the presence or absence of a pattern at the beginning of
+a string*
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pinapple")
@@ -1042,6 +1070,9 @@ grepl("^p",fruit)
 
 ## `str_ends`
 
+*Detect the presence or absence of a pattern at the end of
+a string*
+
 ```{r}
 ## stringr
 str_ends(fruit, "e")
@@ -1053,6 +1084,8 @@ grepl("e$",fruit)
 ```
 
 ## `str_to_sentence`
+
+*Convert case of a string*
 
 ```{r}
 ## stringr
