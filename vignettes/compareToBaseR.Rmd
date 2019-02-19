@@ -88,7 +88,7 @@ This vignette aims to compare stringr functions to base R equivalents. Following
 library(stringr)
 ```
 
-The following examples walk through the examples in the stringr documentation and reproduce the results in base.
+The following examples walk through the examples in the stringr documentation and reproduce the results in base R.
 
 Note: In the following, I use base `apply` functions (rather than tidy [purrr](https://purrr.tidyverse.org/) functions) when illustrating the base alternative to the [stringr](https://stringr.tidyverse.org/) functions. 
 
@@ -132,13 +132,13 @@ num_loc
 text_loc <- invert_match(num_loc)
 text_loc
 
-## base 
+## base
 ## take the output from str_locate_all for now
 ## see below for base R version of str_locate_all
 ## can use the source code for invert_match since it's in base
 
-text_loc <- cbind(start = c(0L, num_loc[, "end"] + 1L), end = c(num_loc[, "start"] - 
-        1L, -1L))
+text_loc <- cbind(start = c(0L, num_loc[, "end"] + 1L), end = c(num_loc[, "start"] -
+  1L, -1L))
 text_loc
 ```
 
@@ -156,8 +156,8 @@ str_detect(strings, pattern) ## default is regex(pattern)
 str_detect(strings, fixed(pattern))
 
 ## base
-grepl(pattern,strings)
-grepl(pattern,strings,fixed =T)
+grepl(pattern, strings)
+grepl(pattern, strings, fixed = T)
 ```
 
 ## `str_c`
@@ -220,10 +220,10 @@ str_count(c("a.", "...", ".a.a"), ".")
 # gregexpr returns starting positions of every (disjoint) match and a -1 if no match
 # then we cnan sum the number of positions that are positive to get the number of matches
 
-sapply((gregexpr("a", fruit, fixed=TRUE)), function(i) sum(i > 0))
-sapply((gregexpr("p", fruit, fixed=TRUE)), function(i) sum(i > 0))
-sapply((gregexpr("e", fruit, fixed=TRUE)), function(i) sum(i > 0))
-sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed=FALSE)), function(i) sum(i > 0))
+sapply((gregexpr("a", fruit, fixed = TRUE)), function(i) sum(i > 0))
+sapply((gregexpr("p", fruit, fixed = TRUE)), function(i) sum(i > 0))
+sapply((gregexpr("e", fruit, fixed = TRUE)), function(i) sum(i > 0))
+sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed = FALSE)), function(i) sum(i > 0))
 ```
 
 Here are some trickier cases to reproduce in base R.
@@ -234,9 +234,11 @@ str_count(fruit, c("a", "b", "p", "p"))
 str_count(c("a.", "...", ".a.a"), fixed("."))
 
 ## base
-mapply(function(x,y){sapply(gregexpr(x, y, fixed=TRUE), function(i) sum(i > 0))},c("a", "b", "p", "p"),fruit) %>% unname()
+mapply(function(x, y) {
+  sapply(gregexpr(x, y, fixed = TRUE), function(i) sum(i > 0))
+}, c("a", "b", "p", "p"), fruit) %>% unname()
 
-sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed=TRUE)), function(i) sum(i > 0))
+sapply((gregexpr(".", c("a.", "...", ".a.a"), fixed = TRUE)), function(i) sum(i > 0))
 ```
 
 
@@ -271,13 +273,13 @@ str_detect("aecfg", letters)
 
 eachResult <- lapply(unlist(str_split("aecfg", "")), function(x) {
   grepl(x, letters)
-}) 
+})
 
-allResults = do.call("cbind",eachResult)
+allResults <- do.call("cbind", eachResult)
 
-total = apply(allResults,1,sum) # is the letter one of c(a,e,c,f,g)?
+total <- apply(allResults, 1, sum) # is the letter one of c(a,e,c,f,g)?
 
-ifelse(total>=1,T,F) # change to T/F
+ifelse(total >= 1, T, F) # change to T/F
 ```
 
 
@@ -319,15 +321,15 @@ str_extract(shopping_list, "\\d") ## digits only
 str_extract(shopping_list, "[a-z]+") ## letters only
 
 ## base
-#https://stackoverflow.com/questions/47678725/how-to-do-str-extract-with-base-r
-matches <-regexpr("\\d",shopping_list)
-regmatches(shopping_list,matches)
+# https://stackoverflow.com/questions/47678725/how-to-do-str-extract-with-base-r
+matches <- regexpr("\\d", shopping_list)
+regmatches(shopping_list, matches)
 
-matches <-regexpr("[a-z]+",shopping_list)
-regmatches(shopping_list,matches)
+matches <- regexpr("[a-z]+", shopping_list)
+regmatches(shopping_list, matches)
 ```
 
-I was not able to find a way to get the combination of `regexpr()` and `regmatches()` to return more than the first instance.
+Here is a trickier one. We need to wrangle the output of `gregexpr()` to match `str_extract_all()`.
 
 ```{r}
 ## stringr
@@ -335,25 +337,28 @@ str_extract_all(shopping_list, "[a-z]+")
 
 ## base
 
-getOrganized <- function(x){
-  start = x
- start = ifelse(start<0,NA,start)
- 
- lenEx = attr(x,"match.length")
- 
- end = ifelse(lenEx ==0, start-1,start+lenEx-1)
- end[unlist(lapply(lenEx,is.null))]=NA
- toReturn = cbind(start,end)
- 
- toReturn
+getOrganized <- function(x) {
+  start <- x
+  start <- ifelse(start < 0, NA, start)
+
+  lenEx <- attr(x, "match.length")
+
+  end <- ifelse(lenEx == 0, start - 1, start + lenEx - 1)
+  end[unlist(lapply(lenEx, is.null))] <- NA
+  toReturn <- cbind(start, end)
+
+  toReturn
 }
 
-locations = lapply(gregexpr("[a-z]+", shopping_list),getOrganized)
+locations <- lapply(gregexpr("[a-z]+", shopping_list), getOrganized)
 
-together = unname(mapply(function(x,y){apply(y,1,function(z){substr(x,z[1],z[2])})},shopping_list,locations,SIMPLIFY=F))
+together <- unname(mapply(function(x, y) {
+  apply(y, 1, function(z) {
+    substr(x, z[1], z[2])
+  })
+}, shopping_list, locations, SIMPLIFY = F))
 
 together
-
 ```
 
 ## `str_flatten`
@@ -417,7 +422,7 @@ nchar(c("i", "like", "programming", NA))
 
 Here are some tricker examples to reproduce in base R.
 
-"Technically this [`str_length()`] returns the number of "code points", in a string. One code point usually corresponds to one character, but not always."
+"Technically this [`str_length()`] returns the number of 'code points', in a string. One code point usually corresponds to one character, but not always."
 
 ```{r,eval=F}
 ## stringr
@@ -441,7 +446,7 @@ str_length(u2)
 str_count(u1)
 str_count(u2)
 
-## base 
+## base
 nchar(u1) ## matches length not count
 nchar(u2)
 
@@ -468,28 +473,29 @@ str_locate(fruit, "ap")
 str_locate(fruit, c("a", "b", "p", "p"))
 
 ## base
-getOrganized <- function(x){
+getOrganized <- function(x) {
+  start <- x[1]
+  start <- ifelse(start < 0, NA, start)
 
- start = x[1]
- start = ifelse(start<0,NA,start)
- 
- lenEx = attr(x,"match.length")[1] ## just the first one
- 
- end = ifelse(lenEx ==0, start-1,start+lenEx-1)
- end = ifelse(is.null(lenEx),NA,end)
- 
- toReturn = cbind(start,end)
- 
- toReturn
+  lenEx <- attr(x, "match.length")[1] ## just the first one
+
+  end <- ifelse(lenEx == 0, start - 1, start + lenEx - 1)
+  end <- ifelse(is.null(lenEx), NA, end)
+
+  toReturn <- cbind(start, end)
+
+  toReturn
 }
 
-do.call("rbind",lapply(gregexpr("$", fruit),getOrganized))
-do.call("rbind",lapply(gregexpr("a", fruit),getOrganized))
-do.call("rbind",lapply(gregexpr("e", fruit),getOrganized))
-do.call("rbind",lapply(gregexpr("ap", fruit),getOrganized))
+do.call("rbind", lapply(gregexpr("$", fruit), getOrganized))
+do.call("rbind", lapply(gregexpr("a", fruit), getOrganized))
+do.call("rbind", lapply(gregexpr("e", fruit), getOrganized))
+do.call("rbind", lapply(gregexpr("ap", fruit), getOrganized))
 
 
-do.call("rbind",mapply(function(x,y){do.call("rbind",lapply(gregexpr(x, y),getOrganized))},c("a", "b", "p", "p"),fruit,SIMPLIFY=F))
+do.call("rbind", mapply(function(x, y) {
+  do.call("rbind", lapply(gregexpr(x, y), getOrganized))
+}, c("a", "b", "p", "p"), fruit, SIMPLIFY = F))
 ```
 
 ## `str_locate_all`
@@ -502,27 +508,28 @@ str_locate_all(fruit, "p")
 
 
 ## base
-getOrganized <- function(x){
- start = x
- start = ifelse(start<0,NA,start)
- 
- lenEx = attr(x,"match.length")
- 
- end = ifelse(lenEx ==0, start-1,start+lenEx-1)
- end[unlist(lapply(lenEx,is.null))]=NA
- toReturn = cbind(start,end)
- 
- toReturn
+getOrganized <- function(x) {
+  start <- x
+  start <- ifelse(start < 0, NA, start)
+  ## now allow for more than one
+
+  lenEx <- attr(x, "match.length")
+
+  end <- ifelse(lenEx == 0, start - 1, start + lenEx - 1)
+  end[unlist(lapply(lenEx, is.null))] <- NA
+  toReturn <- cbind(start, end)
+
+  toReturn
 }
 
-lapply(gregexpr("p", fruit),getOrganized)
+lapply(gregexpr("p", fruit), getOrganized)
 ```
 
 ## `str_match`
 
 *Extract matched groups from a string*
 
-Here I'm going to use the scenario from Section 14.4.2 in [R for Data Science](https://r4ds.had.co.nz/strings.html) instead of the one in the documentation because I find the nouns in sentences example easier to conceptualize than the phone number example.
+Here I'm going to use the scenario from Section 14.4.3 in [R for Data Science](https://r4ds.had.co.nz/strings.html) instead of the one in the documentation because I find the nouns in sentences example easier to conceptualize than the phone number example.
 
 ```{r}
 head(sentences)
@@ -533,47 +540,61 @@ has_noun <- sentences %>%
 has_noun
 
 ## stringr
-str_match(has_noun,noun)
+str_match(has_noun, noun)
 
-## base 
-matches <-regexec(noun,has_noun)
-do.call("rbind",regmatches(has_noun,matches))
+## base
+matches <- regexec(noun, has_noun)
+do.call("rbind", regmatches(has_noun, matches))
 ```
 
-
+Now we need to organize the output of `gregexpr()` to match that of `str_match_all()`.
 
 ```{r}
 ## stringr
-str_match_all(has_noun,noun)
+str_match_all(has_noun, noun)
 
 ## base
 
-getOrganized <- function(x){
- start = x
- start = ifelse(start<0,NA,start)
- 
- lenEx = attr(x,"match.length")
- 
- end = ifelse(lenEx ==0, start-1,start+lenEx-1)
- end[unlist(lapply(lenEx,is.null))]=NA
- toReturn = cbind(start,end)
- 
- toReturn
+getOrganized <- function(x) {
+  start <- x
+  start <- ifelse(start < 0, NA, start)
+
+  lenEx <- attr(x, "match.length")
+
+  end <- ifelse(lenEx == 0, start - 1, start + lenEx - 1)
+  end[unlist(lapply(lenEx, is.null))] <- NA
+  toReturn <- cbind(start, end)
+
+  toReturn
 }
 
-locations = lapply(gregexpr(noun, has_noun),getOrganized)
+locations <- lapply(gregexpr(noun, has_noun), getOrganized)
 
-together = unname(mapply(function(x,y){apply(y,1,function(z){substr(x,z[1],z[2])})},has_noun,locations,SIMPLIFY=F))
+together <- unname(mapply(function(x, y) {
+  apply(y, 1, function(z) {
+    substr(x, z[1], z[2])
+  })
+}, has_noun, locations, SIMPLIFY = F))
 
 together
 
-sepWord = lapply(together,strsplit," ")
+sepWord <- lapply(together, strsplit, " ")
 
-first = unlist(lapply(sepWord,function(x){lapply(x,function(z){z[1]})}))
-second = unlist(lapply(sepWord,function(x){lapply(x,function(z){z[2]})}))
+first <- unlist(lapply(sepWord, function(x) {
+  lapply(x, function(z) {
+    z[1]
+  })
+}))
+second <- unlist(lapply(sepWord, function(x) {
+  lapply(x, function(z) {
+    z[2]
+  })
+}))
 
-unname(cbind(unlist(together),first,second))
+unname(cbind(unlist(together), first, second))
 
+## this matches the stringR version after a small adjustment
+do.call("rbind", str_match_all(has_noun, noun))
 ```
 
 
@@ -721,10 +742,12 @@ str_replace_all(fruits, "[aeiou]", toupper)
 str_replace_all(fruits, "b", NA_character_)
 
 ## base
-chartr("[aeiou]","[AEIOU]", fruits)
+chartr("[aeiou]", "[AEIOU]", fruits)
 
-#chartr("b",NA, fruits) ## NA is an invalid argument
-ifelse(unlist(lapply(fruits,function(x){grepl("b",x)})),NA,fruits)
+# chartr("b",NA, fruits) ## NA is an invalid argument
+ifelse(unlist(lapply(fruits, function(x) {
+  grepl("b", x)
+})), NA, fruits)
 ```
 
 
@@ -784,40 +807,41 @@ str_split(fruits, " and ", n = 3)
 str_split(fruits, " and ", n = 2)
 
 
-splitRestrict <- function(string, pattern, n){
+splitRestrict <- function(string, pattern, n) {
+  output <- strsplit(string, pattern)
 
- output= strsplit(string, pattern)
- 
- test = max(unlist(lapply(output,length)))
- if(n>=test){
-   return(output)
- }else{
-  
- out = vector("list",length(output))
- 
- ## proof of concept
- ## should streamline to avoid a nested for loop
- for(j in 1:length(output)){
-   for(i in 1:(n-1)){
-       out[[j]]=c(out[[j]],output[[j]][i])
+  test <- max(unlist(lapply(output, length)))
+  if (n >= test) {
+    return(output)
+  } else {
+    out <- vector("list", length(output))
+
+    ## proof of concept
+    ## should streamline to avoid a nested for loop
+    for (j in 1:length(output)) {
+      for (i in 1:(n - 1)) {
+        out[[j]] <- c(out[[j]], output[[j]][i])
+      }
     }
- 
- }
 
- 
- toFinish = lapply(lapply(output, function(x){x[n:length(x)]}),function(x){paste(x,collapse=pattern)})
- 
- ## again both the for loop and the concatenating without prespecifying size are not ideal
-  for(j in 1:length(output)){
-    out[[j]]=c(out[[j]],toFinish[j])
+
+    toFinish <- lapply(lapply(output, function(x) {
+      x[n:length(x)]
+    }), function(x) {
+      paste(x, collapse = pattern)
+    })
+
+    ## again both the for loop and the concatenating without prespecifying size are not ideal
+    for (j in 1:length(output)) {
+      out[[j]] <- c(out[[j]], toFinish[j])
+    }
+
+    lapply(out, unlist)
   }
- 
-lapply(out,unlist)
-}
 }
 
-splitRestrict(fruits," and ",3)
-splitRestrict(fruits," and ",2)
+splitRestrict(fruits, " and ", 3)
+splitRestrict(fruits, " and ", 2)
 ```
 
 ```{r}
@@ -826,7 +850,7 @@ splitRestrict(fruits," and ",2)
 str_split(fruits, " and ", n = 5)
 
 ## base
-splitRestrict(fruits," and ",5)
+splitRestrict(fruits, " and ", 5)
 ```
 
 ```{r}
@@ -838,16 +862,16 @@ str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 
 ## base
-do.call("rbind",splitRestrict(fruits," and ",3))
+do.call("rbind", splitRestrict(fruits, " and ", 3))
 
-output = splitRestrict(fruits," and ",4)
+output <- splitRestrict(fruits, " and ", 4)
 outputDF <- lapply(output, function(x) {
   as.data.frame(t(x), stringsAsFactors = F)
 })
 
 simplified <- plyr::rbind.fill(outputDF)
-toShow = as.matrix(simplified) %>% unname()
-toShow[is.na(toShow)]=""
+toShow <- as.matrix(simplified) %>% unname()
+toShow[is.na(toShow)] <- ""
 toShow
 ```
 
@@ -931,16 +955,16 @@ substr(x, 1, 1) <- "A"
 x
 substr(x, nchar(x), nchar(x)) <- "K"
 x
-y = paste(substr(x,1,nchar(x)-2),"GHIJ", substr(x,nchar(x),nchar(x)),sep="")
+y <- paste(substr(x, 1, nchar(x) - 2), "GHIJ", substr(x, nchar(x), nchar(x)), sep = "")
 y
 ## this doesn't work as expected
 substr(x, -2, -2) <- "GHIJ"
 x
-z=y
+z <- y
 ## this doesn't work as expected
-substr(y,2,-2) <- ""
+substr(y, 2, -2) <- ""
 y
-paste(substr(z,1,1),substr(z,nchar(z),nchar(z)),sep="")
+paste(substr(z, 1, 1), substr(z, nchar(z), nchar(z)), sep = "")
 ```
 
 `substr()` has less capability to handle NAs.
@@ -961,16 +985,16 @@ x1 <- x2 <- x3 <- x4 <- "AAA"
 
 ## base
 substr(x1, 1, NA) <- "B"
-#substr(x2, 1, 2) <- NA ## Error: NA is invalid value
+# substr(x2, 1, 2) <- NA ## Error: NA is invalid value
 x2 <- NA
 
 substr(x3, 1, NA) <- "B" ## no omit_na capability
-#substr(x4, 1, 2) <- NA ## no omit_na capability, Error: NA is invalid value
+# substr(x4, 1, 2) <- NA ## no omit_na capability, Error: NA is invalid value
 
 x1
 x2
 x3
-#x4
+# x4
 ```
 
 
@@ -1040,9 +1064,9 @@ str_squish("\n\nString with excess, trailing and leading white space\n\n")
 # https://stackoverflow.com/questions/25707647/merge-multiple-spaces-to-single-space-remove-trailing-leading-spaces
 
 
-gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", " String with trailing, middle,   and leading white space\t", perl=TRUE)
+gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", " String with trailing, middle,   and leading white space\t", perl = TRUE)
 
-gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", "\n\nString with excess, trailing and leading white space\n\n", perl=TRUE)
+gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", "\n\nString with excess, trailing and leading white space\n\n", perl = TRUE)
 ```
 
 ## `str_trunc`
@@ -1067,7 +1091,6 @@ rbind(
 
   paste(substr(x, 1, ceiling(17 / 2)), "...", substr(x, nchar(x) - floor(17 / 2) + 1, nchar(x)), sep = "")
 )
-
 ```
 
 ## `str_view`
@@ -1094,14 +1117,14 @@ thanks <- word(thanks, 1, 3, fixed("\n\n"))
 cat(str_wrap(thanks), "\n")
 
 ## base
-cat(strwrap(thanks, width = 80)) ## match default
+cat(strwrap(thanks, width = 80)) ## match default width
 ```
 
 ```{r}
 ## stringr
 cat(str_wrap(thanks, width = 40), "\n")
 
-## base 
+## base
 cat(strwrap(thanks, width = 40), "\n")
 ```
 
@@ -1114,7 +1137,7 @@ cat(strwrap(thanks, width = 60, indent = 2), "\n")
 ```
 
 ```{r}
-## stringr 
+## stringr
 cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 
 ## base
@@ -1144,8 +1167,8 @@ str_starts(fruit, "p")
 str_starts(fruit, "p", negate = TRUE)
 
 ## base
-grepl("^p",fruit) 
-!grepl("^p",fruit) 
+grepl("^p", fruit)
+!grepl("^p", fruit)
 ```
 
 ## `str_ends`
@@ -1159,8 +1182,8 @@ str_ends(fruit, "e")
 str_ends(fruit, "e", negate = TRUE)
 
 ## base
-grepl("e$",fruit)
-!grepl("e$",fruit)
+grepl("e$", fruit)
+!grepl("e$", fruit)
 ```
 
 ## `str_to_sentence`
@@ -1172,6 +1195,8 @@ grepl("e$",fruit)
 str_to_sentence("the quick brown dog")
 
 ## base
-sepChar = unlist(strsplit("the quick brown dog",""))
-paste(toupper(sepChar[1]),paste(sepChar[2:length(sepChar)],collapse=""),sep="")
+sepChar <- unlist(strsplit("the quick brown dog", ""))
+paste(toupper(sepChar[1]), paste(sepChar[2:length(sepChar)], collapse = ""), sep = "")
 ```
+
+Often the base R version is much more complicated with less tidy output. The stringr functions allow us to more easily manipulate strings.
