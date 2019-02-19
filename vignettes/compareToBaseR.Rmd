@@ -125,12 +125,21 @@ str_to_upper("i", "tr") # Turkish
 *Switch location of matches to location of non-matches*
 
 ```{r}
-## TO DO
+## stringr
 numbers <- "1 and 2 and 4 and 456"
 num_loc <- str_locate_all(numbers, "[0-9]+")[[1]]
-str_sub(numbers, num_loc[, "start"], num_loc[, "end"])
+num_loc
 text_loc <- invert_match(num_loc)
-str_sub(numbers, text_loc[, "start"], text_loc[, "end"])
+text_loc
+
+## base 
+## take the output from str_locate_all for now
+## see below for base R version of str_locate_all
+## can use the source code for invert_match since it's in base
+
+text_loc <- cbind(start = c(0L, num_loc[, "end"] + 1L), end = c(num_loc[, "start"] - 
+        1L, -1L))
+text_loc
 ```
 
 ## `modifiers`
@@ -325,7 +334,26 @@ I was not able to find a way to get the combination of `regexpr()` and `regmatch
 str_extract_all(shopping_list, "[a-z]+")
 
 ## base
-## ?
+
+getOrganized <- function(x){
+  start = x
+ start = ifelse(start<0,NA,start)
+ 
+ lenEx = attr(x,"match.length")
+ 
+ end = ifelse(lenEx ==0, start-1,start+lenEx-1)
+ end[unlist(lapply(lenEx,is.null))]=NA
+ toReturn = cbind(start,end)
+ 
+ toReturn
+}
+
+locations = lapply(gregexpr("[a-z]+", shopping_list),getOrganized)
+
+together = unname(mapply(function(x,y){apply(y,1,function(z){substr(x,z[1],z[2])})},shopping_list,locations,SIMPLIFY=F))
+
+together
+
 ```
 
 ## `str_flatten`
@@ -464,6 +492,32 @@ do.call("rbind",lapply(gregexpr("ap", fruit),getOrganized))
 do.call("rbind",mapply(function(x,y){do.call("rbind",lapply(gregexpr(x, y),getOrganized))},c("a", "b", "p", "p"),fruit,SIMPLIFY=F))
 ```
 
+## `str_locate_all`
+
+```{r}
+fruit <- c("apple", "banana", "pear", "pineapple")
+
+## stringR
+str_locate_all(fruit, "p")
+
+
+## base
+getOrganized <- function(x){
+ start = x
+ start = ifelse(start<0,NA,start)
+ 
+ lenEx = attr(x,"match.length")
+ 
+ end = ifelse(lenEx ==0, start-1,start+lenEx-1)
+ end[unlist(lapply(lenEx,is.null))]=NA
+ toReturn = cbind(start,end)
+ 
+ toReturn
+}
+
+lapply(gregexpr("p", fruit),getOrganized)
+```
+
 ## `str_match`
 
 *Extract matched groups from a string*
@@ -486,14 +540,40 @@ matches <-regexec(noun,has_noun)
 do.call("rbind",regmatches(has_noun,matches))
 ```
 
-I was not able to find a way to get the combination of `regexec()` and `regmatches()` to return more than the first instance.
+
 
 ```{r}
 ## stringr
 str_match_all(has_noun,noun)
 
 ## base
-## ?
+
+getOrganized <- function(x){
+ start = x
+ start = ifelse(start<0,NA,start)
+ 
+ lenEx = attr(x,"match.length")
+ 
+ end = ifelse(lenEx ==0, start-1,start+lenEx-1)
+ end[unlist(lapply(lenEx,is.null))]=NA
+ toReturn = cbind(start,end)
+ 
+ toReturn
+}
+
+locations = lapply(gregexpr(noun, has_noun),getOrganized)
+
+together = unname(mapply(function(x,y){apply(y,1,function(z){substr(x,z[1],z[2])})},has_noun,locations,SIMPLIFY=F))
+
+together
+
+sepWord = lapply(together,strsplit," ")
+
+first = unlist(lapply(sepWord,function(x){lapply(x,function(z){z[1]})}))
+second = unlist(lapply(sepWord,function(x){lapply(x,function(z){z[2]})}))
+
+unname(cbind(unlist(together),first,second))
+
 ```
 
 
