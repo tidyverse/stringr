@@ -5,7 +5,7 @@
 \title{Truncate a character string.}
 \usage{
 str_trunc(string, width, side = c("right", "left", "center"),
-  ellipsis = "...")
+  ellipsis = "...", replace = TRUE)
 }
 \arguments{
 \item{string}{A character vector.}
@@ -14,6 +14,9 @@ str_trunc(string, width, side = c("right", "left", "center"),
 
 \item{side, ellipsis}{Location and content of ellipsis that indicates
 content has been removed.}
+
+\item{replace}{if TRUE (default), ellipsis is taken into account in
+the width, otherwise ellipsis is added after resizing the string.}
 }
 \description{
 Truncate a character string.
