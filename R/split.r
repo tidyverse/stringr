@@ -7,10 +7,14 @@
 #' @param n number of pieces to return.  Default (Inf) uses all
 #'   possible split positions.
 #'
-#'   For `str_split_fixed`, if n is greater than the number of pieces,
+#'   For `str_split_fixed`, if `n` is greater than the number of pieces,
 #'   the result will be padded with empty strings.
+#'
+#'   For `str_split_n`, `n` is the desired index of each element of
+#'   the split `string`.
 #' @return For `str_split_fixed`, a character matrix with `n` columns.
-#'   For `str_split`, a list of character vectors.
+#'   For `str_split`, a list of character vectors.  For `str_split_n`,
+#'   a length `n` character vector.
 #' @seealso [stri_split()] for the underlying implementation.
 #' @export
 #' @examples
@@ -31,6 +35,10 @@
 #' # Use fixed to return a character matrix
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
+#'
+#' # str_split_n extracts only a single piece from a string
+#' str_split_n(fruits, " and ", 1)
+#' str_split_n(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
 
@@ -49,4 +57,11 @@ str_split_fixed <- function(string, pattern, n) {
   out <- str_split(string, pattern, n = n, simplify = TRUE)
   out[is.na(out)] <- ""
   out
+}
+
+#' @export
+#' @rdname str_split
+str_split_n <- function(string, pattern, n) {
+  out <- str_split(string, pattern, simplify = TRUE)
+  apply(out, 1, `[`, i = n)
 }
