@@ -4,7 +4,7 @@ author: "Sara Stoudt"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Comparing stringr to base R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,59 +16,61 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette aims to compare stringr functions to base R equivalents. Following the groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf), these are the base equivalents to stringr functions.
+This vignette aims to compare stringr functions to base R equivalents to facilitate users transitioning from using base R to stringr. Following the groupings of functions from the [stringr cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf), these are the base equivalents to stringr functions.
 
-# Detect Matches
-
-| base | stringr    |
-|------|------------|
-|   `grepl()`   | `str_detect()` |
-|   `grep()`   | `str_which()`  |
-|   `gregexpr()`   | `str_count()`  |
-|  `gregexpr()`    | `str_locate()` |
-
-# Subset Strings
+# Detect matches
 
 | base | stringr    |
 |------|------------|
-|   `substr()`   | `str_sub()`    |
-|    `grep()`  | `str_subset()` |
-|   `regexpr()` + `regmatches()`   | `str_extract()`|
-|   `regexec()` + `regmatches()`   | `str_match()`  |
+|   `grepl(pattern, string)`   | `str_detect(string, pattern)` |
+|   `grep(pattern, string)`   | `str_which(string, pattern)`  |
+|   `gregexpr(pattern, string)`   | `str_count(string, pattern)`  |
+|   `regexpr(pattern, string)`   | `str_locate(string, pattern)`  |
+|   `gregexpr(pattern, string)`    | `str_locate_all(string, pattern)` |
+
+# Subset strings
+
+| base | stringr    |
+|------|------------|
+|   `substr(string, start, end)`   | `str_sub(string, start, end)`    |
+|    `grep(pattern, string, value = TRUE)`  | `str_subset(string, pattern)` |
+|   `regexpr(pattern, string)` + `regmatches()`   | `str_extract(string, pattern)`|
+|   `regexec(patter, string)` + `regmatches()`   | `str_match(string, pattern)`  |
 
 
-# Manage Lengths
+# Manage lengths
 
 | base | stringr    |
 |------|------------|
 |   `nchar()`   | `str_length()` |
-|  `sprintf()`    | `str_pad()`    |
-|   `substr()`   | `str_trunc()`  |
+|  N/A    | `str_pad()`    |
+|   N/A  | `str_trunc()`  |
 |   `trimws()`   | `str_trim()`   |
+|  `strwrap()`    | `str_wrap()`     |
 
-# Mutate Strings
+# Mutate strings
 
 | base | stringr        |
 |------|----------------|
-|  `substr()`    | `str_sub()`        |
-|   `sub()`   | `str_replace()`    |
-|   `gsub()`   | `str_replace_all()`|
+|  `substr(string, start, end)`    | `str_sub(string, start, end)`        |
+|   `sub(pattern, replacement, string)`   | `str_replace(string, pattern, replacement)`    |
+|   `gsub(pattern, replacement, string)`   | `str_replace_all(string, pattern, replacement)`|
 |   `tolower()`   | `str_to_lower()`   |
 |   `toupper()`   | `str_to_upper()`   |
 |  `tools::toTitleCase()`    | `str_to_title()`   |
 
 
-# Join and Split
+# Join and split
 
 | base | stringr        |
 |------|----------------|
 |   `paste()`   | `str_c()`          |
-|  `replicate()` + `paste()`    | `str_dup()`        |
-|  `strsplit()`    | `str_split_fixed()`|
+|  `replicate()` + `paste()`    | `str_dup(string, times)`        |
+|  `strsplit(string, pattern)`    | `str_split_fixed(string, pattern)`|
 |   `paste()` + `eval()`   | `str_glue()`       |
 |    `paste()`  | `str_glue_data()`  |
 
-# Order Strings
+# Order strings
 
 | base | stringr        |
 |------|----------------|
@@ -82,7 +84,7 @@ This vignette aims to compare stringr functions to base R equivalents. Following
 |  `iconv()`    | `str_conv()`     |
 |  N/A    | `str_view()`     |
 |   N/A   | `str_view_all()` |
-|  `strwrap()`    | `str_wrap()`     |
+
 
 ```{r}
 library(stringr)
@@ -110,15 +112,21 @@ tolower(dog)
 tools::toTitleCase(dog)
 ```
 
-Locale distinctions are not made in base R.
+In base R locale distinctions are controlled with global variables.
 
 ```{r}
-# Locale matters!
+## stringr
 str_to_upper("i") # English
 str_to_upper("i", "tr") # Turkish
 
-## no equivalent in base
 ```
+
+```{r,eval=F}
+## base
+Sys.setlocale(category = "LC_ALL", locale = "Turkish") # not run
+```
+
+
 
 ## `invert_match`
 
@@ -1200,3 +1208,5 @@ paste(toupper(sepChar[1]), paste(sepChar[2:length(sepChar)], collapse = ""), sep
 ```
 
 Often the base R version is much more complicated with less tidy output. The stringr functions allow us to more easily manipulate strings.
+
+Note: [`stringi`](https://cran.r-project.org/web/packages/stringi/stringi.pdf) is another package for string processing that may be of interest to those doing a lot of text processing. This package has more capabilities than `stringr` and works at a finer grained level.
