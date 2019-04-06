@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_unique()` is a wrapper around `stri_unique()` and returns unique string 
+  values in a character vector.
+
 # stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
