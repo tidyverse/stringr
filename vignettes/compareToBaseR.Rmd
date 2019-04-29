@@ -145,6 +145,13 @@ str_count(string = fruit, pattern = "a")
 
 This information can be gleaned from `gregexpr()` in base, but you will need to parse the output. This functionality is much more straightforward in stringr's `str_count()`. 
 
+```{r}
+results <- gregexpr(pattern = "a", text = fruit, fixed = TRUE)
+
+lapply(results,function(x){length(attr(x,"match.length"))}) %>% unlist()
+```
+
+
 
 ## `str_locate()`: Locate the position of patterns in a string
 
@@ -161,6 +168,15 @@ str_locate_all(string = fruit, pattern = "p")
 
 Again we would need to parse the output of `gregexpr()` to get the information we want. The stringr package provides specialized functions, `str_locate()` and `str_locate_all()` to do the job. 
 
+What if the pattern we request doesn't occur? `gregexpr()` returns a -1 for the `match.length` attribute while `str_locate()` returns NAs for the `start` and `end`.
+
+```{r}
+# base
+gregexpr(pattern = "z", text = fruit)
+
+# stringr
+str_locate(string = fruit, pattern = "z")
+```
 
 
 # Subset strings
@@ -184,8 +200,33 @@ str_sub(string = hw, end = 6)
 
 In base you could use `substr()` or `substring()`. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, `str_sub()` has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs. 
 
+In stringr you can use negative numbers to help you choose your subset. The use of -1 as the `end` parameter will return up to and including the last character. The use of -2 will return up to the second to last character (and so on).
 
-There are some differences in behavior between `str_sub()` and `substr()`.
+```{r}
+# stringr
+str_sub(string = hw ,start=1, end = -1)
+str_sub(string = hw ,start=1, end = -2)
+```
+
+Both base R and stringr are vectorized for the substring functions. This means you can either choose the same subset across multiple strings or specify different subsets for different strings.
+
+```{r}
+al <- "Ada Lovelace"
+
+# base
+substr(x = c(hw,al), start = 1, stop = 6)
+
+substr(x = c(hw,al), start = c(1,1), stop = c(6,7))
+
+# stringr
+str_sub(string = c(hw,al), start=1, end = -1)
+
+str_sub(string = c(hw,al), start=c(1,1), end = c(-1,-2))
+```
+
+## `str_sub() <- `: subset assignment
+
+There are some differences in behavior between `str_sub()` and `substr()` when we are replacing substrings via assignment statements.
 
 ```{r}
 # base
@@ -301,6 +342,24 @@ str_match_all(string = has_noun, pattern = noun)
 
 The output of grouped matches is the full match and then the components of each group. Again, in base R we need to pair `regexec()` and `regmatches()` whereas in stringr we just need one function: `str_match()`. To get all the grouped matches in base R we would need to organize the output of `gregexpr()` whereas stringr's `str_match_all()` streamlines this process.
 
+When an entry does not have a match, the stringr approaches maintain the correct dimensions of the output (using NAs or a matrix with 0 rows but the appropriate number of columns). In base R, `gregexpr()` also maintains the correct dimensions, but the `regmatches()` approach drops the entry that lacks the pattern. This can cause problems if we are making assumptions on the order and/or dimension of the output in further steps of our analysis.
+
+
+```{r}
+extra <- c(has_noun[1:3], "Wake and rise.", has_noun[4:5])
+
+# base
+matches <- regexec(pattern = noun, text = extra)
+do.call("rbind", regmatches(x = extra, m = matches))
+gregexpr(pattern = noun, text = extra)
+
+# stringr
+str_match(string = extra, pattern = noun)
+test = str_match_all(string = extra, pattern = noun)
+test
+
+test[[6]] %>% dim()
+```
 
 # Manage lengths
 
@@ -355,6 +414,11 @@ str_length(u2)
 If you want to pad a string to a certain width, you can use stringr's `str_pad()`. In base R you could use `sprintf()`, but unlike `str_pad()`, `sprintf()` has many other functionalities. 
 
 ```{r}
+# base
+sprintf("%30s", "hadley")
+sprintf("%-30s", "hadley")
+# "both" is not as straightforward
+
 # stringr
 rbind(
   str_pad("hadley", 30, "left"),
@@ -362,10 +426,6 @@ rbind(
   str_pad("hadley", 30, "both")
 )
 
-# base
-sprintf("%30s", "hadley")
-sprintf("%-30s", "hadley")
-# "both" is not as straightforward
 ```
 
 
@@ -387,16 +447,16 @@ rbind(
 
 ## `str_trim()`: Trim whitespace from a string
 
-Similarly, stringr provides `str_trim()` to trim whitespace from a string. This is analogous to base R's `trimws()`.
+Similarly, stringr provides `str_trim()` to trim whitespace from a string. This is analogous to base R's `trimws()` added in base version 3.5.3.
 
 ```{r}
-# stringr
-str_trim(" String with trailing and leading white space\t")
-str_trim("\n\nString with trailing and leading white space\n\n")
-
 # base
 trimws(" String with trailing and leading white space\t")
 trimws("\n\nString with trailing and leading white space\n\n")
+
+# stringr
+str_trim(" String with trailing and leading white space\t")
+str_trim("\n\nString with trailing and leading white space\n\n")
 ```
 
 The stringr function `str_squish()` allows for extra whitespace within a string to be trimmed (in contrast to `str_trim()` which removes whitespace at the beginning and/or end of string). In base R, one might take advantage of `gsub()` to accomplish the same effect.
@@ -416,11 +476,11 @@ thanks_path <- file.path(R.home("doc"), "THANKS")
 thanks <- str_c(readLines(thanks_path), collapse = "\n")
 thanks <- word(thanks, 1, 3, fixed("\n\n"))
 
-# stringr
-cat(str_wrap(thanks), "\n")
-
 # base
 cat(strwrap(thanks, width = 80)) # match default width
+
+# stringr
+cat(str_wrap(thanks), "\n")
 ```
 
 
@@ -433,13 +493,13 @@ To replace certain patterns within a string, stringr provides the functions `str
 ```{r}
 fruits <- c("apple", "banana", "pear", "pinapple")
 
-# stringr
-str_replace(fruits, "[aeiou]", "-")
-str_replace_all(fruits, "[aeiou]", "-")
-
 # base
 sub("[aeiou]", "-", fruits)
 gsub("[aeiou]", "-", fruits)
+
+# stringr
+str_replace(fruits, "[aeiou]", "-")
+str_replace_all(fruits, "[aeiou]", "-")
 ```
 
 
@@ -451,28 +511,28 @@ Both stringr and base R have functions to convert to upper and lower case.  Titl
 ```{r}
 dog <- "The quick brown dog"
 
-# stringr
-str_to_upper(dog)
-str_to_lower(dog)
-str_to_title(dog)
-
 # base
 toupper(dog)
 tolower(dog)
 tools::toTitleCase(dog)
+
+# stringr
+str_to_upper(dog)
+str_to_lower(dog)
+str_to_title(dog)
 ```
 
 In stringr we can control the locale, while in base R locale distinctions are controlled with global variables.
+
+```{r,eval=F}
+# base
+Sys.setlocale(category = "LC_ALL", locale = "Turkish") # not run
+```
 
 ```{r}
 # stringr
 str_to_upper("i") # English
 str_to_upper("i", "tr") # Turkish
-```
-
-```{r,eval=F}
-# base
-Sys.setlocale(category = "LC_ALL", locale = "Turkish") # not run
 ```
 
 # Join and split
@@ -482,11 +542,11 @@ Sys.setlocale(category = "LC_ALL", locale = "Turkish") # not run
 To join multiple strings into one, base R uses `paste()` while string_r uses `str_c()` (the "c" stands for concatenate).
 
 ```{r}
-# stringr
-str_c("Letter: ", letters)
-
 # base
 paste("Letter: ", letters, sep = "")
+
+# stringr
+str_c("Letter: ", letters)
 ```
 
 
@@ -512,12 +572,11 @@ fruits <- c(
   "apples and oranges and pears and bananas",
   "pineapples and mangos and guavas"
 )
+# base
+strsplit(fruits, " and ")
 
 # stringr
 str_split(fruits, " and ")
-
-# base
-strsplit(fruits, " and ")
 ```
 
 The stringr package's `str_split()` allows for more control over the split, including restricting the number of possible matches.
@@ -526,7 +585,6 @@ The stringr package's `str_split()` allows for more control over the split, incl
 # stringr
 str_split(fruits, " and ", n = 3)
 str_split(fruits, " and ", n = 2)
-
 ```
 
 
@@ -541,23 +599,23 @@ name <- "Fred"
 age <- 50
 anniversary <- as.Date("1991-10-12")
 
+# base
+paste("My name is ", name, ", my age next year is ", age+1, ", and my anniversary is ", format(anniversary, "%A, %B %d, %Y"), ".", sep = "")
+
 # stringr
 str_glue(
   "My name is {name}, ",
   "my age next year is {age + 1}, ",
   "and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."
 )
-
-# base
-paste("My name is ", name, ", my age next year is ", age+1, ", and my anniversary is ", format(anniversary, "%A, %B %d, %Y"), ".", sep = "")
 ```
 
 ```{r}
-# stringr
-mtcars %>% str_glue_data("{rownames(.)} has {hp} hp") %>% head()
-
 # base
 paste(rownames(mtcars), "has", mtcars$hp, "hp") %>% head()
+
+# stringr
+mtcars %>% str_glue_data("{rownames(.)} has {hp} hp") %>% head()
 ```
 
 
@@ -568,13 +626,13 @@ paste(rownames(mtcars), "has", mtcars$hp, "hp") %>% head()
 Both base R and stringr have separate functions to order and sort strings.
 
 ```{r}
-# stringr
-str_order(letters)
-str_sort(letters)
-
 # base
 order(letters)
 sort(letters)
+
+# stringr
+str_order(letters)
+str_sort(letters)
 ```
 
 Some options in `str_order()` and `str_sort()` don't have analogous base R options.
