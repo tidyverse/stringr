@@ -94,6 +94,16 @@ Now we will walk through each of the functions in the above tables, noting the s
 
 These stringr examples come from the [stringr documentation](https://cran.r-project.org/web/packages/stringr/stringr.pdf) and here, they are contrasted with the analogous base R operation(s).
 
+# Take-Aways
+
+Overall the main differences between base R and stringr are:
+
+1. The stringr package uses the `str_` prefix for its functions while base R has no unifying format for its functions.
+2. The order of inputs is often (but not always) different between base R and stringr. In base R, the pattern often comes before the string while in stringr the expected input order is consistently the string first and then the pattern. The stringr order of inputs can be useful when using `apply()` or `purrr::map()` statements.
+3. The stringr package provides more modular functionality. Many of the string processing functions in base R have multiple purposes while stringr's functions are each written to solve a single task.
+4. The stringr package often returns outputs in a tidier format. Similar formats can be wrangled out of base R outpus, but often require more effort.
+
+
 
 # Detect matches
 
@@ -111,7 +121,7 @@ grepl(pattern = "a", x = fruit)
 str_detect(string = fruit, pattern = "a")
 ```
 
-In base you would use `grepl()` (see the "l" and think logical) while in stringr you use `str_detect()` (see the verb "detect" and think of a yes/no action). Note the different order of inputs. `grepl()` expects the pattern of interest first while `str_detect()` expects the string first. This order of inputs can be useful when combining `str_detect()` with `apply()` or `purrr::map()` statements.
+In base you would use `grepl()` (see the "l" and think logical) while in stringr you use `str_detect()` (see the verb "detect" and think of a yes/no action). Note the different order of inputs. `grepl()` expects the pattern of interest first while `str_detect()` expects the string first. 
 
 
 ## `str_which()`: Find positions matching a pattern
@@ -127,7 +137,7 @@ grep(pattern = "a", x = fruit)
 str_which(string = fruit, pattern = "a")
 ```
 
-In base you would use `grep()` while in stringr you use `str_which()` (analogous to `which()` returning matching positions). Again there is a difference in the order of expected inputs. It should be noted that `grep()` is a versatile function. You will see it used again in this vignette for a different purpose.
+In base you would use `grep()` while in stringr you use `str_which()` (analogous to `which()` returning matching positions). It should be noted that `grep()` is a versatile function. You will see it used again in this vignette for a different purpose.
 
 
 ## `str_count()`: Count the number of matches in a string
@@ -224,7 +234,7 @@ str_sub(string = c(hw,al), start=1, end = -1)
 str_sub(string = c(hw,al), start=c(1,1), end = c(-1,-2))
 ```
 
-## `str_sub() <- `: subset assignment
+## `str_sub() <- `: Subset assignment
 
 There are some differences in behavior between `str_sub()` and `substr()` when we are replacing substrings via assignment statements.
 
@@ -522,12 +532,7 @@ str_to_lower(dog)
 str_to_title(dog)
 ```
 
-In stringr we can control the locale, while in base R locale distinctions are controlled with global variables.
-
-```{r,eval=F}
-# base
-Sys.setlocale(category = "LC_ALL", locale = "Turkish") # not run
-```
+In stringr we can control the locale, while in base R locale distinctions are controlled with global variables. Therefore, the output of your base R code may vary across different computers with different global settings.
 
 ```{r}
 # stringr
@@ -539,14 +544,26 @@ str_to_upper("i", "tr") # Turkish
 
 ## `str_c()`: Join multiple strings into a single string
 
-To join multiple strings into one, base R uses `paste()` while string_r uses `str_c()` (the "c" stands for concatenate).
+To join multiple strings into one, base R uses `paste()` or `paste0()` while stringr uses `str_c()` (the "c" stands for concatenate).
 
 ```{r}
 # base
-paste("Letter: ", letters, sep = "")
+paste0("Letter: ", letters) # default separator is ""
 
 # stringr
 str_c("Letter: ", letters)
+```
+
+## `str_flatten()`: Flatten a string
+
+If we want to take elements of a string vector and collapse them to a single string we can use the `collapse` argument in `paste()` or use stringr's `str_flatten()`.
+
+```{r}
+# base
+paste0("Letter: ", letters, collapse = "")
+
+# stringr
+str_flatten(paste0("Letter: ", letters))
 ```
 
 
@@ -635,35 +652,15 @@ str_order(letters)
 str_sort(letters)
 ```
 
-Some options in `str_order()` and `str_sort()` don't have analogous base R options.
+Some options in `str_order()` and `str_sort()` don't have analogous base R options. For example, the stringr functions have a `locale` argument to control how to order or sort. In base R the locale is a global setting, so the outputs of `sort()` and `order()` may differ across different computers. The stringr functions also have a `numeric` argument to sort digits numerically instead of treating them as strings.
+
 
 ```{r}
-str_order(letters, locale = "haw") ## vowels come first
-str_sort(letters, locale = "haw")
-# no locale capability in order, sort
-```
-
-```{r}
+# stringr
 x <- c("100a10", "100a5", "2b", "2a")
 str_sort(x)
 str_sort(x, numeric = TRUE)
-
-sort(x)
-# no numeric capability in sort
 ```
-
-
-
-# Take-Aways
-
-Overall the main differences between base R and stringr are:
-
-1. The stringr package uses the `str_` prefix for its functions while base R has no unifying format for its functions.
-2. The order of inputs is often (but not always) opposite between base R and stringr. In base R, the pattern often comes before the string while in stringr the expected input order is flipped. The stringr order of inputs can be useful when using `apply()` or `purrr::map()` statements.
-3. The stringr package provides more modular functionality. Many of the string processing functions in base R have multiple purposes while stringr's functions are each written to solve a single task.
-4. The stringr package often returns outputs in a tidier format. Similar formats can be wrangled out of base R outpus, but often require more effort.
-
-
 
 
 Note: [`stringi`](https://cran.r-project.org/web/packages/stringi/stringi.pdf) is another package for string processing that may be of interest to those doing a lot of text processing. This package has more capabilities than stringr and works at a finer grained level.
