@@ -431,7 +431,7 @@ The advantage of `str_flatten()` is that it always returns a vector the same len
 
 To duplicate strings within a character vector use `strrep()` (in R 3.3.0 or greater) or `str_dup()`:
 
-```{r}
+```{r, eval = (getRversion() >=  "3.3.0")}
 fruit <- c("apple", "pear", "banana")
 
 # base
