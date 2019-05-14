@@ -1,11 +1,19 @@
-# stringr 1.3.1.9000
+# stringr (development version)
+
+# stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
-  additional placeholders (@amhrasmussen)
+  additional placeholders (@amhrasmussen).
 
-* `str_subset()`, `str_detect()`, and `str_which()` gets `negate` argument,
+* New `str_starts()` and `str_ends()` functions to detect patterns at the 
+  beginning or end of strings (@jonthegeek, #258).
+
+* `str_subset()`, `str_detect()`, and `str_which()` get `negate` argument,
   which is useful when you want the elements that do NOT match (#259,
   @yutannihilation).
+  
+* New `str_to_sentence()` function to capitalize with sentence case 
+  (@jonthegeek, #202).
 
 # stringr 1.3.1
 

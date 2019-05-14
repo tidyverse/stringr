@@ -34,7 +34,8 @@ Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 }
 \description{
 \code{str_view} shows the first match; \code{str_view_all} shows all
-the matches.
+the matches. To build regular expressions interactively, check out the
+\href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
 }
 \examples{
 str_view(c("abc", "def", "fgh"), "[aeiou]")

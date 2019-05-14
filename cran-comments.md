@@ -11,10 +11,10 @@
 
 ## revdepcheck results
 
-We checked 672 reverse dependencies (608 from CRAN + 64 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 855 reverse dependencies (744 from CRAN + 111 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 3 new problems
- * We failed to check 45 packages
+ * We saw 1 new problems
+ * We failed to check 14 packages
 
 Issues with CRAN packages are summarised below.
 
@@ -22,61 +22,23 @@ Issues with CRAN packages are summarised below.
 (This reports the first line of each new failure)
 
 * banR
-  checking re-building of vignette outputs ... WARNING
-  Appears to be network related.
-
-* GetITRData
-  checking re-building of vignette outputs ... WARNING
-  Appears to be network related.
-
-* RSMET
   checking examples ... ERROR
-  Appears to be network related.
+  checking re-building of vignette outputs ... WARNING
+  Appears to be network related
 
 ### Failed to check
 
-* afex                (failed to install)
-* aqp                 (failed to install)
-* aslib               (failed to install)
-* BETS                (failed to install)
-* bioacoustics        (failed to install)
-* choroplethr         (failed to install)
-* ck37r               (failed to install)
-* Cluster.OBeu        (failed to install)
-* CollapsABEL         (failed to install)
-* drLumi              (failed to install)
-* EasyMARK            (failed to install)
-* eemR                (failed to install)
-* ez                  (failed to install)
-* ggplotgui           (failed to install)
-* Greg                (failed to install)
-* highcharter         (failed to install)
-* HistogramTools      (failed to install)
-* IATscores           (failed to install)
-* imager              (failed to install)
-* kehra               (failed to install)
-* mgm                 (failed to install)
-* modeval             (check timed out)
-* nauf                (failed to install)
-* nhanesA             (failed to install)
-* odkr                (failed to install)
-* olsrr               (failed to install)
-* osmose              (failed to install)
-* PATHChange          (failed to install)
-* Plasmidprofiler     (failed to install)
-* psycho              (failed to install)
-* qualtRics           (failed to install)
-* radiant.model       (failed to install)
-* RmecabKo            (failed to install)
-* rsunlight           (failed to install)
-* rUnemploymentData   (failed to install)
-* rusda               (failed to install)
-* satscanMapper       (failed to install)
-* scorecardModelUtils (failed to install)
-* simr                (failed to install)
-* sjmisc              (failed to install)
-* spatsurv            (failed to install)
-* staRdom             (failed to install)
-* stminsights         (failed to install)
-* templates           (failed to install)
-* VDAP                (failed to install)
+* annovarR    (failed to install)
+* aslib       (failed to install)
+* CollapsABEL (failed to install)
+* fastLink    (failed to install)
+* FRESA.CAD   (failed to install)
+* HTSSIP      (check timed out)
+* nauf        (failed to install)
+* RJafroc     (failed to install)
+* rpcdsearch  (failed to install)
+* sdcTable    (failed to install)
+* spatsurv    (failed to install)
+* subspace    (failed to install)
+* updog       (failed to install)
+* vortexR     (failed to install)
