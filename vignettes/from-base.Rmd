@@ -23,7 +23,6 @@ We'll begin with a lookup table between the most important base string functions
 
 | base | stringr    |
 |------|------------|
-| `gregexpr(pattern, x)` | `str_count(x, pattern)`  |
 | `gregexpr(pattern, x)` | `str_locate_all(x, pattern)` |
 | `grep(pattern, x, value = TRUE)` | `str_subset(x, pattern)` |
 | `grep(pattern, x)` | `str_which(x, pattern)`  |
@@ -36,10 +35,9 @@ We'll begin with a lookup table between the most important base string functions
 | `regexpr(pattern, x)` | `str_locate(x, pattern)`  |
 | `sort(x)` | `str_sort(x)` |
 | `strrep(x, n)` | `str_dup(x, x)` |
-| `strsplit(x, pattern)` | `str_split_fixed(x, pattern)`|
+| `strsplit(x, pattern)` | `str_split(x, pattern)`|
 | `strwrap(x)` | `str_wrap(x)` |
 | `sub(pattern, replacement, x)` | `str_replace(x, pattern, replacement)` |
-| `substr(x, start, end)` | `str_sub(x, start, end)`    |
 | `substr(x, start, end)` | `str_sub(x, start, end)` |
 | `tolower(x)` | `str_to_lower(x)` |
 | `tools::toTitleCase(x)` | `str_to_title(x)` |
