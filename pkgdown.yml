@@ -4,9 +4,6 @@ pkgdown_sha: ~
 articles:
   from-base: from-base.html
   regular-expressions: regular-expressions.html
-  stringr-1.0.0: releases/stringr-1.0.0.html
-  stringr-1.1.0: releases/stringr-1.1.0.html
-  stringr-1.2.0: releases/stringr-1.2.0.html
   stringr: stringr.html
 urls:
   reference: https://stringr.tidyverse.org/reference
