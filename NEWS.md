@@ -1,5 +1,10 @@
 # stringr (development version)
 
+* New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
+  between base R functions and their stringr equivalents. It's designed to
+  help you move to stringr if you're already familiar with base R string
+  functions (#266).
+
 # stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
