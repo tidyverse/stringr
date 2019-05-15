@@ -19,7 +19,7 @@ This vignette compares stringr functions to their base R equivalents to help use
 
 # Overall differences
 
-We'll begin with a lookup table between the most important base string functions and their  stringr equivalents.
+We'll begin with a lookup table between the most important base string functions and their stringr equivalents.
 
 | base | stringr    |
 |------|------------|
@@ -30,7 +30,7 @@ We'll begin with a lookup table between the most important base string functions
 | `gsub(pattern, replacement, x)` | `str_replace_all(x, pattern, replacement)`|
 | `nchar(x)` | `str_length(x)` |
 | `order(x)` | `str_order(x)` |
-| `regexec(patter, x)` + `regmatches()` | `str_match(x, pattern)`  |
+| `regexec(pattern, x)` + `regmatches()` | `str_match(x, pattern)`  |
 | `regexpr(pattern, x)` + `regmatches()` | `str_extract(x, pattern)`|
 | `regexpr(pattern, x)` | `str_locate(x, pattern)`  |
 | `sort(x)` | `str_sort(x)` |
