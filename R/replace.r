@@ -42,9 +42,9 @@
 #' str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 #' # Element-wise matching. 1st element to 1st pattern, etc.
 #' str_replace(fruits, c("a", "e", "i"), "-")
-#' # Replace first matched patterns in each elements
+#' # Replace first matched pattern in all elements
 #' str_replace(fruits, c("a|e|i"), "-")
-#' # Replace all patterns in each elements
+#' # Replace all patterns in all elements
 #' str_replace_all(fruits, c("a|e|i"), "-")
 #'
 #' # If you want to apply multiple patterns and replacements to the same
