@@ -80,3 +80,130 @@ str_sub <- function(string, start = 1L, end = -1L) {
   }
   string
 }
+
+
+
+#' @title
+#' Select the LEFT, RIGHT or MID of a string.
+#'
+#' @description
+#' These functions are identical to Excel equivalents of `LEFT()`, `RIGHT()` and `MID()`.
+#' All three functions (`str_left()`, `str_right()` and `str_mid()`) are wrappers around `base::substr()`.
+#' The concept and Examples are provided by John (https://www.rforexcelusers.com/author/jtav04gmail-com/) on
+#'     R For Excel Users (https://www.rforexcelusers.com/how-to-mid-right-left-r/).
+#'
+#' @details
+#' Vectorised over `string` to length `num_chars`, starting from `start_num`.
+#'
+#' @author Chris Mahoney (https://github.com/chrimaho)
+#'
+#' @seealso
+#' The similar stringr implementation in [stringr::str_sub()]
+#' The similar stringi implementation in [stringi::stri_sub()]
+#'
+#' @param string A character vector; the string to search in.
+#' @param num_chars An atomic numeric value; the length of the string to be returned.
+#' @param start_num An atomic numeric value; the starting position of the string to be returned
+#'
+#' @return A character vector.
+#'
+#' @examples
+#' ## Set Data ##
+#' a <- "Chicago"
+#' b <- "New York City"
+#' c <- "Los Angeles"
+#'
+#' ## Using `base` ##
+#' # LEFT
+#' substr(a, 1, 3)
+#'
+#' # MID
+#' substr(b, 5, 8)
+#'
+#' # RIGHT
+#' substr(c, 5, 11)
+#'
+#' ## Using `stringr` ##
+#' # LEFT
+#' str_left(a, 3)
+#'
+#' # MID
+#' str_mid(b, 5, 4)
+#'
+#' # RIGHT
+#' str_right(c, 7)
+
+#' @export
+#### str_left() ####
+str_left <- function(string, num_chars) {
+
+  # Input:
+  # - 'string' is the text string you want to select from; must be an character type.
+  # - 'num_chars' is the number of characters that you want to select; must be an atomic numeric type.
+
+  # Output:
+  # - A text string of length 'num_chars' that corresponds to the left most number of characters from the 'string' option.
+
+  # Validations:
+  stopifnot(is.character(string))
+  stopifnot(is.numeric(num_chars))
+  stopifnot(is.atomic(num_chars))
+
+  # Do work
+  return <- substr(string, 1, num_chars)
+
+  # Return
+  return(return)
+
+}
+
+#' @export
+#### str_mid() ####
+str_mid <- function(string, start_num, num_chars) {
+
+  # Input:
+  # - 'string' is the text string you want to select from; must be an atopic string.
+  # - 'start_num' is the starting position of the mid-text string you want to select from; must be an atomic numeric type.
+  # - 'num_chars' is the number of characters that you want to select; must be an atomic numeric type.
+
+  # Output:
+  # - A text string of length 'num_chars' that corresponds to the characters from the 'start_num' starting position from the 'string' option.
+
+  # Validations:
+  stopifnot(is.character(string))
+  stopifnot(is.numeric(start_num))
+  stopifnot(is.atomic(start_num))
+  stopifnot(is.numeric(num_chars))
+  stopifnot(is.atomic(num_chars))
+
+  # Do work
+  return <- substr(string, start_num, start_num + num_chars - 1)
+
+  # Return
+  return(return)
+
+}
+
+#' @export
+#### str_right() ####
+str_right <- function(string, num_chars) {
+
+  # Input:
+  # - 'string' is the text string you want to select from; must be an character type.
+  # - 'num_chars' is the number of characters that you want to select; must be an atomic numeric type.
+
+  # Output:
+  # - A text string of length 'num_chars' that corresponds to the right most number of characters from the 'string' option.
+
+  # Validations:
+  stopifnot(is.character(string))
+  stopifnot(is.numeric(num_chars))
+  stopifnot(is.atomic(num_chars))
+
+  # Do work
+  return <- substr(string, nchar(string) - (num_chars - 1), nchar(string))
+
+  # Return
+  return(return)
+
+}
