@@ -34,7 +34,7 @@ We'll begin with a lookup table between the most important base string functions
 | `regexpr(pattern, x)` + `regmatches()` | `str_extract(x, pattern)`|
 | `regexpr(pattern, x)` | `str_locate(x, pattern)`  |
 | `sort(x)` | `str_sort(x)` |
-| `strrep(x, n)` | `str_dup(x, x)` |
+| `strrep(x, n)` | `str_dup(x, n)` |
 | `strsplit(x, pattern)` | `str_split(x, pattern)`|
 | `strwrap(x)` | `str_wrap(x)` |
 | `sub(pattern, replacement, x)` | `str_replace(x, pattern, replacement)` |
