@@ -6,24 +6,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Regular expressions • stringr</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="../tidyverse.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="../tidyverse.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../tidyverse-2.css" rel="stylesheet">
 <meta property="og:title" content="Regular expressions">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png">
 <meta name="twitter:card" content="summary">
-<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- google analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
-
- gtag('config', 'UA-115082821-1');
-</script>
+<![endif]-->
 </head>
 <body>
     <div class="container template-article">
@@ -99,7 +100,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -112,6 +113,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -136,11 +138,11 @@
 <h2 class="hasAnchor">
 <a href="#basic-matches" class="anchor"></a>Basic matches</h2>
 <p>The simplest patterns match exact strings:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"an"</span>)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [1] NA   "an" NA</span></a></code></pre></div>
 <p>You can perform a case-insensitive match using <code>ignore_case = TRUE</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">bananas &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"banana"</span>, <span class="st">"Banana"</span>, <span class="st">"BANANA"</span>)</a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">bananas &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"banana"</span>, <span class="st">"Banana"</span>, <span class="st">"BANANA"</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(bananas, <span class="st">"banana"</span>)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; [1]  TRUE FALSE FALSE</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(bananas, <span class="kw"><a href="../reference/modifiers.html">regex</a></span>(<span class="st">"banana"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>))</a>
@@ -162,27 +164,27 @@
 <a class="sourceLine" id="cb6-2" data-line-number="2">dot &lt;-<span class="st"> "</span><span class="ch">\\</span><span class="st">."</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># But the expression itself only contains one:</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/writeLines">writeLines</a></span>(dot)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span>(dot)</a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; \.</span></a>
 <a class="sourceLine" id="cb6-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co"># And this tells R to look for an explicit .</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"abc"</span>, <span class="st">"a.c"</span>, <span class="st">"bef"</span>), <span class="st">"a</span><span class="ch">\\</span><span class="st">.c"</span>)</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"a.c"</span>, <span class="st">"bef"</span>), <span class="st">"a</span><span class="ch">\\</span><span class="st">.c"</span>)</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; [1] NA    "a.c" NA</span></a></code></pre></div>
 <p>If <code>\</code> is used as an escape character in regular expressions, how do you match a literal <code>\</code>? Well you need to escape it, creating the regular expression <code>\\</code>. To create that regular expression, you need to use a string, which also needs to escape <code>\</code>. That means to match a literal <code>\</code> you need to write <code>"\\\\"</code> — you need four backslashes to match one!</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">x &lt;-<span class="st"> "a</span><span class="ch">\\</span><span class="st">b"</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/writeLines">writeLines</a></span>(x)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span>(x)</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; a\b</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\\\</span><span class="st">"</span>)</a>
 <a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; [1] "\\"</span></a></code></pre></div>
 <p>In this vignette, I use <code>\.</code> to denote the regular expression, and <code>"\\."</code> to denote the string that represents the regular expression.</p>
 <p>An alternative quoting mechanism is <code>\Q...\E</code>: all the characters in <code>...</code> are treated as exact matches. This is useful if you want to exactly match user input as part of a regular expression.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"a.b.c.d"</span>, <span class="st">"aeb"</span>)</a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"a.b.c.d"</span>, <span class="st">"aeb"</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">starts_with &lt;-<span class="st"> "a.b"</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="st">"^"</span>, starts_with))</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"^"</span>, starts_with))</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; [1] TRUE TRUE</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="st">"^</span><span class="ch">\\</span><span class="st">Q"</span>, starts_with, <span class="st">"</span><span class="ch">\\</span><span class="st">E"</span>))</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"^</span><span class="ch">\\</span><span class="st">Q"</span>, starts_with, <span class="st">"</span><span class="ch">\\</span><span class="st">E"</span>))</a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; [1]  TRUE FALSE</span></a></code></pre></div>
 </div>
 <div id="special-characters" class="section level2">
@@ -238,7 +240,7 @@
 </li>
 <li>
 <p><code>\p{property name}</code> matches any character with specific unicode property, like <code>\p{Uppercase}</code> or <code>\p{Diacritic}</code>. The complement, <code>\P{property name}</code>, matches all characters without the property. A complete list of unicode properties can be found at <a href="http://www.unicode.org/reports/tr44/#Property_Index" class="uri">http://www.unicode.org/reports/tr44/#Property_Index</a>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(text &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'"Double quotes"'</span>, <span class="st">"«Guillemet»"</span>, <span class="st">"“Fancy quotes”"</span>))</a>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(text &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'"Double quotes"'</span>, <span class="st">"«Guillemet»"</span>, <span class="st">"“Fancy quotes”"</span>))</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co">#&gt; [1] "\"Double quotes\"" "«Guillemet»"       "“Fancy quotes”"</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(text, <span class="st">"</span><span class="ch">\\</span><span class="st">p{quotation mark}"</span>, <span class="st">"'"</span>)</a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt; [1] "'Double quotes'" "'Guillemet'"     "'Fancy quotes'"</span></a></code></pre></div>
@@ -268,7 +270,7 @@
 <li>
 <code>[^abc]</code>: matches anything except a, b, or c.</li>
 <li>
-<code>[\^\-]</code>: matches <code>^</code> or <code>-</code>.</li>
+<code>[\^\-]</code>: matches <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>.</li>
 </ul>
 <p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p>
 <ul>
@@ -303,18 +305,18 @@
 <div id="alternation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#alternation" class="anchor"></a>Alternation</h2>
-<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span>), <span class="st">"abc|def"</span>)</a>
+<p><code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span>), <span class="st">"abc|def"</span>)</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></a></code></pre></div>
-<p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
+<p>Note that the precedence for <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
 </div>
 <div id="grouping" class="section level2">
 <h2 class="hasAnchor">
 <a href="#grouping" class="anchor"></a>Grouping</h2>
 <p>You can use parentheses to override the default precedence rules:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gre|ay"</span>)</a>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gre|ay"</span>)</a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#&gt; [1] "gre" "ay"</span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)</a>
 <a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt; [1] "grey" "gray"</span></a></code></pre></div>
 <p>Parenthesis also define “groups” that you can refer to with <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code><a href="../reference/str_match.html">str_match()</a></code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">pattern &lt;-<span class="st"> "(..)</span><span class="ch">\\</span><span class="st">1"</span></a>
@@ -334,11 +336,11 @@
 <a class="sourceLine" id="cb18-15" data-line-number="15"><span class="co">#&gt; [5,] "papa" "pa"</span></a>
 <a class="sourceLine" id="cb18-16" data-line-number="16"><span class="co">#&gt; [6,] "alal" "al"</span></a></code></pre></div>
 <p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)</a>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(e|a)y"</span>)</a>
 <a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">#&gt;      [,1]   [,2]</span></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co">#&gt; [1,] "grey" "e" </span></a>
 <a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co">#&gt; [2,] "gray" "a"</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(?:e|a)y"</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"grey"</span>, <span class="st">"gray"</span>), <span class="st">"gr(?:e|a)y"</span>)</a>
 <a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co">#&gt;      [,1]  </span></a>
 <a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co">#&gt; [1,] "grey"</span></a>
 <a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co">#&gt; [2,] "gray"</span></a></code></pre></div>
@@ -350,20 +352,20 @@
 <p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
 <ul>
 <li>
-<code>^</code> matches the start of string.</li>
+<code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> matches the start of string.</li>
 <li>
-<code>$</code> matches the end of the string.</li>
+<code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> matches the end of the string.</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</a>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"^a"</span>)</a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">#&gt; [1] "a" NA  NA</span></a>
 <a class="sourceLine" id="cb20-4" data-line-number="4"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"a$"</span>)</a>
 <a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co">#&gt; [1] NA  "a" NA</span></a></code></pre></div>
 <p>To match a literal “$” or “^”, you need to escape them, <code>\$</code>, and <code>\^</code>.</p>
-<p>For multiline strings, you can use <code><a href="../reference/modifiers.html">regex(multiline = TRUE)</a></code>. This changes the behaviour of <code>^</code> and <code>$</code>, and introduces three new operators:</p>
+<p>For multiline strings, you can use <code><a href="../reference/modifiers.html">regex(multiline = TRUE)</a></code>. This changes the behaviour of <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> and <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>, and introduces three new operators:</p>
 <ul>
-<li><p><code>^</code> now matches the start of each line.</p></li>
-<li><p><code>$</code> now matches the end of each line.</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> now matches the start of each line.</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> now matches the end of each line.</p></li>
 <li><p><code>\A</code> matches the start of the input.</p></li>
 <li><p><code>\z</code> matches the end of the input.</p></li>
 <li><p><code>\Z</code> matches the end of the input, but before the final line terminator, if it exists.</p></li>
@@ -384,9 +386,9 @@
 <li>
 <code>?</code>: 0 or 1.</li>
 <li>
-<code>+</code>: 1 or more.</li>
+<code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>: 1 or more.</li>
 <li>
-<code>*</code>: 0 or more.</li>
+<code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>: 0 or more.</li>
 </ul>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">x &lt;-<span class="st"> "1888 is the longest year in Roman numerals: MDCCCLXXXVIII"</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"CC?"</span>)</a>
@@ -424,11 +426,11 @@
 <li>
 <code>{n,m}?</code>: between n and m, , match as few times as possible, but at least n.</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"C{2,3}"</span>, <span class="st">"C{2,3}?"</span>))</a>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C{2,3}"</span>, <span class="st">"C{2,3}?"</span>))</a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="co">#&gt; [1] "CCC" "CC"</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"C[LX]+"</span>, <span class="st">"C[LX]+?"</span>))</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"C[LX]+"</span>, <span class="st">"C[LX]+?"</span>))</a>
 <a class="sourceLine" id="cb24-4" data-line-number="4"><span class="co">#&gt; [1] "CLXXX" "CL"</span></a></code></pre></div>
-<p>You can also make the matches possessive by putting a <code>+</code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p>
+<p>You can also make the matches possessive by putting a <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p>
 <ul>
 <li>
 <code>?+</code>: 0 or 1, possessive.</li>
@@ -458,16 +460,16 @@
 <li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the current input.</p></li>
 <li><p><code>(?!...)</code>: negative look-ahead assertion. Matches if <code>...</code> <strong>does not</strong> match at the current input.</p></li>
 <li><p><code>(?&lt;=...)</code>: positive look-behind assertion. Matches if <code>...</code> matches text preceding the current position, with the last character of the match being the character just before the current position. Length must be bounded<br>
-(i.e. no <code>*</code> or <code>+</code>).</p></li>
+(i.e. no <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>).</p></li>
 <li><p><code>(?&lt;!...)</code>: negative look-behind assertion. Matches if <code>...</code> <strong>does not</strong> match text preceding the current position. Length must be bounded<br>
-(i.e. no <code>*</code> or <code>+</code>).</p></li>
+(i.e. no <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>).</p></li>
 </ul>
 <p>These are useful when you want to check that a pattern exists, but you don’t want to include it in the result:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"1 piece"</span>, <span class="st">"2 pieces"</span>, <span class="st">"3"</span>)</a>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"1 piece"</span>, <span class="st">"2 pieces"</span>, <span class="st">"3"</span>)</a>
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(x, <span class="st">"</span><span class="ch">\\</span><span class="st">d+(?= pieces?)"</span>)</a>
 <a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; [1] "1" "2" NA</span></a>
 <a class="sourceLine" id="cb26-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"100"</span>, <span class="st">"$400"</span>)</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"100"</span>, <span class="st">"$400"</span>)</a>
 <a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(y, <span class="st">"(?&lt;=</span><span class="ch">\\</span><span class="st">$)</span><span class="ch">\\</span><span class="st">d+"</span>)</a>
 <a class="sourceLine" id="cb26-7" data-line-number="7"><span class="co">#&gt; [1] NA    "400"</span></a></code></pre></div>
 </div>
@@ -494,6 +496,7 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -515,6 +518,7 @@
 </div>
 
 
+
       <footer><div class="tidyverse">
   <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="https://tidyverse.org">tidyverse.org</a>.</p>
 </div>
@@ -525,10 +529,12 @@
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
