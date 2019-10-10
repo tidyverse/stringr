@@ -1,6 +1,6 @@
 # stringr (development version)
 * `word()` now returns all the sentence when using a negative `start` parameter
-  that is greater than the number of words. (@pdelboca, #245)
+  that is greater or equal than the number of words. (@pdelboca, #245)
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
