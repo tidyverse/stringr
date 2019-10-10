@@ -1,17 +1,24 @@
-# stringr 1.3.1.9000
+# stringr (development version)
+
+* New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
+  between base R functions and their stringr equivalents. It's designed to
+  help you move to stringr if you're already familiar with base R string
+  functions (#266).
+
+# stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
-  additional placeholders (@amhrasmussen)
+  additional placeholders (@amhrasmussen).
 
-* `str_subset()`, `str_detect()`, and `str_which()` gets `negate` argument,
+* New `str_starts()` and `str_ends()` functions to detect patterns at the 
+  beginning or end of strings (@jonthegeek, #258).
+
+* `str_subset()`, `str_detect()`, and `str_which()` get `negate` argument,
   which is useful when you want the elements that do NOT match (#259,
   @yutannihilation).
   
 * New `str_to_sentence()` function to capitalize with sentence case 
-  (@jonthegeek, #202)
-
-* New `str_starts()` and `str_ends()` functions to detect patterns at the 
-  beginning or end of strings (@jonthegeek, #258)
+  (@jonthegeek, #202).
 
 # stringr 1.3.1
 

@@ -7,7 +7,7 @@ test_that("long strings are unchanged", {
     character(1))
 
   padded <- str_pad(strings, width = 30)
-  expect_equal(str_length(padded), str_length(padded))
+  expect_equal(str_length(padded), str_length(strings))
 })
 
 test_that("directions work for simple case", {

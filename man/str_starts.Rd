@@ -32,7 +32,7 @@ A logical vector.
 Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 str_starts(fruit, "p")
 str_starts(fruit, "p", negate = TRUE)
 str_ends(fruit, "e")

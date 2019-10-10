@@ -1,108 +1,60 @@
-# abcrf
-
-Version: 1.7
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # abjutils
 
 Version: 0.2.1
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘httr’ ‘progress’
-      All declared Imports should be used.
-    ```
-
-# acs
-
-Version: 2.1.3
-
-## In both
-
-*   checking whether package ‘acs’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘XML’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/acs/new/acs.Rcheck/00install.out’ for details.
-    ```
-
-# afex
-
-Version: 0.20-2
-
-## In both
-
-*   checking whether package ‘afex’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/afex/new/afex.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘afex’ ...
-** package ‘afex’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘afex’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/afex/new/afex.Rcheck/afex’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘afex’ ...
-** package ‘afex’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘afex’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/afex/old/afex.Rcheck/afex’
-
-```
-# AFM
-
-Version: 1.2.4
-
-## In both
-
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
+# abseqR
+
+Version: 1.0.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        doc       2.9Mb
+        extdata   1.4Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/diversityAnalysis.R:378-404)
+    .regionAnalysis: no visible binding for global variable ‘value’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/diversityAnalysis.R:378-404)
+    .regionAnalysis: no visible binding for global variable ‘variable’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/diversityAnalysis.R:378-404)
+    .scatterPlot: no visible binding for global variable ‘Count.x’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:136-145)
+    .scatterPlot: no visible binding for global variable ‘Count.y’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:136-145)
+    .scatterPlotComplex: no visible binding for global variable ‘prop.x’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:214-230)
+    .scatterPlotComplex: no visible binding for global variable ‘prop.y’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:214-230)
+    .topNDist: no visible binding for global variable ‘normPerc’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:86-103)
+    .topNDist: no visible binding for global variable ‘Clonotype’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/abseqR/new/abseqR.Rcheck/00_pkg_src/abseqR/R/pairwise.R:86-103)
+    Undefined global functions or variables:
+      ..count.. ..scaled.. Clonotype Count.x Count.y Percentage Reason Var1
+      Var2 aa cdr3 ci compound normPerc percent position prop prop.x prop.y
+      proportion region value variable x y
+    ```
+
 # aire.zmvm
 
-Version: 0.6.1
+Version: 0.8.1
 
 ## In both
 
@@ -111,46 +63,29 @@ Version: 0.6.1
       Note: found 52 marked UTF-8 strings
     ```
 
-# ALA4R
-
-Version: 1.5.6
-
-## In both
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘data.table’
-    ```
-
 # algstat
 
 Version: 0.0.2
-
-## Newly fixed
-
-*   checking whether package ‘algstat’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/old/algstat.Rcheck/00install.out’ for details.
-    ```
 
 ## In both
 
 *   checking R code for possible problems ... NOTE
     ```
-    hierarchical: no visible global function definition for ‘terms’
-    hierarchical: no visible global function definition for ‘loglin’
-    hierarchical: no visible global function definition for ‘dmultinom’
-    markov: no visible global function definition for ‘download.file’
-    metropolis: no visible global function definition for ‘runif’
+    ...
     mpolyListToMat : <anonymous>: no visible global function definition for
       ‘runif’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/count.r:397)
     polyOptim: no visible global function definition for ‘deriv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/polyOptim.r:114)
+    polyOptim: no visible global function definition for ‘deriv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/polyOptim.r:119)
     print.hierarchical: no visible binding for global variable ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/print.hierarchical.r:38-44)
     spectral : summarize: no visible global function definition for ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/spectral.r:509-514)
     subsets : <anonymous>: no visible global function definition for
       ‘combn’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/algstat/new/algstat.Rcheck/00_pkg_src/algstat/R/subsets.r:34-36)
     Undefined global functions or variables:
       combn deriv dmultinom download.file loglin runif sd terms
     Consider adding
@@ -166,120 +101,43 @@ Version: 0.1.0
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘devtools’
-      All declared Imports should be used.
-    ```
-
-# aMNLFA
-
-Version: 0.1
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘devtools’ ‘gridExtra’
-      All declared Imports should be used.
-    ```
-
-# AmostraBrasil
-
-Version: 1.2
-
-## In both
-
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘rgdal’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# AnDE
+# alpine
 
-Version: 1.0
-
-## Newly fixed
-
-*   checking whether package ‘AnDE’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/AnDE/old/AnDE.Rcheck/00install.out’ for details.
-    ```
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Packages in Depends field not imported from:
-      ‘discretization’ ‘foreign’ ‘functional’ ‘stringr’
-      These packages need to be imported from (in the NAMESPACE file)
-      for when this namespace is loaded but not attached.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    aode: no visible global function definition for ‘Compose’
-    mdl: no visible global function definition for ‘cutPoints’
-    setVar: no visible global function definition for ‘Compose’
-    Undefined global functions or variables:
-      Compose cutPoints
-    ```
-
-# annovarR
-
-Version: 1.0.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# antaresRead
-
-Version: 2.1.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# apa
-
-Version: 0.2.0
+Version: 1.8.0
 
 ## In both
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘apa-Ex.R’ failed
-    The error most likely occurred in:
+    ...
+        as.data.frame, basename, cbind, colMeans, colSums, colnames,
+        dirname, do.call, duplicated, eval, evalq, get, grep, grepl,
+        intersect, is.unsorted, lapply, lengths, mapply, match, mget,
+        order, paste, pmax, pmax.int, pmin, pmin.int, rank, rbind,
+        rowMeans, rowSums, rownames, sapply, setdiff, sort, table, tapply,
+        union, unique, unsplit, which, which.max, which.min
     
-    > ### Name: anova_apa
-    > ### Title: Report ANOVA in APA style
-    > ### Aliases: anova_apa
-    > 
-    > ### ** Examples
-    > 
-    > # Using the ez package
-    > library(ez)
-    Error: package or namespace load failed for ‘ez’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called ‘data.table’
+    Loading required package: S4Vectors
+    
+    Attaching package: ‘S4Vectors’
+    
+    The following object is masked from ‘package:base’:
+    
+        expand.grid
+    
+    Loading required package: IRanges
+    Loading required package: GenomeInfoDb
+    > library(BSgenome.Hsapiens.NCBI.GRCh38)
+    Error in library(BSgenome.Hsapiens.NCBI.GRCh38) : 
+      there is no package called ‘BSgenome.Hsapiens.NCBI.GRCh38’
     Execution halted
     ```
 
@@ -288,47 +146,91 @@ Version: 0.2.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      9: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      10: value[[3L]](cond)
+      > library(testthat)
+      > library(alpine)
+      > test_check("alpine")
+      [31m──[39m [31m1. Error: alpine works (@test_alpine.R#3) [39m [31m───────────────────────────────────────────────────[39m
+      there is no package called 'alpineData'
+      1: library(alpineData) at testthat/test_alpine.R:3
+      2: stop(txt, domain = NA)
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 73 SKIPPED: 0 FAILED: 7
-      1. Error: Formal structure for anova_apa output (@test-anova-apa.R#8) 
-      2. Error: Output for anova_apa: oneway between ANOVA (@test-anova-apa.R#44) 
-      3. Error: Output for anova_apa: factorial between ANOVA (@test-anova-apa.R#80) 
-      4. Error: Output for anova_apa: repeated-measures ANOVA (@test-anova-apa.R#134) 
-      5. Error: Output for anova_apa: factorial repeated-measures ANOVA (@test-anova-apa.R#180) 
-      6. Error: Output for anova_apa: mixed ANOVA (@test-anova-apa.R#245) 
-      7. Error: (unknown) (@test-anova-apa.R#320) 
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 0 SKIPPED: 0 FAILED: 1
+      1. Error: alpine works (@test_alpine.R#3) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# APSIM
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 21-26 (alpine.Rmd) 
+    Error: processing vignette 'alpine.Rmd' failed with diagnostics:
+    there is no package called 'alpineData'
+    Execution halted
+    ```
 
-Version: 0.9.2
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘alpineData’ ‘BSgenome.Hsapiens.NCBI.GRCh38’
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported object imported by a ':::' call: ‘S4Vectors:::fancy_mseq’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+# aMNLFA
+
+Version: 0.1
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# aqp
+# amplican
 
-Version: 1.16
+Version: 1.4.1
 
 ## In both
 
-*   checking whether package ‘aqp’ can be installed ... ERROR
+*   checking installed package size ... NOTE
+    ```
+      installed size is 15.3Mb
+      sub-directories of 1Mb or more:
+        doc  14.0Mb
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘CrispRVariants’
+    ```
+
+# annovarR
+
+Version: 1.0.0
+
+## In both
+
+*   checking whether package ‘annovarR’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/aqp/new/aqp.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/annovarR/new/annovarR.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘org.Hs.eg.db’
     ```
 
 ## Installation
@@ -336,61 +238,51 @@ Version: 1.16
 ### Devel
 
 ```
-* installing *source* package ‘aqp’ ...
-** package ‘aqp’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘annovarR’ ...
+** package ‘annovarR’ successfully unpacked and MD5 sums checked
 ** R
-** data
-** demo
 ** inst
-** preparing package for lazy loading
+** byte-compile and prepare package for lazy loading
 Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘aqp’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/aqp/new/aqp.Rcheck/aqp’
+  there is no package called ‘devtools’
+ERROR: lazy loading failed for package ‘annovarR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/annovarR/new/annovarR.Rcheck/annovarR’
 
 ```
 ### CRAN
 
 ```
-* installing *source* package ‘aqp’ ...
-** package ‘aqp’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘annovarR’ ...
+** package ‘annovarR’ successfully unpacked and MD5 sums checked
 ** R
-** data
-** demo
 ** inst
-** preparing package for lazy loading
+** byte-compile and prepare package for lazy loading
 Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘aqp’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/aqp/old/aqp.Rcheck/aqp’
+  there is no package called ‘devtools’
+ERROR: lazy loading failed for package ‘annovarR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/annovarR/old/annovarR.Rcheck/annovarR’
 
 ```
-# Arothron
+# aqp
 
-Version: 1.0.0
+Version: 1.17
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 1 marked Latin-1 string
+    ```
+
+# artMS
+
+Version: 1.0.6
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘Morpho’
-    
-    Packages required and available but unsuitable versions:
-      ‘graphics’ ‘grDevices’ ‘stats’ ‘utils’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# asciiSetupReader
-
-Version: 1.2
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+    Packages required but not available: ‘org.Hs.eg.db’ ‘org.Mm.eg.db’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -417,8 +309,12 @@ Version: 0.1
 ** package ‘aslib’ successfully unpacked and MD5 sums checked
 ** R
 ** byte-compile and prepare package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so
+  Reason: image not found
 ERROR: lazy loading failed for package ‘aslib’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/aslib/new/aslib.Rcheck/aslib’
 
@@ -430,108 +326,76 @@ ERROR: lazy loading failed for package ‘aslib’
 ** package ‘aslib’ successfully unpacked and MD5 sums checked
 ** R
 ** byte-compile and prepare package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/aslib/rJava/libs/rJava.so
+  Reason: image not found
 ERROR: lazy loading failed for package ‘aslib’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/aslib/old/aslib.Rcheck/aslib’
 
 ```
-# ATACseqQC
+# asremlPlus
 
-Version: 1.0.5
+Version: 4.1-10
 
 ## In both
 
-*   R CMD check timed out
-    
-
-*   checking installed package size ... NOTE
+*   checking package dependencies ... NOTE
     ```
-      installed size is  8.5Mb
-      sub-directories of 1Mb or more:
-        extdata   7.5Mb
+    Package which this enhances but not available for checking: ‘asreml’
     ```
 
 # auk
 
-Version: 0.2.1
+Version: 0.3.2
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      [31m──[39m [31m2. Error: read_ebd data frames identical for different read functions (@test_read.r#62) [39m [31m────────────────────[39m
-      Install the data.table package to use reader = fread.
-      1: read_ebd(f, reader = "fread") at testthat/test_read.r:62
-      2: read_ebd.character(f, reader = "fread")
-      3: choose_reader(reader)
-      4: stop("Install the data.table package to use reader = fread.")
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 323 SKIPPED: 19 FAILED: 2
-      1. Error: read_ebd using different reader functions (@test_read.r#39) 
-      2. Error: read_ebd data frames identical for different read functions (@test_read.r#62) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘data.table’
-    ```
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Package unavailable to check Rd xrefs: ‘data.table’
-    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 552 marked UTF-8 strings
     ```
 
-# badgecreatr
+# BaMORC
 
-Version: 0.1.0
+Version: 1.0.1
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
+*   checking package dependencies ... ERROR
     ```
-    Namespace in Imports field not imported from: ‘methods’
-      All declared Imports should be used.
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # banocc
 
-Version: 1.0.0
+Version: 1.6.1
 
 ## In both
 
-*   checking whether package ‘banocc’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘rstan’ was built under R version 3.4.3
-      Warning: package ‘StanHeaders’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00install.out’ for details.
-    ```
-
 *   checking R code for possible problems ... NOTE
     ```
+    ...
     calc_snc: no visible global function definition for ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/stan-output-get_snc.R:37)
     get_IVs : <anonymous>: no visible global function definition for
       ‘rgamma’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/stan-run-get_IVs.R:27-30)
     get_banocc_output : <anonymous>: no visible global function definition
       for ‘cov2cor’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/get_banocc_output.R:86)
     get_posterior_quantiles: no visible binding for global variable
       ‘quantile’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/stan-output-get_posterior_quantities.R:48-50)
     rgbeta: no visible global function definition for ‘rbeta’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/rlkj.R:46-49)
     rgbeta: no visible global function definition for ‘rbinom’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/banocc/new/banocc.Rcheck/00_pkg_src/banocc/R/rlkj.R:46-49)
     Undefined global functions or variables:
       cov2cor quantile rbeta rbinom rgamma sd
     Consider adding
@@ -546,38 +410,40 @@ Version: 0.2.0
 
 ## Newly broken
 
+*   checking examples ... ERROR
+    ```
+    ...
+    > ### Name: geocode_tbl
+    > ### Title: Geocode tbl
+    > ### Aliases: geocode_tbl
+    > 
+    > ### ** Examples
+    > 
+    > 
+    > table_test <- tibble::tibble(
+    + x = c("39 quai Andre Citroen", "64 Allee de Bercy", "20 avenue de Segur"), 
+    + y = c("75015", "75012", "75007"), 
+    + z = rnorm(3)
+    + )
+    > 
+    > geocode_tbl(tbl = table_test, adresse = x)
+    Writing tempfile to.../tmp/RtmpEA9Rrw/fileba695f04b542.csv
+    If file is larger than 8 MB, it must be splitted
+    Size is : 61 bytes
+    Server errorService UnavailableServer error: (503) Service Unavailable
+    Error in geocode_tbl(tbl = table_test, adresse = x) : 
+      The API sent back an error 503
+    Execution halted
+    ```
+
 *   checking re-building of vignette outputs ... WARNING
     ```
     Error in re-building vignettes:
       ...
-    Quitting from lines 47-49 (geocode.Rmd) 
+    Quitting from lines 57-66 (geocode.Rmd) 
     Error: processing vignette 'geocode.Rmd' failed with diagnostics:
     The API sent back an error 503
     Execution halted
-    ```
-
-## Newly fixed
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      [31m──[39m [31m2. Error: Reverse geocode tbl works  (@test_geocodetbl.R#60) [39m [31m───────────────────────────────────────────────[39m
-      The API sent back an error 503
-      1: expect_is(object = reverse_geocode_tbl(tbl = table_reverse, longitude = x, latitude = y), class = "tbl_df") at testthat/test_geocodetbl.R:60
-      2: quasi_label(enquo(object), label)
-      3: eval_bare(get_expr(quo), get_env(quo))
-      4: reverse_geocode_tbl(tbl = table_reverse, longitude = x, latitude = y)
-      5: stop("The API sent back an error ", httr::status_code(query_results))
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 5 SKIPPED: 0 FAILED: 2
-      1. Error: Geocode_tbl works with a single-column input data.frame (@test_geocodetbl.R#48) 
-      2. Error: Reverse geocode tbl works  (@test_geocodetbl.R#60) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 ## In both
@@ -588,61 +454,31 @@ Version: 0.2.0
       All declared Imports should be used.
     ```
 
-# banxicoR
-
-Version: 0.9.0
-
-## In both
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 148 marked UTF-8 strings
-    ```
-
 # basecallQC
 
-Version: 1.0.1
+Version: 1.6.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# BatchGetSymbols
-
-Version: 2.1
-
-## In both
-
-*   checking whether package ‘BatchGetSymbols’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘xml2’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BatchGetSymbols/new/BatchGetSymbols.Rcheck/00install.out’ for details.
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        doc       1.8Mb
+        extdata   2.8Mb
     ```
 
 # BayesFactor
 
-Version: 0.9.12-4.1
+Version: 0.9.12-4.2
 
 ## In both
 
-*   checking whether package ‘BayesFactor’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BayesFactor/new/BayesFactor.Rcheck/00install.out’ for details.
-    ```
-
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.6Mb
+      installed size is  8.3Mb
       sub-directories of 1Mb or more:
+        R     2.1Mb
         doc   5.4Mb
     ```
 
@@ -652,71 +488,13 @@ Version: 1.0.6
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# beadplexr
-
-Version: 0.1.0
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘beadplexr-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: calculate_concentration
-    > ### Title: Calculate concentration.
-    > ### Aliases: calculate_concentration
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > library(beadplexr)
-    > library(drc)
-    Loading required package: MASS
-    Error: package or namespace load failed for ‘drc’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called ‘data.table’
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'gridExtra'
-    
-    The following object is masked from 'package:dplyr':
-    
-        combine
-    
-    Quitting from lines 459-468 (legendplex-analysis.Rmd) 
-    Error: processing vignette 'legendplex-analysis.Rmd' failed with diagnostics:
-    Evaluation error: there is no package called 'data.table'.
-    Execution halted
-    ```
-
-# beepr
-
-Version: 1.2
-
-## In both
-
-*   checking R code for possible problems ... NOTE
-    ```
-    beep: no visible global function definition for ‘download.file’
-    Undefined global functions or variables:
-      download.file
-    Consider adding
-      importFrom("utils", "download.file")
-    to your NAMESPACE file.
+    Namespaces in Imports field not imported from:
+      ‘Rcpp’ ‘chron’ ‘colorspace’ ‘gtable’ ‘htmltools’ ‘htmlwidgets’
+      ‘httpuv’ ‘magrittr’ ‘munsell’ ‘plyr’ ‘scales’ ‘stringi’ ‘xtable’
+      ‘yaml’
+      All declared Imports should be used.
     ```
 
 # betalink
@@ -732,49 +510,18 @@ Version: 2.2.1
 
 # BETS
 
-Version: 0.3.6
+Version: 0.4.9
 
 ## In both
 
-*   checking whether package ‘BETS’ can be installed ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BETS/new/BETS.Rcheck/00install.out’ for details.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘BETS’ ...
-** package ‘BETS’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘BETS’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BETS/new/BETS.Rcheck/BETS’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘BETS’ ...
-** package ‘BETS’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘BETS’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BETS/old/BETS.Rcheck/BETS’
-
-```
 # bib2df
 
-Version: 1.0.0
+Version: 1.0.1
 
 ## In both
 
@@ -784,308 +531,131 @@ Version: 1.0.0
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
       > library("testthat")
-      Warning message:
-      package 'testthat' was built under R version 3.4.3 
       > library("bib2df")
       > test_check("bib2df")
-      [31m──[39m [31m1. Failure: bib2df() throws error messages (@tests.R#53) [39m [31m───────────────────────────────────────────────────[39m
-      `bib2df("https://www.ottlngr.de/data/x.bib")` did not throw an error.
+      [31m──[39m [31m1. Failure: bib2df() throws error messages (@tests.R#70) [39m [31m────────────────────────────────────[39m
+      `bib2df("https://www.example.com/data/x.bib")` threw an error with unexpected message.
+      Expected match: "Invalid URL: File is not readable."
+      Actual message: "Could not resolve host: www.example.com"
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 16 SKIPPED: 0 FAILED: 1
-      1. Failure: bib2df() throws error messages (@tests.R#53) 
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 19 SKIPPED: 0 FAILED: 1
+      1. Failure: bib2df() throws error messages (@tests.R#70) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# BiGGR
+# binneR
 
-Version: 1.12.0
-
-## In both
-
-*   checking whether package ‘BiGGR’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiGGR/new/BiGGR.Rcheck/00install.out’ for details.
-    ```
-
-*   checking for hidden files and directories ... NOTE
-    ```
-    Found the following hidden files and directories:
-      .BBSoptions
-    These were most likely included in error. See section ‘Package
-    structure’ in the ‘Writing R Extensions’ manual.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘BiGGR’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘rsbml’:
- .onLoad failed in loadNamespace() for 'rsbml', details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so':
-  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so, 6): Library not loaded: /usr/local/opt/libsbml/lib/libsbml.5.dylib
-  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so
-  Reason: image not found
-Error : package ‘rsbml’ could not be loaded
-ERROR: lazy loading failed for package ‘BiGGR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiGGR/new/BiGGR.Rcheck/BiGGR’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘BiGGR’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘rsbml’:
- .onLoad failed in loadNamespace() for 'rsbml', details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so':
-  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so, 6): Library not loaded: /usr/local/opt/libsbml/lib/libsbml.5.dylib
-  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/BiGGR/rsbml/libs/rsbml.so
-  Reason: image not found
-Error : package ‘rsbml’ could not be loaded
-ERROR: lazy loading failed for package ‘BiGGR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiGGR/old/BiGGR.Rcheck/BiGGR’
-
-```
-# bioacoustics
-
-Version: 0.1.0
+Version: 2.0.7
 
 ## In both
-
-*   checking whether package ‘bioacoustics’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioacoustics/new/bioacoustics.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘bioacoustics’ ...
-** package ‘bioacoustics’ successfully unpacked and MD5 sums checked
-checking for gcc... ccache clang -Qunused-arguments
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether ccache clang -Qunused-arguments accepts -g... yes
-checking for ccache clang -Qunused-arguments option to accept ISO C89... none needed
-checking how to run the C preprocessor... ccache clang -Qunused-arguments -E
-configure: CC: ccache clang -Qunused-arguments
-configure: CXX: ccache clang++ -Qunused-arguments
-checking for grep that handles long lines and -e... /usr/bin/grep
-checking for egrep... /usr/bin/grep -E
-checking for ANSI C header files... rm: conftest.dSYM: is a directory
-rm: conftest.dSYM: is a directory
-yes
-checking for sys/types.h... yes
-checking for sys/stat.h... yes
-checking for stdlib.h... yes
-checking for string.h... yes
-checking for memory.h... yes
-checking for strings.h... yes
-checking for inttypes.h... yes
-checking for stdint.h... yes
-checking for unistd.h... yes
-checking fftw3.h usability... no
-checking fftw3.h presence... no
-checking for fftw3.h... no
-configure: error: fftw3.h not found in standard or given locations
-ERROR: configuration failed for package ‘bioacoustics’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioacoustics/new/bioacoustics.Rcheck/bioacoustics’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘bioacoustics’ ...
-** package ‘bioacoustics’ successfully unpacked and MD5 sums checked
-checking for gcc... ccache clang -Qunused-arguments
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether ccache clang -Qunused-arguments accepts -g... yes
-checking for ccache clang -Qunused-arguments option to accept ISO C89... none needed
-checking how to run the C preprocessor... ccache clang -Qunused-arguments -E
-configure: CC: ccache clang -Qunused-arguments
-configure: CXX: ccache clang++ -Qunused-arguments
-checking for grep that handles long lines and -e... /usr/bin/grep
-checking for egrep... /usr/bin/grep -E
-checking for ANSI C header files... rm: conftest.dSYM: is a directory
-rm: conftest.dSYM: is a directory
-yes
-checking for sys/types.h... yes
-checking for sys/stat.h... yes
-checking for stdlib.h... yes
-checking for string.h... yes
-checking for memory.h... yes
-checking for strings.h... yes
-checking for inttypes.h... yes
-checking for stdint.h... yes
-checking for unistd.h... yes
-checking fftw3.h usability... no
-checking fftw3.h presence... no
-checking for fftw3.h... no
-configure: error: fftw3.h not found in standard or given locations
-ERROR: configuration failed for package ‘bioacoustics’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioacoustics/old/bioacoustics.Rcheck/bioacoustics’
-
-```
-# bioCancer
-
-Version: 1.4.0
-
-## In both
-
-*   checking whether package ‘bioCancer’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioCancer/new/bioCancer.Rcheck/00install.out’ for details.
-    ```
 
 *   checking package dependencies ... NOTE
     ```
-    Depends: includes the non-default packages:
-      ‘magrittr’ ‘ggplot2’ ‘lubridate’ ‘tidyr’ ‘cgdsr’ ‘RCurl’ ‘XML’
-    Adding so many packages to the search path is excessive and importing
-    selectively is preferable.
+    Package suggested but not available for checking: ‘metaboData’
     ```
 
-## Installation
+# BiocPkgTools
 
-### Devel
-
-```
-* installing *source* package ‘bioCancer’ ...
-** R
-** inst
-** preparing package for lazy loading
-Warning: package ‘lubridate’ was built under R version 3.4.4
-Warning: package ‘cgdsr’ was built under R version 3.4.3
-Warning: package ‘XML’ was built under R version 3.4.4
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘bioCancer’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioCancer/new/bioCancer.Rcheck/bioCancer’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘bioCancer’ ...
-** R
-** inst
-** preparing package for lazy loading
-Warning: package ‘lubridate’ was built under R version 3.4.4
-Warning: package ‘cgdsr’ was built under R version 3.4.3
-Warning: package ‘XML’ was built under R version 3.4.4
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘bioCancer’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/bioCancer/old/bioCancer.Rcheck/bioCancer’
-
-```
-# BiocWorkflowTools
-
-Version: 1.2.0
+Version: 1.0.3
 
 ## In both
 
-*   checking examples ... ERROR
-    ```
-    ...
-    Running examples in ‘BiocWorkflowTools-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: markdownToLatex
-    > ### Title: Convert R markdown to F1000 latex
-    > ### Aliases: markdownToLatex
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > example_Rmd <- system.file('examples/f1000_software_example.Rmd', 
-    +                            package = "BiocWorkflowTools")
-    > output_dir <- file.path(tempdir(), 'example')
-    > markdownToLatex(input = example_Rmd, output = output_dir, 
-    +                 compress = TRUE)
-    Warning: markdownToLatex() is deprecated
-    It is suggested that you use the combination of 'output: BiocWorkflowTools::f1000_article' in the Rmd header and rmarkdown::render() to generate your document.
-    ! LaTeX Error: Missing \begin{document}.
-    
-    Error: Failed to compile /tmp/RtmpHaajk4/file137d73f00d17.tex. See file137d73f00d17.log for more info.
-    Execution halted
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
-    Missing object imported by a ':::' call: ‘rmarkdown:::latex_dependencies_as_text_file’
-    Unexported objects imported by ':::' calls:
-      ‘BiocStyle:::auth_affil_latex’ ‘BiocStyle:::modifyLines’
-      ‘rmarkdown:::flatten_latex_dependencies’
-      ‘rmarkdown:::has_latex_dependencies’
-      See the note in ?`:::` about the use of this operator.
+    Namespace in Imports field not imported from: ‘gh’
+      All declared Imports should be used.
     ```
 
-# biomartr
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    process_data: no visible binding for global variable ‘biocViews’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:51-70)
+    process_data: no visible binding for global variable ‘Description’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:51-70)
+    process_data: no visible binding for global variable ‘downloads_month’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:51-70)
+    process_data: no visible binding for global variable ‘downloads_total’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:51-70)
+    summarise_dl_stats: no visible binding for global variable ‘Package’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:79-84)
+    summarise_dl_stats: no visible binding for global variable
+      ‘Nb_of_downloads’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:79-84)
+    Undefined global functions or variables:
+      Author Description License Nb_of_downloads Package V<- any_alnums
+      any_alphas any_blanks any_non_alnums any_of anything biocViews blank
+      capture digit downloads_month downloads_total except_any_of gh maybe
+      start tags
+    Consider adding
+      importFrom("stats", "start")
+    to your NAMESPACE file.
+    ```
 
-Version: 0.7.0
+# BiocWorkflowTools
+
+Version: 1.8.0
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
+# BioInstaller
+
+Version: 0.3.7
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# biomaRt
+
+Version: 2.38.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported object imported by a ':::' call: ‘AnnotationDbi:::smartKeys’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+# biomartr
+
+Version: 0.8.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 # blandr
 
-Version: 0.5.0
+Version: 0.5.1
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘R6’ ‘jmvcore’ ‘knitr’
-      All declared Imports should be used.
-    ```
-
-# blastula
-
-Version: 0.2.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘purrr’ ‘rlang’ ‘tibble’
+      ‘R6’ ‘knitr’
       All declared Imports should be used.
     ```
 
@@ -1106,73 +676,29 @@ Version: 1.0
       ‘glmnet’ ‘gtools’ ‘knitr’ ‘nnet’ ‘parallel’ ‘rJava’ ‘reshape’
       ‘rmarkdown’ ‘shinyjs’
       All declared Imports should be used.
+    Missing or unexported object: ‘xgboost::predict’
     ```
 
-# bold
+# blorr
 
-Version: 0.5.0
+Version: 0.2.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking Rd cross-references ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# boostr
-
-Version: 1.0.0
-
-## In both
-
-*   checking DESCRIPTION meta-information ... NOTE
-    ```
-    Malformed Title field: should not end in a period.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    boostBackend: no visible global function definition for ‘model.frame’
-    findFormulaIn: no visible global function definition for ‘as.formula’
-    kFoldCV: no visible binding for global variable ‘par’
-    predictResponseFromWeightedAverage: no visible global function
-      definition for ‘weighted.mean’
-    print.boostr: no visible global function definition for ‘str’
-    Undefined global functions or variables:
-      as.formula model.frame par str weighted.mean
-    Consider adding
-      importFrom("graphics", "par")
-      importFrom("stats", "as.formula", "model.frame", "weighted.mean")
-      importFrom("utils", "str")
-    to your NAMESPACE file.
-    ```
-
-# BradleyTerryScalable
-
-Version: 0.1.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package unavailable to check Rd xrefs: ‘lmtest’
     ```
 
 # branchpointer
 
-Version: 1.0.0
+Version: 1.8.0
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘BSgenome.Hsapiens.UCSC.hg38’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -1180,7 +706,7 @@ Version: 1.0.0
 
 # breathtestcore
 
-Version: 0.4.1
+Version: 0.4.6
 
 ## In both
 
@@ -1191,83 +717,24 @@ Version: 0.4.1
 
 # breathteststan
 
-Version: 0.4.1
+Version: 0.4.7
 
 ## In both
 
-*   checking tests ...
+*   checking for GNU extensions in Makefiles ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > # Only one test per file to avoid hanging 32-bit compile
-      > #test_check("breathteststan", filter = "stan_fit")
-      > Sys.unsetenv("R_TESTS") # https://github.com/r-lib/testthat/issues/603
-      > test_check("breathteststan")
-      [1] "liquid_normal" "solid_normal"  "solid_patient"
-      [1] "liquid_normal" "solid_normal"  "solid_patient"
-      [31m──[39m [31m1. Failure: Data that cannot be fitted with nls_list/nlme work with stan_fit (@test_stan_fit_2.R#28) [39m [31m───────[39m
-      sigma(fit) is not strictly more than 0.9. Difference: -0.00781
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 28 SKIPPED: 7 FAILED: 1
-      1. Failure: Data that cannot be fitted with nls_list/nlme work with stan_fit (@test_stan_fit_2.R#28) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    GNU make is a SystemRequirements.
     ```
 
-# bridgesampling
+# broom.mixed
 
-Version: 0.4-0
+Version: 0.2.3
 
 ## In both
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Loading required package: rjags
-    Loading required package: coda
-    Error: package or namespace load failed for 'rjags':
-     .onLoad failed in loadNamespace() for 'rjags', details:
-      call: dyn.load(file, DLLpath = DLLpath, ...)
-      error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/bridgesampling/rjags/libs/rjags.so':
-      dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/bridgesampling/rjags/libs/rjags.so, 10): Library not loaded: /usr/local/lib/libjags.4.dylib
-      Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/bridgesampling/rjags/libs/rjags.so
-      Reason: image not found
-    Quitting from lines 51-112 (bridgesampling_example_jags.Rmd) 
-    Error: processing vignette 'bridgesampling_example_jags.Rmd' failed with diagnostics:
-    package 'rjags' could not be loaded
-    Execution halted
-    ```
-
-# broom
-
-Version: 0.4.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      [31m──[39m [31m1. Error: tidy.coeftest works (@test-lmtest.R#7) [39m [31m───────────────────────────────────────────────────────────[39m
-      object 'Mandible' not found
-      1: lm(length ~ age, data = Mandible, subset = (age <= 28)) at testthat/test-lmtest.R:7
-      2: eval(mf, parent.frame())
-      3: eval(mf, parent.frame())
-      4: stats::model.frame(formula = length ~ age, data = Mandible, subset = (age <= 28), drop.unused.levels = TRUE)
-      5: model.frame.default(formula = length ~ age, data = Mandible, subset = (age <= 28), drop.unused.levels = TRUE)
-      6: is.data.frame(data)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 1438 SKIPPED: 0 FAILED: 1
-      1. Error: tidy.coeftest works (@test-lmtest.R#7) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘glmmADMB’
     ```
 
 # bsplus
@@ -1282,37 +749,46 @@ Version: 0.1.1
       All declared Imports should be used.
     ```
 
-# BTLLasso
-
-Version: 0.1-7
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # Causata
 
 Version: 4.2-0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking DESCRIPTION meta-information ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Malformed Title field: should not end in a period.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      ‘terms.formula’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Causata/new/Causata.Rcheck/00_pkg_src/Causata/R/GlmnetToPMML.R:36)
+    ValidateModel: no visible global function definition for ‘predict’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Causata/new/Causata.Rcheck/00_pkg_src/Causata/R/Config.R:307)
+    predict.GlmnetModelDefinition: no visible global function definition
+      for ‘model.matrix’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Causata/new/Causata.Rcheck/00_pkg_src/Causata/R/Config.R:117-118)
+    predict.GlmnetModelDefinition: no visible binding for global variable
+      ‘contrasts’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Causata/new/Causata.Rcheck/00_pkg_src/Causata/R/Config.R:117-118)
+    predict.GlmnetModelDefinition: no visible global function definition
+      for ‘predict’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Causata/new/Causata.Rcheck/00_pkg_src/Causata/R/Config.R:151)
+    Undefined global functions or variables:
+      coef contrasts dbGetQuery median model.matrix na.omit predict
+      quantile read.csv sd terms.formula
+    Consider adding
+      importFrom("stats", "coef", "contrasts", "median", "model.matrix",
+                 "na.omit", "predict", "quantile", "sd", "terms.formula")
+      importFrom("utils", "read.csv")
+    to your NAMESPACE file.
     ```
 
 # CDECRetrieve
 
-Version: 0.1.0
+Version: 0.1.2
 
 ## In both
 
@@ -1323,9 +799,51 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
+# CellNOptR
+
+Version: 1.28.1
+
+## In both
+
+*   checking examples ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+      Warning: working directory was changed to ‘/private/tmp/Rtmpm3Cgoy’, resetting
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Depends: includes the non-default packages:
+      ‘RBGL’ ‘graph’ ‘hash’ ‘RCurl’ ‘Rgraphviz’ ‘XML’ ‘ggplot2’
+    Adding so many packages to the search path is excessive and importing
+    selectively is preferable.
+    ```
+
+*   checking installed files from ‘inst/doc’ ... NOTE
+    ```
+    The following files should probably not be installed:
+      ‘Fig1.png’, ‘Fig5.png’
+    
+    Consider the use of a .Rinstignore file: see ‘Writing R Extensions’,
+    or move the vignette sources from ‘inst/doc’ to ‘vignettes’.
+    ```
+
 # cellscape
 
-Version: 1.0.0
+Version: 1.6.0
 
 ## In both
 
@@ -1350,7 +868,7 @@ Version: 1.0.0
     ```
     Error in re-building vignettes:
       ...
-    Quitting from lines 76-92 (cellscape_vignette.Rmd) 
+    Quitting from lines 77-94 (cellscape_vignette.Rmd) 
     Error: processing vignette 'cellscape_vignette.Rmd' failed with diagnostics:
     there is no package called 'devtools'
     Execution halted
@@ -1365,18 +883,18 @@ Version: 1.0.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    getMutOrder: no visible binding for global variable ‘VAF’
-    getMutOrder: no visible global function definition for ‘lm’
-    getMutOrder: no visible binding for global variable ‘na.omit’
-    getMutOrder: no visible global function definition for ‘coef’
     getMutationsData: no visible binding for global variable
       ‘show_warnings’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cellscape/new/cellscape.Rcheck/00_pkg_src/cellscape/R/cellscape.R:1620-1624)
     getTargetedHeatmapForEachSC: no visible binding for global variable
       ‘single_cell_id’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cellscape/new/cellscape.Rcheck/00_pkg_src/cellscape/R/cellscape.R:1156)
     getTargetedHeatmapForEachSC: no visible binding for global variable
       ‘chr’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cellscape/new/cellscape.Rcheck/00_pkg_src/cellscape/R/cellscape.R:1156)
     getTargetedHeatmapForEachSC: no visible binding for global variable
       ‘coord’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cellscape/new/cellscape.Rcheck/00_pkg_src/cellscape/R/cellscape.R:1156)
     Undefined global functions or variables:
       VAF chr chrom_index coef combn coord copy_number cumsum_values dist
       genotype hclust lm melt mode_cnv n n_gt na.omit px px_width sc_id
@@ -1390,292 +908,252 @@ Version: 1.0.0
 
 *   checking for unstated dependencies in vignettes ... NOTE
     ```
-    'library' or 'require' call not declared from: ‘devtools’
+    '::' or ':::' import not declared from: ‘BiocManager’
+    'library' or 'require' calls not declared from:
+      ‘BiocManager’ ‘devtools’
     ```
 
+# CEMiTool
+
+Version: 1.6.10
+
+## In both
+
+*   checking whether package ‘CEMiTool’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CEMiTool/new/CEMiTool.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘CEMiTool’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** exec
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘CEMiTool’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CEMiTool/new/CEMiTool.Rcheck/CEMiTool’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘CEMiTool’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** exec
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘CEMiTool’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CEMiTool/old/CEMiTool.Rcheck/CEMiTool’
+
+```
 # chipenrich
 
-Version: 2.0.1
+Version: 2.6.1
 
 ## In both
 
-*   checking whether package ‘chipenrich’ can be installed ... ERROR
+*   checking package dependencies ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/chipenrich/new/chipenrich.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘chipenrich’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘chipenrich’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/chipenrich/new/chipenrich.Rcheck/chipenrich’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘chipenrich’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘chipenrich’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/chipenrich/old/chipenrich.Rcheck/chipenrich’
-
-```
-# choroplethr
-
-Version: 3.6.1
-
-## In both
-
-*   checking whether package ‘choroplethr’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/choroplethr/new/choroplethr.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘choroplethr’ ...
-** package ‘choroplethr’ successfully unpacked and MD5 sums checked
-** R
-** data
-** preparing package for lazy loading
-Warning: package ‘acs’ was built under R version 3.4.3
-Warning: package ‘XML’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘choroplethr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/choroplethr/new/choroplethr.Rcheck/choroplethr’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘choroplethr’ ...
-** package ‘choroplethr’ successfully unpacked and MD5 sums checked
-** R
-** data
-** preparing package for lazy loading
-Warning: package ‘acs’ was built under R version 3.4.3
-Warning: package ‘stringr’ was built under R version 3.4.3
-Warning: package ‘XML’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘choroplethr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/choroplethr/old/choroplethr.Rcheck/choroplethr’
-
-```
-# chorrrds
-
-Version: 0.1.4
-
-## In both
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  5.1Mb
-      sub-directories of 1Mb or more:
-        data   4.9Mb
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘dplyr’ ‘httr’ ‘jsonlite’
-      All declared Imports should be used.
-    ```
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 8008 marked UTF-8 strings
-    ```
-
-# CIAAWconsensus
-
-Version: 1.2
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘Matrix’ ‘stringr’
-      All declared Imports should be used.
-    ```
-
-# CINdex
-
-Version: 1.4.0
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
+    Packages required but not available:
+      ‘org.Dm.eg.db’ ‘org.Dr.eg.db’ ‘org.Hs.eg.db’ ‘org.Mm.eg.db’
+      ‘org.Rn.eg.db’
     
-        Vignettes contain introductory material; view with
-        'browseVignettes()'. To cite Bioconductor, see
-        'citation("Biobase")', and for packages 'citation("pkgname")'.
+    Package suggested but not available for checking: ‘devtools’
     
-    
-    Attaching package: 'Biobase'
-    
-    The following object is masked from 'package:AnnotationHub':
-    
-        cache
-    
-    ===========================================================================
-    Welcome to oligo version 1.40.2
-    ===========================================================================
-    Loading required package: DBI
-    Quitting from lines 33-42 (PrepareInputData.Rmd) 
-    Error: processing vignette 'PrepareInputData.Rmd' failed with diagnostics:
-    package or namespace load failed for 'biovizBase' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Execution halted
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-*   checking installed package size ... NOTE
-    ```
-      installed size is 18.4Mb
-      sub-directories of 1Mb or more:
-        data  17.7Mb
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    comp.heatmap: no visible binding for global variable ‘dataMatrix’
-    process.probe.anno: no visible binding for global variable ‘ID’
-    process.probe.anno: no visible binding for global variable ‘midpoint’
-    process.reference.genome: no visible binding for global variable
-      ‘chrom’
-    process.reference.genome: no visible binding for global variable ‘name’
-    process.reference.genome: no visible binding for global variable
-      ‘stain’
-    Undefined global functions or variables:
-      ID chrom dataMatrix midpoint name stain
-    ```
-
-# ck37r
-
-Version: 1.0.0
-
-## In both
-
-*   checking whether package ‘ck37r’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ck37r/new/ck37r.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘ck37r’ ...
-** package ‘ck37r’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ck37r’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ck37r/new/ck37r.Rcheck/ck37r’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘ck37r’ ...
-** package ‘ck37r’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ck37r’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ck37r/old/ck37r.Rcheck/ck37r’
-
-```
-# CLME
-
-Version: 2.0-9
-
-## In both
-
-*   checking whether package ‘CLME’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘lme4’ was built under R version 3.4.4
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CLME/new/CLME.Rcheck/00install.out’ for details.
-    ```
-
-# Cluster.OBeu
+# ChIPSeqSpike
 
 Version: 1.2.1
 
 ## In both
 
-*   checking whether package ‘Cluster.OBeu’ can be installed ... ERROR
+*   checking examples ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Cluster.OBeu/new/Cluster.OBeu.Rcheck/00install.out’ for details.
+    ...
+    		 ### Step 5. Spike-in scaling ###
+    Processing H3K79me2_0
+    	 Reading experiment bigWig file.
+    	 Apply scaling factor
+    	 Output bigWig file
+    Processing H3K79me2_50
+    	 Reading experiment bigWig file.
+    	 Apply scaling factor
+    	 Output bigWig file
+    Processing H3K79me2_100
+    	 Reading experiment bigWig file.
+    	 Apply scaling factor
+    	 Output bigWig file
+    
+    
+    		 ### Step 6. Extract values ###
+    Retrieving values for profiles and heatmaps.
+    Extraction at pf
+    Error in getREF(genome_ind) : No genomes installed!
+    Calls: spikePipe ... lapply -> lapply -> FUN -> getPlotSetArray -> getREF
+    Execution halted
     ```
 
-## Installation
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+        as.data.frame, basename, cbind, colMeans, colSums, colnames,
+        dirname, do.call, duplicated, eval, evalq, get, grep, grepl,
+        intersect, is.unsorted, lapply, lengths, mapply, match, mget,
+        order, paste, pmax, pmax.int, pmin, pmin.int, rank, rbind,
+        rowMeans, rowSums, rownames, sapply, setdiff, sort, table,
+        tapply, union, unique, unsplit, which, which.max, which.min
+    
+    Loading required package: S4Vectors
+    
+    Attaching package: 'S4Vectors'
+    
+    The following object is masked from 'package:base':
+    
+        expand.grid
+    
+    Loading required package: IRanges
+    Loading required package: GenomeInfoDb
+    Quitting from lines 72-98 (ChIPSeqSpike.Rmd) 
+    Error: processing vignette 'ChIPSeqSpike.Rmd' failed with diagnostics:
+    No genomes installed!
+    Execution halted
+    ```
 
-### Devel
+# chorrrds
 
-```
-* installing *source* package ‘Cluster.OBeu’ ...
-** package ‘Cluster.OBeu’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘Cluster.OBeu’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Cluster.OBeu/new/Cluster.OBeu.Rcheck/Cluster.OBeu’
+Version: 0.1.8
 
-```
-### CRAN
+## In both
 
-```
-* installing *source* package ‘Cluster.OBeu’ ...
-** package ‘Cluster.OBeu’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘Cluster.OBeu’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Cluster.OBeu/old/Cluster.OBeu.Rcheck/Cluster.OBeu’
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 4004 marked UTF-8 strings
+    ```
 
-```
+# cicero
+
+Version: 1.0.14
+
+## In both
+
+*   checking R code for possible problems ... NOTE
+    ```
+    aggregate_nearby_peaks: no visible binding for global variable 'val'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cicero/new/cicero.Rcheck/00_pkg_src/cicero/R/aggregate.R:37)
+    assemble_connections: no visible binding for global variable 'value'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cicero/new/cicero.Rcheck/00_pkg_src/cicero/R/runCicero.R:640-641)
+    find_overlapping_ccans: no visible binding for global variable 'CCAN'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cicero/new/cicero.Rcheck/00_pkg_src/cicero/R/runCicero.R:919-922)
+    generate_windows: no visible binding for global variable 'V1'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cicero/new/cicero.Rcheck/00_pkg_src/cicero/R/runCicero.R:663-667)
+    plot_accessibility_in_pseudotime: no visible binding for global
+      variable 'f_id'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cicero/new/cicero.Rcheck/00_pkg_src/cicero/R/plotting.R:676-695)
+    Undefined global functions or variables:
+      CCAN V1 f_id val value
+    ```
+
+# cimir
+
+Version: 0.1-0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘readr’
+      All declared Imports should be used.
+    ```
+
+# civis
+
+Version: 1.5.1
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# clusterExperiment
+
+Version: 2.2.0
+
+## In both
+
+*   R CMD check timed out
+    
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘scRNAseq’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 16.0Mb
+      sub-directories of 1Mb or more:
+        R     3.1Mb
+        doc  11.4Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    ':::' call which should be '::': ‘ape:::reorder.phylo’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking foreign function calls ... NOTE
+    ```
+    Foreign function calls to a different package:
+      .C(ape::node_depth, ...)
+      .C(ape::node_depth_edgelength, ...)
+      .C(ape::node_height, ...)
+      .C(ape::node_height_clado, ...)
+    See chapter ‘System and foreign language interfaces’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘ConsensusClusterPlus’, ‘scRNAseq’
+    ```
+
+# CNVPanelizer
+
+Version: 1.14.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported object imported by a ':::' call: ‘utils:::format.object_size’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
 # codebook
 
-Version: 0.5.8
+Version: 0.7.6
 
 ## In both
 
@@ -1688,7 +1166,7 @@ Version: 0.5.8
 
 *   checking Rd cross-references ... NOTE
     ```
-    Package unavailable to check Rd xrefs: ‘labelled’
+    Package unavailable to check Rd xrefs: ‘mice’
     ```
 
 *   checking data for non-ASCII characters ... NOTE
@@ -1702,10 +1180,12 @@ Version: 0.1.6
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
+*   checking package dependencies ... ERROR
     ```
-    Namespace in Imports field not imported from: ‘memoise’
-      All declared Imports should be used.
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # CollapsABEL
@@ -1728,9 +1208,15 @@ Version: 0.10.11
 * installing *source* package ‘CollapsABEL’ ...
 ** package ‘CollapsABEL’ successfully unpacked and MD5 sums checked
 ** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
 ERROR: lazy loading failed for package ‘CollapsABEL’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CollapsABEL/new/CollapsABEL.Rcheck/CollapsABEL’
 
@@ -1741,32 +1227,82 @@ ERROR: lazy loading failed for package ‘CollapsABEL’
 * installing *source* package ‘CollapsABEL’ ...
 ** package ‘CollapsABEL’ successfully unpacked and MD5 sums checked
 ** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/CollapsABEL/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
 ERROR: lazy loading failed for package ‘CollapsABEL’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/CollapsABEL/old/CollapsABEL.Rcheck/CollapsABEL’
 
 ```
-# compcodeR
+# compareDF
 
-Version: 1.12.0
+Version: 1.7.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘sm’
-    
+    Namespaces in Imports field not imported from:
+      ‘magrittr’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+# compcodeR
+
+Version: 1.18.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
     Packages which this enhances but not available for checking: ‘rpanel’ ‘DSS’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    'library' or 'require' call to ‘rpanel’ in package code.
+      Please use :: or requireNamespace() instead.
+      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    Package in Depends field not imported from: ‘sm’
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      ‘packageVersion’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/compcodeR/new/compcodeR.Rcheck/00_pkg_src/compcodeR/R/generateRmdCodeDiffExp.R:980-1000)
+    show,compData: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/compcodeR/new/compcodeR.Rcheck/00_pkg_src/compcodeR/R/show-methods.R:42)
+    show,compData: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/compcodeR/new/compcodeR.Rcheck/00_pkg_src/compcodeR/R/show-methods.R:53)
+    show,compData: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/compcodeR/new/compcodeR.Rcheck/00_pkg_src/compcodeR/R/show-methods.R:61)
+    show,compData: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/compcodeR/new/compcodeR.Rcheck/00_pkg_src/compcodeR/R/show-methods.R:71)
+    Undefined global functions or variables:
+      as.dist axis cor hclust head heat.colors legend lines loess median
+      na.omit packageVersion par predict rexp rnbinom rpois runif sd title
+    Consider adding
+      importFrom("grDevices", "heat.colors")
+      importFrom("graphics", "axis", "legend", "lines", "par", "title")
+      importFrom("stats", "as.dist", "cor", "hclust", "loess", "median",
+                 "na.omit", "predict", "rexp", "rnbinom", "rpois", "runif",
+                 "sd")
+      importFrom("utils", "head", "packageVersion")
+    to your NAMESPACE file.
     ```
 
 # configr
 
-Version: 0.3.2.2
+Version: 0.3.4
 
 ## In both
 
@@ -1777,9 +1313,51 @@ Version: 0.3.2.2
 
 # congressbr
 
-Version: 0.1.1
+Version: 0.1.8
 
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘congressbr-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: sen_coalition_info
+    > ### Title: Downloads and tidies data on specific coalitions in the Federal
+    > ###   Senate
+    > ### Aliases: sen_coalition_info
+    > 
+    > ### ** Examples
+    > 
+    > moderador <- sen_coalition_info(code = 200)
+    Error: All columns in a tibble must be 1d or 2d objects:
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Loading required package: dplyr
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 52-55 (senate.Rmd) 
+    Error: processing vignette 'senate.Rmd' failed with diagnostics:
+    All columns in a tibble must be 1d or 2d objects:
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -1791,6 +1369,13 @@ Version: 0.1.1
 Version: 0.1
 
 ## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        doc   4.7Mb
+    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -1812,64 +1397,87 @@ Version: 1.0.0
 
 # crossmeta
 
-Version: 1.2.0
+Version: 1.8.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking for code/documentation mismatches ... WARNING
     ```
-    Package required but not available: ‘data.table’
+    Data with usage in documentation object 'gs.names' but not in code:
+      gs.names
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Data with usage in documentation object 'gslist' but not in code:
+      gslist
     ```
 
-# crossword.r
-
-Version: 0.3.5
-
-## In both
-
-*   checking tests ...
+*   checking package dependencies ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > test_check("crossword.r")
-      [31m──[39m [31m1. Failure: things work in general (@test_general.R#11) [39m [31m────────────────────────────────────────────────────[39m
-      `{ ... }` produced warnings.
-      
-      . . 1 2 3
-      . # # # #
-      1 # . B #
-      2 # A # #
-      3 # # # #
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 9 SKIPPED: 0 FAILED: 1
-      1. Failure: things work in general (@test_general.R#11) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘org.Hs.eg.db’
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
+    Missing or unexported objects:
+      ‘crossmeta::gs.names’ ‘crossmeta::gslist’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    explore_paths : server: no visible binding for global variable ‘gslist’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/crossmeta/new/crossmeta.Rcheck/00_pkg_src/crossmeta/R/explore_path.R:343)
+    explore_paths : server: no visible binding for global variable
+      ‘gs.names’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/crossmeta/new/crossmeta.Rcheck/00_pkg_src/crossmeta/R/explore_path.R:343)
+    Undefined global functions or variables:
+      gs.names gslist
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘PADOG’, ‘GeneMeta’
+    ```
+
+# crossword.r
+
+Version: 0.3.6
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
     Namespaces in Imports field not imported from:
-      ‘dplyr’ ‘r6extended’
+      ‘R6’ ‘dplyr’ ‘r6extended’
       All declared Imports should be used.
+    ```
+
+# CTDquerier
+
+Version: 1.2.0
+
+## In both
+
+*   R CMD check timed out
+    
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 14.9Mb
+      sub-directories of 1Mb or more:
+        data      4.1Mb
+        doc       6.1Mb
+        extdata   4.1Mb
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 161 marked UTF-8 strings
     ```
 
 # cummeRbund
 
-Version: 2.18.0
+Version: 2.24.0
 
 ## In both
-
-*   checking whether package ‘cummeRbund’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cummeRbund/new/cummeRbund.Rcheck/00install.out’ for details.
-    ```
 
 *   checking package dependencies ... NOTE
     ```
@@ -1880,77 +1488,117 @@ Version: 2.18.0
     selectively is preferable.
     ```
 
-## Installation
+*   checking installed package size ... NOTE
+    ```
+      installed size is  9.4Mb
+      sub-directories of 1Mb or more:
+        R         2.0Mb
+        doc       1.6Mb
+        extdata   5.5Mb
+    ```
 
-### Devel
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Malformed Title field: should not end in a period.
+    Packages listed in more than one of Depends, Imports, Suggests, Enhances:
+      ‘BiocGenerics’ ‘plyr’
+    A package should be listed in only one of these fields.
+    ```
 
-```
-* installing *source* package ‘cummeRbund’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Warning: package ‘reshape2’ was built under R version 3.4.3
-Error: package or namespace load failed for ‘Gviz’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘Gviz’ could not be loaded
-ERROR: lazy loading failed for package ‘cummeRbund’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cummeRbund/new/cummeRbund.Rcheck/cummeRbund’
+*   checking dependencies in R code ... NOTE
+    ```
+    'library' or 'require' calls in package code:
+      'NMFN' 'cluster' 'rjson' 'stringr'
+      Please use :: or requireNamespace() instead.
+      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    Namespace in Imports field not imported from: 'S4Vectors'
+      All declared Imports should be used.
+    Packages in Depends field not imported from:
+      'Gviz' 'RSQLite' 'fastcluster' 'ggplot2' 'reshape2' 'rtracklayer'
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
+    ```
 
-```
-### CRAN
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      geom_point geom_rect geom_rug geom_segment geom_smooth geom_text
+      geom_tile geom_vline ggplot guides hasAxis<- hclust ids import labs
+      log2_fold_change make.db.names makeTxDb mean_cl_boot melt nnmf
+      obsnames order.dendrogram p.adjust p_value pam plot plotIdeogram
+      plotTracks position_dodge prcomp quant_status ranges read.delim
+      read.table rowInd sample_1 sample_2 sample_name scale_color_gradient
+      scale_color_hue scale_color_manual scale_colour_manual
+      scale_fill_continuous scale_fill_gradient scale_fill_gradient2
+      scale_fill_hue scale_x_continuous scale_x_discrete scale_x_log10
+      scale_y_continuous scale_y_discrete scale_y_log10 sd seqnames
+      significant start stat_density stat_smooth stat_sum stat_summary
+      stdev str_split_fixed strand theme theme_bw toJSON tracking_id tracks
+      unit v1 v2 value values variable varnames write.table x xlab xlim y
+      ylab
+    Consider adding
+      importFrom("graphics", "plot")
+      importFrom("stats", "as.dendrogram", "as.dist", "as.formula",
+                 "cmdscale", "dist", "end", "hclust", "order.dendrogram",
+                 "p.adjust", "prcomp", "sd", "start")
+      importFrom("utils", "read.delim", "read.table", "write.table")
+    to your NAMESPACE file.
+    ```
 
-```
-* installing *source* package ‘cummeRbund’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Warning: package ‘reshape2’ was built under R version 3.4.3
-Error: package or namespace load failed for ‘Gviz’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘Gviz’ could not be loaded
-ERROR: lazy loading failed for package ‘cummeRbund’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/cummeRbund/old/cummeRbund.Rcheck/cummeRbund’
-
-```
 # customProDB
 
-Version: 1.16.0
+Version: 1.22.1
 
 ## In both
 
 *   checking examples ... ERROR
     ```
     ...
-    > ### Title: prepare annotation for Refseq
-    > ### Aliases: PrepareAnnotationRefseq
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > transcript_ids <- c("NM_001126112", "NM_033360", "NR_073499", "NM_004448",
-    +         "NM_000179", "NR_029605", "NM_004333", "NM_001127511")
-    > pepfasta <- system.file("extdata", "refseq_pro_seq.fasta", 
-    +             package="customProDB")
-    > CDSfasta <- system.file("extdata", "refseq_coding_seq.fasta", 
-    +             package="customProDB")
-    > annotation_path <- tempdir()
-    > PrepareAnnotationRefseq(genome='hg19', CDSfasta, pepfasta, annotation_path, 
-    +             dbsnp=NULL, transcript_ids=transcript_ids, 
-    +             splice_matrix=FALSE, COSMIC=FALSE)
-    Build TranscriptDB object (txdb.sqlite) ... 
-    Error in names(trackIds) <- sub("^ ", "", sapply(nodes, xmlValue)) : 
-      'names' attribute [210] must be the same length as the vector [209]
-    Calls: PrepareAnnotationRefseq ... trackNames -> .local -> ucscTracks -> ucscTracks -> .local
+    +             package="customProDB"))
+    Loading required package: GenomicFeatures
+    Loading required package: GenomeInfoDb
+    Loading required package: GenomicRanges
+    > junction_type <- JunctionType(jun, splicemax, txdb, ids)
+    > table(junction_type[, 'jun_type'])
+    
+    connect a known exon and a region overlap with known exon 
+                                                            1 
+                                  connect two non-exon region 
+                                                            9 
+                                               known junction 
+                                                           46 
+    > chrom <- paste('chr',c(1:22,'X','Y','M'),sep='')
+    > junction_type <- subset(junction_type, seqnames %in% chrom)
+    > outf_junc <- paste(tempdir(), '/test_junc.fasta', sep='')
+    > load(system.file("extdata/refseq", "proseq.RData", package="customProDB"))
+    > library('BSgenome.Hsapiens.UCSC.hg19')
+    Error in library("BSgenome.Hsapiens.UCSC.hg19") : 
+      there is no package called ‘BSgenome.Hsapiens.UCSC.hg19’
     Execution halted
     ```
 
-*   checking DESCRIPTION meta-information ... NOTE
+*   checking running R code from vignettes ...
     ```
-    Packages listed in more than one of Depends, Imports, Suggests, Enhances:
-      ‘IRanges’ ‘biomaRt’ ‘AnnotationDbi’
-    A package should be listed in only one of these fields.
+       ‘customProDB.Rnw’ using ‘UTF-8’ ... failed
+     WARNING
+    Errors in running code in vignettes:
+    when running code in ‘customProDB.Rnw’
+      ...
+                                                           46 
+    
+    > outf_junc <- paste(tempdir(), "/test_junc.fasta", 
+    +     sep = "")
+    
+    > library("BSgenome.Hsapiens.UCSC.hg19")
+    
+      When sourcing ‘customProDB.R’:
+    Error: there is no package called ‘BSgenome.Hsapiens.UCSC.hg19’
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘BSgenome.Hsapiens.UCSC.hg19’
     ```
 
 *   checking dependencies in R code ... NOTE
@@ -1963,67 +1611,53 @@ Version: 1.16.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    PrepareAnnotationEnsembl: no visible binding for global variable
-      ‘alleles’
-    PrepareAnnotationRefseq: no visible global function definition for
-      ‘saveDb’
-    PrepareAnnotationRefseq: no visible binding for global variable
-      ‘mrnaAcc’
-    PrepareAnnotationRefseq: no visible binding for global variable ‘name’
-    PrepareAnnotationRefseq: no visible binding for global variable
-      ‘protAcc’
-    PrepareAnnotationRefseq: no visible binding for global variable
-      ‘transcript’
     PrepareAnnotationRefseq: no visible binding for global variable ‘chrom’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/PrepareAnnotationRefseq.R:243-244)
+    PrepareAnnotationRefseq: no visible binding for global variable ‘name’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/PrepareAnnotationRefseq.R:243-244)
     PrepareAnnotationRefseq: no visible binding for global variable
       ‘alleleCount’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/PrepareAnnotationRefseq.R:243-244)
     PrepareAnnotationRefseq: no visible binding for global variable
       ‘alleles’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/PrepareAnnotationRefseq.R:243-244)
+    PrepareAnnotationRefseq: no visible binding for global variable
+      ‘COSMIC’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/PrepareAnnotationRefseq.R:278-295)
     Varlocation: no visible binding for global variable ‘pro_name’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/Varlocation.R:41)
+    Varlocation: no visible binding for global variable ‘pro_name’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/customProDB/new/customProDB.Rcheck/00_pkg_src/customProDB/R/Varlocation.R:42)
     Undefined global functions or variables:
-      V5 aapos aaref aavar alleleCount alleles cds_end cds_start chrom
-      ensembl_gene_id genename jun_type mrnaAcc name pro_name proname
-      protAcc rsid saveDb transcript txname
+      COSMIC V5 aapos aaref aavar alleleCount alleles cds_end cds_start
+      chrom ensembl_gene_id genename jun_type mrnaAcc name pro_name proname
+      protAcc rsid transcript txname
     ```
 
 *   checking re-building of vignette outputs ... NOTE
     ```
     ...
-        lapply, lengths, mapply, match, mget, order, paste, pmax, pmax.int,
-        pmin, pmin.int, rank, rbind, rowMeans, rowSums, rownames, sapply,
-        setdiff, sort, table, tapply, union, unique, unsplit, which,
-        which.max, which.min
-    
-    Loading required package: S4Vectors
-    
-    Attaching package: ‘S4Vectors’
-    
-    The following object is masked from ‘package:base’:
-    
-        expand.grid
-    
-    Loading required package: IRanges
-    Loading required package: GenomeInfoDb
+    Extract the 'transcripts' data frame ... OK
+    Extract the 'splicings' data frame ... OK
+    Download and preprocess the 'chrominfo' data frame ... OK
+    Prepare the 'metadata' data frame ... OK
+    Make the TxDb object ... OK
+     done
+    Prepare gene/transcript/protein id mapping information (ids.RData) ...  done
+    Prepare exon annotation information (exon_anno.RData) ...  done
+    Prepare protein sequence (proseq.RData) ...  done
+    Prepare protein coding sequence (procodingseq.RData)...  done
+    Loading required package: GenomicFeatures
+    Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet],  :
+      in 'x[[1]]': last 2 bases were ignored
+    Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet],  :
+      in 'x[[2]]': last 2 bases were ignored
     
     Error: processing vignette 'customProDB.Rnw' failed with diagnostics:
-     chunk 1 (label = dbSNPversion) 
-    Error in names(trackIds) <- sub("^ ", "", sapply(nodes, xmlValue)) : 
-      'names' attribute [210] must be the same length as the vector [209]
+     chunk 16 (label = novjunc) 
+    Error in library("BSgenome.Hsapiens.UCSC.hg19") : 
+      there is no package called ‘BSgenome.Hsapiens.UCSC.hg19’
     Execution halted
-    ```
-
-# cyclestreets
-
-Version: 0.1.5
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
     ```
 
 # d3Tree
@@ -2038,37 +1672,85 @@ Version: 0.2.0
       All declared Imports should be used.
     ```
 
-# dartR
+# dabestr
 
-Version: 1.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘data.table’ ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# data.tree
-
-Version: 0.7.5
+Version: 0.2.0
 
 ## In both
 
 *   checking re-building of vignette outputs ... WARNING
     ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 57-64 (applications.Rmd) 
-    Error: processing vignette 'applications.Rmd' failed with diagnostics:
-    package or namespace load failed for 'treemap' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
-     there is no package called 'data.table'
+    ...
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    
+    Attaching package: 'cowplot'
+    
+    The following object is masked from 'package:ggplot2':
+    
+        ggsave
+    
+    Loading required package: boot
+    Warning: `data_frame()` is deprecated, use `tibble()`.
+    This warning is displayed once per session.
+    Loading required package: magrittr
+    Quitting from lines 110-166 (robust-statistical-visualization.Rmd) 
+    Error: processing vignette 'robust-statistical-visualization.Rmd' failed with diagnostics:
+    polygon edge not found
     Execution halted
     ```
 
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.6Mb
+      sub-directories of 1Mb or more:
+        doc   5.8Mb
+    ```
+
+# DAPAR
+
+Version: 1.14.4
+
+## In both
+
+*   checking whether package ‘DAPAR’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DAPAR/new/DAPAR.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘DAPAR’ ...
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘DAPAR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DAPAR/new/DAPAR.Rcheck/DAPAR’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘DAPAR’ ...
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘DAPAR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DAPAR/old/DAPAR.Rcheck/DAPAR’
+
+```
 # datacheck
 
 Version: 1.2.2
@@ -2078,17 +1760,17 @@ Version: 1.2.2
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    is_one_of: no visible global function definition for ‘read.csv’
-    pkg.version: no visible global function definition for ‘citation’
-    pkg_version: no visible global function definition for ‘citation’
-    ruleCoverage: no visible global function definition for ‘dotchart’
-    ruleCoverage: no visible global function definition for ‘abline’
-    rule_coverage: no visible global function definition for ‘dotchart’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1048)
     rule_coverage: no visible global function definition for ‘abline’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1049)
     scoreSum: no visible global function definition for ‘plot’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1072)
     score_sum: no visible global function definition for ‘plot’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1095)
     shortSummary: no visible global function definition for ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1139)
     short_summary: no visible global function definition for ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/datacheck/new/datacheck.Rcheck/00_pkg_src/datacheck/R/datacheck.R:1186)
     Undefined global functions or variables:
       abline citation colorRampPalette dotchart heatmap plot read.csv sd
       setTxtProgressBar txtProgressBar
@@ -2106,15 +1788,15 @@ Version: 1.2.2
     Package has no Sweave vignette sources and no VignetteBuilder field.
     ```
 
-# dataPreparation
+# DataPackageR
 
-Version: 0.3.5
+Version: 0.15.4
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -2122,7 +1804,7 @@ Version: 0.3.5
 
 # datasus
 
-Version: 0.4.0
+Version: 0.4.1
 
 ## In both
 
@@ -2134,34 +1816,92 @@ Version: 0.4.0
 
 # DeepBlueR
 
-Version: 1.2.10
+Version: 1.8.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+*   R CMD check timed out
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+
+*   checking Rd files ... NOTE
+    ```
+    prepare_Rd: deepblue_enrich_regions_fast.Rd:35-38: Dropping empty section \examples
+    ```
+
+# DEGreport
+
+Version: 1.18.1
+
+## In both
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Package listed in more than one of Depends, Imports, Suggests, Enhances:
+      ‘knitr’
+    A package should be listed in only one of these fields.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    degPlotCluster: no visible binding for global variable ‘cluster’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEGreport/new/DEGreport.Rcheck/00_pkg_src/DEGreport/R/clustering.R:44)
+    degPlotWide : <anonymous>: no visible binding for global variable
+      ‘count’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEGreport/new/DEGreport.Rcheck/00_pkg_src/DEGreport/R/genePlots.R:235-238)
+    significants,TopTags: no visible binding for global variable ‘FDR’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEGreport/new/DEGreport.Rcheck/00_pkg_src/DEGreport/R/AllMethods.R:153-157)
+    significants,TopTags: no visible binding for global variable ‘logFC’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEGreport/new/DEGreport.Rcheck/00_pkg_src/DEGreport/R/AllMethods.R:153-157)
+    significants,list : <anonymous>: no visible binding for global variable
+      ‘gene’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEGreport/new/DEGreport.Rcheck/00_pkg_src/DEGreport/R/AllMethods.R:248)
+    Undefined global functions or variables:
+      .x FDR base_mean boxplot cluster comp compare count counts covar desc
+      enrichGO fdr gene genes itemConsensus k keys lm log2FoldChange log2fc
+      logFC max_sd min_median n p.value r ratios rowMedians score simplify
+      value_fc value_fdr x xend y yend
+    Consider adding
+      importFrom("graphics", "boxplot")
+      importFrom("stats", "lm")
+    to your NAMESPACE file.
     ```
 
 # DeLorean
 
-Version: 1.3.0
+Version: 1.5.0
 
 ## In both
 
-*   checking whether package ‘DeLorean’ can be installed ... WARNING
+*   checking installed package size ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DeLorean/new/DeLorean.Rcheck/00install.out’ for details.
+      installed size is  7.9Mb
+      sub-directories of 1Mb or more:
+        libs   4.9Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘lattice’
+      All declared Imports should be used.
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
     ```
 
 # detrendr
 
-Version: 0.5.1
+Version: 0.6.0
 
 ## In both
 
@@ -2172,18 +1912,14 @@ Version: 0.5.1
 
 # DEXSeq
 
-Version: 1.22.0
+Version: 1.28.1
 
 ## In both
 
-*   checking whether package ‘DEXSeq’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEXSeq/new/DEXSeq.Rcheck/00install.out’ for details.
-    ```
-
 *   checking package dependencies ... NOTE
     ```
+    Package suggested but not available for checking: ‘parathyroidSE’
+    
     Depends: includes the non-default packages:
       ‘BiocParallel’ ‘Biobase’ ‘SummarizedExperiment’ ‘IRanges’
       ‘GenomicRanges’ ‘DESeq2’ ‘AnnotationDbi’ ‘RColorBrewer’ ‘S4Vectors’
@@ -2191,45 +1927,18 @@ Version: 1.22.0
     selectively is preferable.
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘DEXSeq’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘DESeq2’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘DESeq2’ could not be loaded
-ERROR: lazy loading failed for package ‘DEXSeq’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEXSeq/new/DEXSeq.Rcheck/DEXSeq’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘DEXSeq’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘DESeq2’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘DESeq2’ could not be loaded
-ERROR: lazy loading failed for package ‘DEXSeq’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/DEXSeq/old/DEXSeq.Rcheck/DEXSeq’
-
-```
 # DiagrammeR
 
 Version: 1.0.0
 
 ## In both
 
-*   checking package dependencies ... NOTE
+*   checking installed package size ... NOTE
     ```
-    Package suggested but not available for checking: ‘rsvg’
+      installed size is  6.9Mb
+      sub-directories of 1Mb or more:
+        R             3.0Mb
+        htmlwidgets   3.0Mb
     ```
 
 *   checking data for non-ASCII characters ... NOTE
@@ -2237,88 +1946,15 @@ Version: 1.0.0
       Note: found 1 marked UTF-8 string
     ```
 
-# diceR
+# diffdf
 
-Version: 0.5.0
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘diceR-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: CSPA
-    > ### Title: Cluster-based Similarity Partitioning Algorithm (CSPA)
-    > ### Aliases: CSPA
-    > 
-    > ### ** Examples
-    > 
-    > data(hgsc)
-    > dat <- hgsc[1:100, 1:50]
-    > x <- consensus_cluster(dat, nk = 4, reps = 4, algorithms = c("hc", "diana"),
-    + progress = FALSE)
-    Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-      there is no package called ‘data.table’
-    Calls: consensus_cluster ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 53 SKIPPED: 0 FAILED: 19
-      1. Error: No algorithms means all algorithms, output is an array (@test-consensus_cluster.R#7) 
-      2. Error: Output can be saved with or without time in file name (@test-consensus_cluster.R#13) 
-      3. Error: Progress bar increments across entire function call (@test-consensus_cluster.R#24) 
-      4. Error: Able to call only spearman distance (@test-consensus_cluster.R#32) 
-      5. Error: Data preparation on bootstrap samples works (@test-consensus_cluster.R#38) 
-      6. Error: no scaling means only choose complete cases and high signal vars (@test-consensus_cluster.R#45) 
-      7. Error: t-SNE dimension reduction works (@test-consensus_cluster.R#51) 
-      8. Error: (unknown) (@test-consensus_combine.R#9) 
-      9. Error: (unknown) (@test-consensus_funs.R#6) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    Quitting from lines 122-124 (overview.Rmd) 
-    Error: processing vignette 'overview.Rmd' failed with diagnostics:
-    there is no package called 'data.table'
-    Execution halted
-    ```
-
-# difconet
-
-Version: 1.0-4
+Version: 1.0.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # diffeqr
@@ -2334,17 +1970,66 @@ Version: 0.1.1
         doc   9.3Mb
     ```
 
-# distcomp
+# Doscheda
 
-Version: 1.0-1
+Version: 1.4.1
 
 ## In both
 
-*   checking whether package ‘distcomp’ can be installed ... WARNING
+*   checking installed package size ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘survival’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/distcomp/new/distcomp.Rcheck/00install.out’ for details.
+      installed size is  6.3Mb
+      sub-directories of 1Mb or more:
+        data             2.1Mb
+        doc              1.6Mb
+        shiny-examples   2.0Mb
+    ```
+
+# dotwhisker
+
+Version: 0.5.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Loading required package: ggplot2
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 199-207 (dotwhisker-vignette.Rmd) 
+    Error: processing vignette 'dotwhisker-vignette.Rmd' failed with diagnostics:
+    there is no package called 'mfx'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘mfx’
+    ```
+
+# dplR
+
+Version: 1.6.9
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        R     2.6Mb
+        doc   1.8Mb
     ```
 
 # dplyrAssist
@@ -2360,245 +2045,80 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# driftR
+# dynutils
 
-Version: 1.0.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘ggplot2’ ‘readr’
-      All declared Imports should be used.
-    ```
-
-# drLumi
-
-Version: 0.1.2
-
-## In both
-
-*   checking whether package ‘drLumi’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/drLumi/new/drLumi.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘drLumi’ ...
-** package ‘drLumi’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘drLumi’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/drLumi/new/drLumi.Rcheck/drLumi’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘drLumi’ ...
-** package ‘drLumi’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘drLumi’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/drLumi/old/drLumi.Rcheck/drLumi’
-
-```
-# dtree
-
-Version: 0.4.2
-
-## In both
-
-*   checking whether package ‘dtree’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘rpart’ was built under R version 3.4.3
-      Warning: package ‘party’ was built under R version 3.4.4
-      Warning: package ‘mvtnorm’ was built under R version 3.4.3
-      Warning: package ‘zoo’ was built under R version 3.4.3
-      Warning: package ‘evtree’ was built under R version 3.4.3
-      Warning: package ‘partykit’ was built under R version 3.4.4
-      Warning: package ‘libcoin’ was built under R version 3.4.3
-      Warning: package ‘caret’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/dtree/new/dtree.Rcheck/00install.out’ for details.
-    ```
-
-# dynamichazard
-
-Version: 0.5.1
+Version: 1.0.1
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# EasyMARK
-
-Version: 1.0
-
-## In both
-
-*   checking whether package ‘EasyMARK’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EasyMARK/new/EasyMARK.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘EasyMARK’ ...
-** package ‘EasyMARK’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error : .onLoad failed in loadNamespace() for 'rjags', details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so':
-  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so, 10): Library not loaded: /usr/local/lib/libjags.4.dylib
-  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so
-  Reason: image not found
-ERROR: lazy loading failed for package ‘EasyMARK’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EasyMARK/new/EasyMARK.Rcheck/EasyMARK’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘EasyMARK’ ...
-** package ‘EasyMARK’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error : .onLoad failed in loadNamespace() for 'rjags', details:
-  call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so':
-  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so, 10): Library not loaded: /usr/local/lib/libjags.4.dylib
-  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/EasyMARK/rjags/libs/rjags.so
-  Reason: image not found
-ERROR: lazy loading failed for package ‘EasyMARK’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EasyMARK/old/EasyMARK.Rcheck/EasyMARK’
-
-```
 # eclust
 
 Version: 0.1.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking examples ... ERROR
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    ...
+    > alphaMean = 1; betaE = 3; distanceMethod = "euclidean"; clustMethod = "hclust";
+    > cutMethod = "dynamic"; agglomerationMethod = "average"
+    > 
+    > #in this simulation its blocks 3 and 4 that are important
+    > #leaveOut:  optional specification of modules that should be left out
+    > #of the simulation, that is their genes will be simulated as unrelated
+    > #("grey"). This can be useful when simulating several sets, in some which a module
+    > #is present while in others it is absent.
+    > d0 <- s_modules(n = n0, p = p, rho = 0, exposed = FALSE,
+    +                 modProportions = c(0.15,0.15,0.15,0.15,0.15,0.25),
+    +                 minCor = 0.01,
+    +                 maxCor = 1,
+    +                 corPower = 1,
+    +                 propNegativeCor = 0.3,
+    +                 backgroundNoise = 0.5,
+    +                 signed = FALSE,
+    +                 leaveOut = 1:4)
+    Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+      there is no package called ‘GO.db’
+    Calls: s_modules ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
+    Execution halted
     ```
 
-# edeaR
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    See example usage at http://sahirbhatnagar.com/eclust/
+    Quitting from lines 142-168 (eclust.Rmd) 
+    Error: processing vignette 'eclust.Rmd' failed with diagnostics:
+    there is no package called 'GO.db'
+    Execution halted
+    ```
 
-Version: 0.8.0
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘pander’
+      All declared Imports should be used.
+    ```
+
+# EdSurvey
+
+Version: 2.2.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# eemR
-
-Version: 0.1.5
-
-## In both
-
-*   checking whether package ‘eemR’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/eemR/new/eemR.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘eemR’ ...
-** package ‘eemR’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘eemR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/eemR/new/eemR.Rcheck/eemR’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘eemR’ ...
-** package ‘eemR’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘eemR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/eemR/old/eemR.Rcheck/eemR’
-
-```
-# eeptools
-
-Version: 1.1.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# eiCompare
-
-Version: 2.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  5.8Mb
+      sub-directories of 1Mb or more:
+        R   4.1Mb
     ```
 
 # elementR
@@ -2607,41 +2127,146 @@ Version: 1.3.6
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking package dependencies ... ERROR
     ```
-    Running examples in ‘elementR-Ex.R’ failed
-    The error most likely occurred in:
+    Package required but not available: ‘devtools’
     
-    > ### Name: elementR_project
-    > ### Title: Object elementR_project
-    > ### Aliases: elementR_project
-    > 
-    > ### ** Examples
-    > 
-    > ## create a new elementR_repStandard object based on the "filePath" 
-    > ## from a folder containing sample replicate
-    > 
-    > filePath <- system.file("Example_Session", package="elementR")
-    > 
-    > exampleProject <- elementR_project$new(filePath)
-    Error in structure(.External(.C_dotTclObjv, objv), class = "tclObj") : 
-      [tcl] invalid command name "toplevel".
-    Calls: <Anonymous> ... tktoplevel -> tkwidget -> tcl -> .Tcl.objv -> structure
-    Execution halted
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# ELMER
+
+Version: 2.6.1
+
+## In both
+
+*   R CMD check timed out
+    
+
+*   checking dependencies in R code ... WARNING
+    ```
+    '::' or ':::' import not declared from: 'progress'
+    ':::' calls which should be '::':
+      'TCGAbiolinks:::colDataPrepare' 'TCGAbiolinks:::get.GRCh.bioMart'
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking for code/documentation mismatches ... WARNING
+    ```
+    Codoc mismatches from documentation object 'get.enriched.motif':
+    get.enriched.motif
+      Code: function(data, probes.motif, probes, min.motif.quality = "DS",
+                     background.probes, pvalue = 0.05, lower.OR = 1.1,
+                     min.incidence = 10, dir.out = "./", label = NULL, save
+                     = TRUE, plot.title = "")
+      Docs: function(data, probes.motif, probes, min.motif.quality = "DS",
+                     background.probes, pvalue = 0.05, lower.OR = 1.1,
+                     min.incidence = 10, dir.out = "./", label = NULL, save
+                     = TRUE, plot.title = NULL)
+      Mismatches in argument default values:
+        Name: 'plot.title' Code: "" Docs: NULL
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 44.8Mb
+      sub-directories of 1Mb or more:
+        doc  43.6Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/motif.TF.Plots.R:123-135)
+    motif.enrichment.plot: no visible binding for global variable 'upperOR'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/motif.TF.Plots.R:147)
+    motif.enrichment.plot: no visible binding for global variable 'lowerOR'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/motif.TF.Plots.R:147)
+    motif.enrichment.plot: no visible binding for global variable 'motif'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/motif.TF.Plots.R:148-157)
+    motif.enrichment.plot: no visible binding for global variable 'OR'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/motif.TF.Plots.R:148-157)
+    scatter: no visible binding for global variable 'value'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/Scatter.plot.R:236-250)
+    scatter: no visible binding for global variable 'mae'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/Scatter.plot.R:272-289)
+    scatter.plot: no visible binding for global variable 'ID'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/Scatter.plot.R:135)
+    scatter.plot: no visible binding for global variable 'GeneID'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ELMER/new/ELMER.Rcheck/00_pkg_src/ELMER/R/Scatter.plot.R:135)
+    Undefined global functions or variables:
+      DistanceTSS Gene GeneID Hugo_Symbol ID OR Probe Side Sides TF
+      ensembl_gene_id label lowerOR mae motif pvalue subsetByOverlaps
+      upperOR value x y z
+    ```
+
+# emuR
+
+Version: 1.1.2
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  7.1Mb
+      sub-directories of 1Mb or more:
+        R         3.0Mb
+        doc       1.2Mb
+        extdata   1.5Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘git2r’ ‘servr’
+      All declared Imports should be used.
     ```
 
 # ENCODExplorer
 
-Version: 2.2.1
+Version: 2.8.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is 74.0Mb
+      sub-directories of 1Mb or more:
+        data     24.1Mb
+        doc       1.5Mb
+        extdata  48.0Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    step6_target: no visible binding for global variable ‘target’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:354-355)
+    step7: no visible binding for global variable ‘organism’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:424-425)
+    step8: no visible binding for global variable ‘investigated_as’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:436-437)
+    step8: no visible binding for global variable ‘target’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:439-440)
+    step9: no visible binding for global variable ‘organism’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:449-450)
+    Undefined global functions or variables:
+      . Experiment Value accession antibody_caption
+      antibody_characterization antibody_target assay
+      biological_replicate_number biosample_name biosample_type col_name
+      controls data date_released download.file encode_df file_accession
+      file_format href investigated_as lab nucleic_acid_term organism
+      platform project replicate_antibody replicate_library server status
+      submitted_by target technical_replicate_number treatment ui value
+    Consider adding
+      importFrom("utils", "data", "download.file")
+    to your NAMESPACE file.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 771 marked UTF-8 strings
     ```
 
 # epitable
@@ -2657,110 +2282,54 @@ Version: 0.1.2
       All declared Imports should be used.
     ```
 
-# eqs2lavaan
+# epos
 
-Version: 3.0
+Version: 0.1.0
 
-## Newly fixed
+## In both
 
-*   checking whether package ‘eqs2lavaan’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/eqs2lavaan/old/eqs2lavaan.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘dplyr’ ‘testthat’ ‘tidyr’
+      All declared Imports should be used.
     ```
+
+# erccdashboard
+
+Version: 1.16.1
 
 ## In both
 
 *   checking R code for possible problems ... NOTE
     ```
-    eqs2lavaan: no visible global function definition for ‘ignore.case’
-    eqs2lavaan: no visible global function definition for ‘str_join’
-    eqs2lavaan: no visible binding for global variable ‘r’
-    eqsCorr: no visible global function definition for ‘cov2cor’
-    plotCov: no visible global function definition for ‘cov2cor’
-    plotCov: no visible global function definition for ‘par’
-    plotCov: no visible global function definition for ‘image’
-    plotCov: no visible global function definition for ‘axis’
+    ...
+    dynRangePlot: no visible binding for global variable ‘value’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/dynRangePlot.R:286-292)
+    dynRangePlot: no visible binding for global variable ‘value’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/dynRangePlot.R:294-301)
+    dynRangePlot: no visible binding for global variable ‘Rep’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/dynRangePlot.R:294-301)
+    saveERCCPlots: no visible global function definition for ‘par’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/saveERCCPlots.R:116)
+    testDECount: no visible binding for global variable ‘Atrend’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/testDECount.R:261)
+    testDECount: no visible binding for global variable ‘Dispersion’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/testDECount.R:261)
+    testDECount: no visible binding for global variable ‘Dispersion’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/testDECount.R:263-271)
+    testDECount: no visible binding for global variable ‘Ratio’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00_pkg_src/erccdashboard/R/testDECount.R:263-271)
     Undefined global functions or variables:
-      axis cov2cor ignore.case image par r str_join
+      Atrend Dispersion Ratio Rep par value
     Consider adding
-      importFrom("graphics", "axis", "image", "par")
-      importFrom("stats", "cov2cor")
+      importFrom("graphics", "par")
     to your NAMESPACE file.
     ```
 
-# erccdashboard
-
-Version: 1.10.0
-
-## In both
-
-*   checking whether package ‘erccdashboard’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘erccdashboard’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘uniqueAtomMat’
-ERROR: lazy loading failed for package ‘erccdashboard’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/new/erccdashboard.Rcheck/erccdashboard’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘erccdashboard’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘uniqueAtomMat’
-ERROR: lazy loading failed for package ‘erccdashboard’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/erccdashboard/old/erccdashboard.Rcheck/erccdashboard’
-
-```
 # ess
 
 Version: 0.1.1
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘tibble’
-      All declared Imports should be used.
-    ```
-
-# essurvey
-
-Version: 1.0.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘tibble’
-      All declared Imports should be used.
-    ```
-
-# eurostat
-
-Version: 3.1.5
 
 ## In both
 
@@ -2769,74 +2338,102 @@ Version: 3.1.5
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      trying URL 'http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=data%2Ftsdtr210.tsv.gz'
-      downloaded 17 KB
       
-      [31m──[39m [31m1. Error: (unknown) (@test-all.R#112) [39m [31m──────────────────────────────────────────────────────────────────────[39m
-      tsdtr210 does not exist or is not readable
-      1: get_eurostat("tsdtr210", type = "label", keepFlags = T, cache = FALSE) at testthat/test-all.R:112
-      2: get_eurostat_raw(id)
-      3: stop(id, " does not exist or is not readable")
+      [31m──[39m [31m5. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#101) [39m [31m────[39m
+      show_country_rounds("Spain") not equal to 1:7.
+      Lengths differ: 9 is not 7
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 0 SKIPPED: 14 FAILED: 1
-      1. Error: (unknown) (@test-all.R#112) 
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 33 SKIPPED: 23 FAILED: 5
+      1. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#97) 
+      2. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#98) 
+      3. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#99) 
+      4. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#100) 
+      5. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#101) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    ...
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    trying URL 'http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=data%2Ften00081.tsv.gz'
-    Content type 'application/octet-stream;charset=UTF-8' length 13491 bytes (13 KB)
-    ==================================================
-    downloaded 13 KB
-    
-    Table ten00081 cached at /tmp/RtmpRFf8Me/eurostat/ten00081_date_code_TF.rds
-    Quitting from lines 291-309 (eurostat_tutorial.Rmd) 
-    Error: processing vignette 'eurostat_tutorial.Rmd' failed with diagnostics:
-    package or namespace load failed for 'tmap' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'rgdal'
-    Execution halted
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# etl
+
+Version: 0.3.7
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# eurostat
+
+Version: 3.3.1.3
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 595 marked UTF-8 strings
     ```
 
 # EventPointer
 
-Version: 1.0.0
+Version: 2.0.1
 
 ## In both
 
-*   checking whether package ‘EventPointer’ can be installed ... WARNING
+*   checking examples ... ERROR
     ```
-    Found the following significant warnings:
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package subdirectories ... NOTE
-    ```
-    Found the following CITATION file in a non-standard place:
-      inst/CITATION.orig
-    Most likely ‘inst/CITATION’ should be used instead.
+    Running examples in ‘EventPointer-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: getbootstrapkallisto
+    > ### Title: Author: JF
+    > ### Aliases: getbootstrapkallisto
+    > 
+    > ### ** Examples
+    > 
+    >    
+    >    PathFiles <- system.file('extdata',package='EventPointer')
+    >    PathFiles <- dir(paste0(PathFiles,'/output'),full.names = TRUE)
+    >    
+    >    #load the data
+    >    
+    >    mydatab <- getbootstrapkallisto(pathValues = PathFiles,nb = 20)
+    Error in if (is.na(pathValues)) { : the condition has length > 1
+    Calls: getbootstrapkallisto
+    Execution halted
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Unexported objects imported by ':::' calls:
-      ‘SGSeq:::edges’ ‘SGSeq:::exonGraph’ ‘SGSeq:::nodes’
+      ‘SGSeq:::addFeatureID’ ‘SGSeq:::addGeneID’ ‘SGSeq:::edges’
+      ‘SGSeq:::exonGraph’ ‘SGSeq:::feature2name’ ‘SGSeq:::matchSGFeatures’
+      ‘SGSeq:::nodes’ ‘SGSeq:::propagateAnnotation’
+      ‘SGSeq:::splitCharacterList’
       See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    annotate2: no visible global function definition for
+      ‘addDummySpliceSites’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/00_pkg_src/EventPointer/R/AuxFunctions.R:3847)
+    annotate2: no visible global function definition for ‘annotatePaths’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/00_pkg_src/EventPointer/R/AuxFunctions.R:3855)
+    annotateFeatures2: no visible global function definition for
+      ‘matchTxFeatures’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/EventPointer/new/EventPointer.Rcheck/00_pkg_src/EventPointer/R/AuxFunctions.R:3873)
+    Undefined global functions or variables:
+      addDummySpliceSites annotatePaths matchTxFeatures
     ```
 
 # EventStudy
@@ -2845,53 +2442,86 @@ Version: 0.34
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
+      installed size is  6.9Mb
+      sub-directories of 1Mb or more:
+        doc   5.8Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘curl’ ‘openxlsx’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+# exampletestr
+
+Version: 1.4.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘exampletestr-Ex.R’ failed
+    The error most likely occurred in:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    > ### Name: make-test-shells
+    > ### Title: Create test shells.
+    > ### Aliases: make-test-shells make_test_shell_fun make_tests_shells_file
+    > ###   make_tests_shells_pkg
+    > 
+    > ### ** Examples
+    > 
+    > usethis::create_package(tempdir(check = TRUE), open = FALSE)
+    Error: [34m'/tmp'[39m is not a directory.
+    Execution halted
     ```
 
-# exsic
-
-Version: 1.1.1
-
-## Newly fixed
-
-*   checking whether package ‘exsic’ can be installed ... WARNING
+*   checking tests ...
     ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/exsic/old/exsic.Rcheck/00install.out’ for details.
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      6: withVisible(eval(expr, pf))
+      7: eval(expr, pf)
+      8: eval(expr, pf)
+      9: usethis::create_package(tempdir(), open = FALSE)
+      10: create_directory(path_dir(path), name)
+      11: stop_glue("{value(base_path)} is not a directory.")
+      
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 13 SKIPPED: 0 FAILED: 3
+      1. Error: `extract_examples()` works (@test-exemplar.R#7) 
+      2. Error: `make_test_shell()` works (@test-exemplar.R#47) 
+      3. Error: `make_tests_shell_fun()` works (@test-exemplar.R#98) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
+
+# ezpickr
+
+Version: 1.0.0
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking Rd cross-references ... NOTE
     ```
-    index.citations: no visible global function definition for
-      ‘txtProgressBar’
-    read.exsic: no visible global function definition for ‘read.csv’
-    update.pb: no visible global function definition for
-      ‘setTxtProgressBar’
-    Undefined global functions or variables:
-      read.csv setTxtProgressBar txtProgressBar
-    Consider adding
-      importFrom("utils", "read.csv", "setTxtProgressBar", "txtProgressBar")
-    to your NAMESPACE file.
+    Package unavailable to check Rd xrefs: ‘BrailleR’
     ```
 
-# ez
+# fastLink
 
-Version: 4.4-0
+Version: 0.5.0
 
 ## In both
 
-*   checking whether package ‘ez’ can be installed ... ERROR
+*   checking whether package ‘fastLink’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ez/new/ez.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/fastLink/new/fastLink.Rcheck/00install.out’ for details.
     ```
 
 ## Installation
@@ -2899,177 +2529,96 @@ Version: 4.4-0
 ### Devel
 
 ```
-* installing *source* package ‘ez’ ...
-** package ‘ez’ successfully unpacked and MD5 sums checked
-** R
-** data
-** byte-compile and prepare package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ez’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ez/new/ez.Rcheck/ez’
+* installing *source* package ‘fastLink’ ...
+** package ‘fastLink’ successfully unpacked and MD5 sums checked
+** libs
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/RcppArmadillo/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/RcppEigen/include" -I/usr/local/include  -fopenmp  -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
+clang: error: unsupported option '-fopenmp'
+make: *** [RcppExports.o] Error 1
+ERROR: compilation failed for package ‘fastLink’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/fastLink/new/fastLink.Rcheck/fastLink’
 
 ```
 ### CRAN
 
 ```
-* installing *source* package ‘ez’ ...
-** package ‘ez’ successfully unpacked and MD5 sums checked
-** R
-** data
-** byte-compile and prepare package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ez’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ez/old/ez.Rcheck/ez’
+* installing *source* package ‘fastLink’ ...
+** package ‘fastLink’ successfully unpacked and MD5 sums checked
+** libs
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/RcppArmadillo/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/fastLink/RcppEigen/include" -I/usr/local/include  -fopenmp  -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
+clang: error: unsupported option '-fopenmp'
+make: *** [RcppExports.o] Error 1
+ERROR: compilation failed for package ‘fastLink’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/fastLink/old/fastLink.Rcheck/fastLink’
 
 ```
-# fastLink
-
-Version: 0.3.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# fbRanks
-
-Version: 2.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    'library' or 'require' calls in package code:
-      ‘RCurl’ ‘RJSONIO’ ‘XML’ ‘glmnet’ ‘httr’ ‘speedglm’ ‘tcltk’ ‘xtable’
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    ...
-    Undefined global functions or variables:
-      Axis GET abline as as.formula axis box coef content devAskNewPage
-      fromJSON getNodeSet getURL glm glmnet hist htmlParse legend lines
-      loess mad median plot pnorm points poisson predict quantile read.csv
-      readHTMLTable residuals rpois runif sparseMatrix speedglm tclObj<-
-      tclVar tclvalue tclvalue<- terms text text_content title tkbutton
-      tkcurselection tkdestroy tkentry tkframe tkgrid tklabel tklistbox
-      tkpack tkradiobutton tkselection.clear tktoplevel tkwait.window
-      tkwm.title user_agent write.table xmlAttrs xmlChildren xmlValue
-      xtable
-    Consider adding
-      importFrom("grDevices", "devAskNewPage")
-      importFrom("graphics", "Axis", "abline", "axis", "box", "hist",
-                 "legend", "lines", "plot", "points", "text", "title")
-      importFrom("methods", "as")
-      importFrom("stats", "as.formula", "coef", "glm", "loess", "mad",
-                 "median", "pnorm", "poisson", "predict", "quantile",
-                 "residuals", "rpois", "runif", "terms")
-      importFrom("utils", "read.csv", "write.table")
-    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-    contains 'methods').
-    ```
-
 # febr
 
-Version: 1.0-0
+Version: 1.0.1
 
 ## In both
 
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘rgdal’
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
-    Namespaces in Imports field not imported from:
-      ‘cellranger’ ‘knitr’
+    Namespace in Imports field not imported from: ‘knitr’
       All declared Imports should be used.
     ```
 
 # FedData
 
-Version: 2.5.2
+Version: 2.5.6
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available: ‘data.table’ ‘rgdal’ ‘sf’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# fergm
-
-Version: 0.2.1
-
-## In both
-
-*   checking whether package ‘fergm’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘rstan’ was built under R version 3.4.3
-      Warning: package ‘StanHeaders’ was built under R version 3.4.3
-      Warning: package ‘network’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/fergm/new/fergm.Rcheck/00install.out’ for details.
-    ```
-
 # FFTrees
 
-Version: 1.3.5
+Version: 1.4.0
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.8Mb
+      installed size is  6.6Mb
       sub-directories of 1Mb or more:
         doc   4.6Mb
     ```
 
-# Fgmutils
-
-Version: 0.9.4
-
-## In both
-
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespace in Imports field not imported from: ‘pROC’
+      All declared Imports should be used.
     ```
 
 # filesstrings
 
-Version: 2.2.0
-
-## Newly fixed
-
-*   checking whether package ‘filesstrings’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/filesstrings/old/filesstrings.Rcheck/00install.out’ for details.
-    ```
+Version: 3.0.0
 
 ## In both
 
 *   checking Rd cross-references ... NOTE
     ```
     Package unavailable to check Rd xrefs: ‘dplyr’
+    ```
+
+# fingertipscharts
+
+Version: 0.0.4
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘curl’ ‘mapproj’
+      All declared Imports should be used.
     ```
 
 # fitbitScraper
@@ -3113,16 +2662,102 @@ Version: 0.4.0
 
 # flowWorkspace
 
-Version: 3.24.4
+Version: 3.30.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking Rd \usage sections ... WARNING
     ```
-    Package required but not available: ‘data.table’
+    Undocumented arguments in documentation object 'add,GatingSet,list-method'
+      ‘cluster_method_name’
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Undocumented arguments in documentation object 'plot_diff_tree'
+      ‘path’ ‘...’
+    
+    Functions with \usage entries need to have the appropriate \alias
+    entries, and all their arguments documented.
+    The \usage entries must correspond to syntactically valid R code.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 34.2Mb
+      sub-directories of 1Mb or more:
+        R      2.1Mb
+        doc    1.4Mb
+        lib   27.3Mb
+        libs   3.0Mb
+    ```
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Malformed Title field: should not end in a period.
+    Versioned 'LinkingTo' values for
+      ‘BH’ ‘RProtoBufLib’ ‘cytolib’
+    are only usable in R >= 3.0.2
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘RBGL’ ‘grDevices’ ‘graphics’
+      All declared Imports should be used.
+    Unexported objects imported by ':::' calls:
+      ‘flowCore:::.estimateLogicle’ ‘flowCore:::checkClass’
+      ‘flowCore:::copyFlowSet’ ‘flowCore:::guid’
+      ‘flowCore:::logicle_transform’ ‘flowCore:::updateTransformKeywords’
+      ‘graph:::.makeEdgeKeys’ ‘lattice:::updateList’
+      ‘ncdfFlow:::.isValidSamples’ ‘stats:::.splinefun’
+      See the note in ?`:::` about the use of this operator.
+    There are ::: calls to the package's namespace in its code. A package
+      almost never needs to use ::: for its own objects:
+      ‘.cpp_setIndices’ ‘.getNodeInd’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    show,flowJoWorkspace: no visible binding for global variable
+      ‘groupName’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/flowWorkspace/new/flowWorkspace.Rcheck/00_pkg_src/flowWorkspace/R/flowJoWorkspace_Methods.R:66)
+    transform,GatingSet: no visible global function definition for ‘is’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/flowWorkspace/new/flowWorkspace.Rcheck/00_pkg_src/flowWorkspace/R/GatingSet_Methods.R:2297-2302)
+    transform,GatingSet: no visible global function definition for ‘is’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/flowWorkspace/new/flowWorkspace.Rcheck/00_pkg_src/flowWorkspace/R/GatingSet_Methods.R:2304-2314)
+    transform,GatingSet : <anonymous>: no visible global function
+      definition for ‘is’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/flowWorkspace/new/flowWorkspace.Rcheck/00_pkg_src/flowWorkspace/R/GatingSet_Methods.R:2307-2308)
+    Undefined global functions or variables:
+      . .hasSlot IQR as as.formula callNextMethod desc extends gray
+      groupName is median new node old openCyto.count parallel sampleName
+      selectMethod slot validObject xml.count
+    Consider adding
+      importFrom("grDevices", "gray")
+      importFrom("methods", ".hasSlot", "as", "callNextMethod", "extends",
+                 "is", "new", "selectMethod", "slot", "validObject")
+      importFrom("stats", "IQR", "as.formula", "median")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
+    ```
+
+*   checking compiled code ... NOTE
+    ```
+    File ‘flowWorkspace/libs/flowWorkspace.so’:
+      Found ‘__ZNSt3__14coutE’, possibly from ‘std::cout’ (C++)
+        Object: ‘R_GatingSet.o’
+    
+    Compiled code should not call entry points which might terminate R nor
+    write to stdout/stderr instead of to the console, nor use Fortran I/O
+    nor system RNGs.
+    
+    See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
     ```
 
 # fontMPlus
@@ -3147,89 +2782,163 @@ Version: 0.1.1
       All declared Imports should be used.
     ```
 
-# fragilityindex
+# FRESA.CAD
+
+Version: 3.1.0
+
+## In both
+
+*   checking whether package ‘FRESA.CAD’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/FRESA.CAD/new/FRESA.CAD.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘mRMRe’
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘FRESA.CAD’ ...
+** package ‘FRESA.CAD’ successfully unpacked and MD5 sums checked
+** libs
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c FRESACAD_init.cpp -o FRESACAD_init.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c FRESAcommons.cpp -o FRESAcommons.o
+In file included from FRESAcommons.cpp:19:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c binaryFeatureSelectionCpp.cpp -o binaryFeatureSelectionCpp.o
+In file included from binaryFeatureSelectionCpp.cpp:20:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c rankInverseNormalCpp.cpp -o rankInverseNormalCpp.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c regresionFeatureSelectionCpp.cpp -o regresionFeatureSelectionCpp.o
+In file included from regresionFeatureSelectionCpp.cpp:19:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o FRESA.CAD.so FRESACAD_init.o FRESAcommons.o binaryFeatureSelectionCpp.o rankInverseNormalCpp.o regresionFeatureSelectionCpp.o -L/Library/Frameworks/R.framework/Resources/lib -lRlapack -L/Library/Frameworks/R.framework/Resources/lib -lRblas -L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin15/6.1.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm -fopenmp -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+clang: error: unsupported option '-fopenmp'
+make: *** [FRESA.CAD.so] Error 1
+ERROR: compilation failed for package ‘FRESA.CAD’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/FRESA.CAD/new/FRESA.CAD.Rcheck/FRESA.CAD’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘FRESA.CAD’ ...
+** package ‘FRESA.CAD’ successfully unpacked and MD5 sums checked
+** libs
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c FRESACAD_init.cpp -o FRESACAD_init.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c FRESAcommons.cpp -o FRESAcommons.o
+In file included from FRESAcommons.cpp:19:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c binaryFeatureSelectionCpp.cpp -o binaryFeatureSelectionCpp.o
+In file included from binaryFeatureSelectionCpp.cpp:20:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c rankInverseNormalCpp.cpp -o rankInverseNormalCpp.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG   -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/FRESA.CAD/RcppArmadillo/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c regresionFeatureSelectionCpp.cpp -o regresionFeatureSelectionCpp.o
+In file included from regresionFeatureSelectionCpp.cpp:19:
+./FRESAcommons.h:36:9: warning: 'HAVE_UINTPTR_T' macro redefined [-Wmacro-redefined]
+#define HAVE_UINTPTR_T
+        ^
+/Library/Frameworks/R.framework/Resources/include/Rconfig.h:23:9: note: previous definition is here
+#define HAVE_UINTPTR_T 1
+        ^
+1 warning generated.
+ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o FRESA.CAD.so FRESACAD_init.o FRESAcommons.o binaryFeatureSelectionCpp.o rankInverseNormalCpp.o regresionFeatureSelectionCpp.o -L/Library/Frameworks/R.framework/Resources/lib -lRlapack -L/Library/Frameworks/R.framework/Resources/lib -lRblas -L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin15/6.1.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm -fopenmp -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+clang: error: unsupported option '-fopenmp'
+make: *** [FRESA.CAD.so] Error 1
+ERROR: compilation failed for package ‘FRESA.CAD’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/FRESA.CAD/old/FRESA.CAD.Rcheck/FRESA.CAD’
+
+```
+# frite
 
 Version: 0.1.0
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
+*   checking examples ... ERROR
     ```
-    Namespaces in Imports field not imported from:
-      ‘base’ ‘pbapply’ ‘stringr’
-      All declared Imports should be used.
-    ```
-
-# frequencyConnectedness
-
-Version: 0.2.0
-
-## In both
-
-*   checking whether package ‘frequencyConnectedness’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘zoo’ was built under R version 3.4.3
-      Warning: package ‘lmtest’ was built under R version 3.4.4
-      Warning: package ‘knitr’ was built under R version 3.4.3
-      Warning: package ‘pbapply’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/frequencyConnectedness/new/frequencyConnectedness.Rcheck/00install.out’ for details.
-    ```
-
-# futureheatwaves
-
-Version: 1.0.3
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+    Running examples in ‘frite-Ex.R’ failed
+    The error most likely occurred in:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    > ### Name: is.output.same
+    > ### Title: Checks if functions will produce identical output
+    > ### Aliases: is.output.same
+    > 
+    > ### ** Examples
+    > 
+    > 
+    > is.output.same(purrr::map(1:3, cumsum), lapply) # TRUE
+    Error in exists("chain_parts", env) : invalid 'envir' argument
+    Calls: is.output.same -> find_call_piped -> exists
+    Execution halted
     ```
-
-# fuzzyjoin
-
-Version: 0.1.4
-
-## In both
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      [31m──[39m [31m1. Failure: Can do inner joins on intervals with findOverlaps arguments (@test_interval_join.R#56) [39m [31m─────────[39m
-      j_maxgap$id1 not equal to c(1, 1, 2, 2, 3, 3).
-      Lengths differ: 5 is not 6
+             reduce_impl(.x, .f, ..., .init = .init, .dir = .dir)
+         })(.x, .f, ..., .init, .dir)
+      7: reduce_impl(.x, .f, ..., .init = .init, .dir = .dir)
+      8: fn(out, elt, ...)
       
-      [31m──[39m [31m2. Failure: Can do inner joins on intervals with findOverlaps arguments (@test_interval_join.R#57) [39m [31m─────────[39m
-      j_maxgap$id2 not equal to c(1, 2, 1, 2, 2, 3).
-      Lengths differ: 5 is not 6
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 225 SKIPPED: 0 FAILED: 2
-      1. Failure: Can do inner joins on intervals with findOverlaps arguments (@test_interval_join.R#56) 
-      2. Failure: Can do inner joins on intervals with findOverlaps arguments (@test_interval_join.R#57) 
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 14 SKIPPED: 0 FAILED: 5
+      1. Error: is.output.same returns logical (@test-is-output-same.R#4) 
+      2. Error: is.output.same returns false for outputs of different class (@test-is-output-same.R#8) 
+      3. Error: find_call_piped return has type 'language' (@test_find_call_piped.R#4) 
+      4. Error: tictocify functions work when duped args are given (@test_tictocify.R#15) 
+      5. Error: tictocify produces equal output to original (@test_tictocify.R#20) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# GADMTools
-
-Version: 2.1-1
-
-## In both
-
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 50-57 (getting-started.Rmd) 
+    Error: processing vignette 'getting-started.Rmd' failed with diagnostics:
+    invalid 'type' (character) of argument
+    Execution halted
     ```
 
 # gaiah
@@ -3277,17 +2986,40 @@ Version: 1.1.2
     contains 'methods').
     ```
 
+# ganalytics
+
+Version: 0.10.6
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 # gastempt
 
-Version: 0.4.01
+Version: 0.4.3
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  7.1Mb
+      installed size is  7.7Mb
       sub-directories of 1Mb or more:
-        libs   6.7Mb
+        libs   7.2Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘methods’ ‘rstantools’
+      All declared Imports should be used.
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
     ```
 
 # genBart
@@ -3296,12 +3028,13 @@ Version: 1.0.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespaces in Imports field not imported from:
+      ‘NMF’ ‘RColorBrewer’ ‘VennDiagram’ ‘clValid’ ‘data.table’ ‘grid’
+      ‘gtools’ ‘pca3d’ ‘rmarkdown’ ‘scales’ ‘shinydashboard’ ‘shinyjs’
+      ‘statmod’ ‘stringr’
+      All declared Imports should be used.
     ```
 
 # genderizeR
@@ -3310,9 +3043,20 @@ Version: 2.0.0
 
 ## In both
 
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘sortinghat’
+    ```
+
+# GeneStructureTools
+
+Version: 1.2.1
+
+## In both
+
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘BSgenome.Mmusculus.UCSC.mm10’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -3320,90 +3064,16 @@ Version: 2.0.0
 
 # GenomicInteractions
 
-Version: 1.10.0
+Version: 1.16.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# GenomicTools
-
-Version: 0.2.6
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# geotopbricks
-
-Version: 1.4
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# GERGM
-
-Version: 0.11.2
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# GetITRData
-
-Version: 0.7
-
-## Newly broken
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 99-112 (gitrd-vignette-introduction.Rmd) 
-    Error: processing vignette 'gitrd-vignette-introduction.Rmd' failed with diagnostics:
-    Zipped file contains 0 files. This is likelly a problem with the downloaded file. Try running the code again as the corrupted zip file was deleted and will be downloaded again.
-    
-    If the problem persists, my suggestions is to remove the time period with problem.
-    Execution halted
-    ```
-
-# gfcanalysis
-
-Version: 1.4
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is 11.4Mb
+      sub-directories of 1Mb or more:
+        doc       1.8Mb
+        extdata   7.9Mb
     ```
 
 # ggdag
@@ -3436,6 +3106,70 @@ Version: 0.3.0
       Note: found 2356 marked UTF-8 strings
     ```
 
+# ggformula
+
+Version: 0.9.1
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.0Mb
+      sub-directories of 1Mb or more:
+        R     2.1Mb
+        doc   2.7Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tidyr’
+      All declared Imports should be used.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘quantreg’
+    ```
+
+# gginnards
+
+Version: 0.0.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘grid’ ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# ggiraphExtra
+
+Version: 0.2.9
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘ggforce’ ‘webshot’ ‘ztable’
+      All declared Imports should be used.
+    ```
+
+# ggmap
+
+Version: 3.0.0
+
+## Newly broken
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        data   4.8Mb
+    ```
+
 # ggplotAssist
 
 Version: 0.1.3
@@ -3449,98 +3183,132 @@ Version: 0.1.3
       All declared Imports should be used.
     ```
 
-# ggplotgui
+# ggquickeda
+
+Version: 0.1.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘DT’ ‘Formula’ ‘Hmisc’ ‘colourpicker’ ‘dplyr’ ‘ggpmisc’ ‘ggrepel’
+      ‘grDevices’ ‘gridExtra’ ‘lazyeval’ ‘markdown’ ‘plotly’ ‘quantreg’
+      ‘rlang’ ‘shinyjs’ ‘table1’ ‘tidyr’
+      All declared Imports should be used.
+    ```
+
+# ggstatsplot
+
+Version: 0.0.8
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      2 levels with non-zero frequencies.
+      [39m[32mNote: [39m[34m[33m99%[34m CI for effect size estimate was computed with [33m15[34m bootstrap samples.
+      [39mError in chisq.test(counts, p = expProps) : 
+        'x' must at least have 2 elements
+      [31mWarning: [39m[34mProportion test will not be run because it requires [39m[33mx[39m[34m to have at least 
+      2 levels with non-zero frequencies.
+      [39mError in chisq.test(counts, p = expProps) : 
+        'x' must at least have 2 elements
+      [32mNote: [39m[34m[33m95%[34m CI for effect size estimate was computed with [33m100[34m bootstrap samples.
+      [39m══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 685 SKIPPED: 54 FAILED: 1
+      1. Failure: check merMod output (@test_ggcoefstats.R#515) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# ggthemes
+
+Version: 4.0.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 138 marked UTF-8 strings
+    ```
+
+# gitlabr
+
+Version: 0.9
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# glmSparseNet
 
 Version: 1.0.0
 
 ## In both
 
-*   checking whether package ‘ggplotgui’ can be installed ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ggplotgui/new/ggplotgui.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘ggplotgui’ ...
-** package ‘ggplotgui’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ggplotgui’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ggplotgui/new/ggplotgui.Rcheck/ggplotgui’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘ggplotgui’ ...
-** package ‘ggplotgui’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ggplotgui’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ggplotgui/old/ggplotgui.Rcheck/ggplotgui’
-
-```
-# ggquickeda
-
-Version: 0.1.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘DT’ ‘Hmisc’ ‘colourpicker’ ‘dplyr’ ‘ggrepel’ ‘grDevices’ ‘gridExtra’
-      ‘lazyeval’ ‘markdown’ ‘plotly’ ‘quantreg’ ‘rlang’ ‘shinyjs’ ‘tidyr’
-      All declared Imports should be used.
-    ```
-
-# ggraptR
-
-Version: 1.0
-
-## In both
-
-*   checking whether package ‘ggraptR’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘shinyjs’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ggraptR/new/ggraptR.Rcheck/00install.out’ for details.
+    Error in re-building vignettes:
+      ...
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 28-43 (example_brca_logistic.Rmd) 
+    Error: processing vignette 'example_brca_logistic.Rmd' failed with diagnostics:
+    there is no package called 'curatedTCGAData'
+    Execution halted
     ```
 
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘RSelenium’
+    Package suggested but not available for checking: ‘curatedTCGAData’
     ```
 
-*   checking dependencies in R code ... NOTE
+*   checking installed package size ... NOTE
     ```
-    Namespaces in Imports field not imported from:
-      ‘DBI’ ‘GGally’ ‘RColorBrewer’ ‘Rcpp’ ‘assertthat’ ‘backports’
-      ‘colorspace’ ‘colourpicker’ ‘evaluate’ ‘futile.options’ ‘gdtools’
-      ‘gtable’ ‘htmltools’ ‘htmlwidgets’ ‘httpuv’ ‘labeling’ ‘lambda.r’
-      ‘lazyeval’ ‘magrittr’ ‘miniUI’ ‘munsell’ ‘plyr’ ‘reshape’ ‘rprojroot’
-      ‘scales’ ‘stringi’ ‘stringr’ ‘svglite’ ‘tibble’ ‘xtable’ ‘yaml’
-      All declared Imports should be used.
+      installed size is  6.0Mb
+      sub-directories of 1Mb or more:
+        doc   5.2Mb
     ```
 
 # GOexpress
 
-Version: 1.10.0
+Version: 1.16.1
 
 ## In both
 
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.0Mb
+      installed size is  5.4Mb
       sub-directories of 1Mb or more:
         data   4.3Mb
     ```
@@ -3548,9 +3316,18 @@ Version: 1.10.0
 *   checking R code for possible problems ... NOTE
     ```
     GO_analyse: no visible binding for global variable ‘microarray2dataset’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GOexpress/new/GOexpress.Rcheck/00_pkg_src/GOexpress/R/analysis.R:46-47)
     GO_analyse: no visible binding for global variable ‘prefix2dataset’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GOexpress/new/GOexpress.Rcheck/00_pkg_src/GOexpress/R/analysis.R:158-163)
     mart_from_ensembl: no visible binding for global variable
       ‘prefix2dataset’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GOexpress/new/GOexpress.Rcheck/00_pkg_src/GOexpress/R/analysis.R:651-673)
+    mart_from_ensembl: no visible binding for global variable
+      ‘prefix2dataset’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GOexpress/new/GOexpress.Rcheck/00_pkg_src/GOexpress/R/analysis.R:654-658)
+    mart_from_ensembl: no visible binding for global variable
+      ‘prefix2dataset’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GOexpress/new/GOexpress.Rcheck/00_pkg_src/GOexpress/R/analysis.R:659-664)
     Undefined global functions or variables:
       microarray2dataset prefix2dataset
     ```
@@ -3572,80 +3349,82 @@ Version: 0.4.3
     Running the tests in ‘tests/testthat.R’ failed.
     Complete output:
       > library(testthat)
-      Warning message:
-      package 'testthat' was built under R version 3.4.3 
       > library(gogamer)
       > 
       > test_check("gogamer")
       Error: segfault from C stack overflow
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 37 SKIPPED: 1 FAILED: 0
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 36 SKIPPED: 1 FAILED: 0
       Execution halted
+    ```
+
+# googlesheets
+
+Version: 0.3.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# gphmm
+
+Version: 0.99.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+    
+    ----- ----- ----- -----
+    
+     gphmm version 0.99.0
+    
+     Biostrings version 2.50.2
+    
+     jsonlite version 1.6
+    
+     docopt version 0.6.1
+    
+    ----- ----- ----- -----
+    
+    
+    [1] "We are going to : compute"
+    [1] "Number of cores used : 1"
+    Error in if (param == "") paramgphmm = initializeGphmm() : 
+      argument is of length zero
+    Execution halted
+    Execution halted
     ```
 
 # Greg
 
-Version: 1.2.2
+Version: 1.3
 
 ## In both
 
-*   checking whether package ‘Greg’ can be installed ... ERROR
+*   checking Rd cross-references ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Greg/new/Greg.Rcheck/00install.out’ for details.
+    Package unavailable to check Rd xrefs: ‘rmeta’
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘Greg’ ...
-** package ‘Greg’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Warning: package ‘Rcpp’ was built under R version 3.4.4
-Warning: package ‘htmlTable’ was built under R version 3.4.3
-Error: package or namespace load failed for ‘Gmisc’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘Gmisc’ could not be loaded
-ERROR: lazy loading failed for package ‘Greg’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Greg/new/Greg.Rcheck/Greg’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘Greg’ ...
-** package ‘Greg’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Warning: package ‘Rcpp’ was built under R version 3.4.4
-Warning: package ‘htmlTable’ was built under R version 3.4.3
-Error: package or namespace load failed for ‘Gmisc’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘Gmisc’ could not be loaded
-ERROR: lazy loading failed for package ‘Greg’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Greg/old/Greg.Rcheck/Greg’
-
-```
 # GSIF
 
-Version: 0.5-4
+Version: 0.5-5
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘rgdal’
-    
-    Packages suggested but not available for checking:
-      ‘soiltexture’ ‘gdalUtils’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  5.0Mb
+      sub-directories of 1Mb or more:
+        R      3.1Mb
+        data   1.7Mb
     ```
 
 # GUIgems
@@ -3653,14 +3432,6 @@ Version: 0.5-4
 Version: 0.1
 
 ## In both
-
-*   checking whether package ‘GUIgems’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘igraph’ was built under R version 3.4.4
-      Warning: package ‘msm’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/GUIgems/new/GUIgems.Rcheck/00install.out’ for details.
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -3679,328 +3450,73 @@ Version: 0.1.4
       Note: found 13617 marked UTF-8 strings
     ```
 
-# hddtools
-
-Version: 0.7
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# healthcareai
-
-Version: 2.0.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # heemod
 
-Version: 0.9.2
+Version: 0.9.3
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking installed package size ... NOTE
     ```
-    ...
-    + )
-    No named model -> generating names.
-    > 
-    > # generating table with new parameter sets
-    > new_tab <- data.frame(
-    +   age_init = 40:45
-    + )
-    > 
-    > # with run_model result
-    > ndt <- update(res, newdata = new_tab)
-    No weights specified in update, using equal weights.
-    Updating strategy 'I'...
-    Updating strategy 'II'...
-    > 
-    > summary(ndt)
-    Loading required namespace: Hmisc
-    Failed with error:  ‘there is no package called ‘data.table’’
-    Error in wtd_summary(tmp[[x]], tmp$.weights) : 
-      'Hmisc' package required to produce weighted summary.
-    Calls: summary ... summary.updated_model -> lapply -> FUN -> wtd_summary
-    Execution halted
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        R         2.1Mb
+        doc       1.6Mb
+        tabular   1.0Mb
     ```
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             colnames(tab_summary) <- names(wsum)
-             cbind(data.frame(Model = .n, Value = x), tab_summary)
-         })
-      12: FUN(X[[i]], ...)
-      13: wtd_summary(tmp[[x]], tmp$.weights)
-      14: stop("'Hmisc' package required to produce weighted summary.")
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 466 SKIPPED: 0 FAILED: 3
-      1. Error: Demographic analysis (@test_heterogeneity.R#60) 
-      2. Error: Heterogeneity analysis (@test_heterogeneity.R#134) 
-      3. Error: Running model from files works. (@test_tabular_input.R#775) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
+# HiCBricks
 
-*   checking re-building of vignette outputs ... WARNING
+Version: 1.0.0
+
+## In both
+
+*   checking R code for possible problems ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Scale for 'colour' is already present. Adding another scale for
-    'colour', which will replace the existing scale.
-    Failed with error:  'there is no package called 'data.table''
-    Quitting from lines 197-198 (g_heterogeneity.Rmd) 
-    Error: processing vignette 'g_heterogeneity.Rmd' failed with diagnostics:
-    'Hmisc' package required to produce weighted summary.
-    Execution halted
+    Brick_get_ranges: no visible global function definition for ‘FUN<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/HiCBricks/new/HiCBricks.Rcheck/00_pkg_src/HiCBricks/R/Brick_functions.R:881-884)
+    Undefined global functions or variables:
+      FUN<-
     ```
 
 # highcharter
 
-Version: 0.5.0
+Version: 0.7.0
 
 ## In both
 
-*   checking whether package ‘highcharter’ can be installed ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/highcharter/new/highcharter.Rcheck/00install.out’ for details.
+      installed size is  9.2Mb
+      sub-directories of 1Mb or more:
+        doc           3.7Mb
+        htmlwidgets   4.0Mb
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘highcharter’ ...
-** package ‘highcharter’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** demo
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘highcharter’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/highcharter/new/highcharter.Rcheck/highcharter’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘highcharter’ ...
-** package ‘highcharter’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** demo
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘highcharter’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/highcharter/old/highcharter.Rcheck/highcharter’
-
-```
 # HistogramTools
 
 Version: 0.3.2
 
 ## In both
 
-*   checking whether package ‘HistogramTools’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/HistogramTools/new/HistogramTools.Rcheck/00install.out’ for details.
-    ```
-
 *   checking package dependencies ... NOTE
     ```
     Package which this enhances but not available for checking: ‘RProtoBuf’
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘HistogramTools’ ...
-** package ‘HistogramTools’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘HistogramTools’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/HistogramTools/new/HistogramTools.Rcheck/HistogramTools’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘HistogramTools’ ...
-** package ‘HistogramTools’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘HistogramTools’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/HistogramTools/old/HistogramTools.Rcheck/HistogramTools’
-
-```
-# hoardeR
-
-Version: 0.9.2
-
-## In both
-
-*   checking package dependencies ... ERROR
+*   checking Rd cross-references ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# htmlTable
-
-Version: 1.11.2
-
-## In both
-
-*   checking Rd cross-references ... WARNING
-    ```
-    Unknown package ‘pxweb’ in Rd xrefs
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 101-141 (tables.Rmd) 
-    Error: processing vignette 'tables.Rmd' failed with diagnostics:
-    there is no package called 'data.table'
-    Execution halted
+    Package unavailable to check Rd xrefs: ‘RProtoBuf’
     ```
 
 # HTSSIP
 
-Version: 1.3.2
+Version: 1.4.0
 
 ## In both
 
-*   checking for missing documentation entries ... ERROR
-    ```
-    Error in .requirePackage(package) : 
-      unable to find required package ‘phyloseq’
-    Calls: <Anonymous> ... withCallingHandlers -> is -> getClassDef -> .requirePackage
-    Execution halted
-    ```
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘HTSSIP-Ex.R’ failed
-    The error most likely occurred in:
+*   R CMD check timed out
     
-    > ### Name: OTU_qPCR_trans
-    > ### Title: Transform OTU counts based on qPCR data
-    > ### Aliases: OTU_qPCR_trans
-    > 
-    > ### ** Examples
-    > 
-    > # qPCR data simulation
-    > data(physeq_rep3)
-    > data(physeq_rep3_qPCR)
-    > physeq_rep3_t = OTU_qPCR_trans(physeq_rep3, physeq_rep3_qPCR)
-    Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-      there is no package called ‘data.table’
-    Calls: OTU_qPCR_trans ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 28 SKIPPED: 16 FAILED: 25
-      1. Error: Beta diversity from a list of phyloseq objects (@test-BD_ordinations.R#2) 
-      2. Error: Beta diversity from a list of phyloseq objects (parallel) (@test-BD_ordinations.R#9) 
-      3. Error: DESeq2_l2fc runs with default params (@test-DESeq2_l2fc.R#2) 
-      4. Error: DESeq2_l2fc runs with sparsity_apply=heavy (@test-DESeq2_l2fc.R#15) 
-      5. Error: HRSIP runs with default (@test-HRSIP.R#3) 
-      6. Error: phyloseq sim (@test-HTSSIP_sim.R#57) 
-      7. Error: phyloseq sim w/ metadata (@test-HTSSIP_sim.R#73) 
-      8. Error: phyloseq sample_data can be converted to dataframe (@test-Util.R#9) 
-      9. Error: phyloseq tax_table can be converted to dataframe (@test-Util.R#17) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    Loading required package: phyloseq
-    Error: package or namespace load failed for 'phyloseq' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Quitting from lines 85-86 (BD_shifts.Rmd) 
-    Error: processing vignette 'BD_shifts.Rmd' failed with diagnostics:
-    unable to find required package 'phyloseq'
-    Execution halted
-    ```
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  5.3Mb
-      sub-directories of 1Mb or more:
-        data   4.2Mb
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -4008,40 +3524,15 @@ Version: 1.3.2
       All declared Imports should be used.
     ```
 
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Error in .requirePackage(package) : 
-        unable to find required package 'phyloseq'
-      Calls: <Anonymous> ... .extendsForS3 -> extends -> getClassDef -> .requirePackage
-      Execution halted
-    ```
-
 # HURDAT
 
-Version: 0.1.0
+Version: 0.2.0
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      6: datasource(file, skip = skip)
-      7: datasource_connection(file, skip, comment)
-      8: datasource_raw(read_connection(path), skip, comment = comment)
-      9: new_datasource("raw", text, skip = skip, comment = comment)
-      10: structure(list(x, skip = skip, comment = comment, ...), class = c(paste0("source_", type), "source"))
-      11: read_connection(path)
-      12: open(con, "rb")
-      13: open.connection(con, "rb")
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 0 SKIPPED: 0 FAILED: 1
-      1. Error: (unknown) (@test-hurdat.R#4) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # hurricaneexposure
@@ -4050,30 +3541,50 @@ Version: 0.0.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking examples ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Running examples in ‘hurricaneexposure-Ex.R’ failed
+    The error most likely occurred in:
     
+    > ### Name: default_map
+    > ### Title: Create a default map with eastern US states
+    > ### Aliases: default_map
+    > 
+    > ### ** Examples
+    > 
+    > default_map()
+    Error in loadNamespace(name) : there is no package called ‘mapproj’
+    Calls: <Anonymous> ... mapply -> <Anonymous> -> <Anonymous> -> f -> mproject
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
     Package suggested but not available for checking: ‘hurricaneexposuredata’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
     ```
 
 # huxtable
 
-Version: 3.0.0
+Version: 4.3.0
 
 ## In both
 
-*   checking Rd cross-references ... NOTE
+*   checking package dependencies ... NOTE
     ```
-    Package unavailable to check Rd xrefs: ‘xtable’
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        R     2.0Mb
+        doc   2.9Mb
     ```
 
 # HydeNet
 
-Version: 0.10.7
+Version: 0.10.9
 
 ## In both
 
@@ -4113,8 +3624,8 @@ Version: 0.10.7
       18: tryCatchOne(expr, names, parentenv, handlers[[1L]])
       19: value[[3L]](cond)
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 62 SKIPPED: 0 FAILED: 5
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 60 SKIPPED: 0 FAILED: 5
       1. Error: (unknown) (@test-HydePosterior.R#11) 
       2. Error: (unknown) (@test-bindPosterior.R#12) 
       3. Error: compileJagsModel returns an object of class 'compiledHydeNetwork' (@test-compileJagsModel.R#14) 
@@ -4145,7 +3656,7 @@ Version: 0.10.7
 
 # hydroscoper
 
-Version: 1.0.0
+Version: 1.1.1
 
 ## In both
 
@@ -4154,59 +3665,109 @@ Version: 1.0.0
       Note: found 3031 marked UTF-8 strings
     ```
 
-# IATscores
-
-Version: 0.2.1
-
-## In both
-
-*   checking whether package ‘IATscores’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IATscores/new/IATscores.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘IATscores’ ...
-** package ‘IATscores’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘IATscores’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IATscores/new/IATscores.Rcheck/IATscores’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘IATscores’ ...
-** package ‘IATscores’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘IATscores’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IATscores/old/IATscores.Rcheck/IATscores’
-
-```
 # ideal
 
-Version: 1.0.0
+Version: 1.6.1
 
 ## In both
 
-*   checking whether package ‘ideal’ can be installed ... ERROR
+*   checking package dependencies ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ideal/new/ideal.Rcheck/00install.out’ for details.
+    Package required but not available: ‘GO.db’
+    
+    Packages suggested but not available for checking:
+      ‘airway’ ‘org.Hs.eg.db’ ‘TxDb.Hsapiens.UCSC.hg38.knownGene’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
+
+# idealstan
+
+Version: 0.5.1
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.2Mb
+      sub-directories of 1Mb or more:
+        libs   4.1Mb
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
+    ```
+
+# imager
+
+Version: 0.41.2
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG -Dcimg_r_mode -fpermissive -I/usr/X11R6/include -I/opt/X11/include  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/imager/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/new/imager.Rcheck/imager/include" -I"/private/tmp/RtmpebAJhz/sourceCpp-x86_64-apple-darwin15.6.0-1.0.0" -I/usr/local/include   -fPIC  -Wall -g -O2  -c file15956edcb5fc.cpp -o file15956edcb5fc.o
+      ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o sourceCpp_2.so file15956edcb5fc.o -lX11 -L/usr/X11R6/lib -L/opt/X11/include -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+      [31m──[39m [31m1. Error: cpp_plugin (@test_cpp_api.R#14) [39m [31m───────────────────────────────────────────────────[39m
+      Error 1 occurred building shared library.
+      1: cppFunction(foo.inline, depends = "imager") at testthat/test_cpp_api.R:14
+      2: sourceCpp(code = code, env = env, rebuild = rebuild, cacheDir = cacheDir, showOutput = showOutput, 
+             verbose = verbose)
+      3: stop("Error ", status, " occurred building shared library.")
+      
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 17 SKIPPED: 0 FAILED: 1
+      1. Error: cpp_plugin (@test_cpp_api.R#14) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 14.9Mb
+      sub-directories of 1Mb or more:
+        data      1.4Mb
+        doc       5.3Mb
+        include   2.8Mb
+        libs      3.2Mb
+    ```
+
+# INDperform
+
+Version: 0.1.1
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        data   3.0Mb
+        help   1.1Mb
+    ```
+
+# infer
+
+Version: 0.4.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# IONiseR
+
+Version: 2.6.0
+
+## In both
 
 *   checking for hidden files and directories ... NOTE
     ```
@@ -4216,185 +3777,31 @@ Version: 1.0.0
     structure’ in the ‘Writing R Extensions’ manual.
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘ideal’ ...
-** R
-** inst
-** preparing package for lazy loading
-
-groupGOTerms: 	GOBPTerm, GOMFTerm, GOCCTerm environments built.
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ideal’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ideal/new/ideal.Rcheck/ideal’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘ideal’ ...
-** R
-** inst
-** preparing package for lazy loading
-
-groupGOTerms: 	GOBPTerm, GOMFTerm, GOCCTerm environments built.
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘ideal’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ideal/old/ideal.Rcheck/ideal’
-
-```
-# idealstan
-
-Version: 0.2.7
-
-## In both
-
-*   checking whether package ‘idealstan’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/idealstan/new/idealstan.Rcheck/00install.out’ for details.
-    ```
-
 *   checking installed package size ... NOTE
     ```
-      installed size is  7.9Mb
+      installed size is  5.7Mb
       sub-directories of 1Mb or more:
-        data   3.5Mb
-        libs   3.6Mb
-    ```
-
-# ijtiff
-
-Version: 1.1.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘grDevices’
-      All declared Imports should be used.
-    ```
-
-# imager
-
-Version: 0.40.2
-
-## In both
-
-*   checking whether package ‘imager’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/new/imager.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package which this enhances but not available for checking: ‘spatstat’
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘imager’ ...
-** package ‘imager’ successfully unpacked and MD5 sums checked
-checking for gcc... gcc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether gcc accepts -g... yes
-checking for gcc option to accept ISO C89... none needed
-checking how to run the C preprocessor... gcc -E
-checking for X... libraries /usr/X11/lib, headers /usr/X11/include
-configure: Checking if FFTW3 library is available using pkg-config
-checking for pkg-config... /usr/local/bin/pkg-config
-checking pkg-config is at least version 0.9.0... yes
-checking for FFTW... no
-FFTW library not found, please install fftw3 for better FFT support.
-checking for TIFFOpen in -ltiff... yes
-configure: creating ./config.status
-config.status: creating src/Makevars
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -fopenmp  -I/usr/X11/include   -Dcimg_use_tiff -I../inst/include -DCIMG_COMPILING -Dcimg_use_rng -Dcimg_use_r -Dcimg_use_fftw3_singlethread -Dcimg_verbosity=1 -Dcimg_date='""' -Dcimg_time='""' -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/imager/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
-ERROR: compilation failed for package ‘imager’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/new/imager.Rcheck/imager’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘imager’ ...
-** package ‘imager’ successfully unpacked and MD5 sums checked
-checking for gcc... gcc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether gcc accepts -g... yes
-checking for gcc option to accept ISO C89... none needed
-checking how to run the C preprocessor... gcc -E
-checking for X... libraries /usr/X11/lib, headers /usr/X11/include
-configure: Checking if FFTW3 library is available using pkg-config
-checking for pkg-config... /usr/local/bin/pkg-config
-checking pkg-config is at least version 0.9.0... yes
-checking for FFTW... no
-FFTW library not found, please install fftw3 for better FFT support.
-checking for TIFFOpen in -ltiff... yes
-configure: creating ./config.status
-config.status: creating src/Makevars
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG -fopenmp  -I/usr/X11/include   -Dcimg_use_tiff -I../inst/include -DCIMG_COMPILING -Dcimg_use_rng -Dcimg_use_r -Dcimg_use_fftw3_singlethread -Dcimg_verbosity=1 -Dcimg_date='""' -Dcimg_time='""' -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/imager/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
-ERROR: compilation failed for package ‘imager’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/imager/old/imager.Rcheck/imager’
-
-```
-# IONiseR
-
-Version: 2.0.0
-
-## In both
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  5.4Mb
-      sub-directories of 1Mb or more:
-        doc       3.6Mb
+        doc       3.7Mb
         extdata   1.5Mb
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
     ...
-      ‘start_time’
-    readFast5Summary.mc: no visible binding for global variable ‘duration’
-    readFast5Summary.mc: no visible binding for global variable
-      ‘num_events’
-    [,Fast5Summary-ANY-ANY-ANY: no visible binding for global variable
-      ‘baseCalledTemplate’
-    [,Fast5Summary-ANY-ANY-ANY: no visible binding for global variable
-      ‘baseCalledComplement’
+      ‘idx’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/Methods-subsetting.R:19-21)
     [,Fast5Summary-ANY-ANY-ANY: no visible binding for global variable
       ‘component’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/Methods-subsetting.R:24-26)
     [,Fast5Summary-ANY-ANY-ANY: no visible binding for global variable
       ‘idx’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/Methods-subsetting.R:24-26)
     show,Fast5Summary: no visible binding for global variable ‘full_2D’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/classes.R:70-71)
     show,Fast5Summary: no visible binding for global variable ‘pass’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/classes.R:75)
+    show,Fast5Summary: no visible binding for global variable ‘pass’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IONiseR/new/IONiseR.Rcheck/00_pkg_src/IONiseR/R/classes.R:77)
     Undefined global functions or variables:
       := AAAAA TTTTT accumulation baseCalledComplement baseCalledTemplate
       bases_called category channel circleFun component duration error freq
@@ -4406,13 +3813,152 @@ Version: 2.0.0
 
 # ipumsr
 
-Version: 0.2.0
+Version: 0.3.0
 
 ## In both
 
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘R6’
+      All declared Imports should be used.
+    ```
+
+# IsoCorrectoR
+
+Version: 1.0.5
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Error: processing vignette 'IsoCorrectoR.Rmd' failed with diagnostics:
+    there is no package called ‘BiocStyle’
+    Execution halted
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  7.1Mb
+      sub-directories of 1Mb or more:
+        testdata   5.2Mb
+    ```
+
+# IsoformSwitchAnalyzeR
+
+Version: 1.4.0
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > ### Prepare for orf analysis
+    > # Load example data and prefilter
+    > data("exampleSwitchList")
+    > exampleSwitchList <- preFilter(exampleSwitchList)
+    The fitering removed 52 ( 20.08% of ) transcripts. There is now 207 isoforms left
+    > 
+    > # Perfom test
+    > exampleSwitchListAnalyzed <- isoformSwitchTestDEXSeq(exampleSwitchList, dIFcutoff = 0.3) # high dIF cutoff for fast runtime
+    Step 1 of 3: Calculating isoform abundances (from counts)...
+    Step 2 of 3: Calculating Isoform Fraction matrix...
+    Step 3 of 3: Testing each pariwise comparisons with DEXSeq (this might be a bit slow)...
+        Estimated time (for dataset with ~30.000 isoforms): 2 min
+    Step 4 of 3: Integrating result into switchAnalyzeRlist...
+        Isoform switch analysis was performed for 62 gene comparisons (100%).
+    Done
+    > 
+    > ### analyzeORF
+    > library(BSgenome.Hsapiens.UCSC.hg19)
+    Error in library(BSgenome.Hsapiens.UCSC.hg19) : 
+      there is no package called ‘BSgenome.Hsapiens.UCSC.hg19’
+    Execution halted
+    ```
+
+*   checking whether package ‘IsoformSwitchAnalyzeR’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: replacing previous import ‘DEXSeq::plotMA’ by ‘limma::plotMA’ when loading ‘IsoformSwitchAnalyzeR’
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00install.out’ for details.
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    Loading required package: DESeq2
+    Loading required package: AnnotationDbi
+    Loading required package: RColorBrewer
+    Loading required package: ggplot2
+    Warning: replacing previous import 'DEXSeq::plotMA' by 'limma::plotMA' when loading 'IsoformSwitchAnalyzeR'
+    Step 1 of 6: Checking data...
+    Step 2 of 6: Obtaining annotation...
+        importing GTF (this may take a while)
+    Warning in importRdata(isoformCountMatrix = salmonQuant$counts, isoformRepExpression = salmonQuant$abundance,  :
+         No CDS annotation was found in the GTF files meaning ORFs could not be annotated.
+         (But ORFs can still be predicted with the analyzeORF() function)
+    Step 3 of 6: Calculating gene expression and isoform fraction...
+         111 ( 9.23%) isoforms were removed since they were not expressed in any samples.
+    Step 4 of 6: Merging gene and isoform expression...
+    Step 5 of 6: Making comparisons...
+    Step 6 of 6: Making switchAnalyzeRlist object...
+    Done
+    Quitting from lines 399-416 (IsoformSwitchAnalyzeR.Rmd) 
+    Error: processing vignette 'IsoformSwitchAnalyzeR.Rmd' failed with diagnostics:
+    there is no package called 'BSgenome.Hsapiens.UCSC.hg19'
+    Execution halted
+    ```
+
 *   checking package dependencies ... NOTE
     ```
-    Packages suggested but not available for checking: ‘rgdal’ ‘sf’
+    Package suggested but not available for checking: ‘BSgenome.Hsapiens.UCSC.hg19’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  7.9Mb
+      sub-directories of 1Mb or more:
+        R     3.0Mb
+        doc   3.5Mb
+    ```
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Package listed in more than one of Depends, Imports, Suggests, Enhances:
+      ‘limma’
+    A package should be listed in only one of these fields.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1058-1068)
+    switchPlotTranscript: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1058-1068)
+    switchPlotTranscript: no visible binding for global variable ‘ymin’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1071-1087)
+    switchPlotTranscript: no visible binding for global variable ‘xmin’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1071-1087)
+    switchPlotTranscript: no visible binding for global variable ‘ymax’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1071-1087)
+    switchPlotTranscript: no visible binding for global variable ‘xmax’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1071-1087)
+    switchPlotTranscript: no visible binding for global variable ‘Domain’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/IsoformSwitchAnalyzeR/new/IsoformSwitchAnalyzeR.Rcheck/00_pkg_src/IsoformSwitchAnalyzeR/R/isoform_plots.R:1071-1087)
+    Undefined global functions or variables:
+      AStype CI_down CI_hi CI_low CI_up Comparison Condition Domain IF
+      Significant feature2 geneFraction gene_expression gene_id idNr
+      isoFraction isoform_feature isoform_id nrGenesWithConsequences
+      nrIsoWithConsequences propCiHi propCiLo propOfRelevantEvents propUp
+      propUpCiHi propUpCiLo queryHits sigEval sigLevel sigLevelPos
+      significance splicingResult switchConsequence value variable x xmax
+      xmin y yend ymax ymin
+    ```
+
+*   checking for unstated dependencies in vignettes ... NOTE
+    ```
+    'library' or 'require' call not declared from: ‘pheatmap’
     ```
 
 # ISOweek
@@ -4426,117 +3972,39 @@ Version: 0.6-2
     Package unavailable to check Rd xrefs: ‘surveillance’
     ```
 
-# jpmesh
-
-Version: 1.1.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # JunctionSeq
 
-Version: 1.6.0
+Version: 1.12.1
 
 ## In both
-
-*   checking whether package ‘JunctionSeq’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/JunctionSeq/new/JunctionSeq.Rcheck/00install.out’ for details.
-    ```
 
 *   checking package dependencies ... NOTE
     ```
     Packages which this enhances but not available for checking: ‘Cairo’ ‘pryr’
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘JunctionSeq’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘JunctionSeq’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/JunctionSeq/new/JunctionSeq.Rcheck/JunctionSeq’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘JunctionSeq’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘JunctionSeq’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/JunctionSeq/old/JunctionSeq.Rcheck/JunctionSeq’
-
-```
-# kehra
-
-Version: 0.1
-
-## In both
-
-*   checking whether package ‘kehra’ can be installed ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/kehra/new/kehra.Rcheck/00install.out’ for details.
+    Packages in Depends field not imported from:
+      ‘Rcpp’ ‘RcppArmadillo’
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
     ```
 
-## Installation
+*   checking Rd files ... NOTE
+    ```
+    prepare_Rd: setJunctionSeqCompiledSourcePackage.Rd:23-25: Dropping empty section \examples
+    ```
 
-### Devel
-
-```
-* installing *source* package ‘kehra’ ...
-** package ‘kehra’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘kehra’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/kehra/new/kehra.Rcheck/kehra’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘kehra’ ...
-** package ‘kehra’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘kehra’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/kehra/old/kehra.Rcheck/kehra’
-
-```
 # kokudosuuchi
 
 Version: 0.4.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Package required but not available: ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      Note: found 52458 marked UTF-8 strings
     ```
 
 # KoNLP
@@ -4545,49 +4013,35 @@ Version: 0.80.1
 
 ## In both
 
-*   checking installed package size ... NOTE
-    ```
-      installed size is  6.4Mb
-      sub-directories of 1Mb or more:
-        java   6.0Mb
-    ```
-
-# kstIO
-
-Version: 0.1-0
-
-## In both
-
-*   checking whether package ‘kstIO’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘sets’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/kstIO/new/kstIO.Rcheck/00install.out’ for details.
-    ```
-
-# LAGOSNE
-
-Version: 1.1.0
-
-## In both
-
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘sf’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
+# LAGOSNE
+
+Version: 1.2.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 # languageserver
 
-Version: 0.2.2
+Version: 0.2.5
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘repr’
+    Namespaces in Imports field not imported from:
+      ‘collections’ ‘repr’
       All declared Imports should be used.
     ```
 
@@ -4599,51 +4053,35 @@ Version: 0.5.1
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.0Mb
+      installed size is  5.1Mb
       sub-directories of 1Mb or more:
         doc   4.9Mb
     ```
 
-# leaflet.extras
+# lilikoi
 
-Version: 1.0.0
-
-## In both
-
-*   checking whether package ‘leaflet.extras’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘leaflet’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/leaflet.extras/new/leaflet.extras.Rcheck/00install.out’ for details.
-    ```
-
-# lidR
-
-Version: 1.4.2
+Version: 0.1.0
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available: ‘data.table’ ‘gdalUtils’ ‘mapview’
-    
-    Package suggested but not available for checking: ‘rgdal’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# linear.tools
+# linguisticsdown
 
-Version: 1.3.0
+Version: 1.1.0
 
 ## In both
 
-*   checking whether package ‘linear.tools’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘pryr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/linear.tools/new/linear.tools.Rcheck/00install.out’ for details.
+    Namespace in Imports field not imported from: ‘tidyr’
+      All declared Imports should be used.
     ```
 
 # lmem.gwaser
@@ -4682,6 +4120,7 @@ Version: 0.1.0
     ```
     mq.g.diagnostics : mq_missinggenotype_plot: no visible global function
       definition for ‘plot.missing’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/lmem.gwaser/new/lmem.gwaser.Rcheck/00_pkg_src/lmem.gwaser/R/mq.g.diagnosis.R:131)
     Undefined global functions or variables:
       plot.missing
     ```
@@ -4696,22 +4135,9 @@ Version: 0.1.1
     ```
     mq.diagnostics : mq_missinggenotype_plot: no visible global function
       definition for ‘plot.missing’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/lmem.qtler/new/lmem.qtler.Rcheck/00_pkg_src/lmem.qtler/R/diagnosis_functions.R:415)
     Undefined global functions or variables:
       plot.missing
-    ```
-
-# LowMACA
-
-Version: 1.8.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
     ```
 
 # lubridate
@@ -4726,121 +4152,131 @@ Version: 1.7.4
       ‘chron’ ‘fts’ ‘timeSeries’ ‘timeDate’ ‘tis’ ‘tseries’ ‘xts’ ‘zoo’
     ```
 
-# Maeswrap
+# MARSS
 
-Version: 1.7
-
-## In both
-
-*   checking whether package ‘Maeswrap’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘rgl’ was built under R version 3.4.4
-      Warning: package ‘magic’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Maeswrap/new/Maeswrap.Rcheck/00install.out’ for details.
-    ```
-
-# mapscape
-
-Version: 1.0.0
+Version: 3.10.10
 
 ## In both
-
-*   checking Rd files ... WARNING
-    ```
-    mapscape.Rd: non-ASCII input and no declared encoding
-    problem found in ‘mapscape.Rd’
-    ```
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.9Mb
+      installed size is  5.5Mb
       sub-directories of 1Mb or more:
-        doc       4.3Mb
-        extdata   1.6Mb
+        R     2.3Mb
+        doc   2.8Mb
     ```
 
 # MAST
 
-Version: 1.2.1
+Version: 1.8.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 36-54 (MAITAnalysis.Rmd) 
+    Error: processing vignette 'MAITAnalysis.Rmd' failed with diagnostics:
+    there is no package called 'TxDb.Hsapiens.UCSC.hg19.knownGene'
+    Execution halted
     ```
 
-# mau
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘TxDb.Hsapiens.UCSC.hg19.knownGene’
+    ```
 
-Version: 0.1.2
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 11.2Mb
+      sub-directories of 1Mb or more:
+        R      2.0Mb
+        data   3.7Mb
+        doc    5.1Mb
+    ```
+
+# MDTS
+
+Version: 1.2.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# MazamaSpatialUtils
-
-Version: 0.5.2
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 42-46 (mdts.Rmd) 
+    Error: processing vignette 'mdts.Rmd' failed with diagnostics:
+    there is no package called 'BSgenome.Hsapiens.UCSC.hg19'
+    Execution halted
     ```
 
-# mem
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    visualizeDeletion: no visible global function definition for
+      ‘subjectHits’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MDTS/new/MDTS.Rcheck/00_pkg_src/MDTS/R/visualizeDeletion.R:31)
+    visualizeDeletion: no visible global function definition for ‘pdf’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MDTS/new/MDTS.Rcheck/00_pkg_src/MDTS/R/visualizeDeletion.R:37)
+    visualizeDeletion: no visible global function definition for ‘dev.new’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MDTS/new/MDTS.Rcheck/00_pkg_src/MDTS/R/visualizeDeletion.R:39)
+    visualizeDeletion: no visible binding for global variable ‘pD’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MDTS/new/MDTS.Rcheck/00_pkg_src/MDTS/R/visualizeDeletion.R:41)
+    visualizeDeletion: no visible global function definition for ‘dev.off’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MDTS/new/MDTS.Rcheck/00_pkg_src/MDTS/R/visualizeDeletion.R:42)
+    Undefined global functions or variables:
+      as dev.new dev.off hist import layout pD par pdf plot queryHits rect
+      rgb segments seqlevels seqlevels<- subjectHits text
+    Consider adding
+      importFrom("grDevices", "dev.new", "dev.off", "pdf", "rgb")
+      importFrom("graphics", "hist", "layout", "par", "plot", "rect",
+                 "segments", "text")
+      importFrom("methods", "as")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
+    ```
+
+*   checking for unstated dependencies in vignettes ... NOTE
+    ```
+    'library' or 'require' call not declared from: ‘BSgenome.Hsapiens.UCSC.hg19’
+    ```
+
+# memapp
 
 Version: 2.12
 
 ## In both
 
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘sm’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# memapp
-
-Version: 2.9
-
-## In both
-
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘DT’ ‘RColorBrewer’ ‘RODBC’ ‘dplyr’ ‘formattable’ ‘ggplot2’
-      ‘ggthemes’ ‘magrittr’ ‘mem’ ‘openxlsx’ ‘plotly’ ‘readxl’ ‘shinyBS’
-      ‘shinydashboard’ ‘shinyjs’ ‘shinythemes’ ‘stringi’ ‘stringr’ ‘tidyr’
+      ‘DT’ ‘RColorBrewer’ ‘RODBC’ ‘dplyr’ ‘foreign’ ‘formattable’ ‘ggplot2’
+      ‘haven’ ‘mem’ ‘openxlsx’ ‘plotly’ ‘readxl’ ‘shinyBS’ ‘shinydashboard’
+      ‘shinydashboardPlus’ ‘shinyjs’ ‘shinythemes’ ‘stringi’ ‘stringr’
+      ‘tidyr’
       All declared Imports should be used.
     ```
 
 # metacoder
 
-Version: 0.2.1
+Version: 0.3.1
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘ggrepel’ ‘reshape’
+      ‘ggrepel’ ‘reshape’ ‘svglite’
       All declared Imports should be used.
     ```
 
@@ -4858,35 +4294,150 @@ Version: 0.4
     manual.
     ```
 
+# metagene
+
+Version: 2.14.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘EnsDb.Hsapiens.v86’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
 # metagenomeFeatures
 
-Version: 1.8.1
+Version: 2.2.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘metagenomeFeatures-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: MgDb-class
+    > ### Title: Metagenome Database class
+    > ### Aliases: MgDb-class mgdb
+    > 
+    > ### ** Examples
+    > 
+    > # example MgDb-class object, Greengenes 13.8 85% OTUs database.
+    > gg85 <- get_gg13.8_85MgDb()
+    Error in validObject(.Object) : 
+      invalid class “MgDb” object: 1: invalid object for slot "taxa" in class "MgDb": got class "tbl_SQLiteConnection", should be or extend class "tbl_dbi"
+    invalid class “MgDb” object: 2: invalid object for slot "taxa" in class "MgDb": got class "tbl_dbi", should be or extend class "tbl_dbi"
+    invalid class “MgDb” object: 3: invalid object for slot "taxa" in class "MgDb": got class "tbl_sql", should be or extend class "tbl_dbi"
+    invalid class “MgDb” object: 4: invalid object for slot "taxa" in class "MgDb": got class "tbl_lazy", should be or extend class "tbl_dbi"
+    invalid class “MgDb” object: 5: invalid object for slot "taxa" in class "MgDb": got class "tbl", should be or extend class "tbl_dbi"
+    Calls: get_gg13.8_85MgDb ... newMgDb -> new -> initialize -> initialize -> validObject
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      The following objects are masked from 'package:base':
+      
+          intersect, setdiff, setequal, union
+      
+      Error in validObject(.Object) : 
+        invalid class "MgDb" object: 1: invalid object for slot "taxa" in class "MgDb": got class "tbl_SQLiteConnection", should be or extend class "tbl_dbi"
+      invalid class "MgDb" object: 2: invalid object for slot "taxa" in class "MgDb": got class "tbl_dbi", should be or extend class "tbl_dbi"
+      invalid class "MgDb" object: 3: invalid object for slot "taxa" in class "MgDb": got class "tbl_sql", should be or extend class "tbl_dbi"
+      invalid class "MgDb" object: 4: invalid object for slot "taxa" in class "MgDb": got class "tbl_lazy", should be or extend class "tbl_dbi"
+      invalid class "MgDb" object: 5: invalid object for slot "taxa" in class "MgDb": got class "tbl", should be or extend class "tbl_dbi"
+      Calls: test_check ... newMgDb -> new -> initialize -> initialize -> validObject
+      In addition: Warning messages:
+      1: replacing previous import 'lazyeval::is_formula' by 'purrr::is_formula' when loading 'metagenomeFeatures' 
+      2: replacing previous import 'lazyeval::is_atomic' by 'purrr::is_atomic' when loading 'metagenomeFeatures' 
+      Execution halted
+    ```
+
+*   checking whether package ‘metagenomeFeatures’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: subclass "QualityScaledDNAStringSet" of class "DNAStringSet" is not local and cannot be updated for new inheritance information; consider setClassUnion()
+      Warning: replacing previous import ‘lazyeval::is_formula’ by ‘purrr::is_formula’ when loading ‘metagenomeFeatures’
+      Warning: replacing previous import ‘lazyeval::is_atomic’ by ‘purrr::is_atomic’ when loading ‘metagenomeFeatures’
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/metagenomeFeatures/new/metagenomeFeatures.Rcheck/00install.out’ for details.
+    ```
+
+*   checking for missing documentation entries ... WARNING
+    ```
+    Undocumented S4 methods:
+      generic '[' and siglist 'mgFeatures'
+    All user-level objects in a package (including S4 classes and methods)
+    should have documentation entries.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 16-19 (Exploring_a_MgDb.Rmd) 
+    Error: processing vignette 'Exploring_a_MgDb.Rmd' failed with diagnostics:
+    invalid class "MgDb" object: 1: invalid object for slot "taxa" in class "MgDb": got class "tbl_SQLiteConnection", should be or extend class "tbl_dbi"
+    invalid class "MgDb" object: 2: invalid object for slot "taxa" in class "MgDb": got class "tbl_dbi", should be or extend class "tbl_dbi"
+    invalid class "MgDb" object: 3: invalid object for slot "taxa" in class "MgDb": got class "tbl_sql", should be or extend class "tbl_dbi"
+    invalid class "MgDb" object: 4: invalid object for slot "taxa" in class "MgDb": got class "tbl_lazy", should be or extend class "tbl_dbi"
+    invalid class "MgDb" object: 5: invalid object for slot "taxa" in class "MgDb": got class "tbl", should be or extend class "tbl_dbi"
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        extdata   3.5Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    .select: no visible binding for global variable ‘identifier’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/metagenomeFeatures/new/metagenomeFeatures.Rcheck/00_pkg_src/metagenomeFeatures/R/mgDb_method_select.R:96-97)
+    .select.taxa: no visible binding for global variable ‘Keys’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/metagenomeFeatures/new/metagenomeFeatures.Rcheck/00_pkg_src/metagenomeFeatures/R/mgDb_method_select.R:21)
+    .select.taxa: no visible binding for global variable ‘.’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/metagenomeFeatures/new/metagenomeFeatures.Rcheck/00_pkg_src/metagenomeFeatures/R/mgDb_method_select.R:21)
+    get_gg13.8_85MgDb: no visible binding for global variable ‘metadata’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/metagenomeFeatures/new/metagenomeFeatures.Rcheck/00_pkg_src/metagenomeFeatures/R/gg13.8_85MgDb.R:23-25)
+    Undefined global functions or variables:
+      . Keys identifier metadata
+    ```
+
+# MetaIntegrator
+
+Version: 2.0.0
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  8.8Mb
+      installed size is  5.4Mb
       sub-directories of 1Mb or more:
-        data      1.0Mb
-        extdata   6.7Mb
+        R      1.0Mb
+        data   1.9Mb
+        doc    2.2Mb
     ```
 
-*   checking R code for possible problems ... NOTE
+*   checking dependencies in R code ... NOTE
     ```
-    .mgDb_annotateFeatures: no visible binding for global variable
-      ‘db_keys’
-    .select.taxa: no visible binding for global variable ‘Keys’
-    .select.taxa: no visible binding for global variable ‘.’
-    aggregate_taxa: no visible binding for global variable ‘.’
-    aggregate_taxa: no visible binding for global variable ‘index’
-    vignette_pheno_data: no visible global function definition for
-      ‘read.csv’
-    Undefined global functions or variables:
-      . Keys db_keys index read.csv
-    Consider adding
-      importFrom("utils", "read.csv")
-    to your NAMESPACE file.
+    Namespaces in Imports field not imported from:
+      ‘DT’ ‘GEOmetadb’ ‘RMySQL’ ‘RSQLite’ ‘gplots’ ‘pheatmap’ ‘readr’
+      All declared Imports should be used.
     ```
 
 # MetamapsDB
@@ -4895,99 +4446,14 @@ Version: 0.0.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# MethTargetedNGS
-
-Version: 1.8.0
-
-## Newly fixed
-
-*   checking whether package ‘MethTargetedNGS’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MethTargetedNGS/old/MethTargetedNGS.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘Matrix’ ‘shiny’
+      All declared Imports should be used.
     ```
 
-## In both
-
-*   checking R code for possible problems ... NOTE
-    ```
-    compare_samples: no visible global function definition for ‘par’
-    compare_samples: no visible global function definition for ‘plot’
-    compare_samples: no visible global function definition for ‘lines’
-    fishertest_cpg: no visible global function definition for ‘fisher.test’
-    fishertest_cpg: no visible global function definition for ‘p.adjust’
-    fishertest_cpg: no visible global function definition for ‘barplot’
-    fishertest_cpg: no visible global function definition for ‘abline’
-    methAlign: no visible global function definition for ‘subject’
-    methAlign: no visible global function definition for ‘pattern’
-    nhmmer: no visible global function definition for ‘read.table’
-    nhmmer: no visible global function definition for ‘setNames’
-    Undefined global functions or variables:
-      abline barplot fisher.test lines p.adjust par pattern plot read.table
-      setNames subject
-    Consider adding
-      importFrom("graphics", "abline", "barplot", "lines", "par", "plot")
-      importFrom("stats", "fisher.test", "p.adjust", "setNames")
-      importFrom("utils", "read.table")
-    to your NAMESPACE file.
-    ```
-
-# mgm
-
-Version: 1.2-2
-
-## In both
-
-*   checking whether package ‘mgm’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mgm/new/mgm.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘mgm’ ...
-** package ‘mgm’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘mgm’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mgm/new/mgm.Rcheck/mgm’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘mgm’ ...
-** package ‘mgm’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘mgm’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mgm/old/mgm.Rcheck/mgm’
-
-```
-# microsamplingDesign
+# MetID
 
 Version: 1.0.0
 
@@ -4995,9 +4461,57 @@ Version: 1.0.0
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘RcppArmadillo’
+    Package required but not available: ‘devtools’
     
-    Package suggested but not available for checking: ‘data.table’
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# metR
+
+Version: 0.2.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.4Mb
+      sub-directories of 1Mb or more:
+        R      2.0Mb
+        data   2.1Mb
+        doc    1.5Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘curl’
+      All declared Imports should be used.
+    ```
+
+# mgm
+
+Version: 1.2-5
+
+## In both
+
+*   checking PDF version of manual ... ERROR
+    ```
+    Rd conversion errors:
+    Warning in nm[isAlias] <- sapply(Rd[isAlias], as.character) :
+      number of items to replace is not a multiple of replacement length
+    Error in if (grepl("[|{(]", alias)) aa <- "\\aliasB{" : 
+      the condition has length > 1
+    ```
+
+# microsamplingDesign
+
+Version: 1.0.5
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -5005,47 +4519,21 @@ Version: 1.0.0
 
 # miRLAB
 
-Version: 1.6.0
+Version: 1.12.0
 
 ## In both
 
-*   checking whether package ‘miRLAB’ can be installed ... ERROR
+*   checking package dependencies ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRLAB/new/miRLAB.Rcheck/00install.out’ for details.
+    Package required but not available: ‘org.Hs.eg.db’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘miRLAB’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘miRLAB’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRLAB/new/miRLAB.Rcheck/miRLAB’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘miRLAB’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘miRLAB’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRLAB/old/miRLAB.Rcheck/miRLAB’
-
-```
 # miRNAtap
 
-Version: 1.10.0
+Version: 1.16.0
 
 ## In both
 
@@ -5080,12 +4568,12 @@ Version: 1.10.0
     Last 13 lines of output:
              invokeRestart("muffleWarning")
          })(structure(list(message = "there is no package called 'miRNAtap.db'", call = library(package, lib.loc = lib.loc, 
-             character.only = TRUE, logical.return = TRUE, warn.conflicts = warn.conflicts, quietly = quietly)), .Names = c("message", 
-         "call"), class = c("simpleWarning", "warning", "condition")))
+             character.only = TRUE, logical.return = TRUE, warn.conflicts = warn.conflicts, quietly = quietly)), class = c("simpleWarning", 
+         "warning", "condition")))
       13: invokeRestart("muffleWarning")
       14: stop(gettextf("no 'restart' '%s' found", as.character(r)), domain = NA)
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
       OK: 3 SKIPPED: 0 FAILED: 3
       1. Error: number of output cols corresponds to input parameters (@test_sanity.R#11) 
       2. Error: stupid parameters return null (@test_sanity.R#31) 
@@ -5095,9 +4583,29 @@ Version: 1.10.0
       Execution halted
     ```
 
+*   checking running R code from vignettes ...
+    ```
+       ‘miRNAtap.Rnw’ using ‘UTF-8’ ... failed
+     ERROR
+    Errors in running code in vignettes:
+    when running code in ‘miRNAtap.Rnw’
+      ...
+    
+        expand.grid
+    
+    
+    > library(topGO)
+    Loading required package: graph
+    
+      When sourcing ‘miRNAtap.R’:
+    Error: package ‘GO.db’ required by ‘topGO’ could not be found
+    Execution halted
+    ```
+
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘miRNAtap.db’
+    Packages suggested but not available for checking:
+      ‘org.Hs.eg.db’ ‘miRNAtap.db’
     ```
 
 *   checking dependencies in R code ... NOTE
@@ -5111,9 +4619,18 @@ Version: 1.10.0
     ```
     getTargetsFromSource: no visible binding for global variable
       ‘miRNAtap.db’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRNAtap/new/miRNAtap.Rcheck/00_pkg_src/miRNAtap/R/dbDataAccess.R:69-91)
     getTargetsFromSource : <anonymous>: no visible binding for global
       variable ‘miRNAtap.db’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRNAtap/new/miRNAtap.Rcheck/00_pkg_src/miRNAtap/R/dbDataAccess.R:70-74)
+    getTargetsFromSource: no visible binding for global variable
+      ‘miRNAtap.db’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRNAtap/new/miRNAtap.Rcheck/00_pkg_src/miRNAtap/R/dbDataAccess.R:79-88)
+    getTargetsFromSource : <anonymous>: no visible binding for global
+      variable ‘miRNAtap.db’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRNAtap/new/miRNAtap.Rcheck/00_pkg_src/miRNAtap/R/dbDataAccess.R:80-84)
     translate: no visible binding for global variable ‘miRNAtap.db’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/miRNAtap/new/miRNAtap.Rcheck/00_pkg_src/miRNAtap/R/dbDataAccess.R:138)
     Undefined global functions or variables:
       miRNAtap.db
     ```
@@ -5121,26 +4638,26 @@ Version: 1.10.0
 *   checking re-building of vignette outputs ... NOTE
     ```
     ...
-    there is no package called ‘miRNAtap.db’Warning in getPredictedTargets(mir, species = "hsa", method = "geom", min_src = 2) :
-      no targets found for mirna miR-10b
-    Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Warning in getPredictedTargets(mir, species = "hsa", method = "min", min_src = 2) :
-      no targets found for mirna miR-10b
-    Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Loading required package: miRNAtap.db
-    there is no package called ‘miRNAtap.db’Warning in getPredictedTargets(mir, species = "rno", method = "geom", min_src = 2) :
-      no targets found for mirna miR-10b
+    Welcome to Bioconductor
+    
+        Vignettes contain introductory material; view with
+        'browseVignettes()'. To cite Bioconductor, see
+        'citation("Biobase")', and for packages 'citation("pkgname")'.
+    
+    Loading required package: IRanges
+    Loading required package: S4Vectors
+    
+    Attaching package: ‘S4Vectors’
+    
+    The following object is masked from ‘package:base’:
+    
+        expand.grid
+    
+    Loading required package: graph
     
     Error: processing vignette 'miRNAtap.Rnw' failed with diagnostics:
-     chunk 9 
-    Error in .local(.Object, ...) : allGenes must be a named vector
+     chunk 4 
+    Error : package ‘GO.db’ required by ‘topGO’ could not be found
     Execution halted
     ```
 
@@ -5152,7 +4669,7 @@ Version: 1.1.0
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -5160,72 +4677,29 @@ Version: 1.1.0
 
 # missMethyl
 
-Version: 1.10.0
+Version: 1.16.0
 
 ## In both
 
-*   checking whether package ‘missMethyl’ can be installed ... ERROR
+*   checking package dependencies ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/missMethyl/new/missMethyl.Rcheck/00install.out’ for details.
+    Packages required but not available:
+      ‘IlluminaHumanMethylation450kmanifest’
+      ‘IlluminaHumanMethylation450kanno.ilmn12.hg19’ ‘org.Hs.eg.db’ ‘GO.db’
+      ‘IlluminaHumanMethylationEPICmanifest’
+      ‘IlluminaHumanMethylationEPICanno.ilm10b4.hg19’
+    
+    Package suggested but not available for checking: ‘minfiData’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘missMethyl’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘missMethyl’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/missMethyl/new/missMethyl.Rcheck/missMethyl’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘missMethyl’ ...
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘missMethyl’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/missMethyl/old/missMethyl.Rcheck/missMethyl’
-
-```
 # mlbgameday
 
 Version: 0.1.2
 
 ## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Warning: call dbDisconnect() when finished working with a connection
-    Warning in expr :
-      closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_20/gid_2018_03_20_tbamlb_balmlb_1/inning/inning_all.xml)
-    Warning in parent.frame() :
-      closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_24/gid_2018_03_24_sfnmlb_srcaaa_1/inning/inning_all.xml)
-    Warning: closing unused connection 6 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_26/gid_2018_03_26_chamlb_chraaa_1/inning/inning_all.xml)
-    Warning: closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_26/gid_2018_03_26_balmlb_noraaa_1/inning/inning_all.xml)
-    Warning: closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_26/gid_2018_03_26_kcamlb_omaaaa_1/inning/inning_all.xml)
-    Warning in rev(pipes) :
-      closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_26/gid_2018_03_26_sdnmlb_elpaaa_1/inning/inning_all.xml)
-    Warning in doTryCatch(return(expr), name, parentenv, handler) :
-      closing unused connection 5 (http://gd2.mlb.com/components/game/mlb/year_2018/month_03/day_27/gid_2018_03_27_cinmlb_texmlb_1/inning/inning_all.xml)
-    Quitting from lines 87-98 (pitch_plotting.Rmd) 
-    Error: processing vignette 'pitch_plotting.Rmd' failed with diagnostics:
-    package or namespace load failed for 'plotly' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5244,188 +4718,218 @@ Version: 1.13.0
     ```
     Package required but not available: ‘biom’
     
+    Package suggested but not available for checking: ‘RCytoscape’
+    
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# modeval
-
-Version: 0.1.3
-
-## Newly broken
-
-*   R CMD check timed out
-    
-
 # MODIStsp
 
-Version: 1.3.3.1
+Version: 1.3.7
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available:
-      ‘data.table’ ‘gdalUtils’ ‘gWidgetsRGtk2’ ‘rgdal’
+    Package required but not available: ‘gWidgetsRGtk2’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
+    ```
+
+# modules
+
+Version: 0.7.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # monocle
 
-Version: 2.4.0
+Version: 2.10.1
 
 ## In both
 
-*   checking whether package ‘monocle’ can be installed ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘Rcpp’ ‘biocViews’
+      All declared Imports should be used.
+    Missing or unexported object: ‘scater::newSCESet’
     ```
 
-## Installation
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    measure_diameter_path: no visible global function definition for ‘nei’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/order_cells.R:470-481)
+    orderCells: no visible binding for '<<-' assignment to ‘next_node’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/order_cells.R:1097)
+    plot_multiple_branches_pseudotime: no visible binding for global
+      variable ‘pseudocount’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/plotting.R:2740)
+    plot_multiple_branches_pseudotime: no visible binding for global
+      variable ‘Branch’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/plotting.R:2753)
+    project2MST: no visible global function definition for ‘nei’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/order_cells.R:1606)
+    reverseEmbeddingCDS : <anonymous>: no visible global function
+      definition for ‘quantile’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/00_pkg_src/monocle/R/order_cells.R:1820)
+    Undefined global functions or variables:
+      Branch Size_Factor nei next_node pseudocount quantile
+      use_for_ordering
+    Consider adding
+      importFrom("stats", "quantile")
+    to your NAMESPACE file.
+    ```
 
-### Devel
+*   checking files in ‘vignettes’ ... NOTE
+    ```
+    The following directory looks like a leftover from 'knitr':
+      ‘figure’
+    Please remove from your package.
+    ```
 
-```
-* installing *source* package ‘monocle’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Warning: package ‘VGAM’ was built under R version 3.4.3
-Warning: package ‘irlba’ was built under R version 3.4.3
-Error : object ‘str_join’ is not exported by 'namespace:stringr'
-ERROR: lazy loading failed for package ‘monocle’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/new/monocle.Rcheck/monocle’
+# moonBook
 
-```
-### CRAN
+Version: 0.2.3
 
-```
-* installing *source* package ‘monocle’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Warning: package ‘VGAM’ was built under R version 3.4.3
-Warning: package ‘irlba’ was built under R version 3.4.3
-Error : object ‘str_join’ is not exported by 'namespace:stringr'
-ERROR: lazy loading failed for package ‘monocle’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/monocle/old/monocle.Rcheck/monocle’
+## In both
 
-```
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘purrr’
+      All declared Imports should be used.
+    ```
+
 # motifbreakR
 
-Version: 1.6.0
+Version: 1.12.0
 
 ## In both
 
-*   checking whether package ‘motifbreakR’ can be installed ... ERROR
+*   checking examples ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘motifbreakR’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-See system.file("LICENSE", package="MotifDb") for use restrictions.
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘motifbreakR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/motifbreakR’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘motifbreakR’ ...
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-See system.file("LICENSE", package="MotifDb") for use restrictions.
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘motifbreakR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/old/motifbreakR.Rcheck/motifbreakR’
-
-```
-# mrMLM
-
-Version: 3.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+    Running examples in ‘motifbreakR-Ex.R’ failed
+    The error most likely occurred in:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    > ### Name: motifbreakR
+    > ### Title: Predict The Disruptiveness Of Single Nucleotide Polymorphisms On
+    > ###   Transcription Factor Binding Sites.
+    > ### Aliases: motifbreakR
+    > 
+    > ### ** Examples
+    > 
+    > library(BSgenome.Hsapiens.UCSC.hg19)
+    Error in library(BSgenome.Hsapiens.UCSC.hg19) : 
+      there is no package called 'BSgenome.Hsapiens.UCSC.hg19'
+    Execution halted
     ```
 
-# mrMLM.GUI
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+        expand.grid
+    
+    Loading required package: IRanges
+    Loading required package: Biostrings
+    Loading required package: XVector
+    
+    Attaching package: 'Biostrings'
+    
+    The following object is masked from 'package:base':
+    
+        strsplit
+    
+    See system.file("LICENSE", package="MotifDb") for use restrictions.
+    Loading required package: GenomeInfoDb
+    Loading required package: GenomicRanges
+    Loading required package: rtracklayer
+    Quitting from lines 103-110 (motifbreakR-vignette.Rmd) 
+    Error: processing vignette 'motifbreakR-vignette.Rmd' failed with diagnostics:
+    there is no package called 'SNPlocs.Hsapiens.dbSNP142.GRCh37'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘BSgenome.Hsapiens.UCSC.hg19’ ‘SNPlocs.Hsapiens.dbSNP.20120608’
+      ‘SNPlocs.Hsapiens.dbSNP142.GRCh37’ ‘BSgenome.Drerio.UCSC.danRer7’
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Packages in Depends field not imported from:
+      'MotifDb' 'grid'
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    plotMotifLogoStack.2: no visible global function definition for 'par'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/scoreMotif.R:703)
+    plotMotifLogoStack.2: no visible global function definition for 'par'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/scoreMotif.R:711)
+    snps.from.file: no visible global function definition for 'info'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/locus.from.rsid.R:161)
+    snps.from.file: no visible global function definition for 'rowRanges'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/locus.from.rsid.R:162)
+    snps.from.file: no visible global function definition for 'info'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/locus.from.rsid.R:162)
+    snps.from.rsid: no visible global function definition for 'snpsById'
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/motifbreakR/new/motifbreakR.Rcheck/00_pkg_src/motifbreakR/R/locus.from.rsid.R:48)
+    Undefined global functions or variables:
+      info par rowRanges snpsById
+    Consider adding
+      importFrom("graphics", "par")
+    to your NAMESPACE file.
+    ```
+
+# mrMLM
 
 Version: 3.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  5.8Mb
+      sub-directories of 1Mb or more:
+        R         2.0Mb
+        extdata   3.4Mb
+    ```
+
+# mrMLM.GUI
+
+Version: 3.2
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.2Mb
+      sub-directories of 1Mb or more:
+        R         2.0Mb
+        extdata   3.4Mb
     ```
 
 # msPurity
 
-Version: 1.2.0
-
-## Newly broken
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 154-157 (msPurity-vignette.Rmd) 
-    Error: processing vignette 'msPurity-vignette.Rmd' failed with diagnostics:
-    [MSData::Spectrum::getMZIntensityPairs()] Sizes do not match.
-    Execution halted
-    ```
+Version: 1.8.1
 
 ## In both
 
-*   checking whether package ‘msPurity’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/msPurity/new/msPurity.Rcheck/00install.out’ for details.
-    ```
-
-*   checking for hidden files and directories ... NOTE
-    ```
-    Found the following hidden files and directories:
-      .travis.yml
-    These were most likely included in error. See section ‘Package
-    structure’ in the ‘Writing R Extensions’ manual.
-    ```
+*   R CMD check timed out
+    
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5438,41 +4942,59 @@ Version: 1.2.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    removeIsotopes: no visible global function definition for ‘write.csv’
-    rsde: no visible global function definition for ‘sd’
-    snrFilter: no visible global function definition for ‘median’
-    stde: no visible global function definition for ‘sd’
-    stderror: no visible global function definition for ‘sd’
-    averageSpectra,purityD: no visible binding for global variable ‘i’
     subtract,purityD: no visible binding for global variable ‘i’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/msPurity/new/msPurity.Rcheck/00_pkg_src/msPurity/R/purityD-subtract.R:38)
     validate,purityA: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/msPurity/new/msPurity.Rcheck/00_pkg_src/msPurity/R/purityA-validate.R:26)
     writeOut,purityD: no visible global function definition for ‘write.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/msPurity/new/msPurity.Rcheck/00_pkg_src/msPurity/R/purityD-writeOut.R:37)
+    writeOut,purityD: no visible global function definition for ‘write.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/msPurity/new/msPurity.Rcheck/00_pkg_src/msPurity/R/purityD-writeOut.R:42)
     Undefined global functions or variables:
       abline alli approxfun as.dist dev.off dist dnorm fix head i idx
       legend lines median mtch mtchi na.omit parallel plot png points
-      purity read.csv scanid sd text variable write.csv
+      purity read.csv read.table scanid sd text topn variable write.csv
     Consider adding
       importFrom("grDevices", "dev.off", "png")
       importFrom("graphics", "abline", "legend", "lines", "plot", "points",
                  "text")
       importFrom("stats", "approxfun", "as.dist", "dist", "dnorm", "median",
                  "na.omit", "sd")
-      importFrom("utils", "fix", "head", "read.csv", "write.csv")
+      importFrom("utils", "fix", "head", "read.csv", "read.table",
+                 "write.csv")
     to your NAMESPACE file.
     ```
 
-# mtconnectR
+# MSstats
 
-Version: 1.1.0
+Version: 3.14.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking R code for possible problems ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:194-197)
+    plot_quantlim: no visible binding for global variable ‘ymax’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:194-197)
+    plot_quantlim: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:218-221)
+    plot_quantlim: no visible binding for global variable ‘y’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:218-221)
+    plot_quantlim: no visible binding for global variable ‘shape’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:218-221)
+    plot_quantlim: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:223-226)
+    plot_quantlim: no visible binding for global variable ‘y’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:223-226)
+    plot_quantlim: no visible binding for global variable ‘shape’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/MSstats/new/MSstats.Rcheck/00_pkg_src/MSstats/R/plot_quantlim.R:223-226)
+    Undefined global functions or variables:
+      ABUNDANCE FEATURE FRACTION Intensity LABEL Mean Name PeptideSequence
+      Protein ProteinName Protein_number RUN Selected_fragments
+      Selected_peptides Train_size aggr_Fragment_Annotation aggr_Peak_Area
+      analysis ciw datafeature fea label logFC missing.col ncount ount
+      residual shape weight x y ymax ymin
     ```
 
 # mtk
@@ -5480,15 +5002,6 @@ Version: 1.1.0
 Version: 1.0
 
 ## In both
-
-*   checking whether package ‘mtk’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘XML’ was built under R version 3.4.4
-      Warning: package ‘lhs’ was built under R version 3.4.3
-      Warning: package ‘rgl’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00install.out’ for details.
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5500,17 +5013,17 @@ Version: 1.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    plmm.mtk: no visible global function definition for ‘stepAIC’
-    plot.plmm: no visible global function definition for ‘par’
-    plot.plmm: no visible global function definition for ‘barplot’
-    plot.plmm: no visible global function definition for ‘segments’
-    plot.plmm: no visible global function definition for ‘abline’
-    plot.plmm: no visible global function definition for ‘title’
-    plot.plmm: no visible global function definition for ‘legend’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkPLMMAnalyser.R:431)
     plot.regressionSI: no visible global function definition for ‘par’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkRegressionAnalyser.R:134)
     plot.regressionSI: no visible global function definition for ‘title’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkRegressionAnalyser.R:140)
     plot.regressionSI: no visible global function definition for ‘abline’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkRegressionAnalyser.R:141)
+    plot.regressionSI: no visible global function definition for ‘par’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkRegressionAnalyser.R:143)
     plot,mtkProcess: no visible global function definition for ‘dev.new’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/mtk/new/mtk.Rcheck/00_pkg_src/mtk/R/mtkProcess.R:292)
     Undefined global functions or variables:
       abline barplot dev.new formula legend lm lm.fit par poly runif
       segments stepAIC title update var
@@ -5528,128 +5041,29 @@ Version: 1.0
       Note: found 2 marked UTF-8 strings
     ```
 
-# mudata2
+# multicolor
 
-Version: 1.0.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 931 SKIPPED: 0 FAILED: 12
-      1. Error: mudata_prepare_column and mudata_parse_column are opposites (@test_mudata.io.R#244) 
-      2. Error: mudata_prepare_tbl works as intended (@test_mudata.io.R#288) 
-      3. Error: mudata_prepare_tbl and mudata_parse_tbl are opposites (@test_mudata.io.R#322) 
-      4. Failure: as_* functions produce the expected output type (@test_types.R#210) 
-      5. Failure: wkt parsing returns an sf::sfc (@test_types.R#252) 
-      6. Failure: wkt parsing works when there are parsing errors/NA values (@test_types.R#259) 
-      7. Error: wkt parsing works when there are parsing errors/NA values (@test_types.R#261) 
-      8. Failure: wkt parsing works with zero-length input (@test_types.R#285) 
-      9. Failure: objects generate the correct type strings (@test_types.R#306) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘sf’
-    ```
-
-# muRL
-
-Version: 0.1-11
+Version: 0.1.1
 
 ## In both
 
-*   checking whether package ‘muRL’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘maps’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/muRL/new/muRL.Rcheck/00install.out’ for details.
+    Namespace in Imports field not imported from: ‘cowsay’
+      All declared Imports should be used.
     ```
 
-# mvGST
+# nandb
 
-Version: 1.10.0
+Version: 2.0.0
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    ...
-    > data(mvGSTsamples)
-    > # object obatoclax.mvGST returned by profileTable
-    > obatoclax.mvGST
-     Low  High  RS4    SEMK2 
-      0    0     11711  11157 
-      0    1     16     707   
-      1    1     285    397   
-      1    0     403    116   
-      0   -1     56     156   
-     -1   -1     87     55    
-     -1    0     40     10    
-    > 
-    > # plots a GO Graph highlighting the GO ID's from the cell 
-    > # in the fifth row and first column (the column for 
-    > # cell line RS4) of the results.table of the object 
-    > # returned by profileTable
-    > graphCell(obatoclax.mvGST, 5, 1, ontology = "BP", interact = FALSE)
-    Error in initialize(value, ...) : 
-      argument "go_id" is missing, with no default
-    Calls: graphCell ... do.call -> <Anonymous> -> new -> initialize -> initialize
-    Execution halted
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    combinePvalues: no visible global function definition for ‘pnorm’
-    combinePvalues: no visible global function definition for ‘qnorm’
-    distributeWeight: no visible global function definition for
-      ‘flush.console’
-    hartung: no visible global function definition for ‘qnorm’
-    hartung: no visible global function definition for ‘pnorm’
-    interactiveGraph: no visible global function definition for ‘locator’
-    oneSideBYAdjust: no visible binding for global variable ‘p.adjust’
-    p.adjust.SFL: no visible global function definition for ‘flush.console’
-    Undefined global functions or variables:
-      flush.console locator p.adjust pnorm qnorm
-    Consider adding
-      importFrom("graphics", "locator")
-      importFrom("stats", "p.adjust", "pnorm", "qnorm")
-      importFrom("utils", "flush.console")
-    to your NAMESPACE file.
-    ```
-
-*   checking re-building of vignette outputs ... NOTE
-    ```
-    ...
-    
-        from, to
-    
-    
-    Attaching package: ‘mvGST’
-    
-    The following object is masked from ‘package:base’:
-    
-        cut
-    
-    Loading required package: org.Hs.eg.db
-    
-    
-    Warning in result_fetch(res@ptr, n = n) :
-      Don't need to call dbFetch() for statements, only for queries
-    
-    Error: processing vignette 'mvGST.Rnw' failed with diagnostics:
-     chunk 5 
-    Error in initialize(value, ...) : 
-      argument "go_id" is missing, with no default
-    Execution halted
+    Namespaces in Imports field not imported from:
+      ‘MASS’ ‘stats’
+      All declared Imports should be used.
     ```
 
 # nauf
@@ -5675,13 +5089,8 @@ Version: 1.1.0
 ** data
 *** moving datasets to lazyload DB
 ** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Warning: package ‘rstanarm’ was built under R version 3.4.4
-Warning: package ‘Rcpp’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
+** byte-compile and prepare package for lazy loading
+Error : object ‘pmmeans’ is not exported by 'namespace:lsmeans'
 ERROR: lazy loading failed for package ‘nauf’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nauf/new/nauf.Rcheck/nauf’
 
@@ -5695,43 +5104,23 @@ ERROR: lazy loading failed for package ‘nauf’
 ** data
 *** moving datasets to lazyload DB
 ** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Warning: package ‘rstanarm’ was built under R version 3.4.4
-Warning: package ‘Rcpp’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
+** byte-compile and prepare package for lazy loading
+Error : object ‘pmmeans’ is not exported by 'namespace:lsmeans'
 ERROR: lazy loading failed for package ‘nauf’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nauf/old/nauf.Rcheck/nauf’
 
 ```
-# net.security
+# netchain
 
-Version: 0.3.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# netgen
-
-Version: 1.3
+Version: 0.1.0
 
 ## In both
 
-*   checking whether package ‘netgen’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘mvtnorm’ was built under R version 3.4.3
-      Warning: package ‘lhs’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/netgen/new/netgen.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘Matrix’ ‘igraph’
+      All declared Imports should be used.
     ```
 
 # NFP
@@ -5747,90 +5136,9 @@ Version: 0.99.2
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  8.8Mb
+      installed size is  8.6Mb
       sub-directories of 1Mb or more:
-        data   8.4Mb
-    ```
-
-# ngstk
-
-Version: 0.2.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# nhanesA
-
-Version: 0.6.4.4
-
-## In both
-
-*   checking whether package ‘nhanesA’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nhanesA/new/nhanesA.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘nhanesA’ ...
-** package ‘nhanesA’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘nhanesA’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nhanesA/new/nhanesA.Rcheck/nhanesA’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘nhanesA’ ...
-** package ‘nhanesA’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘nhanesA’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nhanesA/old/nhanesA.Rcheck/nhanesA’
-
-```
-# Nippon
-
-Version: 0.7
-
-## Newly fixed
-
-*   checking whether package ‘Nippon’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Nippon/old/Nippon.Rcheck/00install.out’ for details.
-    ```
-
-## In both
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Packages unavailable to check Rd xrefs: ‘timeDate’, ‘TimeWarp’, ‘Holidays’
-    ```
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 395 marked UTF-8 strings
+        data   8.0Mb
     ```
 
 # NMF
@@ -5839,31 +5147,16 @@ Version: 0.21.0
 
 ## In both
 
-*   checking whether package ‘NMF’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘registry’ was built under R version 3.4.3
-      Warning: package ‘cluster’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/NMF/new/NMF.Rcheck/00install.out’ for details.
-    ```
-
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘doMPI’
+    Packages suggested but not available for checking: ‘doMPI’ ‘devtools’
     ```
 
-# NNS
-
-Version: 0.3.8.6
-
-## In both
-
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  6.2Mb
+      sub-directories of 1Mb or more:
+        R   4.1Mb
     ```
 
 # noaastormevents
@@ -5872,27 +5165,17 @@ Version: 0.1.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
     Package suggested but not available for checking: ‘hurricaneexposuredata’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
     ```
 
-# nucim
-
-Version: 1.0.0
-
-## In both
-
-*   checking whether package ‘nucim’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘bioimagetools’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/nucim/new/nucim.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘RColorBrewer’ ‘XML’ ‘choroplethr’ ‘choroplethrMaps’ ‘data.table’
+      ‘forcats’ ‘hurricaneexposure’ ‘plyr’
+      All declared Imports should be used.
     ```
 
 # odkr
@@ -5901,286 +5184,80 @@ Version: 0.1.3
 
 ## In both
 
-*   checking whether package ‘odkr’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/odkr/new/odkr.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘odkr’ ...
-** package ‘odkr’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘odkr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/odkr/new/odkr.Rcheck/odkr’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘odkr’ ...
-** package ‘odkr’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘odkr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/odkr/old/odkr.Rcheck/odkr’
-
-```
-# olsrr
-
-Version: 0.5.1
-
-## In both
-
-*   checking whether package ‘olsrr’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/olsrr/new/olsrr.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘olsrr’ ...
-** package ‘olsrr’ successfully unpacked and MD5 sums checked
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c init.c -o init.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c tvar.cpp -o tvar.o
-ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o olsrr.so RcppExports.o init.o tvar.o -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
-installing to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/olsrr/new/olsrr.Rcheck/olsrr/libs
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘olsrr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/olsrr/new/olsrr.Rcheck/olsrr’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘olsrr’ ...
-** package ‘olsrr’ successfully unpacked and MD5 sums checked
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c init.c -o init.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/olsrr/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c tvar.cpp -o tvar.o
-ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o olsrr.so RcppExports.o init.o tvar.o -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
-installing to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/olsrr/old/olsrr.Rcheck/olsrr/libs
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘olsrr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/olsrr/old/olsrr.Rcheck/olsrr’
-
-```
-# openCR
-
-Version: 1.1.2
-
-## In both
-
-*   checking whether package ‘openCR’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘secr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/openCR/new/openCR.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘rgdal’
-    ```
-
-# optim.functions
-
-Version: 0.1
-
-## In both
-
-*   checking whether package ‘optim.functions’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘lhs’ was built under R version 3.4.3
-      Warning: package ‘randtoolbox’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/optim.functions/new/optim.functions.Rcheck/00install.out’ for details.
-    ```
-
-# optiRum
-
-Version: 0.37.3
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# optiSel
-
-Version: 2.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# orgR
-
-Version: 0.9.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# origami
-
-Version: 1.0.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# osmose
-
-Version: 0.1.1
-
-## In both
-
-*   checking whether package ‘osmose’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/osmose/new/osmose.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘osmose’ ...
-** package ‘osmose’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘osmose’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/osmose/new/osmose.Rcheck/osmose’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘osmose’ ...
-** package ‘osmose’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘osmose’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/osmose/old/osmose.Rcheck/osmose’
-
-```
-# outreg
-
-Version: 0.2.2
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    2               Std Err  [2.060] [16.079]
-    6          age Estimate            -0.129
-    7               Std Err           [0.219]
-    11       quant Estimate            -0.046
-    12              Std Err           [0.058]
-    16  Log(scale) Estimate 1.783*** 1.718***
-    17              Std Err  [0.309]  [0.310]
-    21                    N       20       20
-    22                  AIC   62.984   65.880
-    > 
-    > 
-    > # instrumental variable regression
-    > library(AER)
-    Loading required package: car
-    Warning: package ‘car’ was built under R version 3.4.4
-    Loading required package: carData
-    Warning: package ‘carData’ was built under R version 3.4.4
-    Error: package or namespace load failed for ‘car’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called ‘data.table’
-    Error: package ‘car’ could not be loaded
-    Execution halted
-    ```
-
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      > library(outreg)
-      > 
-      > test_check("outreg")
-      [31m──[39m [31m1. Error: supported objects (@test_validfits.R#48) [39m [31m─────────────────────────────────────────────────────────[39m
-      package 'car' could not be loaded
-      1: library(AER) at testthat/test_validfits.R:48
-      2: .getRequiredPackages2(pkgInfo, quietly = quietly)
-      3: stop(gettextf("package %s could not be loaded", sQuote(pkg)), call. = FALSE, domain = NA)
+      ==================================================
+      downloaded 3070 bytes
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 30 SKIPPED: 0 FAILED: 1
-      1. Error: supported objects (@test_validfits.R#48) 
+      Error: Invalid or corrupt jarfile /tmp/Rtmpo2JqCW/odkBriefcase_latest.jar
+      [31m──[39m [31m3. Failure: ODK Briefcase Storage exists (@test_pull_remote.R#15) [39m [31m───────────────────────────[39m
+      file.exists(paste(dirPath, "/ODK Briefcase Storage", sep = "")) isn't true.
+      
+      ══ testthat results  ════════════════════════════════════════════════════════════════════════════
+      OK: 7 SKIPPED: 0 FAILED: 3
+      1. Failure: Output CSV data exists (@test_export_data.R#23) 
+      2. Failure: ODK Briefcase Storage exists (@test_pull_local.R#13) 
+      3. Failure: ODK Briefcase Storage exists (@test_pull_remote.R#15) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+# oec
+
+Version: 2.7.8
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘readr’
+      All declared Imports should be used.
+    ```
+
+# omicRexposome
+
+Version: 1.4.1
+
+## In both
+
+*   R CMD check timed out
+    
+
+# openPrimeR
+
+Version: 1.4.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 15.6Mb
+      sub-directories of 1Mb or more:
+        R         4.2Mb
+        extdata  10.2Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tinytex’
+      All declared Imports should be used.
     ```
 
 # P2C2M
@@ -6197,16 +5274,21 @@ Version: 0.7.6
 
 *   checking R code for possible problems ... NOTE
     ```
-    ms.exec: no visible global function definition for ‘tail’
-    p2c2m.readstarb: no visible global function definition for ‘head’
-    p2c2m.readstarb: no visible binding for global variable ‘head’
+    ...
     rmOutlrs: no visible global function definition for ‘boxplot.stats’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/rmOutlrs.R:4)
     rmext: no visible global function definition for ‘tail’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/rmext.R:7)
     rowMedians: no visible binding for global variable ‘median’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/rowMedians.R:5)
     stats.acrGenes: no visible binding for global variable ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/stats.acrGenes.R:35)
     stats.perGene: no visible binding for global variable ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/stats.perGene.R:27)
     statshelpers.cv: no visible binding for global variable ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/statshelpers.cv.R:19)
     statshelpers.qntls: no visible binding for global variable ‘quantile’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/P2C2M/new/P2C2M.Rcheck/00_pkg_src/P2C2M/R/statshelpers.qntls.R:27)
     Undefined global functions or variables:
       boxplot.stats head median quantile sd tail
     Consider adding
@@ -6221,6 +5303,20 @@ Version: 0.7.6
       Note: found 490 marked UTF-8 strings
     ```
 
+# packagedocs
+
+Version: 0.4.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
 # parsemsf
 
 Version: 0.1.1
@@ -6233,80 +5329,20 @@ Version: 0.1.1
       All declared Imports should be used.
     ```
 
-# patchSynctex
+# peakPantheR
 
-Version: 0.1-4
-
-## Newly fixed
-
-*   checking whether package ‘patchSynctex’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/patchSynctex/old/patchSynctex.Rcheck/00install.out’ for details.
-    ```
+Version: 1.2.0
 
 ## In both
 
 *   checking package dependencies ... NOTE
     ```
-    Package which this enhances but not available for checking: ‘knitr’
+    Package suggested but not available for checking: ‘faahKO’
     ```
 
-# PATHChange
-
-Version: 1.0
-
-## In both
-
-*   checking whether package ‘PATHChange’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PATHChange/new/PATHChange.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘PATHChange’ ...
-** package ‘PATHChange’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘PATHChange’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PATHChange/new/PATHChange.Rcheck/PATHChange’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘PATHChange’ ...
-** package ‘PATHChange’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘PATHChange’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PATHChange/old/PATHChange.Rcheck/PATHChange’
-
-```
 # PepPrep
 
 Version: 1.1.0
-
-## Newly fixed
-
-*   checking whether package ‘PepPrep’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PepPrep/old/PepPrep.Rcheck/00install.out’ for details.
-    ```
 
 ## In both
 
@@ -6315,45 +5351,111 @@ Version: 1.1.0
     Malformed Title field: should not end in a period.
     ```
 
-# PersomicsArray
-
-Version: 1.0
-
-## In both
-
-*   checking whether package ‘PersomicsArray’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘sp’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PersomicsArray/new/PersomicsArray.Rcheck/00install.out’ for details.
-    ```
-
 # PGA
 
-Version: 1.6.0
+Version: 1.12.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking examples ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Running examples in ‘PGA-Ex.R’ failed
+    The error most likely occurred in:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    > ### Name: dbCreator
+    > ### Title: Create customized protein database from RNA-Seq data
+    > ### Aliases: dbCreator
+    > 
+    > ### ** Examples
+    > 
+    > vcffile <- system.file("extdata/input", "PGA.vcf",package="PGA")
+    > bedfile <- system.file("extdata/input", "junctions.bed",package="PGA")
+    > gtffile <- system.file("extdata/input", "transcripts.gtf",package="PGA")
+    > annotation <- system.file("extdata", "annotation",package="PGA")
+    > outfile_path<-"db/"
+    > outfile_name<-"test"
+    > library(BSgenome.Hsapiens.UCSC.hg19)
+    Error in library(BSgenome.Hsapiens.UCSC.hg19) : 
+      there is no package called ‘BSgenome.Hsapiens.UCSC.hg19’
+    Execution halted
     ```
 
-# phenomap
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 64-74 (PGA.Rnw) 
+    Error: processing vignette 'PGA.Rnw' failed with diagnostics:
+    there is no package called 'BSgenome.Hsapiens.UCSC.hg19'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘BSgenome.Hsapiens.UCSC.hg19’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.2Mb
+      sub-directories of 1Mb or more:
+        extdata   1.8Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported objects imported by ':::' calls:
+      ‘biomaRt:::martBM’ ‘biomaRt:::martDataset’ ‘biomaRt:::martHost’
+      ‘customProDB:::makeTranscriptDbFromBiomart_archive’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    reportSNV: no visible binding for global variable ‘Query’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:744-747)
+    reportSNV: no visible global function definition for ‘.’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:748)
+    reportSNV: no visible binding for global variable ‘Query’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:748)
+    reportSNV: no visible binding for global variable ‘peptide’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:748)
+    reportSNV: no visible binding for global variable ‘abc’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:748)
+    reportSNV: no visible binding for global variable ‘xyz’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/PGA/new/PGA.Rcheck/00_pkg_src/PGA/R/report.R:748)
+    Undefined global functions or variables:
+      . .I .N .SD CUFF_ID Change Class Evalue Frame Freq ID Index Mass
+      MutNum Query Qvalue Strand Substring Type aapos aaref aavar abc
+      alleleCount alleles charge chr chrom cumlen delta_da delta_ppm evalue
+      gene_name genename genome<- id isSAP isUnique junType jun_type label
+      miss mods mrnaAcc mz name output pep peptide pincoding position
+      pro_name proname prot protAcc protein rbindlist readAAStringSet
+      readDNAStringSet refbase rsid seqlengths seqlevels seqlevels<- subseq
+      transcript tx_name txid txname varbase writeXStringSet x xyz y
+    ```
+
+# phantasus
 
 Version: 1.2.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is 14.9Mb
+      sub-directories of 1Mb or more:
+        doc   2.6Mb
+        www  11.5Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported objects imported by ':::' calls:
+      'GEOquery:::getDirListing' 'opencpu:::rookhandler'
+      'opencpu:::tmp_root' 'opencpu:::win_or_mac'
+      See the note in ?`:::` about the use of this operator.
     ```
 
 # phrasemachine
@@ -6362,23 +5464,45 @@ Version: 1.1.2
 
 ## In both
 
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘phrasemachine-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: phrasemachine
+    > ### Title: POS tag and extract phrases from a collection of documents
+    > ### Aliases: phrasemachine
+    > 
+    > ### ** Examples
+    > 
+    > phrasemachine("Hello there my red good cat.")
+    Currently tagging document 1 of 1 
+    Error: .onLoad failed in loadNamespace() for 'rJava', details:
+      call: dyn.load(file, DLLpath = DLLpath, ...)
+      error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so':
+      dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+      Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so
+      Reason: image not found
+    Execution halted
+    ```
+
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      4: getNamespace(ns)
-      5: tryCatch(loadNamespace(name), error = function(e) stop(e))
-      6: tryCatchList(expr, classes, parentenv, handlers)
-      7: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      8: value[[3L]](cond)
+      7: asNamespace(ns)
+      8: getNamespace(ns)
+      9: tryCatch(loadNamespace(name), error = function(e) stop(e))
+      10: tryCatchList(expr, classes, parentenv, handlers)
+      11: tryCatchOne(expr, names, parentenv, handlers[[1L]])
+      12: value[[3L]](cond)
       
-      Currently tagging document 1 of 1 
-      Extracting phrases from document 1 of 1 
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 10 SKIPPED: 0 FAILED: 2
-      1. Error: See if tagging five documents works, and if coarsening works (@test_POS_tag_documents.R#5) 
-      2. Error: See if extractor works (@test_extract_phrases.R#5) 
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 7 SKIPPED: 0 FAILED: 3
+      1. Error: See if tagging five documents works, and if coarsening works (@test_POS_tag_documents.R#10) 
+      2. Error: See if extractor works (@test_extract_phrases.R#10) 
+      3. Error: extract right spans (@test_phrasemachine.R#4) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -6388,10 +5512,14 @@ Version: 1.1.2
     ```
     Error in re-building vignettes:
       ...
-    Quitting from lines 82-91 (getting_started_with_phrasemachine.Rmd) 
+    Quitting from lines 116-124 (getting_started_with_phrasemachine.Rmd) 
     Error: processing vignette 'getting_started_with_phrasemachine.Rmd' failed with diagnostics:
-    package or namespace load failed for 'quanteda' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
-     there is no package called 'data.table'
+    .onLoad failed in loadNamespace() for 'rJava', details:
+      call: dyn.load(file, DLLpath = DLLpath, ...)
+      error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so':
+      dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+      Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/phrasemachine/rJava/libs/rJava.so
+      Reason: image not found
     Execution halted
     ```
 
@@ -6401,59 +5529,64 @@ Version: 0.2.0
 
 ## In both
 
-*   checking whether package ‘phybreak’ can be installed ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘phangorn’ was built under R version 3.4.3
-      Warning: package ‘ape’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/phybreak/new/phybreak.Rcheck/00install.out’ for details.
+    Package suggested but not available for checking: ‘OutbreakTools’
     ```
 
 # pkgmaker
 
-Version: 0.22
+Version: 0.27
 
 ## In both
 
-*   checking whether package ‘pkgmaker’ can be installed ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘registry’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pkgmaker/new/pkgmaker.Rcheck/00install.out’ for details.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
-    'library' or 'require' calls in package code:
-      ‘argparse’ ‘devtools’ ‘knitr’
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    Namespaces in Imports field not imported from:
+      ‘magrittr’ ‘stringi’
+      All declared Imports should be used.
     ```
 
-*   checking R code for possible problems ... NOTE
+*   checking Rd cross-references ... NOTE
     ```
-    ...
-    utest,character: no visible global function definition for
-      ‘runTestFile’
-    utest,character: no visible global function definition for ‘test_file’
-    Undefined global functions or variables:
-      .testLogger ArgumentParser HTMLReport RweaveLatex Sweave
-      available.packages browseURL capture.output citation compareVersion
-      contrib.url data defineTestSuite dev.off devtools file_test finish
-      getErrors head hwrite installed.packages is.package knit knit2html
-      knit2pdf knit_hooks load_all opts_chunk packageDescription par png
-      printHTMLProtocol printTextProtocol proto publish read.bib
-      runTestFile runTestSuite sessionInfo str tail test_dir test_file
-      toBibtex toLatex untar
-    Consider adding
-      importFrom("grDevices", "dev.off", "png")
-      importFrom("graphics", "par")
-      importFrom("utils", "RweaveLatex", "Sweave", "available.packages",
-                 "browseURL", "capture.output", "citation", "compareVersion",
-                 "contrib.url", "data", "file_test", "head",
-                 "installed.packages", "packageDescription", "sessionInfo",
-                 "str", "tail", "toBibtex", "toLatex", "untar")
-    to your NAMESPACE file.
+    Package unavailable to check Rd xrefs: ‘devtools’
+    ```
+
+# PkgsFromFiles
+
+Version: 0.5
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘PkgsFromFiles-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: pff_check_install_pkgs
+    > ### Title: Checks and installs a single package
+    > ### Aliases: pff_check_install_pkgs
+    > 
+    > ### ** Examples
+    > 
+    > pff_check_install_pkgs('dplyr')
+    
+    Installing dplyrError in pkg.in %in% my.available.packages : 
+      argument "my.available.packages" is missing, with no default
+    Calls: pff_check_install_pkgs -> %in%
+    Execution halted
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘XML’ ‘curl’ ‘readr’ ‘stringdist’
+      All declared Imports should be used.
     ```
 
 # PKPDmisc
@@ -6462,74 +5595,41 @@ Version: 2.1.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 84-85 (multiplot.Rmd) 
+    Error: processing vignette 'multiplot.Rmd' failed with diagnostics:
+    there is no package called 'devtools'
+    Execution halted
     ```
 
-# Plasmidprofiler
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
 
-Version: 0.1.6
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘purrr’
+      All declared Imports should be used.
+    ```
+
+# plotGrouper
+
+Version: 1.0.1
 
 ## In both
 
-*   checking whether package ‘Plasmidprofiler’ can be installed ... ERROR
+*   checking R code for possible problems ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Plasmidprofiler/new/Plasmidprofiler.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘Plasmidprofiler’ ...
-** package ‘Plasmidprofiler’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** exec
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘Plasmidprofiler’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Plasmidprofiler/new/Plasmidprofiler.Rcheck/Plasmidprofiler’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘Plasmidprofiler’ ...
-** package ‘Plasmidprofiler’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** exec
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘Plasmidprofiler’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Plasmidprofiler/old/Plasmidprofiler.Rcheck/Plasmidprofiler’
-
-```
-# plotKML
-
-Version: 0.5-8
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    Packages suggested but not available for checking: ‘adehabitat’ ‘gdalUtils’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    gplot: no visible binding for global variable ‘max_value’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/plotGrouper/new/plotGrouper.Rcheck/00_pkg_src/plotGrouper/R/gplot.R:360-395)
+    gplot: no visible binding for global variable ‘max_error’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/plotGrouper/new/plotGrouper.Rcheck/00_pkg_src/plotGrouper/R/gplot.R:360-395)
+    Undefined global functions or variables:
+      max_error max_value
     ```
 
 # pmap
@@ -6538,40 +5638,71 @@ Version: 0.3.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking examples ... ERROR
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    ...
+      [3m[90m<chr>[39m[23m            [3m[90m<chr>[39m[23m              [3m[90m<int>[39m[23m
+    [90m1[39m Event 1 (normal) Event 1 (normal)      10
+    [90m2[39m Event 1 (normal) Event 10 (target)      9
+    [90m3[39m Event 1 (normal) Event 2 (normal)       4
+    [90m4[39m Event 1 (normal) Event 3 (normal)       9
+    [90m5[39m Event 1 (normal) Event 4 (normal)       7
+    [90m6[39m Event 1 (normal) Event 5 (normal)      13
+    > #  # A tibble: 6 x 3
+    > #    from             to                amount
+    > #    <chr>            <chr>              <int>
+    > #  1 Event 1 (normal) Event 1 (normal)       8
+    > #  2 Event 1 (normal) Event 10 (target)     10
+    > #  3 Event 1 (normal) Event 2 (normal)      12
+    > #  4 Event 1 (normal) Event 3 (normal)       9
+    > #  5 Event 1 (normal) Event 4 (normal)       7
+    > #  6 Event 1 (normal) Event 5 (normal)      10
+    > p <- create_pmap_graph(nodes, edges, target_types = c("target"))
+    Error in add_edges_from_table(p, table = edges %>% select(-amount), from_col = "from",  : 
+      unused argument (ndf_mapping = "name_without_space")
+    Calls: create_pmap_graph
+    Execution halted
     ```
 
-# pMineR
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 59 SKIPPED: 0 FAILED: 9
+      1. Error: create_pmap() should handle simple graph (@test_create_pmap.R#14) 
+      2. Error: create_pmap() should handle complex graph (@test_create_pmap.R#40) 
+      3. Error: create_pmap_graph() (@test_create_pmap_graph.R#30) 
+      4. Error: prune_edges() should be able prune nothing (@test_prune_edges.R#4) 
+      5. Error: prune_edges() should be able prune half of the edges (@test_prune_edges.R#30) 
+      6. Error: prune_edges() should be able prune all of the edges (@test_prune_edges.R#58) 
+      7. Error: prune_nodes() should be able prune nothing (@test_prune_nodes.R#4) 
+      8. Error: prune_nodes() should be able prune half of the nodes (@test_prune_nodes.R#33) 
+      9. Error: prune_nodes() should be able prune all of the nodes (@test_prune_nodes.R#63) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
 
-Version: 0.31
-
-## In both
-
-*   checking whether package ‘pMineR’ can be installed ... WARNING
+*   checking whether package ‘pmap’ can be installed ... WARNING
     ```
     Found the following significant warnings:
-      Warning: package ‘DiagrammeR’ was built under R version 3.4.3
-      Warning: package ‘XML’ was built under R version 3.4.4
-      Warning: package ‘cluster’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pMineR/new/pMineR.Rcheck/00install.out’ for details.
+      Note: possible error in 'add_edges_from_table(p, ': unused argument (ndf_mapping = "name_without_space") at create_pmap_graph.R:110 
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pmap/new/pmap.Rcheck/00install.out’ for details.
+    Information on the location(s) of code generating the ‘Note’s can be
+    obtained by re-running with environment variable R_KEEP_PKG_SOURCE set
+    to ‘yes’.
     ```
 
-# pmml
-
-Version: 1.5.4
-
-## In both
-
-*   checking whether package ‘pmml’ can be installed ... WARNING
+*   checking R code for possible problems ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘XML’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pmml/new/pmml.Rcheck/00install.out’ for details.
+    create_pmap_graph: possible error in add_edges_from_table(p, table =
+      edges %>% select(-amount), from_col = "from", to_col = "to",
+      ndf_mapping = "name_without_space"): unused argument (ndf_mapping =
+      "name_without_space")
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pmap/new/pmap.Rcheck/00_pkg_src/pmap/R/create_pmap_graph.R:110-116)
     ```
 
 # pmxTools
@@ -6587,37 +5718,90 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# politeness
+# PopED
 
-Version: 0.2.2
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# postGIStools
-
-Version: 0.2.2
+Version: 0.4.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘rgdal’
+    Namespace in Imports field not imported from: ‘tidyr’
+      All declared Imports should be used.
+    ```
+
+# pqsfinder
+
+Version: 1.10.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    The following object is masked from 'package:base':
+    
+        expand.grid
+    
+    Loading required package: IRanges
+    Loading required package: XVector
+    
+    Attaching package: 'Biostrings'
+    
+    The following object is masked from 'package:base':
+    
+        strsplit
+    
+    Loading required package: GenomicRanges
+    Loading required package: GenomeInfoDb
+    Loading required package: grid
+    Quitting from lines 177-182 (pqsfinder.Rmd) 
+    Error: processing vignette 'pqsfinder.Rmd' failed with diagnostics:
+    there is no package called 'BSgenome.Hsapiens.UCSC.hg38'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘BSgenome.Hsapiens.UCSC.hg38’
+    ```
+
+*   checking if this is a source package ... NOTE
+    ```
+    Found the following apparent object files/libraries:
+      src/boost_regex/c_regex_traits.o src/boost_regex/cpp_regex_traits.o
+      src/boost_regex/cregex.o src/boost_regex/fileiter.o
+      src/boost_regex/icu.o src/boost_regex/instances.o
+      src/boost_regex/posix_api.o src/boost_regex/regex.o
+      src/boost_regex/regex_debug.o src/boost_regex/regex_raw_buffer.o
+      src/boost_regex/regex_traits_defaults.o
+      src/boost_regex/static_mutex.o src/boost_regex/usinstances.o
+      src/boost_regex/w32_regex_traits.o src/boost_regex/wc_regex_traits.o
+      src/boost_regex/wide_posix_api.o src/boost_regex/winstances.o
+    Object files/libraries should not be included in a source package.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 10.9Mb
+      sub-directories of 1Mb or more:
+        lib   9.2Mb
+    ```
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Versioned 'LinkingTo' value for ‘BH’ is only usable in R >= 3.0.2
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
     ```
 
 # pre
 
-Version: 0.5.0
+Version: 0.6.0
 
 ## In both
 
@@ -6626,18 +5810,19 @@ Version: 0.5.0
     Package unavailable to check Rd xrefs: ‘colorspace’
     ```
 
-# primerTree
+# primirTSS
 
-Version: 1.0.3
+Version: 1.0.1
 
 ## In both
 
-*   checking data for non-ASCII characters ... NOTE
+*   checking package dependencies ... ERROR
     ```
-      Error in .requirePackage(package) : 
-        unable to find required package 'RCurl'
-      Calls: <Anonymous> ... .extendsForS3 -> extends -> getClassDef -> .requirePackage
-      Execution halted
+    Packages required but not available:
+      ‘BSgenome.Hsapiens.UCSC.hg38’ ‘phastCons100way.UCSC.hg38’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # prisonbrief
@@ -6646,208 +5831,152 @@ Version: 0.1.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      Note: found 2 marked UTF-8 strings
     ```
 
 # processmapR
 
-Version: 0.3.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# profr
-
-Version: 0.3.1
+Version: 0.3.2
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    'library' or 'require' call to ‘ggplot2’ in package code.
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    Namespace in Imports field not imported from: ‘viridis’
+      All declared Imports should be used.
     ```
 
-*   checking R code for possible problems ... NOTE
-    ```
-    ...
-    ggplot.profr: no visible binding for global variable ‘start’
-    ggplot.profr: no visible binding for global variable ‘end’
-    ggplot.profr: no visible global function definition for ‘geom_text’
-    ggplot.profr: no visible binding for global variable ‘time’
-    ggplot.profr: no visible global function definition for
-      ‘scale_y_continuous’
-    ggplot.profr: no visible global function definition for
-      ‘scale_x_continuous’
-    plot.profr: no visible global function definition for ‘plot’
-    plot.profr: no visible global function definition for ‘rect’
-    plot.profr: no visible binding for global variable ‘time’
-    plot.profr: no visible global function definition for ‘text’
-    profr: no visible global function definition for ‘Rprof’
-    Undefined global functions or variables:
-      Rprof aes end geom_rect geom_text ggplot hist plot rect
-      scale_x_continuous scale_y_continuous start text time
-    Consider adding
-      importFrom("graphics", "hist", "plot", "rect", "text")
-      importFrom("stats", "end", "start", "time")
-      importFrom("utils", "Rprof")
-    to your NAMESPACE file.
-    ```
+# profvis
 
-# ProjectTemplate
-
-Version: 0.8.2
+Version: 0.3.5
 
 ## In both
 
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘data.table’
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # proustr
 
-Version: 0.2.1
+Version: 0.4.0
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 20105 marked UTF-8 strings
+      Note: found 12717 marked UTF-8 strings
     ```
 
-# psichomics
+# prozor
 
-Version: 1.2.1
+Version: 0.2.11
 
 ## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# psycho
-
-Version: 0.2.0
-
-## In both
-
-*   checking whether package ‘psycho’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/psycho/new/psycho.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘psycho’ ...
-** package ‘psycho’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘psycho’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/psycho/new/psycho.Rcheck/psycho’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘psycho’ ...
-** package ‘psycho’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘psycho’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/psycho/old/psycho.Rcheck/psycho’
-
-```
-# psygenet2r
-
-Version: 1.9.1
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
-    Quitting from lines 2-32 (case_study.Rmd) 
-    Error: processing vignette 'case_study.Rmd' failed with diagnostics:
-    could not find function "doc_date"
-    Execution halted
-    ```
 
 *   checking installed package size ... NOTE
     ```
       installed size is  5.7Mb
       sub-directories of 1Mb or more:
-        doc   5.4Mb
+        data      1.7Mb
+        extdata   2.3Mb
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
-    package 'methods' is used but not declared
+    Namespaces in Imports field not imported from:
+      ‘dplyr’ ‘readr’
+      All declared Imports should be used.
     ```
 
-*   checking R code for possible problems ... NOTE
+# psichomics
+
+Version: 1.8.1
+
+## In both
+
+*   checking package dependencies ... NOTE
     ```
-    ...
-      ‘Disease1’
-    plot,JaccardIndexPsy-ANY: no visible binding for global variable
-      ‘Disease2’
-    plot,JaccardIndexPsy-ANY: no visible binding for global variable
-      ‘JaccardIndex’
-    plot,JaccardIndexPsy-ANY: no visible binding for global variable
-      ‘value’
-    plot,JaccardIndexPsy-ANY: no visible binding for global variable
-      ‘variable’
-    Undefined global functions or variables:
-      Category Disease1 Disease2 JaccardIndex Var1 c0.Number_of_Abstracts
-      c0.Score c1.Gene_Symbol c2.DiseaseName c2.Disease_code
-      c2.PsychiatricDisorder category combn database diseases gene new perc
-      phyper pie read.csv read.delim value variable
-    Consider adding
-      importFrom("graphics", "pie")
-      importFrom("methods", "new")
-      importFrom("stats", "phyper")
-      importFrom("utils", "combn", "read.csv", "read.delim")
-    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-    contains 'methods').
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  9.8Mb
+      sub-directories of 1Mb or more:
+        R     3.0Mb
+        doc   5.6Mb
+    ```
+
+*   checking compiled code ... NOTE
+    ```
+    File ‘psichomics/libs/psichomics.so’:
+      Found ‘___stdoutp’, possibly from ‘stdout’ (C)
+        Object: ‘psiFastCalc.o’
+      Found ‘_printf’, possibly from ‘printf’ (C)
+        Object: ‘psiFastCalc.o’
+      Found ‘_putchar’, possibly from ‘putchar’ (C)
+        Object: ‘psiFastCalc.o’
+    
+    Compiled code should not call entry points which might terminate R nor
+    write to stdout/stderr instead of to the console, nor use Fortran I/O
+    nor system RNGs.
+    
+    See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+    ```
+
+# psychmeta
+
+Version: 2.3.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  8.8Mb
+      sub-directories of 1Mb or more:
+        R   7.1Mb
+    ```
+
+# psycho
+
+Version: 0.4.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.6Mb
+      sub-directories of 1Mb or more:
+        R     1.0Mb
+        doc   4.3Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘methods’
+      All declared Imports should be used.
+    ```
+
+# psygenet2r
+
+Version: 1.14.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘GO.db’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # ptstem
 
-Version: 0.0.3
+Version: 0.0.4
 
 ## In both
 
@@ -6874,140 +6003,176 @@ Version: 0.2.1
     Package unavailable to check Rd xrefs: ‘lm.beta’
     ```
 
-# pxR
-
-Version: 0.42.2
-
-## In both
-
-*   checking whether package ‘pxR’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘reshape2’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pxR/new/pxR.Rcheck/00install.out’ for details.
-    ```
-
 # pxweb
 
-Version: 0.6.3
+Version: 0.9.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking tests ...
     ```
-    Package required but not available: ‘data.table’
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+             invokeRestart("muffleWarning")
+         })
+      5: eval_bare(get_expr(quo), get_env(quo))
+      6: pxweb:::create_batch_list(url = test$url, dims = test$dims)
+      7: get_dim_size(url = url, dims = dims) at /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pxweb/new/pxweb.Rcheck/00_pkg_src/pxweb/R/deprecated_utils_internal.R:90
+      8: get_pxweb_metadata(url) at /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pxweb/new/pxweb.Rcheck/00_pkg_src/pxweb/R/deprecated_utils_internal.R:159
+      9: stop(stringr::str_c("No internet connection to ", url), call. = FALSE) at /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/pxweb/new/pxweb.Rcheck/00_pkg_src/pxweb/R/deprecated_get_pxweb_metadata.R:57
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 96 SKIPPED: 50 FAILED: 2
+      1. Error: Test warnings (@test-get_pxweb_data.R#154) 
+      2. Error: create_batch_list() (@test-utils_internal.R#41) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    pxweb: R tools for PX-WEB API.
+    Copyright (C) 2014-2018 Mans Magnusson, Leo Lahti et al.
+    https://github.com/ropengov/pxweb
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# QTL.gCIMapping
-
-Version: 2.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+    Quitting from lines 137-140 (pxweb.Rmd) 
+    Error: processing vignette 'pxweb.Rmd' failed with diagnostics:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    This is not a PXWEB API: 
+    http://api.scb.se/OV0104/v1/doris/en/ssd/BE/BE0101/BE0101A/
+    Execution halted
     ```
 
-# qualtRics
+# qPLEXanalyzer
 
-Version: 3.0
+Version: 1.0.3
 
 ## In both
 
-*   checking whether package ‘qualtRics’ can be installed ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qualtRics/new/qualtRics.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘qualtRics’ ...
-** package ‘qualtRics’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘qualtRics’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qualtRics/new/qualtRics.Rcheck/qualtRics’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘qualtRics’ ...
-** package ‘qualtRics’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘qualtRics’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qualtRics/old/qualtRics.Rcheck/qualtRics’
-
-```
-# QuaternaryProd
-
-Version: 1.4.0
-
-## In both
-
-*   checking whether package ‘QuaternaryProd’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/QuaternaryProd/new/QuaternaryProd.Rcheck/00install.out’ for details.
+    ...
+    
+    Loading required package: ProtGenerics
+    
+    This is MSnbase version 2.8.3 
+      Visit https://lgatto.github.io/MSnbase/ to get started.
+    
+    
+    Attaching package: 'MSnbase'
+    
+    The following object is masked from 'package:stats':
+    
+        smooth
+    
+    The following object is masked from 'package:base':
+    
+        trimws
+    
+    Quitting from lines 67-71 (qPLEXanalyzer.rnw) 
+    Error: processing vignette 'qPLEXanalyzer.rnw' failed with diagnostics:
+    there is no package called 'gridExtra'
+    Execution halted
     ```
 
-*   checking installed package size ... NOTE
+*   checking package dependencies ... NOTE
     ```
-      installed size is 10.4Mb
-      sub-directories of 1Mb or more:
-        extdata   9.7Mb
+    Package suggested but not available for checking: ‘qPLEXdata’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    rliPlot: no visible binding for global variable ‘logInt’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/plots.R:599-621)
+    rliPlot: no visible binding for global variable ‘medianLogInt’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/plots.R:599-621)
+    summarizeIntensities: no visible binding for global variable
+      ‘Accessions’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/Allfunctions.R:55-60)
+    summarizeIntensities: no visible binding for global variable
+      ‘Sequences’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/Allfunctions.R:55-60)
+    summarizeIntensities: no visible binding for global variable
+      ‘Accessions’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/Allfunctions.R:62-68)
+    summarizeIntensities: no visible binding for global variable ‘Count’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/qPLEXanalyzer/new/qPLEXanalyzer.Rcheck/00_pkg_src/qPLEXanalyzer/R/Allfunctions.R:62-68)
+    Undefined global functions or variables:
+      . Accessions AveExpr B Cor CorTxt Count GeneSymbol Grouping_column
+      Intensity Mean Modifications PeptideID RawIntensity RowID SampleName
+      Sequence Sequences Variance X Y adj.P.Val controlLogFoldChange group
+      logFC logInt logIntensity meanscaledIntensity medianLogInt
+      normalizedIntensities scaledIntensity scalingFactors x xend y yend
+    ```
+
+*   checking for unstated dependencies in vignettes ... NOTE
+    ```
+    'library' or 'require' call not declared from: ‘gridExtra’
     ```
 
 # quipu
 
 Version: 1.9.0
 
-## Newly fixed
-
-*   checking whether package ‘quipu’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/old/quipu.Rcheck/00install.out’ for details.
-    ```
-
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > ### Aliases: rquipu
+    > 
+    > ### ** Examples
+    > 
+    > library(quipu)
+    > 
+    > data(potato.quipu)
+    > dat = potato.quipu
+    > 
+    > str(dat)
+    'data.frame':	203 obs. of  4 variables:
+     $ accession_id: chr  "sample.1" "sample.1" "sample.1" "sample.1" ...
+     $ primer_name : chr  "STM1064" "STM1064" "STM1064" "STPoAc58" ...
+     $ marker_size : int  207 209 214 246 248 250 187 190 102 107 ...
+     $ map_location: chr  "II" "II" "II" "V" ...
+    > 
+    > rquipu(dat)
+    Error in if (img.format %in% c("jpeg", "jpg")) nameclones2 = file.path(dir.print,  : 
+      the condition has length > 1
+    Calls: rquipu
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 95-96 (Quipu_tutorial.Rnw) 
+    Error: processing vignette 'Quipu_tutorial.Rnw' failed with diagnostics:
+    the condition has length > 1
+    Execution halted
+    ```
 
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    draw_nodes: no visible global function definition for ‘points’
-    draw_nodes: no visible global function definition for ‘text’
-    draw_vertical_lines: no visible global function definition for ‘lines’
-    draw_vertical_lines: no visible global function definition for ‘abline’
-    layout_large_plot: no visible global function definition for ‘par’
-    layout_large_plot: no visible global function definition for ‘mtext’
-    layout_large_plot: no visible global function definition for ‘axis’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:83)
     layout_large_plot: no visible global function definition for ‘lines’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:87)
     layout_small_plot: no visible global function definition for ‘par’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:92)
     rquipu: no visible global function definition for ‘colors’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:270)
     rquipu: no visible global function definition for ‘jpeg’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:400)
     rquipu: no visible global function definition for ‘png’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:401)
     rquipu: no visible global function definition for ‘dev.off’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/quipu/new/quipu.Rcheck/00_pkg_src/quipu/R/quipu.R:413)
     Undefined global functions or variables:
       abline axis colors dev.off jpeg legend lines mtext par png points
       text
@@ -7018,96 +6183,54 @@ Version: 1.9.0
     to your NAMESPACE file.
     ```
 
-# radiant.model
-
-Version: 0.8.0
-
-## In both
-
-*   checking whether package ‘radiant.model’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/radiant.model/new/radiant.model.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘radiant.model’ ...
-** package ‘radiant.model’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘lubridate’ was built under R version 3.4.4
-Error: package or namespace load failed for ‘radiant.data’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘radiant.data’ could not be loaded
-ERROR: lazy loading failed for package ‘radiant.model’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/radiant.model/new/radiant.model.Rcheck/radiant.model’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘radiant.model’ ...
-** package ‘radiant.model’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘lubridate’ was built under R version 3.4.4
-Error: package or namespace load failed for ‘radiant.data’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘radiant.data’ could not be loaded
-ERROR: lazy loading failed for package ‘radiant.model’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/radiant.model/old/radiant.model.Rcheck/radiant.model’
-
-```
 # railtrails
 
-Version: 0.0.3
+Version: 0.1.1
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 1583 marked UTF-8 strings
+      Note: found 1557 marked UTF-8 strings
     ```
 
-# ratios
+# RAMClustR
 
-Version: 1.2.0
+Version: 1.0.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespace in Imports field not imported from: ‘BiocManager’
+      All declared Imports should be used.
     ```
 
 # rattle
 
-Version: 5.1.0
+Version: 5.2.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Packages required but not available: ‘RGtk2’ ‘cairoDevice’
-    
     Packages suggested but not available for checking:
-      ‘gWidgetsRGtk2’ ‘odfWeave’ ‘playwith’ ‘rggobi’ ‘RGtk2Extras’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      ‘gWidgetsRGtk2’ ‘playwith’ ‘rggobi’ ‘RGtk2’ ‘RGtk2Extras’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 11.1Mb
+      sub-directories of 1Mb or more:
+        R      4.2Mb
+        data   3.0Mb
+        etc    1.9Mb
+        po     1.2Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    2019-02-08 08:53:26.136 R[81918:6623799] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
     ```
 
 # rAvis
@@ -7116,41 +6239,113 @@ Version: 0.1.4
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking R code for possible problems ... NOTE
     ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:112)
+    .avisRenderMapAdmin: no visible global function definition for ‘rect’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:115-116)
+    .avisRenderMapAdmin: no visible global function definition for ‘points’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:117)
+    .avisRenderMapPhysical: no visible global function definition for
+      ‘points’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:96)
+    .avisRenderMapPhysical: no visible global function definition for
+      ‘points’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:99)
+    avisMap: no visible global function definition for ‘par’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:79)
+    avisMap: no visible global function definition for ‘layout’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rAvis/new/rAvis.Rcheck/00_pkg_src/rAvis/R/plotFunctions.R:80)
+    Undefined global functions or variables:
+      layout par points read.csv rect
+    Consider adding
+      importFrom("graphics", "layout", "par", "points", "rect")
+      importFrom("utils", "read.csv")
+    to your NAMESPACE file.
     ```
 
-# rclimateca
+# raws.profile
 
-Version: 1.0.1
+Version: 0.1.0
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-        |======================================================================| 100%
-      
-        |                                                                            
-        |                                                                      |   0%
-        |                                                                            
-        |===================================                                   |  50%
-        |                                                                            
-        |======================================================================| 100%
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 188 SKIPPED: 0 FAILED: 2
-      1. Failure: column types for ec_climate_data() are correct (@test-climate_data.R#123) 
-      2. Failure: get mudata function for climate data works (@test-climate_data.R#463) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘withr’
+      All declared Imports should be used.
     ```
+
+# rcellminer
+
+Version: 2.4.0
+
+## In both
+
+*   checking whether package ‘rcellminer’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rcellminer/new/rcellminer.Rcheck/00install.out’ for details.
+    ```
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .BBSoptions
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘rcellminer’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
+ERROR: lazy loading failed for package ‘rcellminer’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rcellminer/new/rcellminer.Rcheck/rcellminer’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘rcellminer’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rcellminer/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
+ERROR: lazy loading failed for package ‘rcellminer’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rcellminer/old/rcellminer.Rcheck/rcellminer’
+
+```
+# rclimateca
+
+Version: 1.0.2
+
+## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -7171,13 +6366,82 @@ Version: 1.0.1
 *   checking R code for possible problems ... NOTE
     ```
     get_ClinicalCodes: no visible global function definition for ‘read.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rClinicalCodes/new/rClinicalCodes.Rcheck/00_pkg_src/rClinicalCodes/R/clinicalcodes.R:28)
+    get_ClinicalCodes: no visible global function definition for ‘read.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rClinicalCodes/new/rClinicalCodes.Rcheck/00_pkg_src/rClinicalCodes/R/clinicalcodes.R:32)
     get_ClinicalCodes : <anonymous>: no visible global function definition
       for ‘read.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rClinicalCodes/new/rClinicalCodes.Rcheck/00_pkg_src/rClinicalCodes/R/clinicalcodes.R:41)
     Undefined global functions or variables:
       read.csv
     Consider adding
       importFrom("utils", "read.csv")
     to your NAMESPACE file.
+    ```
+
+# rcongresso
+
+Version: 0.4.6
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘rcongresso-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: fetch_despesas_deputado
+    > ### Title: Fetches expenditures from deputy
+    > ### Aliases: fetch_despesas_deputado
+    > 
+    > ### ** Examples
+    > 
+    > gastos_abel_mesquita <- fetch_despesas_deputado(id = 178957)
+    Error: Falha na requisicao a API dos Dados Abertos. Erro 400 ao tentar acessar: https://dadosabertos.camara.leg.br/api/v2/deputados/178957/despesas?id=178957
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      9: doWithOneRestart(return(expr), restart)
+      
+      [31m──[39m [31m3. Error: (unknown) (@test_votacoes.R#70) [39m [31m─────────────────────────────────────────────────────────[39m
+      argument "message" is missing, with no default
+      1: skip() at testthat/test_votacoes.R:70
+      2: structure(list(message = message), class = c("skip", "condition"))
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 13 SKIPPED: 0 FAILED: 3
+      1. Error: (unknown) (@test_deputados.R#81) 
+      2. Error: (unknown) (@test_proposicoes.R#91) 
+      3. Error: (unknown) (@test_votacoes.R#70) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 36-38 (introducao-rcongresso.Rmd) 
+    Error: processing vignette 'introducao-rcongresso.Rmd' failed with diagnostics:
+    could not find function "FUN1"
+    Execution halted
     ```
 
 # rcv
@@ -7198,98 +6462,207 @@ Version: 0.2.1
       Note: found 6543 marked UTF-8 strings
     ```
 
-# recoder
+# RDML
 
-Version: 0.1
-
-## Newly fixed
-
-*   checking whether package ‘recoder’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/recoder/old/recoder.Rcheck/00install.out’ for details.
-    ```
+Version: 0.9-9
 
 ## In both
 
-*   checking Rd cross-references ... NOTE
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package unavailable to check Rd xrefs: ‘car’
+    ...
+    12.139270996656312.307692307692310.3617975173708
+    The distribution of the curve data indicates noise. The data should be visually 
+    inspected with a plot (see examples of diffQ).
+    The distribution of the curve data indicates noise. The data should be visually 
+    inspected with a plot (see examples of diffQ).
+    Approximate and calculated Tm varri. This is an expected behaviour 
+    
+    			 but the calculation should be confirmed with a plot (see examples of diffQ).
+    16.42065372042111612.6709691596414
+    The distribution of the curve data indicates noise. The data should be visually 
+    inspected with a plot (see examples of diffQ).
+    Approximate and calculated Tm varri. This is an expected behaviour 
+    
+    			 but the calculation should be confirmed with a plot (see examples of diffQ).
+    6.533866827983022021.9375753397427
+    The Tm calculation (fit, adj. R squared ~ 0.849, NRMSE ~ 0.088) is not optimal presumably
+    due to noisy data. Check raw melting curve (see examples of diffQ).
+    Quitting from lines 127-158 (usingRDML_with_other_R_packages.Rmd) 
+    Error: processing vignette 'usingRDML_with_other_R_packages.Rmd' failed with diagnostics:
+    the condition has length > 1
+    Execution halted
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.5Mb
+      sub-directories of 1Mb or more:
+        R     2.0Mb
+        doc   2.4Mb
     ```
 
 # redcapAPI
 
-Version: 2.0
+Version: 2.2
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘DBI’
+    Namespaces in Imports field not imported from:
+      ‘DBI’ ‘readr’
       All declared Imports should be used.
     ```
 
-# reportRx
+# RegParallel
 
-Version: 1.0
+Version: 1.0.0
 
 ## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Loading required package: doParallel
+    Loading required package: foreach
+    Loading required package: iterators
+    Loading required package: parallel
+    Loading required package: data.table
+    Loading required package: stringr
+    Loading required package: survival
+    Loading required package: arm
+    Loading required package: MASS
+    Loading required package: Matrix
+    Loading required package: lme4
+    
+    arm (Version 1.10-1, built: 2018-4-12)
+    
+    Working directory is /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RegParallel/new/RegParallel.Rcheck/vign_test/RegParallel/vignettes
+    
+    Quitting from lines 86-95 (RegParallel.Rmd) 
+    Error: processing vignette 'RegParallel.Rmd' failed with diagnostics:
+    there is no package called 'airway'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘airway’
+    
+    Depends: includes the non-default packages:
+      ‘doParallel’ ‘foreach’ ‘parallel’ ‘iterators’ ‘data.table’ ‘stringr’
+      ‘survival’ ‘arm’ ‘MASS’
+    Adding so many packages to the search path is excessive and importing
+    selectively is preferable.
+    ```
+
+# repr
+
+Version: 0.19.2
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages which this enhances but not available for checking:
+      ‘data.table’ ‘dplyr’ ‘vegalite’ ‘plotly’ ‘geojsonio’
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
+    ```
+
+# rexposome
+
+Version: 1.4.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 12.2Mb
+      sub-directories of 1Mb or more:
+        R         2.0Mb
+        data      2.8Mb
+        doc       5.0Mb
+        extdata   2.2Mb
+    ```
 
 *   checking R code for possible problems ... NOTE
     ```
-    ...
-    modelmatrix: no visible global function definition for ‘as.formula’
-    modelmatrix: no visible global function definition for ‘model.matrix’
-    plotci: no visible global function definition for ‘plot’
-    plotci: no visible global function definition for ‘lines’
-    plotci: no visible global function definition for ‘legend’
-    plotkm: no visible global function definition for ‘as.formula’
-    plotkm: no visible global function definition for ‘pchisq’
-    plotkm: no visible global function definition for ‘plot’
-    uvsum : <anonymous>: no visible global function definition for
-      ‘as.formula’
-    uvsum : <anonymous>: no visible global function definition for ‘glm’
-    uvsum : <anonymous>: no visible global function definition for ‘lm’
+    imputeLOD: multiple local function definitions for ‘faux’ with
+      different formal arguments
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rexposome/new/rexposome.Rcheck/00_pkg_src/rexposome/R/imputeLOD.R:72)
+    plotHistogram,ExposomeSet: no visible binding for global variable
+      ‘..density..’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rexposome/new/rexposome.Rcheck/00_pkg_src/rexposome/R/ExposomeSet-plotHistogram.R:42-45)
+    plotHistogram,ExposomeSet: no visible binding for global variable
+      ‘..density..’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rexposome/new/rexposome.Rcheck/00_pkg_src/rexposome/R/ExposomeSet-plotHistogram.R:48-50)
     Undefined global functions or variables:
-      abline as.formula axis chisq.test fisher.test glm legend lines lm
-      median model.matrix mtext par pchisq plot sd segments
-    Consider adding
-      importFrom("graphics", "abline", "axis", "legend", "lines", "mtext",
-                 "par", "plot", "segments")
-      importFrom("stats", "as.formula", "chisq.test", "fisher.test", "glm",
-                 "lm", "median", "model.matrix", "pchisq", "sd")
-    to your NAMESPACE file.
+      ..density..
     ```
 
-# RGENERATEPREC
+# rfbCNPJ
 
-Version: 1.2
+Version: 0.1.1
 
 ## In both
 
-*   checking whether package ‘RGENERATEPREC’ can be installed ... WARNING
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘date’ was built under R version 3.4.3
-      Warning: package ‘zoo’ was built under R version 3.4.3
-      Warning: package ‘lmtest’ was built under R version 3.4.4
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RGENERATEPREC/new/RGENERATEPREC.Rcheck/00install.out’ for details.
+      Note: found 27 marked UTF-8 strings
     ```
 
-# rgeopat2
+# rfishbase
 
-Version: 0.2.4
+Version: 3.0.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 44 marked UTF-8 strings
+    ```
+
+# rfordummies
+
+Version: 0.1.3
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    +     if(public) tot.price <- net.price * 1.06 else
+    +                tot.price <- net.price * 1.12
+    +     round(tot.price)
+    + }
+    > 
+    > priceCalculator <- function(hours, pph=40, public=TRUE){
+    +     net.price <- hours * pph
+    +     if(hours > 100) net.price <- net.price * 0.9
+    +     tot.price <- net.price * if(public) 1.06 else 1.12
+    +     round(tot.price)
+    + }
+    > 
+    > # Vectorizing Choices
+    > 
+    > ## Looking at the problem
+    > 
+    > priceCalculator(c(25,110))
+    Error in if (hours > 100) net.price <- net.price * 0.9 : 
+      the condition has length > 1
+    Calls: priceCalculator
+    Execution halted
     ```
 
 # Ricetl
@@ -7300,7 +6673,7 @@ Version: 0.2.5
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘gWidgetsRGtk2’
+    Packages required but not available: ‘devtools’ ‘gWidgetsRGtk2’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -7312,37 +6685,21 @@ Version: 0.2.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# rmarkdown
+# RJafroc
 
-Version: 1.9
+Version: 1.0.1
 
 ## In both
 
-*   checking installed package size ... NOTE
-    ```
-      installed size is  6.4Mb
-      sub-directories of 1Mb or more:
-        rmd   5.9Mb
-    ```
-
-# RmecabKo
-
-Version: 0.1.6.2
-
-## In both
-
-*   checking whether package ‘RmecabKo’ can be installed ... ERROR
+*   checking whether package ‘RJafroc’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RmecabKo/new/RmecabKo.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RJafroc/new/RJafroc.Rcheck/00install.out’ for details.
     ```
 
 ## Installation
@@ -7350,88 +6707,104 @@ Version: 0.1.6.2
 ### Devel
 
 ```
-* installing *source* package ‘RmecabKo’ ...
-** package ‘RmecabKo’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘RJafroc’ ...
+** package ‘RJafroc’ successfully unpacked and MD5 sums checked
 ** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-/bin/sh: mecab-config: command not found
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c n_grams.cpp -o n_grams.o
-/bin/sh: mecab-config: command not found
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c nouns.cpp -o nouns.o
-/bin/sh: mecab-config: command not found
-nouns.cpp:10:10: fatal error: 'mecab.h' file not found
-#include <mecab.h>
-         ^~~~~~~~~
-1 error generated.
-make: *** [nouns.o] Error 1
-ERROR: compilation failed for package ‘RmecabKo’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RmecabKo/new/RmecabKo.Rcheck/RmecabKo’
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c BMFuncs.cpp -o BMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c CBMFuncs.cpp -o CBMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c CorCBMFuncs.cpp -o CorCBMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c MyFOM.cpp -o MyFOM.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RsmFuncs.cpp -o RsmFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c SmAucInt.cpp -o SmAucInt.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c Transforms.cpp -o Transforms.o
+ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o RJafroc.so BMFuncs.o CBMFuncs.o CorCBMFuncs.o MyFOM.o RcppExports.o RsmFuncs.o SmAucInt.o Transforms.o -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+installing to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RJafroc/new/RJafroc.Rcheck/RJafroc/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘xlsx’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘xlsx’ could not be loaded
+ERROR: lazy loading failed for package ‘RJafroc’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RJafroc/new/RJafroc.Rcheck/RJafroc’
 
 ```
 ### CRAN
 
 ```
-* installing *source* package ‘RmecabKo’ ...
-** package ‘RmecabKo’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘RJafroc’ ...
+** package ‘RJafroc’ successfully unpacked and MD5 sums checked
 ** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
-/bin/sh: mecab-config: command not found
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c n_grams.cpp -o n_grams.o
-/bin/sh: mecab-config: command not found
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RmecabKo/Rcpp/include" -I/usr/local/include  `mecab-config --cflags` -fPIC  -Wall -g -O2  -c nouns.cpp -o nouns.o
-/bin/sh: mecab-config: command not found
-nouns.cpp:10:10: fatal error: 'mecab.h' file not found
-#include <mecab.h>
-         ^~~~~~~~~
-1 error generated.
-make: *** [nouns.o] Error 1
-ERROR: compilation failed for package ‘RmecabKo’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RmecabKo/old/RmecabKo.Rcheck/RmecabKo’
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c BMFuncs.cpp -o BMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c CBMFuncs.cpp -o CBMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c CorCBMFuncs.cpp -o CorCBMFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c MyFOM.cpp -o MyFOM.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RcppExports.cpp -o RcppExports.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c RsmFuncs.cpp -o RsmFuncs.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c SmAucInt.cpp -o SmAucInt.o
+ccache clang++ -Qunused-arguments  -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/Rcpp/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c Transforms.cpp -o Transforms.o
+ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o RJafroc.so BMFuncs.o CBMFuncs.o CorCBMFuncs.o MyFOM.o RcppExports.o RsmFuncs.o SmAucInt.o Transforms.o -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
+installing to /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RJafroc/old/RJafroc.Rcheck/RJafroc/libs
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error: package or namespace load failed for ‘xlsx’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RJafroc/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘xlsx’ could not be loaded
+ERROR: lazy loading failed for package ‘RJafroc’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RJafroc/old/RJafroc.Rcheck/RJafroc’
 
 ```
-# rmweather
+# rmarkdown
 
-Version: 0.1.1
+Version: 1.11
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      package 'testthat' was built under R version 3.4.3 
-      > library(rmweather)
-      > 
-      > test_check("rmweather")
-      [31m──[39m [31m1. Failure: Test training function (@test_02_rmw_functions.R#53) [39m [31m───────────────────────────────────────────[39m
-      model$r.squared not equal to 0.4184627.
-      1/1 mismatches
-      [1] 0.399 - 0.418 == -0.0196
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 33 SKIPPED: 0 FAILED: 1
-      1. Failure: Test training function (@test_02_rmw_functions.R#53) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is 10.6Mb
+      sub-directories of 1Mb or more:
+        R     2.1Mb
+        rmd   8.2Mb
     ```
+
+# rmytarget
+
+Version: 2.1.1
+
+## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘testthat’
+    Namespace in Imports field not imported from: ‘jsonlite’
       All declared Imports should be used.
     ```
 
-# RndTexExams
+# RNASeqR
 
-Version: 1.4.1
+Version: 1.0.3
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Packages required but not available: ‘org.Hs.eg.db’ ‘org.Sc.sgd.db’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -7439,129 +6812,67 @@ Version: 1.4.1
 
 # RNeXML
 
-Version: 2.1.1
+Version: 2.3.0
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      Done simulation(s).
-      [31m──[39m [31m1. Error: (unknown) (@test_taxonomy.R#7) [39m [31m───────────────────────────────────────────────────────────────────[39m
-      taxize package required to convert look up taxonomic ids
-      1: taxize_nexml(birds, "NCBI") at testthat/test_taxonomy.R:7
-      2: stop("taxize package required to convert look up taxonomic ids", call. = FALSE)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 166 SKIPPED: 3 FAILED: 1
-      1. Error: (unknown) (@test_taxonomy.R#7) 
-      
-      Error: testthat unit tests failed
-      In addition: Warning messages:
-      1: package 'ape' was built under R version 3.4.4 
-      2: package 'XML' was built under R version 3.4.4 
-      Execution halted
-    ```
-
-*   checking whether package ‘RNeXML’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘ape’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RNeXML/new/RNeXML.Rcheck/00install.out’ for details.
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Loading required package: ape
-    Warning: package 'ape' was built under R version 3.4.4
-    Quitting from lines 85-86 (metadata.Rmd) 
-    Error: processing vignette 'metadata.Rmd' failed with diagnostics:
-    taxize package required to convert look up taxonomic ids
-    Execution halted
-    ```
-
-# rngtools
-
-Version: 1.2.4
-
-## In both
-
-*   checking whether package ‘rngtools’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘registry’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rngtools/new/rngtools.Rcheck/00install.out’ for details.
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    'library' or 'require' call to ‘parallel’ in package code.
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    .collapse: no visible global function definition for ‘head’
-    RNGinfo: no visible global function definition for ‘setNames’
-    RNGlibs: no visible global function definition for ‘tail’
-    RNGseq : <anonymous>: no visible global function definition for
-      ‘nextRNGStream’
-    RNGseq: no visible global function definition for ‘nextRNGStream’
-    RNGseq_seed: no visible global function definition for ‘runif’
-    RNGseq_seed: no visible global function definition for ‘nextRNGStream’
-    checkRNG: no visible global function definition for ‘checkTrue’
-    nextRNG: no visible global function definition for ‘runif’
-    .setRNG,numeric: no visible global function definition for ‘runif’
-    Undefined global functions or variables:
-      checkTrue head nextRNGStream runif setNames tail
-    Consider adding
-      importFrom("stats", "runif", "setNames")
-      importFrom("utils", "head", "tail")
-    to your NAMESPACE file.
-    ```
-
-# Rnightlights
-
-Version: 0.2.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘data.table’ ‘gdalUtils’ ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘taxadb’
     ```
 
 # Rnits
 
-Version: 1.10.0
+Version: 1.16.0
 
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+      prediction from a rank-deficient fit may be misleading
+    Error in if (out == max(timevec)) out <- max(timevec) - 1 : 
+      the condition has length > 1
+    Calls: calculateGCV -> calculateGCV -> bs -> placeKnots
+    Execution halted
+    ```
 
 *   checking re-building of vignette outputs ... WARNING
     ```
     Error in re-building vignettes:
       ...
     Warning in block_exec(params) :
-      failed to tidy R code in chunk <loaddata>
-    reason: Error in loadNamespace(name) : there is no package called 'formatR'
+      Failed to tidy R code in chunk 'loaddata'. Reason:
+    Error in loadNamespace(name) : there is no package called 'formatR'
     
-    Warning in download.file(sprintf("https://ftp.ncbi.nlm.nih.gov/geo/series/%s/%s/matrix/%s",  :
-      URL https://ftp.ncbi.nlm.nih.gov/geo/series/GSE4nnn/GSE4158/matrix//geo/series/GSE4nnn/GSE4158/: cannot open destfile '/tmp/RtmpLmBTqO//geo/series/GSE4nnn/GSE4158/', reason 'No such file or directory'
-    Warning in download.file(sprintf("https://ftp.ncbi.nlm.nih.gov/geo/series/%s/%s/matrix/%s",  :
-      download had nonzero exit status
-    Warning in file(con, "r") :
-      cannot open file '/tmp/RtmpLmBTqO//geo/series/GSE4nnn/GSE4158/': No such file or directory
-    Quitting from lines 90-114 (Rnits-vignette.Rnw) 
+    trying URL 'https://ftp.ncbi.nlm.nih.gov/geo/series/GSE4nnn/GSE4158/matrix/GSE4158_series_matrix.txt.gz'
+    Content type 'application/x-gzip' length 514853 bytes (502 KB)
+    ==================================================
+    downloaded 502 KB
+    
+    Warning in block_exec(params) :
+      Failed to tidy R code in chunk 'buildrnitsobj'. Reason:
+    Error in loadNamespace(name) : there is no package called 'formatR'
+    
+    Quitting from lines 147-150 (Rnits-vignette.Rnw) 
     Error: processing vignette 'Rnits-vignette.Rnw' failed with diagnostics:
-    cannot open the connection
+    the condition has length > 1
     Execution halted
     ```
 
@@ -7573,14 +6884,14 @@ Version: 1.10.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-      ‘scale_color_brewer’
-    plotResults,Rnits: no visible global function definition for
-      ‘facet_wrap’
-    plotResults,Rnits: no visible global function definition for ‘dev.off’
-    summary,Rnits: no visible global function definition for ‘hist’
-    timeAlign,Rnits: no visible global function definition for ‘quantile’
-    timeAlign,Rnits: no visible global function definition for ‘mvfft’
     timeAlign,Rnits: no visible global function definition for ‘abline’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Rnits/new/Rnits.Rcheck/00_pkg_src/Rnits/R/timealign.r:113)
+    timeAlign,Rnits: no visible global function definition for ‘mvfft’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Rnits/new/Rnits.Rcheck/00_pkg_src/Rnits/R/timealign.r:127)
+    timeAlign,Rnits: no visible global function definition for ‘mvfft’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Rnits/new/Rnits.Rcheck/00_pkg_src/Rnits/R/timealign.r:130-131)
+    timeAlign,Rnits: no visible global function definition for ‘quantile’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Rnits/new/Rnits.Rcheck/00_pkg_src/Rnits/R/timealign.r:135)
     Undefined global functions or variables:
       Sample Time abline aes dev.off facet_wrap gaussian geom_point
       geom_smooth glm hat hist kmeans mad median mvfft p.adjust par predict
@@ -7596,31 +6907,16 @@ Version: 1.10.0
     to your NAMESPACE file.
     ```
 
-# rNOMADS
+# robotstxt
 
-Version: 2.3.9
-
-## In both
-
-*   checking whether package ‘rNOMADS’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘xml2’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rNOMADS/new/rNOMADS.Rcheck/00install.out’ for details.
-    ```
-
-# rnrfa
-
-Version: 1.4.0
+Version: 0.6.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespace in Imports field not imported from: ‘future’
+      All declared Imports should be used.
     ```
 
 # rodham
@@ -7628,38 +6924,6 @@ Version: 1.4.0
 Version: 0.1.1
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      7: splitstackshape::cSplit
-      8: getExportedValue(pkg, name)
-      9: asNamespace(ns)
-      10: getNamespace(ns)
-      11: tryCatch(loadNamespace(name), error = function(e) stop(e))
-      12: tryCatchList(expr, classes, parentenv, handlers)
-      13: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      14: value[[3L]](cond)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 4 SKIPPED: 0 FAILED: 1
-      1. Error: test all (@test_all.R#17) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 44-46 (how-to.Rmd) 
-    Error: processing vignette 'how-to.Rmd' failed with diagnostics:
-    there is no package called 'data.table'
-    Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -7672,38 +6936,82 @@ Version: 0.1.1
       Note: found 59 marked UTF-8 strings
     ```
 
-# rollply
+# roxygen2
 
-Version: 0.5.0
+Version: 6.1.1
 
 ## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 21-27 (rollply.Rmd) 
-    Error: processing vignette 'rollply.Rmd' failed with diagnostics:
-    there is no package called 'rgdal'
-    Execution halted
-    ```
 
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘rgdal’
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# Rpolyhedra
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘devtools’
+    ```
 
-Version: 0.2.4
+# rpcdsearch
+
+Version: 1.0
 
 ## In both
 
-*   checking installed package size ... NOTE
+*   checking whether package ‘rpcdsearch’ can be installed ... ERROR
     ```
-      installed size is 12.5Mb
-      sub-directories of 1Mb or more:
-        extdata  12.2Mb
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rpcdsearch/new/rpcdsearch.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘rpcdsearch’ ...
+** package ‘rpcdsearch’ successfully unpacked and MD5 sums checked
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘rpcdsearch’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rpcdsearch/new/rpcdsearch.Rcheck/rpcdsearch’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘rpcdsearch’ ...
+** package ‘rpcdsearch’ successfully unpacked and MD5 sums checked
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/rpcdsearch/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘rpcdsearch’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rpcdsearch/old/rpcdsearch.Rcheck/rpcdsearch’
+
+```
+# Rpolyhedra
+
+Version: 0.4.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘testthat’
+      All declared Imports should be used.
     ```
 
 # rprime
@@ -7718,6 +7026,7 @@ Version: 0.1.0
     first: no visible global function definition for ‘head’
     last: no visible global function definition for ‘tail’
     preview_frames: no visible global function definition for ‘str’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rprime/new/rprime.Rcheck/00_pkg_src/rprime/R/preview.R:37)
     print.EprimeFrame: no visible global function definition for ‘str’
     print.FrameList: no visible global function definition for ‘str’
     Undefined global functions or variables:
@@ -7727,68 +7036,68 @@ Version: 0.1.0
     to your NAMESPACE file.
     ```
 
-# rpubchem
+# RSDA
 
-Version: 1.5.10
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# RQGIS
-
-Version: 1.0.3
+Version: 2.0.8
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Packages required but not available: ‘rgdal’ ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespace in Imports field not imported from: ‘randomcoloR’
+      All declared Imports should be used.
     ```
 
-# rsgcc
+# RSentiment
 
-Version: 1.0.6
+Version: 2.2.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Packages required but not available: ‘cairoDevice’ ‘gWidgetsRGtk2’
-    
-    Depends: includes the non-default packages:
-      ‘biwt’ ‘cairoDevice’ ‘fBasics’ ‘gplots’ ‘gWidgets’ ‘gWidgetsRGtk2’
-      ‘minerva’ ‘parmigene’ ‘stringr’ ‘snowfall’
-    Adding so many packages to the search path is excessive and importing
-    selectively is preferable.
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 63-67 (Introduction.Rmd) 
+    Error: processing vignette 'Introduction.Rmd' failed with diagnostics:
+    .onLoad failed in loadNamespace() for 'rJava', details:
+      call: dyn.load(file, DLLpath = DLLpath, ...)
+      error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RSentiment/rJava/libs/rJava.so':
+      dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RSentiment/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+      Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/RSentiment/rJava/libs/rJava.so
+      Reason: image not found
+    Execution halted
+    ```
+
+# rsinaica
+
+Version: 0.6.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 467 marked UTF-8 strings
     ```
 
 # RSMET
 
 Version: 1.2.9
 
-## Newly broken
+## In both
 
 *   checking examples ... ERROR
     ```
     ...
     > 
+    > ### ** Examples
+    > 
     >  
     > 
     > library(ggmap)
     Loading required package: ggplot2
+    Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+    Please cite ggmap if you use it! See citation("ggmap") for details.
     > data(meteofrance)
     > 
     > dates <- as.Date(meteofrance$timestamp)
@@ -7798,73 +7107,104 @@ Version: 1.2.9
     > 
     > 
     > map <- get_map(location ="France", zoom = 6)
-    Map from URL : http://maps.googleapis.com/maps/api/staticmap?center=France&zoom=6&size=640x640&scale=2&maptype=terrain&language=en-EN&sensor=false
-    Information from URL : http://maps.googleapis.com/maps/api/geocode/json?address=France&sensor=false
-    Warning: geocode failed with status OVER_QUERY_LIMIT, location = "France"
-    Error in data.frame(ll.lat = ll[1], ll.lon = ll[2], ur.lat = ur[1], ur.lon = ur[2]) : 
-      arguments imply differing number of rows: 0, 1
-    Calls: get_map -> get_googlemap -> data.frame
+    Error: Google now requires an API key.
+           See ?register_google for details.
     Execution halted
-    ```
-
-## Newly fixed
-
-*   checking whether package ‘RSMET’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RSMET/old/RSMET.Rcheck/00install.out’ for details.
     ```
 
 # rsunlight
 
-Version: 0.4.2
+Version: 0.7.0
 
 ## In both
-
-*   checking whether package ‘rsunlight’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rsunlight/new/rsunlight.Rcheck/00install.out’ for details.
-    ```
 
 *   checking package dependencies ... NOTE
     ```
     Package which this enhances but not available for checking: ‘ggplot2’
     ```
 
-## Installation
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘stringr’
+      All declared Imports should be used.
+    ```
 
-### Devel
+# RTCGAToolbox
 
-```
-* installing *source* package ‘rsunlight’ ...
-** package ‘rsunlight’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error : object ‘ignore.case’ is not exported by 'namespace:stringr'
-ERROR: lazy loading failed for package ‘rsunlight’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rsunlight/new/rsunlight.Rcheck/rsunlight’
+Version: 2.12.1
 
-```
-### CRAN
+## In both
 
-```
-* installing *source* package ‘rsunlight’ ...
-** package ‘rsunlight’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error : object ‘ignore.case’ is not exported by 'namespace:stringr'
-ERROR: lazy loading failed for package ‘rsunlight’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rsunlight/old/rsunlight.Rcheck/rsunlight’
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘RTCGAToolbox-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: getReport
+    > ### Title: Draws a circle plot into working directory
+    > ### Aliases: getReport
+    > 
+    > ### ** Examples
+    > 
+    > data(RTCGASample)
+    > require("Homo.sapiens")
+    Loading required package: Homo.sapiens
+    Warning in library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+      there is no package called ‘Homo.sapiens’
+    > locations <- genes(Homo.sapiens,columns="SYMBOL")
+    Error in genes(Homo.sapiens, columns = "SYMBOL") : 
+      could not find function "genes"
+    Execution halted
+    ```
 
-```
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘Homo.sapiens’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        doc   3.8Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    .getGISTIC: no visible global function definition for ‘mcols<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/RTCGAToolbox/new/RTCGAToolbox.Rcheck/00_pkg_src/RTCGAToolbox/R/utils.R:47)
+    Undefined global functions or variables:
+      mcols<-
+    ```
+
+# RTest
+
+Version: 1.2.3
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/run_test.R’ failed.
+    Last 13 lines of output:
+      Linking to ImageMagick 6.9.9.39
+      Enabled features: cairo, fontconfig, freetype, lcms, pango, rsvg, webp
+      Disabled features: fftw, ghostscript, x11
+      Loading required package: XML
+      Thank you for using RTest
+      
+      To use a more comprehensive version of the test-report we recommend to run:
+      
+      assignInNamespace("as.expectation.logical", RTest::as.expectation.logical, ns="testthat", pos="package:testthat")
+      Error: Test failed: 'RTestCollection write HTML summary'
+      * `writeExecSummary.html(...)` produced warnings.
+      * `writeExecSummary.html(...)` produced warnings.
+      In addition: Warning message:
+      In fun(libname, pkgname) : couldn't connect to display ""
+      Execution halted
+    ```
+
 # rtimicropem
 
 Version: 1.3
@@ -7879,7 +7219,7 @@ Version: 1.3
 
 # rubias
 
-Version: 0.1.0
+Version: 0.2.0
 
 ## In both
 
@@ -7889,120 +7229,15 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# rUnemploymentData
+# rzeit2
 
-Version: 1.1.0
-
-## In both
-
-*   checking whether package ‘rUnemploymentData’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rUnemploymentData/new/rUnemploymentData.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘rUnemploymentData’ ...
-** package ‘rUnemploymentData’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘rUnemploymentData’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rUnemploymentData/new/rUnemploymentData.Rcheck/rUnemploymentData’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘rUnemploymentData’ ...
-** package ‘rUnemploymentData’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘rUnemploymentData’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rUnemploymentData/old/rUnemploymentData.Rcheck/rUnemploymentData’
-
-```
-# rusda
-
-Version: 1.0.8
+Version: 0.2.3
 
 ## In both
 
-*   checking whether package ‘rusda’ can be installed ... ERROR
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rusda/new/rusda.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘rusda’ ...
-** package ‘rusda’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘rusda’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rusda/new/rusda.Rcheck/rusda’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘rusda’ ...
-** package ‘rusda’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘rusda’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/rusda/old/rusda.Rcheck/rusda’
-
-```
-# ryouready
-
-Version: 0.4
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > 
-    > d <- data.frame(t1=c(1,0,NA,0,0),
-    +                  t2=c(0,1,0,NA,0),
-    +                  t3=c(0,0,1,0,0) )
-    > 
-    >  # collapse all variables of a dataframe
-    >  collapse_responseset(d)
-    [1]  1  2  3 NA NA
-    > 
-    >  # collapse columns 1 to 3 (which is all in this case as well)
-    >  collapse_responseset(d, vars=1:3)
-    [1]  1  2  3 NA NA
-    >  collapse_responseset(d, vars=c("t1", "t2", "t3"))
-    [1]  1  2  3 NA NA
-    > 
-    >  # use letters instead fo numbers for recoding
-    >  collapse_responseset(d, vars=1:3, rec=letters[1:3])
-    Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-      there is no package called ‘data.table’
-    Calls: collapse_responseset ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-    Execution halted
+      Note: found 841 marked UTF-8 strings
     ```
 
 # sasMap
@@ -8017,76 +7252,40 @@ Version: 1.0.0
       All declared Imports should be used.
     ```
 
-# satscanMapper
+# SciencesPo
 
-Version: 1.0.0
-
-## In both
-
-*   checking whether package ‘satscanMapper’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/satscanMapper/new/satscanMapper.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘satscanMapper’ ...
-** package ‘satscanMapper’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** byte-compile and prepare package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘rgdal’
-ERROR: lazy loading failed for package ‘satscanMapper’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/satscanMapper/new/satscanMapper.Rcheck/satscanMapper’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘satscanMapper’ ...
-** package ‘satscanMapper’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** byte-compile and prepare package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘rgdal’
-ERROR: lazy loading failed for package ‘satscanMapper’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/satscanMapper/old/satscanMapper.Rcheck/satscanMapper’
-
-```
-# sbpiper
-
-Version: 1.8.0
+Version: 1.4.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    SciencesPo 1.4.1
+    Warning: `panel.margin` is deprecated. Please use `panel.spacing` property instead
+    Warning: `legend.margin` must be specified using `margin()`. For the old behavior use legend.spacing
+    Warning: `panel.margin` is deprecated. Please use `panel.spacing` property instead
+    Warning: `legend.margin` must be specified using `margin()`. For the old behavior use legend.spacing
+    Quitting from lines 754-756 (Indices.Rmd) 
+    Error: processing vignette 'Indices.Rmd' failed with diagnostics:
+    there is no package called 'devtools'
+    Execution halted
     ```
-
-# sbtools
-
-Version: 1.1.6
-
-## In both
 
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘rgdal’
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# SciencesPo
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘gmodels’
+    ```
+
+# scPipe
 
 Version: 1.4.1
 
@@ -8094,22 +7293,22 @@ Version: 1.4.1
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Packages required but not available: ‘org.Hs.eg.db’ ‘org.Mm.eg.db’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# scorecardModelUtils
+# sdcTable
 
-Version: 0.0.0.9
+Version: 0.26
 
 ## In both
 
-*   checking whether package ‘scorecardModelUtils’ can be installed ... ERROR
+*   checking whether package ‘sdcTable’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/scorecardModelUtils/new/scorecardModelUtils.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sdcTable/new/sdcTable.Rcheck/00install.out’ for details.
     ```
 
 ## Installation
@@ -8117,97 +7316,35 @@ Version: 0.0.0.9
 ### Devel
 
 ```
-* installing *source* package ‘scorecardModelUtils’ ...
-** package ‘scorecardModelUtils’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘scorecardModelUtils’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/scorecardModelUtils/new/scorecardModelUtils.Rcheck/scorecardModelUtils’
+* installing *source* package ‘sdcTable’ ...
+** package ‘sdcTable’ successfully unpacked and MD5 sums checked
+GLPK is not available
+ERROR: configuration failed for package ‘sdcTable’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sdcTable/new/sdcTable.Rcheck/sdcTable’
 
 ```
 ### CRAN
 
 ```
-* installing *source* package ‘scorecardModelUtils’ ...
-** package ‘scorecardModelUtils’ successfully unpacked and MD5 sums checked
-** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘scorecardModelUtils’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/scorecardModelUtils/old/scorecardModelUtils.Rcheck/scorecardModelUtils’
+* installing *source* package ‘sdcTable’ ...
+** package ‘sdcTable’ successfully unpacked and MD5 sums checked
+GLPK is not available
+ERROR: configuration failed for package ‘sdcTable’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sdcTable/old/sdcTable.Rcheck/sdcTable’
 
 ```
-# sdcTable
-
-Version: 0.22.8
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘Rglpk’ ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # secr
 
-Version: 3.1.5
+Version: 3.2.0
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking installed package size ... NOTE
     ```
-    ...
-    > ### Title: Orongorongo Valley Brushtail Possums
-    > ### Aliases: OVpossum OVpossumCH
-    > ### Keywords: datasets
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > summary(OVpossumCH, terse = TRUE)
-                49  50  51  52  53  54
-    Occasions    5   5   5   5   5   5
-    Detections 450 494 328 383 372 375
-    Animals    223 206 148 162 154 135
-    Detectors  167 167 167 167 167 167
-    > ovtrap <- traps(OVpossumCH[[1]])
-    > 
-    > ## retrieve and plot the forest map
-    > datadir <- system.file("extdata", package = "secr")
-    > OVforest <- rgdal::readOGR(dsn = datadir, layer = "OVforest")
-    Error in loadNamespace(name) : there is no package called ‘rgdal’
-    Calls: :: ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘rgdal’
-    ```
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Package unavailable to check Rd xrefs: ‘rgdal’
-    ```
-
-# SeerMapper
-
-Version: 1.2.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  8.6Mb
+      sub-directories of 1Mb or more:
+        R      5.0Mb
+        data   2.0Mb
     ```
 
 # seoR
@@ -8221,109 +7358,71 @@ Version: 0.1.0
     Running examples in ‘seoR-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: lastCached
-    > ### Title: Function to get the last Google Cache Date for a URL
-    > ### Aliases: lastCached
+    > ### Name: getBingResults
+    > ### Title: Function to retrive data from Google Suggest for a specific
+    > ###   keyword
+    > ### Aliases: getBingResults
     > 
     > ### ** Examples
     > 
-    > lastCached("https://www.r-project.org/")
-    Error in if (is.na(res)) { : argument is of length zero
-    Calls: lastCached
+    > getBingResults("R Project")
+    Error in data.frame(..., check.names = FALSE) : 
+      arguments imply differing number of rows: 10, 9
+    Calls: getBingResults -> as.data.frame -> cbind -> cbind -> data.frame
     Execution halted
     ```
 
-# SeqVarTools
+# sevenbridges
 
-Version: 1.14.0
+Version: 1.12.3
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 14.3Mb
+      sub-directories of 1Mb or more:
+        R     4.1Mb
+        doc   9.5Mb
+    ```
+
+# ShinyItemAnalysis
+
+Version: 1.2.9
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Unexported objects imported by ':::' calls:
-      ‘SeqArray:::.altAllele’ ‘SeqArray:::.refAllele’
-      See the note in ?`:::` about the use of this operator.
+    Namespaces in Imports field not imported from:
+      ‘DT’ ‘data.table’ ‘ggdendro’ ‘gridExtra’ ‘knitr’ ‘latticeExtra’ ‘msm’
+      ‘plotly’ ‘shinyBS’ ‘shinydashboard’ ‘xtable’
+      All declared Imports should be used.
     ```
 
-# Seurat
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘WrightMap’
+    ```
 
-Version: 2.3.1
+# SIAMCAT
+
+Version: 1.2.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘RcppProgress’
-    
-    Packages suggested but not available for checking:
-      ‘loomR’ ‘SingleCellExperiment’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  9.5Mb
+      sub-directories of 1Mb or more:
+        R         2.0Mb
+        doc       4.5Mb
+        extdata   2.0Mb
     ```
 
-# ShinyItemAnalysis
-
-Version: 1.2.7
-
-## In both
-
-*   checking package dependencies ... ERROR
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# SICtools
-
-Version: 1.6.0
-
-## In both
-
-*   checking whether package ‘SICtools’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘foreach’ was built under R version 3.4.3
-      Warning: package ‘iterators’ was built under R version 3.4.3
-      Warning: replacing previous import ‘plyr::count’ by ‘matrixStats::count’ when loading ‘SICtools’
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SICtools/new/SICtools.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Depends: includes the non-default packages:
-      ‘Rsamtools’ ‘doParallel’ ‘Biostrings’ ‘stringr’ ‘matrixStats’ ‘plyr’
-      ‘GenomicRanges’ ‘IRanges’
-    Adding so many packages to the search path is excessive and importing
-    selectively is preferable.
-    ```
-
-*   checking for hidden files and directories ... NOTE
-    ```
-    Found the following hidden files and directories:
-      .BBSoptions
-    These were most likely included in error. See section ‘Package
-    structure’ in the ‘Writing R Extensions’ manual.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    .indelDiffFunc: no visible global function definition for ‘fisher.test’
-    .indelDiffFunc: no visible global function definition for ‘dist’
-    indelDiff: no visible global function definition for ‘read.delim’
-    snpDiff : calcInfoRange : <anonymous>: no visible global function
-      definition for ‘fisher.test’
-    snpDiff : calcInfoRange : <anonymous>: no visible global function
-      definition for ‘dist’
-    Undefined global functions or variables:
-      dist fisher.test read.delim
-    Consider adding
-      importFrom("stats", "dist", "fisher.test")
-      importFrom("utils", "read.delim")
-    to your NAMESPACE file.
+      Note: found 10 marked UTF-8 strings
     ```
 
 # sidrar
@@ -8338,151 +7437,37 @@ Version: 0.2.4
       All declared Imports should be used.
     ```
 
-# simcausal
-
-Version: 0.5.4
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# simPH
-
-Version: 1.3.10
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # simPop
 
-Version: 1.1.0
+Version: 1.1.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking Rd cross-references ... NOTE
     ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package unavailable to check Rd xrefs: ‘sampling’
     ```
 
-# simr
-
-Version: 1.0.4
-
-## In both
-
-*   checking whether package ‘simr’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/simr/new/simr.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘simr’ ...
-** package ‘simr’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘simr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/simr/new/simr.Rcheck/simr’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘simr’ ...
-** package ‘simr’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Warning: package ‘lme4’ was built under R version 3.4.4
-Warning: package ‘Matrix’ was built under R version 3.4.4
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘simr’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/simr/old/simr.Rcheck/simr’
-
-```
 # sincell
 
-Version: 1.8.0
+Version: 1.14.1
 
 ## In both
-
-*   checking whether package ‘sincell’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘igraph’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00install.out’ for details.
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-        pmin, pmin.int, rank, rbind, rowMeans, rowSums, rownames, sapply,
-        setdiff, sort, table, tapply, union, unique, unsplit, which,
-        which.max, which.min
-    
-    Welcome to Bioconductor
-    
-        Vignettes contain introductory material; view with
-        'browseVignettes()'. To cite Bioconductor, see
-        'citation("Biobase")', and for packages 'citation("pkgname")'.
-    
-    Loading required package: ggplot2
-    Loading required package: VGAM
-    Loading required package: stats4
-    Loading required package: splines
-    Loading required package: DDRTree
-    Loading required package: irlba
-    Quitting from lines 136-138 (sincell-vignette.Rnw) 
-    Error: processing vignette 'sincell-vignette.Rnw' failed with diagnostics:
-    package or namespace load failed for 'monocle':
-     object 'str_join' is not exported by 'namespace:stringr'
-    Execution halted
-    ```
 
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    sc_InitializingSincellObject: no visible binding for global variable
-      ‘var’
-    sc_StatisticalSupportByGeneSubsampling: no visible global function
-      definition for ‘cor’
-    sc_StatisticalSupportByReplacementWithInSilicoCellsReplicates: no
-      visible global function definition for ‘cor’
     sc_clusterObj: no visible global function definition for ‘hclust’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00_pkg_src/sincell/R/sincell.R:261)
     sc_clusterObj: no visible global function definition for ‘cutree’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00_pkg_src/sincell/R/sincell.R:262)
     sc_distanceObj: no visible global function definition for ‘cor’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00_pkg_src/sincell/R/sincell.R:100)
+    sc_distanceObj: no visible global function definition for ‘cor’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00_pkg_src/sincell/R/sincell.R:103)
     sc_marker2color: no visible global function definition for
       ‘colorRampPalette’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sincell/new/sincell.Rcheck/00_pkg_src/sincell/R/sincell.R:192)
     Undefined global functions or variables:
       cmdscale colorRampPalette combn cor cutree hclust plot prcomp
       quantile rnbinom rnorm runif var
@@ -8506,81 +7491,45 @@ Version: 1.8.0
           ‘pseudoreplicatesbynoise_cv2.o’
     
     Compiled code should not call entry points which might terminate R nor
-    write to stdout/stderr instead of to the console, nor the system RNG.
+    write to stdout/stderr instead of to the console, nor use Fortran I/O
+    nor system RNGs.
     
     See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
     ```
 
-# sjmisc
+# SIRE
 
-Version: 2.7.2
+Version: 1.0.2
 
 ## In both
 
-*   checking whether package ‘sjmisc’ can be installed ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sjmisc/new/sjmisc.Rcheck/00install.out’ for details.
+    Namespace in Imports field not imported from: ‘MASS’
+      All declared Imports should be used.
     ```
 
-## Installation
+# skimr
 
-### Devel
+Version: 1.0.4
 
-```
-* installing *source* package ‘sjmisc’ ...
-** package ‘sjmisc’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘sjmisc’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sjmisc/new/sjmisc.Rcheck/sjmisc’
+## In both
 
-```
-### CRAN
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘dtplyr’, ‘dbplyr’
+    ```
 
-```
-* installing *source* package ‘sjmisc’ ...
-** package ‘sjmisc’ successfully unpacked and MD5 sums checked
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘sjmisc’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sjmisc/old/sjmisc.Rcheck/sjmisc’
-
-```
 # skynet
 
-Version: 1.0.1
+Version: 1.3.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# snpReady
-
-Version: 0.9.6
-
-## In both
-
-*   checking whether package ‘snpReady’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-      Warning: package ‘rgl’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/snpReady/new/snpReady.Rcheck/00install.out’ for details.
+    Namespace in Imports field not imported from: ‘maps’
+      All declared Imports should be used.
     ```
 
 # SocialMediaLab
@@ -8589,44 +7538,35 @@ Version: 0.23.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking whether package ‘SocialMediaLab’ can be installed ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Found the following significant warnings:
+      Note: break used in wrong context: no loop is visible at CollectDataFacebook.R:128 
+      Note: break used in wrong context: no loop is visible at CollectDataTwitter.R:140 
+      Note: break used in wrong context: no loop is visible at CollectDataYoutube.R:117 
+      Note: break used in wrong context: no loop is visible at CollectDataYoutube.R:124 
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SocialMediaLab/new/SocialMediaLab.Rcheck/00install.out’ for details.
+    Information on the location(s) of code generating the ‘Note’s can be
+    obtained by re-running with environment variable R_KEEP_PKG_SOURCE set
+    to ‘yes’.
     ```
 
 # socialmixr
 
-Version: 0.1.2
+Version: 0.1.3
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking data for non-ASCII characters ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      Note: found 1 marked UTF-8 string
     ```
 
 # SomaticCancerAlterations
 
-Version: 1.12.0
+Version: 1.18.0
 
 ## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 258-261 (SomaticCancerAlterations-html.Rhtml) 
-    Error: processing vignette 'SomaticCancerAlterations-html.Rhtml' failed with diagnostics:
-    package or namespace load failed for 'ggbio' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Execution halted
-    ```
 
 *   checking DESCRIPTION meta-information ... NOTE
     ```
@@ -8636,19 +7576,19 @@ Version: 1.12.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    .load_dataset: no visible global function definition for ‘data’
-    .maf2gr: no visible binding for global variable ‘Chromosome’
-    .maf2gr: no visible binding for global variable ‘Start_position’
-    .maf2gr: no visible binding for global variable ‘End_position’
-    .read_maf: no visible global function definition for ‘read.delim’
-    hg2ncbi: no visible global function definition for ‘seqnameStyle<-’
     hg2ncbi: no visible global function definition for ‘genome<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/utils-functions.R:52)
     mutationDensity: no visible global function definition for
       ‘keepSeqlevels’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/analyze-functions.R:6-7)
     mutationDensity: no visible global function definition for ‘as’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/analyze-functions.R:9)
     ncbi2hg: no visible global function definition for ‘seqnameStyle<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/utils-functions.R:44)
     ncbi2hg: no visible global function definition for ‘genome<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/utils-functions.R:45)
     scaListDatasets: no visible global function definition for ‘data’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SomaticCancerAlterations/new/SomaticCancerAlterations.Rcheck/00_pkg_src/SomaticCancerAlterations/R/utils-functions.R:3)
     Undefined global functions or variables:
       Chromosome End_position Start_position as data genome<- keepSeqlevels
       read.delim seqnameStyle<-
@@ -8678,12 +7618,14 @@ Version: 1.2
 
 *   checking package dependencies ... NOTE
     ```
+    Package suggested but not available for checking: ‘SciencesPo’
+    
     Package which this enhances but not available for checking: ‘RecordLinkage’
     ```
 
 # spant
 
-Version: 0.9.0
+Version: 0.12.0
 
 ## In both
 
@@ -8702,7 +7644,7 @@ Version: 0.9.0
 
 # spatsurv
 
-Version: 1.1
+Version: 1.2
 
 ## In both
 
@@ -8710,11 +7652,6 @@ Version: 1.1
     ```
     Installation failed.
     See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/spatsurv/new/spatsurv.Rcheck/00install.out’ for details.
-    ```
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘rgdal’
     ```
 
 ## Installation
@@ -8727,9 +7664,13 @@ Version: 1.1
 ** R
 ** data
 ** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘rgdal’
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so
+  Reason: image not found
 ERROR: lazy loading failed for package ‘spatsurv’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/spatsurv/new/spatsurv.Rcheck/spatsurv’
 
@@ -8742,22 +7683,26 @@ ERROR: lazy loading failed for package ‘spatsurv’
 ** R
 ** data
 ** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘rgdal’
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/spatsurv/rJava/libs/rJava.so
+  Reason: image not found
 ERROR: lazy loading failed for package ‘spatsurv’
 * removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/spatsurv/old/spatsurv.Rcheck/spatsurv’
 
 ```
-# spellcheckr
+# SPLINTER
 
-Version: 0.1.2
+Version: 1.8.1
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Package required but not available: ‘BSgenome.Mmusculus.UCSC.mm9’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -8766,15 +7711,6 @@ Version: 0.1.2
 # sqlutils
 
 Version: 1.2
-
-## Newly fixed
-
-*   checking whether package ‘sqlutils’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sqlutils/old/sqlutils.Rcheck/00install.out’ for details.
-    ```
 
 ## In both
 
@@ -8800,7 +7736,9 @@ Version: 1.2
 *   checking R code for possible problems ... NOTE
     ```
     cacheQuery: no visible global function definition for ‘read.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sqlutils/new/sqlutils.Rcheck/00_pkg_src/sqlutils/R/cacheQuery.r:28)
     cacheQuery: no visible global function definition for ‘write.csv’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/sqlutils/new/sqlutils.Rcheck/00_pkg_src/sqlutils/R/cacheQuery.r:39)
     Undefined global functions or variables:
       read.csv write.csv
     Consider adding
@@ -8808,63 +7746,9 @@ Version: 1.2
     to your NAMESPACE file.
     ```
 
-# ssh.utils
-
-Version: 1.0
-
-## Newly fixed
-
-*   checking whether package ‘ssh.utils’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ssh.utils/old/ssh.utils.Rcheck/00install.out’ for details.
-    ```
-
-## In both
-
-*   checking DESCRIPTION meta-information ... NOTE
-    ```
-    Malformed Title field: should not end in a period.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    mem.usage: no visible global function definition for ‘read.delim’
-    Undefined global functions or variables:
-      read.delim
-    Consider adding
-      importFrom("utils", "read.delim")
-    to your NAMESPACE file.
-    ```
-
-# Stack
-
-Version: 2.0-1
-
-## In both
-
-*   checking R code for possible problems ... NOTE
-    ```
-    .expandLevels: no visible global function definition for ‘na.omit’
-    .ffStack: no visible global function definition for ‘na.omit’
-    .ffffStack: no visible global function definition for ‘na.omit’
-    Stack : <anonymous>: no visible global function definition for
-      ‘na.omit’
-    ffStack,ffdf-data.frame: no visible global function definition for
-      ‘na.omit’
-    ffStack,ffdf-ffdf: no visible global function definition for ‘na.omit’
-    ffStack,ffdf-list: no visible global function definition for ‘na.omit’
-    Undefined global functions or variables:
-      na.omit
-    Consider adding
-      importFrom("stats", "na.omit")
-    to your NAMESPACE file.
-    ```
-
 # stacomiR
 
-Version: 0.5.3.1
+Version: 0.5.4.1
 
 ## In both
 
@@ -8876,114 +7760,37 @@ Version: 0.5.3.1
     manual.
     ```
 
-# standardize
-
-Version: 0.2.1
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 362-367 (using-standardize.Rmd) 
-    Error: processing vignette 'using-standardize.Rmd' failed with diagnostics:
-    package or namespace load failed for 'afex' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Execution halted
-    ```
-
 # staRdom
 
-Version: 1.0.5
+Version: 1.0.8
 
 ## In both
 
-*   checking whether package ‘staRdom’ can be installed ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/staRdom/new/staRdom.Rcheck/00install.out’ for details.
+    Namespaces in Imports field not imported from:
+      ‘readr’ ‘tools’
+      All declared Imports should be used.
     ```
 
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘staRdom’ ...
-** package ‘staRdom’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘eemR’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘eemR’ could not be loaded
-ERROR: lazy loading failed for package ‘staRdom’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/staRdom/new/staRdom.Rcheck/staRdom’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘staRdom’ ...
-** package ‘staRdom’ successfully unpacked and MD5 sums checked
-** R
-** data
-*** moving datasets to lazyload DB
-** inst
-** preparing package for lazy loading
-Error: package or namespace load failed for ‘eemR’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘data.table’
-Error : package ‘eemR’ could not be loaded
-ERROR: lazy loading failed for package ‘staRdom’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/staRdom/old/staRdom.Rcheck/staRdom’
-
-```
 # starmie
 
 Version: 0.1.2
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is  7.2Mb
+      sub-directories of 1Mb or more:
+        doc       1.1Mb
+        extdata   4.9Mb
     ```
-
-# statar
-
-Version: 0.6.5
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# states
-
-Version: 0.2.1
-
-## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘lubridate’
+    Namespace in Imports field not imported from: ‘MCMCpack’
       All declared Imports should be used.
-    ```
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 3 marked UTF-8 strings
     ```
 
 # stationaRy
@@ -8994,7 +7801,7 @@ Version: 0.4.1
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  8.1Mb
+      installed size is  8.3Mb
     ```
 
 # statquotes
@@ -9021,108 +7828,56 @@ Version: 0.1.1
       All declared Imports should be used.
     ```
 
-# stm
+# steemr
 
-Version: 1.3.3
+Version: 0.1.3
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Packages required but not available: ‘data.table’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespaces in Imports field not imported from:
+      ‘rlist’ ‘tm’ ‘zoo’
+      All declared Imports should be used.
     ```
 
 # stminsights
 
-Version: 0.1.2
+Version: 0.3.0
 
 ## In both
 
-*   checking whether package ‘stminsights’ can be installed ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/stminsights/new/stminsights.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘stminsights’ ...
-** package ‘stminsights’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘stminsights’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/stminsights/new/stminsights.Rcheck/stminsights’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘stminsights’ ...
-** package ‘stminsights’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘stminsights’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/stminsights/old/stminsights.Rcheck/stminsights’
-
-```
-# stormwindmodel
-
-Version: 0.1.0
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    
-    Attaching package: 'gridExtra'
-    
-    The following object is masked from 'package:dplyr':
-    
-        combine
-    
-    Map from URL : http://maps.googleapis.com/maps/api/staticmap?center=georgia&zoom=5&size=640x640&scale=2&maptype=terrain&language=en-EN&sensor=false
-    Information from URL : http://maps.googleapis.com/maps/api/geocode/json?address=georgia&sensor=false
-    Warning: geocode failed with status OVER_QUERY_LIMIT, location = "georgia"
-    Quitting from lines 220-233 (Details.Rmd) 
-    Error: processing vignette 'Details.Rmd' failed with diagnostics:
-    arguments imply differing number of rows: 0, 1
-    Execution halted
+    Namespaces in Imports field not imported from:
+      ‘huge’ ‘readr’ ‘scales’ ‘shinyjs’
+      All declared Imports should be used.
     ```
 
-# stplanr
+# strandCheckR
 
-Version: 0.2.3
+Version: 1.0.0
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available: ‘rgdal’ ‘sf’ ‘RcppArmadillo’
-    
-    Package which this enhances but not available for checking: ‘tmap’
+    Package required but not available: ‘TxDb.Hsapiens.UCSC.hg38.knownGene’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
+    ```
+
+# StratigrapheR
+
+Version: 0.0.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘hexbin’
+      All declared Imports should be used.
     ```
 
 # stremr
@@ -9131,50 +7886,184 @@ Version: 0.4
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# surveybootstrap
+# STRMPS
 
-Version: 0.0.1
+Version: 0.5.8
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘RcppArmadillo’
+    Package suggested but not available for checking: ‘STRaitRazoR’
+    ```
+
+# subspace
+
+Version: 1.0.4
+
+## In both
+
+*   checking whether package ‘subspace’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/subspace/new/subspace.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘subspace’ ...
+** package ‘subspace’ successfully unpacked and MD5 sums checked
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘subspace’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/subspace/new/subspace.Rcheck/subspace’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘subspace’ ...
+** package ‘subspace’ successfully unpacked and MD5 sums checked
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/subspace/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘subspace’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/subspace/old/subspace.Rcheck/subspace’
+
+```
+# SummarizedBenchmark
+
+Version: 2.0.1
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    The following object is masked from 'package:SummarizedBenchmark':
+    
+        plotROC
+    
+    
+    Attaching package: 'magrittr'
+    
+    The following object is masked from 'package:rlang':
+    
+        set_names
+    
+    The following object is masked from 'package:tidyr':
+    
+        extract
+    
+    Loading required package: SingleCellExperiment
+    Quitting from lines 47-54 (SingleCellBenchmark.Rmd) 
+    Error: processing vignette 'SingleCellBenchmark.Rmd' failed with diagnostics:
+    there is no package called 'scRNAseq'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘scRNAseq’
+    
+    Depends: includes the non-default packages:
+      ‘tidyr’ ‘SummarizedExperiment’ ‘S4Vectors’ ‘BiocGenerics’ ‘UpSetR’
+      ‘rlang’ ‘stringr’ ‘BiocParallel’ ‘ggplot2’ ‘mclust’ ‘dplyr’ ‘digest’
+      ‘sessioninfo’ ‘crayon’ ‘tibble’
+    Adding so many packages to the search path is excessive and importing
+    selectively is preferable.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 15.8Mb
+      sub-directories of 1Mb or more:
+        R      1.0Mb
+        data  11.1Mb
+        doc    3.4Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Package in Depends field not imported from: ‘BiocGenerics’
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
+    Unexported object imported by a ':::' call: ‘BiocGenerics:::replaceSlots’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BDData-show.R:11)
+    show,BDMethodList: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BDMethodList-show.R:8)
+    show,BDMethodList: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BDMethodList-show.R:10)
+    show,BenchDesign: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BenchDesign-show.R:19)
+    show,BenchDesign: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BenchDesign-show.R:21)
+    show,BenchDesign: no visible global function definition for ‘head’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/SummarizedBenchmark/new/SummarizedBenchmark.Rcheck/00_pkg_src/SummarizedBenchmark/R/BenchDesign-show.R:23-28)
+    Undefined global functions or variables:
+      . .id .method .val .valueClassTest FDR TPR colid comparison cor f
+      head label meta metadata method overlap params post rerun sd slot
+      value
+    Consider adding
+      importFrom("methods", ".valueClassTest", "slot")
+      importFrom("stats", "cor", "sd")
+      importFrom("utils", "head")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
+    ```
+
+# survivalAnalysis
+
+Version: 0.1.0
+
+## In both
+
+*   checking whether package ‘survivalAnalysis’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: replacing previous import ‘purrr::flatten_raw’ by ‘rlang::flatten_raw’ when loading ‘survivalAnalysis’
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/survivalAnalysis/new/survivalAnalysis.Rcheck/00install.out’ for details.
     ```
 
 # sweep
 
-Version: 0.2.1
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘devtools’ ‘lazyeval’ ‘lubridate’ ‘tidyr’
-      All declared Imports should be used.
-    ```
-
-# SWMPrExtension
-
-Version: 0.3.12
+Version: 0.2.1.1
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘rgdal’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
@@ -9186,58 +8075,9 @@ Version: 1.0.4
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Running examples in ‘syuzhet-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: get_dct_transform
-    > ### Title: Discrete Cosine Transformation with Reverse Transform.
-    > ### Aliases: get_dct_transform
-    > 
-    > ### ** Examples
-    > 
-    > s_v <- get_sentences("I begin this story with a neutral statement.
-    + Now I add a statement about how much I despise cats.  
-    + I am allergic to them. I hate them. Basically this is a very silly test. But I do love dogs!")
-    Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-      there is no package called ‘data.table’
-    Calls: get_sentences ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: textshape::split_sentence
-      3: getExportedValue(pkg, name)
-      4: asNamespace(ns)
-      5: getNamespace(ns)
-      6: tryCatch(loadNamespace(name), error = function(e) stop(e))
-      7: tryCatchList(expr, classes, parentenv, handlers)
-      8: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      9: value[[3L]](cond)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 2 SKIPPED: 0 FAILED: 1
-      1. Error: (unknown) (@test-syuzhet.R#13) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
-    Quitting from lines 22-36 (syuzhet-vignette.Rmd) 
-    Error: processing vignette 'syuzhet-vignette.Rmd' failed with diagnostics:
-    there is no package called 'data.table'
-    Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 *   checking installed package size ... NOTE
@@ -9248,38 +8088,42 @@ Version: 1.0.4
         extdata   3.1Mb
     ```
 
-# tangram
+# tableschema.r
 
-Version: 0.3.2
+Version: 1.1.0
 
 ## In both
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 13-18 (fda-example.Rmd) 
-    Error: processing vignette 'fda-example.Rmd' failed with diagnostics:
-    package or namespace load failed for 'Hmisc' in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
-     there is no package called 'data.table'
-    Execution halted
+    Namespace in Imports field not imported from: ‘iterators’
+      All declared Imports should be used.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘parsedate’
+    ```
+
+# tangram
+
+Version: 0.4
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.5Mb
+      sub-directories of 1Mb or more:
+        R     2.0Mb
+        doc   3.2Mb
     ```
 
 # taRifx
 
-Version: 1.0.6
+Version: 1.0.6.1
 
 ## In both
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘data.table’
-    ```
-
-*   checking DESCRIPTION meta-information ... NOTE
-    ```
-    Malformed Title field: should not end in a period.
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -9292,55 +8136,42 @@ Version: 1.0.6
 *   checking R code for possible problems ... NOTE
     ```
     ...
+      ‘caption<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Rfunctions.R:1061)
+    xtable.summary.lme: no visible global function definition for ‘label<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Rfunctions.R:1062)
     xtable.summary.lme: no visible global function definition for ‘align<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Rfunctions.R:1063)
     xtable.summary.lme: no visible global function definition for
       ‘digits<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Rfunctions.R:1064)
     xtable.summary.lme: no visible global function definition for
       ‘display<-’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Rfunctions.R:1065)
     xtablelm: no visible global function definition for ‘xtable’
-    xtablelm: no visible global function definition for ‘pf’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/taRifx/new/taRifx.Rcheck/00_pkg_src/taRifx/R/Contributed.R:143)
     Undefined global functions or variables:
-      aes align<- barplot caption<- convertUnit coord_cartesian digits<-
-      display<- ecdf ggplot gpar grid.layout grid.lines grid.newpage
-      grid.points grid.polyline grid.rect grid.segments grid.text
-      interleave label<- latticeParseFormula median na.omit opts
-      panel.densityplot panel.lines panel.xyplot par pf plot.new
-      popViewport pushViewport quantile sd seekViewport stat_summary terms
-      text theme_text time unit upViewport viewport write.csv xtable
-    Consider adding
-      importFrom("graphics", "barplot", "par", "plot.new", "text")
-      importFrom("stats", "ecdf", "median", "na.omit", "pf", "quantile",
-                 "sd", "terms", "time")
-      importFrom("utils", "write.csv")
-    to your NAMESPACE file.
+      aes align<- caption<- convertUnit coord_cartesian digits<- display<-
+      ggplot gpar grid.layout grid.lines grid.newpage grid.points
+      grid.polyline grid.rect grid.segments grid.text interleave label<-
+      latticeParseFormula opts panel.densityplot panel.lines panel.xyplot
+      popViewport pushViewport seekViewport stat_summary theme_text unit
+      upViewport viewport xtable
     ```
 
 # taxa
 
-Version: 0.2.1
+Version: 0.3.2
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      [31m──[39m [31m2. Error: Taxmap can be intialized from raw strings (@test--taxmap_parsers.R#246) [39m [31m──────────────────────────[39m
-      Please install taxize
-      1: extract_tax_data(raw_data, key = c(var_1 = "info", var_2 = "taxon_id", tax = "info"), regex = "^>var_1:(.+)--var_2:(.+)--non_target--tax:(.+)$") at testthat/test--taxmap_parsers.R:246
-      2: lookup_tax_data(tax_data = parsed_input, type = my_type, column = names(my_type), database = database, include_tax_data = include_tax_data)
-      3: check_for_pkg("taxize")
-      4: stop("Please install ", package, call. = FALSE)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 573 SKIPPED: 0 FAILED: 2
-      1. Error: Taxmap can be intialized from queried data (@test--taxmap_parsers.R#154) 
-      2. Error: Taxmap can be intialized from raw strings (@test--taxmap_parsers.R#246) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        R      2.0Mb
+        data   1.1Mb
+        doc    1.7Mb
     ```
 
 *   checking dependencies in R code ... NOTE
@@ -9350,116 +8181,87 @@ Version: 0.2.1
       All declared Imports should be used.
     ```
 
-# taxize
-
-Version: 0.9.3
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# TBFmultinomial
-
-Version: 0.1.1
-
-## In both
-
-*   checking whether package ‘TBFmultinomial’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘VGAM’ was built under R version 3.4.3
-      Warning: package ‘plotrix’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TBFmultinomial/new/TBFmultinomial.Rcheck/00install.out’ for details.
-    ```
-
 # TCGAbiolinks
 
-Version: 2.5.9
+Version: 2.10.3
 
 ## In both
 
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+*   R CMD check timed out
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 101.0Mb
+      sub-directories of 1Mb or more:
+        R      4.1Mb
+        data   3.5Mb
+        doc   93.2Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:156-157)
+    TCGAvisualize_SurvivalCoxNET: no visible global function definition for
+      ‘dNetPipeline’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:161-162)
+    TCGAvisualize_SurvivalCoxNET: no visible global function definition for
+      ‘dCommSignif’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:174)
+    TCGAvisualize_SurvivalCoxNET: no visible global function definition for
+      ‘visNet’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:184-189)
+    TCGAvisualize_oncoprint: no visible binding for global variable ‘value’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:932)
+    readExonQuantification: no visible binding for global variable ‘exon’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/prepare.R:229-230)
+    readExonQuantification: no visible binding for global variable
+      ‘coordinates’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/prepare.R:229-230)
+    Undefined global functions or variables:
+      Tumor.purity barcode c3net clinical coordinates dCommSignif
+      dNetInduce dNetPipeline exon knnmi.cross limmacontrasts.fit
+      limmamakeContrasts minet portions rse_gene value visNet
     ```
 
 # TCGAbiolinksGUI
 
-Version: 1.2.1
+Version: 1.8.0
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Packages required but not available:
+      ‘IlluminaHumanMethylation450kanno.ilmn12.hg19’
+      ‘IlluminaHumanMethylation450kmanifest’
+      ‘IlluminaHumanMethylation27kmanifest’
+      ‘IlluminaHumanMethylation27kanno.ilmn12.hg19’
+      ‘IlluminaHumanMethylationEPICanno.ilm10b2.hg19’
+      ‘IlluminaHumanMethylationEPICmanifest’
+    
+    Package suggested but not available for checking: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# templates
+# textrecipes
 
-Version: 0.2.0
-
-## In both
-
-*   checking whether package ‘templates’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/templates/new/templates.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘templates’ ...
-** package ‘templates’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘templates’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/templates/new/templates.Rcheck/templates’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘templates’ ...
-** package ‘templates’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘templates’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/templates/old/templates.Rcheck/templates’
-
-```
-# textmineR
-
-Version: 2.1.2
+Version: 0.0.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Packages required but not available: ‘RcppProgress’ ‘RcppArmadillo’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespace in Imports field not imported from: ‘stringr’
+      All declared Imports should be used.
     ```
 
 # textreuse
@@ -9468,86 +8270,28 @@ Version: 0.1.4
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking Rd cross-references ... NOTE
     ```
-    Package required but not available: ‘RcppProgress’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package unavailable to check Rd xrefs: ‘tm’
     ```
 
-# tidycensus
+# thinkr
 
-Version: 0.4.6
+Version: 0.13
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Package required but not available: ‘sf’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# tidyquant
+# tidybayes
 
-Version: 0.5.5
-
-## In both
-
-*   checking whether package ‘tidyquant’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘lubridate’ was built under R version 3.4.4
-      Warning: package ‘PerformanceAnalytics’ was built under R version 3.4.3
-      Warning: package ‘xts’ was built under R version 3.4.4
-      Warning: package ‘zoo’ was built under R version 3.4.3
-      Warning: package ‘quantmod’ was built under R version 3.4.4
-      Warning: package ‘TTR’ was built under R version 3.4.3
-      Warning: package ‘tibble’ was built under R version 3.4.3
-      Warning: package ‘forcats’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tidyquant/new/tidyquant.Rcheck/00install.out’ for details.
-    ```
-
-# tidyverse
-
-Version: 1.2.1
-
-## In both
-
-*   checking whether package ‘tidyverse’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘tibble’ was built under R version 3.4.3
-      Warning: package ‘forcats’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tidyverse/new/tidyverse.Rcheck/00install.out’ for details.
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘dbplyr’ ‘reprex’ ‘rlang’
-      All declared Imports should be used.
-    ```
-
-# tigris
-
-Version: 0.7
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘rgdal’ ‘sf’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# timelineR
-
-Version: 0.1.0
+Version: 1.0.3
 
 ## In both
 
@@ -9556,36 +8300,113 @@ Version: 0.1.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      INFO [2018-05-09 19:56:22] num_1, num_2 has been selected as the numeric column(s)
-      INFO [2018-05-09 19:56:22] state_1, state_2, state_3 has been selected as the state column(s)
-      INFO [2018-05-09 19:56:22] start_time has been selected as the timestamp column
-      INFO [2018-05-09 19:56:22] num_1, num_2 has been selected as the numeric column(s)
-      INFO [2018-05-09 19:56:22] state_1, state_2, state_3 has been selected as the state column(s)
-      INFO [2018-05-09 19:56:22] creating state plot layers
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 4 SKIPPED: 0 FAILED: 4
-      1. Error: Default Plotting (@test-visualize.R#20) 
-      2. Error: Default Plotting (@test-visualize.R#30) 
-      3. Error: Different Time ranges (@test-visualize.R#35) 
-      4. Error: Fully fledged test case (@test-visualize.R#81) 
+             "b"), adapt = 100, sample = 100, silent.jags = TRUE, summarise = FALSE)
+      9: setup.jagsfile(model = model, n.chains = n.chains, data = data, inits = inits, monitor = monitor, modules = modules, 
+             factories = factories, jags = jags, call.setup = TRUE, method = method, mutate = mutate)
+      10: setup.jags(model = outmodel, monitor = outmonitor, data = outdata, n.chains = n.chains, inits = outinits, 
+             modules = modules, factories = factories, response = response, fitted = fitted, residual = residual, 
+             jags = jags, method = method, mutate = mutate)
+      11: loadandcheckrjags()
+      12: stop("Loading the rjags package failed (diagnostics are given above this error message)", call. = FALSE)
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 219 SKIPPED: 43 FAILED: 1
+      1. Error: tidy_draws works with runjags (@test.tidy_draws.R#87) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+# tidyLPA
+
+Version: 0.2.4
+
+## In both
+
+*   checking package dependencies ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 51-53 (plot_timeline.Rmd) 
-    Error: processing vignette 'plot_timeline.Rmd' failed with diagnostics:
-    there is no package called 'data.table'
-    Execution halted
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# tidyquant
+
+Version: 0.5.5
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        doc   4.1Mb
+    ```
+
+# tidyRSS
+
+Version: 1.2.7
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘testthat’
+      All declared Imports should be used.
+    ```
+
+# tidytidbits
+
+Version: 0.1.0
+
+## In both
+
+*   checking whether package ‘tidytidbits’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: replacing previous import ‘purrr::flatten_raw’ by ‘rlang::flatten_raw’ when loading ‘tidytidbits’
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tidytidbits/new/tidytidbits.Rcheck/00install.out’ for details.
+    ```
+
+# tidytransit
+
+Version: 0.3.6
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        extdata   4.4Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘here’ ‘htmltools’ ‘scales’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 41 marked UTF-8 strings
+    ```
+
+# tidyverse
+
+Version: 1.2.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘dbplyr’ ‘reprex’ ‘rlang’
+      All declared Imports should be used.
     ```
 
 # timescape
 
-Version: 1.0.0
+Version: 1.6.0
 
 ## In both
 
@@ -9623,73 +8444,83 @@ Version: 1.0.0
     ```
     getMutationsData: no visible binding for global variable
       ‘show_warnings’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/timescape/new/timescape.Rcheck/00_pkg_src/timescape/R/timescape.R:653-657)
     Undefined global functions or variables:
       show_warnings
     ```
 
 # timetk
 
-Version: 0.1.0
+Version: 0.1.1.1
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      1: timeSeries::timeSeries at testthat/test_tk_tbl.R:109
-      2: getExportedValue(pkg, name)
-      3: asNamespace(ns)
-      4: getNamespace(ns)
-      5: tryCatch(loadNamespace(name), error = function(e) stop(e))
-      6: tryCatchList(expr, classes, parentenv, handlers)
-      7: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      8: value[[3L]](cond)
-      
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
-      OK: 275 SKIPPED: 0 FAILED: 1
-      1. Error: (unknown) (@test_tk_tbl.R#109) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘devtools’ ‘forecast’
-      All declared Imports should be used.
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # TIN
 
-Version: 1.8.0
+Version: 1.14.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking whether package ‘TIN’ can be installed ... ERROR
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TIN/new/TIN.Rcheck/00install.out’ for details.
     ```
 
-# tmlenet
+## Installation
 
-Version: 0.1.0
+### Devel
 
-## In both
+```
+* installing *source* package ‘TIN’ ...
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+The following object is masked _by_ package:aroma.affymetrix:
 
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
+    writeCdf
 
+The following object is masked from package:R.utils:
+
+    findFiles
+
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘TIN’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TIN/new/TIN.Rcheck/TIN’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘TIN’ ...
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+The following object is masked _by_ package:aroma.affymetrix:
+
+    writeCdf
+
+The following object is masked from package:R.utils:
+
+    findFiles
+
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘TIN’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TIN/old/TIN.Rcheck/TIN’
+
+```
 # tmuxr
 
 Version: 0.1.0
@@ -9704,11 +8535,11 @@ Version: 0.1.0
       tmux not found
       1: stop("tmux not found") at testthat/test-server.R:3
       
-      [31m──[39m [31m3. Error: (unknown) (@test-session.R#3) [39m [31m────────────────────────────────────────────────────────────────────[39m
+      [31m──[39m [31m3. Error: (unknown) (@test-session.R#3) [39m [31m───────────────────────────────────────────────────────────[39m
       tmux not found
       1: stop("tmux not found") at testthat/test-session.R:3
       
-      ══ testthat results  ═══════════════════════════════════════════════════════════════════════════════════════════
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
       OK: 0 SKIPPED: 0 FAILED: 3
       1. Error: (unknown) (@test-pipe.R#3) 
       2. Error: (unknown) (@test-server.R#3) 
@@ -9718,62 +8549,92 @@ Version: 0.1.0
       Execution halted
     ```
 
-# totalcensus
+# tosca
 
-Version: 0.3.0
+Version: 0.1-3
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.5Mb
+      sub-directories of 1Mb or more:
+        data   5.3Mb
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 1946 marked UTF-8 strings
+    ```
+
+# totalcensus
+
+Version: 0.6.1
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        data   4.5Mb
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 64 marked Latin-1 strings
+      Note: found 548 marked UTF-8 strings
     ```
 
 # TPP
 
-Version: 3.4.3
+Version: 3.10.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
+*   R CMD check timed out
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 15.1Mb
+      sub-directories of 1Mb or more:
+        R              2.0Mb
+        data           1.9Mb
+        example_data   8.0Mb
+        test_data      1.9Mb
     ```
 
-# tracktables
-
-Version: 1.10.0
-
-## In both
-
-*   checking dependencies in R code ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    'library' or 'require' call not declared from: ‘ore’
-    'library' or 'require' call to ‘ore’ in package code.
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    Namespace in Imports field not imported from: ‘broom’
+      All declared Imports should be used.
+    Unexported objects imported by ':::' calls:
+      ‘doParallel:::.options’ ‘mefa:::rep.data.frame’
+      See the note in ?`:::` about the use of this operator.
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
-    GetGRanges: no visible global function definition for ‘read.delim’
-    MakeIGVSampleMetadata: no visible global function definition for
-      ‘write.table’
-    MakeIGVSession: no visible global function definition for ‘col2rgb’
-    MakeIGVSessionXML: no visible global function definition for ‘col2rgb’
-    maketracktable: no visible global function definition for ‘col2rgb’
+    File ‘TPP/R/TPP.R’:
+      .onLoad calls:
+        packageStartupMessage(msgText, "\n")
+    
+    See section ‘Good practice’ in '?.onAttach'.
+    
+    plot_fSta_distribution: no visible binding for global variable
+      ‘..density..’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TPP/new/TPP.Rcheck/00_pkg_src/TPP/R/plot_fSta_distribution.R:19-28)
+    plot_pVal_distribution: no visible binding for global variable
+      ‘..density..’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/TPP/new/TPP.Rcheck/00_pkg_src/TPP/R/plot_pVal_distribution.R:22-31)
     Undefined global functions or variables:
-      col2rgb read.delim write.table
-    Consider adding
-      importFrom("grDevices", "col2rgb")
-      importFrom("utils", "read.delim", "write.table")
-    to your NAMESPACE file.
+      ..density..
     ```
 
 # translateSPSS2R
@@ -9782,90 +8643,161 @@ Version: 1.0.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking examples ... ERROR
     ```
-    Package required but not available: ‘data.table’
+    Running examples in ‘translateSPSS2R-Ex.R’ failed
+    The error most likely occurred in:
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    > ### Name: xpssFlip
+    > ### Title: Flips variables
+    > ### Aliases: xpssFlip
+    > 
+    > ### ** Examples
+    > 
+    > data(fromXPSS)
+    > xpssFlip(x=fromXPSS,variables=c("V4","V5","V6"),names="V1")
+    Error in if (variables == "all") { : the condition has length > 1
+    Calls: xpssFlip
+    Execution halted
     ```
-
-# TSTr
-
-Version: 1.2
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# tumblR
-
-Version: 1.1
-
-## Newly fixed
-
-*   checking whether package ‘tumblR’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘stringr’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tumblR/old/tumblR.Rcheck/00install.out’ for details.
-    ```
-
-## In both
 
 *   checking R code for possible problems ... NOTE
     ```
-    http.connection: no visible global function definition for ‘setNames’
+    ...
+    xpssTtest: no visible global function definition for ‘t.test’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/translateSPSS2R/new/translateSPSS2R.Rcheck/00_pkg_src/translateSPSS2R/R/xpssTtest.R:617)
+    xpssTtest: no visible global function definition for ‘na.omit’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/translateSPSS2R/new/translateSPSS2R.Rcheck/00_pkg_src/translateSPSS2R/R/xpssTtest.R:627)
+    xpssTtest: no visible global function definition for ‘sd’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/translateSPSS2R/new/translateSPSS2R.Rcheck/00_pkg_src/translateSPSS2R/R/xpssTtest.R:628)
+    xpssTtest: no visible global function definition for ‘na.omit’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/translateSPSS2R/new/translateSPSS2R.Rcheck/00_pkg_src/translateSPSS2R/R/xpssTtest.R:628)
+    xpssTtest: no visible global function definition for ‘cor.test’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/translateSPSS2R/new/translateSPSS2R.Rcheck/00_pkg_src/translateSPSS2R/R/xpssTtest.R:631)
     Undefined global functions or variables:
-      setNames
+      anova as.formula complete.cases cor.test density frequency
+      globalVariables head lines lm median na.omit quantile sd summary.lm
+      t.test tail title var
     Consider adding
-      importFrom("stats", "setNames")
+      importFrom("graphics", "lines", "title")
+      importFrom("stats", "anova", "as.formula", "complete.cases",
+                 "cor.test", "density", "frequency", "lm", "median",
+                 "na.omit", "quantile", "sd", "summary.lm", "t.test", "var")
+      importFrom("utils", "globalVariables", "head", "tail")
     to your NAMESPACE file.
+    ```
+
+# trialr
+
+Version: 0.0.6
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  8.3Mb
+      sub-directories of 1Mb or more:
+        libs   6.5Mb
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
+    ```
+
+# tropr
+
+Version: 0.1.2
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      Failed to find tvtrope content
+      1: as.data.frame(trope_content(.url)) at testthat/test-tropr.R:26
+      2: trope_content(.url)
+      3: stop("Failed to find tvtrope content") at /Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/tropr/new/tropr.Rcheck/00_pkg_src/tropr/R/tropr.R:40
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 3 SKIPPED: 0 FAILED: 5
+      1. Error: trope_data (@test-data.R#6) 
+      2. Error: trope_cache (@test-data.R#19) 
+      3. Error: trope_content, as.data.frame (@test-tropr.R#5) 
+      4. Error: trope_history, aggr (@test-tropr.R#14) 
+      5. Error: More cases (@test-tropr.R#26) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Quitting from lines 41-47 (quickstart.Rmd) 
+    Error: processing vignette 'quickstart.Rmd' failed with diagnostics:
+    Failed to find tvtrope content
+    Execution halted
+    ```
+
+# trread
+
+Version: 0.2.7
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        extdata   4.4Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘here’ ‘htmltools’ ‘scales’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 41 marked UTF-8 strings
     ```
 
 # uavRmp
 
-Version: 0.5.3
+Version: 0.5.4
 
 ## In both
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available:
-      ‘rgdal’ ‘gdalUtils’ ‘data.table’ ‘spatial.tools’ ‘sf’
-    
-    Package suggested but not available for checking: ‘mapview’
+    Package required but not available: ‘devtools’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# ucbthesis
+# uavRst
 
-Version: 1.0
+Version: 0.5-2
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking Rd cross-references ... NOTE
     ```
-    rmd2pdf: no visible global function definition for ‘tail’
-    rnw2pdf: no visible global function definition for ‘tail’
-    Undefined global functions or variables:
-      tail
-    Consider adding
-      importFrom("utils", "tail")
-    to your NAMESPACE file.
+    Package unavailable to check Rd xrefs: ‘tmaptools’
     ```
 
 # ukbtools
 
-Version: 0.10.1
+Version: 0.11.0
 
 ## In both
 
@@ -9880,51 +8812,100 @@ Version: 0.10.1
       Note: found 5 marked UTF-8 strings
     ```
 
-# ukds
+# Uniquorn
 
-Version: 0.1.0
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘RSelenium’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# unpivotr
-
-Version: 0.3.1
+Version: 2.2.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking whether package ‘Uniquorn’ can be installed ... WARNING
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Found the following significant warnings:
+      Warning: replacing previous import ‘GenomicRanges::shift’ by ‘data.table::shift’ when loading ‘Uniquorn’
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00install.out’ for details.
     ```
 
-# uptasticsearch
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        extdata   4.1Mb
+    ```
 
-Version: 0.2.0
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Malformed Description field: should contain one or more complete sentences.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      ‘ccls_all’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Show_database_information.R:35-42)
+    show_contained_ccls: no visible binding for '<<-' assignment to
+      ‘ccls_all’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Show_database_information.R:59)
+    show_contained_ccls: no visible binding for global variable ‘ccls_all’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Show_database_information.R:59)
+    show_contained_ccls: no visible binding for global variable ‘ccls_all’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Show_database_information.R:61)
+    write_w0_and_split_w0_into_lower_weights: no visible binding for '<<-'
+      assignment to ‘g_mat_exclude’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Parser_scripts.R:81)
+    write_w0_and_split_w0_into_lower_weights: no visible binding for global
+      variable ‘g_mat_exclude’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/Uniquorn/new/Uniquorn.Rcheck/00_pkg_src/Uniquorn/R/Parser_scripts.R:84-90)
+    Undefined global functions or variables:
+      Index Tumor_Sample_Barcode ccls_all g_mat_exclude output_file_xls
+      position res_table sig_vec sim_list tail vcf_fingerprint
+    Consider adding
+      importFrom("utils", "tail")
+    to your NAMESPACE file.
+    ```
+
+# updog
+
+Version: 1.0.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking whether package ‘updog’ can be installed ... ERROR
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Installation failed.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/updog/new/updog.Rcheck/00install.out’ for details.
     ```
 
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘updog’ ...
+** package ‘updog’ successfully unpacked and MD5 sums checked
+** libs
+clang++ -std=gnu++11 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/updog/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/updog/RcppArmadillo/include" -I/usr/local/include  -fopenmp -fPIC  -Wall -g -O2 -c RcppExports.cpp -o RcppExports.o
+clang: error: unsupported option '-fopenmp'
+make: *** [RcppExports.o] Error 1
+ERROR: compilation failed for package ‘updog’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/updog/new/updog.Rcheck/updog’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘updog’ ...
+** package ‘updog’ successfully unpacked and MD5 sums checked
+** libs
+clang++ -std=gnu++11 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/updog/Rcpp/include" -I"/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/updog/RcppArmadillo/include" -I/usr/local/include  -fopenmp -fPIC  -Wall -g -O2 -c RcppExports.cpp -o RcppExports.o
+clang: error: unsupported option '-fopenmp'
+make: *** [RcppExports.o] Error 1
+ERROR: compilation failed for package ‘updog’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/updog/old/updog.Rcheck/updog’
+
+```
 # usmap
 
-Version: 0.2.1
+Version: 0.4.0
 
 ## In both
 
@@ -9951,12 +8932,11 @@ Version: 0.0.6
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Namespaces in Imports field not imported from:
+      ‘RCurl’ ‘stringdist’ ‘utils’
+      All declared Imports should be used.
     ```
 
 # valaddin
@@ -9965,64 +8945,58 @@ Version: 0.1.2
 
 ## In both
 
+*   checking for missing documentation entries ... WARNING
+    ```
+    Undocumented code objects:
+      ‘vld_rate’
+    All user-level objects in a package should have documentation entries.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘purrr’
       All declared Imports should be used.
     ```
 
-# validaRA
+# valr
 
-Version: 0.1.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# vardpoor
-
-Version: 0.9.11
+Version: 0.5.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# VarfromPDB
+# vkR
 
-Version: 2.2.7
+Version: 0.1
 
 ## In both
 
-*   checking whether package ‘VarfromPDB’ can be installed ... WARNING
+*   checking dependencies in R code ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘XML’ was built under R version 3.4.4
-      Warning: package ‘curl’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VarfromPDB/new/VarfromPDB.Rcheck/00install.out’ for details.
+    Missing or unexported object: ‘jsonlite::rbind.pages’
     ```
 
-# VDAP
+# vortexR
 
-Version: 2.0.0
+Version: 1.1.6
 
 ## In both
 
-*   checking whether package ‘VDAP’ can be installed ... ERROR
+*   checking whether package ‘vortexR’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VDAP/new/VDAP.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vortexR/new/vortexR.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 ## Installation
@@ -10030,126 +9004,51 @@ Version: 2.0.0
 ### Devel
 
 ```
-* installing *source* package ‘VDAP’ ...
-** package ‘VDAP’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘vortexR’ ...
+** package ‘vortexR’ successfully unpacked and MD5 sums checked
 ** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘VDAP’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VDAP/new/VDAP.Rcheck/VDAP’
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘vortexR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vortexR/new/vortexR.Rcheck/vortexR’
 
 ```
 ### CRAN
 
 ```
-* installing *source* package ‘VDAP’ ...
-** package ‘VDAP’ successfully unpacked and MD5 sums checked
+* installing *source* package ‘vortexR’ ...
+** package ‘vortexR’ successfully unpacked and MD5 sums checked
 ** R
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘VDAP’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/VDAP/old/VDAP.Rcheck/VDAP’
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/tidyverse/stringr/revdep/library.noindex/vortexR/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘vortexR’
+* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vortexR/old/vortexR.Rcheck/vortexR’
 
 ```
-# vetools
-
-Version: 1.3-28
-
-## In both
-
-*   checking whether package ‘vetools’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘sp’ was built under R version 3.4.3
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vetools/new/vetools.Rcheck/00install.out’ for details.
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    ...
-    tssum: no visible global function definition for ‘ts’
-    tssum: no visible global function definition for ‘window’
-    tssum: no visible global function definition for ‘window<-’
-    xts2ts: no visible global function definition for ‘ts’
-    xts2ts: no visible global function definition for ‘start’
-    xts2ts: no visible global function definition for ‘end’
-    Undefined global functions or variables:
-      abline axis colorRamp cov end frequency image kmeans layout legend
-      lines median par points read.csv rgb rnorm sd slot start text time
-      title ts ts.union window window<-
-    Consider adding
-      importFrom("grDevices", "colorRamp", "rgb")
-      importFrom("graphics", "abline", "axis", "image", "layout", "legend",
-                 "lines", "par", "points", "text", "title")
-      importFrom("methods", "slot")
-      importFrom("stats", "cov", "end", "frequency", "kmeans", "median",
-                 "rnorm", "sd", "start", "time", "ts", "ts.union", "window",
-                 "window<-")
-      importFrom("utils", "read.csv")
-    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-    contains 'methods').
-    ```
-
-# ViSiElse
-
-Version: 1.2.0
-
-## In both
-
-*   checking whether package ‘ViSiElse’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/ViSiElse/new/ViSiElse.Rcheck/00install.out’ for details.
-    ```
-
-*   checking examples ... WARNING
-    ```
-    Found the following significant warnings:
-    
-      Warning: 'rBind' is deprecated.
-    Deprecated functions may be defunct as soon as of the next release of
-    R.
-    See ?Deprecated.
-    ```
-
-# vortexR
-
-Version: 1.1.4
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
-# vows
-
-Version: 0.5
-
-## In both
-
-*   checking whether package ‘vows’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Matrix’ was built under R version 3.4.4
-      Warning: package ‘lme4’ was built under R version 3.4.4
-      Warning: package ‘mgcv’ was built under R version 3.4.3
-      Warning: package ‘nlme’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/vows/new/vows.Rcheck/00install.out’ for details.
-    ```
-
 # vqtl
 
-Version: 2.0.3
+Version: 2.0.4
 
 ## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘hglm’
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -10160,51 +9059,108 @@ Version: 2.0.3
 
 # wavClusteR
 
-Version: 2.10.0
+Version: 2.16.1
 
 ## In both
 
-*   checking whether package ‘wavClusteR’ can be installed ... ERROR
+*   checking examples ... ERROR
     ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/new/wavClusteR.Rcheck/00install.out’ for details.
+    ...
+    Computing start/end read positions
+    Number of chromosomes exhibiting high confidence transitions: 1
+    Loading required package: doMC
+    ...Processing = chrX
+    > 
+    > fclusters <- filterClusters( clusters = clusters, 
+    + 		             highConfSub = highConfSub, 
+    +         		     coverage = coverage,
+    + 			     model = model, 
+    + 			     genome = Hsapiens, 
+    + 		             refBase = 'T', 
+    + 		             minWidth = 12 )
+    Computing log odds...
+    Refining cluster sizes...
+    Combining clusters...
+    Quantifying transitions within clusters...
+    Computing statistics...
+    Error in getSeq(genome, chrClusters, startClusters, endClusters, as.character = TRUE) : 
+      object 'Hsapiens' not found
+    Calls: filterClusters -> filterClustersMRN -> as.vector -> getSeq
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 198-209 (wavCluster_vignette.Rmd) 
+    Error: processing vignette 'wavCluster_vignette.Rmd' failed with diagnostics:
+    object 'Hsapiens' not found
+    Execution halted
     ```
 
 *   checking package dependencies ... NOTE
     ```
+    Package suggested but not available for checking: ‘BSgenome.Hsapiens.UCSC.hg19’
+    
     Package which this enhances but not available for checking: ‘doMC’
     ```
 
-## Installation
+*   checking dependencies in R code ... NOTE
+    ```
+    'library' or 'require' call to ‘doMC’ in package code.
+      Please use :: or requireNamespace() instead.
+      See section 'Suggested packages' in the 'Writing R Extensions' manual.
+    ```
 
-### Devel
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    readSortedBam: no visible global function definition for ‘scanBamFlag’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/new/wavClusteR.Rcheck/00_pkg_src/wavClusteR/R/readSortedBam.R:56-60)
+    readSortedBam : <anonymous>: no visible binding for global variable
+      ‘rname’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/new/wavClusteR.Rcheck/00_pkg_src/wavClusteR/R/readSortedBam.R:66-70)
+    readSortedBam : <anonymous>: no visible binding for global variable
+      ‘qwidth’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/new/wavClusteR.Rcheck/00_pkg_src/wavClusteR/R/readSortedBam.R:66-70)
+    Undefined global functions or variables:
+      Compartment DNAString DNAStringSet Percentage abline axis barplot
+      dbinom extractAt grid hist legend lines pairs panel.smooth par
+      polygon qwidth rect registerDoMC rname scanBamFlag seqlevels
+      setTxtProgressBar strwidth text txtProgressBar write.table
+    Consider adding
+      importFrom("graphics", "abline", "axis", "barplot", "grid", "hist",
+                 "legend", "lines", "pairs", "panel.smooth", "par",
+                 "polygon", "rect", "strwidth", "text")
+      importFrom("stats", "dbinom")
+      importFrom("utils", "setTxtProgressBar", "txtProgressBar",
+                 "write.table")
+    to your NAMESPACE file.
+    ```
 
-```
-* installing *source* package ‘wavClusteR’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘wavClusteR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/new/wavClusteR.Rcheck/wavClusteR’
+# weathercan
 
-```
-### CRAN
+Version: 0.2.8
 
-```
-* installing *source* package ‘wavClusteR’ ...
-** R
-** data
-** inst
-** preparing package for lazy loading
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called ‘data.table’
-ERROR: lazy loading failed for package ‘wavClusteR’
-* removing ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wavClusteR/old/wavClusteR.Rcheck/wavClusteR’
+## In both
 
-```
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘xml2’
+      All declared Imports should be used.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 25 marked UTF-8 strings
+    ```
+
 # webr
 
 Version: 0.1.0
@@ -10217,35 +9173,37 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# wikilake
+# webTRISr
 
-Version: 0.3
+Version: 0.1.1
 
 ## In both
 
-*   checking whether package ‘wikilake’ can be installed ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘maps’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wikilake/new/wikilake.Rcheck/00install.out’ for details.
+    Package suggested but not available for checking: ‘devtools’
     ```
+
+# wikilake
+
+Version: 0.4
+
+## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 4 marked UTF-8 strings
+      Note: found 2 marked UTF-8 strings
     ```
 
-# wingui
+# wikipediatrend
 
-Version: 0.2
+Version: 1.1.14
 
 ## In both
 
-*   checking whether package ‘wingui’ can be installed ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wingui/new/wingui.Rcheck/00install.out’ for details.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # wordbankr
@@ -10260,31 +9218,15 @@ Version: 0.3.0
       All declared Imports should be used.
     ```
 
-# wsrf
+# workflowr
 
-Version: 1.7.17
-
-## In both
-
-*   checking whether package ‘wsrf’ can be installed ... WARNING
-    ```
-    Found the following significant warnings:
-      Warning: package ‘Rcpp’ was built under R version 3.4.4
-    See ‘/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/wsrf/new/wsrf.Rcheck/00install.out’ for details.
-    ```
-
-# wux
-
-Version: 2.2-1
+Version: 1.1.1
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Package required but not available: ‘rgdal’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # x12GUI
@@ -10295,38 +9237,120 @@ Version: 0.13.0
 
 *   checking package dependencies ... ERROR
     ```
-    Packages required but not available: ‘RGtk2’ ‘cairoDevice’
+    Package required but not available: ‘RGtk2’
     
     See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
     manual.
     ```
 
-# xesreadR
+# xpose
 
-Version: 0.2.2
+Version: 0.4.3
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking tests ...
     ```
-    Package required but not available: ‘data.table’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      3: compare.tbl_df(act$val, exp$val)
+      4: NextMethod("compare")
+      5: compare.default(act$val, exp$val)
+      6: all.equal(x, y, ...)
+      7: all.equal.tbl_df(x, y, ...)
+      8: equal_data_frame(target, current, ignore_col_order = ignore_col_order, ignore_row_order = ignore_row_order, 
+             convert = convert)
+      
+      ══ testthat results  ══════════════════════════════════════════════════════════════════════════════════
+      OK: 522 SKIPPED: 6 FAILED: 2
+      1. Failure: dot arguments are properly passed to readr (@test-read_nm_tables.R#57) 
+      2. Error: vpc_data works properly with xpdb tables (@test-vpc.R#43) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
 
 # xROI
 
-Version: 0.1.2
+Version: 0.9.11
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Packages required but not available: ‘rgdal’ ‘data.table’
+    Namespace in Imports field not imported from: ‘adimpro’
+      All declared Imports should be used.
+    ```
+
+# zFPKM
+
+Version: 1.4.1
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    The following object is masked from 'package:S4Vectors':
     
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+        expand
+    
+    trying URL 'ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE94nnn/GSE94802/suppl/GSE94802_Minkina_etal_normalized_FPKM.csv.gz'
+    Content type 'unknown' length 800733 bytes (781 KB)
+    ==================================================
+    trying URL 'ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE94nnn/GSE94802/suppl/GSE94802_Minkina_etal_raw_counts.csv.gz'
+    Content type 'unknown' length 574041 bytes (560 KB)
+    ==================================================
+    
+    Attaching package: 'limma'
+    
+    The following object is masked from 'package:BiocGenerics':
+    
+        plotMA
+    
+    Quitting from lines 108-122 (zFPKM.Rmd) 
+    Error: processing vignette 'zFPKM.Rmd' failed with diagnostics:
+    statmod package required but is not installed
+    Execution halted
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    PlotGaussianFitDF: no visible binding for global variable ‘density’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:223)
+    PlotGaussianFitDF: no visible binding for global variable ‘log2fpkm’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:223)
+    PlotGaussianFitDF: no visible binding for global variable ‘sample_name’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:223)
+    PlotGaussianFitDF: no visible binding for global variable ‘log2fpkm’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:227-233)
+    PlotGaussianFitDF: no visible binding for global variable ‘density’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:227-233)
+    zFPKMCalc: no visible global function definition for ‘density’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:162)
+    zFPKMTransform: no visible global function definition for ‘is’
+      (/Users/hadley/Documents/tidyverse/stringr/revdep/checks.noindex/zFPKM/new/zFPKM.Rcheck/00_pkg_src/zFPKM/R/zfpkm.R:125-127)
+    Undefined global functions or variables:
+      density dnorm is log2fpkm sample_name
+    Consider adding
+      importFrom("methods", "is")
+      importFrom("stats", "density", "dnorm")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
+    ```
+
+# ztable
+
+Version: 0.2.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘moonBook’
+      All declared Imports should be used.
     ```
 
 # ztype

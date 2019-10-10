@@ -69,7 +69,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' @seealso [str_detect()] which this function wraps when pattern is regex.
 #' @export
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_starts(fruit, "p")
 #' str_starts(fruit, "p", negate = TRUE)
 #' str_ends(fruit, "e")
