@@ -53,6 +53,8 @@ str_replace_all(fruits, "b", NA_character_)
 
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
+
+# Note that str_replace() is vectorised along text, pattern, and replacement
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
 
