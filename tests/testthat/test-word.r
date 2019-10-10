@@ -12,7 +12,7 @@ test_that("words past end return NA", {
 })
 
 test_that("negative parameters", {
-  expect_equal("moon",word("walk the moon", -1, -1))
-  expect_equal("walk the moon",word("walk the moon", -3, -1))
-  expect_equal("walk the moon",word("walk the moon", -5, -1))
+  expect_equal("moon", word("walk the moon", -1, -1))
+  expect_equal("walk the moon", word("walk the moon", -3, -1))
+  expect_equal("walk the moon", word("walk the moon", -5, -1))
 })
