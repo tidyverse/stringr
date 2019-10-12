@@ -165,7 +165,9 @@
 
     <pre class="usage"><span class='fu'>str_split</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-<span class='fu'>str_split_fixed</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)</pre>
+<span class='fu'>str_split_fixed</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)
+
+<span class='fu'>str_split_n</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,8 +195,10 @@ respects character matching rules for the specified locale.</p>
       <th>n</th>
       <td><p>number of pieces to return.  Default (Inf) uses all
 possible split positions.</p>
-<p>For <code>str_split_fixed</code>, if n is greater than the number of pieces,
-the result will be padded with empty strings.</p></td>
+<p>For <code>str_split_fixed</code>, if <code>n</code> is greater than the number of pieces,
+the result will be padded with empty strings.</p>
+<p>For <code>str_split_n</code>, <code>n</code> is the desired index of each element of
+the split <code>string</code>.  When there are fewer pieces than <code>n</code>, return <code>NA</code>.</p></td>
     </tr>
     <tr>
       <th>simplify</th>
@@ -206,7 +210,8 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>For <code>str_split_fixed</code>, a character matrix with <code>n</code> columns.
-For <code>str_split</code>, a list of character vectors.</p>
+For <code>str_split</code>, a list of character vectors.  For <code>str_split_n</code>,
+a length <code>n</code> character vector.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code>stri_split()</code> for the underlying implementation.</p></div>
@@ -248,7 +253,9 @@ For <code>str_split</code>, a list of character vectors.</p>
 #&gt; [1,] "apples"     "oranges" "pears and bananas"
 #&gt; [2,] "pineapples" "mangos"  "guavas"           </div><div class='input'><span class='fu'>str_split_fixed</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>4</span>)</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
 #&gt; [1,] "apples"     "oranges" "pears"  "bananas"
-#&gt; [2,] "pineapples" "mangos"  "guavas" ""       </div></pre>
+#&gt; [2,] "pineapples" "mangos"  "guavas" ""       </div><div class='input'>
+<span class='co'># str_split_n extracts only a single piece from a string</span>
+<span class='fu'>str_split_n</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "apples"     "pineapples"</div><div class='input'><span class='fu'>str_split_n</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "pears"  "guavas"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
