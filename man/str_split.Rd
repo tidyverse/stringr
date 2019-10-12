@@ -38,7 +38,7 @@ For \code{str_split_fixed}, if \code{n} is greater than the number of pieces,
 the result will be padded with empty strings.
 
 For \code{str_split_n}, \code{n} is the desired index of each element of
-the split \code{string}.}
+the split \code{string}.  When there are fewer pieces than \code{n}, return \code{NA}.}
 
 \item{simplify}{If \code{FALSE}, the default, returns a list of character
 vectors. If \code{TRUE} returns a character matrix.}
@@ -71,7 +71,6 @@ str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 
 # str_split_n extracts only a single piece from a string
-# When there are fewer pieces than `n`, return `NA`.
 str_split_n(fruits, " and ", 1)
 str_split_n(fruits, " and ", 3)
 }

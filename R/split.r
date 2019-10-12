@@ -11,7 +11,7 @@
 #'   the result will be padded with empty strings.
 #'
 #'   For `str_split_n`, `n` is the desired index of each element of
-#'   the split `string`.
+#'   the split `string`.  When there are fewer pieces than `n`, return `NA`.
 #' @return For `str_split_fixed`, a character matrix with `n` columns.
 #'   For `str_split`, a list of character vectors.  For `str_split_n`,
 #'   a length `n` character vector.
@@ -37,7 +37,6 @@
 #' str_split_fixed(fruits, " and ", 4)
 #'
 #' # str_split_n extracts only a single piece from a string
-#' # When there are fewer pieces than `n`, return `NA`.
 #' str_split_n(fruits, " and ", 1)
 #' str_split_n(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
