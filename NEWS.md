@@ -7,6 +7,9 @@
   help you move to stringr if you're already familiar with base R string
   functions (#266).
 
+* New `str_split_n()` function to extract only a single piece from a string
+  (#278, @bfgray3).
+
 # stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of

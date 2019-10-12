@@ -80,3 +80,14 @@ test_that("str_split can split sentences correctly", {
    list(c("This is a sentence. ", "Is this a sentence? ", "Why, yes it is."))
   )
 })
+
+test_that("str_split_n functions as expected", {
+  test <- c("bab", "cac", "jajajaj", "qwertyuiop")
+  result <- str_split_n(test, "a", 2)
+
+  expect_type(result, "character")
+  expect_length(result, 4)
+
+  expect_equal(nchar(result), c(1, 1, 1, NA))
+  expect_equal(result, c("b", "c", "j", NA))
+})
