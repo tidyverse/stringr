@@ -71,6 +71,7 @@ str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 
 # str_split_n extracts only a single piece from a string
+# When there are fewer pieces than `n`, return `NA`.
 str_split_n(fruits, " and ", 1)
 str_split_n(fruits, " and ", 3)
 }

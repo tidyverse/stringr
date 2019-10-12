@@ -37,6 +37,7 @@
 #' str_split_fixed(fruits, " and ", 4)
 #'
 #' # str_split_n extracts only a single piece from a string
+#' # When there are fewer pieces than `n`, return `NA`.
 #' str_split_n(fruits, " and ", 1)
 #' str_split_n(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
@@ -59,9 +60,16 @@ str_split_fixed <- function(string, pattern, n) {
   out
 }
 
+subset_safely <- function(x, index) {
+  if (length(x) < index) {
+    return(NA_character_)
+  }
+  x[[index]]
+}
+
 #' @export
 #' @rdname str_split
 str_split_n <- function(string, pattern, n) {
-  out <- str_split(string, pattern, simplify = TRUE)
-  apply(out, 1, `[`, i = n)
+  out <- str_split(string, pattern)
+  vapply(out, subset_safely, character(1L), index = n)
 }
