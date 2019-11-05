@@ -105,16 +105,16 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect the presence of a pattern in the string using SQL like convention.
+#' Detect the presence of a pattern in the string using SQL LIKE convention.
 #'
 #' Vectorised over `string` and `pattern`.
-#' Follows the structure of SQL's LIKE function and allows the use of their
+#' Follows the structure of the SQL `LIKE` operator and allows the use of their
 #'  wild cards `%` or `_`.
 #' These can be escaped using `\\\\` or `[]`.
 #'
 #' @inheritParams str_detect
 #' @param ignore_case Define if the case should be ignored.
-#'  Defaults to `TRUE` to match the SQL LIKE definition.
+#'  Defaults to `TRUE` to match the SQL `LIKE` operator.
 #'
 #' @return A logical vector.
 #' @export
