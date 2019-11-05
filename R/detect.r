@@ -104,3 +104,38 @@ str_ends <- function(string, pattern, negate = FALSE) {
          }
   )
 }
+
+#' Detect the presence of a pattern in the string using SQL like convention.
+#'
+#' Vectorised over `string` and `pattern`.
+#' Follows the structure of SQL's LIKE function and allows the use of their
+#'  wild cards `%` or `_`.
+#' These can be escaped using `\\\\` or `[]`.
+#'
+#' @inheritParams str_detect
+#' @param ignore_case Define if the case should be ignored.
+#'  Defaults to `TRUE` to match the SQL LIKE definition.
+#'
+#' @return A logical vector.
+#' @export
+#'
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_like(fruit, "app%")
+#' str_like(fruit, "ba_ana")
+#' str_like(fruit, "%APPLE")
+str_like <- function(string, pattern, negate = FALSE, ignore_case = TRUE) {
+  switch(type(pattern),
+         empty = ,
+         bound = stop("boundary() patterns are not supported."),
+         fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+         coll  = stri_detect_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
+         regex = {
+           pattern2 <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
+           pattern2 <- stri_replace_all_regex(pattern2, "(?<!\\\\|\\[)_(?!\\])", "\\.")
+           pattern2 <- paste0("^", pattern2, "$")
+           attributes(pattern2) <- attributes(pattern)
+           str_detect(string, regex(pattern2, ignore_case = ignore_case), negate = negate)
+         }
+  )
+}

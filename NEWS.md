@@ -9,6 +9,9 @@
 
 * New `str_split_n()` function to extract only a single piece from a string
   (#278, @bfgray3).
+  
+* New `str_like()` function which allows the use of SQL wildcards
+  (#280, @rjpat).
 
 # stringr 1.4.0
 

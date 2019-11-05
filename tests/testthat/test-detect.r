@@ -49,3 +49,23 @@ test_that("str_ends works", {
   # Special typing of patterns.
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })
+
+test_that("str_like works", {
+  expect_true(str_like("abc", "a_c"))
+  expect_true(str_like("abc", "a%"))
+  expect_true(str_like("abc", "abc"))
+
+  # case
+  expect_true(str_like("abc", "ABC"))
+  expect_false(str_like("abc", "ABC", ignore_case = FALSE))
+
+  # escaping
+  expect_true(str_like("a_c", "a\\_c"))
+  expect_true(str_like("a%c", "a\\%c"))
+  expect_true(str_like("a_c", "a[_]c"))
+  expect_true(str_like("a%c", "a[%]c"))
+
+  # negation
+  expect_false(str_like("abc", "a%", TRUE))
+  expect_true(str_like("abc", "a", TRUE))
+})
