@@ -50,6 +50,15 @@ test_that("str_ends works", {
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })
 
+test_that("str_like converter works",{
+  expect_equal(like_converter("ab%"), "^ab.*$")
+  expect_equal(like_converter("ab_"), "^ab.$")
+
+  # escaping
+  expect_equal(like_converter("ab\\%"), "^ab\\%$")
+  expect_equal(like_converter("ab[%]"), "^ab[%]$")
+})
+
 test_that("str_like works", {
   expect_true(str_like("abc", "a_c"))
   expect_true(str_like("abc", "a%"))
@@ -58,12 +67,6 @@ test_that("str_like works", {
   # case
   expect_true(str_like("abc", "ABC"))
   expect_false(str_like("abc", "ABC", ignore_case = FALSE))
-
-  # escaping
-  expect_true(str_like("a_c", "a\\_c"))
-  expect_true(str_like("a%c", "a\\%c"))
-  expect_true(str_like("a_c", "a[_]c"))
-  expect_true(str_like("a%c", "a[%]c"))
 
   # negation
   expect_false(str_like("abc", "a%", TRUE))

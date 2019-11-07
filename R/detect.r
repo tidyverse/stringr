@@ -105,6 +105,23 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
+#' Pattern Conversion Between LIKE and Regex structures
+#'
+#' Turns a SQL LIKE structure into a recognisible regular expression pattern.
+#'
+#' @param pattern SQL LIKE operator pattern to be converted.
+#'
+#' @return A converted pattern.
+#'
+#' @examples
+#' like_converter("bana%")
+#' like_converter("app_e")
+like_converter <- function(pattern) {
+  converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
+  converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
+  paste0("^", converted, "$")
+}
+
 #' Detect the presence of a pattern in the string using SQL LIKE convention.
 #'
 #' Vectorised over `string` and `pattern`.
@@ -131,9 +148,7 @@ str_like <- function(string, pattern, negate = FALSE, ignore_case = TRUE) {
          fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
          coll  = stri_detect_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
          regex = {
-           pattern2 <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
-           pattern2 <- stri_replace_all_regex(pattern2, "(?<!\\\\|\\[)_(?!\\])", "\\.")
-           pattern2 <- paste0("^", pattern2, "$")
+           pattern2 <- like_converter(pattern)
            attributes(pattern2) <- attributes(pattern)
            str_detect(string, regex(pattern2, ignore_case = ignore_case), negate = negate)
          }

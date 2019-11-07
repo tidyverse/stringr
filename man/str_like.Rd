@@ -2,7 +2,7 @@
 % Please edit documentation in R/detect.r
 \name{str_like}
 \alias{str_like}
-\title{Detect the presence of a pattern in the string using SQL like convention.}
+\title{Detect the presence of a pattern in the string using SQL LIKE convention.}
 \usage{
 str_like(string, pattern, negate = FALSE, ignore_case = TRUE)
 }
@@ -28,14 +28,14 @@ Match character, word, line and sentence boundaries with
 \item{negate}{If \code{TRUE}, return non-matching elements.}
 
 \item{ignore_case}{Define if the case should be ignored.
-Defaults to \code{TRUE} to match the SQL LIKE definition.}
+Defaults to \code{TRUE} to match the SQL \code{LIKE} operator.}
 }
 \value{
 A logical vector.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
-Follows the structure of SQL's LIKE function and allows the use of their
+Follows the structure of the SQL \code{LIKE} operator and allows the use of their
 wild cards \code{\%} or \code{_}.
 These can be escaped using \code{\\\\} or \code{[]}.
 }
