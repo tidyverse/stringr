@@ -107,43 +107,38 @@ str_ends <- function(string, pattern, negate = FALSE) {
 
 #' Detect the presence of a pattern in the string using SQL LIKE convention.
 #'
-#' Vectorised over `string` and `pattern`.
-#' Follows the structure of the SQL `LIKE` operator and allows the use of their
-#'  wild cards `%` or `_`.
-#' These can be escaped using `\\\\` or `[]`.
+#' @description
+#' Follows the structure of the SQL `LIKE` operator:
+#' * Must match the entire string
+#' * `_` matches a single character (like `.`)
+#' * \verb{\%} matches any number of characters (`.*`)
+#' * \verb{\\\%} and `\_` match literal \verb{\%} and `_`
+#' * The match is case insentistive by default
 #'
 #' @inheritParams str_detect
-#' @param ignore_case Define if the case should be ignored.
-#'  Defaults to `TRUE` to match the SQL `LIKE` operator.
-#'
+#' @param pattern A charcter vector containing a SQL "like" pattern.
+#'   See above for details.
+#' @param ignore_case Ignore case of matches?  Defaults to `TRUE` to match
+#'   the SQL `LIKE` operator.
 #' @return A logical vector.
 #' @export
-#'
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_like(fruit, "app")
 #' str_like(fruit, "app%")
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%APPLE")
-str_like <- function(string, pattern, negate = FALSE, ignore_case = TRUE) {
-  attr(pattern, "options")$case_insensitive <- ignore_case
+str_like <- function(string, pattern, ignore_case = TRUE) {
+  if (!is.character(pattern) || is.object(pattern)) {
+    stop("`pattern` must be a character vector", call. = FALSE)
+  }
 
-  switch(type(pattern),
-         regex = stri_detect_regex(string, like_to_regex(pattern), negate = negate,
-                                    opts_regex = opts(pattern)),
-         stop("str_like() works only with regular expressions", call. = FALSE)
-  )
+  pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
+  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 
-#' Pattern Conversion Between LIKE and Regex structures
-#'
-#' Turns a SQL LIKE pattern into a recognisible regular expression pattern.
-#'
-#' @param pattern SQL LIKE operator pattern to be converted.
-#'
-#' @return A converted pattern.
 like_to_regex <- function(pattern) {
   converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
   converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
   paste0("^", converted, "$")
 }
-

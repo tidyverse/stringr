@@ -50,7 +50,10 @@ test_that("str_ends works", {
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })
 
-test_that("str_like converter works",{
+
+# str_like ----------------------------------------------------------------
+
+test_that("like_to_regex generates expected regexps",{
   expect_equal(like_to_regex("ab%"), "^ab.*$")
   expect_equal(like_to_regex("ab_"), "^ab.$")
 
@@ -61,12 +64,5 @@ test_that("str_like converter works",{
 
 test_that("str_like works", {
   expect_true(str_like("abc", "ab%"))
-
-  # case
-  expect_true(str_like("abc", "ABC"))
-  expect_false(str_like("abc", "ABC", ignore_case = FALSE))
-
-  # negation
-  expect_false(str_like("abc", "a%", TRUE))
-  expect_true(str_like("abc", "a", TRUE))
+  expect_error(str_like("abc", regex("x")), "character vector")
 })

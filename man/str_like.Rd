@@ -4,43 +4,34 @@
 \alias{str_like}
 \title{Detect the presence of a pattern in the string using SQL LIKE convention.}
 \usage{
-str_like(string, pattern, negate = FALSE, ignore_case = TRUE)
+str_like(string, pattern, ignore_case = TRUE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{pattern}{Pattern to look for.
+\item{pattern}{A charcter vector containing a SQL "like" pattern.
+See above for details.}
 
-The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
-\code{\link[=regex]{regex()}}.
-
-Match a fixed string (i.e. by comparing only bytes), using
-\code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
-for matching human text, you'll want \code{\link[=coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
-
-\item{negate}{If \code{TRUE}, return non-matching elements.}
-
-\item{ignore_case}{Define if the case should be ignored.
-Defaults to \code{TRUE} to match the SQL \code{LIKE} operator.}
+\item{ignore_case}{Ignore case of matches?  Defaults to \code{TRUE} to match
+the SQL \code{LIKE} operator.}
 }
 \value{
 A logical vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
-Follows the structure of the SQL \code{LIKE} operator and allows the use of their
-wild cards \code{\%} or \code{_}.
-These can be escaped using \code{\\\\} or \code{[]}.
+Follows the structure of the SQL \code{LIKE} operator:
+\itemize{
+\item Must match the entire string
+\item \code{_} matches a single character (like \code{.})
+\item \verb{\%} matches any number of characters (\code{.*})
+\item \verb{\\\%} and \code{\\_} match literal \verb{\%} and \code{_}
+\item The match is case insentistive by default
+}
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pinapple")
+str_like(fruit, "app")
 str_like(fruit, "app\%")
 str_like(fruit, "ba_ana")
 str_like(fruit, "\%APPLE")
