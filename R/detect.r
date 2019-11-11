@@ -105,23 +105,6 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Pattern Conversion Between LIKE and Regex structures
-#'
-#' Turns a SQL LIKE structure into a recognisible regular expression pattern.
-#'
-#' @param pattern SQL LIKE operator pattern to be converted.
-#'
-#' @return A converted pattern.
-#'
-#' @examples
-#' like_converter("bana%")
-#' like_converter("app_e")
-like_converter <- function(pattern) {
-  converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
-  converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
-  paste0("^", converted, "$")
-}
-
 #' Detect the presence of a pattern in the string using SQL LIKE convention.
 #'
 #' Vectorised over `string` and `pattern`.
@@ -142,15 +125,25 @@ like_converter <- function(pattern) {
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%APPLE")
 str_like <- function(string, pattern, negate = FALSE, ignore_case = TRUE) {
+  attr(pattern, "options")$case_insensitive <- ignore_case
+
   switch(type(pattern),
-         empty = ,
-         bound = stop("boundary() patterns are not supported."),
-         fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-         coll  = stri_detect_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
-         regex = {
-           pattern2 <- like_converter(pattern)
-           attributes(pattern2) <- attributes(pattern)
-           str_detect(string, regex(pattern2, ignore_case = ignore_case), negate = negate)
-         }
+         regex = stri_detect_regex(string, like_to_regex(pattern), negate = negate,
+                                    opts_regex = opts(pattern)),
+         stop("str_like() works only with regular expressions", call. = FALSE)
   )
 }
+
+#' Pattern Conversion Between LIKE and Regex structures
+#'
+#' Turns a SQL LIKE pattern into a recognisible regular expression pattern.
+#'
+#' @param pattern SQL LIKE operator pattern to be converted.
+#'
+#' @return A converted pattern.
+like_to_regex <- function(pattern) {
+  converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
+  converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
+  paste0("^", converted, "$")
+}
+

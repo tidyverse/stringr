@@ -51,18 +51,16 @@ test_that("str_ends works", {
 })
 
 test_that("str_like converter works",{
-  expect_equal(like_converter("ab%"), "^ab.*$")
-  expect_equal(like_converter("ab_"), "^ab.$")
+  expect_equal(like_to_regex("ab%"), "^ab.*$")
+  expect_equal(like_to_regex("ab_"), "^ab.$")
 
   # escaping
-  expect_equal(like_converter("ab\\%"), "^ab\\%$")
-  expect_equal(like_converter("ab[%]"), "^ab[%]$")
+  expect_equal(like_to_regex("ab\\%"), "^ab\\%$")
+  expect_equal(like_to_regex("ab[%]"), "^ab[%]$")
 })
 
 test_that("str_like works", {
-  expect_true(str_like("abc", "a_c"))
-  expect_true(str_like("abc", "a%"))
-  expect_true(str_like("abc", "abc"))
+  expect_true(str_like("abc", "ab%"))
 
   # case
   expect_true(str_like("abc", "ABC"))
