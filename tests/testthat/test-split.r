@@ -88,6 +88,6 @@ test_that("str_split_n functions as expected", {
   expect_type(result, "character")
   expect_length(result, 4)
 
-  expect_equal(nchar(result), c(1, 1, 1, NA))
+  expect_equal(str_length(result), c(1, 1, 1, NA))
   expect_equal(result, c("b", "c", "j", NA))
 })
