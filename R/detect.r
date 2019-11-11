@@ -104,3 +104,41 @@ str_ends <- function(string, pattern, negate = FALSE) {
          }
   )
 }
+
+#' Detect the presence of a pattern in the string using SQL LIKE convention.
+#'
+#' @description
+#' Follows the structure of the SQL `LIKE` operator:
+#' * Must match the entire string
+#' * `_` matches a single character (like `.`)
+#' * \verb{\%} matches any number of characters (`.*`)
+#' * \verb{\\\%} and `\_` match literal \verb{\%} and `_`
+#' * The match is case insentistive by default
+#'
+#' @inheritParams str_detect
+#' @param pattern A charcter vector containing a SQL "like" pattern.
+#'   See above for details.
+#' @param ignore_case Ignore case of matches?  Defaults to `TRUE` to match
+#'   the SQL `LIKE` operator.
+#' @return A logical vector.
+#' @export
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' str_like(fruit, "app")
+#' str_like(fruit, "app%")
+#' str_like(fruit, "ba_ana")
+#' str_like(fruit, "%APPLE")
+str_like <- function(string, pattern, ignore_case = TRUE) {
+  if (!is.character(pattern) || is.object(pattern)) {
+    stop("`pattern` must be a character vector", call. = FALSE)
+  }
+
+  pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
+  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+}
+
+like_to_regex <- function(pattern) {
+  converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
+  converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
+  paste0("^", converted, "$")
+}
