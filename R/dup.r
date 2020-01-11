@@ -1,4 +1,4 @@
-#' Duplicate and concatenate strings within a character vector.
+#' Duplicate and concatenate strings within a character vector
 #'
 #' Vectorised over `string` and `times`.
 #'

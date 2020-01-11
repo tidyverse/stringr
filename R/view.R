@@ -1,4 +1,4 @@
-#' View HTML rendering of regular expression match.
+#' View HTML rendering of regular expression match
 #'
 #' `str_view` shows the first match; `str_view_all` shows all
 #' the matches. To build regular expressions interactively, check out the

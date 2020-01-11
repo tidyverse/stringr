@@ -1,4 +1,4 @@
-#' Remove matched patterns in a string.
+#' Remove matched patterns in a string
 #'
 #' Alias for `str_replace(string, pattern, "")`.
 #'

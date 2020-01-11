@@ -1,4 +1,4 @@
-#' Truncate a character string.
+#' Truncate a character string
 #'
 #' @param string A character vector.
 #' @param width Maximum width of string.

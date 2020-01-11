@@ -1,4 +1,4 @@
-#' Wrap strings into nicely formatted paragraphs.
+#' Wrap strings into nicely formatted paragraphs
 #'
 #' This is a wrapper around [stringi::stri_wrap()] which implements
 #' the Knuth-Plass paragraph wrapping algorithm.

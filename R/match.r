@@ -1,4 +1,4 @@
-#' Extract matched groups from a string.
+#' Extract matched groups from a string
 #'
 #' Vectorised over `string` and `pattern`.
 #'

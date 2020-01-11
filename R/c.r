@@ -1,4 +1,4 @@
-#' Join multiple strings into a single string.
+#' Join multiple strings into a single string
 #'
 #' Joins two or more vectors element-wise into a single character vector,
 #' optionally inserting `sep` between input vectors. If `collapse` is not `NULL`,

@@ -1,4 +1,4 @@
-#' Control matching behaviour with modifier functions.
+#' Control matching behaviour with modifier functions
 #'
 #' \describe{
 #'  \item{fixed}{Compare literal bytes in the string. This is very fast, but

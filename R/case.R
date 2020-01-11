@@ -1,4 +1,4 @@
-#' Convert case of a string.
+#' Convert case of a string
 #'
 #' @param string String to modify
 #' @param locale Locale to use for translations. Defaults to "en" (English)

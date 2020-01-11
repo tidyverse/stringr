@@ -1,4 +1,4 @@
-#' Replace matched patterns in a string.
+#' Replace matched patterns in a string
 #'
 #' Vectorised over `string`, `pattern` and `replacement`.
 #'
