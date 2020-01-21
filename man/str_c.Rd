@@ -2,7 +2,7 @@
 % Please edit documentation in R/c.r
 \name{str_c}
 \alias{str_c}
-\title{Join multiple strings into a single string.}
+\title{Join multiple strings into a single string}
 \usage{
 str_c(..., sep = "", collapse = NULL)
 }

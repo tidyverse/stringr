@@ -3,7 +3,7 @@
 \name{str_replace}
 \alias{str_replace}
 \alias{str_replace_all}
-\title{Replace matched patterns in a string.}
+\title{Replace matched patterns in a string}
 \usage{
 str_replace(string, pattern, replacement)
 

@@ -3,7 +3,7 @@
 \name{str_view}
 \alias{str_view}
 \alias{str_view_all}
-\title{View HTML rendering of regular expression match.}
+\title{View HTML rendering of regular expression match}
 \usage{
 str_view(string, pattern, match = NA)
 

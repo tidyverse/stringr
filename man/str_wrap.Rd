@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrap.r
 \name{str_wrap}
 \alias{str_wrap}
-\title{Wrap strings into nicely formatted paragraphs.}
+\title{Wrap strings into nicely formatted paragraphs}
 \usage{
 str_wrap(string, width = 80, indent = 0, exdent = 0)
 }

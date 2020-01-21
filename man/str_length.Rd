@@ -2,7 +2,7 @@
 % Please edit documentation in R/length.r
 \name{str_length}
 \alias{str_length}
-\title{The length of a string.}
+\title{The length of a string}
 \usage{
 str_length(string)
 }

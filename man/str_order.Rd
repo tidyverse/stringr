@@ -3,7 +3,7 @@
 \name{str_order}
 \alias{str_order}
 \alias{str_sort}
-\title{Order or sort a character vector.}
+\title{Order or sort a character vector}
 \usage{
 str_order(
   x,
@@ -43,7 +43,7 @@ of as strings.}
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{
-Order or sort a character vector.
+Order or sort a character vector
 }
 \examples{
 str_order(letters)

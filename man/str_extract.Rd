@@ -3,7 +3,7 @@
 \name{str_extract}
 \alias{str_extract}
 \alias{str_extract_all}
-\title{Extract matching patterns from a string.}
+\title{Extract matching patterns from a string}
 \usage{
 str_extract(string, pattern)
 

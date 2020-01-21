@@ -3,7 +3,7 @@
 \name{str_locate}
 \alias{str_locate}
 \alias{str_locate_all}
-\title{Locate the position of patterns in a string.}
+\title{Locate the position of patterns in a string}
 \usage{
 str_locate(string, pattern)
 

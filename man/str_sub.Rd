@@ -3,7 +3,7 @@
 \name{str_sub}
 \alias{str_sub}
 \alias{str_sub<-}
-\title{Extract and replace substrings from a character vector.}
+\title{Extract and replace substrings from a character vector}
 \usage{
 str_sub(string, start = 1L, end = -1L)
 
