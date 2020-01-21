@@ -1,5 +1,7 @@
 # stringr (development version)
 
+* Many typos in `sentences` have been fixed (@romatik, #299)
+
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
   help you move to stringr if you're already familiar with base R string
