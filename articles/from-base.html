@@ -233,7 +233,7 @@
 </table>
 <p>Overall the main differences between base R and stringr are:</p>
 <ol style="list-style-type: decimal">
-<li><p>stringr functions start with <code>str_</code> prefix; base R string functions have no no consistent naming scheme.</p></li>
+<li><p>stringr functions start with <code>str_</code> prefix; base R string functions have no consistent naming scheme.</p></li>
 <li><p>The order of inputs is usually different between base R and stringr. In base R, the <code>pattern</code> to match usually comes first; in stringr, the <code>string</code> to manupulate always comes first. This makes stringr easier to use in pipes, and with <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> or <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>.</p></li>
 <li><p>Functions in stringr tend to do less, where many of the string processing functions in base R have multiple purposes.</p></li>
 <li><p>The output and input of stringr functions has been carefully designed. For example, the output of <code><a href="../reference/str_locate.html">str_locate()</a></code> can be fed directly into <code><a href="../reference/str_sub.html">str_sub()</a></code>; the same is not true of <code>regpexpr()</code> and <code><a href="https://rdrr.io/r/base/substr.html">substr()</a></code>.</p></li>
