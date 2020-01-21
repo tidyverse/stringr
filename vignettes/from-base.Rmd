@@ -47,7 +47,7 @@ We'll begin with a lookup table between the most important base string functions
 Overall the main differences between base R and stringr are:
 
 1.  stringr functions start with `str_` prefix; base R string functions have no
-    no consistent naming scheme.
+    consistent naming scheme.
    
 1.  The order of inputs is usually different between base R and stringr. 
     In base R, the `pattern` to match usually comes first; in stringr, the
