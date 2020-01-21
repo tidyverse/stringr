@@ -2,7 +2,7 @@
 % Please edit documentation in R/unique.R
 \name{str_unique}
 \alias{str_unique}
-\title{Keep unique strings only.}
+\title{Keep unique strings only}
 \usage{
 str_unique(string, ...)
 }
@@ -10,7 +10,7 @@ str_unique(string, ...)
 \item{string}{A character vector to return unique entries.}
 
 \item{...}{Other options used to control matching behavior between duplicate
-strings. Passed on to \code{stringi::stri_opts_collator()}.}
+strings. Passed on to \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \value{
 A character vector.
@@ -19,8 +19,9 @@ A character vector.
 Vectorized over \code{string}.
 }
 \examples{
-str_unique(letters[c(1:3, 2, 3)])
+str_unique(c("a", "b", "c", "b", "a"))
 
+# Use ... to pass additional arguments to stri_unique()
 str_unique(c("motley", "mötley", "pinguino", "pingüino"))
 str_unique(c("motley", "mötley", "pinguino", "pingüino"), strength = 1)
 }

@@ -1,4 +1,5 @@
 # stringr (development version)
+
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
 
@@ -15,8 +16,8 @@
 * New `str_like()` function which allows the use of SQL wildcards
   (#280, @rjpat).
 
-* `str_unique()` is a wrapper around `stri_unique()` and returns unique string 
-  values in a character vector.
+* New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
+  string values in a character vector (#249, @seasmith).
 
 # stringr 1.4.0
 
