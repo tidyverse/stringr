@@ -23,9 +23,9 @@ A logical vector.
 Follows the structure of the SQL \code{LIKE} operator:
 \itemize{
 \item Must match the entire string
-\item \code{_} matches a single character (like \code{.})
-\item \verb{\%} matches any number of characters (\code{.*})
-\item \verb{\\\%} and \code{\\_} match literal \verb{\%} and \code{_}
+\item \verb{_} matches a single character (like \code{.})
+\item \verb{\%} matches any number of characters (\verb{.*})
+\item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}
 \item The match is case insentistive by default
 }
 }

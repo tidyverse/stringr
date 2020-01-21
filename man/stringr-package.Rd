@@ -6,7 +6,7 @@
 \alias{stringr-package}
 \title{stringr: Simple, Consistent Wrappers for Common String Operations}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 A consistent, simple and easy to use set of
     wrappers around the fantastic 'stringi' package. All function and

@@ -2,6 +2,8 @@
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
 
+* Many typos in `sentences` have been fixed (@romatik, #299)
+
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
   help you move to stringr if you're already familiar with base R string

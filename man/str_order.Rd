@@ -5,11 +5,23 @@
 \alias{str_sort}
 \title{Order or sort a character vector.}
 \usage{
-str_order(x, decreasing = FALSE, na_last = TRUE, locale = "en",
-  numeric = FALSE, ...)
+str_order(
+  x,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+  ...
+)
 
-str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "en",
-  numeric = FALSE, ...)
+str_sort(
+  x,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{A character vector to sort.}

@@ -26,8 +26,8 @@ respects character matching rules for the specified locale.}
 
 \item{replacement}{A character vector of replacements. Should be either
 length one, or the same length as \code{string} or \code{pattern}.
-References of the form \code{\1}, \code{\2}, etc will be replaced with
-the contents of the respective matched group (created by \code{()}).
+References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
+the contents of the respective matched group (created by \verb{()}).
 
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to
