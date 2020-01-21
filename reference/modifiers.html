@@ -193,11 +193,20 @@ not usually what you want for non-ASCII character sets.</p></dd>
 
 <span class='fu'>coll</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>, <span class='no'>...</span>)
 
-<span class='fu'>regex</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>multiline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>comments</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>dotall</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>regex</span>(
+  <span class='no'>pattern</span>,
+  <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>multiline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>comments</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>dotall</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
-<span class='fu'>boundary</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"line_break"</span>, <span class='st'>"sentence"</span>, <span class='st'>"word"</span>),
-  <span class='kw'>skip_word_none</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>boundary</span>(
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"line_break"</span>, <span class='st'>"sentence"</span>, <span class='st'>"word"</span>),
+  <span class='kw'>skip_word_none</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -233,7 +242,7 @@ default, only match the start and end of the input.</p></td>
     <tr>
       <th>comments</th>
       <td><p>If <code>TRUE</code>, white space and comments beginning with
-<code>#</code> are ignored. Escape literal spaces with <code>\ </code>.</p></td>
+<code>#</code> are ignored. Escape literal spaces with <code>\\ </code>.</p></td>
     </tr>
     <tr>
       <th>dotall</th>
