@@ -1,4 +1,4 @@
-#' Extract matching patterns from a string.
+#' Extract matching patterns from a string
 #'
 #' Vectorised over `string` and `pattern`.
 #'

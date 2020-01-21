@@ -3,7 +3,7 @@
 \name{str_remove}
 \alias{str_remove}
 \alias{str_remove_all}
-\title{Remove matched patterns in a string.}
+\title{Remove matched patterns in a string}
 \usage{
 str_remove(string, pattern)
 

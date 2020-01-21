@@ -1,4 +1,4 @@
-#' Extract and replace substrings from a character vector.
+#' Extract and replace substrings from a character vector
 #'
 #' `str_sub` will recycle all arguments to be the same length as the
 #' longest argument. If any arguments are of length 0, the output will be

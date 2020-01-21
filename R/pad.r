@@ -1,4 +1,4 @@
-#' Pad a string.
+#' Pad a string
 #'
 #' Vectorised over `string`, `width` and `pad`.
 #'

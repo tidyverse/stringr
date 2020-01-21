@@ -1,4 +1,4 @@
-#' String interpolation.
+#' String interpolation
 #'
 #' String interpolation is a useful way of specifying a character string which
 #' depends on values in a certain environment. It allows for string creation

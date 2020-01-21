@@ -2,7 +2,7 @@
 % Please edit documentation in R/count.r
 \name{str_count}
 \alias{str_count}
-\title{Count the number of matches in a string.}
+\title{Count the number of matches in a string}
 \usage{
 str_count(string, pattern = "")
 }

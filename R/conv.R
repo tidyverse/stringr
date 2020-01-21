@@ -1,4 +1,4 @@
-#' Specify the encoding of a string.
+#' Specify the encoding of a string
 #'
 #' This is a convenient way to override the current encoding of a string.
 #'

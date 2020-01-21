@@ -4,7 +4,7 @@
 \alias{str_split}
 \alias{str_split_fixed}
 \alias{str_split_n}
-\title{Split up a string into pieces.}
+\title{Split up a string into pieces}
 \usage{
 str_split(string, pattern, n = Inf, simplify = FALSE)
 

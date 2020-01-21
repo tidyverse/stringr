@@ -6,7 +6,7 @@
 \alias{str_to_lower}
 \alias{str_to_title}
 \alias{str_to_sentence}
-\title{Convert case of a string.}
+\title{Convert case of a string}
 \usage{
 str_to_upper(string, locale = "en")
 
@@ -23,7 +23,7 @@ str_to_sentence(string, locale = "en")
 to ensure consistent default ordering across platforms.}
 }
 \description{
-Convert case of a string.
+Convert case of a string
 }
 \examples{
 dog <- "The quick brown dog"

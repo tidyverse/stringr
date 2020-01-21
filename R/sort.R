@@ -1,4 +1,4 @@
-#' Order or sort a character vector.
+#' Order or sort a character vector
 #'
 #' @param x A character vector to sort.
 #' @param decreasing A boolean. If `FALSE`, the default, sorts from

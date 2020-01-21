@@ -3,7 +3,7 @@
 \name{str_subset}
 \alias{str_subset}
 \alias{str_which}
-\title{Keep strings matching a pattern, or find positions.}
+\title{Keep strings matching a pattern, or find positions}
 \usage{
 str_subset(string, pattern, negate = FALSE)
 

@@ -1,4 +1,4 @@
-#' The length of a string.
+#' The length of a string
 #'
 #' Technically this returns the number of "code points", in a string. One
 #' code point usually corresponds to one character, but not always. For example,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/interp.R
 \name{str_interp}
 \alias{str_interp}
-\title{String interpolation.}
+\title{String interpolation}
 \usage{
 str_interp(string, env = parent.frame())
 }

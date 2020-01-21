@@ -2,7 +2,7 @@
 % Please edit documentation in R/dup.r
 \name{str_dup}
 \alias{str_dup}
-\title{Duplicate and concatenate strings within a character vector.}
+\title{Duplicate and concatenate strings within a character vector}
 \usage{
 str_dup(string, times)
 }

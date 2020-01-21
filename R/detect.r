@@ -1,4 +1,4 @@
-#' Detect the presence or absence of a pattern in a string.
+#' Detect the presence or absence of a pattern in a string
 #'
 #' Vectorised over `string` and `pattern`.
 #' Equivalent to `grepl(pattern, x)`.

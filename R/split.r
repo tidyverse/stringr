@@ -1,4 +1,4 @@
-#' Split up a string into pieces.
+#' Split up a string into pieces
 #'
 #' Vectorised over `string` and `pattern`.
 #'

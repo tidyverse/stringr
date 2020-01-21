@@ -1,4 +1,4 @@
-#' Keep strings matching a pattern, or find positions.
+#' Keep strings matching a pattern, or find positions
 #'
 #' `str_subset()` is a wrapper around `x[str_detect(x, pattern)]`,
 #' and is equivalent to `grep(pattern, x, value = TRUE)`.

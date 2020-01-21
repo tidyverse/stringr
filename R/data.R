@@ -1,4 +1,4 @@
-#' Sample character vectors for practicing string manipulations.
+#' Sample character vectors for practicing string manipulations
 #'
 #' `fruit` and `word` come from the `rcorpora` package
 #' written by Gabor Csardi; the data was collected by Darius Kazemi

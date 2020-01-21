@@ -1,4 +1,4 @@
-#' Extract words from a sentence.
+#' Extract words from a sentence
 #'
 #' @param string input character vector.
 #' @param start integer vector giving position of first word to extract.

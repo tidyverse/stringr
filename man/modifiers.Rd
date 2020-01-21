@@ -6,7 +6,7 @@
 \alias{coll}
 \alias{regex}
 \alias{boundary}
-\title{Control matching behaviour with modifier functions.}
+\title{Control matching behaviour with modifier functions}
 \usage{
 fixed(pattern, ignore_case = FALSE)
 
