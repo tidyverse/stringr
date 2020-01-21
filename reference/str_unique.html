@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract matched groups from a string — str_match • stringr</title>
+<title>Keep unique strings only — str_unique • stringr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -41,8 +41,8 @@
 
 
 
-<meta property="og:title" content="Extract matched groups from a string — str_match" />
-<meta property="og:description" content="Vectorised over string and pattern." />
+<meta property="og:title" content="Keep unique strings only — str_unique" />
+<meta property="og:description" content="Vectorized over string." />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -162,191 +162,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract matched groups from a string</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/match.r'><code>R/match.r</code></a></small>
-    <div class="hidden name"><code>str_match.Rd</code></div>
+    <h1>Keep unique strings only</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/unique.R'><code>R/unique.R</code></a></small>
+    <div class="hidden name"><code>str_unique.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
+    <p>Vectorized over <code>string</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_match</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)
-
-<span class='fu'>str_match_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)</pre>
+    <pre class="usage"><span class='fu'>str_unique</span>(<span class='no'>string</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>string</th>
-      <td><p>Input vector. Either a character vector, or something
-coercible to one.</p></td>
+      <td><p>A character vector to return unique entries.</p></td>
     </tr>
     <tr>
-      <th>pattern</th>
-      <td><p>Pattern to look for, as defined by an ICU regular
-expression. See <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a> for more details.</p></td>
+      <th>...</th>
+      <td><p>Other options used to control matching behavior between duplicate
+strings. Passed on to <code><a href='https://rdrr.io/pkg/stringi/man/stri_opts_collator.html'>stringi::stri_opts_collator()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>For <code>str_match</code>, a character matrix. First column is the
-complete match, followed by one column for each capture group.
-For <code>str_match_all</code>, a list of character matrices.</p>
+    <p>A character vector.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='str_extract.html'>str_extract()</a></code> to extract the complete match,
-<code><a href='https://rdrr.io/pkg/stringi/man/stri_match.html'>stringi::stri_match()</a></code> for the underlying
-implementation.</p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/unique.html'>unique()</a></code>, <code><a href='https://rdrr.io/pkg/stringi/man/stri_unique.html'>stringi::stri_unique()</a></code> which this function wraps.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>strings</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>" 219 733 8965"</span>, <span class='st'>"329-293-8753 "</span>, <span class='st'>"banana"</span>, <span class='st'>"595 794 7569"</span>,
-  <span class='st'>"387 287 6718"</span>, <span class='st'>"apple"</span>, <span class='st'>"233.398.9187  "</span>, <span class='st'>"482 952 3315"</span>,
-  <span class='st'>"239 923 8115 and 842 566 4692"</span>, <span class='st'>"Work: 579-499-7527"</span>, <span class='st'>"$1000"</span>,
-  <span class='st'>"Home: 543.355.3679"</span>)
-<span class='no'>phone</span> <span class='kw'>&lt;-</span> <span class='st'>"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span>
-
-<span class='fu'><a href='str_extract.html'>str_extract</a></span>(<span class='no'>strings</span>, <span class='no'>phone</span>)</div><div class='output co'>#&gt;  [1] "219 733 8965" "329-293-8753" NA             "595 794 7569" "387 287 6718"
-#&gt;  [6] NA             "233.398.9187" "482 952 3315" "239 923 8115" "579-499-7527"
-#&gt; [11] NA             "543.355.3679"</div><div class='input'><span class='fu'>str_match</span>(<span class='no'>strings</span>, <span class='no'>phone</span>)</div><div class='output co'>#&gt;       [,1]           [,2]  [,3]  [,4]  
-#&gt;  [1,] "219 733 8965" "219" "733" "8965"
-#&gt;  [2,] "329-293-8753" "329" "293" "8753"
-#&gt;  [3,] NA             NA    NA    NA    
-#&gt;  [4,] "595 794 7569" "595" "794" "7569"
-#&gt;  [5,] "387 287 6718" "387" "287" "6718"
-#&gt;  [6,] NA             NA    NA    NA    
-#&gt;  [7,] "233.398.9187" "233" "398" "9187"
-#&gt;  [8,] "482 952 3315" "482" "952" "3315"
-#&gt;  [9,] "239 923 8115" "239" "923" "8115"
-#&gt; [10,] "579-499-7527" "579" "499" "7527"
-#&gt; [11,] NA             NA    NA    NA    
-#&gt; [12,] "543.355.3679" "543" "355" "3679"</div><div class='input'>
-<span class='co'># Extract/match all</span>
-<span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='no'>strings</span>, <span class='no'>phone</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "219 733 8965"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "329-293-8753"
-#&gt; 
-#&gt; [[3]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] "595 794 7569"
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] "387 287 6718"
-#&gt; 
-#&gt; [[6]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[7]]
-#&gt; [1] "233.398.9187"
-#&gt; 
-#&gt; [[8]]
-#&gt; [1] "482 952 3315"
-#&gt; 
-#&gt; [[9]]
-#&gt; [1] "239 923 8115" "842 566 4692"
-#&gt; 
-#&gt; [[10]]
-#&gt; [1] "579-499-7527"
-#&gt; 
-#&gt; [[11]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[12]]
-#&gt; [1] "543.355.3679"
-#&gt; </div><div class='input'><span class='fu'>str_match_all</span>(<span class='no'>strings</span>, <span class='no'>phone</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "219 733 8965" "219" "733" "8965"
-#&gt; 
-#&gt; [[2]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "329-293-8753" "329" "293" "8753"
-#&gt; 
-#&gt; [[3]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[4]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "595 794 7569" "595" "794" "7569"
-#&gt; 
-#&gt; [[5]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "387 287 6718" "387" "287" "6718"
-#&gt; 
-#&gt; [[6]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[7]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "233.398.9187" "233" "398" "9187"
-#&gt; 
-#&gt; [[8]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "482 952 3315" "482" "952" "3315"
-#&gt; 
-#&gt; [[9]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "239 923 8115" "239" "923" "8115"
-#&gt; [2,] "842 566 4692" "842" "566" "4692"
-#&gt; 
-#&gt; [[10]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "579-499-7527" "579" "499" "7527"
-#&gt; 
-#&gt; [[11]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[12]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "543.355.3679" "543" "355" "3679"
-#&gt; </div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"&lt;a&gt; &lt;b&gt;"</span>, <span class='st'>"&lt;a&gt; &lt;&gt;"</span>, <span class='st'>"&lt;a&gt;"</span>, <span class='st'>""</span>, <span class='fl'>NA</span>)
-<span class='fu'>str_match</span>(<span class='no'>x</span>, <span class='st'>"&lt;(.*?)&gt; &lt;(.*?)&gt;"</span>)</div><div class='output co'>#&gt;      [,1]      [,2] [,3]
-#&gt; [1,] "&lt;a&gt; &lt;b&gt;" "a"  "b" 
-#&gt; [2,] "&lt;a&gt; &lt;&gt;"  "a"  ""  
-#&gt; [3,] NA        NA   NA  
-#&gt; [4,] NA        NA   NA  
-#&gt; [5,] NA        NA   NA  </div><div class='input'><span class='fu'>str_match_all</span>(<span class='no'>x</span>, <span class='st'>"&lt;(.*?)&gt;"</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; [2,] "&lt;b&gt;" "b" 
-#&gt; 
-#&gt; [[2]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; [2,] "&lt;&gt;"  ""  
-#&gt; 
-#&gt; [[3]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; 
-#&gt; [[4]]
-#&gt;      [,1] [,2]
-#&gt; 
-#&gt; [[5]]
-#&gt;      [,1] [,2]
-#&gt; [1,] NA   NA  
-#&gt; </div><div class='input'>
-<span class='fu'><a href='str_extract.html'>str_extract</a></span>(<span class='no'>x</span>, <span class='st'>"&lt;.*?&gt;"</span>)</div><div class='output co'>#&gt; [1] "&lt;a&gt;" "&lt;a&gt;" "&lt;a&gt;" NA    NA   </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='no'>x</span>, <span class='st'>"&lt;.*?&gt;"</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "&lt;a&gt;" "&lt;b&gt;"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "&lt;a&gt;" "&lt;&gt;" 
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "&lt;a&gt;"
-#&gt; 
-#&gt; [[4]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] NA
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>str_unique</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span>, <span class='st'>"b"</span>, <span class='st'>"a"</span>))</div><div class='output co'>#&gt; [1] "a" "b" "c"</div><div class='input'>
+<span class='co'># Use ... to pass additional arguments to stri_unique()</span>
+<span class='fu'>str_unique</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"motley"</span>, <span class='st'>"mötley"</span>, <span class='st'>"pinguino"</span>, <span class='st'>"pingüino"</span>))</div><div class='output co'>#&gt; [1] "motley"   "mötley"   "pinguino" "pingüino"</div><div class='input'><span class='fu'>str_unique</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"motley"</span>, <span class='st'>"mötley"</span>, <span class='st'>"pinguino"</span>, <span class='st'>"pingüino"</span>), <span class='kw'>strength</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "motley"   "pinguino"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
