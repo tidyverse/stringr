@@ -1,4 +1,19 @@
 # stringr (development version)
+* `word()` now returns all the sentence when using a negative `start` parameter
+  that is greater or equal than the number of words. (@pdelboca, #245)
+
+* Many typos in `sentences` have been fixed (@romatik, #299)
+
+* New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
+  between base R functions and their stringr equivalents. It's designed to
+  help you move to stringr if you're already familiar with base R string
+  functions (#266).
+
+* New `str_split_n()` function to extract only a single piece from a string
+  (#278, @bfgray3).
+  
+* New `str_like()` function which allows the use of SQL wildcards
+  (#280, @rjpat).
 
 * `str_unique()` is a wrapper around `stri_unique()` and returns unique string 
   values in a character vector.

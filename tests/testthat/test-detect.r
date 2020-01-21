@@ -49,3 +49,20 @@ test_that("str_ends works", {
   # Special typing of patterns.
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
 })
+
+
+# str_like ----------------------------------------------------------------
+
+test_that("like_to_regex generates expected regexps",{
+  expect_equal(like_to_regex("ab%"), "^ab.*$")
+  expect_equal(like_to_regex("ab_"), "^ab.$")
+
+  # escaping
+  expect_equal(like_to_regex("ab\\%"), "^ab\\%$")
+  expect_equal(like_to_regex("ab[%]"), "^ab[%]$")
+})
+
+test_that("str_like works", {
+  expect_true(str_like("abc", "ab%"))
+  expect_error(str_like("abc", regex("x")), "character vector")
+})

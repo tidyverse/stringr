@@ -26,8 +26,8 @@ respects character matching rules for the specified locale.}
 
 \item{replacement}{A character vector of replacements. Should be either
 length one, or the same length as \code{string} or \code{pattern}.
-References of the form \code{\1}, \code{\2}, etc will be replaced with
-the contents of the respective matched group (created by \code{()}).
+References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
+the contents of the respective matched group (created by \verb{()}).
 
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to
@@ -53,6 +53,8 @@ str_replace_all(fruits, "b", NA_character_)
 
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
+
+# Note that str_replace() is vectorised along text, pattern, and replacement
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
 

@@ -27,7 +27,7 @@ str_length(factor("abc"))
 str_length(c("i", "like", "programming", NA))
 
 # Two ways of representing a u with an umlaut
-u1 <- "\\u00fc"
+u1 <- "\u00fc"
 u2 <- stringi::stri_trans_nfd(u1)
 # The print the same:
 u1
