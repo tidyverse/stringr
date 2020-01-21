@@ -4,8 +4,7 @@
 \alias{str_trunc}
 \title{Truncate a character string.}
 \usage{
-str_trunc(string, width, side = c("right", "left", "center"),
-  ellipsis = "...")
+str_trunc(string, width, side = c("right", "left", "center"), ellipsis = "...")
 }
 \arguments{
 \item{string}{A character vector.}
