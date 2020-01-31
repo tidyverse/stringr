@@ -144,26 +144,26 @@
 <h2 class="hasAnchor">
 <a href="#getting-and-setting-individual-characters" class="anchor"></a>Getting and setting individual characters</h2>
 <p>You can get the length of the string with <code><a href="../reference/str_length.html">str_length()</a></code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="../reference/str_length.html">str_length</a></span>(<span class="st">"abc"</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="../reference/str_length.html">str_length</a></span>(<span class="st">"abc"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 <p>This is now equivalent to the base R function <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code>. Previously it was needed to work around issues with <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> such as the fact that it returned 2 for <code><a href="https://rdrr.io/r/base/nchar.html">nchar(NA)</a></code>. This has been fixed as of R 3.3.0, so it is no longer so important.</p>
 <p>You can access individual character using <code><a href="../reference/str_sub.html">str_sub()</a></code>. It takes three arguments: a character vector, a <code>start</code> position and an <code>end</code> position. Either position can either be a positive integer, which counts from the left, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abcdef"</span>, <span class="st">"ghifjk"</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># The 3rd letter</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">3</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; [1] "c" "i"</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># The 2nd to 2nd-to-last character</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">2</span>, <span class="dv">-2</span>)</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] "bcde" "hifj"</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abcdef"</span>, <span class="st">"ghifjk"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># The 3rd letter</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; [1] "c" "i"</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># The 2nd to 2nd-to-last character</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">2</span>, <span class="dv">-2</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; [1] "bcde" "hifj"</span></span></code></pre></div>
 <p>You can also use <code><a href="../reference/str_sub.html">str_sub()</a></code> to modify strings:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">3</span>, <span class="dv">3</span>) &lt;-<span class="st"> "X"</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">x</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; [1] "abXdef" "ghXfjk"</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="../reference/str_sub.html">str_sub</a></span>(x, <span class="dv">3</span>, <span class="dv">3</span>) &lt;-<span class="st"> "X"</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>x</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; [1] "abXdef" "ghXfjk"</span></span></code></pre></div>
 <p>To duplicate individual strings, you can use <code><a href="../reference/str_dup.html">str_dup()</a></code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/str_dup.html">str_dup</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "abXdefabXdef"       "ghXfjkghXfjkghXfjk"</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/str_dup.html">str_dup</a></span>(x, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; [1] "abXdefabXdef"       "ghXfjkghXfjkghXfjk"</span></span></code></pre></div>
 </div>
 <div id="whitespace" class="section level2">
 <h2 class="hasAnchor">
@@ -172,44 +172,44 @@
 <ol style="list-style-type: decimal">
 <li>
 <p><code><a href="../reference/str_pad.html">str_pad()</a></code> pads a string to a fixed length by adding extra whitespace on the left, right, or both sides.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"defghi"</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">10</span>) <span class="co"># default pads on left</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [1] "       abc" "    defghi"</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">10</span>, <span class="st">"both"</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; [1] "   abc    " "  defghi  "</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"defghi"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">10</span>) <span class="co"># default pads on left</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; [1] "       abc" "    defghi"</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">10</span>, <span class="st">"both"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; [1] "   abc    " "  defghi  "</span></span></code></pre></div>
 <p>(You can pad with other characters by using the <code>pad</code> argument.)</p>
 <p><code><a href="../reference/str_pad.html">str_pad()</a></code> will never make a string shorter:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] " abc"   "defghi"</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(x, <span class="dv">4</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; [1] " abc"   "defghi"</span></span></code></pre></div>
 <p>So if you want to ensure that all strings are the same length (often useful for print methods), combine <code><a href="../reference/str_pad.html">str_pad()</a></code> and <code><a href="../reference/str_trunc.html">str_trunc()</a></code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Short"</span>, <span class="st">"This is a long string"</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">x <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/str_trunc.html">str_trunc</a></span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(<span class="dv">10</span>, <span class="st">"right"</span>)</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; [1] "Short     " "This is..."</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Short"</span>, <span class="st">"This is a long string"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>x <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="st">  </span><span class="kw"><a href="../reference/str_trunc.html">str_trunc</a></span>(<span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw"><a href="../reference/str_pad.html">str_pad</a></span>(<span class="dv">10</span>, <span class="st">"right"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; [1] "Short     " "This is..."</span></span></code></pre></div>
 </li>
 <li>
 <p>The opposite of <code><a href="../reference/str_pad.html">str_pad()</a></code> is <code><a href="../reference/str_trim.html">str_trim()</a></code>, which removes leading and trailing whitespace:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"  a   "</span>, <span class="st">"b   "</span>,  <span class="st">"   c"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/str_trim.html">str_trim</a></span>(x)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; [1] "a" "b" "c"</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="../reference/str_trim.html">str_trim</a></span>(x, <span class="st">"left"</span>)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; [1] "a   " "b   " "c"</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"  a   "</span>, <span class="st">"b   "</span>,  <span class="st">"   c"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="../reference/str_trim.html">str_trim</a></span>(x)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#&gt; [1] "a" "b" "c"</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="kw"><a href="../reference/str_trim.html">str_trim</a></span>(x, <span class="st">"left"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; [1] "a   " "b   " "c"</span></span></code></pre></div>
 </li>
 <li>
 <p>You can use <code><a href="../reference/str_wrap.html">str_wrap()</a></code> to modify existing whitespace in order to wrap a paragraph of text, such that the length of each line is as similar as possible.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">jabberwocky &lt;-<span class="st"> </span><span class="kw"><a href="../reference/str_c.html">str_c</a></span>(</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="st">"`Twas brillig, and the slithy toves "</span>,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="st">"did gyre and gimble in the wabe: "</span>,</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="st">"All mimsy were the borogoves, "</span>,</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="st">"and the mome raths outgrabe. "</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="kw"><a href="../reference/str_wrap.html">str_wrap</a></span>(jabberwocky, <span class="dt">width =</span> <span class="dv">40</span>))</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt; `Twas brillig, and the slithy toves did</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; gyre and gimble in the wabe: All mimsy</span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt; were the borogoves, and the mome raths</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt; outgrabe.</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>jabberwocky &lt;-<span class="st"> </span><span class="kw"><a href="../reference/str_c.html">str_c</a></span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="st">"`Twas brillig, and the slithy toves "</span>,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="st">"did gyre and gimble in the wabe: "</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="st">"All mimsy were the borogoves, "</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="st">"and the mome raths outgrabe. "</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="kw"><a href="../reference/str_wrap.html">str_wrap</a></span>(jabberwocky, <span class="dt">width =</span> <span class="dv">40</span>))</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; `Twas brillig, and the slithy toves did</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; gyre and gimble in the wabe: All mimsy</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; were the borogoves, and the mome raths</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; outgrabe.</span></span></code></pre></div>
 </li>
 </ol>
 </div>
@@ -217,27 +217,27 @@
 <h2 class="hasAnchor">
 <a href="#locale-sensitive" class="anchor"></a>Locale sensitive</h2>
 <p>A handful of stringr functions are locale-sensitive: they will perform differently in different regions of the world. These functions are case transformation functions:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">x &lt;-<span class="st"> "I like horses."</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="../reference/case.html">str_to_upper</a></span>(x)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; [1] "I LIKE HORSES."</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw"><a href="../reference/case.html">str_to_title</a></span>(x)</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt; [1] "I Like Horses."</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw"><a href="../reference/case.html">str_to_lower</a></span>(x)</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; [1] "i like horses."</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co"># Turkish has two sorts of i: with and without the dot</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="kw"><a href="../reference/case.html">str_to_lower</a></span>(x, <span class="st">"tr"</span>)</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">#&gt; [1] "ı like horses."</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>x &lt;-<span class="st"> "I like horses."</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw"><a href="../reference/case.html">str_to_upper</a></span>(x)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; [1] "I LIKE HORSES."</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="kw"><a href="../reference/case.html">str_to_title</a></span>(x)</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; [1] "I Like Horses."</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="kw"><a href="../reference/case.html">str_to_lower</a></span>(x)</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; [1] "i like horses."</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co"># Turkish has two sorts of i: with and without the dot</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="kw"><a href="../reference/case.html">str_to_lower</a></span>(x, <span class="st">"tr"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; [1] "ı like horses."</span></span></code></pre></div>
 <p>String ordering and sorting:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"y"</span>, <span class="st">"i"</span>, <span class="st">"k"</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="../reference/str_order.html">str_order</a></span>(x)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; [1] 2 3 1</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw"><a href="../reference/str_order.html">str_sort</a></span>(x)</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [1] "i" "k" "y"</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co"># In Lithuanian, y comes between i and k</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw"><a href="../reference/str_order.html">str_sort</a></span>(x, <span class="dt">locale =</span> <span class="st">"lt"</span>)</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [1] "i" "y" "k"</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"y"</span>, <span class="st">"i"</span>, <span class="st">"k"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw"><a href="../reference/str_order.html">str_order</a></span>(x)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; [1] 2 3 1</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="kw"><a href="../reference/str_order.html">str_sort</a></span>(x)</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">#&gt; [1] "i" "k" "y"</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># In Lithuanian, y comes between i and k</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="kw"><a href="../reference/str_order.html">str_sort</a></span>(x, <span class="dt">locale =</span> <span class="st">"lt"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#&gt; [1] "i" "y" "k"</span></span></code></pre></div>
 <p>The locale always defaults to English to ensure that the default behaviour is identical across systems. Locales always include a two letter ISO-639-1 language code (like “en” for English or “zh” for Chinese), and optionally a ISO-3166 country code (like “en_UK” vs “en_US”). You can see a complete list of available locales by running <code><a href="https://rdrr.io/pkg/stringi/man/stri_locale_list.html">stringi::stri_locale_list()</a></code>.</p>
 </div>
 <div id="pattern-matching" class="section level2">
@@ -248,127 +248,127 @@
 <h3 class="hasAnchor">
 <a href="#tasks" class="anchor"></a>Tasks</h3>
 <p>Each pattern matching function has the same first two arguments, a character vector of <code>string</code>s to process and a single <code>pattern</code> to match. stringr provides pattern matching functions to <strong>detect</strong>, <strong>locate</strong>, <strong>extract</strong>, <strong>match</strong>, <strong>replace</strong>, and <strong>split</strong> strings. I’ll illustrate how they work with some strings and a regular expression designed to match (US) phone numbers:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">strings &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="st">"apple"</span>, </a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="st">"219 733 8965"</span>, </a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="st">"329-293-8753"</span>, </a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="st">"Work: 579-499-7527; Home: 543.355.3679"</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">phone &lt;-<span class="st"> "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>strings &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="st">"apple"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="st">"219 733 8965"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="st">"329-293-8753"</span>, </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="st">"Work: 579-499-7527; Home: 543.355.3679"</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>phone &lt;-<span class="st"> "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span></span></code></pre></div>
 <ul>
 <li>
 <p><code><a href="../reference/str_detect.html">str_detect()</a></code> detects the presence or absence of a pattern and returns a logical vector (similar to <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code>). <code><a href="../reference/str_subset.html">str_subset()</a></code> returns the elements of a character vector that match a regular expression (similar to <code><a href="https://rdrr.io/r/base/grep.html">grep()</a></code> with <code>value = TRUE</code>)`.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># Which strings contain phone numbers?</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt; [1] "219 733 8965"                          </span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt; [2] "329-293-8753"                          </span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt; [3] "Work: 579-499-7527; Home: 543.355.3679"</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Which strings contain phone numbers?</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(strings, phone)</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(strings, phone)</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; [1] "219 733 8965"                          </span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt; [2] "329-293-8753"                          </span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt; [3] "Work: 579-499-7527; Home: 543.355.3679"</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_count.html">str_count()</a></code> counts the number of matches:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># How many phone numbers in each string?</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; [1] 0 1 1 2</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># How many phone numbers in each string?</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(strings, phone)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#&gt; [1] 0 1 1 2</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_locate.html">str_locate()</a></code> locates the <strong>first</strong> position of a pattern and returns a numeric matrix with columns start and end. <code><a href="../reference/str_locate.html">str_locate_all()</a></code> locates all matches, returning a list of numeric matrices. Similar to <code><a href="https://rdrr.io/r/base/grep.html">regexpr()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html">gregexpr()</a></code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># Where in the string is the phone number located?</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">(loc &lt;-<span class="st"> </span><span class="kw"><a href="../reference/str_locate.html">str_locate</a></span>(strings, phone))</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt;      start end</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt; [1,]    NA  NA</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; [2,]     1  12</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; [3,]     1  12</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; [4,]     7  18</span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="kw"><a href="../reference/str_locate.html">str_locate_all</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt;      start end</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt;      start end</span></a>
-<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; [1,]     1  12</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#&gt;      start end</span></a>
-<a class="sourceLine" id="cb15-18" data-line-number="18"><span class="co">#&gt; [1,]     1  12</span></a>
-<a class="sourceLine" id="cb15-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-20" data-line-number="20"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb15-21" data-line-number="21"><span class="co">#&gt;      start end</span></a>
-<a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co">#&gt; [1,]     7  18</span></a>
-<a class="sourceLine" id="cb15-23" data-line-number="23"><span class="co">#&gt; [2,]    27  38</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Where in the string is the phone number located?</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>(loc &lt;-<span class="st"> </span><span class="kw"><a href="../reference/str_locate.html">str_locate</a></span>(strings, phone))</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co">#&gt;      start end</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#&gt; [1,]    NA  NA</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#&gt; [2,]     1  12</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co">#&gt; [3,]     1  12</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co">#&gt; [4,]     7  18</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="kw"><a href="../reference/str_locate.html">str_locate_all</a></span>(strings, phone)</span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="co">#&gt;      start end</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#&gt; </span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="co">#&gt;      start end</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a><span class="co">#&gt; [1,]     1  12</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="co">#&gt; </span></span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="co">#&gt;      start end</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="co">#&gt; [1,]     1  12</span></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="co">#&gt; </span></span>
+<span id="cb15-20"><a href="#cb15-20"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb15-21"><a href="#cb15-21"></a><span class="co">#&gt;      start end</span></span>
+<span id="cb15-22"><a href="#cb15-22"></a><span class="co">#&gt; [1,]     7  18</span></span>
+<span id="cb15-23"><a href="#cb15-23"></a><span class="co">#&gt; [2,]    27  38</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_extract.html">str_extract()</a></code> extracts text corresponding to the <strong>first</strong> match, returning a character vector. <code><a href="../reference/str_extract.html">str_extract_all()</a></code> extracts all matches and returns a list of character vectors.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># What are the phone numbers?</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co">#&gt; [1] NA             "219 733 8965" "329-293-8753" "579-499-7527"</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co">#&gt; character(0)</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co">#&gt; [1] "219 733 8965"</span></a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12"><span class="co">#&gt; [1] "329-293-8753"</span></a>
-<a class="sourceLine" id="cb16-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb16-15" data-line-number="15"><span class="co">#&gt; [1] "579-499-7527" "543.355.3679"</span></a>
-<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(strings, phone, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb16-17" data-line-number="17"><span class="co">#&gt;      [,1]           [,2]          </span></a>
-<a class="sourceLine" id="cb16-18" data-line-number="18"><span class="co">#&gt; [1,] ""             ""            </span></a>
-<a class="sourceLine" id="cb16-19" data-line-number="19"><span class="co">#&gt; [2,] "219 733 8965" ""            </span></a>
-<a class="sourceLine" id="cb16-20" data-line-number="20"><span class="co">#&gt; [3,] "329-293-8753" ""            </span></a>
-<a class="sourceLine" id="cb16-21" data-line-number="21"><span class="co">#&gt; [4,] "579-499-7527" "543.355.3679"</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># What are the phone numbers?</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw"><a href="../reference/str_extract.html">str_extract</a></span>(strings, phone)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">#&gt; [1] NA             "219 733 8965" "329-293-8753" "579-499-7527"</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(strings, phone)</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; character(0)</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; </span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#&gt; [1] "219 733 8965"</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#&gt; </span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co">#&gt; [1] "329-293-8753"</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="co">#&gt; </span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="co">#&gt; [1] "579-499-7527" "543.355.3679"</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(strings, phone, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb16-17"><a href="#cb16-17"></a><span class="co">#&gt;      [,1]           [,2]          </span></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="co">#&gt; [1,] ""             ""            </span></span>
+<span id="cb16-19"><a href="#cb16-19"></a><span class="co">#&gt; [2,] "219 733 8965" ""            </span></span>
+<span id="cb16-20"><a href="#cb16-20"></a><span class="co">#&gt; [3,] "329-293-8753" ""            </span></span>
+<span id="cb16-21"><a href="#cb16-21"></a><span class="co">#&gt; [4,] "579-499-7527" "543.355.3679"</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_match.html">str_match()</a></code> extracts capture groups formed by <code>()</code> from the <strong>first</strong> match. It returns a character matrix with one column for the complete match and one column for each group. <code><a href="../reference/str_match.html">str_match_all()</a></code> extracts capture groups from all matches and returns a list of character matrices. Similar to <code><a href="https://rdrr.io/r/base/regmatches.html">regmatches()</a></code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Pull out the three components of the match</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt; [1,] NA             NA    NA    NA    </span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&gt; [2,] "219 733 8965" "219" "733" "8965"</span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&gt; [3,] "329-293-8753" "329" "293" "8753"</span></a>
-<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co">#&gt; [4,] "579-499-7527" "579" "499" "7527"</span></a>
-<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="kw"><a href="../reference/str_match.html">str_match_all</a></span>(strings, phone)</a>
-<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></a>
-<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb17-12" data-line-number="12"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb17-13" data-line-number="13"><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></a>
-<a class="sourceLine" id="cb17-14" data-line-number="14"><span class="co">#&gt; [1,] "219 733 8965" "219" "733" "8965"</span></a>
-<a class="sourceLine" id="cb17-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb17-16" data-line-number="16"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb17-17" data-line-number="17"><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></a>
-<a class="sourceLine" id="cb17-18" data-line-number="18"><span class="co">#&gt; [1,] "329-293-8753" "329" "293" "8753"</span></a>
-<a class="sourceLine" id="cb17-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb17-20" data-line-number="20"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb17-21" data-line-number="21"><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></a>
-<a class="sourceLine" id="cb17-22" data-line-number="22"><span class="co">#&gt; [1,] "579-499-7527" "579" "499" "7527"</span></a>
-<a class="sourceLine" id="cb17-23" data-line-number="23"><span class="co">#&gt; [2,] "543.355.3679" "543" "355" "3679"</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Pull out the three components of the match</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw"><a href="../reference/str_match.html">str_match</a></span>(strings, phone)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#&gt; [1,] NA             NA    NA    NA    </span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#&gt; [2,] "219 733 8965" "219" "733" "8965"</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt; [3,] "329-293-8753" "329" "293" "8753"</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co">#&gt; [4,] "579-499-7527" "579" "499" "7527"</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="kw"><a href="../reference/str_match.html">str_match_all</a></span>(strings, phone)</span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb17-11"><a href="#cb17-11"></a><span class="co">#&gt; </span></span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></span>
+<span id="cb17-14"><a href="#cb17-14"></a><span class="co">#&gt; [1,] "219 733 8965" "219" "733" "8965"</span></span>
+<span id="cb17-15"><a href="#cb17-15"></a><span class="co">#&gt; </span></span>
+<span id="cb17-16"><a href="#cb17-16"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb17-17"><a href="#cb17-17"></a><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></span>
+<span id="cb17-18"><a href="#cb17-18"></a><span class="co">#&gt; [1,] "329-293-8753" "329" "293" "8753"</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a><span class="co">#&gt; </span></span>
+<span id="cb17-20"><a href="#cb17-20"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a><span class="co">#&gt;      [,1]           [,2]  [,3]  [,4]  </span></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="co">#&gt; [1,] "579-499-7527" "579" "499" "7527"</span></span>
+<span id="cb17-23"><a href="#cb17-23"></a><span class="co">#&gt; [2,] "543.355.3679" "543" "355" "3679"</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_replace.html">str_replace()</a></code> replaces the <strong>first</strong> matched pattern and returns a character vector. <code><a href="../reference/str_replace.html">str_replace_all()</a></code> replaces all matches. Similar to <code><a href="https://rdrr.io/r/base/grep.html">sub()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html">gsub()</a></code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw"><a href="../reference/str_replace.html">str_replace</a></span>(strings, phone, <span class="st">"XXX-XXX-XXXX"</span>)</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="co">#&gt; [1] "apple"                                 </span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co">#&gt; [2] "XXX-XXX-XXXX"                          </span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co">#&gt; [3] "XXX-XXX-XXXX"                          </span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co">#&gt; [4] "Work: XXX-XXX-XXXX; Home: 543.355.3679"</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(strings, phone, <span class="st">"XXX-XXX-XXXX"</span>)</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="co">#&gt; [1] "apple"                                 </span></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co">#&gt; [2] "XXX-XXX-XXXX"                          </span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co">#&gt; [3] "XXX-XXX-XXXX"                          </span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co">#&gt; [4] "Work: XXX-XXX-XXXX; Home: XXX-XXX-XXXX"</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw"><a href="../reference/str_replace.html">str_replace</a></span>(strings, phone, <span class="st">"XXX-XXX-XXXX"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co">#&gt; [1] "apple"                                 </span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; [2] "XXX-XXX-XXXX"                          </span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt; [3] "XXX-XXX-XXXX"                          </span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt; [4] "Work: XXX-XXX-XXXX; Home: 543.355.3679"</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(strings, phone, <span class="st">"XXX-XXX-XXXX"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt; [1] "apple"                                 </span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt; [2] "XXX-XXX-XXXX"                          </span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt; [3] "XXX-XXX-XXXX"                          </span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt; [4] "Work: XXX-XXX-XXXX; Home: XXX-XXX-XXXX"</span></span></code></pre></div>
 </li>
 <li>
 <p><code><a href="../reference/str_split.html">str_split_fixed()</a></code> splits a string into a <strong>fixed</strong> number of pieces based on a pattern and returns a character matrix. <code><a href="../reference/str_split.html">str_split()</a></code> splits a string into a <strong>variable</strong> number of pieces and returns a list of character vectors.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(<span class="st">"a-b-c"</span>, <span class="st">"-"</span>)</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co">#&gt; [1] "a" "b" "c"</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="kw"><a href="../reference/str_split.html">str_split_fixed</a></span>(<span class="st">"a-b-c"</span>, <span class="st">"-"</span>, <span class="dt">n =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co">#&gt;      [,1] [,2] </span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co">#&gt; [1,] "a"  "b-c"</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(<span class="st">"a-b-c"</span>, <span class="st">"-"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="co">#&gt; [1] "a" "b" "c"</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="kw"><a href="../reference/str_split.html">str_split_fixed</a></span>(<span class="st">"a-b-c"</span>, <span class="st">"-"</span>, <span class="dt">n =</span> <span class="dv">2</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co">#&gt;      [,1] [,2] </span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#&gt; [1,] "a"  "b-c"</span></span></code></pre></div>
 </li>
 </ul>
 </div>
@@ -386,51 +386,51 @@
 <h4 class="hasAnchor">
 <a href="#fixed-matches" class="anchor"></a>Fixed matches</h4>
 <p><code><a href="../reference/modifiers.html">fixed(x)</a></code> only matches the exact sequence of bytes specified by <code>x</code>. This is a very limited “pattern”, but the restriction can make matching much faster. Beware using <code><a href="../reference/modifiers.html">fixed()</a></code> with non-English data. It is problematic because there are often multiple ways of representing the same character. For example, there are two ways to define “á”: either as a single character or as an “a” plus an accent:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">a1 &lt;-<span class="st"> "\u00e1"</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">a2 &lt;-<span class="st"> "a\u0301"</span></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(a1, a2)</a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">#&gt; [1] "á" "á"</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5">a1 <span class="op">==</span><span class="st"> </span>a2</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>a1 &lt;-<span class="st"> "\u00e1"</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>a2 &lt;-<span class="st"> "a\u0301"</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(a1, a2)</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co">#&gt; [1] "á" "á"</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>a1 <span class="op">==</span><span class="st"> </span>a2</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>They render identically, but because they’re defined differently, <code><a href="../reference/modifiers.html">fixed()</a></code> doesn’t find a match. Instead, you can use <code><a href="../reference/modifiers.html">coll()</a></code>, explained below, to respect human character comparison rules:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(a1, <span class="kw"><a href="../reference/modifiers.html">fixed</a></span>(a2))</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(a1, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(a2))</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(a1, <span class="kw"><a href="../reference/modifiers.html">fixed</a></span>(a2))</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="kw"><a href="../reference/str_detect.html">str_detect</a></span>(a1, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(a2))</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div id="collation-search" class="section level4">
 <h4 class="hasAnchor">
 <a href="#collation-search" class="anchor"></a>Collation search</h4>
 <p><code><a href="../reference/modifiers.html">coll(x)</a></code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules differ around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">i &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"I"</span>, <span class="st">"İ"</span>, <span class="st">"i"</span>, <span class="st">"ı"</span>)</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">i</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co">#&gt; [1] "I" "İ" "i" "ı"</span></a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(i, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(<span class="st">"i"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="co">#&gt; [1] "I" "i"</span></a>
-<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(i, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(<span class="st">"i"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>, <span class="dt">locale =</span> <span class="st">"tr"</span>))</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="co">#&gt; [1] "İ" "i"</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>i &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"I"</span>, <span class="st">"İ"</span>, <span class="st">"i"</span>, <span class="st">"ı"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>i</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#&gt; [1] "I" "İ" "i" "ı"</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(i, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(<span class="st">"i"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="co">#&gt; [1] "I" "i"</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="kw"><a href="../reference/str_subset.html">str_subset</a></span>(i, <span class="kw"><a href="../reference/modifiers.html">coll</a></span>(<span class="st">"i"</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>, <span class="dt">locale =</span> <span class="st">"tr"</span>))</span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="co">#&gt; [1] "İ" "i"</span></span></code></pre></div>
 <p>The downside of <code><a href="../reference/modifiers.html">coll()</a></code> is speed. Because the rules for recognising which characters are the same are complicated, <code><a href="../reference/modifiers.html">coll()</a></code> is relatively slow compared to <code><a href="../reference/modifiers.html">regex()</a></code> and <code><a href="../reference/modifiers.html">fixed()</a></code>. Note that when both <code><a href="../reference/modifiers.html">fixed()</a></code> and <code><a href="../reference/modifiers.html">regex()</a></code> have <code>ignore_case</code> arguments, they perform a much simpler comparison than <code><a href="../reference/modifiers.html">coll()</a></code>.</p>
 </div>
 <div id="boundary" class="section level4">
 <h4 class="hasAnchor">
 <a href="#boundary" class="anchor"></a>Boundary</h4>
 <p><code><a href="../reference/modifiers.html">boundary()</a></code> matches boundaries between characters, lines, sentences or words. It’s most useful with <code><a href="../reference/str_split.html">str_split()</a></code>, but can be used with all pattern matching functions:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">x &lt;-<span class="st"> "This is a sentence."</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co">#&gt; [1] "This"     "is"       "a"        "sentence"</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</a>
-<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="co">#&gt; [1] 4</span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="co">#&gt; [1] "This"     "is"       "a"        "sentence"</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>x &lt;-<span class="st"> "This is a sentence."</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co">#&gt; [1] "This"     "is"       "a"        "sentence"</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="kw"><a href="../reference/str_extract.html">str_extract_all</a></span>(x, <span class="kw"><a href="../reference/modifiers.html">boundary</a></span>(<span class="st">"word"</span>))</span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a><span class="co">#&gt; [1] "This"     "is"       "a"        "sentence"</span></span></code></pre></div>
 <p>By convention, <code>""</code> is treated as <code><a href="../reference/modifiers.html">boundary("character")</a></code>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="st">""</span>)</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="co">#&gt;  [1] "T" "h" "i" "s" " " "i" "s" " " "a" " " "s" "e" "n" "t" "e" "n" "c" "e" "."</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(x, <span class="st">""</span>)</a>
-<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="co">#&gt; [1] 19</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw"><a href="../reference/str_split.html">str_split</a></span>(x, <span class="st">""</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="co">#&gt;  [1] "T" "h" "i" "s" " " "i" "s" " " "a" " " "s" "e" "n" "t" "e" "n" "c" "e" "."</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="kw"><a href="../reference/str_count.html">str_count</a></span>(x, <span class="st">""</span>)</span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co">#&gt; [1] 19</span></span></code></pre></div>
 </div>
 </div>
 </div>
