@@ -79,8 +79,8 @@ str_starts <- function(string, pattern, negate = FALSE) {
     type(pattern),
     empty = ,
     bound = stop("boundary() patterns are not supported."),
-    fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_startswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+    fixed = xor(stri_startswith_fixed(string, pattern, opts_fixed = opts(pattern)), negate),
+    coll  = xor(stri_startswith_coll(string,  pattern, opts_collator = opts(pattern)), negate),
     regex = {
       pattern2 <- paste0("^", pattern)
       attributes(pattern2) <- attributes(pattern)
@@ -95,8 +95,8 @@ str_ends <- function(string, pattern, negate = FALSE) {
   switch(type(pattern),
          empty = ,
          bound = stop("boundary() patterns are not supported."),
-         fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-         coll  = stri_endswith_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+         fixed = xor(stri_endswith_fixed(string, pattern, opts_fixed = opts(pattern)), negate),
+         coll  = xor(stri_endswith_coll(string,  pattern, opts_collator = opts(pattern)), negate),
          regex = {
            pattern2 <- paste0(pattern, "$")
            attributes(pattern2) <- attributes(pattern)

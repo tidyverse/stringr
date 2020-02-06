@@ -28,10 +28,18 @@ test_that("modifiers work", {
 test_that("str_starts works", {
   expect_true(str_starts("ab", "a"))
   expect_false(str_starts("ab", "b"))
+  expect_true(str_starts("ab", fixed("a")))
+  expect_false(str_starts("ab", fixed("b")))
+  expect_true(str_starts("ab", coll("a")))
+  expect_false(str_starts("ab", coll("b")))
 
   # negation
   expect_false(str_starts("ab", "a", TRUE))
   expect_true(str_starts("ab", "b", TRUE))
+  expect_false(str_starts("ab", fixed("a"), TRUE))
+  expect_true(str_starts("ab", fixed("b"), TRUE))
+  expect_false(str_starts("ab", coll("a"), TRUE))
+  expect_true(str_starts("ab", coll("b"), TRUE))
 
   # Special typing of patterns.
   expect_true(str_starts("ab", fixed("A", ignore_case = TRUE)))
@@ -41,10 +49,18 @@ test_that("str_starts works", {
 test_that("str_ends works", {
   expect_true(str_ends("ab", "b"))
   expect_false(str_ends("ab", "a"))
+  expect_true(str_ends("ab", fixed("b")))
+  expect_false(str_ends("ab", fixed("a")))
+  expect_true(str_ends("ab", coll("b")))
+  expect_false(str_ends("ab", coll("a")))
 
   # negation
   expect_false(str_ends("ab", "b", TRUE))
   expect_true(str_ends("ab", "a", TRUE))
+  expect_false(str_ends("ab", fixed("b"), TRUE))
+  expect_true(str_ends("ab", fixed("a"), TRUE))
+  expect_false(str_ends("ab", coll("b"), TRUE))
+  expect_true(str_ends("ab", coll("a"), TRUE))
 
   # Special typing of patterns.
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
