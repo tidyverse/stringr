@@ -79,7 +79,7 @@ library(stringr)
 Suppose you want to know whether each word in a vector of fruit names contains an "a". 
 
 ```{r}
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 
 # base
 grepl(pattern = "a", x = fruit)
@@ -373,7 +373,7 @@ Note that `strwrap()` returns a character vector with one element for each line;
 To replace certain patterns within a string, stringr provides the functions `str_replace()` and `str_replace_all()`. The base R equivalents are `sub()` and `gsub()`. Note the difference in default input order again. 
 
 ```{r}
-fruits <- c("apple", "banana", "pear", "pinapple")
+fruits <- c("apple", "banana", "pear", "pineapple")
 
 # base
 sub("[aeiou]", "-", fruits)
