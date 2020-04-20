@@ -17,22 +17,26 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
 <link href="../tidyverse.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -69,7 +73,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -84,7 +88,7 @@
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">stringr</a>
-        <div class="info">
+        <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
           <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
         </div>
@@ -143,7 +147,7 @@
   </ul>
 </li>
         <li>
-  <a href="https://github.com/tidyverse/stringr">
+  <a href="https://github.com/tidyverse/stringr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -161,12 +165,12 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/tidyverse/stringr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="stringr-development-version" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="development version">
 <a href="#stringr-development-version" class="anchor"></a>stringr (development version)<small> Unreleased </small>
 </h1>
 <ul>
@@ -179,7 +183,7 @@
 </ul>
 </div>
     <div id="stringr-140" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.4.0">
 <a href="#stringr-140" class="anchor"></a>stringr 1.4.0<small> 2019-02-10 </small>
 </h1>
 <ul>
@@ -190,7 +194,7 @@
 </ul>
 </div>
     <div id="stringr-131" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.3.1">
 <a href="#stringr-131" class="anchor"></a>stringr 1.3.1<small> 2018-05-10 </small>
 </h1>
 <ul>
@@ -200,7 +204,7 @@
 </ul>
 </div>
     <div id="stringr-130" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.3.0">
 <a href="#stringr-130" class="anchor"></a>stringr 1.3.0<small> 2018-02-19 </small>
 </h1>
 <div id="api-changes" class="section level2">
@@ -232,7 +236,7 @@
 </div>
 </div>
     <div id="stringr-120" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.2.0">
 <a href="#stringr-120" class="anchor"></a>stringr 1.2.0<small> 2017-02-18 </small>
 </h1>
 <div id="api-changes-1" class="section level2">
@@ -263,7 +267,7 @@
 </div>
 </div>
     <div id="stringr-110" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.1.0">
 <a href="#stringr-110" class="anchor"></a>stringr 1.1.0<small> 2016-08-19 </small>
 </h1>
 <ul>
@@ -279,7 +283,7 @@
 </ul>
 </div>
     <div id="stringr-100" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.0">
 <a href="#stringr-100" class="anchor"></a>stringr 1.0.0<small> 2015-04-30 </small>
 </h1>
 <ul>
@@ -288,8 +292,8 @@
 <li><p><code><a href="../reference/str_c.html">str_c()</a></code> now returns a zero length vector if any of its inputs are zero length vectors. This is consistent with all other functions, and standard R recycling rules. Similarly, using <code><a href="../reference/str_c.html">str_c("x", NA)</a></code> now yields <code>NA</code>. If you want <code>"xNA"</code>, use <code><a href="../reference/str_replace_na.html">str_replace_na()</a></code> on the inputs.</p></li>
 <li>
 <p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> gains a convenient syntax for applying multiple pairs of pattern and replacement to the same vector:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>input &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="../reference/str_replace.html">str_replace_all</a></span>(input, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"[ad]"</span> =<span class="st"> "!"</span>, <span class="st">"[cf]"</span> =<span class="st"> "?"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="no">input</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)
+<span class="fu"><a href="../reference/str_replace.html">str_replace_all</a></span>(<span class="no">input</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"[ad]"</span> <span class="kw">=</span> <span class="st">"!"</span>, <span class="st">"[cf]"</span> <span class="kw">=</span> <span class="st">"?"</span>))</pre></div>
 </li>
 <li><p><code><a href="../reference/str_match.html">str_match()</a></code> now returns NA if an optional group doesn’t match (previously it returned ""). This is more consistent with <code><a href="../reference/str_extract.html">str_extract()</a></code> and other match failures.</p></li>
 <li><p>New <code><a href="../reference/str_subset.html">str_subset()</a></code> keeps values that match a pattern. It’s a convenient wrapper for <code>x[str_detect(x)]</code> (<a href='https://github.com/tidyverse/stringr/issues/21'>#21</a>, <a href='https://github.com/jiho'>@jiho</a>).</p></li>
@@ -302,7 +306,7 @@
 </ul>
 </div>
     <div id="stringr-062" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.6.2">
 <a href="#stringr-062" class="anchor"></a>stringr 0.6.2<small> 2012-12-06 </small>
 </h1>
 <ul>
@@ -311,7 +315,7 @@
 </ul>
 </div>
     <div id="stringr-061" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.6.1">
 <a href="#stringr-061" class="anchor"></a>stringr 0.6.1<small> 2012-07-25 </small>
 </h1>
 <ul>
@@ -320,7 +324,7 @@
 </ul>
 </div>
     <div id="stringr-06" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.6">
 <a href="#stringr-06" class="anchor"></a>stringr 0.6<small> 2011-12-08 </small>
 </h1>
 <ul>
@@ -329,7 +333,7 @@
 </ul>
 </div>
     <div id="stringr-05" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.5">
 <a href="#stringr-05" class="anchor"></a>stringr 0.5<small> 2011-06-30 </small>
 </h1>
 <ul>
@@ -343,7 +347,7 @@
 </ul>
 </div>
     <div id="stringr-04" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4">
 <a href="#stringr-04" class="anchor"></a>stringr 0.4<small> 2010-08-24 </small>
 </h1>
 <ul>
@@ -359,7 +363,7 @@
 </ul>
 </div>
     <div id="stringr-03" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.3">
 <a href="#stringr-03" class="anchor"></a>stringr 0.3<small> 2010-02-15 </small>
 </h1>
 <ul>
@@ -371,7 +375,7 @@
 </ul>
 </div>
     <div id="stringr-02" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.2">
 <a href="#stringr-02" class="anchor"></a>stringr 0.2<small> 2009-11-16 </small>
 </h1>
 <ul>
@@ -383,26 +387,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#stringr-development-version">development version</a></li>
-        <li><a href="#stringr-140">1.4.0</a></li>
-        <li><a href="#stringr-131">1.3.1</a></li>
-        <li><a href="#stringr-130">1.3.0</a></li>
-        <li><a href="#stringr-120">1.2.0</a></li>
-        <li><a href="#stringr-110">1.1.0</a></li>
-        <li><a href="#stringr-100">1.0.0</a></li>
-        <li><a href="#stringr-062">0.6.2</a></li>
-        <li><a href="#stringr-061">0.6.1</a></li>
-        <li><a href="#stringr-06">0.6</a></li>
-        <li><a href="#stringr-05">0.5</a></li>
-        <li><a href="#stringr-04">0.4</a></li>
-        <li><a href="#stringr-03">0.3</a></li>
-        <li><a href="#stringr-02">0.2</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
