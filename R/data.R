@@ -6,7 +6,7 @@
 #' `sentences` is a collection of "Harvard sentences" used for
 #' standardised testing of voice.
 #'
-#' @format A character vector.
+#' @format Character vectors.
 #' @name stringr-data
 #' @examples
 #' length(sentences)
@@ -20,10 +20,13 @@
 NULL
 
 #' @rdname stringr-data
+#' @format NULL
 "sentences"
 
 #' @rdname stringr-data
+#' @format NULL
 "fruit"
 
 #' @rdname stringr-data
+#' @format NULL
 "words"
