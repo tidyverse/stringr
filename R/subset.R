@@ -14,7 +14,7 @@
 #'    [stringi::stri_subset()] for the underlying implementation.
 #' @export
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_subset(fruit, "a")
 #' str_which(fruit, "a")
 #'

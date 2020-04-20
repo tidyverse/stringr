@@ -28,7 +28,7 @@
 #'   `x[str_detect(x, pattern)]`
 #' @export
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_detect(fruit, "a")
 #' str_detect(fruit, "^a")
 #' str_detect(fruit, "a$")
@@ -123,7 +123,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' @return A logical vector.
 #' @export
 #' @examples
-#' fruit <- c("apple", "banana", "pear", "pinapple")
+#' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_like(fruit, "app")
 #' str_like(fruit, "app%")
 #' str_like(fruit, "ba_ana")
