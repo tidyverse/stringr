@@ -44,7 +44,7 @@ See \code{\link[=str_detect]{str_detect()}} for an equivalent to \code{grepl(pat
 Vectorised over \code{string} and \code{pattern}
 }
 \examples{
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 str_subset(fruit, "a")
 str_which(fruit, "a")
 

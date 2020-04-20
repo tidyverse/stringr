@@ -30,7 +30,7 @@ Follows the structure of the SQL \code{LIKE} operator:
 }
 }
 \examples{
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 str_like(fruit, "app")
 str_like(fruit, "app\%")
 str_like(fruit, "ba_ana")
