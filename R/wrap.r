@@ -10,6 +10,8 @@
 #'  each paragraph
 #' @param exdent non-negative integer giving indentation of following lines in
 #'  each paragraph
+#' @param whitespace_only logical value to determine if breaks should occur
+#'  only at white-spaces.
 #' @return A character vector of re-wrapped strings.
 #' @export
 #' @examples
@@ -21,10 +23,11 @@
 #' cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 #' cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 #' cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
-str_wrap <- function(string, width = 80, indent = 0, exdent = 0) {
+str_wrap <- function(string, width = 80, indent = 0, exdent = 0,
+                     whitespace_only = TRUE) {
   if (width <= 0) width <- 1
 
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
-    simplify = FALSE)
+    whitespace_only = whitespace_only, simplify = FALSE)
   vapply(out, str_c, collapse = "\n", character(1))
 }
