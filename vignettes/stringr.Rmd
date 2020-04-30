@@ -67,7 +67,7 @@ str_dup(x, c(2, 3))
 
 ## Whitespace
 
-Three functions add, remove, or modify whitespace:
+Four functions add, remove, or modify whitespace:
 
 1. `str_pad()` pads a string to a fixed length by adding extra whitespace on 
     the left, right, or both sides.
@@ -104,6 +104,13 @@ Three functions add, remove, or modify whitespace:
     x <- c("  a   ", "b   ",  "   c")
     str_trim(x)
     str_trim(x, "left")
+    ```
+
+1.  `str_crush()` is a stronger version of `str_trim()`. It removes all whitespace.
+    
+    ```{r}
+    x <- c("  a   ", "b  b ",  " c   cc")
+    str_crush(x)
     ```
 
 1.  You can use `str_wrap()` to modify existing whitespace in order to wrap

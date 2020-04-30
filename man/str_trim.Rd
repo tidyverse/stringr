@@ -3,11 +3,14 @@
 \name{str_trim}
 \alias{str_trim}
 \alias{str_squish}
+\alias{str_crush}
 \title{Trim whitespace from a string}
 \usage{
 str_trim(string, side = c("both", "left", "right"))
 
 str_squish(string)
+
+str_crush(string)
 }
 \arguments{
 \item{string}{A character vector.}
@@ -19,7 +22,7 @@ A character vector.
 }
 \description{
 \code{str_trim()} removes whitespace from start and end of string; \code{str_squish()}
-also reduces repeated whitespace inside a string.
+also reduces repeated whitespace inside a string; \code{str_crush()} removes all whitespace.
 }
 \examples{
 str_trim("  String with trailing and leading white space\t")
@@ -27,6 +30,9 @@ str_trim("\n\nString with trailing and leading white space\n\n")
 
 str_squish("  String with trailing,  middle, and leading white space\t")
 str_squish("\n\nString with excess,  trailing and leading white   space\n\n")
+
+str_crush("  String with trailing,  middle, and leading white space\t")
+str_crush("\n\nString with excess,  trailing and leading white   space\n\n")
 }
 \seealso{
 \code{\link[=str_pad]{str_pad()}} to add whitespace

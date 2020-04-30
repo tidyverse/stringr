@@ -49,6 +49,7 @@ reference:
 
 - title: Whitespace
   contents:
+  - str_crush
   - str_pad
   - str_trim
   - str_wrap
