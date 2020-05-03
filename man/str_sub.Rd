@@ -52,7 +52,7 @@ str_sub(hw, -1)
 str_sub(hw, -7)
 str_sub(hw, end = -7)
 
-# Alternatively, you can pass in a two colum matrix, as in the
+# Alternatively, you can pass in a two column matrix, as in the
 # output from str_locate_all
 pos <- str_locate_all(hw, "[aeio]")[[1]]
 str_sub(hw, pos)
