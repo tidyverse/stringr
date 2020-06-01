@@ -1,5 +1,7 @@
 # stringr (development version)
 
+* Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
+
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
 
