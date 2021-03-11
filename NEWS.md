@@ -1,9 +1,12 @@
 # stringr (development version)
 
-* Always return at least 1x1 matrix from `str_extract_all(simplify = TRUE)`.
+* `str_extract_all(simplify = TRUE)` and `str_match_all()` now always return
+  all combinations of given `string` and `pattern` as a matrix of their 
+  cartesian product.
+  Previously, rows or columns without matches would be dropped.
   This introduces a small, potentially breaking change:
-  No matches are now returned as `NA_character`, not as `""`.
-  (@maxheld83, #366)
+  No matches in matrices are now returned as `NA_character` in
+  `str_extract_all(simplify = TRUE)`, not `""`. (@maxheld83, #366)
 
 * Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
 

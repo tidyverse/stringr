@@ -53,7 +53,6 @@ str_match_all <- function(string, pattern) {
 
   stri_match_all_regex(string,
     pattern,
-    omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )
 }
