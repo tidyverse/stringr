@@ -3,7 +3,10 @@
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
-#' @return A character vector.
+#' @return 
+#' A character vector.
+#' If `simplify = FALSE`, no matches are returned as 0-length character vectors.
+#' If `simplify = TRUE`, no matches are returned as `NA_character_`.
 #' @seealso [str_match()] to extract matched groups;
 #'   [stringi::stri_extract()] for the underlying implementation.
 #' @param simplify If `FALSE`, the default, returns a list of character
@@ -42,14 +45,14 @@ str_extract <- function(string, pattern) {
 str_extract_all <- function(string, pattern, simplify = FALSE) {
   switch(type(pattern),
     empty = stri_extract_all_boundaries(string, pattern,
-      simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
+      simplify = simplify, omit_no_match = !simplify, opts_brkiter = opts(pattern)),
     bound = stri_extract_all_boundaries(string, pattern,
-      simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
+      simplify = simplify, omit_no_match = !simplify, opts_brkiter = opts(pattern)),
     fixed = stri_extract_all_fixed(string, pattern,
-      simplify = simplify, omit_no_match = TRUE, opts_fixed = opts(pattern)),
+      simplify = simplify, omit_no_match = !simplify, opts_fixed = opts(pattern)),
     coll  = stri_extract_all_coll(string, pattern,
-      simplify = simplify, omit_no_match = TRUE, opts_collator = opts(pattern)),
+      simplify = simplify, omit_no_match = !simplify, opts_collator = opts(pattern)),
     regex = stri_extract_all_regex(string, pattern,
-      simplify = simplify, omit_no_match = TRUE, opts_regex = opts(pattern))
+      simplify = simplify, omit_no_match = !simplify, opts_regex = opts(pattern))
   )
 }

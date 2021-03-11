@@ -33,6 +33,8 @@ vectors. If \code{TRUE} returns a character matrix.}
 }
 \value{
 A character vector.
+If \code{simplify = FALSE}, no matches are returned as 0-length character vectors.
+If \code{simplify = TRUE}, no matches are returned as \code{NA_character_}.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.

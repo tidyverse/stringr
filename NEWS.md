@@ -1,5 +1,10 @@
 # stringr (development version)
 
+* Always return at least 1x1 matrix from `str_extract_all(simplify = TRUE)`.
+  This introduces a small, potentially breaking change:
+  No matches are now returned as `NA_character`, not as `""`.
+  (@maxheld83, #366)
+
 * Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
 
 * `word()` now returns all the sentence when using a negative `start` parameter
