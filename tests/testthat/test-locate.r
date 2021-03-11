@@ -31,3 +31,15 @@ test_that("both string and patterns are vectorised", {
   expect_equal(locs[[1]][, "start"], c(1, 3))
   expect_equal(locs[[2]][, "start"], c(2, 4))
 })
+
+test_that("`str_locate_all()` returns all NA rows for no matches", {
+  expect_equal(
+    str_locate_all("foo", "bar")[[1]],
+    matrix(
+      NA_integer_,
+      nrow = 1,
+      ncol = 2,
+      dimnames = list(NULL, list("start", "end"))
+    )
+  )
+})
