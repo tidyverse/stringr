@@ -30,6 +30,13 @@ test_that("str_extract_all returns matrix of at least 1x1 for simplify", {
   expect_equal(one_match, matrix(c(NA_character_, "bar"), ncol = 1))
 })
 
+test_that("str_extract_all fills no-matches with NAs for simplify", {
+  expect_equal(
+    str_extract_all(c("a b b", "a"), pattern = "b", simplify = TRUE)[2, ],
+    c(NA_character_, NA_character_)
+  )
+})
+
 test_that("str_extract extracts first match if found, NA otherwise", {
   shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
   word_1_to_4 <- str_extract(shopping_list, "\\b[a-z]{1,4}\\b")

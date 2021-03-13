@@ -43,16 +43,19 @@ str_extract <- function(string, pattern) {
 #' @rdname str_extract
 #' @export
 str_extract_all <- function(string, pattern, simplify = FALSE) {
+  omit_no_match <- !simplify
+  # NA lets stringi always return NA cells
+  simplify <- ifelse(simplify, NA, FALSE)
   switch(type(pattern),
     empty = stri_extract_all_boundaries(string, pattern,
-      simplify = simplify, omit_no_match = !simplify, opts_brkiter = opts(pattern)),
+      simplify = simplify, omit_no_match = omit_no_match, opts_brkiter = opts(pattern)),
     bound = stri_extract_all_boundaries(string, pattern,
-      simplify = simplify, omit_no_match = !simplify, opts_brkiter = opts(pattern)),
+      simplify = simplify, omit_no_match = omit_no_match, opts_brkiter = opts(pattern)),
     fixed = stri_extract_all_fixed(string, pattern,
-      simplify = simplify, omit_no_match = !simplify, opts_fixed = opts(pattern)),
+      simplify = simplify, omit_no_match = omit_no_match, opts_fixed = opts(pattern)),
     coll  = stri_extract_all_coll(string, pattern,
-      simplify = simplify, omit_no_match = !simplify, opts_collator = opts(pattern)),
+      simplify = simplify, omit_no_match = omit_no_match, opts_collator = opts(pattern)),
     regex = stri_extract_all_regex(string, pattern,
-      simplify = simplify, omit_no_match = !simplify, opts_regex = opts(pattern))
+      simplify = simplify, omit_no_match = omit_no_match, opts_regex = opts(pattern))
   )
 }
