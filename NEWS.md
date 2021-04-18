@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_wrap()` breaks only at whitespace by default; set 
+  `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
+
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
 

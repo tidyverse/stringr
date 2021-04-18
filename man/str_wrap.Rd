@@ -18,8 +18,8 @@ each paragraph}
 \item{exdent}{non-negative integer giving indentation of following lines in
 each paragraph}
 
-\item{whitespace_only}{logical value to determine if breaks should occur
-only at white-spaces.}
+\item{whitespace_only}{If \code{TRUE}, the default, wrapping will only occur at
+whitespace. If \code{FALSE}, can break on any non-word character (e.g. \code{/}, \code{-}).}
 }
 \value{
 A character vector of re-wrapped strings.

@@ -15,11 +15,6 @@ test_that("wrapping with width of 0 puts each word on own line", {
 })
 
 test_that("wrapping at whitespace break works", {
-  n_returns <- str_wrap("a/b", width = 0) %>%
-    str_count("\n")
-  expect_equal(n_returns, 0)
-
-  n_returns <- str_wrap("a/b", width = 0, whitespace_only = FALSE) %>%
-    str_count("\n")
-  expect_equal(n_returns, 1)
+  expect_equal(str_wrap("a/b", width = 0, whitespace_only = TRUE), "a/b")
+  expect_equal(str_wrap("a/b", width = 0, whitespace_only = FALSE), "a/\nb")
 })
