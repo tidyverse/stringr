@@ -108,6 +108,6 @@ str_extract_all("a\nb\nc", regex("a.", dotall = TRUE))
 \seealso{
 \code{\link[=str_wrap]{str_wrap()}} for breaking text to form paragraphs
 
-\code{\link[stringi:about_search_boundaries]{stringi::stringi-search-boundaries}} for more detail on the
+\code{\link[stringi:about_search_boundaries]{stringi::about_search_boundaries}} for more detail on the
 various boundaries
 }

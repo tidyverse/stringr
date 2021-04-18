@@ -6,7 +6,7 @@
 #' @param pattern Pattern to look for.
 #'
 #'   The default interpretation is a regular expression, as described
-#'   in [stringi::stringi-search-regex]. Control options with
+#'   in [stringi::about_search_regex]. Control options with
 #'   [regex()].
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using

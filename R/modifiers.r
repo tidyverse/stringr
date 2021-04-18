@@ -121,7 +121,7 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 #'   only when splitting on `word` boundaries.
 #'
 #' @seealso [str_wrap()] for breaking text to form paragraphs
-#' @seealso [`stringi::stringi-search-boundaries`] for more detail on the
+#' @seealso [`stringi::about_search_boundaries`] for more detail on the
 #'   various boundaries
 #' @export
 #' @rdname modifiers
