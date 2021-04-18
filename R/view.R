@@ -67,18 +67,16 @@ str_view_all <- function(string, pattern, match = NA) {
 }
 
 str_view_widget <- function(lines) {
+  check_installed(c("htmltools", "htmlwidgets"))
+
   lines <- str_replace_na(lines)
   bullets <- str_c(
     "<ul>\n",
     str_c("  <li>", lines, "</li>", collapse = "\n"),
     "\n</ul>"
   )
-  html <- htmltools::HTML(bullets)
 
-  if (!requireNamespace("htmlwidgets", quietly = TRUE)) {
-    stop("htmlwidgets package required for str_view(). \nPlease install.packages(\"htmlwidgets\") to use this functionality.",
-         call. = FALSE)
-  }
+  html <- htmltools::HTML(bullets)
   size <- htmlwidgets::sizingPolicy(
     knitr.figure = FALSE,
     defaultHeight = pmin(10 * length(lines), 300),
