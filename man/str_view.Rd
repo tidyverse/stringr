@@ -5,9 +5,9 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match}
 \usage{
-str_view(string, pattern, match = NA)
+str_view(string, pattern, match = NA, html = TRUE)
 
-str_view_all(string, pattern, match = NA)
+str_view_all(string, pattern, match = NA, html = TRUE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -31,6 +31,9 @@ Match character, word, line and sentence boundaries with
 \item{match}{If \code{TRUE}, shows only strings that match the pattern.
 If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default, \code{NA}) displays both matches and non-matches.}
+
+\item{html}{Use HTML output? If \code{TRUE} will create an HTML widget;
+if \code{FALSE} will style using ANSI escapes.}
 }
 \description{
 \code{str_view} shows the first match; \code{str_view_all} shows all

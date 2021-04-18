@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* Experimental support for display `str_view()` with ANSI escapes, which
+  will work in more places than HTML widgets (#370).
+
 * `str_c()` and `str_length()` are superseded in favour of `paste0()` and 
   `nchar()` respectively (#356).
 

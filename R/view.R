@@ -8,6 +8,8 @@
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
+#' @param html Use HTML output? If `TRUE` will create an HTML widget;
+#'   if `FALSE` will style using ANSI escapes.
 #' @export
 #' @examples
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
@@ -21,7 +23,7 @@
 #' str_view(c("abc", "def", "fgh"), "d|e")
 #' str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 #' str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-str_view <- function(string, pattern, match = NA) {
+str_view <- function(string, pattern, match = NA, html = TRUE) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -29,14 +31,19 @@ str_view <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  replace <- function(x) paste0("<span class='match'>", x, "</span>")
-  string <- str_replace(string, pattern, replace)
-  str_view_widget(string)
+  if (html) {
+    replace <- function(x) paste0("<span class='match'>", x, "</span>")
+    string <- str_replace(string, pattern, replace)
+    str_view_widget(string)
+  } else {
+    string <- str_replace(string, pattern, ~ cli::style_inverse(.x))
+    structure(string, class = "stringr_view")
+  }
 }
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern, match = NA) {
+str_view_all <- function(string, pattern, match = NA, html = TRUE) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -44,9 +51,14 @@ str_view_all <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  replace <- function(x) paste0("<span class='match'>", x, "</span>")
-  string <- str_replace_all(string, pattern, replace)
-  str_view_widget(string)
+  if (html) {
+    replace <- function(x) paste0("<span class='match'>", x, "</span>")
+    string <- str_replace_all(string, pattern, replace)
+    str_view_widget(string)
+  } else {
+    string <- str_replace_all(string, pattern, ~ cli::style_inverse(.x))
+    structure(string, class = "stringr_view")
+  }
 }
 
 str_view_widget <- function(lines) {
@@ -72,4 +84,10 @@ str_view_widget <- function(lines) {
     sizingPolicy = size,
     package = "stringr"
   )
+}
+
+#' @export
+print.stringr_view <- function(x, ...) {
+  cat(x, sep = "\n")
+  invisible(x)
 }
