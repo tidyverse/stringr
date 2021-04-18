@@ -29,14 +29,8 @@ str_view <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  loc <- str_locate(string, pattern)
-
-  # How to do escaping? Need to update x and loc
-
-  has_match <- !is.na(loc[, "start"])
-  str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
-    paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
-
+  replace <- function(x) paste0("<span class='match'>", x, "</span>")
+  string <- str_replace(string, pattern, replace)
   str_view_widget(string)
 }
 
@@ -50,19 +44,8 @@ str_view_all <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  loc <- str_locate_all(string, pattern)
-
-  string_list <- Map(loc = loc, string = string, function(loc, string) {
-    if (nrow(loc) == 0)
-      return(string)
-
-    for (i in rev(seq_len(nrow(loc)))) {
-      str_sub(string, loc[i, , drop = FALSE]) <-
-        paste0("<span class='match'>", str_sub(string, loc[i, , drop = FALSE]), "</span>")
-    }
-    string
-  })
-  string <- unlist(string_list)
+  replace <- function(x) paste0("<span class='match'>", x, "</span>")
+  string <- str_replace_all(string, pattern, replace)
   str_view_widget(string)
 }
 
