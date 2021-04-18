@@ -181,7 +181,7 @@ the Knuth-Plass paragraph wrapping algorithm." />
 the Knuth-Plass paragraph wrapping algorithm.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_wrap</span><span class='op'>(</span><span class='va'>string</span>, width <span class='op'>=</span> <span class='fl'>80</span>, indent <span class='op'>=</span> <span class='fl'>0</span>, exdent <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>str_wrap</span><span class='op'>(</span><span class='va'>string</span>, width <span class='op'>=</span> <span class='fl'>80</span>, indent <span class='op'>=</span> <span class='fl'>0</span>, exdent <span class='op'>=</span> <span class='fl'>0</span>, whitespace_only <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,6 +204,11 @@ each paragraph</p></td>
       <th>exdent</th>
       <td><p>non-negative integer giving indentation of following lines in
 each paragraph</p></td>
+    </tr>
+    <tr>
+      <th>whitespace_only</th>
+      <td><p>If <code>TRUE</code>, the default, wrapping will only occur at
+whitespace. If <code>FALSE</code>, can break on any non-word character (e.g. <code><a href='https://rdrr.io/r/base/Arithmetic.html'>/</a></code>, <code><a href='https://rdrr.io/r/base/Arithmetic.html'>-</a></code>).</p></td>
     </tr>
     </table>
 
@@ -426,8 +431,7 @@ each paragraph</p></td>
 #&gt;   Maindonald,
 #&gt;   David
 #&gt;   Meyer,
-#&gt;   Ei-
-#&gt;   ji
+#&gt;   Ei-ji
 #&gt;   Nakama,
 #&gt;   Jens
 #&gt;   Oehlschl"agel,
