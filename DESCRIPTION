@@ -21,8 +21,13 @@ Depends:
     R (>= 3.3)
 Imports: 
     glue (>= 1.2.0),
+    rlang,
     magrittr,
-    stringi (>= 1.1.7)
+    stringi (>= 1.1.7),
+    ellipsis,
+    lifecycle,
+    cli,
+    withr
 Suggests: 
     covr,
     htmltools,
