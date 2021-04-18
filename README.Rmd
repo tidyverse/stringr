@@ -17,7 +17,7 @@ library(stringr)
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
-[![R build status](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
+[![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
 [![Codecov test coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->

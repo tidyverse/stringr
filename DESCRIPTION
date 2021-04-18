@@ -18,7 +18,7 @@ URL: http://stringr.tidyverse.org,
     https://github.com/tidyverse/stringr
 BugReports: https://github.com/tidyverse/stringr/issues
 Depends: 
-    R (>= 3.2)
+    R (>= 3.3)
 Imports: 
     glue (>= 1.2.0),
     magrittr,
@@ -36,3 +36,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Config/Needs/website: tidyverse/tidytemplate

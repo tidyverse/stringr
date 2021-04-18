@@ -7,8 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
-[![R build
-status](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr)
+[![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
 [![Lifecycle:
@@ -77,30 +76,30 @@ str_count(x, "[aeiou]")
 
 There are seven main verbs that work with patterns:
 
-  - `str_detect(x, pattern)` tells you if there’s any match to the
+-   `str_detect(x, pattern)` tells you if there’s any match to the
     pattern.
-    
+
     ``` r
     str_detect(x, "[aeiou]")
     #> [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
     ```
 
-  - `str_count(x, pattern)` counts the number of patterns.
-    
+-   `str_count(x, pattern)` counts the number of patterns.
+
     ``` r
     str_count(x, "[aeiou]")
     #> [1] 0 3 1 2 2 4
     ```
 
-  - `str_subset(x, pattern)` extracts the matching components.
-    
+-   `str_subset(x, pattern)` extracts the matching components.
+
     ``` r
     str_subset(x, "[aeiou]")
     #> [1] "video"     "cross"     "extra"     "deal"      "authority"
     ```
 
-  - `str_locate(x, pattern)` gives the position of the match.
-    
+-   `str_locate(x, pattern)` gives the position of the match.
+
     ``` r
     str_locate(x, "[aeiou]")
     #>      start end
@@ -112,16 +111,16 @@ There are seven main verbs that work with patterns:
     #> [6,]     1   1
     ```
 
-  - `str_extract(x, pattern)` extracts the text of the match.
-    
+-   `str_extract(x, pattern)` extracts the text of the match.
+
     ``` r
     str_extract(x, "[aeiou]")
     #> [1] NA  "i" "o" "e" "e" "a"
     ```
 
-  - `str_match(x, pattern)` extracts parts of the match defined by
+-   `str_match(x, pattern)` extracts parts of the match defined by
     parentheses.
-    
+
     ``` r
     # extract the characters on either side of the vowel
     str_match(x, "(.)[aeiou](.)")
@@ -134,16 +133,16 @@ There are seven main verbs that work with patterns:
     #> [6,] "aut" "a"  "t"
     ```
 
-  - `str_replace(x, pattern, replacement)` replaces the matches with new
+-   `str_replace(x, pattern, replacement)` replaces the matches with new
     text.
-    
+
     ``` r
     str_replace(x, "[aeiou]", "?")
     #> [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"
     ```
 
-  - `str_split(x, pattern)` splits up a string into multiple pieces.
-    
+-   `str_split(x, pattern)` splits up a string into multiple pieces.
+
     ``` r
     str_split(c("a,b", "c,d,e"), ",")
     #> [[1]]
@@ -156,9 +155,9 @@ There are seven main verbs that work with patterns:
 As well as regular expressions (the default), there are three other
 pattern matching engines:
 
-  - `fixed()`: match exact bytes
-  - `coll()`: match human letters
-  - `boundary()`: match boundaries
+-   `fixed()`: match exact bytes
+-   `coll()`: match human letters
+-   `boundary()`: match boundaries
 
 ## RStudio Addin
 
@@ -185,10 +184,10 @@ learn. Additionally, they lag behind the string operations in other
 programming languages, so that some things that are easy to do in
 languages like Ruby or Python are rather hard to do in R.
 
-  - Uses consistent function and argument names. The first argument is
+-   Uses consistent function and argument names. The first argument is
     always the vector of strings to modify, which makes stringr work
     particularly well in conjunction with the pipe:
-    
+
     ``` r
     letters %>%
       .[1:10] %>% 
@@ -197,9 +196,9 @@ languages like Ruby or Python are rather hard to do in R.
     #>  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"
     ```
 
-  - Simplifies string operations by eliminating options that you don’t
+-   Simplifies string operations by eliminating options that you don’t
     need 95% of the time.
 
-  - Produces outputs than can easily be used as inputs. This includes
+-   Produces outputs than can easily be used as inputs. This includes
     ensuring that missing inputs result in missing outputs, and zero
     length inputs result in zero length outputs.
