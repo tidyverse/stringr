@@ -178,6 +178,7 @@
 <a href="#stringr-development-version" class="anchor"></a>stringr (development version)<small> Unreleased </small>
 </h1>
 <ul>
+<li><p>Experimental support for display <code><a href="../reference/str_view.html">str_view()</a></code> with ANSI escapes, which will work in more places than HTML widgets (<a href='https://github.com/tidyverse/stringr/issues/370'>#370</a>).</p></li>
 <li><p><code><a href="../reference/str_c.html">str_c()</a></code> and <code><a href="../reference/str_length.html">str_length()</a></code> are superseded in favour of <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> and <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> respectively (<a href='https://github.com/tidyverse/stringr/issues/356'>#356</a>).</p></li>
 <li><p><code><a href="../reference/str_wrap.html">str_wrap()</a></code> breaks only at whitespace by default; set <code>whitespace_only = FALSE</code> to return to the previous behaviour (<a href='https://github.com/tidyverse/stringr/issues/335'>#335</a>, <a href='https://github.com/rjpat'>@rjpat</a>).</p></li>
 <li><p><code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> can use standard tidyverse formula shorthand for <code>replacement</code> function (<a href='https://github.com/tidyverse/stringr/issues/331'>#331</a>).</p></li>

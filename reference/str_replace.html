@@ -211,8 +211,8 @@ the contents of the respective matched group (created by <code>()</code>).</p>
 <p>To perform multiple replacements in each element of <code>string</code>,
 pass a named vector (<code><a href='https://rdrr.io/r/base/c.html'>c(pattern1 = replacement1)</a></code>) to
 <code>str_replace_all</code>. Alternatively, pass a function (or formula) to
-<code>replacement</code>: it will be called once for each match and its
-return value will be used to replace the match.</p>
+<code>replacement</code>: it will be called once for each match (from right to left)
+and its return value will be used to replace the match.</p>
 <p>To replace the complete string with <code>NA</code>, use
 <code>replacement = NA_character_</code>.</p></td>
     </tr>

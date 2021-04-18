@@ -183,9 +183,9 @@ the matches. To build regular expressions interactively, check out the
 <a href='https://www.garrickadenbuie.com/project/regexplain/'>RegExplain RStudio addin</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_view</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, match <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>str_view</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, match <span class='op'>=</span> <span class='cn'>NA</span>, html <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>str_view_all</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, match <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
+<span class='fu'>str_view_all</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, match <span class='op'>=</span> <span class='cn'>NA</span>, html <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -214,6 +214,11 @@ respects character matching rules for the specified locale.</p>
       <td><p>If <code>TRUE</code>, shows only strings that match the pattern.
 If <code>FALSE</code>, shows only the strings that don't match the pattern.
 Otherwise (the default, <code>NA</code>) displays both matches and non-matches.</p></td>
+    </tr>
+    <tr>
+      <th>html</th>
+      <td><p>Use HTML output? If <code>TRUE</code> will create an HTML widget;
+if <code>FALSE</code> will style using ANSI escapes.</p></td>
     </tr>
     </table>
 
