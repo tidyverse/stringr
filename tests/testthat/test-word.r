@@ -1,5 +1,3 @@
-context("Word extraction")
-
 test_that("word extraction", {
   expect_equal("walk", word("walk the moon"))
   expect_equal("walk", word("walk the moon", 1))

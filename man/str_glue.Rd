@@ -27,7 +27,7 @@ with. If \code{NULL} missing values are propagated, that is an \code{NA} result 
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
 \description{
-These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue_data]{glue::glue_data()}},
+These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue]{glue::glue_data()}},
 which provide a powerful and elegant syntax for interpolating strings.
 These wrappers provide a small set of the full options. Use the functions
 directly from glue for more control.

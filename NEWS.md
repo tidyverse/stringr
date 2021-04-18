@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_replace()` and `str_replace_all()` can use standard tidyverse formula
+  shorthand for `replacement` function (#331).
+
 * Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
 
 * `word()` now returns all the sentence when using a negative `start` parameter

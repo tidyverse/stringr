@@ -1,5 +1,3 @@
-context("Detecting patterns")
-
 test_that("special cases are correct", {
   expect_equal(str_detect(NA, "x"), NA)
   expect_equal(str_detect(character(), "x"), logical())

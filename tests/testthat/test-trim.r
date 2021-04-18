@@ -1,5 +1,3 @@
-context("Trimming strings")
-
 test_that("trimming removes spaces", {
   expect_equal(str_trim("abc   "),   "abc")
   expect_equal(str_trim("   abc"),   "abc")

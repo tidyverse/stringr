@@ -1,5 +1,3 @@
-context("Replacements")
-
 test_that("basic replacement works", {
   expect_equal(str_replace_all("abababa", "ba", "BA"), "aBABABA")
   expect_equal(str_replace("abababa", "ba", "BA"), "aBAbaba")
@@ -78,6 +76,12 @@ test_that("replacement can be different length", {
 test_that("replacement with NA works", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })
+
+test_that("can use formula", {
+  expect_equal(str_replace("abc", "b", ~ "x"), "axc")
+  expect_equal(str_replace_all("abc", "b", ~ "x"), "axc")
+})
+
 
 # fix_replacement ---------------------------------------------------------
 
