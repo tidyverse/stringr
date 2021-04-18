@@ -1,5 +1,3 @@
-context("Detecting patterns")
-
 test_that("special cases are correct", {
   expect_equal(str_detect(NA, "x"), NA)
   expect_equal(str_detect(character(), "x"), logical())
@@ -36,6 +34,10 @@ test_that("str_starts works", {
   # Special typing of patterns.
   expect_true(str_starts("ab", fixed("A", ignore_case = TRUE)))
   expect_true(str_starts("ab", regex("A", ignore_case = TRUE)))
+
+  # Or operators are respected
+  expect_true(str_starts("ab", "b|a"))
+  expect_false(str_starts("ab", "c|b"))
 })
 
 test_that("str_ends works", {
@@ -48,6 +50,10 @@ test_that("str_ends works", {
 
   # Special typing of patterns.
   expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
+
+  # Or operators are respected
+  expect_true(str_ends("ab", "b|a"))
+  expect_false(str_ends("ab", "c|a"))
 })
 
 

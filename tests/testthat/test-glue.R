@@ -1,5 +1,3 @@
-context("test-glue.R")
-
 test_that("verify wrapper is functional", {
   expect_equal(as.character(str_glue("a {b}", b = "b")), "a b")
 

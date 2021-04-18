@@ -53,7 +53,7 @@ reference:
   - str_trim
   - str_wrap
 
-- title: Locale senstive
+- title: Locale sensitive
   contents:
   - str_order
   - case

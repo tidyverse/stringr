@@ -1,5 +1,3 @@
-context("String Interpolation")
-
 test_that("str_interp works with default env", {
   subject <- "statistics"
   number  <- 7

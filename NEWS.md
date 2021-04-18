@@ -3,6 +3,11 @@
 * `str_wrap()` breaks only at whitespace by default; set 
   `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
 
+* `str_replace()` and `str_replace_all()` can use standard tidyverse formula
+  shorthand for `replacement` function (#331).
+
+* Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
+
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
 
@@ -21,6 +26,8 @@
 
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
+
+* stringr is now licensed as MIT (#351).
 
 # stringr 1.4.0
 

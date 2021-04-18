@@ -1,5 +1,3 @@
-context("Extract patterns")
-
 test_that("single pattern extracted correctly", {
   test <- c("one two three", "a b c")
 

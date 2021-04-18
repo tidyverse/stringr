@@ -1,5 +1,3 @@
-context("test-modifiers.r")
-
 test_that("patterns coerced to character", {
   x <- factor("a")
 

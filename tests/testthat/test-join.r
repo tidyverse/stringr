@@ -1,5 +1,3 @@
-context("Joining strings")
-
 test_that("basic case works", {
   test <- c("a", "b", "c")
 
