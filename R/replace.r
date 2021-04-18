@@ -20,7 +20,7 @@
 #'
 #'   To perform multiple replacements in each element of `string`,
 #'   pass a named vector (`c(pattern1 = replacement1)`) to
-#'   `str_replace_all`. Alternatively, pass a function to
+#'   `str_replace_all`. Alternatively, pass a function (or formula) to
 #'   `replacement`: it will be called once for each match and its
 #'   return value will be used to replace the match.
 #'
@@ -64,7 +64,8 @@
 #' )
 #' str_replace_all(x, colours, col2hex)
 str_replace <- function(string, pattern, replacement) {
-  if (!missing(replacement) && is.function(replacement)) {
+  if (!missing(replacement) && is_replacement_fun(replacement)) {
+    replacement <- as_function(replacement)
     return(str_transform(string, pattern, replacement))
   }
 
@@ -83,7 +84,8 @@ str_replace <- function(string, pattern, replacement) {
 #' @export
 #' @rdname str_replace
 str_replace_all <- function(string, pattern, replacement) {
-  if (!missing(replacement) && is.function(replacement)) {
+  if (!missing(replacement) && is_replacement_fun(replacement)) {
+    replacement <- as_function(replacement)
     return(str_transform_all(string, pattern, replacement))
   }
 
@@ -106,6 +108,10 @@ str_replace_all <- function(string, pattern, replacement) {
     regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
       vectorize_all = vec, opts_regex = opts(pattern))
   )
+}
+
+is_replacement_fun <- function(x) {
+  is.function(x) || is_formula(x)
 }
 
 fix_replacement <- function(x) {

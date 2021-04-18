@@ -77,6 +77,12 @@ test_that("replacement with NA works", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })
 
+test_that("can use formula", {
+  expect_equal(str_replace("abc", "b", ~ "x"), "axc")
+  expect_equal(str_replace_all("abc", "b", ~ "x"), "axc")
+})
+
+
 # fix_replacement ---------------------------------------------------------
 
 test_that("$ are escaped", {
