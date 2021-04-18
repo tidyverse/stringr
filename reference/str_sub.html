@@ -240,7 +240,7 @@ substring, from the first character to the last.</p>
 </div><div class='output co'>#&gt; [1] "m"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "Wickham"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "Hadley W"</div><div class='input'>
-<span class='co'># Alternatively, you can pass in a two colum matrix, as in the</span>
+<span class='co'># Alternatively, you can pass in a two column matrix, as in the</span>
 <span class='co'># output from str_locate_all</span>
 <span class='va'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span><span class='op'>(</span><span class='va'>hw</span>, <span class='st'>"[aeio]"</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
 <span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='va'>pos</span><span class='op'>)</span>
