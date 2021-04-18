@@ -21,8 +21,8 @@
 #'   To perform multiple replacements in each element of `string`,
 #'   pass a named vector (`c(pattern1 = replacement1)`) to
 #'   `str_replace_all`. Alternatively, pass a function (or formula) to
-#'   `replacement`: it will be called once for each match and its
-#'   return value will be used to replace the match.
+#'   `replacement`: it will be called once for each match (from right to left)
+#'   and its return value will be used to replace the match.
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.

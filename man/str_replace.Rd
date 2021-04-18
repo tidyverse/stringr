@@ -32,8 +32,8 @@ the contents of the respective matched group (created by \verb{()}).
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to
 \code{str_replace_all}. Alternatively, pass a function (or formula) to
-\code{replacement}: it will be called once for each match and its
-return value will be used to replace the match.
+\code{replacement}: it will be called once for each match (from right to left)
+and its return value will be used to replace the match.
 
 To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
