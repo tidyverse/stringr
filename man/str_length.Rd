@@ -15,6 +15,10 @@ A numeric vector giving number of characters (code points) in each
 element of the character vector. Missing string have missing length.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
+
+\code{str_c()} is no longer needed; please use \code{\link[=nchar]{nchar()}} instead.
+
 Technically this returns the number of "code points", in a string. One
 code point usually corresponds to one character, but not always. For example,
 an u with a umlaut might be represented as a single character or as the
@@ -42,3 +46,4 @@ str_count(u2)
 \seealso{
 \code{\link[stringi:stri_length]{stringi::stri_length()}} which this function wraps.
 }
+\keyword{internal}

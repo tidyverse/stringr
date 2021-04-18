@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_c()` and `str_length()` are superseded in favour of `paste0()` and 
+  `nchar()` respectively (#356).
+
 * `str_wrap()` breaks only at whitespace by default; set 
   `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
 

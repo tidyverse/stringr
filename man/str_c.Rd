@@ -27,10 +27,9 @@ length equal to the longest input string. If \code{collapse} is
 non-NULL, a character vector of length 1.
 }
 \description{
-Joins two or more vectors element-wise into a single character vector,
-optionally inserting \code{sep} between input vectors. If \code{collapse} is not \code{NULL},
-it will be inserted between elements of the result, returning a character
-vector of length 1.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
+
+\code{str_c()} is no longer needed; please use \code{paste0()} instead.
 }
 \details{
 To understand how \code{str_c} works, you need to imagine that you are building up
@@ -58,3 +57,4 @@ str_c(str_replace_na(c("a", NA, "b")), "-d")
 \code{\link[=paste]{paste()}} for equivalent base R functionality, and
 \code{\link[stringi:stri_join]{stringi::stri_join()}} which this function wraps
 }
+\keyword{internal}
