@@ -50,7 +50,9 @@
 
 
 <meta property="og:title" content="The length of a string — str_length" />
-<meta property="og:description" content="Technically this returns the number of &quot;code points&quot;, in a string. One
+<meta property="og:description" content="
+str_c() is no longer needed; please use nchar() instead.
+Technically this returns the number of &quot;code points&quot;, in a string. One
 code point usually corresponds to one character, but not always. For example,
 an u with a umlaut might be represented as a single character or as the
 combination a u and an umlaut." />
@@ -179,7 +181,9 @@ combination a u and an umlaut." />
     </div>
 
     <div class="ref-description">
-    <p>Technically this returns the number of "code points", in a string. One
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#superseded'><img src='figures/lifecycle-superseded.svg' alt='[Superseded]' /></a></p>
+<p><code><a href='str_c.html'>str_c()</a></code> is no longer needed; please use <code><a href='https://rdrr.io/r/base/nchar.html'>nchar()</a></code> instead.</p>
+<p>Technically this returns the number of "code points", in a string. One
 code point usually corresponds to one character, but not always. For example,
 an u with a umlaut might be represented as a single character or as the
 combination a u and an umlaut.</p>

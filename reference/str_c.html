@@ -50,10 +50,8 @@
 
 
 <meta property="og:title" content="Join multiple strings into a single string — str_c" />
-<meta property="og:description" content="Joins two or more vectors element-wise into a single character vector,
-optionally inserting sep between input vectors. If collapse is not NULL,
-it will be inserted between elements of the result, returning a character
-vector of length 1." />
+<meta property="og:description" content="
+str_c() is no longer needed; please use paste0() instead." />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -179,10 +177,8 @@ vector of length 1." />
     </div>
 
     <div class="ref-description">
-    <p>Joins two or more vectors element-wise into a single character vector,
-optionally inserting <code>sep</code> between input vectors. If <code>collapse</code> is not <code>NULL</code>,
-it will be inserted between elements of the result, returning a character
-vector of length 1.</p>
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#superseded'><img src='figures/lifecycle-superseded.svg' alt='[Superseded]' /></a></p>
+<p><code>str_c()</code> is no longer needed; please use <code><a href='https://rdrr.io/r/base/paste.html'>paste0()</a></code> instead.</p>
     </div>
 
     <pre class="usage"><span class='fu'>str_c</span><span class='op'>(</span><span class='va'>...</span>, sep <span class='op'>=</span> <span class='st'>""</span>, collapse <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
