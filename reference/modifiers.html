@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Control matching behaviour with modifier functions — modifiers" />
@@ -158,7 +162,7 @@ boundaryMatch boundaries between things.
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -193,24 +197,24 @@ not usually what you want for non-ASCII character sets.</p></dd>
 
     </div>
 
-    <pre class="usage"><span class='fu'>fixed</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>fixed</span><span class='op'>(</span><span class='va'>pattern</span>, ignore_case <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>coll</span>(<span class='no'>pattern</span>, <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"en"</span>, <span class='no'>...</span>)
+<span class='fu'>coll</span><span class='op'>(</span><span class='va'>pattern</span>, ignore_case <span class='op'>=</span> <span class='cn'>FALSE</span>, locale <span class='op'>=</span> <span class='st'>"en"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>regex</span>(
-  <span class='no'>pattern</span>,
-  <span class='kw'>ignore_case</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>multiline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>comments</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>dotall</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>regex</span><span class='op'>(</span>
+  <span class='va'>pattern</span>,
+  ignore_case <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  multiline <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  comments <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  dotall <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>boundary</span>(
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"line_break"</span>, <span class='st'>"sentence"</span>, <span class='st'>"word"</span>),
-  <span class='kw'>skip_word_none</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>boundary</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"character"</span>, <span class='st'>"line_break"</span>, <span class='st'>"sentence"</span>, <span class='st'>"word"</span><span class='op'>)</span>,
+  skip_word_none <span class='op'>=</span> <span class='cn'>NA</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -239,7 +243,7 @@ consistent across platforms.</p></td>
     </tr>
     <tr>
       <th>multiline</th>
-      <td><p>If <code>TRUE</code>, <code>$</code> and <code>^</code> match
+      <td><p>If <code>TRUE</code>, <code><a href='https://rdrr.io/r/base/Extract.html'>$</a></code> and <code><a href='https://rdrr.io/r/base/Arithmetic.html'>^</a></code> match
 the beginning and end of each line. If <code>FALSE</code>, the
 default, only match the start and end of the input.</p></td>
     </tr>
@@ -276,33 +280,49 @@ only when splitting on <code>word</code> boundaries.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='str_wrap.html'>str_wrap()</a></code> for breaking text to form paragraphs</p>
-<p><code><a href='https://rdrr.io/pkg/stringi/man/stringi-search-boundaries.html'>stringi::stringi-search-boundaries</a></code> for more detail on the
+<p><code><a href='https://rdrr.io/pkg/stringi/man/about_search_boundaries.html'>stringi::stringi-search-boundaries</a></code> for more detail on the
 various boundaries</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>pattern</span> <span class='kw'>&lt;-</span> <span class='st'>"a.b"</span>
-<span class='no'>strings</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"abb"</span>, <span class='st'>"a.b"</span>)
-<span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>strings</span>, <span class='no'>pattern</span>)</div><div class='output co'>#&gt; [1] TRUE TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>strings</span>, <span class='fu'>fixed</span>(<span class='no'>pattern</span>))</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>strings</span>, <span class='fu'>coll</span>(<span class='no'>pattern</span>))</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>pattern</span> <span class='op'>&lt;-</span> <span class='st'>"a.b"</span>
+<span class='va'>strings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abb"</span>, <span class='st'>"a.b"</span><span class='op'>)</span>
+<span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>pattern</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='fu'>fixed</span><span class='op'>(</span><span class='va'>pattern</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='fu'>coll</span><span class='op'>(</span><span class='va'>pattern</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'>
 <span class='co'># coll() is useful for locale-aware case-insensitive matching</span>
-<span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"I"</span>, <span class='st'>"\u0130"</span>, <span class='st'>"i"</span>)
-<span class='no'>i</span></div><div class='output co'>#&gt; [1] "I" "İ" "i"</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>i</span>, <span class='fu'>fixed</span>(<span class='st'>"i"</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1]  TRUE FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>i</span>, <span class='fu'>coll</span>(<span class='st'>"i"</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [1]  TRUE FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span>(<span class='no'>i</span>, <span class='fu'>coll</span>(<span class='st'>"i"</span>, <span class='fl'>TRUE</span>, <span class='kw'>locale</span> <span class='kw'>=</span> <span class='st'>"tr"</span>))</div><div class='output co'>#&gt; [1] FALSE  TRUE  TRUE</div><div class='input'>
+<span class='va'>i</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"I"</span>, <span class='st'>"\u0130"</span>, <span class='st'>"i"</span><span class='op'>)</span>
+<span class='va'>i</span>
+</div><div class='output co'>#&gt; [1] "I" "İ" "i"</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>i</span>, <span class='fu'>fixed</span><span class='op'>(</span><span class='st'>"i"</span>, <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  TRUE FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>i</span>, <span class='fu'>coll</span><span class='op'>(</span><span class='st'>"i"</span>, <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  TRUE FALSE  TRUE</div><div class='input'><span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>i</span>, <span class='fu'>coll</span><span class='op'>(</span><span class='st'>"i"</span>, <span class='cn'>TRUE</span>, locale <span class='op'>=</span> <span class='st'>"tr"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE  TRUE  TRUE</div><div class='input'>
 <span class='co'># Word boundaries</span>
-<span class='no'>words</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"These are   some words."</span>)
-<span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>words</span>, <span class='fu'>boundary</span>(<span class='st'>"word"</span>))</div><div class='output co'>#&gt; [1] 4</div><div class='input'><span class='fu'><a href='str_split.html'>str_split</a></span>(<span class='no'>words</span>, <span class='st'>" "</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "These"  "are"    ""       ""       "some"   "words."</div><div class='input'><span class='fu'><a href='str_split.html'>str_split</a></span>(<span class='no'>words</span>, <span class='fu'>boundary</span>(<span class='st'>"word"</span>))<span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; [1] "These" "are"   "some"  "words"</div><div class='input'>
+<span class='va'>words</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"These are   some words."</span><span class='op'>)</span>
+<span class='fu'><a href='str_count.html'>str_count</a></span><span class='op'>(</span><span class='va'>words</span>, <span class='fu'>boundary</span><span class='op'>(</span><span class='st'>"word"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 4</div><div class='input'><span class='fu'><a href='str_split.html'>str_split</a></span><span class='op'>(</span><span class='va'>words</span>, <span class='st'>" "</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+</div><div class='output co'>#&gt; [1] "These"  "are"    ""       ""       "some"   "words."</div><div class='input'><span class='fu'><a href='str_split.html'>str_split</a></span><span class='op'>(</span><span class='va'>words</span>, <span class='fu'>boundary</span><span class='op'>(</span><span class='st'>"word"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+</div><div class='output co'>#&gt; [1] "These" "are"   "some"  "words"</div><div class='input'>
 <span class='co'># Regular expression variations</span>
-<span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"The Cat in the Hat"</span>, <span class='st'>"[a-z]+"</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"The Cat in the Hat"</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "he"  "at"  "in"  "the" "at" 
-#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"The Cat in the Hat"</span>, <span class='fu'>regex</span>(<span class='st'>"[a-z]+"</span>, <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"The Cat in the Hat"</span>, <span class='fu'>regex</span><span class='op'>(</span><span class='st'>"[a-z]+"</span>, <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "The" "Cat" "in"  "the" "Hat"
 #&gt; </div><div class='input'>
-<span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"a\nb\nc"</span>, <span class='st'>"^."</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"a\nb\nc"</span>, <span class='st'>"^."</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "a"
-#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"a\nb\nc"</span>, <span class='fu'>regex</span>(<span class='st'>"^."</span>, <span class='kw'>multiline</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"a\nb\nc"</span>, <span class='fu'>regex</span><span class='op'>(</span><span class='st'>"^."</span>, multiline <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "a" "b" "c"
 #&gt; </div><div class='input'>
-<span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"a\nb\nc"</span>, <span class='st'>"a."</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"a\nb\nc"</span>, <span class='st'>"a."</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; character(0)
-#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span>(<span class='st'>"a\nb\nc"</span>, <span class='fu'>regex</span>(<span class='st'>"a."</span>, <span class='kw'>dotall</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='st'>"a\nb\nc"</span>, <span class='fu'>regex</span><span class='op'>(</span><span class='st'>"a."</span>, dotall <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "a\n"
 #&gt; </div></pre>
   </div>

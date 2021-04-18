@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Format and interpolate a string with glue — str_glue" />
@@ -152,7 +156,7 @@ directly from glue for more control." />
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -181,9 +185,9 @@ These wrappers provide a small set of the full options. Use the functions
 directly from glue for more control.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_glue</span>(<span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span>())
+    <pre class="usage"><span class='fu'>str_glue</span><span class='op'>(</span><span class='va'>...</span>, .sep <span class='op'>=</span> <span class='st'>""</span>, .envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>str_glue_data</span>(<span class='no'>.x</span>, <span class='no'>...</span>, <span class='kw'>.sep</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>.envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span>(), <span class='kw'>.na</span> <span class='kw'>=</span> <span class='st'>"NA"</span>)</pre>
+<span class='fu'>str_glue_data</span><span class='op'>(</span><span class='va'>.x</span>, <span class='va'>...</span>, .sep <span class='op'>=</span> <span class='st'>""</span>, .envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sys.parent.html'>parent.frame</a></span><span class='op'>(</span><span class='op'>)</span>, .na <span class='op'>=</span> <span class='st'>"NA"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,25 +222,29 @@ cause <code>NA</code> output. Otherwise the value is replaced by the value of <c
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>name</span> <span class='kw'>&lt;-</span> <span class='st'>"Fred"</span>
-<span class='no'>age</span> <span class='kw'>&lt;-</span> <span class='fl'>50</span>
-<span class='no'>anniversary</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span>(<span class='st'>"1991-10-12"</span>)
-<span class='fu'>str_glue</span>(
+    <pre class="examples"><div class='input'><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Fred"</span>
+<span class='va'>age</span> <span class='op'>&lt;-</span> <span class='fl'>50</span>
+<span class='va'>anniversary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1991-10-12"</span><span class='op'>)</span>
+<span class='fu'>str_glue</span><span class='op'>(</span>
   <span class='st'>"My name is {name}, "</span>,
   <span class='st'>"my age next year is {age + 1}, "</span>,
   <span class='st'>"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."</span>
-)</div><div class='output co'>#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</div><div class='input'>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</div><div class='input'>
 <span class='co'># single braces can be inserted by doubling them</span>
-<span class='fu'>str_glue</span>(<span class='st'>"My name is {name}, not {{name}}."</span>)</div><div class='output co'>#&gt; My name is Fred, not {name}.</div><div class='input'>
+<span class='fu'>str_glue</span><span class='op'>(</span><span class='st'>"My name is {name}, not {{name}}."</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; My name is Fred, not {name}.</div><div class='input'>
 <span class='co'># You can also used named arguments</span>
-<span class='fu'>str_glue</span>(
+<span class='fu'>str_glue</span><span class='op'>(</span>
   <span class='st'>"My name is {name}, "</span>,
   <span class='st'>"and my age next year is {age + 1}."</span>,
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Joe"</span>,
-  <span class='kw'>age</span> <span class='kw'>=</span> <span class='fl'>40</span>
-)</div><div class='output co'>#&gt; My name is Joe, and my age next year is 41.</div><div class='input'>
+  name <span class='op'>=</span> <span class='st'>"Joe"</span>,
+  age <span class='op'>=</span> <span class='fl'>40</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; My name is Joe, and my age next year is 41.</div><div class='input'>
 <span class='co'># `str_glue_data()` is useful in data pipelines</span>
-<span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>str_glue_data</span>(<span class='st'>"{rownames(.)} has {hp} hp"</span>)</div><div class='output co'>#&gt; Mazda RX4 has 110 hp
+<span class='va'>mtcars</span> <span class='op'>%&gt;%</span> <span class='fu'>str_glue_data</span><span class='op'>(</span><span class='st'>"{rownames(.)} has {hp} hp"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Mazda RX4 has 110 hp
 #&gt; Mazda RX4 Wag has 110 hp
 #&gt; Datsun 710 has 93 hp
 #&gt; Hornet 4 Drive has 110 hp

@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Split up a string into pieces — str_split" />
@@ -149,7 +153,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -175,11 +179,11 @@
     <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_split</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>str_split</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, n <span class='op'>=</span> <span class='cn'>Inf</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>str_split_fixed</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)
+<span class='fu'>str_split_fixed</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, <span class='va'>n</span><span class='op'>)</span>
 
-<span class='fu'>str_split_n</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>n</span>)</pre>
+<span class='fu'>str_split_n</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, <span class='va'>n</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,7 +197,7 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-in <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a>. Control options with
+in <a href='https://rdrr.io/pkg/stringi/man/about_search_regex.html'>stringi::stringi-search-regex</a>. Control options with
 <code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
@@ -229,45 +233,54 @@ a length <code>n</code> character vector.</p>
     <div class='dont-index'><p><code>stri_split()</code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+    <pre class="examples"><div class='input'><span class='va'>fruits</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"apples and oranges and pears and bananas"</span>,
   <span class='st'>"pineapples and mangos and guavas"</span>
-)
+<span class='op'>)</span>
 
-<span class='fu'>str_split</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_split</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples"  "oranges" "pears"   "bananas"
 #&gt; 
 #&gt; [[2]]
 #&gt; [1] "pineapples" "mangos"     "guavas"    
-#&gt; </div><div class='input'><span class='fu'>str_split</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
+#&gt; </div><div class='input'><span class='fu'>str_split</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
 #&gt; [1,] "apples"     "oranges" "pears"  "bananas"
 #&gt; [2,] "pineapples" "mangos"  "guavas" ""       </div><div class='input'>
 <span class='co'># Specify n to restrict the number of possible matches</span>
-<span class='fu'>str_split</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_split</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, n <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples"            "oranges"           "pears and bananas"
 #&gt; 
 #&gt; [[2]]
 #&gt; [1] "pineapples" "mangos"     "guavas"    
-#&gt; </div><div class='input'><span class='fu'>str_split</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>str_split</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, n <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples"                        "oranges and pears and bananas"
 #&gt; 
 #&gt; [[2]]
 #&gt; [1] "pineapples"        "mangos and guavas"
 #&gt; </div><div class='input'><span class='co'># If n greater than number of pieces, no padding occurs</span>
-<span class='fu'>str_split</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_split</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, n <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples"  "oranges" "pears"   "bananas"
 #&gt; 
 #&gt; [[2]]
 #&gt; [1] "pineapples" "mangos"     "guavas"    
 #&gt; </div><div class='input'>
 <span class='co'># Use fixed to return a character matrix</span>
-<span class='fu'>str_split_fixed</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]               
+<span class='fu'>str_split_fixed</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]               
 #&gt; [1,] "apples"     "oranges" "pears and bananas"
-#&gt; [2,] "pineapples" "mangos"  "guavas"           </div><div class='input'><span class='fu'>str_split_fixed</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>4</span>)</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
+#&gt; [2,] "pineapples" "mangos"  "guavas"           </div><div class='input'><span class='fu'>str_split_fixed</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
 #&gt; [1,] "apples"     "oranges" "pears"  "bananas"
 #&gt; [2,] "pineapples" "mangos"  "guavas" ""       </div><div class='input'>
 <span class='co'># str_split_n extracts only a single piece from a string</span>
-<span class='fu'>str_split_n</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "apples"     "pineapples"</div><div class='input'><span class='fu'>str_split_n</span>(<span class='no'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "pears"  "guavas"</div></pre>
+<span class='fu'>str_split_n</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "apples"     "pineapples"</div><div class='input'><span class='fu'>str_split_n</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "pears"  "guavas"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

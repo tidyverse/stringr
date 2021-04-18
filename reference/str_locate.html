@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Locate the position of patterns in a string — str_locate" />
@@ -151,7 +155,7 @@ than start." />
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -175,13 +179,13 @@ than start." />
 
     <div class="ref-description">
     <p>Vectorised over <code>string</code> and <code>pattern</code>. If the match is of length
-0, (e.g. from a special match like <code>$</code>) end will be one character less
+0, (e.g. from a special match like <code><a href='https://rdrr.io/r/base/Extract.html'>$</a></code>) end will be one character less
 than start.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_locate</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)
+    <pre class="usage"><span class='fu'>str_locate</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span><span class='op'>)</span>
 
-<span class='fu'>str_locate_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)</pre>
+<span class='fu'>str_locate_all</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,7 +199,7 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-in <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a>. Control options with
+in <a href='https://rdrr.io/pkg/stringi/man/about_search_regex.html'>stringi::stringi-search-regex</a>. Control options with
 <code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
@@ -218,25 +222,30 @@ postion of match, and second column gives end position. For
 <code><a href='https://rdrr.io/pkg/stringi/man/stri_locate.html'>stringi::stri_locate()</a></code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>fruit</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span>)
-<span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"$"</span>)</div><div class='output co'>#&gt;      start end
+    <pre class="examples"><div class='input'><span class='va'>fruit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span><span class='op'>)</span>
+<span class='fu'>str_locate</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"$"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     6   5
 #&gt; [2,]     7   6
 #&gt; [3,]     5   4
-#&gt; [4,]    10   9</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt;      start end
+#&gt; [4,]    10   9</div><div class='input'><span class='fu'>str_locate</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     1   1
 #&gt; [2,]     2   2
 #&gt; [3,]     3   3
-#&gt; [4,]     5   5</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='st'>"e"</span>)</div><div class='output co'>#&gt;      start end
+#&gt; [4,]     5   5</div><div class='input'><span class='fu'>str_locate</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"e"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     5   5
 #&gt; [2,]    NA  NA
 #&gt; [3,]     2   2
-#&gt; [4,]     4   4</div><div class='input'><span class='fu'>str_locate</span>(<span class='no'>fruit</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span>))</div><div class='output co'>#&gt;      start end
+#&gt; [4,]     4   4</div><div class='input'><span class='fu'>str_locate</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      start end
 #&gt; [1,]     1   1
 #&gt; [2,]     1   1
 #&gt; [3,]     1   1
 #&gt; [4,]     1   1</div><div class='input'>
-<span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_locate_all</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     1   1
 #&gt; 
@@ -253,7 +262,8 @@ postion of match, and second column gives end position. For
 #&gt; [[4]]
 #&gt;      start end
 #&gt; [1,]     5   5
-#&gt; </div><div class='input'><span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>"e"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>str_locate_all</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"e"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     5   5
 #&gt; 
@@ -268,7 +278,8 @@ postion of match, and second column gives end position. For
 #&gt;      start end
 #&gt; [1,]     4   4
 #&gt; [2,]     9   9
-#&gt; </div><div class='input'><span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>str_locate_all</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"p"</span>, <span class='st'>"p"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     1   1
 #&gt; 
@@ -287,7 +298,8 @@ postion of match, and second column gives end position. For
 #&gt; [3,]     7   7
 #&gt; </div><div class='input'>
 <span class='co'># Find location of every character</span>
-<span class='fu'>str_locate_all</span>(<span class='no'>fruit</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_locate_all</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>""</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;      start end
 #&gt; [1,]     1   1
 #&gt; [2,]     2   2

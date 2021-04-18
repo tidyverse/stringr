@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Detect the presence or absence of a pattern in a string — str_detect" />
@@ -151,7 +155,7 @@ See str_which() for an equivalent to grep(pattern, x)." />
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -179,7 +183,7 @@ Equivalent to <code><a href='https://rdrr.io/r/base/grep.html'>grepl(pattern, x)
 See <code><a href='str_subset.html'>str_which()</a></code> for an equivalent to <code><a href='https://rdrr.io/r/base/grep.html'>grep(pattern, x)</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_detect</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>negate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, negate <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,7 +197,7 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-in <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a>. Control options with
+in <a href='https://rdrr.io/pkg/stringi/man/about_search_regex.html'>stringi::stringi-search-regex</a>. Control options with
 <code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
@@ -219,14 +223,21 @@ respects character matching rules for the specified locale.</p>
 <code>x[str_detect(x, pattern)]</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>fruit</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span>)
-<span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt; [1] TRUE TRUE TRUE TRUE</div><div class='input'><span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"^a"</span>)</div><div class='output co'>#&gt; [1]  TRUE FALSE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"a$"</span>)</div><div class='output co'>#&gt; [1] FALSE  TRUE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"b"</span>)</div><div class='output co'>#&gt; [1] FALSE  TRUE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"[aeiou]"</span>)</div><div class='output co'>#&gt; [1] TRUE TRUE TRUE TRUE</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>fruit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span><span class='op'>)</span>
+<span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE TRUE TRUE TRUE</div><div class='input'><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^a"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  TRUE FALSE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a$"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE  TRUE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"b"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE  TRUE FALSE FALSE</div><div class='input'><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"[aeiou]"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE TRUE TRUE TRUE</div><div class='input'>
 <span class='co'># Also vectorised over pattern</span>
-<span class='fu'>str_detect</span>(<span class='st'>"aecfg"</span>, <span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
+<span class='fu'>str_detect</span><span class='op'>(</span><span class='st'>"aecfg"</span>, <span class='va'>letters</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
 #&gt; [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 #&gt; [25] FALSE FALSE</div><div class='input'>
 <span class='co'># Returns TRUE if the pattern do NOT match</span>
-<span class='fu'>str_detect</span>(<span class='no'>fruit</span>, <span class='st'>"^p"</span>, <span class='kw'>negate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1]  TRUE  TRUE FALSE FALSE</div></pre>
+<span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^p"</span>, negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  TRUE  TRUE FALSE FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

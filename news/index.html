@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Changelog" />
@@ -148,7 +152,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -181,6 +185,7 @@
 <li><p>New <code><a href="../reference/str_split.html">str_split_n()</a></code> function to extract only a single piece from a string (<a href='https://github.com/tidyverse/stringr/issues/278'>#278</a>, <a href='https://github.com/bfgray3'>@bfgray3</a>).</p></li>
 <li><p>New <code><a href="../reference/str_like.html">str_like()</a></code> function which allows the use of SQL wildcards (<a href='https://github.com/tidyverse/stringr/issues/280'>#280</a>, <a href='https://github.com/rjpat'>@rjpat</a>).</p></li>
 <li><p>New <code><a href="../reference/str_unique.html">str_unique()</a></code> is a wrapper around <code>stri_unique()</code> and returns unique string values in a character vector (<a href='https://github.com/tidyverse/stringr/issues/249'>#249</a>, <a href='https://github.com/seasmith'>@seasmith</a>).</p></li>
+<li><p>stringr is now licensed as MIT (<a href='https://github.com/tidyverse/stringr/issues/351'>#351</a>).</p></li>
 </ul>
 </div>
     <div id="stringr-140" class="section level1">
@@ -293,8 +298,10 @@
 <li><p><code><a href="../reference/str_c.html">str_c()</a></code> now returns a zero length vector if any of its inputs are zero length vectors. This is consistent with all other functions, and standard R recycling rules. Similarly, using <code><a href="../reference/str_c.html">str_c("x", NA)</a></code> now yields <code>NA</code>. If you want <code>"xNA"</code>, use <code><a href="../reference/str_replace_na.html">str_replace_na()</a></code> on the inputs.</p></li>
 <li>
 <p><code><a href="../reference/str_replace.html">str_replace_all()</a></code> gains a convenient syntax for applying multiple pairs of pattern and replacement to the same vector:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="no">input</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"abc"</span>, <span class="st">"def"</span>)
-<span class="fu"><a href="../reference/str_replace.html">str_replace_all</a></span>(<span class="no">input</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"[ad]"</span> <span class="kw">=</span> <span class="st">"!"</span>, <span class="st">"[cf]"</span> <span class="kw">=</span> <span class="st">"?"</span>))</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span><span class="op">)</span>
+<span class="fu"><a href="../reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">input</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"[ad]"</span> <span class="op">=</span> <span class="st">"!"</span>, <span class="st">"[cf]"</span> <span class="op">=</span> <span class="st">"?"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </li>
 <li><p><code><a href="../reference/str_match.html">str_match()</a></code> now returns NA if an optional group doesn’t match (previously it returned ""). This is more consistent with <code><a href="../reference/str_extract.html">str_extract()</a></code> and other match failures.</p></li>
 <li><p>New <code><a href="../reference/str_subset.html">str_subset()</a></code> keeps values that match a pattern. It’s a convenient wrapper for <code>x[str_detect(x)]</code> (<a href='https://github.com/tidyverse/stringr/issues/21'>#21</a>, <a href='https://github.com/jiho'>@jiho</a>).</p></li>

@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="The length of a string — str_length" />
@@ -152,7 +156,7 @@ combination a u and an umlaut." />
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -181,7 +185,7 @@ an u with a umlaut might be represented as a single character or as the
 combination a u and an umlaut.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_length</span>(<span class='no'>string</span>)</pre>
+    <pre class="usage"><span class='fu'>str_length</span><span class='op'>(</span><span class='va'>string</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,14 +206,24 @@ element of the character vector. Missing string have missing length.</p>
     <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/stringi/man/stri_length.html'>stringi::stri_length()</a></code> which this function wraps.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_length</span>(<span class='no'>letters</span>)</div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</div><div class='input'><span class='fu'>str_length</span>(<span class='fl'>NA</span>)</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='st'>"abc"</span>))</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'>str_length</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"i"</span>, <span class='st'>"like"</span>, <span class='st'>"programming"</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1]  1  4 11 NA</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>str_length</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</div><div class='input'><span class='fu'>str_length</span><span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='fu'>str_length</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='st'>"abc"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 3</div><div class='input'><span class='fu'>str_length</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"i"</span>, <span class='st'>"like"</span>, <span class='st'>"programming"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  1  4 11 NA</div><div class='input'>
 <span class='co'># Two ways of representing a u with an umlaut</span>
-<span class='no'>u1</span> <span class='kw'>&lt;-</span> <span class='st'>"\u00fc"</span>
-<span class='no'>u2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stringi</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/stringi/man/stri_trans_nf.html'>stri_trans_nfd</a></span>(<span class='no'>u1</span>)
+<span class='va'>u1</span> <span class='op'>&lt;-</span> <span class='st'>"\u00fc"</span>
+<span class='va'>u2</span> <span class='op'>&lt;-</span> <span class='fu'>stringi</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/stringi/man/stri_trans_nf.html'>stri_trans_nfd</a></span><span class='op'>(</span><span class='va'>u1</span><span class='op'>)</span>
 <span class='co'># The print the same:</span>
-<span class='no'>u1</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='no'>u2</span></div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='co'># But have a different length</span>
-<span class='fu'>str_length</span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>str_length</span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 2</div><div class='input'><span class='co'># Even though they have the same number of characters</span>
-<span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u1</span>)</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='str_count.html'>str_count</a></span>(<span class='no'>u2</span>)</div><div class='output co'>#&gt; [1] 1</div></pre>
+<span class='va'>u1</span>
+</div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='va'>u2</span>
+</div><div class='output co'>#&gt; [1] "ü"</div><div class='input'><span class='co'># But have a different length</span>
+<span class='fu'>str_length</span><span class='op'>(</span><span class='va'>u1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>str_length</span><span class='op'>(</span><span class='va'>u2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 2</div><div class='input'><span class='co'># Even though they have the same number of characters</span>
+<span class='fu'><a href='str_count.html'>str_count</a></span><span class='op'>(</span><span class='va'>u1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'><a href='str_count.html'>str_count</a></span><span class='op'>(</span><span class='va'>u2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

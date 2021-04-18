@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Truncate a character string — str_trunc" />
@@ -149,7 +153,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -175,7 +179,7 @@
     <p>Truncate a character string</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_trunc</span>(<span class='no'>string</span>, <span class='no'>width</span>, <span class='kw'>side</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"right"</span>, <span class='st'>"left"</span>, <span class='st'>"center"</span>), <span class='kw'>ellipsis</span> <span class='kw'>=</span> <span class='st'>"..."</span>)</pre>
+    <pre class="usage"><span class='fu'>str_trunc</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>width</span>, side <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"right"</span>, <span class='st'>"left"</span>, <span class='st'>"center"</span><span class='op'>)</span>, ellipsis <span class='op'>=</span> <span class='st'>"..."</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,12 +204,13 @@ content has been removed.</p></td>
     <div class='dont-index'><p><code><a href='str_pad.html'>str_pad()</a></code> to increase the minimum width of a string.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='st'>"This string is moderately long"</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(
-  <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"right"</span>),
-  <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"left"</span>),
-  <span class='fu'>str_trunc</span>(<span class='no'>x</span>, <span class='fl'>20</span>, <span class='st'>"center"</span>)
-)</div><div class='output co'>#&gt;      [,1]                  
+    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"This string is moderately long"</span>
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span>
+  <span class='fu'>str_trunc</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>20</span>, <span class='st'>"right"</span><span class='op'>)</span>,
+  <span class='fu'>str_trunc</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>20</span>, <span class='st'>"left"</span><span class='op'>)</span>,
+  <span class='fu'>str_trunc</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>20</span>, <span class='st'>"center"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]                  
 #&gt; [1,] "This string is mo..."
 #&gt; [2,] "...s moderately long"
 #&gt; [3,] "This stri...ely long"</div><div class='input'>

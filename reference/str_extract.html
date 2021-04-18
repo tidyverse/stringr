@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Extract matching patterns from a string — str_extract" />
@@ -149,7 +153,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -175,9 +179,9 @@
     <p>Vectorised over <code>string</code> and <code>pattern</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_extract</span>(<span class='no'>string</span>, <span class='no'>pattern</span>)
+    <pre class="usage"><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span><span class='op'>)</span>
 
-<span class='fu'>str_extract_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,7 +195,7 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-in <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a>. Control options with
+in <a href='https://rdrr.io/pkg/stringi/man/about_search_regex.html'>stringi::stringi-search-regex</a>. Control options with
 <code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
@@ -217,10 +221,15 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 <code><a href='https://rdrr.io/pkg/stringi/man/stri_extract.html'>stringi::stri_extract()</a></code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>shopping_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"apples x4"</span>, <span class='st'>"bag of flour"</span>, <span class='st'>"bag of sugar"</span>, <span class='st'>"milk x2"</span>)
-<span class='fu'>str_extract</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\d"</span>)</div><div class='output co'>#&gt; [1] "4" NA  NA  "2"</div><div class='input'><span class='fu'>str_extract</span>(<span class='no'>shopping_list</span>, <span class='st'>"[a-z]+"</span>)</div><div class='output co'>#&gt; [1] "apples" "bag"    "bag"    "milk"  </div><div class='input'><span class='fu'>str_extract</span>(<span class='no'>shopping_list</span>, <span class='st'>"[a-z]{1,4}"</span>)</div><div class='output co'>#&gt; [1] "appl" "bag"  "bag"  "milk"</div><div class='input'><span class='fu'>str_extract</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\b[a-z]{1,4}\\b"</span>)</div><div class='output co'>#&gt; [1] NA     "bag"  "bag"  "milk"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>shopping_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apples x4"</span>, <span class='st'>"bag of flour"</span>, <span class='st'>"bag of sugar"</span>, <span class='st'>"milk x2"</span><span class='op'>)</span>
+<span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "4" NA  NA  "2"</div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "apples" "bag"    "bag"    "milk"  </div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]{1,4}"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "appl" "bag"  "bag"  "milk"</div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]{1,4}\\b"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] NA     "bag"  "bag"  "milk"</div><div class='input'>
 <span class='co'># Extract all matches</span>
-<span class='fu'>str_extract_all</span>(<span class='no'>shopping_list</span>, <span class='st'>"[a-z]+"</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples" "x"     
 #&gt; 
 #&gt; [[2]]
@@ -231,7 +240,8 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 #&gt; 
 #&gt; [[4]]
 #&gt; [1] "milk" "x"   
-#&gt; </div><div class='input'><span class='fu'>str_extract_all</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "apples"
 #&gt; 
 #&gt; [[2]]
@@ -242,7 +252,8 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 #&gt; 
 #&gt; [[4]]
 #&gt; [1] "milk"
-#&gt; </div><div class='input'><span class='fu'>str_extract_all</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\d"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "4"
 #&gt; 
 #&gt; [[2]]
@@ -255,17 +266,20 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 #&gt; [1] "2"
 #&gt; </div><div class='input'>
 <span class='co'># Simplify results into character matrix</span>
-<span class='fu'>str_extract_all</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      [,1]     [,2] [,3]   
+<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]     [,2] [,3]   
 #&gt; [1,] "apples" ""   ""     
 #&gt; [2,] "bag"    "of" "flour"
 #&gt; [3,] "bag"    "of" "sugar"
-#&gt; [4,] "milk"   ""   ""     </div><div class='input'><span class='fu'>str_extract_all</span>(<span class='no'>shopping_list</span>, <span class='st'>"\\d"</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      [,1]
+#&gt; [4,] "milk"   ""   ""     </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1]
 #&gt; [1,] "4" 
 #&gt; [2,] ""  
 #&gt; [3,] ""  
 #&gt; [4,] "2" </div><div class='input'>
 <span class='co'># Extract all words</span>
-<span class='fu'>str_extract_all</span>(<span class='st'>"This is, suprisingly, a sentence."</span>, <span class='fu'><a href='modifiers.html'>boundary</a></span>(<span class='st'>"word"</span>))</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='st'>"This is, suprisingly, a sentence."</span>, <span class='fu'><a href='modifiers.html'>boundary</a></span><span class='op'>(</span><span class='st'>"word"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "This"        "is"          "suprisingly" "a"           "sentence"   
 #&gt; </div></pre>
   </div>

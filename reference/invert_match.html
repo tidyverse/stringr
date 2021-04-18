@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Switch location of matches to location of non-matches. — invert_match" />
@@ -150,7 +154,7 @@ previously matched." />
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -177,7 +181,7 @@ previously matched." />
 previously matched.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>invert_match</span>(<span class='no'>loc</span>)</pre>
+    <pre class="usage"><span class='fu'>invert_match</span><span class='op'>(</span><span class='va'>loc</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,11 +197,13 @@ previously matched.</p>
     <p>numeric match giving locations of non-matches</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>numbers</span> <span class='kw'>&lt;-</span> <span class='st'>"1 and 2 and 4 and 456"</span>
-<span class='no'>num_loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span>(<span class='no'>numbers</span>, <span class='st'>"[0-9]+"</span>)<span class='kw'>[[</span><span class='fl'>1</span>]]
-<span class='fu'><a href='str_sub.html'>str_sub</a></span>(<span class='no'>numbers</span>, <span class='no'>num_loc</span>[, <span class='st'>"start"</span>], <span class='no'>num_loc</span>[, <span class='st'>"end"</span>])</div><div class='output co'>#&gt; [1] "1"   "2"   "4"   "456"</div><div class='input'>
-<span class='no'>text_loc</span> <span class='kw'>&lt;-</span> <span class='fu'>invert_match</span>(<span class='no'>num_loc</span>)
-<span class='fu'><a href='str_sub.html'>str_sub</a></span>(<span class='no'>numbers</span>, <span class='no'>text_loc</span>[, <span class='st'>"start"</span>], <span class='no'>text_loc</span>[, <span class='st'>"end"</span>])</div><div class='output co'>#&gt; [1] ""      " and " " and " " and " ""     </div></pre>
+    <pre class="examples"><div class='input'><span class='va'>numbers</span> <span class='op'>&lt;-</span> <span class='st'>"1 and 2 and 4 and 456"</span>
+<span class='va'>num_loc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span><span class='op'>(</span><span class='va'>numbers</span>, <span class='st'>"[0-9]+"</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+<span class='fu'><a href='str_sub.html'>str_sub</a></span><span class='op'>(</span><span class='va'>numbers</span>, <span class='va'>num_loc</span><span class='op'>[</span>, <span class='st'>"start"</span><span class='op'>]</span>, <span class='va'>num_loc</span><span class='op'>[</span>, <span class='st'>"end"</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1"   "2"   "4"   "456"</div><div class='input'>
+<span class='va'>text_loc</span> <span class='op'>&lt;-</span> <span class='fu'>invert_match</span><span class='op'>(</span><span class='va'>num_loc</span><span class='op'>)</span>
+<span class='fu'><a href='str_sub.html'>str_sub</a></span><span class='op'>(</span><span class='va'>numbers</span>, <span class='va'>text_loc</span><span class='op'>[</span>, <span class='st'>"start"</span><span class='op'>]</span>, <span class='va'>text_loc</span><span class='op'>[</span>, <span class='st'>"end"</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] ""      " and " " and " " and " ""     </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

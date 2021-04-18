@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Replace matched patterns in a string — str_replace" />
@@ -149,7 +153,7 @@
 </li>
         <li>
   <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -175,9 +179,9 @@
     <p>Vectorised over <code>string</code>, <code>pattern</code> and <code>replacement</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_replace</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)
+    <pre class="usage"><span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span><span class='op'>)</span>
 
-<span class='fu'>str_replace_all</span>(<span class='no'>string</span>, <span class='no'>pattern</span>, <span class='no'>replacement</span>)</pre>
+<span class='fu'>str_replace_all</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,7 +195,7 @@ coercible to one.</p></td>
       <th>pattern</th>
       <td><p>Pattern to look for.</p>
 <p>The default interpretation is a regular expression, as described
-in <a href='https://rdrr.io/pkg/stringi/man/stringi-search-regex.html'>stringi::stringi-search-regex</a>. Control options with
+in <a href='https://rdrr.io/pkg/stringi/man/about_search_regex.html'>stringi::stringi-search-regex</a>. Control options with
 <code><a href='modifiers.html'>regex()</a></code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href='modifiers.html'>fixed()</a></code>. This is fast, but approximate. Generally,
@@ -223,29 +227,39 @@ return value will be used to replace the match.</p>
 <code>stri_replace()</code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>fruits</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span>)
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-ne apple"     "tw- pears"     "thr-e bananas"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='no'>toupper</span>)</div><div class='output co'>#&gt; [1] "OnE ApplE"     "twO pEArs"     "thrEE bAnAnAs"</div><div class='input'><span class='fu'>str_replace_all</span>(<span class='no'>fruits</span>, <span class='st'>"b"</span>, <span class='fl'>NA_character_</span>)</div><div class='output co'>#&gt; [1] "one apple" "two pears" NA         </div><div class='input'>
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span>)</div><div class='output co'>#&gt; [1] "ne apple"     "tw pears"     "thre bananas"</div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span>)</div><div class='output co'>#&gt; [1] "oone apple"     "twoo pears"     "threee bananas"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>fruits</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one apple"</span>, <span class='st'>"two pears"</span>, <span class='st'>"three bananas"</span><span class='op'>)</span>
+<span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "-ne apple"     "tw- pears"     "thr-e bananas"</div><div class='input'><span class='fu'>str_replace_all</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='st'>"-"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</div><div class='input'><span class='fu'>str_replace_all</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='va'>toupper</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "OnE ApplE"     "twO pEArs"     "thrEE bAnAnAs"</div><div class='input'><span class='fu'>str_replace_all</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"b"</span>, <span class='cn'>NA_character_</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "one apple" "two pears" NA         </div><div class='input'>
+<span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>""</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "ne apple"     "tw pears"     "thre bananas"</div><div class='input'><span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"([aeiou])"</span>, <span class='st'>"\\1\\1"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "oone apple"     "twoo pears"     "threee bananas"</div><div class='input'>
 <span class='co'># Note that str_replace() is vectorised along text, pattern, and replacement</span>
-<span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] "1ne apple"     "tw2 pears"     "thr3e bananas"</div><div class='input'><span class='fu'>str_replace</span>(<span class='no'>fruits</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span>), <span class='st'>"-"</span>)</div><div class='output co'>#&gt; [1] "one -pple"     "two p-ars"     "three bananas"</div><div class='input'>
+<span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>"[aeiou]"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1ne apple"     "tw2 pears"     "thr3e bananas"</div><div class='input'><span class='fu'>str_replace</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"e"</span>, <span class='st'>"i"</span><span class='op'>)</span>, <span class='st'>"-"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "one -pple"     "two p-ars"     "three bananas"</div><div class='input'>
 <span class='co'># If you want to apply multiple patterns and replacements to the same</span>
 <span class='co'># string, pass a named vector to pattern.</span>
-<span class='no'>fruits</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='str_c.html'>str_c</a></span>(<span class='kw'>collapse</span> <span class='kw'>=</span> <span class='st'>"---"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>str_replace_all</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span> <span class='kw'>=</span> <span class='st'>"1"</span>, <span class='st'>"two"</span> <span class='kw'>=</span> <span class='st'>"2"</span>, <span class='st'>"three"</span> <span class='kw'>=</span> <span class='st'>"3"</span>))</div><div class='output co'>#&gt; [1] "1 apple---2 pears---3 bananas"</div><div class='input'>
+<span class='va'>fruits</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='str_c.html'>str_c</a></span><span class='op'>(</span>collapse <span class='op'>=</span> <span class='st'>"---"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>str_replace_all</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span> <span class='op'>=</span> <span class='st'>"1"</span>, <span class='st'>"two"</span> <span class='op'>=</span> <span class='st'>"2"</span>, <span class='st'>"three"</span> <span class='op'>=</span> <span class='st'>"3"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1 apple---2 pears---3 bananas"</div><div class='input'>
 <span class='co'># Use a function for more sophisticated replacement. This example</span>
 <span class='co'># replaces colour names with their hex values.</span>
-<span class='no'>colours</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='str_c.html'>str_c</a></span>(<span class='st'>"\\b"</span>, <span class='fu'><a href='https://rdrr.io/r/grDevices/colors.html'>colors</a></span>(), <span class='st'>"\\b"</span>, <span class='kw'>collapse</span><span class='kw'>=</span><span class='st'>"|"</span>)
-<span class='no'>col2hex</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>col</span>) {
-  <span class='no'>rgb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/col2rgb.html'>col2rgb</a></span>(<span class='no'>col</span>)
-  <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span>(<span class='no'>rgb</span>[<span class='st'>"red"</span>, ], <span class='no'>rgb</span>[<span class='st'>"green"</span>, ], <span class='no'>rgb</span>[<span class='st'>"blue"</span>, ], <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>255</span>)
-}
+<span class='va'>colours</span> <span class='op'>&lt;-</span> <span class='fu'><a href='str_c.html'>str_c</a></span><span class='op'>(</span><span class='st'>"\\b"</span>, <span class='fu'><a href='https://rdrr.io/r/grDevices/colors.html'>colors</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"\\b"</span>, collapse<span class='op'>=</span><span class='st'>"|"</span><span class='op'>)</span>
+<span class='va'>col2hex</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>col</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>rgb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/col2rgb.html'>col2rgb</a></span><span class='op'>(</span><span class='va'>col</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span><span class='op'>(</span><span class='va'>rgb</span><span class='op'>[</span><span class='st'>"red"</span>, <span class='op'>]</span>, <span class='va'>rgb</span><span class='op'>[</span><span class='st'>"green"</span>, <span class='op'>]</span>, <span class='va'>rgb</span><span class='op'>[</span><span class='st'>"blue"</span>, <span class='op'>]</span>, max <span class='op'>=</span> <span class='fl'>255</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"Roses are red, violets are blue"</span>,
   <span class='st'>"My favourite colour is green"</span>
-)
-<span class='fu'>str_replace_all</span>(<span class='no'>x</span>, <span class='no'>colours</span>, <span class='no'>col2hex</span>)</div><div class='output co'>#&gt; [1] "Roses are #FF0000, violets are #0000FF"
+<span class='op'>)</span>
+<span class='fu'>str_replace_all</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>colours</span>, <span class='va'>col2hex</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Roses are #FF0000, violets are #0000FF"
 #&gt; [2] "My favourite colour is #00FF00"        </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
