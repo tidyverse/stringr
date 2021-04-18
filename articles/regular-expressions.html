@@ -517,17 +517,19 @@
 <p>The second is to use <code><a href="../reference/modifiers.html">regex(comments = TRUE)</a></code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">phone</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"
-  \\(?     # optional opening parens
-  (\\d{3}) # area code
-  [)- ]?   # optional closing parens, dash, or space
-  (\\d{3}) # another three numbers
-  [ -]?    # optional space or dash
-  (\\d{3}) # three more numbers
+  \\(?       # optional opening parens
+  (\\d{3})   # area code
+  \\)?       # optional closing parens
+  (?:-|\\ )? # optional dash or space
+  (\\d{3})   # another three numbers
+  (?:-|\\ )? # optional dash or space
+  (\\d{3})   # three more numbers
   "</span>, comments <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="st">"514-791-8141"</span>, <span class="va">phone</span><span class="op">)</span>
-<span class="co">#&gt;      [,1]          [,2]  [,3]  [,4] </span>
-<span class="co">#&gt; [1,] "514-791-814" "514" "791" "814"</span></code></pre></div>
+<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"514-791-8141"</span>, <span class="st">"(514) 791 8141"</span><span class="op">)</span>, <span class="va">phone</span><span class="op">)</span>
+<span class="co">#&gt;      [,1]            [,2]  [,3]  [,4] </span>
+<span class="co">#&gt; [1,] "514-791-814"   "514" "791" "814"</span>
+<span class="co">#&gt; [2,] "(514) 791 814" "514" "791" "814"</span></code></pre></div>
 </div>
   </div>
 
