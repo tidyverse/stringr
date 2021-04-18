@@ -1,8 +1,10 @@
 
 test_that("view works", {
   x <- c("abc", "def", "fgh")
-  expect_error(str_view(x, "[aeiou]"), NA)
-  expect_error(str_view_all(x, "d|e"), NA)
+  expect_snapshot({
+    str_view(x, "[aeiou]")$x$html
+    str_view_all(x, "d|e")$x$html
+  })
 })
 
 test_that("match argument controls what is shown", {
