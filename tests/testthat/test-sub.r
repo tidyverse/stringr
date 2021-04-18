@@ -1,7 +1,5 @@
-context("Extracting substrings")
-alphabet <- str_c(letters, collapse = "")
-
 test_that("correct substring extracted", {
+  alphabet <- str_c(letters, collapse = "")
   expect_equal(str_sub(alphabet, 1, 3), "abc")
   expect_equal(str_sub(alphabet, 24, 26), "xyz")
 })
@@ -22,10 +20,12 @@ test_that("arguments expanded to longest", {
 
 
 test_that("specifying only end subsets from start", {
+  alphabet <- str_c(letters, collapse = "")
   expect_equal(str_sub(alphabet, end = 3), "abc")
 })
 
 test_that("specifying only start subsets to end", {
+  alphabet <- str_c(letters, collapse = "")
   expect_equal(str_sub(alphabet, 24), "xyz")
 })
 

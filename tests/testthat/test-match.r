@@ -1,5 +1,3 @@
-context("Matching groups")
-
 set.seed(1410)
 num <- matrix(sample(9, 10 * 10, replace = T), ncol = 10)
 num_flat <- apply(num, 1, str_c, collapse = "")

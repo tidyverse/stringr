@@ -1,5 +1,3 @@
-context("Replacements")
-
 test_that("basic replacement works", {
   expect_equal(str_replace_all("abababa", "ba", "BA"), "aBABABA")
   expect_equal(str_replace("abababa", "ba", "BA"), "aBAbaba")

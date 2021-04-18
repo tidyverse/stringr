@@ -1,5 +1,3 @@
-context("Test padding")
-
 test_that("long strings are unchanged", {
   lengths <- sample(40:100, 10)
   strings <- vapply(lengths, function(x)

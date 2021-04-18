@@ -1,5 +1,3 @@
-context("Splitting strings")
-
 test_that("special cases are correct", {
   expect_equal(str_split(NA, "")[[1]], NA_character_)
   expect_equal(str_split(character(), ""), list())
@@ -9,7 +7,7 @@ test_that("str_split functions as expected", {
   test <- c("bab", "cac", "dadad")
   result <- str_split(test, "a")
 
-  expect_is(result, "list")
+  expect_type(result, "list")
   expect_equal(length(result), 3)
 
   lengths <- vapply(result, length, integer(1))
@@ -24,9 +22,7 @@ test_that("vectors give correct results dealt with correctly", {
   test <- c("bab", "cac", "dadad", "eae")
   result <- str_split_fixed(test, "a", 3)
 
-  expect_is(result, "matrix")
-  expect_equal(nrow(result), 4)
-  expect_equal(ncol(result), 3)
+  expect_equal(dim(result), c(4, 3))
 
   expect_equal(result[1, ], c("b", "b", ""))
   expect_equal(result[3, ], c("d", "d", "d"))

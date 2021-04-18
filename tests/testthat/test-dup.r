@@ -1,5 +1,3 @@
-context("Duplicating strings")
-
 test_that("basic duplication works", {
   expect_equal(str_dup("a", 3), "aaa")
   expect_equal(str_dup("abc", 2), "abcabc")
