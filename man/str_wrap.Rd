@@ -4,7 +4,7 @@
 \alias{str_wrap}
 \title{Wrap strings into nicely formatted paragraphs}
 \usage{
-str_wrap(string, width = 80, indent = 0, exdent = 0)
+str_wrap(string, width = 80, indent = 0, exdent = 0, whitespace_only = TRUE)
 }
 \arguments{
 \item{string}{character vector of strings to reformat.}
@@ -17,6 +17,9 @@ each paragraph}
 
 \item{exdent}{non-negative integer giving indentation of following lines in
 each paragraph}
+
+\item{whitespace_only}{If \code{TRUE}, the default, wrapping will only occur at
+whitespace. If \code{FALSE}, can break on any non-word character (e.g. \code{/}, \code{-}).}
 }
 \value{
 A character vector of re-wrapped strings.

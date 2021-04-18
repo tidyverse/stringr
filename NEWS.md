@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_wrap()` breaks only at whitespace by default; set 
+  `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
+
 * `str_replace()` and `str_replace_all()` can use standard tidyverse formula
   shorthand for `replacement` function (#331).
 
