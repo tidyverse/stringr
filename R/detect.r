@@ -109,16 +109,17 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #'
 #' @description
 #' Follows the structure of the SQL `LIKE` operator:
+#'
 #' * Must match the entire string
 #' * `_` matches a single character (like `.`)
-#' * \verb{\%} matches any number of characters (`.*`)
-#' * \verb{\\\%} and `\_` match literal \verb{\%} and `_`
-#' * The match is case insentistive by default
+#' * `%` matches any number of characters (like `.*`)
+#' * `\%` and `\_` match literal `%` and `_`
+#' * The match is case insensitive by default
 #'
 #' @inheritParams str_detect
-#' @param pattern A charcter vector containing a SQL "like" pattern.
+#' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
-#' @param ignore_case Ignore case of matches?  Defaults to `TRUE` to match
+#' @param ignore_case Ignore case of matches? Defaults to `TRUE` to match
 #'   the SQL `LIKE` operator.
 #' @return A logical vector.
 #' @export

@@ -10,10 +10,10 @@ str_like(string, pattern, ignore_case = TRUE)
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{pattern}{A charcter vector containing a SQL "like" pattern.
+\item{pattern}{A character vector containing a SQL "like" pattern.
 See above for details.}
 
-\item{ignore_case}{Ignore case of matches?  Defaults to \code{TRUE} to match
+\item{ignore_case}{Ignore case of matches? Defaults to \code{TRUE} to match
 the SQL \code{LIKE} operator.}
 }
 \value{
@@ -24,9 +24,9 @@ Follows the structure of the SQL \code{LIKE} operator:
 \itemize{
 \item Must match the entire string
 \item \verb{_} matches a single character (like \code{.})
-\item \verb{\%} matches any number of characters (\verb{.*})
+\item \verb{\%} matches any number of characters (like \verb{.*})
 \item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}
-\item The match is case insentistive by default
+\item The match is case insensitive by default
 }
 }
 \examples{
