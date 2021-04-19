@@ -212,7 +212,7 @@ respects character matching rules for the specified locale.</p>
       <td><p>number of pieces to return.  Default (Inf) uses all
 possible split positions.</p>
 <p>For <code>str_split_fixed</code>, if <code>n</code> is greater than the number of pieces,
-the result will be padded with empty strings.</p>
+the result will be padded with <code>NA</code>.</p>
 <p>For <code>str_split_n</code>, <code>n</code> is the desired index of each element of
 the split <code>string</code>.  When there are fewer pieces than <code>n</code>, return <code>NA</code>.</p></td>
     </tr>
@@ -276,7 +276,7 @@ a length <code>n</code> character vector.</p>
 #&gt; [2,] "pineapples" "mangos"  "guavas"           </div><div class='input'><span class='fu'>str_split_fixed</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>4</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1]         [,2]      [,3]     [,4]     
 #&gt; [1,] "apples"     "oranges" "pears"  "bananas"
-#&gt; [2,] "pineapples" "mangos"  "guavas" ""       </div><div class='input'>
+#&gt; [2,] "pineapples" "mangos"  "guavas" NA       </div><div class='input'>
 <span class='co'># str_split_n extracts only a single piece from a string</span>
 <span class='fu'>str_split_n</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>1</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "apples"     "pineapples"</div><div class='input'><span class='fu'>str_split_n</span><span class='op'>(</span><span class='va'>fruits</span>, <span class='st'>" and "</span>, <span class='fl'>3</span><span class='op'>)</span>
