@@ -4,8 +4,13 @@
 \alias{str_pad}
 \title{Pad a string}
 \usage{
-str_pad(string, width, side = c("left", "right", "both"), pad = " ",
-  use_length = FALSE)
+str_pad(
+  string,
+  width,
+  side = c("left", "right", "both"),
+  pad = " ",
+  use_length = FALSE
+)
 }
 \arguments{
 \item{string}{A character vector.}
