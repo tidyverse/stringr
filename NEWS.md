@@ -1,5 +1,7 @@
 # stringr (development version)
 
+* `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
+
 * Experimental support for display `str_view()` with ANSI escapes, which
   will work in more places than HTML widgets (#370).
 

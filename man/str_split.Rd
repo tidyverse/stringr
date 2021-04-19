@@ -35,7 +35,7 @@ Match character, word, line and sentence boundaries with
 possible split positions.
 
 For \code{str_split_fixed}, if \code{n} is greater than the number of pieces,
-the result will be padded with empty strings.
+the result will be padded with \code{NA}.
 
 For \code{str_split_n}, \code{n} is the desired index of each element of
 the split \code{string}.  When there are fewer pieces than \code{n}, return \code{NA}.}

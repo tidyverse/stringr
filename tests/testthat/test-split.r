@@ -18,15 +18,17 @@ test_that("str_split functions as expected", {
   )
 })
 
-test_that("vectors give correct results dealt with correctly", {
-  test <- c("bab", "cac", "dadad", "eae")
-  result <- str_split_fixed(test, "a", 3)
+test_that("str_split_fix pads with NA", {
+  test <- c(NA, "", "a", "a a", "a a a")
+  result <- str_split_fixed(test, " ", n = 2)
 
-  expect_equal(dim(result), c(4, 3))
-
-  expect_equal(result[1, ], c("b", "b", ""))
-  expect_equal(result[3, ], c("d", "d", "d"))
-  expect_equal(result[, 1], c("b", "c", "d", "e"))
+  expect_equal(result, matrix(ncol = 2, byrow = TRUE, c(
+    NA, NA,
+    "", NA,
+    "a", NA,
+    "a", "a",
+    "a", "a a"
+  )))
 })
 
 test_that("n sets maximum number of splits in str_split", {
