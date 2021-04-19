@@ -53,9 +53,9 @@
 <meta property="og:description" content="Follows the structure of the SQL LIKE operator:
 Must match the entire string
 _ matches a single character (like .)
-% matches any number of characters (.*)
+% matches any number of characters (like .*)
 \% and \_ match literal % and _
-The match is case insentistive by default
+The match is case insensitive by default
 
 " />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
@@ -186,9 +186,9 @@ The match is case insentistive by default
     <p>Follows the structure of the SQL <code>LIKE</code> operator:</p><ul>
 <li><p>Must match the entire string</p></li>
 <li><p><code>_</code> matches a single character (like <code>.</code>)</p></li>
-<li><p><code>%</code> matches any number of characters (<code>.*</code>)</p></li>
+<li><p><code>%</code> matches any number of characters (like <code>.*</code>)</p></li>
 <li><p><code>\%</code> and <code>\_</code> match literal <code>%</code> and <code>_</code></p></li>
-<li><p>The match is case insentistive by default</p></li>
+<li><p>The match is case insensitive by default</p></li>
 </ul>
 
     </div>
@@ -205,12 +205,12 @@ coercible to one.</p></td>
     </tr>
     <tr>
       <th>pattern</th>
-      <td><p>A charcter vector containing a SQL "like" pattern.
+      <td><p>A character vector containing a SQL "like" pattern.
 See above for details.</p></td>
     </tr>
     <tr>
       <th>ignore_case</th>
-      <td><p>Ignore case of matches?  Defaults to <code>TRUE</code> to match
+      <td><p>Ignore case of matches? Defaults to <code>TRUE</code> to match
 the SQL <code>LIKE</code> operator.</p></td>
     </tr>
     </table>
