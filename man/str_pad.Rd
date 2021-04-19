@@ -21,7 +21,8 @@ str_pad(
 
 \item{pad}{Single padding character (default is a space).}
 
-\item{use_length}{If \code{TRUE}, use the number of characters instead of the total of character widths (see \link[stringi:stri_width]{stringi::stri_width}).}
+\item{use_length}{If \code{TRUE}, use the number of characters instead of the
+total of character widths (see \link[stringi:stri_width]{stringi::stri_width}).}
 }
 \value{
 A character vector.

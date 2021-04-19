@@ -6,7 +6,8 @@
 #' @param width Minimum width of padded strings.
 #' @param side Side on which padding character is added (left, right or both).
 #' @param pad Single padding character (default is a space).
-#' @param use_length If `TRUE`, use the number of characters instead of the total of character widths (see [stringi::stri_width]).
+#' @param use_length If `TRUE`, use the number of characters instead of the
+#'   total of character widths (see [stringi::stri_width]).
 #' @return A character vector.
 #' @seealso [str_trim()] to remove whitespace;
 #'   [str_trunc()] to decrease the maximum width of a string.
