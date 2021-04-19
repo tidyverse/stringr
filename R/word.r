@@ -1,4 +1,4 @@
-#' Extract words from a sentence.
+#' Extract words from a sentence
 #'
 #' @param string input character vector.
 #' @param start integer vector giving position of first word to extract.
@@ -47,6 +47,9 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   # Replace indexes past end with NA
   start[start > len] <- NA
   end[end > len] <- NA
+
+  # To return all words when trying to extract more words than available
+  start[start < 1L] <- 1
 
   # Extract locations
   starts <- mapply(function(word, loc) word[loc, "start"], words, start)

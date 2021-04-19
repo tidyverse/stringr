@@ -2,9 +2,9 @@
 % Please edit documentation in R/detect.r
 \name{str_detect}
 \alias{str_detect}
-\title{Detect the presence or absence of a pattern in a string.}
+\title{Detect the presence or absence of a pattern in a string}
 \usage{
-str_detect(string, pattern)
+str_detect(string, pattern, negate = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -13,7 +13,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
@@ -24,15 +24,19 @@ respects character matching rules for the specified locale.
 Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
+
+\item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
 A logical vector.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
+Equivalent to \code{grepl(pattern, x)}.
+See \code{\link[=str_which]{str_which()}} for an equivalent to \code{grep(pattern, x)}.
 }
 \examples{
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 str_detect(fruit, "a")
 str_detect(fruit, "^a")
 str_detect(fruit, "a$")
@@ -41,6 +45,9 @@ str_detect(fruit, "[aeiou]")
 
 # Also vectorised over pattern
 str_detect("aecfg", letters)
+
+# Returns TRUE if the pattern do NOT match
+str_detect(fruit, "^p", negate = TRUE)
 }
 \seealso{
 \code{\link[stringi:stri_detect]{stringi::stri_detect()}} which this function wraps,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/length.r
 \name{str_length}
 \alias{str_length}
-\title{The length of a string.}
+\title{The length of a string}
 \usage{
 str_length(string)
 }
@@ -15,6 +15,10 @@ A numeric vector giving number of characters (code points) in each
 element of the character vector. Missing string have missing length.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
+
+\code{str_c()} is no longer needed; please use \code{\link[=nchar]{nchar()}} instead.
+
 Technically this returns the number of "code points", in a string. One
 code point usually corresponds to one character, but not always. For example,
 an u with a umlaut might be represented as a single character or as the
@@ -27,7 +31,7 @@ str_length(factor("abc"))
 str_length(c("i", "like", "programming", NA))
 
 # Two ways of representing a u with an umlaut
-u1 <- "\\u00fc"
+u1 <- "\u00fc"
 u2 <- stringi::stri_trans_nfd(u1)
 # The print the same:
 u1
@@ -42,3 +46,4 @@ str_count(u2)
 \seealso{
 \code{\link[stringi:stri_length]{stringi::stri_length()}} which this function wraps.
 }
+\keyword{internal}

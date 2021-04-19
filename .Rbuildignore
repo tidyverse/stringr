@@ -1,3 +1,5 @@
+^pkgdown$
+^\.covrignore$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^packrat/
@@ -13,3 +15,6 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^appveyor\.yml$
+^CRAN-RELEASE$
+^LICENSE\.md$
+^\.github$

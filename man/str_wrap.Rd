@@ -2,9 +2,9 @@
 % Please edit documentation in R/wrap.r
 \name{str_wrap}
 \alias{str_wrap}
-\title{Wrap strings into nicely formatted paragraphs.}
+\title{Wrap strings into nicely formatted paragraphs}
 \usage{
-str_wrap(string, width = 80, indent = 0, exdent = 0)
+str_wrap(string, width = 80, indent = 0, exdent = 0, whitespace_only = TRUE)
 }
 \arguments{
 \item{string}{character vector of strings to reformat.}
@@ -17,6 +17,9 @@ each paragraph}
 
 \item{exdent}{non-negative integer giving indentation of following lines in
 each paragraph}
+
+\item{whitespace_only}{If \code{TRUE}, the default, wrapping will only occur at
+whitespace. If \code{FALSE}, can break on any non-word character (e.g. \code{/}, \code{-}).}
 }
 \value{
 A character vector of re-wrapped strings.
@@ -27,11 +30,11 @@ the Knuth-Plass paragraph wrapping algorithm.
 }
 \examples{
 thanks_path <- file.path(R.home("doc"), "THANKS")
-thanks <- str_c(readLines(thanks_path), collapse = "\\n")
-thanks <- word(thanks, 1, 3, fixed("\\n\\n"))
-cat(str_wrap(thanks), "\\n")
-cat(str_wrap(thanks, width = 40), "\\n")
-cat(str_wrap(thanks, width = 60, indent = 2), "\\n")
-cat(str_wrap(thanks, width = 60, exdent = 2), "\\n")
-cat(str_wrap(thanks, width = 0, exdent = 2), "\\n")
+thanks <- str_c(readLines(thanks_path), collapse = "\n")
+thanks <- word(thanks, 1, 3, fixed("\n\n"))
+cat(str_wrap(thanks), "\n")
+cat(str_wrap(thanks, width = 40), "\n")
+cat(str_wrap(thanks, width = 60, indent = 2), "\n")
+cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
+cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
 }

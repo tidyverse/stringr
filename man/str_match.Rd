@@ -3,7 +3,7 @@
 \name{str_match}
 \alias{str_match}
 \alias{str_match_all}
-\title{Extract matched groups from a string.}
+\title{Extract matched groups from a string}
 \usage{
 str_match(string, pattern)
 
@@ -14,7 +14,7 @@ str_match_all(string, pattern)
 coercible to one.}
 
 \item{pattern}{Pattern to look for, as defined by an ICU regular
-expression. See \link[stringi:stringi-search-regex]{stringi::stringi-search-regex} for more details.}
+expression. See \link[stringi:about_search_regex]{stringi::about_search_regex} for more details.}
 }
 \value{
 For \code{str_match}, a character matrix. First column is the

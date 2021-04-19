@@ -2,7 +2,7 @@
 % Please edit documentation in R/pad.r
 \name{str_pad}
 \alias{str_pad}
-\title{Pad a string.}
+\title{Pad a string}
 \usage{
 str_pad(string, width, side = c("left", "right", "both"), pad = " ",
   use_length = FALSE)

@@ -13,12 +13,14 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-# stringr <img src="man/figures/logo.png" align="right" />
+# stringr <a href='https://stringr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
-[![Build Status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/tidyverse/stringr/master.svg)](https://codecov.io/github/tidyverse/stringr?branch=master)
-[![CRAN Status](http://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
+[![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
+[![Codecov test coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+<!-- badges: end -->
 
 ## Overview
 
@@ -28,7 +30,7 @@ stringr is built on top of [stringi](https://github.com/gagolews/stringi), which
 
 ## Installation
 
-```R
+```r
 # Install the released version from CRAN:
 install.packages("stringr")
 
@@ -36,6 +38,10 @@ install.packages("stringr")
 # install.packages("devtools")
 devtools::install_github("tidyverse/stringr")
 ```
+
+## Cheatsheet
+
+<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>  
 
 ## Usage
 
@@ -103,6 +109,17 @@ As well as regular expressions (the default), there are three other pattern matc
 * `fixed()`: match exact bytes
 * `coll()`: match human letters
 * `boundary()`: match boundaries
+
+## RStudio Addin
+
+The [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/) provides a friendly interface for working with regular expressions and functions from stringr. This addin allows you to interactively build your regexp, check the output of common string matching functions, consult the interactive help pages, or use the included resources to learn regular expressions.
+
+This addin can easily be installed with devtools:
+
+```r
+# install.packages("devtools")
+devtools::install_github("gadenbuie/regexplain")
+```
 
 ## Compared to base R
 

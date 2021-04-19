@@ -1,5 +1,3 @@
-context("String Interpolation")
-
 test_that("str_interp works with default env", {
   subject <- "statistics"
   number  <- 7
@@ -67,4 +65,13 @@ test_that("str_interp fails when encountering nested placeholders", {
 
 test_that("str_interp fails when input is not a character string", {
   expect_error(str_interp(3L))
+})
+
+test_that("str_interp formats list independetly of other placeholders", {
+  a_list <- c("item1", "item2", "item3")
+  other <- "1"
+  extract <- function(text) regmatches(text, regexpr("xx[^x]+xx", text))
+  from_list <- extract(str_interp("list: xx${a_list}xx"))
+  from_both <- extract(str_interp("list: xx${a_list}xx, and another ${other}"))
+  expect_equal(from_list, from_both)
 })

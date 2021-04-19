@@ -1,4 +1,4 @@
-#' Count the number of matches in a string.
+#' Count the number of matches in a string
 #'
 #' Vectorised over `string` and `pattern`.
 #'

@@ -1,10 +1,10 @@
-#' Extract matched groups from a string.
+#' Extract matched groups from a string
 #'
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern to look for, as defined by an ICU regular
-#'   expression. See [stringi::stringi-search-regex] for more details.
+#'   expression. See [stringi::about_search_regex] for more details.
 #' @return For `str_match`, a character matrix. First column is the
 #'   complete match, followed by one column for each capture group.
 #'   For `str_match_all`, a list of character matrices.

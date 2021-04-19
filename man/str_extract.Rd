@@ -3,7 +3,7 @@
 \name{str_extract}
 \alias{str_extract}
 \alias{str_extract_all}
-\title{Extract matching patterns from a string.}
+\title{Extract matching patterns from a string}
 \usage{
 str_extract(string, pattern)
 
@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using

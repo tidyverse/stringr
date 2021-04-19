@@ -2,7 +2,7 @@
 % Please edit documentation in R/conv.R
 \name{str_conv}
 \alias{str_conv}
-\title{Specify the encoding of a string.}
+\title{Specify the encoding of a string}
 \usage{
 str_conv(string, encoding)
 }

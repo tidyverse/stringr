@@ -1,5 +1,3 @@
-context("conv")
-
 test_that("encoding conversion works", {
   skip_on_os("windows")
 

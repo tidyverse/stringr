@@ -1,4 +1,4 @@
-#' Extract and replace substrings from a character vector.
+#' Extract and replace substrings from a character vector
 #'
 #' `str_sub` will recycle all arguments to be the same length as the
 #' longest argument. If any arguments are of length 0, the output will be
@@ -15,6 +15,8 @@
 #'   matrix to `start`.
 #'
 #'   Negative values count backwards from the last character.
+#' @param omit_na Single logical value. If `TRUE`, missing values in any of the
+#'   arguments provided will result in an unchanged input.
 #' @param value replacement string
 #' @return A character vector of substring from `start` to `end`
 #'   (inclusive). Will be length of longest input argument.
@@ -34,7 +36,7 @@
 #' str_sub(hw, -7)
 #' str_sub(hw, end = -7)
 #'
-#' # Alternatively, you can pass in a two colum matrix, as in the
+#' # Alternatively, you can pass in a two column matrix, as in the
 #' # output from str_locate_all
 #' pos <- str_locate_all(hw, "[aeio]")[[1]]
 #' str_sub(hw, pos)
@@ -50,6 +52,15 @@
 #' str_sub(x, -1, -1) <- "K"; x
 #' str_sub(x, -2, -2) <- "GHIJ"; x
 #' str_sub(x, 2, -2) <- ""; x
+#'
+#' # If you want to keep the original if some argument is NA,
+#' # use omit_na = TRUE
+#' x1 <- x2 <- x3 <- x4 <- "AAA"
+#' str_sub(x1, 1, NA) <- "B"
+#' str_sub(x2, 1, 2) <- NA
+#' str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
+#' str_sub(x4, 1, 2, omit_na = TRUE) <- NA
+#' x1; x2; x3; x4
 str_sub <- function(string, start = 1L, end = -1L) {
   if (is.matrix(start)) {
     stri_sub(string, from = start)
@@ -61,11 +72,11 @@ str_sub <- function(string, start = 1L, end = -1L) {
 
 #' @export
 #' @rdname str_sub
-"str_sub<-" <- function(string, start = 1L, end = -1L, value) {
+"str_sub<-" <- function(string, start = 1L, end = -1L, omit_na = FALSE,  value) {
   if (is.matrix(start)) {
-    stri_sub(string, from = start) <- value
+    stri_sub(string, from = start, omit_na = omit_na) <- value
   } else {
-    stri_sub(string, from = start, to = end) <- value
+    stri_sub(string, from = start, to = end, omit_na = omit_na) <- value
   }
   string
 }

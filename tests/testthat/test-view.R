@@ -1,13 +1,14 @@
-context("view")
-
-x <- c("abc", "def", "fgh")
 
 test_that("view works", {
-  expect_error(str_view(x, "[aeiou]"), NA)
-  expect_error(str_view_all(x, "d|e"), NA)
+  x <- c("abc", "def", "fgh")
+  expect_snapshot({
+    str_view(x, "[aeiou]")$x$html
+    str_view_all(x, "d|e")$x$html
+  })
 })
 
 test_that("match argument controls what is shown", {
+  x <- c("abc", "def", "fgh")
   a <- str_view(x, "d|e")
   expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
 
@@ -19,6 +20,7 @@ test_that("match argument controls what is shown", {
 })
 
 test_that("view_all shows all matches", {
+  x <- c("abc", "def", "fgh")
   a <- str_view_all(x, "d|e", match = TRUE)
   expect_equal(str_count(a$x$html, "match"), 2)
 

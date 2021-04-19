@@ -2,7 +2,7 @@
 % Please edit documentation in R/count.r
 \name{str_count}
 \alias{str_count}
-\title{Count the number of matches in a string.}
+\title{Count the number of matches in a string}
 \usage{
 str_count(string, pattern = "")
 }
@@ -13,7 +13,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using

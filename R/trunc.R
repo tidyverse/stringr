@@ -1,4 +1,4 @@
-#' Truncate a character string.
+#' Truncate a character string
 #'
 #' @param string A character vector.
 #' @param width Maximum width of string.
@@ -18,8 +18,10 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
   side <- match.arg(side)
 
-  too_long <- !is.na(string) && str_length(string) > width
+  too_long <- !is.na(string) & str_length(string) > width
   width... <- width - str_length(ellipsis)
+
+  if (width... < 0) stop("`width` is shorter than `ellipsis`", .call = FALSE)
 
   string[too_long] <- switch(side,
     right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),

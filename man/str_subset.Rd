@@ -3,11 +3,11 @@
 \name{str_subset}
 \alias{str_subset}
 \alias{str_which}
-\title{Keep strings matching a pattern, or find positions.}
+\title{Keep strings matching a pattern, or find positions}
 \usage{
-str_subset(string, pattern)
+str_subset(string, pattern, negate = FALSE)
 
-str_which(string, pattern)
+str_which(string, pattern, negate = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
@@ -27,6 +27,8 @@ respects character matching rules for the specified locale.
 Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
+
+\item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
 A character vector.
@@ -36,12 +38,13 @@ A character vector.
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
 \code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
 and is equivalent to \code{grep(pattern, x)}.
+See \code{\link[=str_detect]{str_detect()}} for an equivalent to \code{grepl(pattern, x)}.
 }
 \details{
 Vectorised over \code{string} and \code{pattern}
 }
 \examples{
-fruit <- c("apple", "banana", "pear", "pinapple")
+fruit <- c("apple", "banana", "pear", "pineapple")
 str_subset(fruit, "a")
 str_which(fruit, "a")
 
@@ -49,6 +52,9 @@ str_subset(fruit, "^a")
 str_subset(fruit, "a$")
 str_subset(fruit, "b")
 str_subset(fruit, "[aeiou]")
+
+# Returns elements that do NOT match
+str_subset(fruit, "^p", negate = TRUE)
 
 # Missings never match
 str_subset(c("a", NA, "b"), ".")

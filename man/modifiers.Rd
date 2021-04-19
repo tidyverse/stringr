@@ -6,17 +6,26 @@
 \alias{coll}
 \alias{regex}
 \alias{boundary}
-\title{Control matching behaviour with modifier functions.}
+\title{Control matching behaviour with modifier functions}
 \usage{
 fixed(pattern, ignore_case = FALSE)
 
 coll(pattern, ignore_case = FALSE, locale = "en", ...)
 
-regex(pattern, ignore_case = FALSE, multiline = FALSE, comments = FALSE,
-  dotall = FALSE, ...)
+regex(
+  pattern,
+  ignore_case = FALSE,
+  multiline = FALSE,
+  comments = FALSE,
+  dotall = FALSE,
+  ...
+)
 
-boundary(type = c("character", "line_break", "sentence", "word"),
-  skip_word_none = NA, ...)
+boundary(
+  type = c("character", "line_break", "sentence", "word"),
+  skip_word_none = NA,
+  ...
+)
 }
 \arguments{
 \item{pattern}{Pattern to modify behaviour.}
@@ -38,11 +47,20 @@ the beginning and end of each line. If \code{FALSE}, the
 default, only match the start and end of the input.}
 
 \item{comments}{If \code{TRUE}, white space and comments beginning with
-\code{#} are ignored. Escape literal spaces with \code{\\}.}
+\verb{#} are ignored. Escape literal spaces with \verb{\\\\ }.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 
-\item{type}{Boundary type to detect.}
+\item{type}{Boundary type to detect.
+\describe{
+\item{\code{character}}{Every character is a boundary.}
+\item{\code{line_break}}{Boundaries are places where it is acceptable to have
+a line break in the current locale.}
+\item{\code{sentence}}{The beginnings and ends of sentences are boundaries,
+using intelligent rules to avoid counting abbreviations
+(\href{https://www.unicode.org/reports/tr29/#Sentence_Boundaries}{details}).}
+\item{\code{word}}{The beginnings and ends of words are boundaries.}
+}}
 
 \item{skip_word_none}{Ignore "words" that don't contain any characters
 or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
@@ -65,7 +83,7 @@ str_detect(strings, fixed(pattern))
 str_detect(strings, coll(pattern))
 
 # coll() is useful for locale-aware case-insensitive matching
-i <- c("I", "\\u0130", "i")
+i <- c("I", "\u0130", "i")
 i
 str_detect(i, fixed("i", TRUE))
 str_detect(i, coll("i", TRUE))
@@ -81,9 +99,15 @@ str_split(words, boundary("word"))[[1]]
 str_extract_all("The Cat in the Hat", "[a-z]+")
 str_extract_all("The Cat in the Hat", regex("[a-z]+", TRUE))
 
-str_extract_all("a\\nb\\nc", "^.")
-str_extract_all("a\\nb\\nc", regex("^.", multiline = TRUE))
+str_extract_all("a\nb\nc", "^.")
+str_extract_all("a\nb\nc", regex("^.", multiline = TRUE))
 
-str_extract_all("a\\nb\\nc", "a.")
-str_extract_all("a\\nb\\nc", regex("a.", dotall = TRUE))
+str_extract_all("a\nb\nc", "a.")
+str_extract_all("a\nb\nc", regex("a.", dotall = TRUE))
+}
+\seealso{
+\code{\link[=str_wrap]{str_wrap()}} for breaking text to form paragraphs
+
+\code{\link[stringi:about_search_boundaries]{stringi::about_search_boundaries}} for more detail on the
+various boundaries
 }

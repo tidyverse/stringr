@@ -1,12 +1,15 @@
-#' View HTML rendering of regular expression match.
+#' View HTML rendering of regular expression match
 #'
 #' `str_view` shows the first match; `str_view_all` shows all
-#' the matches.
+#' the matches. To build regular expressions interactively, check out the
+#' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
 #'
 #' @inheritParams str_detect
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
+#' @param html Use HTML output? If `TRUE` will create an HTML widget;
+#'   if `FALSE` will style using ANSI escapes.
 #' @export
 #' @examples
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
@@ -20,7 +23,7 @@
 #' str_view(c("abc", "def", "fgh"), "d|e")
 #' str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 #' str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-str_view <- function(string, pattern, match = NA) {
+str_view <- function(string, pattern, match = NA, html = TRUE) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -28,31 +31,19 @@ str_view <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  loc <- str_locate(string, pattern)
-
-  # How to do escaping? Need to update x and loc
-
-  has_match <- !is.na(loc[, "start"])
-  str_sub(string[has_match], loc[has_match, , drop = FALSE]) <-
-    paste0("<span class='match'>", str_sub(string[has_match], loc[has_match, , drop = FALSE]), "</span>")
-
-  bullets <- htmltools::HTML(str_c(
-    "<ul>\n",
-    str_c("  <li>", string, "</li>", collapse = "\n"),
-    "\n</ul>"
-  ))
-
-  htmlwidgets::createWidget("str_view", list(html = bullets),
-    sizingPolicy = htmlwidgets::sizingPolicy(
-      knitr.figure = FALSE,
-      defaultHeight = "auto"
-    ),
-    package = "stringr")
+  if (html) {
+    replace <- function(x) paste0("<span class='match'>", x, "</span>")
+    string <- str_replace(string, pattern, replace)
+    str_view_widget(string)
+  } else {
+    string <- str_replace(string, pattern, ~ cli::style_inverse(.x))
+    structure(string, class = "stringr_view")
+  }
 }
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern, match = NA) {
+str_view_all <- function(string, pattern, match = NA, html = TRUE) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -60,30 +51,43 @@ str_view_all <- function(string, pattern, match = NA) {
     string <- string[!str_detect(string, pattern)]
   }
 
-  loc <- str_locate_all(string, pattern)
+  if (html) {
+    replace <- function(x) paste0("<span class='match'>", x, "</span>")
+    string <- str_replace_all(string, pattern, replace)
+    str_view_widget(string)
+  } else {
+    string <- str_replace_all(string, pattern, ~ cli::style_inverse(.x))
+    structure(string, class = "stringr_view")
+  }
+}
 
-  string_list <- Map(loc = loc, string = string, function(loc, string) {
-    if (nrow(loc) == 0)
-      return(string)
+str_view_widget <- function(lines) {
+  check_installed(c("htmltools", "htmlwidgets"))
 
-    for (i in rev(seq_len(nrow(loc)))) {
-      str_sub(string, loc[i, , drop = FALSE]) <-
-        paste0("<span class='match'>", str_sub(string, loc[i, , drop = FALSE]), "</span>")
-    }
-    string
-  })
-  string <- unlist(string_list)
-
-  bullets <- htmltools::HTML(str_c(
+  lines <- str_replace_na(lines)
+  bullets <- str_c(
     "<ul>\n",
-    str_c("  <li>", string, "</li>", collapse = "\n"),
+    str_c("  <li>", lines, "</li>", collapse = "\n"),
     "\n</ul>"
-  ))
+  )
 
-  htmlwidgets::createWidget("str_view", list(html = bullets),
-    sizingPolicy = htmlwidgets::sizingPolicy(
-      knitr.figure = FALSE,
-      defaultHeight = "auto"
-    ),
-    package = "stringr")
+  html <- htmltools::HTML(bullets)
+  size <- htmlwidgets::sizingPolicy(
+    knitr.figure = FALSE,
+    defaultHeight = pmin(10 * length(lines), 300),
+    knitr.defaultHeight = "100%"
+  )
+
+  htmlwidgets::createWidget(
+    "str_view",
+    list(html = html),
+    sizingPolicy = size,
+    package = "stringr"
+  )
+}
+
+#' @export
+print.stringr_view <- function(x, ...) {
+  cat(x, sep = "\n")
+  invisible(x)
 }

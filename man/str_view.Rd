@@ -3,11 +3,11 @@
 \name{str_view}
 \alias{str_view}
 \alias{str_view_all}
-\title{View HTML rendering of regular expression match.}
+\title{View HTML rendering of regular expression match}
 \usage{
-str_view(string, pattern, match = NA)
+str_view(string, pattern, match = NA, html = TRUE)
 
-str_view_all(string, pattern, match = NA)
+str_view_all(string, pattern, match = NA, html = TRUE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
@@ -31,10 +31,14 @@ Match character, word, line and sentence boundaries with
 \item{match}{If \code{TRUE}, shows only strings that match the pattern.
 If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default, \code{NA}) displays both matches and non-matches.}
+
+\item{html}{Use HTML output? If \code{TRUE} will create an HTML widget;
+if \code{FALSE} will style using ANSI escapes.}
 }
 \description{
 \code{str_view} shows the first match; \code{str_view_all} shows all
-the matches.
+the matches. To build regular expressions interactively, check out the
+\href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
 }
 \examples{
 str_view(c("abc", "def", "fgh"), "[aeiou]")

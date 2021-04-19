@@ -1,5 +1,3 @@
-context("sort")
-
 test_that("digits can be sorted/ordered as strings or numbers", {
   x <- c("2", "1", "10")
 

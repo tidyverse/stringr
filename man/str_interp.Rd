@@ -2,7 +2,7 @@
 % Please edit documentation in R/interp.R
 \name{str_interp}
 \alias{str_interp}
-\title{String interpolation.}
+\title{String interpolation}
 \usage{
 str_interp(string, env = parent.frame())
 }
@@ -20,8 +20,8 @@ String interpolation is a useful way of specifying a character string which
 depends on values in a certain environment. It allows for string creation
 which is easier to read and write when compared to using e.g.
 \code{\link[=paste]{paste()}} or \code{\link[=sprintf]{sprintf()}}. The (template) string can
-include expression placeholders of the form \code{${expression}} or
-\code{$[format]{expression}}, where expressions are valid R expressions that
+include expression placeholders of the form \verb{$\{expression\}} or
+\verb{$[format]\{expression\}}, where expressions are valid R expressions that
 can be evaluated in the given environment, and \code{format} is a format
 specification valid for use with \code{\link[=sprintf]{sprintf()}}.
 }

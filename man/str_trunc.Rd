@@ -2,10 +2,9 @@
 % Please edit documentation in R/trunc.R
 \name{str_trunc}
 \alias{str_trunc}
-\title{Truncate a character string.}
+\title{Truncate a character string}
 \usage{
-str_trunc(string, width, side = c("right", "left", "center"),
-  ellipsis = "...")
+str_trunc(string, width, side = c("right", "left", "center"), ellipsis = "...")
 }
 \arguments{
 \item{string}{A character vector.}
@@ -16,7 +15,7 @@ str_trunc(string, width, side = c("right", "left", "center"),
 content has been removed.}
 }
 \description{
-Truncate a character string.
+Truncate a character string
 }
 \examples{
 x <- "This string is moderately long"

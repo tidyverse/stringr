@@ -39,7 +39,7 @@ str_length("abc")
 
 This is now equivalent to the base R function `nchar()`. Previously it was needed to work around issues with `nchar()` such as the fact that it returned 2 for `nchar(NA)`. This has been fixed as of R 3.3.0, so it is no longer so important.
 
-You can access individual character using `str_sub()`. It takes three arguments: a character vector, a `start` position and an `end` position. Either position can either be a positive integer, which counts from the length, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.
+You can access individual character using `str_sub()`. It takes three arguments: a character vector, a `start` position and an `end` position. Either position can either be a positive integer, which counts from the left, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.
 
 ```{r}
 x <- c("abcdef", "ghifjk")

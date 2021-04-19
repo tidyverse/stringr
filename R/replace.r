@@ -1,8 +1,18 @@
-#' Replace matched patterns in a string.
+#' Replace matched patterns in a string
 #'
 #' Vectorised over `string`, `pattern` and `replacement`.
 #'
 #' @inheritParams str_detect
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression, as described
+#'   in [stringi::about_search_regex]. Control options with
+#'   [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using
+#'   [fixed()]. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want [coll()] which
+#'   respects character matching rules for the specified locale.
 #' @param replacement A character vector of replacements. Should be either
 #'   length one, or the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
@@ -10,9 +20,9 @@
 #'
 #'   To perform multiple replacements in each element of `string`,
 #'   pass a named vector (`c(pattern1 = replacement1)`) to
-#'   `str_replace_all`. Alternatively, pass a function to
-#'   `replacement`: it will be called once for each match and its
-#'   return value will be used to replace the match.
+#'   `str_replace_all`. Alternatively, pass a function (or formula) to
+#'   `replacement`: it will be called once for each match (from right to left)
+#'   and its return value will be used to replace the match.
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.
@@ -29,6 +39,8 @@
 #'
 #' str_replace(fruits, "([aeiou])", "")
 #' str_replace(fruits, "([aeiou])", "\\1\\1")
+#'
+#' # Note that str_replace() is vectorised along text, pattern, and replacement
 #' str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 #' str_replace(fruits, c("a", "e", "i"), "-")
 #'
@@ -52,12 +64,13 @@
 #' )
 #' str_replace_all(x, colours, col2hex)
 str_replace <- function(string, pattern, replacement) {
-  if (!missing(replacement) && is.function(replacement)) {
+  if (!missing(replacement) && is_replacement_fun(replacement)) {
+    replacement <- as_function(replacement)
     return(str_transform(string, pattern, replacement))
   }
 
   switch(type(pattern),
-    empty = stop("Empty `pattern`` not supported", call. = FALSE),
+    empty = stop("Empty `pattern` not supported", call. = FALSE),
     bound = stop("Boundary `pattern` not supported", call. = FALSE),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
@@ -71,7 +84,8 @@ str_replace <- function(string, pattern, replacement) {
 #' @export
 #' @rdname str_replace
 str_replace_all <- function(string, pattern, replacement) {
-  if (!missing(replacement) && is.function(replacement)) {
+  if (!missing(replacement) && is_replacement_fun(replacement)) {
+    replacement <- as_function(replacement)
     return(str_transform_all(string, pattern, replacement))
   }
 
@@ -79,7 +93,7 @@ str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
     vec <- FALSE
     replacement <- unname(pattern)
-    pattern <- names(pattern)
+    pattern[] <- names(pattern)
   } else {
     vec <- TRUE
   }
@@ -94,6 +108,10 @@ str_replace_all <- function(string, pattern, replacement) {
     regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
       vectorize_all = vec, opts_regex = opts(pattern))
   )
+}
+
+is_replacement_fun <- function(x) {
+  is.function(x) || is_formula(x)
 }
 
 fix_replacement <- function(x) {
@@ -159,7 +177,7 @@ str_replace_na <- function(string, replacement = "NA") {
 
 str_transform <- function(string, pattern, replacement) {
   loc <- str_locate(string, pattern)
-  str_sub(string, loc) <- replacement(str_sub(string, loc))
+  str_sub(string, loc, omit_na = TRUE) <- replacement(str_sub(string, loc))
   string
 }
 str_transform_all <- function(string, pattern, replacement) {

@@ -3,13 +3,25 @@
 \name{str_order}
 \alias{str_order}
 \alias{str_sort}
-\title{Order or sort a character vector.}
+\title{Order or sort a character vector}
 \usage{
-str_order(x, decreasing = FALSE, na_last = TRUE, locale = "en",
-  numeric = FALSE, ...)
+str_order(
+  x,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+  ...
+)
 
-str_sort(x, decreasing = FALSE, na_last = TRUE, locale = "en",
-  numeric = FALSE, ...)
+str_sort(
+  x,
+  decreasing = FALSE,
+  na_last = TRUE,
+  locale = "en",
+  numeric = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{A character vector to sort.}
@@ -31,7 +43,7 @@ of as strings.}
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{
-Order or sort a character vector.
+Order or sort a character vector
 }
 \examples{
 str_order(letters)

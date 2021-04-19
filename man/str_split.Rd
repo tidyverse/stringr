@@ -3,11 +3,14 @@
 \name{str_split}
 \alias{str_split}
 \alias{str_split_fixed}
-\title{Split up a string into pieces.}
+\alias{str_split_n}
+\title{Split up a string into pieces}
 \usage{
 str_split(string, pattern, n = Inf, simplify = FALSE)
 
 str_split_fixed(string, pattern, n)
+
+str_split_n(string, pattern, n)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -16,7 +19,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
@@ -31,15 +34,19 @@ Match character, word, line and sentence boundaries with
 \item{n}{number of pieces to return.  Default (Inf) uses all
 possible split positions.
 
-For \code{str_split_fixed}, if n is greater than the number of pieces,
-the result will be padded with empty strings.}
+For \code{str_split_fixed}, if \code{n} is greater than the number of pieces,
+the result will be padded with empty strings.
+
+For \code{str_split_n}, \code{n} is the desired index of each element of
+the split \code{string}.  When there are fewer pieces than \code{n}, return \code{NA}.}
 
 \item{simplify}{If \code{FALSE}, the default, returns a list of character
 vectors. If \code{TRUE} returns a character matrix.}
 }
 \value{
 For \code{str_split_fixed}, a character matrix with \code{n} columns.
-For \code{str_split}, a list of character vectors.
+For \code{str_split}, a list of character vectors.  For \code{str_split_n},
+a length \code{n} character vector.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.
@@ -62,6 +69,10 @@ str_split(fruits, " and ", n = 5)
 # Use fixed to return a character matrix
 str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
+
+# str_split_n extracts only a single piece from a string
+str_split_n(fruits, " and ", 1)
+str_split_n(fruits, " and ", 3)
 }
 \seealso{
 \code{\link[=stri_split]{stri_split()}} for the underlying implementation.

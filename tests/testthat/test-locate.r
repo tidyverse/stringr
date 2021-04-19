@@ -1,11 +1,8 @@
-context("Locations")
-
 test_that("basic location matching works", {
-  expect_equivalent(str_locate("abc", "a")[1, ], c(1, 1))
-  expect_equivalent(str_locate("abc", "b")[1, ], c(2, 2))
-  expect_equivalent(str_locate("abc", "c")[1, ], c(3, 3))
-
-  expect_equivalent(str_locate("abc", ".+")[1, ], c(1, 3))
+  expect_equal(str_locate("abc", "a")[1, ], c(start = 1, end = 1))
+  expect_equal(str_locate("abc", "b")[1, ], c(start = 2, end = 2))
+  expect_equal(str_locate("abc", "c")[1, ], c(start = 3, end = 3))
+  expect_equal(str_locate("abc", ".+")[1, ], c(start = 1, end  = 3))
 })
 
 test_that("locations are integers", {

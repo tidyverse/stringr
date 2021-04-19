@@ -1,12 +1,18 @@
-#' Join multiple strings into a single string.
+#' Join multiple strings into a single string
 #'
-#' To understand how `str_c` works, you need to imagine that you are
-#' building up a matrix of strings. Each input argument forms a column, and
-#' is expanded to the length of the longest argument, using the usual
-#' recyling rules.  The `sep` string is inserted between each column. If
-#' collapse is `NULL` each row is collapsed into a single string. If
-#' non-`NULL` that string is inserted at the end of each row, and
-#' the entire matrix collapsed to a single string.
+#' @description
+#' `r lifecycle::badge("superseded")`
+#'
+#' `str_c()` is no longer needed; please use `paste0()` instead.
+#'
+#' @details
+#'
+#' To understand how `str_c` works, you need to imagine that you are building up
+#' a matrix of strings. Each input argument forms a column, and is expanded to
+#' the length of the longest argument, using the usual recyling rules.  The
+#' `sep` string is inserted between each column. If collapse is `NULL` each row
+#' is collapsed into a single string. If non-`NULL` that string is inserted at
+#' the end of each row, and the entire matrix collapsed to a single string.
 #'
 #' @param ... One or more character vectors. Zero length arguments
 #'   are removed. Short arguments are recycled to the length of the
@@ -24,7 +30,8 @@
 #'   non-NULL, a character vector of length 1.
 #' @seealso [paste()] for equivalent base R functionality, and
 #'    [stringi::stri_join()] which this function wraps
-#' @export str_c
+#' @export
+#' @keywords internal
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")

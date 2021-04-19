@@ -3,7 +3,7 @@
 \name{str_replace}
 \alias{str_replace}
 \alias{str_replace_all}
-\title{Replace matched patterns in a string.}
+\title{Replace matched patterns in a string}
 \usage{
 str_replace(string, pattern, replacement)
 
@@ -16,28 +16,24 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
-respects character matching rules for the specified locale.
-
-Match character, word, line and sentence boundaries with
-\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
+respects character matching rules for the specified locale.}
 
 \item{replacement}{A character vector of replacements. Should be either
 length one, or the same length as \code{string} or \code{pattern}.
-References of the form \code{\1}, \code{\2}, etc will be replaced with
-the contents of the respective matched group (created by \code{()}).
+References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
+the contents of the respective matched group (created by \verb{()}).
 
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to
-\code{str_replace_all}. Alternatively, pass a function to
-\code{replacement}: it will be called once for each match and its
-return value will be used to replace the match.
+\code{str_replace_all}. Alternatively, pass a function (or formula) to
+\code{replacement}: it will be called once for each match (from right to left)
+and its return value will be used to replace the match.
 
 To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
@@ -57,6 +53,8 @@ str_replace_all(fruits, "b", NA_character_)
 
 str_replace(fruits, "([aeiou])", "")
 str_replace(fruits, "([aeiou])", "\\\\1\\\\1")
+
+# Note that str_replace() is vectorised along text, pattern, and replacement
 str_replace(fruits, "[aeiou]", c("1", "2", "3"))
 str_replace(fruits, c("a", "e", "i"), "-")
 

@@ -6,8 +6,10 @@
 \alias{sentences}
 \alias{fruit}
 \alias{words}
-\title{Sample character vectors for practicing string manipulations.}
-\format{A character vector.}
+\title{Sample character vectors for practicing string manipulations}
+\format{
+Character vectors.
+}
 \usage{
 sentences
 
