@@ -8,7 +8,7 @@
 #'   possible split positions.
 #'
 #'   For `str_split_fixed`, if `n` is greater than the number of pieces,
-#'   the result will be padded with empty strings.
+#'   the result will be padded with `NA`.
 #'
 #'   For `str_split_n`, `n` is the desired index of each element of
 #'   the split `string`.  When there are fewer pieces than `n`, return `NA`.
@@ -54,9 +54,15 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #' @export
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
-  out <- str_split(string, pattern, n = n, simplify = TRUE)
-  out[is.na(out)] <- ""
-  out
+  if (length(n) != 1 || n < 0 || identical(n, Inf)) {
+    abort("`n` must be a postive integer")
+  }
+
+  out <- str_split(string, pattern, n = n)
+  out <- map(out, function(x) c(x, rep(NA_character_, n - length(x))))
+
+  out <- unlist(out)
+  matrix(out, ncol = n, byrow = TRUE)
 }
 
 subset_safely <- function(x, index) {
