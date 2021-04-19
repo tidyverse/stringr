@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_pad()` gains `use_length` argument to control whether to use the total code
+  point width or the number of code points as "width" of a string (#190).
+
 * `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
 
 * Experimental support for display `str_view()` with ANSI escapes, which

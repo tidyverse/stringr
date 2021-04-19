@@ -4,7 +4,13 @@
 \alias{str_pad}
 \title{Pad a string}
 \usage{
-str_pad(string, width, side = c("left", "right", "both"), pad = " ")
+str_pad(
+  string,
+  width,
+  side = c("left", "right", "both"),
+  pad = " ",
+  use_length = FALSE
+)
 }
 \arguments{
 \item{string}{A character vector.}
@@ -14,6 +20,9 @@ str_pad(string, width, side = c("left", "right", "both"), pad = " ")
 \item{side}{Side on which padding character is added (left, right or both).}
 
 \item{pad}{Single padding character (default is a space).}
+
+\item{use_length}{If \code{TRUE}, use the number of characters instead of the
+total of character widths (see \link[stringi:stri_width]{stringi::stri_width}).}
 }
 \value{
 A character vector.
