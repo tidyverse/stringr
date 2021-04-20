@@ -36,7 +36,7 @@ str_view <- function(string, pattern, match = NA, html = getOption("stringr.html
     string <- str_replace(string, pattern, replace)
     str_view_widget(string)
   } else {
-    string <- str_replace(string, pattern, ~ cli::style_inverse(.x))
+    string <- str_replace(string, pattern, highlight)
     structure(string, class = "stringr_view")
   }
 }
@@ -56,9 +56,13 @@ str_view_all <- function(string, pattern, match = NA, html = getOption("stringr.
     string <- str_replace_all(string, pattern, replace)
     str_view_widget(string)
   } else {
-    string <- str_replace_all(string, pattern, ~ cli::style_inverse(.x))
+    string <- str_replace_all(string, pattern, highlight)
     structure(string, class = "stringr_view")
   }
+}
+
+highlight <- function(x) {
+  cli::bg_white(cli::col_black(x))
 }
 
 str_view_widget <- function(lines) {
