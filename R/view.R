@@ -62,7 +62,11 @@ str_view_all <- function(string, pattern, match = NA, html = getOption("stringr.
 }
 
 highlight <- function(x) {
-  cli::bg_white(cli::col_black(x))
+  if (nchar(x) == 0) {
+    cli::col_white("|")
+  } else {
+    cli::bg_white(cli::col_black(x))
+  }
 }
 
 str_view_widget <- function(lines) {
