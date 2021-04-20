@@ -5,9 +5,14 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match}
 \usage{
-str_view(string, pattern, match = NA, html = TRUE)
+str_view(string, pattern, match = NA, html = getOption("stringr.html", TRUE))
 
-str_view_all(string, pattern, match = NA, html = TRUE)
+str_view_all(
+  string,
+  pattern,
+  match = NA,
+  html = getOption("stringr.html", TRUE)
+)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something

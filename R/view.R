@@ -23,7 +23,7 @@
 #' str_view(c("abc", "def", "fgh"), "d|e")
 #' str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
 #' str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-str_view <- function(string, pattern, match = NA, html = TRUE) {
+str_view <- function(string, pattern, match = NA, html = getOption("stringr.html", TRUE)) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
@@ -43,7 +43,7 @@ str_view <- function(string, pattern, match = NA, html = TRUE) {
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern, match = NA, html = TRUE) {
+str_view_all <- function(string, pattern, match = NA, html = getOption("stringr.html", TRUE)) {
 
   if (identical(match, TRUE)) {
     string <- string[str_detect(string, pattern)]
