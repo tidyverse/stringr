@@ -1,6 +1,6 @@
 #' View HTML rendering of regular expression match
 #'
-#' `str_view` shows the first match; `str_view_all` shows all
+#' `str_view()` shows the first match; `str_view_all()` shows all
 #' the matches. To build regular expressions interactively, check out the
 #' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
 #'
@@ -12,57 +12,64 @@
 #'   if `FALSE` will style using ANSI escapes.
 #' @export
 #' @examples
+#' # Show special characters
+#' str_view(c("\"\\", "\\\\\\", "fgh"))
+#'
+#' # Show first match
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
 #' str_view(c("abc", "def", "fgh"), "^")
 #' str_view(c("abc", "def", "fgh"), "..")
 #'
-#' # Show all matches with str_view_all
+#' # Show all matches
 #' str_view_all(c("abc", "def", "fgh"), "d|e")
-#'
-#' # Use match to control what is shown
-#' str_view(c("abc", "def", "fgh"), "d|e")
-#' str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
-#' str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
-str_view <- function(string, pattern, match = NA, html = getOption("stringr.html", TRUE)) {
-
-  if (identical(match, TRUE)) {
-    string <- string[str_detect(string, pattern)]
-  } else if (identical(match, FALSE)) {
-    string <- string[!str_detect(string, pattern)]
+str_view <- function(string, pattern = NULL, match = NA, html = getOption("stringr.html", TRUE)) {
+  out <- str_view_filter(string, pattern, match)
+  if (!is.null(pattern)) {
+    out <- str_replace(out, pattern, str_view_highlighter(html))
   }
-
-  if (html) {
-    replace <- function(x) paste0("<span class='match'>", x, "</span>")
-    string <- str_replace(string, pattern, replace)
-    str_view_widget(string)
-  } else {
-    string <- str_replace(string, pattern, highlight)
-    structure(string, class = "stringr_view")
-  }
+  str_view_print(out, html)
 }
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern, match = NA, html = getOption("stringr.html", TRUE)) {
-
-  if (identical(match, TRUE)) {
-    string <- string[str_detect(string, pattern)]
-  } else if (identical(match, FALSE)) {
-    string <- string[!str_detect(string, pattern)]
+str_view_all <- function(string, pattern = NULL, match = NA, html = getOption("stringr.html", TRUE)) {
+  out <- str_view_filter(string, pattern, match)
+  if (!is.null(pattern)) {
+    out <- str_replace_all(out, pattern, str_view_highlighter(html))
   }
+  str_view_print(out, html)
+}
 
-  if (html) {
-    replace <- function(x) paste0("<span class='match'>", x, "</span>")
-    string <- str_replace_all(string, pattern, replace)
-    str_view_widget(string)
+str_view_filter <- function(x, pattern, match) {
+  if (is.null(pattern)) {
+    x
   } else {
-    string <- str_replace_all(string, pattern, highlight)
-    structure(string, class = "stringr_view")
+    if (identical(match, TRUE)) {
+      x[str_detect(x, pattern)]
+    } else if (identical(match, FALSE)) {
+      x[!str_detect(x, pattern)]
+    } else {
+      x
+    }
   }
 }
 
-highlight <- function(x) {
-  cli::bg_white(cli::col_black("[", cli::style_bold(x), "]"))
+# Helpers -----------------------------------------------------------------
+
+str_view_highlighter <- function(html = TRUE) {
+  if (html) {
+    function(x) paste0("<span class='match'>", x, "</span>")
+  } else {
+    function(x) cli::bg_white(cli::col_black("[", cli::style_bold(x), "]"))
+  }
+}
+
+str_view_print <- function(x, html = TRUE) {
+  if (html) {
+    str_view_widget(x)
+  } else {
+    structure(x, class = "stringr_view")
+  }
 }
 
 str_view_widget <- function(lines) {

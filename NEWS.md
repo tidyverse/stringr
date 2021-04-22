@@ -6,7 +6,9 @@
 * `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
 
 * Experimental support for display `str_view()` with ANSI escapes, which
-  will work in more places than HTML widgets (#370).
+  will work in more places than HTML widgets (#370). `str_view()` no longer
+  requires a pattern so you can use it to display strings with special 
+  characters.
 
 * `str_c()` and `str_length()` are superseded in favour of `paste0()` and 
   `nchar()` respectively (#356).

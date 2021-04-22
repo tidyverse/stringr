@@ -5,11 +5,16 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match}
 \usage{
-str_view(string, pattern, match = NA, html = getOption("stringr.html", TRUE))
+str_view(
+  string,
+  pattern = NULL,
+  match = NA,
+  html = getOption("stringr.html", TRUE)
+)
 
 str_view_all(
   string,
-  pattern,
+  pattern = NULL,
   match = NA,
   html = getOption("stringr.html", TRUE)
 )
@@ -41,20 +46,19 @@ Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 if \code{FALSE} will style using ANSI escapes.}
 }
 \description{
-\code{str_view} shows the first match; \code{str_view_all} shows all
+\code{str_view()} shows the first match; \code{str_view_all()} shows all
 the matches. To build regular expressions interactively, check out the
 \href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
 }
 \examples{
+# Show special characters
+str_view(c("\"\\\\", "\\\\\\\\\\\\", "fgh"))
+
+# Show first match
 str_view(c("abc", "def", "fgh"), "[aeiou]")
 str_view(c("abc", "def", "fgh"), "^")
 str_view(c("abc", "def", "fgh"), "..")
 
-# Show all matches with str_view_all
+# Show all matches
 str_view_all(c("abc", "def", "fgh"), "d|e")
-
-# Use match to control what is shown
-str_view(c("abc", "def", "fgh"), "d|e")
-str_view(c("abc", "def", "fgh"), "d|e", match = TRUE)
-str_view(c("abc", "def", "fgh"), "d|e", match = FALSE)
 }
