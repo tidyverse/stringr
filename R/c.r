@@ -1,9 +1,7 @@
 #' Join multiple strings into a single string
 #'
-#' @description
-#' `r lifecycle::badge("superseded")`
-#'
-#' `str_c()` is no longer needed; please use `paste0()` instead.
+#' `str_c()` is a version of `paste0()` that uses tidyverse recycling and
+#' `NA` rules.
 #'
 #' @details
 #'
@@ -14,9 +12,10 @@
 #' is collapsed into a single string. If non-`NULL` that string is inserted at
 #' the end of each row, and the entire matrix collapsed to a single string.
 #'
-#' @param ... One or more character vectors. Zero length arguments
-#'   are removed. Short arguments are recycled to the length of the
-#'   longest.
+#' @param ... One or more character vectors.
+#'
+#'   `NULL`s are removed; scalar inputs (vectors of length 1) are recycled to
+#'   the common length of vector inputs.
 #'
 #'   Like most other R functions, missing values are "infectious": whenever
 #'   a missing value is combined with another string the result will always
@@ -41,11 +40,22 @@
 #' str_c(letters, collapse = "")
 #' str_c(letters, collapse = ", ")
 #'
+#' # Differences from paste() ----------------------
+#' # Missing inputs give missing outputs
+#' str_c(c("a", NA, "b"), "-d")
+#' paste0(c("a", NA, "b"), "-d")
+#'
+#' # Uses tidyverse recycling rules
+#' \dontrun{str_c(1:2, 1:3)} # errors
+#' paste0(1:2, 1:3)
+#'
 #' # Missing inputs give missing outputs
 #' str_c(c("a", NA, "b"), "-d")
 #' # Use str_replace_NA to display literal NAs:
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
+#'
 #' @import stringi
 str_c <- function(..., sep = "", collapse = NULL) {
-  stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
+  dots <- vctrs::vec_recycle_common(...)
+  exec(stri_c, !!!dots, sep = sep, collapse = collapse, ignore_null = TRUE)
 }

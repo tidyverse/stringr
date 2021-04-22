@@ -26,6 +26,7 @@ Imports:
     magrittr,
     rlang,
     stringi (>= 1.5.3),
+    vctrs,
     withr
 Suggests: 
     covr,

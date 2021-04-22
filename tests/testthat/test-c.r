@@ -6,6 +6,11 @@ test_that("basic case works", {
   expect_equal(str_c(test, collapse = ""), "abc")
 })
 
+test_that("obeys tidyverse recycling rules", {
+  expect_equal(str_c("x", character()), character())
+  expect_snapshot(str_c(1:2, 1:3), error = TRUE)
+})
+
 test_that("NULLs are dropped", {
   test <- letters[1:3]
 

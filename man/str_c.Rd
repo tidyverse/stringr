@@ -7,9 +7,10 @@
 str_c(..., sep = "", collapse = NULL)
 }
 \arguments{
-\item{...}{One or more character vectors. Zero length arguments
-are removed. Short arguments are recycled to the length of the
-longest.
+\item{...}{One or more character vectors.
+
+\code{NULL}s are removed; scalar inputs (vectors of length 1) are recycled to
+the common length of vector inputs.
 
 Like most other R functions, missing values are "infectious": whenever
 a missing value is combined with another string the result will always
@@ -27,9 +28,8 @@ length equal to the longest input string. If \code{collapse} is
 non-NULL, a character vector of length 1.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
-
-\code{str_c()} is no longer needed; please use \code{paste0()} instead.
+\code{str_c()} is a version of \code{paste0()} that uses tidyverse recycling and
+\code{NA} rules.
 }
 \details{
 To understand how \code{str_c} works, you need to imagine that you are building up
@@ -48,10 +48,20 @@ str_c(letters[-26], " comes before ", letters[-1])
 str_c(letters, collapse = "")
 str_c(letters, collapse = ", ")
 
+# Differences from paste() ----------------------
+# Missing inputs give missing outputs
+str_c(c("a", NA, "b"), "-d")
+paste0(c("a", NA, "b"), "-d")
+
+# Uses tidyverse recycling rules
+\dontrun{str_c(1:2, 1:3)} # errors
+paste0(1:2, 1:3)
+
 # Missing inputs give missing outputs
 str_c(c("a", NA, "b"), "-d")
 # Use str_replace_NA to display literal NAs:
 str_c(str_replace_na(c("a", NA, "b")), "-d")
+
 }
 \seealso{
 \code{\link[=paste]{paste()}} for equivalent base R functionality, and
