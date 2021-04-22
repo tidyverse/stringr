@@ -41,13 +41,19 @@
 #' # Returns TRUE if the pattern do NOT match
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
+  args <- str_recycle(string, pattern)
+
   switch(type(pattern),
     empty = ,
-    bound = str_count(string, pattern) > 0 & !negate,
-    fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
-    regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
+    bound = str_count(args$string, args$pattern) > 0 & !negate,
+    fixed = stri_detect_fixed(args$string, args$pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_detect_coll(args$string,  args$pattern, negate = negate, opts_collator = opts(pattern)),
+    regex = stri_detect_regex(args$string, args$pattern, negate = negate, opts_regex = opts(pattern))
   )
+}
+
+str_recycle <- function(string, pattern, replacement = NULL) {
+  vctrs::vec_recycle_common(string = string, pattern = pattern, replacement = replacement)
 }
 
 #' Detect the presence or absence of a pattern at the beginning or end of a
