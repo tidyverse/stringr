@@ -9,7 +9,9 @@
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
 #' @param html Use HTML output? If `TRUE` will create an HTML widget;
-#'   if `FALSE` will style using ANSI escapes.
+#'   if `FALSE` will style using ANSI escapes. The default will prefers
+#'   ANSI escapes if available in the current terminal; you can override by
+#'   setting `option(stringr.html = TRUE)`.
 #' @export
 #' @examples
 #' # Show special characters
@@ -22,7 +24,8 @@
 #'
 #' # Show all matches
 #' str_view_all(c("abc", "def", "fgh"), "d|e")
-str_view <- function(string, pattern = NULL, match = NA, html = getOption("stringr.html", TRUE)) {
+str_view <- function(string, pattern = NULL, match = NA, html = NULL) {
+  html <- str_view_use_html(html)
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace(out, pattern, str_view_highlighter(html))
@@ -32,7 +35,8 @@ str_view <- function(string, pattern = NULL, match = NA, html = getOption("strin
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern = NULL, match = NA, html = getOption("stringr.html", TRUE)) {
+str_view_all <- function(string, pattern = NULL, match = NA, html = NULL) {
+  html <- str_view_use_html(html)
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace_all(out, pattern, str_view_highlighter(html))
@@ -55,6 +59,10 @@ str_view_filter <- function(x, pattern, match) {
 }
 
 # Helpers -----------------------------------------------------------------
+
+str_view_use_html <- function(html) {
+  html %||% getOption("stringr.html") %||% (cli::num_ansi_colors() < 8L)
+}
 
 str_view_highlighter <- function(html = TRUE) {
   if (html) {
