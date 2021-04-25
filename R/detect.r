@@ -41,14 +41,14 @@
 #' # Returns TRUE if the pattern do NOT match
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
-  args <- str_recycle(string, pattern)
+  check_lengths(string, pattern)
 
   switch(type(pattern),
     empty = ,
-    bound = str_count(args$string, args$pattern) > 0 & !negate,
-    fixed = stri_detect_fixed(args$string, args$pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_detect_coll(args$string,  args$pattern, negate = negate, opts_collator = opts(pattern)),
-    regex = stri_detect_regex(args$string, args$pattern, negate = negate, opts_regex = opts(pattern))
+    bound = str_count(string, pattern) > 0 & !negate,
+    fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
+    regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 }
 
@@ -77,16 +77,16 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' str_ends(fruit, "e")
 #' str_ends(fruit, "e", negate = TRUE)
 str_starts <- function(string, pattern, negate = FALSE) {
-  args <- str_recycle(string, pattern)
+  check_lengths(string, pattern)
 
   switch(type(pattern),
     empty = ,
     bound = stop("boundary() patterns are not supported."),
-    fixed = stri_startswith_fixed(args$string, args$pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_startswith_coll(args$string, args$pattern, negate = negate, opts_collator = opts(pattern)),
+    fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
-      args$pattern <- paste0("^(", args$pattern, ")")
-      stri_detect_regex(args$string, args$pattern, negate = negate, opts_regex = opts(pattern))
+      pattern2 <- paste0("^(", pattern, ")")
+      stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
     }
   )
 }
@@ -94,16 +94,16 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @rdname str_starts
 #' @export
 str_ends <- function(string, pattern, negate = FALSE) {
-  args <- str_recycle(string, pattern)
+  check_lengths(string, pattern)
 
   switch(type(pattern),
     empty = ,
     bound = stop("boundary() patterns are not supported."),
-    fixed = stri_endswith_fixed(args$string, args$pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_endswith_coll(args$string, args$pattern, negate = negate, opts_collator = opts(pattern)),
+    fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
+    coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
-      args$pattern <- paste0("(", args$pattern, ")$")
-      stri_detect_regex(args$string, args$pattern, negate = negate, opts_regex = opts(pattern))
+      pattern2 <- paste0("(", pattern, ")$")
+      stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
     }
   )
 }
@@ -138,8 +138,8 @@ str_like <- function(string, pattern, ignore_case = TRUE) {
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
-  args <- str_recycle(string, pattern)
-  stri_detect_regex(args$string, args$pattern, opts_regex = opts(pattern))
+  check_lengths(string, pattern)
+  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 
 like_to_regex <- function(pattern) {

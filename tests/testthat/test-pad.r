@@ -24,3 +24,14 @@ test_that("padding based of length works", {
   expect_equal(pad(width = 6),                    "  \u4e2d  ")
   expect_equal(pad(width = 5, use_length = TRUE), "  \u4e2d  ")
 })
+
+test_that("uses tidyverse recycling rules", {
+  expect_error(
+    str_pad(c("a", "b"), 1:3),
+    class = "vctrs_error_incompatible_size"
+  )
+  expect_error(
+    str_pad(c("a", "b"), 10, pad = c("a", "b", "c")),
+    class = "vctrs_error_incompatible_size"
+  )
+})

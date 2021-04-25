@@ -28,32 +28,32 @@
 #' # Extract all words
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern) {
-  args <- str_recycle(string, pattern)
+  check_lengths(string, pattern)
 
   switch(type(pattern),
-    empty = stri_extract_first_boundaries(args$string, args$pattern, opts_brkiter = opts(pattern)),
-    bound = stri_extract_first_boundaries(args$string, args$pattern, opts_brkiter = opts(pattern)),
-    fixed = stri_extract_first_fixed(args$string, args$pattern, opts_fixed = opts(pattern)),
-    coll  = stri_extract_first_coll(args$string, args$pattern, opts_collator = opts(pattern)),
-    regex = stri_extract_first_regex(args$string, args$pattern, opts_regex = opts(pattern))
+    empty = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
+    bound = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
+    fixed = stri_extract_first_fixed(string, pattern, opts_fixed = opts(pattern)),
+    coll  = stri_extract_first_coll(string, pattern, opts_collator = opts(pattern)),
+    regex = stri_extract_first_regex(string, pattern, opts_regex = opts(pattern))
   )
 }
 
 #' @rdname str_extract
 #' @export
 str_extract_all <- function(string, pattern, simplify = FALSE) {
-  args <- str_recycle(string, pattern)
+  check_lengths(string, pattern)
 
   switch(type(pattern),
-    empty = stri_extract_all_boundaries(args$string, args$pattern,
+    empty = stri_extract_all_boundaries(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
-    bound = stri_extract_all_boundaries(args$string, args$pattern,
+    bound = stri_extract_all_boundaries(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
-    fixed = stri_extract_all_fixed(args$string, args$pattern,
+    fixed = stri_extract_all_fixed(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_fixed = opts(pattern)),
-    coll  = stri_extract_all_coll(args$string, args$pattern,
+    coll  = stri_extract_all_coll(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_collator = opts(pattern)),
-    regex = stri_extract_all_regex(args$string, args$pattern,
+    regex = stri_extract_all_regex(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_regex = opts(pattern))
   )
 }

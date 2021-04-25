@@ -27,11 +27,13 @@
 #' # Longer strings are returned unchanged
 #' str_pad("hadley", 3)
 str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ", use_length = FALSE) {
+  args <- vctrs::vec_recycle_common(string = string, width = width, pad = pad)
+
   side <- match.arg(side)
 
   switch(side,
-    left = stri_pad_left(string, width, pad = pad, use_length = use_length),
-    right = stri_pad_right(string, width, pad = pad, use_length = use_length),
-    both = stri_pad_both(string, width, pad = pad, use_length = use_length)
+    left = stri_pad_left(args$string, args$width, pad = args$pad, use_length = use_length),
+    right = stri_pad_right(args$string, args$width, pad = args$pad, use_length = use_length),
+    both = stri_pad_both(args$string, args$width, pad = args$pad, use_length = use_length)
   )
 }
