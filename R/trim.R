@@ -15,7 +15,7 @@
 #' str_squish("  String with trailing,  middle, and leading white space\t")
 #' str_squish("\n\nString with excess,  trailing and leading white   space\n\n")
 str_trim <- function(string, side = c("both", "left", "right")) {
-  side <- match.arg(side)
+  side <- arg_match(side)
 
   switch(side,
     left =  stri_trim_left(string),

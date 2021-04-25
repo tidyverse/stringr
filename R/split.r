@@ -41,6 +41,7 @@
 #' str_split_n(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
+  check_lengths(string, pattern)
 
   switch(type(pattern),
     empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),

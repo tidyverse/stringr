@@ -30,6 +30,8 @@
 #' str_subset(c("a", NA, "b"), ".")
 #' str_which(c("a", NA, "b"), ".")
 str_subset <- function(string, pattern, negate = FALSE) {
+  check_lengths(string, pattern)
+
   switch(type(pattern),
     empty = ,
     bound = string[str_detect(string, pattern) & !negate],

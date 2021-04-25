@@ -62,6 +62,8 @@
 #' str_sub(x4, 1, 2, omit_na = TRUE) <- NA
 #' x1; x2; x3; x4
 str_sub <- function(string, start = 1L, end = -1L) {
+  vctrs::vec_size_common(string = string, start = start, end = end)
+
   if (is.matrix(start)) {
     stri_sub(string, from = start)
   } else {
@@ -73,6 +75,8 @@ str_sub <- function(string, start = 1L, end = -1L) {
 #' @export
 #' @rdname str_sub
 "str_sub<-" <- function(string, start = 1L, end = -1L, omit_na = FALSE,  value) {
+  vctrs::vec_size_common(string = string, start = start, end = end)
+
   if (is.matrix(start)) {
     stri_sub(string, from = start, omit_na = omit_na) <- value
   } else {
