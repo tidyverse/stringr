@@ -8,5 +8,8 @@
 #' str_flatten(letters)
 #' str_flatten(letters, "-")
 str_flatten <- function(string, collapse = "") {
+  if (!is_string(collapse)) {
+    abort("`collapse` must be a single string.")
+  }
   stri_flatten(string, collapse = collapse)
 }

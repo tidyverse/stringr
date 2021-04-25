@@ -38,8 +38,14 @@ str_match <- function(string, pattern) {
     stop("Can only match regular expressions", call. = FALSE)
   }
 
-  stri_match_first_regex(string,
-    pattern,
+  args <- str_recycle(string, pattern)
+  if (length(args$pattern) == 0) {
+    # In order to get correctly sized output
+    args$pattern <- pattern
+  }
+
+  stri_match_first_regex(args$string,
+    args$pattern,
     opts_regex = opts(pattern)
   )
 }
@@ -51,8 +57,14 @@ str_match_all <- function(string, pattern) {
     stop("Can only match regular expressions", call. = FALSE)
   }
 
-  stri_match_all_regex(string,
-    pattern,
+  args <- str_recycle(string, pattern)
+  if (length(args$pattern) == 0) {
+    # In order to get correctly sized output
+    args$pattern <- pattern
+  }
+
+  stri_match_all_regex(args$string,
+    args$pattern,
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )

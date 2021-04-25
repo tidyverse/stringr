@@ -5,6 +5,11 @@ test_that("basic location matching works", {
   expect_equal(str_locate("abc", ".+")[1, ], c(start = 1, end  = 3))
 })
 
+test_that("uses tidyverse recycling rules", {
+  expect_error(str_locate(1:2, 1:3), class = "vctrs_error_incompatible_size")
+  expect_error(str_locate_all(1:2, 1:3), class = "vctrs_error_incompatible_size")
+})
+
 test_that("locations are integers", {
   strings <- c("a b c", "d e f")
   expect_true(is.integer(str_locate(strings, "[a-z]")))

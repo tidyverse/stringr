@@ -21,11 +21,13 @@
 #' str_count(c("a.", "...", ".a.a"), ".")
 #' str_count(c("a.", "...", ".a.a"), fixed("."))
 str_count <- function(string, pattern = "") {
+  args <- str_recycle(string, pattern)
+
   switch(type(pattern),
-    empty = stri_count_boundaries(string, opts_brkiter = opts(pattern)),
-    bound = stri_count_boundaries(string, opts_brkiter = opts(pattern)),
-    fixed = stri_count_fixed(string, pattern, opts_fixed = opts(pattern)),
-    coll  = stri_count_coll(string, pattern, opts_collator = opts(pattern)),
-    regex = stri_count_regex(string, pattern, opts_regex = opts(pattern))
+    empty = ,
+    bound = stri_count_boundaries(args$string, opts_brkiter = opts(pattern)),
+    fixed = stri_count_fixed(args$string, args$pattern, opts_fixed = opts(pattern)),
+    coll  = stri_count_coll(args$string, args$pattern, opts_collator = opts(pattern)),
+    regex = stri_count_regex(args$string, args$pattern, opts_regex = opts(pattern))
   )
 }
