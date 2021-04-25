@@ -1,5 +1,15 @@
 # stringr (development version)
 
+* stringr functions now consistently implement the tidyverse recycling rules
+  (#372). Overall this is a fairly minor change as stringi was already very 
+  close to the tidyverse rules. There are only two major changes: 
+  
+    *  Only vectors of length 1 are recycled: 
+       `str_detect(letters, letters[1:2])` previously worked by now errors.
+       
+    *  `str_c()` ignores `NULLs`, rather than treating them as length 0 
+        vectors.
+
 * `str_pad()` gains `use_length` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
 
