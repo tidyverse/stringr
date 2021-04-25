@@ -12,6 +12,6 @@
 #' str_dup(fruit, 1:3)
 #' str_c("ba", str_dup("na", 0:5))
 str_dup <- function(string, times) {
-  args <- vctrs::vec_recycle_common(string = string, times = times)
-  stri_dup(args$string, args$times)
+  vctrs::vec_size_common(string = string, times = times)
+  stri_dup(string, times)
 }

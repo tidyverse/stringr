@@ -127,7 +127,7 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 #' @rdname modifiers
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
                     skip_word_none = NA, ...) {
-  type <- match.arg(type)
+  type <- arg_match(type)
 
   if (identical(skip_word_none, NA)) {
     skip_word_none <- type == "word"
