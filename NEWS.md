@@ -10,6 +10,11 @@
     *  `str_c()` ignores `NULLs`, rather than treating them as length 0 
         vectors.
 
+* `str_flatten()` gains a `last` argument that optionally override the
+  final separator (#377).
+
+* Better error message if you supply a non-string pattern (#378).
+
 * `str_pad()` gains `use_length` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
 

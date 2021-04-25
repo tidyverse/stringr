@@ -5,19 +5,9 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match}
 \usage{
-str_view(
-  string,
-  pattern = NULL,
-  match = NA,
-  html = getOption("stringr.html", TRUE)
-)
+str_view(string, pattern = NULL, match = NA, html = NULL)
 
-str_view_all(
-  string,
-  pattern = NULL,
-  match = NA,
-  html = getOption("stringr.html", TRUE)
-)
+str_view_all(string, pattern = NULL, match = NA, html = NULL)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -43,7 +33,9 @@ If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 
 \item{html}{Use HTML output? If \code{TRUE} will create an HTML widget;
-if \code{FALSE} will style using ANSI escapes.}
+if \code{FALSE} will style using ANSI escapes. The default will prefers
+ANSI escapes if available in the current terminal; you can override by
+setting \code{option(stringr.html = TRUE)}.}
 }
 \description{
 \code{str_view()} shows the first match; \code{str_view_all()} shows all
