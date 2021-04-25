@@ -155,11 +155,21 @@ opts <- function(x) {
 }
 
 type <- function(x) UseMethod("type")
+#' @export
 type.boundary <- function(x) "bound"
+#' @export
 type.regex <- function(x) "regex"
+#' @export
 type.coll <- function(x) "coll"
+#' @export
 type.fixed <- function(x) "fixed"
+#' @export
 type.character <- function(x) if (identical(x, "")) "empty" else "regex"
+#' @export
+type.default <- function(x) {
+  abort("`pattern` must be a string")
+}
+
 
 as_bare_character <- function(x) {
   if (is.character(x) && !is.object(x)) {
