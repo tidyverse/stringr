@@ -56,6 +56,15 @@ test_that("str_ends works", {
   expect_false(str_ends("ab", "c|a"))
 })
 
+test_that("functions use tidyverse recycling rules", {
+  expect_snapshot(error = TRUE, {
+    str_detect(1:2, 1:3)
+    str_starts(1:2, 1:3)
+    str_ends(1:2, 1:3)
+    str_like(1:2, c("a", "b", "c"))
+  })
+})
+
 
 # str_like ----------------------------------------------------------------
 
