@@ -4,12 +4,14 @@
 \alias{str_flatten}
 \title{Flatten a string}
 \usage{
-str_flatten(string, collapse = "")
+str_flatten(string, collapse = "", last = NULL)
 }
 \arguments{
 \item{string}{Character to flatten}
 
 \item{collapse}{String to insert between each piece}
+
+\item{last}{Optional string use in place of final separator.}
 }
 \value{
 A character vector of length 1
@@ -20,4 +22,9 @@ Flatten a string
 \examples{
 str_flatten(letters)
 str_flatten(letters, "-")
+
+str_flatten(letters[1:5], ", ", ", and ")
+str_flatten(letters[1:3], ", ", ", and ")
+str_flatten(letters[1:2], ", ", ", and ")
+str_flatten(letters[1], ", ", ", and ")
 }

@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_flatten()` gains a `last` argument that optionally override the
+  final separator (#377).
+
 * Better error message if you supply a non-string pattern (#378).
 
 * `str_pad()` gains `use_length` argument to control whether to use the total code
