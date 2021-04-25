@@ -178,6 +178,8 @@
 <a href="#stringr-development-version" class="anchor"></a>stringr (development version)<small> Unreleased </small>
 </h1>
 <ul>
+<li><p><code><a href="../reference/str_flatten.html">str_flatten()</a></code> gains a <code>last</code> argument that optionally override the final separator (<a href='https://github.com/tidyverse/stringr/issues/377'>#377</a>).</p></li>
+<li><p>Better error message if you supply a non-string pattern (<a href='https://github.com/tidyverse/stringr/issues/378'>#378</a>).</p></li>
 <li><p><code><a href="../reference/str_pad.html">str_pad()</a></code> gains <code>use_length</code> argument to control whether to use the total code point width or the number of code points as “width” of a string (<a href='https://github.com/tidyverse/stringr/issues/190'>#190</a>).</p></li>
 <li><p><code><a href="../reference/str_split.html">str_split_fixed()</a></code> now pads with <code>NA</code> rather than <code>" "</code> (<a href='https://github.com/tidyverse/stringr/issues/195'>#195</a>).</p></li>
 <li><p>Experimental support for display <code><a href="../reference/str_view.html">str_view()</a></code> with ANSI escapes, which will work in more places than HTML widgets (<a href='https://github.com/tidyverse/stringr/issues/370'>#370</a>). <code><a href="../reference/str_view.html">str_view()</a></code> no longer requires a pattern so you can use it to display strings with special characters.</p></li>
