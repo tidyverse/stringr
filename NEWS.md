@@ -49,8 +49,6 @@
 * `str_flatten()` gains a `last` argument that optionally override the
   final separator (#377).
 
-* `str_length()` is superseded in favour of `nchar()` respectively (#356).
-
 * `str_pad()` gains `use_length` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
 

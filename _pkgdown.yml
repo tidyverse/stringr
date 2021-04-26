@@ -61,9 +61,11 @@ reference:
 - title: Other helpers
   contents:
   - invert_match
+  - str_c
   - str_conv
   - str_dup
   - str_flatten
+  - str_length
   - str_glue
   - str_replace_na
   - str_trunc

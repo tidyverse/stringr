@@ -1,20 +1,15 @@
 #' The length of a string
 #'
-#' @description
-#' `r lifecycle::badge("superseded")`
-#'
-#' `str_c()` is no longer needed; please use [nchar()] instead.
-#'
-#' Technically this returns the number of "code points", in a string. One
-#' code point usually corresponds to one character, but not always. For example,
-#' an u with a umlaut might be represented as a single character or as the
-#' combination a u and an umlaut.
+#' Compute the number of characters in a string. Technically, this returns the
+#' number of "code points", in a string. One code point usually corresponds to
+#' one character, but not always. For example, an u with a umlaut might be
+#' represented as a single code point or as "u" code point and an umlaut
+#' code point.
 #'
 #' @inheritParams str_detect
 #' @return A numeric vector giving number of characters (code points) in each
 #'    element of the character vector. Missing string have missing length.
 #' @seealso [stringi::stri_length()] which this function wraps.
-#' @keywords internal
 #' @export
 #' @examples
 #' str_length(letters)
