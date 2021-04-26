@@ -68,7 +68,8 @@ str_view_highlighter <- function(html = TRUE) {
   if (html) {
     function(x) paste0("<span class='match'>", x, "</span>")
   } else {
-    function(x) cli::bg_white(cli::col_black("[", cli::style_bold(x), "]"))
+    # Need to considering printing: colour alone is not enough
+    function(x) cli::col_cyan("<", x, ">")
   }
 }
 

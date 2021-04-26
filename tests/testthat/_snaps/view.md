@@ -22,13 +22,13 @@
     Code
       str_view(x, "[aeiou]", html = FALSE)
     Output
-      [a]bc
-      d[e]f
+      <a>bc
+      d<e>f
       fgh
     Code
       str_view_all(x, "d|e", html = FALSE)
     Output
       abc
-      [d][e]f
+      <d><e>f
       fgh
 
