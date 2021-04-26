@@ -61,7 +61,7 @@ str_view_filter <- function(x, pattern, match) {
 # Helpers -----------------------------------------------------------------
 
 str_view_use_html <- function(html) {
-  html %||% getOption("stringr.html") %||% (cli::num_ansi_colors() < 8L)
+  html %||% getOption("stringr.html") %||% (cli::num_ansi_colors() == 1L)
 }
 
 str_view_highlighter <- function(html = TRUE) {
