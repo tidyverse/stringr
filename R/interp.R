@@ -1,5 +1,10 @@
 #' String interpolation
 #'
+#' @description
+#' `r lifecycle::badge("superseded")`
+#'
+#' `str_interp()` is superseded in favour of [str_glue()].
+#'
 #' String interpolation is a useful way of specifying a character string which
 #' depends on values in a certain environment. It allows for string creation
 #' which is easier to read and write when compared to using e.g.
