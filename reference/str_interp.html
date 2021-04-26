@@ -50,7 +50,9 @@
 
 
 <meta property="og:title" content="String interpolation — str_interp" />
-<meta property="og:description" content="String interpolation is a useful way of specifying a character string which
+<meta property="og:description" content="
+str_interp() is superseded in favour of str_glue().
+String interpolation is a useful way of specifying a character string which
 depends on values in a certain environment. It allows for string creation
 which is easier to read and write when compared to using e.g.
 paste() or sprintf(). The (template) string can
@@ -109,6 +111,12 @@ specification valid for use with sprintf()." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../articles/stringr.html">Get started</a>
 </li>
 <li>
@@ -136,7 +144,7 @@ specification valid for use with sprintf()." />
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Release notes</li>
+    <li class="dropdown-header">Releases</li>
     <li>
       <a href="https://www.tidyverse.org/articles/2019/02/stringr-1-4-0/">Version 1.4.0</a>
     </li>
@@ -154,7 +162,7 @@ specification valid for use with sprintf()." />
     </li>
     <li class="divider"></li>
     <li>
-      <a href="../news/index.html">Change log</a>
+      <a href="../news/index.html">Changelog</a>
     </li>
   </ul>
 </li>
@@ -183,7 +191,9 @@ specification valid for use with sprintf()." />
     </div>
 
     <div class="ref-description">
-    <p>String interpolation is a useful way of specifying a character string which
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#superseded'><img src='figures/lifecycle-superseded.svg' alt='[Superseded]' /></a></p>
+<p><code>str_interp()</code> is superseded in favour of <code><a href='str_glue.html'>str_glue()</a></code>.</p>
+<p>String interpolation is a useful way of specifying a character string which
 depends on values in a certain environment. It allows for string creation
 which is easier to read and write when compared to using e.g.
 <code><a href='https://rdrr.io/r/base/paste.html'>paste()</a></code> or <code><a href='https://rdrr.io/r/base/sprintf.html'>sprintf()</a></code>. The (template) string can

@@ -101,6 +101,12 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../articles/stringr.html">Get started</a>
 </li>
 <li>
@@ -128,7 +134,7 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Release notes</li>
+    <li class="dropdown-header">Releases</li>
     <li>
       <a href="https://www.tidyverse.org/articles/2019/02/stringr-1-4-0/">Version 1.4.0</a>
     </li>
@@ -146,7 +152,7 @@
     </li>
     <li class="divider"></li>
     <li>
-      <a href="../news/index.html">Change log</a>
+      <a href="../news/index.html">Changelog</a>
     </li>
   </ul>
 </li>
@@ -196,7 +202,7 @@
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
-<li><p><code><a href="../reference/str_view.html">str_view()</a></code> will use ANSI colouring if available (<a href='https://github.com/tidyverse/stringr/issues/370'>#370</a>). This works in more places than HTML widgets and requires fewer dependencies. <code><a href="../reference/str_view.html">str_view()</a></code> also no longer requires a pattern so you can use it to display strings with special characters.</p></li>
+<li><p><code><a href="../reference/str_view.html">str_view()</a></code> will use ANSI colouring if available (<a href='https://github.com/tidyverse/stringr/issues/370'>#370</a>). This works in more places than HTML widgets and requires fewer dependencies. <code><a href="../reference/str_view.html">str_view()</a></code> also no longer requires a pattern so you can use it to display strings with special characters. It now highlights whitespace characters apart from space since otherwise they are often confusing.</p></li>
 <li><p>New <code><a href="../articles/from-base.html">vignette("from-base")</a></code> by <a href='https://github.com/sastoudt'>@sastoudt</a> provides a comprehensive comparison between base R functions and their stringr equivalents. It’s designed to help you move to stringr if you’re already familiar with base R string functions (<a href='https://github.com/tidyverse/stringr/issues/266'>#266</a>).</p></li>
 <li><p>New <code><a href="../reference/str_split.html">str_split_n()</a></code> function to extract only a single piece from a string (<a href='https://github.com/tidyverse/stringr/issues/278'>#278</a>, <a href='https://github.com/bfgray3'>@bfgray3</a>).</p></li>
 <li><p>New <code><a href="../reference/str_like.html">str_like()</a></code> function which allows the use of SQL wildcards (<a href='https://github.com/tidyverse/stringr/issues/280'>#280</a>, <a href='https://github.com/rjpat'>@rjpat</a>).</p></li>
@@ -211,7 +217,6 @@
 <li><p>Better error message if you supply a non-string pattern (<a href='https://github.com/tidyverse/stringr/issues/378'>#378</a>).</p></li>
 <li><p>Many typos in <code>sentences</code> have been fixed (<a href='https://github.com/romatik'>@romatik</a>, <a href='https://github.com/tidyverse/stringr/issues/299'>#299</a>)</p></li>
 <li><p><code><a href="../reference/str_flatten.html">str_flatten()</a></code> gains a <code>last</code> argument that optionally override the final separator (<a href='https://github.com/tidyverse/stringr/issues/377'>#377</a>).</p></li>
-<li><p><code><a href="../reference/str_length.html">str_length()</a></code> is superseded in favour of <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> respectively (<a href='https://github.com/tidyverse/stringr/issues/356'>#356</a>).</p></li>
 <li><p><code><a href="../reference/str_pad.html">str_pad()</a></code> gains <code>use_length</code> argument to control whether to use the total code point width or the number of code points as “width” of a string (<a href='https://github.com/tidyverse/stringr/issues/190'>#190</a>).</p></li>
 <li><p><code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> can use standard tidyverse formula shorthand for <code>replacement</code> function (<a href='https://github.com/tidyverse/stringr/issues/331'>#331</a>).</p></li>
 <li><p><code><a href="../reference/str_starts.html">str_starts()</a></code> and <code><a href="../reference/str_starts.html">str_ends()</a></code> now correctly respect regex operator precedence (<a href='https://github.com/carlganz'>@carlganz</a>).</p></li>
