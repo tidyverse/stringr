@@ -1,5 +1,5 @@
 
-test_that("view works", {
+test_that("view highlights matches", {
   x <- c("abc", "def", "fgh")
   expect_snapshot({
     str_view(x, "[aeiou]", html = TRUE)$x$html
@@ -10,7 +10,13 @@ test_that("view works", {
     str_view(x, "[aeiou]", html = FALSE)
     str_view_all(x, "d|e", html = FALSE)
   })
+})
 
+test_that("view highlights whitespace (except a space)", {
+  x <- c(" ", "\u00A0")
+  expect_snapshot({
+    str_view(x, html = TRUE)$x$html
+  })
 })
 
 test_that("match argument controls what is shown", {

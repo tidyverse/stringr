@@ -38,13 +38,24 @@ ANSI escapes if available in the current terminal; you can override by
 setting \code{option(stringr.html = TRUE)}.}
 }
 \description{
-\code{str_view()} shows the first match; \code{str_view_all()} shows all
-the matches. To build regular expressions interactively, check out the
+\code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
+Whitespace characters (apart from space, \code{" "}) are shown with a red
+background.
+
+To build regular expressions interactively, check out the
 \href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
 }
 \examples{
 # Show special characters
 str_view(c("\"\\\\", "\\\\\\\\\\\\", "fgh"))
+
+# A non-breaking space looks like a regular space:
+nbsp <- "Hi\u00A0you"
+nbsp
+# But it doesn't behave like one:
+str_detect(nbsp, " ")
+# str_view() brings it to your attention:
+str_view(nbsp)
 
 # Show first match
 str_view(c("abc", "def", "fgh"), "[aeiou]")

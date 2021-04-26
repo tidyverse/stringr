@@ -22,7 +22,8 @@
 * `str_view()` will use ANSI colouring if available (#370). This works in more 
   places than HTML widgets and requires fewer dependencies. `str_view()` also 
   no longer requires a pattern so you can use it to display strings with 
-  special characters.
+  special characters. It now highlights whitespace characters apart from space
+  since otherwise they are often confusing.
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to

@@ -1,4 +1,4 @@
-# view works
+# view highlights matches
 
     Code
       str_view(x, "[aeiou]", html = TRUE)$x$html
@@ -31,4 +31,14 @@
       abc
       <d><e>f
       fgh
+
+# view highlights whitespace (except a space)
+
+    Code
+      str_view(x, html = TRUE)$x$html
+    Output
+      <ul>
+        <li> </li>
+        <li><span class='special'> </span></li>
+      </ul>
 

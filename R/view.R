@@ -1,9 +1,12 @@
 #' View HTML rendering of regular expression match
 #'
-#' `str_view()` shows the first match; `str_view_all()` shows all
-#' the matches. To build regular expressions interactively, check out the
-#' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
+#' @description
+#' `str_view()` shows the first match; `str_view_all()` shows all matches.
+#' Whitespace characters (apart from space, `" "`) are shown with a red
+#' background.
 #'
+#' To build regular expressions interactively, check out the
+#' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
 #' @inheritParams str_detect
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
@@ -17,6 +20,14 @@
 #' # Show special characters
 #' str_view(c("\"\\", "\\\\\\", "fgh"))
 #'
+#' # A non-breaking space looks like a regular space:
+#' nbsp <- "Hi\u00A0you"
+#' nbsp
+#' # But it doesn't behave like one:
+#' str_detect(nbsp, " ")
+#' # str_view() brings it to your attention:
+#' str_view(nbsp)
+#'
 #' # Show first match
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
 #' str_view(c("abc", "def", "fgh"), "^")
@@ -26,10 +37,13 @@
 #' str_view_all(c("abc", "def", "fgh"), "d|e")
 str_view <- function(string, pattern = NULL, match = NA, html = NULL) {
   html <- str_view_use_html(html)
+
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace(out, pattern, str_view_highlighter(html))
   }
+  out <- str_view_special(out, html = html)
+
   str_view_print(out, html)
 }
 
@@ -37,10 +51,13 @@ str_view <- function(string, pattern = NULL, match = NA, html = NULL) {
 #' @export
 str_view_all <- function(string, pattern = NULL, match = NA, html = NULL) {
   html <- str_view_use_html(html)
+
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace_all(out, pattern, str_view_highlighter(html))
   }
+  out <- str_view_special(out, html = html)
+
   str_view_print(out, html)
 }
 
@@ -71,6 +88,17 @@ str_view_highlighter <- function(html = TRUE) {
     # Need to considering printing: colour alone is not enough
     function(x) cli::col_cyan("<", x, ">")
   }
+}
+
+str_view_special <- function(x, html = TRUE) {
+  if (html) {
+    replace <- function(x) paste0("<span class='special'>", x, "</span>")
+  } else {
+    replace <- function(x) cli::col_white(cli::bg_red(x))
+  }
+
+  # Highlight, anything whitespace characters that aren't a space.
+  str_replace_all(x, "[\\p{Whitespace}-- ]+", replace)
 }
 
 str_view_print <- function(x, html = TRUE) {
