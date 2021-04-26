@@ -44,8 +44,13 @@ reference:
   - str_starts
   - str_split
   - str_subset
-  - str_view
   - modifiers
+
+- title: Combining strings
+  contents:
+  - str_c
+  - str_flatten
+  - str_glue
 
 - title: Whitespace
   contents:
@@ -61,14 +66,14 @@ reference:
 - title: Other helpers
   contents:
   - invert_match
-  - str_c
   - str_conv
   - str_dup
-  - str_flatten
   - str_length
-  - str_glue
+  - str_like
   - str_replace_na
   - str_trunc
+  - str_unique
+  - str_view
   - str_sub
   - word
 
