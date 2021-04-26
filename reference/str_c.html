@@ -50,8 +50,14 @@
 
 
 <meta property="og:title" content="Join multiple strings into a single string — str_c" />
-<meta property="og:description" content="
-str_c() is no longer needed; please use paste0() instead." />
+<meta property="og:description" content="str_c() combines multiple character vectors into a single character
+vector. It's very similar to paste0() but uses tidyverse recycling and
+NA rules.
+One way to understand how str_c() works is picture a 2d matrix of strings,
+where each argument forms a column. sep is inserted between each column,
+and then each row is combined together into a single string. If collapse
+is set, it's inserted between each row, and then the result is again
+combined, this time into a single string." />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -177,8 +183,14 @@ str_c() is no longer needed; please use paste0() instead." />
     </div>
 
     <div class="ref-description">
-    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#superseded'><img src='figures/lifecycle-superseded.svg' alt='[Superseded]' /></a></p>
-<p><code>str_c()</code> is no longer needed; please use <code><a href='https://rdrr.io/r/base/paste.html'>paste0()</a></code> instead.</p>
+    <p><code>str_c()</code> combines multiple character vectors into a single character
+vector. It's very similar to <code><a href='https://rdrr.io/r/base/paste.html'>paste0()</a></code> but uses tidyverse recycling and
+<code>NA</code> rules.</p>
+<p>One way to understand how <code>str_c()</code> works is picture a 2d matrix of strings,
+where each argument forms a column. <code>sep</code> is inserted between each column,
+and then each row is combined together into a single string. If <code>collapse</code>
+is set, it's inserted between each row, and then the result is again
+combined, this time into a single string.</p>
     </div>
 
     <pre class="usage"><span class='fu'>str_c</span><span class='op'>(</span><span class='va'>...</span>, sep <span class='op'>=</span> <span class='st'>""</span>, collapse <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
@@ -188,13 +200,13 @@ str_c() is no longer needed; please use paste0() instead." />
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>One or more character vectors. Zero length arguments
-are removed. Short arguments are recycled to the length of the
-longest.</p>
+      <td><p>One or more character vectors.</p>
+<p><code>NULL</code>s are removed; scalar inputs (vectors of length 1) are recycled to
+the common length of vector inputs.</p>
 <p>Like most other R functions, missing values are "infectious": whenever
 a missing value is combined with another string the result will always
-be missing. Use <code><a href='str_replace_na.html'>str_replace_na()</a></code> to convert <code>NA</code> to
-<code>"NA"</code></p></td>
+be missing. Use <code>dplyr::coalesce()</code> or <code><a href='str_replace_na.html'>str_replace_na()</a></code> to convert
+desired value.</p></td>
     </tr>
     <tr>
       <th>sep</th>
@@ -202,28 +214,17 @@ be missing. Use <code><a href='str_replace_na.html'>str_replace_na()</a></code> 
     </tr>
     <tr>
       <th>collapse</th>
-      <td><p>Optional string used to combine input vectors into single
-string.</p></td>
+      <td><p>Optional string used to combine output into single
+string. Generally better to use <code><a href='str_flatten.html'>str_flatten()</a></code> if you needed this
+behaviour.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>If <code>collapse = NULL</code> (the default) a character vector with
-length equal to the longest input string. If <code>collapse</code> is
-non-NULL, a character vector of length 1.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>To understand how <code>str_c</code> works, you need to imagine that you are building up
-a matrix of strings. Each input argument forms a column, and is expanded to
-the length of the longest argument, using the usual recyling rules.  The
-<code>sep</code> string is inserted between each column. If collapse is <code>NULL</code> each row
-is collapsed into a single string. If non-<code>NULL</code> that string is inserted at
-the end of each row, and the entire matrix collapsed to a single string.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/paste.html'>paste()</a></code> for equivalent base R functionality, and
-<code><a href='https://rdrr.io/pkg/stringi/man/stri_join.html'>stringi::stri_join()</a></code> which this function wraps</p></div>
+length equal to the longest input. If <code>collapse</code> is a string, a character
+vector of length 1.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>str_c</span><span class='op'>(</span><span class='st'>"Letter: "</span>, <span class='va'>letters</span><span class='op'>)</span>
@@ -253,11 +254,20 @@ the end of each row, and the entire matrix collapsed to a single string.</p>
 <span class='fu'>str_c</span><span class='op'>(</span><span class='va'>letters</span>, collapse <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "abcdefghijklmnopqrstuvwxyz"</div><div class='input'><span class='fu'>str_c</span><span class='op'>(</span><span class='va'>letters</span>, collapse <span class='op'>=</span> <span class='st'>", "</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"</div><div class='input'>
+<span class='co'># Differences from paste() ----------------------</span>
 <span class='co'># Missing inputs give missing outputs</span>
 <span class='fu'>str_c</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"-d"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a-d" NA    "b-d"</div><div class='input'><span class='co'># Use str_replace_NA to display literal NAs:</span>
+</div><div class='output co'>#&gt; [1] "a-d" NA    "b-d"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"-d"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "a-d"  "NA-d" "b-d" </div><div class='input'><span class='co'># Use str_replace_NA to display literal NAs:</span>
 <span class='fu'>str_c</span><span class='op'>(</span><span class='fu'><a href='str_replace_na.html'>str_replace_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span><span class='op'>)</span>, <span class='st'>"-d"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a-d"  "NA-d" "b-d" </div></pre>
+</div><div class='output co'>#&gt; [1] "a-d"  "NA-d" "b-d" </div><div class='input'>
+<span class='co'># Uses tidyverse recycling rules</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>str_c</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span> <span class='co'># errors</span>
+<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "11" "22" "13"</div><div class='input'>
+<span class='fu'>str_c</span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; character(0)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "x"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
