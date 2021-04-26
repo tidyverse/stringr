@@ -4,8 +4,8 @@
   (#372). Overall this is a fairly minor change as stringi was already very 
   close to the tidyverse rules. There are only two major changes: 
   
-    *  Only vectors of length 1 are recycled: 
-       `str_detect(letters, letters[1:2])` previously worked by now errors.
+    *  Only vectors of length 1 are recycled: previously,
+       `str_detect(letters, c("x", "y"))` worked, but it now errors.
        
     *  `str_c()` ignores `NULLs`, rather than treating them as length 0 
         vectors.
