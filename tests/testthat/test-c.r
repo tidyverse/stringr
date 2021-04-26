@@ -7,13 +7,11 @@ test_that("basic case works", {
 })
 
 test_that("obeys tidyverse recycling rules", {
+  expect_equal(str_c(), character())
+
   expect_equal(str_c("x", character()), character())
-  expect_snapshot(str_c(1:2, 1:3), error = TRUE)
-})
+  expect_equal(str_c("x", NULL), "x")
 
-test_that("NULLs are dropped", {
-  test <- letters[1:3]
-
-  expect_equal(str_c(test, NULL), test)
-  expect_equal(str_c(test, NULL, "a", sep = " "), c("a a", "b a", "c a"))
+  expect_snapshot(str_c(c("x", "y"), character()), error = TRUE)
+  expect_equal(str_c(c("x", "y"), NULL), c("x", "y"))
 })

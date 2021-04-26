@@ -56,6 +56,9 @@
 #'
 #' @import stringi
 str_c <- function(..., sep = "", collapse = NULL) {
-  dots <- vctrs::vec_recycle_common(...)
-  exec(stri_c, !!!dots, sep = sep, collapse = collapse, ignore_null = TRUE)
+  dots <- list(...)
+  dots <- dots[!map_lgl(dots, is.null)]
+  vctrs::vec_size_common(!!!dots)
+
+  exec(stri_c, !!!dots, sep = sep, collapse = collapse)
 }
