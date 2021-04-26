@@ -14,6 +14,10 @@
 #' str_flatten(letters[1:2], ", ", ", and ")
 #' str_flatten(letters[1], ", ", ", and ")
 str_flatten <- function(string, collapse = "", last = NULL) {
+  if (!is_string(collapse)) {
+    abort("`collapse` must be a single string.")
+  }
+
   n <- length(string)
   if (!is.null(last) && n >= 2) {
     string <- c(

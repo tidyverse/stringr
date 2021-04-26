@@ -69,6 +69,8 @@ str_replace <- function(string, pattern, replacement) {
     return(str_transform(string, pattern, replacement))
   }
 
+  check_lengths(string, pattern, replacement)
+
   switch(type(pattern),
     empty = stop("Empty `pattern` not supported", call. = FALSE),
     bound = stop("Boundary `pattern` not supported", call. = FALSE),
@@ -97,6 +99,8 @@ str_replace_all <- function(string, pattern, replacement) {
   } else {
     vec <- TRUE
   }
+
+  check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
     empty = stop("Empty `pattern`` not supported", call. = FALSE),

@@ -27,10 +27,10 @@
 #' word(str, 1, sep = fixed('..'))
 #' word(str, 2, sep = fixed('..'))
 word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
-  n <- max(length(string), length(start), length(end))
-  string <- rep(string, length.out = n)
-  start <- rep(start, length.out = n)
-  end <- rep(end, length.out = n)
+  args <- vctrs::vec_recycle_common(string = string, start = start, end = end)
+  string <- args$string
+  start <- args$start
+  end <- args$end
 
   breaks <- str_locate_all(string, sep)
   words <- lapply(breaks, invert_match)

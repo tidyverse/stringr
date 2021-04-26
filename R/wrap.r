@@ -28,6 +28,9 @@ str_wrap <- function(string,
                      indent = 0,
                      exdent = 0,
                      whitespace_only = TRUE) {
+  if (!is.numeric(width) || length(width) != 1) {
+    abort("`width` must be a single number")
+  }
   if (width <= 0) width <- 1
 
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,

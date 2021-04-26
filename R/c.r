@@ -1,35 +1,32 @@
 #' Join multiple strings into a single string
 #'
 #' @description
-#' `r lifecycle::badge("superseded")`
+#' `str_c()` combines multiple character vectors into a single character
+#' vector. It's very similar to [`paste0()`] but uses tidyverse recycling and
+#' `NA` rules.
 #'
-#' `str_c()` is no longer needed; please use `paste0()` instead.
+#' One way to understand how `str_c()` works is picture a 2d matrix of strings,
+#' where each argument forms a column. `sep` is inserted between each column,
+#' and then each row is combined together into a single string. If `collapse`
+#' is set, it's inserted between each row, and then the result is again
+#' combined, this time into a single string.
 #'
-#' @details
+#' @param ... One or more character vectors.
 #'
-#' To understand how `str_c` works, you need to imagine that you are building up
-#' a matrix of strings. Each input argument forms a column, and is expanded to
-#' the length of the longest argument, using the usual recyling rules.  The
-#' `sep` string is inserted between each column. If collapse is `NULL` each row
-#' is collapsed into a single string. If non-`NULL` that string is inserted at
-#' the end of each row, and the entire matrix collapsed to a single string.
-#'
-#' @param ... One or more character vectors. Zero length arguments
-#'   are removed. Short arguments are recycled to the length of the
-#'   longest.
+#'   `NULL`s are removed; scalar inputs (vectors of length 1) are recycled to
+#'   the common length of vector inputs.
 #'
 #'   Like most other R functions, missing values are "infectious": whenever
 #'   a missing value is combined with another string the result will always
-#'   be missing. Use [str_replace_na()] to convert `NA` to
-#'   `"NA"`
+#'   be missing. Use [dplyr::coalesce()] or [str_replace_na()] to convert
+#'   desired value.
 #' @param sep String to insert between input vectors.
-#' @param collapse Optional string used to combine input vectors into single
-#'   string.
+#' @param collapse Optional string used to combine output into single
+#'   string. Generally better to use [str_flatten()] if you needed this
+#'   behaviour.
 #' @return If `collapse = NULL` (the default) a character vector with
-#'   length equal to the longest input string. If `collapse` is
-#'   non-NULL, a character vector of length 1.
-#' @seealso [paste()] for equivalent base R functionality, and
-#'    [stringi::stri_join()] which this function wraps
+#'   length equal to the longest input. If `collapse` is a string, a character
+#'   vector of length 1.
 #' @export
 #' @keywords internal
 #' @examples
@@ -41,11 +38,30 @@
 #' str_c(letters, collapse = "")
 #' str_c(letters, collapse = ", ")
 #'
+#' # Differences from paste() ----------------------
 #' # Missing inputs give missing outputs
 #' str_c(c("a", NA, "b"), "-d")
+#' paste0(c("a", NA, "b"), "-d")
 #' # Use str_replace_NA to display literal NAs:
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
-#' @import stringi
+#'
+#' # Uses tidyverse recycling rules
+#' \dontrun{str_c(1:2, 1:3)} # errors
+#' paste0(1:2, 1:3)
+#'
+#' str_c("x", character())
+#' paste0("x", character())
 str_c <- function(..., sep = "", collapse = NULL) {
-  stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE)
+  if (!is_string(sep)) {
+    abort("`sep` must be a single string")
+  }
+  if (!is.null(collapse) && !is_string(collapse)) {
+    abort("`collapse` must be NULL or single string")
+  }
+
+  dots <- list(...)
+  dots <- dots[!map_lgl(dots, is.null)]
+  vctrs::vec_size_common(!!!dots)
+
+  exec(stri_c, !!!dots, sep = sep, collapse = collapse)
 }

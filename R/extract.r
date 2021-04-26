@@ -28,6 +28,8 @@
 #' # Extract all words
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern) {
+  check_lengths(string, pattern)
+
   switch(type(pattern),
     empty = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
     bound = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
@@ -40,6 +42,8 @@ str_extract <- function(string, pattern) {
 #' @rdname str_extract
 #' @export
 str_extract_all <- function(string, pattern, simplify = FALSE) {
+  check_lengths(string, pattern)
+
   switch(type(pattern),
     empty = stri_extract_all_boundaries(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),

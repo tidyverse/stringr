@@ -16,7 +16,10 @@
 #'
 str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
-  side <- match.arg(side)
+  side <- arg_match(side)
+  if (!is.numeric(width) || length(width) != 1) {
+    abort("`width` must be a single number")
+  }
 
   too_long <- !is.na(string) & str_length(string) > width
   width... <- width - str_length(ellipsis)

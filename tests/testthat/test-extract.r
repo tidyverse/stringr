@@ -13,6 +13,18 @@ test_that("single pattern extracted correctly", {
 
 })
 
+test_that("uses tidyverse recycling rules", {
+  expect_error(
+    str_extract(c("a", "b"), c("a", "b", "c")),
+    class = "vctrs_error_incompatible_size"
+  )
+  expect_error(
+    str_extract_all(c("a", "b"), c("a", "b", "c")),
+    class = "vctrs_error_incompatible_size"
+  )
+})
+
+
 test_that("no match yields empty vector", {
   expect_equal(str_extract_all("a", "b")[[1]], character())
 })

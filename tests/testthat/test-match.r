@@ -68,3 +68,14 @@ test_that("match and match_all fail when pattern is not a regex", {
   expect_error(str_match(phones, fixed("3")))
   expect_error(str_match_all(phones, coll("9")))
 })
+
+test_that("uses tidyverse recycling rules", {
+  expect_error(
+    str_match(c("a", "b"), c("a", "b", "c")),
+    class = "vctrs_error_incompatible_size"
+  )
+  expect_error(
+    str_match_all(c("a", "b"), c("a", "b", "c")),
+    class = "vctrs_error_incompatible_size"
+  )
+})

@@ -38,6 +38,7 @@ str_match <- function(string, pattern) {
     stop("Can only match regular expressions", call. = FALSE)
   }
 
+  check_lengths(string, pattern)
   stri_match_first_regex(string,
     pattern,
     opts_regex = opts(pattern)
@@ -51,6 +52,7 @@ str_match_all <- function(string, pattern) {
     stop("Can only match regular expressions", call. = FALSE)
   }
 
+  check_lengths(string, pattern)
   stri_match_all_regex(string,
     pattern,
     omit_no_match = TRUE,
