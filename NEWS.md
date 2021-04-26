@@ -1,5 +1,7 @@
 # stringr (development version)
 
+## Breaking changes
+
 * stringr functions now consistently implement the tidyverse recycling rules
   (#372). Overall this is a fairly minor change as stringi was already very 
   close to the tidyverse rules. There are only two major changes: 
@@ -13,35 +15,14 @@
     Additionally, many more non-vectorised arguments now throw errors,
     rather than warnings, if supplied a vector.
 
-* `str_flatten()` gains a `last` argument that optionally override the
-  final separator (#377).
-
-* Better error message if you supply a non-string pattern (#378).
-
-* `str_pad()` gains `use_length` argument to control whether to use the total code
-  point width or the number of code points as "width" of a string (#190).
-
 * `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
 
-* Experimental support for display `str_view()` with ANSI escapes, which
-  will work in more places than HTML widgets (#370). `str_view()` no longer
-  requires a pattern so you can use it to display strings with special 
-  characters.
+## New features
 
-* `str_length()` is superseded in favour of `nchar()` respectively (#356).
-
-* `str_wrap()` breaks only at whitespace by default; set 
-  `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
-
-* `str_replace()` and `str_replace_all()` can use standard tidyverse formula
-  shorthand for `replacement` function (#331).
-
-* Update `str_starts()` and `str_ends()` functions so they honor regex operator precedence. (@carlganz)
-
-* `word()` now returns all the sentence when using a negative `start` parameter
-  that is greater or equal than the number of words. (@pdelboca, #245)
-
-* Many typos in `sentences` have been fixed (@romatik, #299)
+* `str_view()` will use ANSI colouring if available (#370). This works in more 
+  places than HTML widgets and requires fewer dependencies. `str_view()` also 
+  no longer requires a pattern so you can use it to display strings with 
+  special characters.
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
@@ -58,6 +39,32 @@
   string values in a character vector (#249, @seasmith).
 
 * stringr is now licensed as MIT (#351).
+
+## Minor improvements and bug fixes
+
+* Better error message if you supply a non-string pattern (#378).
+
+* Many typos in `sentences` have been fixed (@romatik, #299)
+
+* `str_flatten()` gains a `last` argument that optionally override the
+  final separator (#377).
+
+* `str_length()` is superseded in favour of `nchar()` respectively (#356).
+
+* `str_pad()` gains `use_length` argument to control whether to use the total code
+  point width or the number of code points as "width" of a string (#190).
+
+* `str_replace()` and `str_replace_all()` can use standard tidyverse formula
+  shorthand for `replacement` function (#331).
+
+* `str_starts()` and `str_ends()` now correctly respect regex operator 
+  precedence (@carlganz).
+
+* `str_wrap()` breaks only at whitespace by default; set 
+  `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
+
+* `word()` now returns all the sentence when using a negative `start` parameter
+  that is greater or equal than the number of words. (@pdelboca, #245)
 
 # stringr 1.4.0
 
