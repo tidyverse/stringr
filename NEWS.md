@@ -9,6 +9,9 @@
        
     *  `str_c()` ignores `NULLs`, rather than treating them as length 0 
         vectors.
+        
+    Additionally, many more non-vectorised arguments now throw errors,
+    rather than warnings, if supplied a vector.
 
 * `str_flatten()` gains a `last` argument that optionally override the
   final separator (#377).
@@ -25,8 +28,7 @@
   requires a pattern so you can use it to display strings with special 
   characters.
 
-* `str_c()` and `str_length()` are superseded in favour of `paste0()` and 
-  `nchar()` respectively (#356).
+* `str_length()` is superseded in favour of `nchar()` respectively (#356).
 
 * `str_wrap()` breaks only at whitespace by default; set 
   `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).

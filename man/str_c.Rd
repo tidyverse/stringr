@@ -14,30 +14,30 @@ the common length of vector inputs.
 
 Like most other R functions, missing values are "infectious": whenever
 a missing value is combined with another string the result will always
-be missing. Use \code{\link[=str_replace_na]{str_replace_na()}} to convert \code{NA} to
-\code{"NA"}}
+be missing. Use \code{\link[dplyr:coalesce]{dplyr::coalesce()}} or \code{\link[=str_replace_na]{str_replace_na()}} to convert
+desired value.}
 
 \item{sep}{String to insert between input vectors.}
 
-\item{collapse}{Optional string used to combine input vectors into single
-string.}
+\item{collapse}{Optional string used to combine output into single
+string. Generally better to use \code{\link[=str_flatten]{str_flatten()}} if you needed this
+behaviour.}
 }
 \value{
 If \code{collapse = NULL} (the default) a character vector with
-length equal to the longest input string. If \code{collapse} is
-non-NULL, a character vector of length 1.
+length equal to the longest input. If \code{collapse} is a string, a character
+vector of length 1.
 }
 \description{
-\code{str_c()} is a version of \code{paste0()} that uses tidyverse recycling and
+\code{str_c()} combines multiple character vectors into a single character
+vector. It's very similar to \code{\link[=paste0]{paste0()}} but uses tidyverse recycling and
 \code{NA} rules.
-}
-\details{
-To understand how \code{str_c} works, you need to imagine that you are building up
-a matrix of strings. Each input argument forms a column, and is expanded to
-the length of the longest argument, using the usual recyling rules.  The
-\code{sep} string is inserted between each column. If collapse is \code{NULL} each row
-is collapsed into a single string. If non-\code{NULL} that string is inserted at
-the end of each row, and the entire matrix collapsed to a single string.
+
+One way to understand how \code{str_c()} works is picture a 2d matrix of strings,
+where each argument forms a column. \code{sep} is inserted between each column,
+and then each row is combined together into a single string. If \code{collapse}
+is set, it's inserted between each row, and then the result is again
+combined, this time into a single string.
 }
 \examples{
 str_c("Letter: ", letters)
@@ -52,19 +52,14 @@ str_c(letters, collapse = ", ")
 # Missing inputs give missing outputs
 str_c(c("a", NA, "b"), "-d")
 paste0(c("a", NA, "b"), "-d")
+# Use str_replace_NA to display literal NAs:
+str_c(str_replace_na(c("a", NA, "b")), "-d")
 
 # Uses tidyverse recycling rules
 \dontrun{str_c(1:2, 1:3)} # errors
 paste0(1:2, 1:3)
 
-# Missing inputs give missing outputs
-str_c(c("a", NA, "b"), "-d")
-# Use str_replace_NA to display literal NAs:
-str_c(str_replace_na(c("a", NA, "b")), "-d")
-
-}
-\seealso{
-\code{\link[=paste]{paste()}} for equivalent base R functionality, and
-\code{\link[stringi:stri_join]{stringi::stri_join()}} which this function wraps
+str_c("x", character())
+paste0("x", character())
 }
 \keyword{internal}
