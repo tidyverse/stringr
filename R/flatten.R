@@ -1,7 +1,10 @@
 #' Flatten a string
 #'
-#' @param string Character to flatten
-#' @param collapse String to insert between each piece
+#' This is a summary function for strings: regardless of the length of the
+#' input, it always returns a single string.
+#'
+#' @param string Character to flatten.
+#' @param collapse String to insert between each piece.
 #' @param last Optional string use in place of final separator.
 #' @return A character vector of length 1
 #' @export
@@ -13,6 +16,7 @@
 #' str_flatten(letters[1:3], ", ", ", and ")
 #' str_flatten(letters[1:2], ", ", ", and ")
 #' str_flatten(letters[1], ", ", ", and ")
+#' str_flatten(letters[0], ", ", ", and ")
 str_flatten <- function(string, collapse = "", last = NULL) {
   if (!is_string(collapse)) {
     abort("`collapse` must be a single string.")

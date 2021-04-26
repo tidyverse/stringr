@@ -7,9 +7,9 @@
 str_flatten(string, collapse = "", last = NULL)
 }
 \arguments{
-\item{string}{Character to flatten}
+\item{string}{Character to flatten.}
 
-\item{collapse}{String to insert between each piece}
+\item{collapse}{String to insert between each piece.}
 
 \item{last}{Optional string use in place of final separator.}
 }
@@ -17,7 +17,8 @@ str_flatten(string, collapse = "", last = NULL)
 A character vector of length 1
 }
 \description{
-Flatten a string
+This is a summary function for strings: regardless of the length of the
+input, it always returns a single string.
 }
 \examples{
 str_flatten(letters)
@@ -27,4 +28,5 @@ str_flatten(letters[1:5], ", ", ", and ")
 str_flatten(letters[1:3], ", ", ", and ")
 str_flatten(letters[1:2], ", ", ", and ")
 str_flatten(letters[1], ", ", ", and ")
+str_flatten(letters[0], ", ", ", and ")
 }
