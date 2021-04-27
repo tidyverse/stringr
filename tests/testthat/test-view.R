@@ -12,8 +12,8 @@ test_that("view highlights matches", {
   })
 })
 
-test_that("view highlights whitespace (except a space)", {
-  x <- c(" ", "\u00A0")
+test_that("view highlights whitespace (except a space/nl)", {
+  x <- c(" ", "\u00A0", "\n")
   expect_snapshot({
     str_view(x, html = TRUE)$x$html
   })

@@ -32,7 +32,7 @@
       <d><e>f
       fgh
 
-# view highlights whitespace (except a space)
+# view highlights whitespace (except a space/nl)
 
     Code
       str_view(x, html = TRUE)$x$html
@@ -40,5 +40,7 @@
       <ul>
         <li> </li>
         <li><span class='special'> </span></li>
+        <li>
+      </li>
       </ul>
 

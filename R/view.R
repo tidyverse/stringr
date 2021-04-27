@@ -98,7 +98,7 @@ str_view_special <- function(x, html = TRUE) {
   }
 
   # Highlight, anything whitespace characters that aren't a space.
-  str_replace_all(x, "[\\p{Whitespace}-- ]+", replace)
+  str_replace_all(x, "[\\p{Whitespace}-- \n]+", replace)
 }
 
 str_view_print <- function(x, html = TRUE) {
