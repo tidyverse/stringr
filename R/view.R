@@ -115,7 +115,7 @@ str_view_widget <- function(lines) {
   lines <- str_replace_na(lines)
   bullets <- str_c(
     "<ul>\n",
-    str_c("  <li>", lines, "</li>", collapse = "\n"),
+    str_c("  <li><pre>", lines, "</pre></li>", collapse = "\n"),
     "\n</ul>"
   )
 

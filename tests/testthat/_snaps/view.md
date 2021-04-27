@@ -4,17 +4,17 @@
       str_view(x, "[aeiou]", html = TRUE)$x$html
     Output
       <ul>
-        <li><span class='match'>a</span>bc</li>
-        <li>d<span class='match'>e</span>f</li>
-        <li>fgh</li>
+        <li><pre><span class='match'>a</span>bc</pre></li>
+        <li><pre>d<span class='match'>e</span>f</pre></li>
+        <li><pre>fgh</pre></li>
       </ul>
     Code
       str_view_all(x, "d|e", html = TRUE)$x$html
     Output
       <ul>
-        <li>abc</li>
-        <li><span class='match'>d</span><span class='match'>e</span>f</li>
-        <li>fgh</li>
+        <li><pre>abc</pre></li>
+        <li><pre><span class='match'>d</span><span class='match'>e</span>f</pre></li>
+        <li><pre>fgh</pre></li>
       </ul>
 
 ---
@@ -38,9 +38,9 @@
       str_view(x, html = TRUE)$x$html
     Output
       <ul>
-        <li> </li>
-        <li><span class='special'> </span></li>
-        <li>
-      </li>
+        <li><pre> </pre></li>
+        <li><pre><span class='special'> </span></pre></li>
+        <li><pre>
+      </pre></li>
       </ul>
 
