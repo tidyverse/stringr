@@ -50,14 +50,13 @@
 
 
 <meta property="og:title" content="Control matching behaviour with modifier functions — modifiers" />
-<meta property="og:description" content="
-
-fixedCompare literal bytes in the string. This is very fast, but
-not usually what you want for non-ASCII character sets.
-collCompare strings respecting standard collation rules.
-regexThe default. Uses ICU regular expressions.
-boundaryMatch boundaries between things.
-
+<meta property="og:description" content="Modifier functions control the meaning of the pattern argument to
+stringr functions. The default uses the ICU regular expression engine,
+but you can choose other options:
+boundary(): Match boundaries between things.
+coll(): Compare strings using standard Unicode collation rules.
+fixed(): Compare literal bytes.
+regex(): the default. Uses ICU regular expressions.
 
 " />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
@@ -191,15 +190,14 @@ boundaryMatch boundaries between things.
     </div>
 
     <div class="ref-description">
-    
-<dl>
-<dt>fixed</dt><dd><p>Compare literal bytes in the string. This is very fast, but
-not usually what you want for non-ASCII character sets.</p></dd>
-<dt>coll</dt><dd><p>Compare strings respecting standard collation rules.</p></dd>
-<dt>regex</dt><dd><p>The default. Uses ICU regular expressions.</p></dd>
-<dt>boundary</dt><dd><p>Match boundaries between things.</p></dd>
-
-</dl>
+    <p>Modifier functions control the meaning of the <code>pattern</code> argument to
+stringr functions. The default uses the ICU regular expression engine,
+but you can choose other options:</p><ul>
+<li><p><code>boundary()</code>: Match boundaries between things.</p></li>
+<li><p><code>coll()</code>: Compare strings using standard Unicode collation rules.</p></li>
+<li><p><code>fixed()</code>: Compare literal bytes.</p></li>
+<li><p><code>regex()</code>: the default. Uses ICU regular expressions.</p></li>
+</ul>
 
     </div>
 
@@ -231,7 +229,9 @@ not usually what you want for non-ASCII character sets.</p></dd>
     </tr>
     <tr>
       <th>ignore_case</th>
-      <td><p>Should case differences be ignored in the match?</p></td>
+      <td><p>Should case differences be ignored in the match?
+For <code>fixed()</code>, this uses a simple algorithm which assumes a
+one-to-one mapping between upper and lower case letters.</p></td>
     </tr>
     <tr>
       <th>locale</th>
@@ -283,11 +283,6 @@ only when splitting on <code>word</code> boundaries.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='str_wrap.html'>str_wrap()</a></code> for breaking text to form paragraphs</p>
-<p><code><a href='https://rdrr.io/pkg/stringi/man/about_search_boundaries.html'>stringi::about_search_boundaries</a></code> for more detail on the
-various boundaries</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>pattern</span> <span class='op'>&lt;-</span> <span class='st'>"a.b"</span>
