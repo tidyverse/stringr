@@ -1,15 +1,19 @@
 #' Control matching behaviour with modifier functions
 #'
-#' \describe{
-#'  \item{fixed}{Compare literal bytes in the string. This is very fast, but
-#'    not usually what you want for non-ASCII character sets.}
-#'  \item{coll}{Compare strings respecting standard collation rules.}
-#'  \item{regex}{The default. Uses ICU regular expressions.}
-#'  \item{boundary}{Match boundaries between things.}
-#' }
+#' @description
+#' Modifier functions control the meaning of the `pattern` argument to
+#' stringr functions. The default uses the ICU regular expression engine,
+#' but you can choose other options:
+#'
+#' * `boundary()`: Match boundaries between things.
+#' * `coll()`: Compare strings using standard Unicode collation rules.
+#' * `fixed()`: Compare literal bytes.
+#' * `regex()`: the default. Uses ICU regular expressions.
 #'
 #' @param pattern Pattern to modify behaviour.
 #' @param ignore_case Should case differences be ignored in the match?
+#'   For `fixed()`, this uses a simple algorithm which assumes a
+#'   one-to-one mapping between upper and lower case letters.
 #' @name modifiers
 #' @examples
 #' pattern <- "a.b"
@@ -119,10 +123,6 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 #' @param skip_word_none Ignore "words" that don't contain any characters
 #'   or numbers - i.e. punctuation. Default `NA` will skip such "words"
 #'   only when splitting on `word` boundaries.
-#'
-#' @seealso [str_wrap()] for breaking text to form paragraphs
-#' @seealso [`stringi::about_search_boundaries`] for more detail on the
-#'   various boundaries
 #' @export
 #' @rdname modifiers
 boundary <- function(type = c("character", "line_break", "sentence", "word"),

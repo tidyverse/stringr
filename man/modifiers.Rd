@@ -30,7 +30,9 @@ boundary(
 \arguments{
 \item{pattern}{Pattern to modify behaviour.}
 
-\item{ignore_case}{Should case differences be ignored in the match?}
+\item{ignore_case}{Should case differences be ignored in the match?
+For \code{fixed()}, this uses a simple algorithm which assumes a
+one-to-one mapping between upper and lower case letters.}
 
 \item{locale}{Locale to use for comparisons. See
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
@@ -67,12 +69,14 @@ or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
 only when splitting on \code{word} boundaries.}
 }
 \description{
-\describe{
-\item{fixed}{Compare literal bytes in the string. This is very fast, but
-not usually what you want for non-ASCII character sets.}
-\item{coll}{Compare strings respecting standard collation rules.}
-\item{regex}{The default. Uses ICU regular expressions.}
-\item{boundary}{Match boundaries between things.}
+Modifier functions control the meaning of the \code{pattern} argument to
+stringr functions. The default uses the ICU regular expression engine,
+but you can choose other options:
+\itemize{
+\item \code{boundary()}: Match boundaries between things.
+\item \code{coll()}: Compare strings using standard Unicode collation rules.
+\item \code{fixed()}: Compare literal bytes.
+\item \code{regex()}: the default. Uses ICU regular expressions.
 }
 }
 \examples{
@@ -104,10 +108,4 @@ str_extract_all("a\nb\nc", regex("^.", multiline = TRUE))
 
 str_extract_all("a\nb\nc", "a.")
 str_extract_all("a\nb\nc", regex("a.", dotall = TRUE))
-}
-\seealso{
-\code{\link[=str_wrap]{str_wrap()}} for breaking text to form paragraphs
-
-\code{\link[stringi:about_search_boundaries]{stringi::about_search_boundaries}} for more detail on the
-various boundaries
 }
