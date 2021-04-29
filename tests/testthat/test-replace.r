@@ -38,6 +38,12 @@ test_that("can replace multiple matches", {
   expect_equal(y, c("11", "22"))
 })
 
+test_that("even when lengths differ", {
+  x <- c("a1", "b2", "c3")
+  y <- str_replace_all(x, c("a" = "1", "b" = "2"))
+  expect_equal(y, c("11", "22", "c3"))
+})
+
 test_that("multiple matches respects class", {
   x <- c("x", "y")
   y <- str_replace_all(x, regex(c("X" = "a"), ignore_case = TRUE))

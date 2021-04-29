@@ -97,10 +97,10 @@ str_replace_all <- function(string, pattern, replacement) {
     replacement <- unname(pattern)
     pattern[] <- names(pattern)
   } else {
+    check_lengths(string, pattern, replacement)
     vec <- TRUE
   }
 
-  check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
     empty = stop("Empty `pattern`` not supported", call. = FALSE),
