@@ -40,7 +40,7 @@ consistent across platforms.}
 \item{numeric}{If \code{TRUE}, will sort digits numerically, instead
 of as strings.}
 
-\item{...}{Other options used to control sorting order. Passed on to
+\item{...}{Other options used to control collation. Passed on to
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{

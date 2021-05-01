@@ -30,6 +30,9 @@
   help you move to stringr if you're already familiar with base R string
   functions (#266).
 
+* New `str_equal()` compares two character vectors using unicode rules,
+  and optionally ignores case (#381).
+
 * New `str_split_n()` function to extract only a single piece from a string
   (#278, @bfgray3).
   

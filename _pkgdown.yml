@@ -36,9 +36,10 @@ reference:
   - str_trim
   - str_wrap
 
-- title: Locale sensitive
+- title: Locale aware
   contents:
   - str_order
+  - str_equal
   - case
 
 - title: Other helpers

@@ -11,7 +11,7 @@
 #' @param numeric If `TRUE`, will sort digits numerically, instead
 #'    of as strings.
 #' @inheritParams coll
-#' @param ... Other options used to control sorting order. Passed on to
+#' @param ... Other options used to control collation. Passed on to
 #'   [stringi::stri_opts_collator()].
 #' @seealso [stringi::stri_order()] for the underlying implementation.
 #' @export
