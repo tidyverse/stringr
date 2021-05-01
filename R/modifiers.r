@@ -71,8 +71,8 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   [stringi::stri_opts_brkiter()]
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   pattern <- as_bare_character(pattern)
-  options <- stri_opts_collator(
-    strength = if (ignore_case) 2L else 3L,
+  options <- str_opts_collator(
+    ignore_case = ignore_case,
     locale = locale,
     ...
   )
@@ -81,6 +81,16 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
     pattern,
     options = options,
     class = c("coll", "pattern", "character")
+  )
+}
+
+
+str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NULL, ...) {
+  strength <- strength %||% if (ignore_case) 2L else 3L
+  stri_opts_collator(
+    strength = strength,
+    locale = locale,
+    ...
   )
 }
 

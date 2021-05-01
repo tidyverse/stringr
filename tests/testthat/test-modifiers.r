@@ -11,3 +11,13 @@ test_that("useful error message for bad type", {
     type(1:3)
   })
 })
+
+test_that("ignore_case sets strength, but can override manually", {
+  x1 <- coll("x", strength = 1)
+  x2 <- coll("x", ignore_case = TRUE)
+  x3 <- coll("x")
+
+  expect_equal(attr(x1, "options")$strength, 1)
+  expect_equal(attr(x2, "options")$strength, 2)
+  expect_equal(attr(x3, "options")$strength, 3)
+})
