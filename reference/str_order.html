@@ -50,7 +50,8 @@
 
 
 <meta property="og:title" content="Order or sort a character vector — str_order" />
-<meta property="og:description" content="Order or sort a character vector" />
+<meta property="og:description" content="str_order() returns an integer vector that returns the desired order
+when used for subsetting; str_sort() returns the sorted vector." />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -182,7 +183,8 @@
     </div>
 
     <div class="ref-description">
-    <p>Order or sort a character vector</p>
+    <p><code>str_order()</code> returns an integer vector that returns the desired order
+when used for subsetting; <code>str_sort()</code> returns the sorted vector.</p>
     </div>
 
     <pre class="usage"><span class='fu'>str_order</span><span class='op'>(</span>
@@ -222,9 +224,10 @@ lowest to highest; if <code>TRUE</code> sorts from highest to lowest.</p></td>
     </tr>
     <tr>
       <th>locale</th>
-      <td><p>In which locale should the sorting occur? Defaults to
-the English. This ensures that code behaves the same way across
-platforms.</p></td>
+      <td><p>Locale to use for comparisons. See
+<code><a href='https://rdrr.io/pkg/stringi/man/stri_locale_list.html'>stringi::stri_locale_list()</a></code> for all possible options.
+Defaults to "en" (English) to ensure that the default collation is
+consistent across platforms.</p></td>
     </tr>
     <tr>
       <th>numeric</th>
