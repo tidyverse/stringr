@@ -32,9 +32,10 @@ lowest to highest; if \code{TRUE} sorts from highest to lowest.}
 \item{na_last}{Where should \code{NA} go? \code{TRUE} at the end,
 \code{FALSE} at the beginning, \code{NA} dropped.}
 
-\item{locale}{In which locale should the sorting occur? Defaults to
-the English. This ensures that code behaves the same way across
-platforms.}
+\item{locale}{Locale to use for comparisons. See
+\code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
+Defaults to "en" (English) to ensure that the default collation is
+consistent across platforms.}
 
 \item{numeric}{If \code{TRUE}, will sort digits numerically, instead
 of as strings.}
@@ -43,7 +44,8 @@ of as strings.}
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{
-Order or sort a character vector
+\code{str_order()} returns an integer vector that returns the desired order
+when used for subsetting; \code{str_sort()} returns the sorted vector.
 }
 \examples{
 str_order(letters)
