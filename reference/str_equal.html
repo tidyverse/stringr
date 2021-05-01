@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Order or sort a character vector — str_order • stringr</title>
+<title>Determine if two strings are equivalent — str_equal • stringr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,9 +49,8 @@
 
 
 
-<meta property="og:title" content="Order or sort a character vector — str_order" />
-<meta property="og:description" content="str_order() returns an integer vector that returns the desired order
-when used for subsetting; str_sort() returns the sorted vector." />
+<meta property="og:title" content="Determine if two strings are equivalent — str_equal" />
+<meta property="og:description" content="This uses Unicode canonicalisation rules, and optionally ignores case." />
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -177,50 +176,23 @@ when used for subsetting; str_sort() returns the sorted vector." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Order or sort a character vector</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/sort.R'><code>R/sort.R</code></a></small>
-    <div class="hidden name"><code>str_order.Rd</code></div>
+    <h1>Determine if two strings are equivalent</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidyverse/stringr/blob/master/R/equal.R'><code>R/equal.R</code></a></small>
+    <div class="hidden name"><code>str_equal.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>str_order()</code> returns an integer vector that returns the desired order
-when used for subsetting; <code>str_sort()</code> returns the sorted vector.</p>
+    <p>This uses Unicode canonicalisation rules, and optionally ignores case.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>str_order</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  decreasing <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  na_last <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  locale <span class='op'>=</span> <span class='st'>"en"</span>,
-  numeric <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='fu'>str_sort</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  decreasing <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  na_last <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  locale <span class='op'>=</span> <span class='st'>"en"</span>,
-  numeric <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>str_equal</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, locale <span class='op'>=</span> <span class='st'>"en"</span>, ignore_case <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A character vector to sort.</p></td>
-    </tr>
-    <tr>
-      <th>decreasing</th>
-      <td><p>A boolean. If <code>FALSE</code>, the default, sorts from
-lowest to highest; if <code>TRUE</code> sorts from highest to lowest.</p></td>
-    </tr>
-    <tr>
-      <th>na_last</th>
-      <td><p>Where should <code>NA</code> go? <code>TRUE</code> at the end,
-<code>FALSE</code> at the beginning, <code>NA</code> dropped.</p></td>
+      <th>x, y</th>
+      <td><p>A pair of character vectors.</p></td>
     </tr>
     <tr>
       <th>locale</th>
@@ -230,9 +202,8 @@ Defaults to "en" (English) to ensure that the default collation is
 consistent across platforms.</p></td>
     </tr>
     <tr>
-      <th>numeric</th>
-      <td><p>If <code>TRUE</code>, will sort digits numerically, instead
-of as strings.</p></td>
+      <th>ignore_case</th>
+      <td><p>Ignore case when comparing strings?</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -243,23 +214,26 @@ of as strings.</p></td>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/stringi/man/stri_order.html'>stringi::stri_order()</a></code> for the underlying implementation.</p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/stringi/man/stri_compare.html'>stringi::stri_cmp_equiv()</a></code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_order</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-#&gt; [26] 26</div><div class='input'><span class='fu'>str_sort</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
-#&gt; [20] "t" "u" "v" "w" "x" "y" "z"</div><div class='input'>
-<span class='fu'>str_order</span><span class='op'>(</span><span class='va'>letters</span>, locale <span class='op'>=</span> <span class='st'>"haw"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1]  1  5  9 15 21  2  3  4  6  7  8 10 11 12 13 14 16 17 18 19 20 22 23 24 25
-#&gt; [26] 26</div><div class='input'><span class='fu'>str_sort</span><span class='op'>(</span><span class='va'>letters</span>, locale <span class='op'>=</span> <span class='st'>"haw"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "a" "e" "i" "o" "u" "b" "c" "d" "f" "g" "h" "j" "k" "l" "m" "n" "p" "q" "r"
-#&gt; [20] "s" "t" "v" "w" "x" "y" "z"</div><div class='input'>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"100a10"</span>, <span class='st'>"100a5"</span>, <span class='st'>"2b"</span>, <span class='st'>"2a"</span><span class='op'>)</span>
-<span class='fu'>str_sort</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "100a10" "100a5"  "2a"     "2b"    </div><div class='input'><span class='fu'>str_sort</span><span class='op'>(</span><span class='va'>x</span>, numeric <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2a"     "2b"     "100a5"  "100a10"</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># These two strings encode "a" with an accent in two different ways</span>
+<span class='va'>a1</span> <span class='op'>&lt;-</span> <span class='st'>"\u00e1"</span>
+<span class='va'>a2</span> <span class='op'>&lt;-</span> <span class='st'>"a\u0301"</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>a1</span>, <span class='va'>a2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "á" "á"</div><div class='input'>
+<span class='va'>a1</span> <span class='op'>==</span> <span class='va'>a2</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>str_equal</span><span class='op'>(</span><span class='va'>a1</span>, <span class='va'>a2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='co'># ohm and omega use different code points but should always be treated</span>
+<span class='co'># as equal</span>
+<span class='va'>ohm</span> <span class='op'>&lt;-</span> <span class='st'>"\u2126"</span>
+<span class='va'>omega</span> <span class='op'>&lt;-</span> <span class='st'>"\u03A9"</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>ohm</span>, <span class='va'>omega</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Ω" "Ω"</div><div class='input'>
+<span class='va'>ohm</span> <span class='op'>==</span> <span class='va'>omega</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>str_equal</span><span class='op'>(</span><span class='va'>ohm</span>, <span class='va'>omega</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
