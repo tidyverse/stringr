@@ -5,9 +5,15 @@
 \alias{str_view_all}
 \title{View HTML rendering of regular expression match}
 \usage{
-str_view(string, pattern = NULL, match = NA, html = NULL)
+str_view(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE)
 
-str_view_all(string, pattern = NULL, match = NA, html = NULL)
+str_view_all(
+  string,
+  pattern = NULL,
+  match = NA,
+  html = NULL,
+  use_escapes = FALSE
+)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -36,6 +42,10 @@ Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 if \code{FALSE} will style using ANSI escapes. The default will prefers
 ANSI escapes if available in the current terminal; you can override by
 setting \code{option(stringr.html = TRUE)}.}
+
+\item{use_escapes}{If \code{TRUE}, all non-ASCII characters will be rendered
+with unicode escapes. This is useful to see exactly what underlying
+values are stored in the string.}
 }
 \description{
 \code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
@@ -56,6 +66,9 @@ nbsp
 str_detect(nbsp, " ")
 # str_view() brings it to your attention:
 str_view(nbsp)
+
+# You can also use escapes for all non-ASCII characters
+str_view(nbsp, use_escapes = TRUE)
 
 # Show first match
 str_view(c("abc", "def", "fgh"), "[aeiou]")

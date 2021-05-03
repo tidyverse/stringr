@@ -19,6 +19,14 @@ test_that("view highlights whitespace (except a space/nl)", {
   })
 })
 
+test_that("can instead use escapes", {
+  x <- c(" ", "\u00A0", "\n")
+  expect_snapshot({
+    str_view(x, html = TRUE, use_escapes = TRUE)$x$html
+  })
+
+})
+
 test_that("match argument controls what is shown", {
   x <- c("abc", "def", "fgh")
   a <- str_view(x, "d|e")

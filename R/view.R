@@ -15,6 +15,9 @@
 #'   if `FALSE` will style using ANSI escapes. The default will prefers
 #'   ANSI escapes if available in the current terminal; you can override by
 #'   setting `option(stringr.html = TRUE)`.
+#' @param use_escapes If `TRUE`, all non-ASCII characters will be rendered
+#'   with unicode escapes. This is useful to see exactly what underlying
+#'   values are stored in the string.
 #' @export
 #' @examples
 #' # Show special characters
@@ -28,6 +31,9 @@
 #' # str_view() brings it to your attention:
 #' str_view(nbsp)
 #'
+#' # You can also use escapes for all non-ASCII characters
+#' str_view(nbsp, use_escapes = TRUE)
+#'
 #' # Show first match
 #' str_view(c("abc", "def", "fgh"), "[aeiou]")
 #' str_view(c("abc", "def", "fgh"), "^")
@@ -35,28 +41,38 @@
 #'
 #' # Show all matches
 #' str_view_all(c("abc", "def", "fgh"), "d|e")
-str_view <- function(string, pattern = NULL, match = NA, html = NULL) {
+str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
   html <- str_view_use_html(html)
 
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace(out, pattern, str_view_highlighter(html))
   }
-  out <- str_view_special(out, html = html)
+  if (use_escapes) {
+    out <- stri_escape_unicode(out)
+    out <- str_replace_all(out, fixed("\\u001b"), "\u001b")
+  } else {
+    out <- str_view_special(out, html = html)
+  }
 
   str_view_print(out, html)
 }
 
 #' @rdname str_view
 #' @export
-str_view_all <- function(string, pattern = NULL, match = NA, html = NULL) {
+str_view_all <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
   html <- str_view_use_html(html)
 
   out <- str_view_filter(string, pattern, match)
   if (!is.null(pattern)) {
     out <- str_replace_all(out, pattern, str_view_highlighter(html))
   }
-  out <- str_view_special(out, html = html)
+  if (use_escapes) {
+    out <- stri_escape_unicode(out)
+  } else {
+    out <- str_view_special(out, html = html)
+    out <- str_replace_all(out, fixed("\\u001b"), "\u001b")
+  }
 
   str_view_print(out, html)
 }

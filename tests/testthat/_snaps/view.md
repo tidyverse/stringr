@@ -44,3 +44,14 @@
       </pre></li>
       </ul>
 
+# can instead use escapes
+
+    Code
+      str_view(x, html = TRUE, use_escapes = TRUE)$x$html
+    Output
+      <ul>
+        <li><pre> </pre></li>
+        <li><pre>\u00a0</pre></li>
+        <li><pre>\n</pre></li>
+      </ul>
+
