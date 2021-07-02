@@ -24,7 +24,7 @@
 #'
 #' ohm == omega
 #' str_equal(ohm, omega)
-str_equal <- function(x, y, locale = "en", ignore_case = FALSE, ...) {
+str_equal <- function(x, y, locale = stringr_locale(), ignore_case = FALSE, ...) {
   vctrs::vec_size_common(x = x, y = y)
 
   opts <- str_opts_collator(

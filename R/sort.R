@@ -28,7 +28,7 @@
 str_order <- function(x,
                       decreasing = FALSE,
                       na_last = TRUE,
-                      locale = "en",
+                      locale = stringr_locale(),
                       numeric = FALSE,
                       ...) {
 
@@ -45,7 +45,7 @@ str_order <- function(x,
 str_sort <- function(x,
                      decreasing = FALSE,
                      na_last = TRUE,
-                     locale = "en",
+                     locale = stringr_locale(),
                      numeric = FALSE,
                      ...) {
 

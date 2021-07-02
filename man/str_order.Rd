@@ -9,7 +9,7 @@ str_order(
   x,
   decreasing = FALSE,
   na_last = TRUE,
-  locale = "en",
+  locale = stringr_locale(),
   numeric = FALSE,
   ...
 )
@@ -18,7 +18,7 @@ str_sort(
   x,
   decreasing = FALSE,
   na_last = TRUE,
-  locale = "en",
+  locale = stringr_locale(),
   numeric = FALSE,
   ...
 )
@@ -34,8 +34,9 @@ lowest to highest; if \code{TRUE} sorts from highest to lowest.}
 
 \item{locale}{Locale to use for comparisons. See
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
-Defaults to "en" (English) to ensure that the default collation is
-consistent across platforms.}
+Defaults to \code{"en"} (American English) to ensure that the default collation
+is consistent across platforms. See \code{\link[=stringr_locale]{stringr_locale()}} for information on
+how to control this default.}
 
 \item{numeric}{If \code{TRUE}, will sort digits numerically, instead
 of as strings.}

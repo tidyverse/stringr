@@ -8,19 +8,22 @@
 \alias{str_to_sentence}
 \title{Convert case of a string}
 \usage{
-str_to_upper(string, locale = "en")
+str_to_upper(string, locale = stringr_locale())
 
-str_to_lower(string, locale = "en")
+str_to_lower(string, locale = stringr_locale())
 
-str_to_title(string, locale = "en")
+str_to_title(string, locale = stringr_locale())
 
-str_to_sentence(string, locale = "en")
+str_to_sentence(string, locale = stringr_locale())
 }
 \arguments{
 \item{string}{String to modify}
 
-\item{locale}{Locale to use for translations. Defaults to "en" (English)
-to ensure consistent default ordering across platforms.}
+\item{locale}{Locale to use for translations. See
+\code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
+Defaults to \code{"en"} (American English) to ensure that the default collation
+is consistent across platforms. See \code{\link[=stringr_locale]{stringr_locale()}} for information on
+how to control this default.}
 }
 \description{
 Convert case of a string

@@ -10,7 +10,7 @@
 \usage{
 fixed(pattern, ignore_case = FALSE)
 
-coll(pattern, ignore_case = FALSE, locale = "en", ...)
+coll(pattern, ignore_case = FALSE, locale = stringr_locale(), ...)
 
 regex(
   pattern,
@@ -36,8 +36,9 @@ one-to-one mapping between upper and lower case letters.}
 
 \item{locale}{Locale to use for comparisons. See
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
-Defaults to "en" (English) to ensure that the default collation is
-consistent across platforms.}
+Defaults to \code{"en"} (American English) to ensure that the default collation
+is consistent across platforms. See \code{\link[=stringr_locale]{stringr_locale()}} for information on
+how to control this default.}
 
 \item{...}{Other less frequently used arguments passed on to
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}},

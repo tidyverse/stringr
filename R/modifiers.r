@@ -63,13 +63,14 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #' @rdname modifiers
 #' @param locale Locale to use for comparisons. See
 #'   [stringi::stri_locale_list()] for all possible options.
-#'   Defaults to "en" (English) to ensure that the default collation is
-#'   consistent across platforms.
+#'   Defaults to `"en"` (American English) to ensure that the default collation
+#'   is consistent across platforms. See [stringr_locale()] for information on
+#'   how to control this default.
 #' @param ... Other less frequently used arguments passed on to
 #'   [stringi::stri_opts_collator()],
 #'   [stringi::stri_opts_regex()], or
 #'   [stringi::stri_opts_brkiter()]
-coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
+coll <- function(pattern, ignore_case = FALSE, locale = stringr_locale(), ...) {
   pattern <- as_bare_character(pattern)
   options <- str_opts_collator(
     ignore_case = ignore_case,
@@ -85,7 +86,10 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
 }
 
 
-str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NULL, ...) {
+str_opts_collator <- function(locale = stringr_locale(),
+                              ignore_case = FALSE,
+                              strength = NULL,
+                              ...) {
   strength <- strength %||% if (ignore_case) 2L else 3L
   stri_opts_collator(
     strength = strength,
