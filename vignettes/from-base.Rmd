@@ -403,7 +403,7 @@ str_to_lower(dog)
 str_to_title(dog)
 ```
 
-In stringr we can control the locale, while in base R locale distinctions are controlled with global variables. Therefore, the output of your base R code may vary across different computers with different global settings.
+In stringr we can control the locale with an explicit argument, while in base R locale distinctions are only controlled with global variables.
 
 ```{r}
 # stringr

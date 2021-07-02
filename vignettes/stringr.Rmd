@@ -131,7 +131,7 @@ str_to_title(x)
 
 str_to_lower(x)
 # Turkish has two sorts of i: with and without the dot
-str_to_lower(x, "tr")
+str_to_lower(x, locale = "tr")
 ```
 
 String ordering and sorting:
@@ -145,7 +145,16 @@ str_sort(x)
 str_sort(x, locale = "lt")
 ```
 
-The locale always defaults to English to ensure that the default behaviour is identical across systems. Locales always include a two letter ISO-639-1 language code (like "en" for English or "zh" for Chinese), and optionally a ISO-3166 country code (like "en_UK" vs "en_US"). You can see a complete list of available locales by running `stringi::stri_locale_list()`.
+Every `locale` argument defaults to `stringr_locale()`, which returns `"en"` (American English) by default on all platforms. If you need to adjust the locale, and you know your code might be run on a different platform, setting the `locale` argument directly is the most reproducible way to do so. However, if your code is only going to be run on your computer, you can also globally adjust the locale returned by `stringr_locale()` by setting the global option `tidyverse.locale_collation` to your preferred locale.
+
+```{r}
+withr::with_options(
+  list(tidyverse.locale_collation = "lt"), 
+  str_sort(x)
+)
+```
+
+Locales always include a two letter ISO-639-1 language code (like "en" for English or "zh" for Chinese), and optionally a ISO-3166 country code (like "en_UK" vs "en_US"). You can see a complete list of available locales by running `stringi::stri_locale_list()`.
 
 ## Pattern matching
 
