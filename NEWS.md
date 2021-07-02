@@ -30,6 +30,12 @@
   help you move to stringr if you're already familiar with base R string
   functions (#266).
 
+* New `stringr_locale()` which becomes the default value for all functions with
+  a `locale` argument, like `str_sort()` and `str_to_upper()`. This returns
+  `"en"` by default on all platforms, but provides a way to globally customize
+  the default locale used by stringr by setting the global option,
+  `tidyverse.locale_collation`.
+
 * New `str_equal()` compares two character vectors using unicode rules,
   and optionally ignores case (#381).
 
