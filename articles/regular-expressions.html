@@ -334,11 +334,11 @@
 <div id="alternation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#alternation" class="anchor"></a>Alternation</h2>
-<p><code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
+<p><code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span><span class="op">)</span>, <span class="st">"abc|def"</span><span class="op">)</span>
 <span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
-<p>Note that the precedence for <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
+<p>Note that the precedence for <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is low: <code>abc|def</code> is equivalent to <code>(abc)|(def)</code> not <code>ab(c|d)ef</code>.</p>
 </div>
 <div id="grouping" class="section level2">
 <h2 class="hasAnchor">

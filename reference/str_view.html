@@ -260,26 +260,26 @@ values are stored in the string.</p></td>
 <span class='fu'><a href='str_detect.html'>str_detect</a></span><span class='op'>(</span><span class='va'>nbsp</span>, <span class='st'>" "</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='co'># str_view() brings it to your attention:</span>
 <span class='fu'>str_view</span><span class='op'>(</span><span class='va'>nbsp</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Hi<span style='color: #BBBBBB;background-color: #BB0000;'> </span><span>you</div><div class='input'>
+</div><div class='output co'>#&gt; Hi<span style='color: #BBBBBB; background-color: #BB0000;'> </span>you</div><div class='input'>
 <span class='co'># You can also use escapes for all non-ASCII characters</span>
 <span class='fu'>str_view</span><span class='op'>(</span><span class='va'>nbsp</span>, use_escapes <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Hi\u00a0you</div><div class='input'>
 <span class='co'># Show first match</span>
 <span class='fu'>str_view</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span><span class='op'>)</span>, <span class='st'>"[aeiou]"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #00BBBB;'>&lt;a&gt;</span><span>bc
-#&gt; d</span><span style='color: #00BBBB;'>&lt;e&gt;</span><span>f
+</div><div class='output co'>#&gt; <span style='color: #00BBBB;'>&lt;a&gt;</span>bc
+#&gt; d<span style='color: #00BBBB;'>&lt;e&gt;</span>f
 #&gt; fgh</div><div class='input'><span class='fu'>str_view</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span><span class='op'>)</span>, <span class='st'>"^"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #00BBBB;'>&lt;&gt;</span><span>abc
-#&gt; </span><span style='color: #00BBBB;'>&lt;&gt;</span><span>def
-#&gt; </span><span style='color: #00BBBB;'>&lt;&gt;</span><span>fgh</div><div class='input'><span class='fu'>str_view</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span><span class='op'>)</span>, <span class='st'>".."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #00BBBB;'>&lt;ab&gt;</span><span>c
-#&gt; </span><span style='color: #00BBBB;'>&lt;de&gt;</span><span>f
-#&gt; </span><span style='color: #00BBBB;'>&lt;fg&gt;</span><span>h</div><div class='input'>
+</div><div class='output co'>#&gt; <span style='color: #00BBBB;'>&lt;&gt;</span>abc
+#&gt; <span style='color: #00BBBB;'>&lt;&gt;</span>def
+#&gt; <span style='color: #00BBBB;'>&lt;&gt;</span>fgh</div><div class='input'><span class='fu'>str_view</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span><span class='op'>)</span>, <span class='st'>".."</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #00BBBB;'>&lt;ab&gt;</span>c
+#&gt; <span style='color: #00BBBB;'>&lt;de&gt;</span>f
+#&gt; <span style='color: #00BBBB;'>&lt;fg&gt;</span>h</div><div class='input'>
 <span class='co'># Show all matches</span>
 <span class='fu'>str_view_all</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abc"</span>, <span class='st'>"def"</span>, <span class='st'>"fgh"</span><span class='op'>)</span>, <span class='st'>"d|e"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; abc
-#&gt; </span><span style='color: #00BBBB;'>&lt;d&gt;&lt;e&gt;</span><span>f
-#&gt; fgh</div></span></pre>
+#&gt; <span style='color: #00BBBB;'>&lt;d&gt;&lt;e&gt;</span>f
+#&gt; fgh</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
