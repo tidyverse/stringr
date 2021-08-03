@@ -229,13 +229,13 @@ You can also using Unicode properties, like `[\p{Letter}]`, and various set oper
 
 ## Alternation
 
-`|` is the __alternation__ operator, which will pick between one or more possible matches. For example, `abc|def` will match `abc` or `def`. 
+`|` is the __alternation__ operator, which will pick between one or more possible matches. For example, `abc|def` will match `abc` or `def`:
 
 ```{r}
 str_detect(c("abc", "def", "ghi"), "abc|def")
 ```
 
-Note that the precedence for `|` is low, so that `abc|def` matches `abc` or `def` not `abcyz` or `abxyz`. 
+Note that the precedence for `|` is low: `abc|def` is equivalent to `(abc)|(def)` not `ab(c|d)ef`.
 
 ## Grouping
 
