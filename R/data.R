@@ -1,6 +1,6 @@
 #' Sample character vectors for practicing string manipulations
 #'
-#' `fruit` and `word` come from the `rcorpora` package
+#' `fruit` and `words` come from the `rcorpora` package
 #' written by Gabor Csardi; the data was collected by Darius Kazemi
 #' and made available at \url{https://github.com/dariusk/corpora}.
 #' `sentences` is a collection of "Harvard sentences" used for

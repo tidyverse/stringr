@@ -18,7 +18,7 @@ fruit
 words
 }
 \description{
-\code{fruit} and \code{word} come from the \code{rcorpora} package
+\code{fruit} and \code{words} come from the \code{rcorpora} package
 written by Gabor Csardi; the data was collected by Darius Kazemi
 and made available at \url{https://github.com/dariusk/corpora}.
 \code{sentences} is a collection of "Harvard sentences" used for
