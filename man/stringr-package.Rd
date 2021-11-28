@@ -8,11 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-A consistent, simple and easy to use set of wrappers around
-    the fantastic 'stringi' package. All function and argument names (and
-    positions) are consistent, all functions deal with "NA"'s and zero
-    length vectors in the same way, and the output from one function is
-    easy to feed into the input of another.
+A consistent, simple and easy to use set of wrappers around the fantastic 'stringi' package. All function and argument names (and positions) are consistent, all functions deal with "NA"'s and zero length vectors in the same way, and the output from one function is easy to feed into the input of another.
 }
 \seealso{
 Useful links:
