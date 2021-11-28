@@ -187,10 +187,10 @@ See str_detect() for an equivalent to grepl(pattern, x)." />
 
     <div class="ref-description">
     <p><code>str_subset()</code> is a wrapper around <code>x[str_detect(x, pattern)]</code>,
-and is equivalent to <code><a href='https://rdrr.io/r/base/grep.html'>grep(pattern, x, value = TRUE)</a></code>.
-<code>str_which()</code> is a wrapper around <code><a href='https://rdrr.io/r/base/which.html'>which(str_detect(x, pattern))</a></code>,
-and is equivalent to <code><a href='https://rdrr.io/r/base/grep.html'>grep(pattern, x)</a></code>.
-See <code><a href='str_detect.html'>str_detect()</a></code> for an equivalent to <code><a href='https://rdrr.io/r/base/grep.html'>grepl(pattern, x)</a></code>.</p>
+and is equivalent to <code>grep(pattern, x, value = TRUE)</code>.
+<code>str_which()</code> is a wrapper around <code>which(str_detect(x, pattern))</code>,
+and is equivalent to <code>grep(pattern, x)</code>.
+See <code><a href='str_detect.html'>str_detect()</a></code> for an equivalent to <code>grepl(pattern, x)</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>string</span>, <span class='va'>pattern</span>, negate <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
@@ -217,7 +217,7 @@ for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></
 respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
 <code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
-<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
+<code>boundary("character")</code>.</p></td>
     </tr>
     <tr>
       <th>negate</th>
@@ -237,22 +237,31 @@ respects character matching rules for the specified locale.</p>
 <code><a href='https://rdrr.io/pkg/stringi/man/stri_subset.html'>stringi::stri_subset()</a></code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>fruit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span><span class='op'>)</span>
-<span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "apple"     "banana"    "pear"      "pineapple"</div><div class='input'><span class='fu'>str_which</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 1 2 3 4</div><div class='input'>
-<span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^a"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "apple"</div><div class='input'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a$"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "banana"</div><div class='input'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"b"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "banana"</div><div class='input'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"[aeiou]"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "apple"     "banana"    "pear"      "pineapple"</div><div class='input'>
-<span class='co'># Returns elements that do NOT match</span>
-<span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^p"</span>, negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "apple"  "banana"</div><div class='input'>
-<span class='co'># Missings never match</span>
-<span class='fu'>str_subset</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a" "b"</div><div class='input'><span class='fu'>str_which</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 1 3</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>fruit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"pear"</span>, <span class='st'>"pineapple"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apple"     "banana"    "pear"      "pineapple"</span>
+<span class='r-in'><span class='fu'>str_which</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1 2 3 4</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^a"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apple"</span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"a$"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "banana"</span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"b"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "banana"</span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"[aeiou]"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apple"     "banana"    "pear"      "pineapple"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Returns elements that do NOT match</span></span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='va'>fruit</span>, <span class='st'>"^p"</span>, negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apple"  "banana"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Missings never match</span></span>
+<span class='r-in'><span class='fu'>str_subset</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a" "b"</span>
+<span class='r-in'><span class='fu'>str_which</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='cn'>NA</span>, <span class='st'>"b"</span><span class='op'>)</span>, <span class='st'>"."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1 3</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

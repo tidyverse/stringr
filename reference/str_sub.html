@@ -233,51 +233,71 @@ substring, from the first character to the last.</p>
     <div class='dont-index'><p>The underlying implementation in <code><a href='https://rdrr.io/pkg/stringi/man/stri_sub.html'>stringi::stri_sub()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>hw</span> <span class='op'>&lt;-</span> <span class='st'>"Hadley Wickham"</span>
-
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>1</span>, <span class='fl'>6</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Hadley"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Hadley"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>8</span>, <span class='fl'>14</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Wickham"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>8</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Wickham"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>8</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Hadley"  "Wickham"</div><div class='input'>
-<span class='co'># Negative indices</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "m"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Wickham"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Hadley W"</div><div class='input'>
-<span class='co'># Alternatively, you can pass in a two column matrix, as in the</span>
-<span class='co'># output from str_locate_all</span>
-<span class='va'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span><span class='op'>(</span><span class='va'>hw</span>, <span class='st'>"[aeio]"</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='va'>pos</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a" "e" "i" "a"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='va'>pos</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>, <span class='va'>pos</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a" "e" "i" "a"</div><div class='input'>
-<span class='co'># Vectorisation</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fu'><a href='str_length.html'>str_length</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "Hadley Wickham" "adley Wickham"  "dley Wickham"   "ley Wickham"   
-#&gt;  [5] "ey Wickham"     "y Wickham"      " Wickham"       "Wickham"       
-#&gt;  [9] "ickham"         "ckham"          "kham"           "ham"           
-#&gt; [13] "am"             "m"             </div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fu'><a href='str_length.html'>str_length</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "H"              "Ha"             "Had"            "Hadl"          
-#&gt;  [5] "Hadle"          "Hadley"         "Hadley "        "Hadley W"      
-#&gt;  [9] "Hadley Wi"      "Hadley Wic"     "Hadley Wick"    "Hadley Wickh"  
-#&gt; [13] "Hadley Wickha"  "Hadley Wickham"</div><div class='input'>
-<span class='co'># Replacement form</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"BBCDEF"</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"A"</span>; <span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "ABCDEF"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='op'>-</span><span class='fl'>1</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"K"</span>; <span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "ABCDEK"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='op'>-</span><span class='fl'>2</span>, <span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"GHIJ"</span>; <span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "ABCDGHIJK"</div><div class='input'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>2</span>, <span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>""</span>; <span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "AK"</div><div class='input'>
-<span class='co'># If you want to keep the original if some argument is NA,</span>
-<span class='co'># use omit_na = TRUE</span>
-<span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='va'>x3</span> <span class='op'>&lt;-</span> <span class='va'>x4</span> <span class='op'>&lt;-</span> <span class='st'>"AAA"</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x1</span>, <span class='fl'>1</span>, <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"B"</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x2</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x3</span>, <span class='fl'>1</span>, <span class='cn'>NA</span>, omit_na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"B"</span>
-<span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x4</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, omit_na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
-<span class='va'>x1</span>; <span class='va'>x2</span>; <span class='va'>x3</span>; <span class='va'>x4</span>
-</div><div class='output co'>#&gt; [1] NA</div><div class='output co'>#&gt; [1] NA</div><div class='output co'>#&gt; [1] "AAA"</div><div class='output co'>#&gt; [1] "AAA"</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>hw</span> <span class='op'>&lt;-</span> <span class='st'>"Hadley Wickham"</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>1</span>, <span class='fl'>6</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hadley"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hadley"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>8</span>, <span class='fl'>14</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Wickham"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fl'>8</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Wickham"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>8</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hadley"  "Wickham"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Negative indices</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "m"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Wickham"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='op'>-</span><span class='fl'>7</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Hadley W"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Alternatively, you can pass in a two column matrix, as in the</span></span>
+<span class='r-in'><span class='co'># output from str_locate_all</span></span>
+<span class='r-in'><span class='va'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='str_locate.html'>str_locate_all</a></span><span class='op'>(</span><span class='va'>hw</span>, <span class='st'>"[aeio]"</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='va'>pos</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a" "e" "i" "a"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='va'>pos</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>, <span class='va'>pos</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a" "e" "i" "a"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Vectorisation</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fu'><a href='str_length.html'>str_length</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "Hadley Wickham" "adley Wickham"  "dley Wickham"   "ley Wickham"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "ey Wickham"     "y Wickham"      " Wickham"       "Wickham"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "ickham"         "ckham"          "kham"           "ham"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "am"             "m"             </span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>hw</span>, end <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fu'><a href='str_length.html'>str_length</a></span><span class='op'>(</span><span class='va'>hw</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "H"              "Ha"             "Had"            "Hadl"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "Hadle"          "Hadley"         "Hadley "        "Hadley W"      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "Hadley Wi"      "Hadley Wic"     "Hadley Wick"    "Hadley Wickh"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "Hadley Wickha"  "Hadley Wickham"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Replacement form</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"BBCDEF"</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"A"</span>; <span class='va'>x</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ABCDEF"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='op'>-</span><span class='fl'>1</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"K"</span>; <span class='va'>x</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ABCDEK"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='op'>-</span><span class='fl'>2</span>, <span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"GHIJ"</span>; <span class='va'>x</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ABCDGHIJK"</span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>2</span>, <span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>""</span>; <span class='va'>x</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "AK"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># If you want to keep the original if some argument is NA,</span></span>
+<span class='r-in'><span class='co'># use omit_na = TRUE</span></span>
+<span class='r-in'><span class='va'>x1</span> <span class='op'>&lt;-</span> <span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='va'>x3</span> <span class='op'>&lt;-</span> <span class='va'>x4</span> <span class='op'>&lt;-</span> <span class='st'>"AAA"</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x1</span>, <span class='fl'>1</span>, <span class='cn'>NA</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"B"</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x2</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x3</span>, <span class='fl'>1</span>, <span class='cn'>NA</span>, omit_na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"B"</span></span>
+<span class='r-in'><span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>x4</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, omit_na <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span></span>
+<span class='r-in'><span class='va'>x1</span>; <span class='va'>x2</span>; <span class='va'>x3</span>; <span class='va'>x4</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "AAA"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "AAA"</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

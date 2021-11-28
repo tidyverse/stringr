@@ -181,25 +181,25 @@
 <p>There are seven main verbs that work with patterns:</p>
 <ul>
 <li>
-<p><code><a href="reference/str_detect.html">str_detect(x, pattern)</a></code> tells you if there’s any match to the pattern.</p>
+<p><code>str_detect(x, pattern)</code> tells you if there’s any match to the pattern.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_count.html">str_count(x, pattern)</a></code> counts the number of patterns.</p>
+<p><code>str_count(x, pattern)</code> counts the number of patterns.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_count.html">str_count</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0 3 1 2 2 4</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_subset.html">str_subset(x, pattern)</a></code> extracts the matching components.</p>
+<p><code>str_subset(x, pattern)</code> extracts the matching components.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "video"     "cross"     "extra"     "deal"      "authority"</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_locate.html">str_locate(x, pattern)</a></code> gives the position of the match.</p>
+<p><code>str_locate(x, pattern)</code> gives the position of the match.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_locate.html">str_locate</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span><span class="op">)</span>
 <span class="co">#&gt;      start end</span>
@@ -211,13 +211,13 @@
 <span class="co">#&gt; [6,]     1   1</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_extract.html">str_extract(x, pattern)</a></code> extracts the text of the match.</p>
+<p><code>str_extract(x, pattern)</code> extracts the text of the match.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span><span class="op">)</span>
 <span class="co">#&gt; [1] NA  "i" "o" "e" "e" "a"</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_match.html">str_match(x, pattern)</a></code> extracts parts of the match defined by parentheses.</p>
+<p><code>str_match(x, pattern)</code> extracts parts of the match defined by parentheses.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># extract the characters on either side of the vowel</span>
 <span class="fu"><a href="reference/str_match.html">str_match</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"(.)[aeiou](.)"</span><span class="op">)</span>
@@ -230,13 +230,13 @@
 <span class="co">#&gt; [6,] "aut" "a"  "t"</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_replace.html">str_replace(x, pattern, replacement)</a></code> replaces the matches with new text.</p>
+<p><code>str_replace(x, pattern, replacement)</code> replaces the matches with new text.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"[aeiou]"</span>, <span class="st">"?"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"</span></code></pre></div>
 </li>
 <li>
-<p><code><a href="reference/str_split.html">str_split(x, pattern)</a></code> splits up a string into multiple pieces.</p>
+<p><code>str_split(x, pattern)</code> splits up a string into multiple pieces.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/str_split.html">str_split</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a,b"</span>, <span class="st">"c,d,e"</span><span class="op">)</span>, <span class="st">","</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
@@ -273,9 +273,9 @@
 <li>
 <p>Uses consistent function and argument names. The first argument is always the vector of strings to modify, which makes stringr work particularly well in conjunction with the pipe:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">letters</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"right"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">letters</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span>
+  <span class="va">.</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"right"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span>
   <span class="fu"><a href="reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">11</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"</span></code></pre></div>
 </li>

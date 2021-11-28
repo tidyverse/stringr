@@ -216,159 +216,167 @@ For <code>str_match_all</code>, a list of character matrices.</p>
 implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>strings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>" 219 733 8965"</span>, <span class='st'>"329-293-8753 "</span>, <span class='st'>"banana"</span>, <span class='st'>"595 794 7569"</span>,
-  <span class='st'>"387 287 6718"</span>, <span class='st'>"apple"</span>, <span class='st'>"233.398.9187  "</span>, <span class='st'>"482 952 3315"</span>,
-  <span class='st'>"239 923 8115 and 842 566 4692"</span>, <span class='st'>"Work: 579-499-7527"</span>, <span class='st'>"$1000"</span>,
-  <span class='st'>"Home: 543.355.3679"</span><span class='op'>)</span>
-<span class='va'>phone</span> <span class='op'>&lt;-</span> <span class='st'>"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span>
-
-<span class='fu'><a href='str_extract.html'>str_extract</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "219 733 8965" "329-293-8753" NA             "595 794 7569" "387 287 6718"
-#&gt;  [6] NA             "233.398.9187" "482 952 3315" "239 923 8115" "579-499-7527"
-#&gt; [11] NA             "543.355.3679"</div><div class='input'><span class='fu'>str_match</span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;       [,1]           [,2]  [,3]  [,4]  
-#&gt;  [1,] "219 733 8965" "219" "733" "8965"
-#&gt;  [2,] "329-293-8753" "329" "293" "8753"
-#&gt;  [3,] NA             NA    NA    NA    
-#&gt;  [4,] "595 794 7569" "595" "794" "7569"
-#&gt;  [5,] "387 287 6718" "387" "287" "6718"
-#&gt;  [6,] NA             NA    NA    NA    
-#&gt;  [7,] "233.398.9187" "233" "398" "9187"
-#&gt;  [8,] "482 952 3315" "482" "952" "3315"
-#&gt;  [9,] "239 923 8115" "239" "923" "8115"
-#&gt; [10,] "579-499-7527" "579" "499" "7527"
-#&gt; [11,] NA             NA    NA    NA    
-#&gt; [12,] "543.355.3679" "543" "355" "3679"</div><div class='input'>
-<span class='co'># Extract/match all</span>
-<span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "219 733 8965"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "329-293-8753"
-#&gt; 
-#&gt; [[3]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] "595 794 7569"
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] "387 287 6718"
-#&gt; 
-#&gt; [[6]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[7]]
-#&gt; [1] "233.398.9187"
-#&gt; 
-#&gt; [[8]]
-#&gt; [1] "482 952 3315"
-#&gt; 
-#&gt; [[9]]
-#&gt; [1] "239 923 8115" "842 566 4692"
-#&gt; 
-#&gt; [[10]]
-#&gt; [1] "579-499-7527"
-#&gt; 
-#&gt; [[11]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[12]]
-#&gt; [1] "543.355.3679"
-#&gt; </div><div class='input'><span class='fu'>str_match_all</span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "219 733 8965" "219" "733" "8965"
-#&gt; 
-#&gt; [[2]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "329-293-8753" "329" "293" "8753"
-#&gt; 
-#&gt; [[3]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[4]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "595 794 7569" "595" "794" "7569"
-#&gt; 
-#&gt; [[5]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "387 287 6718" "387" "287" "6718"
-#&gt; 
-#&gt; [[6]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[7]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "233.398.9187" "233" "398" "9187"
-#&gt; 
-#&gt; [[8]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "482 952 3315" "482" "952" "3315"
-#&gt; 
-#&gt; [[9]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "239 923 8115" "239" "923" "8115"
-#&gt; [2,] "842 566 4692" "842" "566" "4692"
-#&gt; 
-#&gt; [[10]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "579-499-7527" "579" "499" "7527"
-#&gt; 
-#&gt; [[11]]
-#&gt;      [,1] [,2] [,3] [,4]
-#&gt; 
-#&gt; [[12]]
-#&gt;      [,1]           [,2]  [,3]  [,4]  
-#&gt; [1,] "543.355.3679" "543" "355" "3679"
-#&gt; </div><div class='input'>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"&lt;a&gt; &lt;b&gt;"</span>, <span class='st'>"&lt;a&gt; &lt;&gt;"</span>, <span class='st'>"&lt;a&gt;"</span>, <span class='st'>""</span>, <span class='cn'>NA</span><span class='op'>)</span>
-<span class='fu'>str_match</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;(.*?)&gt; &lt;(.*?)&gt;"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1]      [,2] [,3]
-#&gt; [1,] "&lt;a&gt; &lt;b&gt;" "a"  "b" 
-#&gt; [2,] "&lt;a&gt; &lt;&gt;"  "a"  ""  
-#&gt; [3,] NA        NA   NA  
-#&gt; [4,] NA        NA   NA  
-#&gt; [5,] NA        NA   NA  </div><div class='input'><span class='fu'>str_match_all</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;(.*?)&gt;"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; [2,] "&lt;b&gt;" "b" 
-#&gt; 
-#&gt; [[2]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; [2,] "&lt;&gt;"  ""  
-#&gt; 
-#&gt; [[3]]
-#&gt;      [,1]  [,2]
-#&gt; [1,] "&lt;a&gt;" "a" 
-#&gt; 
-#&gt; [[4]]
-#&gt;      [,1] [,2]
-#&gt; 
-#&gt; [[5]]
-#&gt;      [,1] [,2]
-#&gt; [1,] NA   NA  
-#&gt; </div><div class='input'>
-<span class='fu'><a href='str_extract.html'>str_extract</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;.*?&gt;"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "&lt;a&gt;" "&lt;a&gt;" "&lt;a&gt;" NA    NA   </div><div class='input'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;.*?&gt;"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "&lt;a&gt;" "&lt;b&gt;"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "&lt;a&gt;" "&lt;&gt;" 
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "&lt;a&gt;"
-#&gt; 
-#&gt; [[4]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] NA
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>strings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>" 219 733 8965"</span>, <span class='st'>"329-293-8753 "</span>, <span class='st'>"banana"</span>, <span class='st'>"595 794 7569"</span>,</span>
+<span class='r-in'>  <span class='st'>"387 287 6718"</span>, <span class='st'>"apple"</span>, <span class='st'>"233.398.9187  "</span>, <span class='st'>"482 952 3315"</span>,</span>
+<span class='r-in'>  <span class='st'>"239 923 8115 and 842 566 4692"</span>, <span class='st'>"Work: 579-499-7527"</span>, <span class='st'>"$1000"</span>,</span>
+<span class='r-in'>  <span class='st'>"Home: 543.355.3679"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>phone</span> <span class='op'>&lt;-</span> <span class='st'>"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='str_extract.html'>str_extract</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "219 733 8965" "329-293-8753" NA             "595 794 7569" "387 287 6718"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] NA             "233.398.9187" "482 952 3315" "239 923 8115" "579-499-7527"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] NA             "543.355.3679"</span>
+<span class='r-in'><span class='fu'>str_match</span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1,] "219 733 8965" "219" "733" "8965"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2,] "329-293-8753" "329" "293" "8753"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3,] NA             NA    NA    NA    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4,] "595 794 7569" "595" "794" "7569"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5,] "387 287 6718" "387" "287" "6718"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6,] NA             NA    NA    NA    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7,] "233.398.9187" "233" "398" "9187"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8,] "482 952 3315" "482" "952" "3315"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9,] "239 923 8115" "239" "923" "8115"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10,] "579-499-7527" "579" "499" "7527"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11,] NA             NA    NA    NA    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [12,] "543.355.3679" "543" "355" "3679"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Extract/match all</span></span>
+<span class='r-in'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "219 733 8965"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "329-293-8753"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "595 794 7569"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[5]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "387 287 6718"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[6]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[7]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "233.398.9187"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[8]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "482 952 3315"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[9]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "239 923 8115" "842 566 4692"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[10]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "579-499-7527"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[11]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[12]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "543.355.3679"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>str_match_all</span><span class='op'>(</span><span class='va'>strings</span>, <span class='va'>phone</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "219 733 8965" "219" "733" "8965"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "329-293-8753" "329" "293" "8753"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2] [,3] [,4]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "595 794 7569" "595" "794" "7569"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[5]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "387 287 6718" "387" "287" "6718"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[6]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2] [,3] [,4]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[7]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "233.398.9187" "233" "398" "9187"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[8]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "482 952 3315" "482" "952" "3315"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[9]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "239 923 8115" "239" "923" "8115"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "842 566 4692" "842" "566" "4692"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[10]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "579-499-7527" "579" "499" "7527"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[11]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2] [,3] [,4]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[12]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "543.355.3679" "543" "355" "3679"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"&lt;a&gt; &lt;b&gt;"</span>, <span class='st'>"&lt;a&gt; &lt;&gt;"</span>, <span class='st'>"&lt;a&gt;"</span>, <span class='st'>""</span>, <span class='cn'>NA</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>str_match</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;(.*?)&gt; &lt;(.*?)&gt;"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]      [,2] [,3]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "&lt;a&gt; &lt;b&gt;" "a"  "b" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "&lt;a&gt; &lt;&gt;"  "a"  ""  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,] NA        NA   NA  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,] NA        NA   NA  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [5,] NA        NA   NA  </span>
+<span class='r-in'><span class='fu'>str_match_all</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;(.*?)&gt;"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]  [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "&lt;a&gt;" "a" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "&lt;b&gt;" "b" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]  [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "&lt;a&gt;" "a" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "&lt;&gt;"  ""  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]  [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "&lt;a&gt;" "a" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[5]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] NA   NA  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='str_extract.html'>str_extract</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;.*?&gt;"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "&lt;a&gt;" "&lt;a&gt;" "&lt;a&gt;" NA    NA   </span>
+<span class='r-in'><span class='fu'><a href='str_extract.html'>str_extract_all</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"&lt;.*?&gt;"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "&lt;a&gt;" "&lt;b&gt;"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "&lt;a&gt;" "&lt;&gt;" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "&lt;a&gt;"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[5]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

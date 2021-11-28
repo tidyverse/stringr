@@ -209,7 +209,7 @@ for matching human text, you'll want <code><a href='modifiers.html'>coll()</a></
 respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
 <code><a href='modifiers.html'>boundary()</a></code>. An empty pattern, "", is equivalent to
-<code><a href='modifiers.html'>boundary("character")</a></code>.</p></td>
+<code>boundary("character")</code>.</p></td>
     </tr>
     <tr>
       <th>simplify</th>
@@ -227,67 +227,77 @@ vectors. If <code>TRUE</code> returns a character matrix.</p></td>
 <code><a href='https://rdrr.io/pkg/stringi/man/stri_extract.html'>stringi::stri_extract()</a></code> for the underlying implementation.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>shopping_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apples x4"</span>, <span class='st'>"bag of flour"</span>, <span class='st'>"bag of sugar"</span>, <span class='st'>"milk x2"</span><span class='op'>)</span>
-<span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "4" NA  NA  "2"</div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "apples" "bag"    "bag"    "milk"  </div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]{1,4}"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "appl" "bag"  "bag"  "milk"</div><div class='input'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]{1,4}\\b"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] NA     "bag"  "bag"  "milk"</div><div class='input'>
-<span class='co'># Extract all matches</span>
-<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "apples" "x"     
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "bag"   "of"    "flour"
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "bag"   "of"    "sugar"
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] "milk" "x"   
-#&gt; </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "apples"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "bag"   "of"    "flour"
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "bag"   "of"    "sugar"
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] "milk"
-#&gt; </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "4"
-#&gt; 
-#&gt; [[2]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[3]]
-#&gt; character(0)
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] "2"
-#&gt; </div><div class='input'>
-<span class='co'># Simplify results into character matrix</span>
-<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1]     [,2] [,3]   
-#&gt; [1,] "apples" ""   ""     
-#&gt; [2,] "bag"    "of" "flour"
-#&gt; [3,] "bag"    "of" "sugar"
-#&gt; [4,] "milk"   ""   ""     </div><div class='input'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1]
-#&gt; [1,] "4" 
-#&gt; [2,] ""  
-#&gt; [3,] ""  
-#&gt; [4,] "2" </div><div class='input'>
-<span class='co'># Extract all words</span>
-<span class='fu'>str_extract_all</span><span class='op'>(</span><span class='st'>"This is, suprisingly, a sentence."</span>, <span class='fu'><a href='modifiers.html'>boundary</a></span><span class='op'>(</span><span class='st'>"word"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "This"        "is"          "suprisingly" "a"           "sentence"   
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>shopping_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apples x4"</span>, <span class='st'>"bag of flour"</span>, <span class='st'>"bag of sugar"</span>, <span class='st'>"milk x2"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "4" NA  NA  "2"</span>
+<span class='r-in'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apples" "bag"    "bag"    "milk"  </span>
+<span class='r-in'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]{1,4}"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "appl" "bag"  "bag"  "milk"</span>
+<span class='r-in'><span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]{1,4}\\b"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] NA     "bag"  "bag"  "milk"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Extract all matches</span></span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"[a-z]+"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apples" "x"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "bag"   "of"    "flour"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "bag"   "of"    "sugar"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "milk" "x"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "apples"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "bag"   "of"    "flour"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "bag"   "of"    "sugar"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "milk"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "4"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[3]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> character(0)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[4]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "2"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Simplify results into character matrix</span></span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\b[a-z]+\\b"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]     [,2] [,3]   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "apples" ""   ""     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "bag"    "of" "flour"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,] "bag"    "of" "sugar"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,] "milk"   ""   ""     </span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='va'>shopping_list</span>, <span class='st'>"\\d"</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "4" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] ""  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3,] ""  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4,] "2" </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Extract all words</span></span>
+<span class='r-in'><span class='fu'>str_extract_all</span><span class='op'>(</span><span class='st'>"This is, suprisingly, a sentence."</span>, <span class='fu'><a href='modifiers.html'>boundary</a></span><span class='op'>(</span><span class='st'>"word"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "This"        "is"          "suprisingly" "a"           "sentence"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

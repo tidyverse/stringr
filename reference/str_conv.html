@@ -203,12 +203,15 @@ for a complete list.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Example from encoding?stringi::stringi</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rawConversion.html'>rawToChar</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/raw.html'>as.raw</a></span><span class='op'>(</span><span class='fl'>177</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "\xb1"</div><div class='input'><span class='fu'>str_conv</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"ISO-8859-2"</span><span class='op'>)</span> <span class='co'># Polish "a with ogonek"</span>
-</div><div class='output co'>#&gt; [1] "ą"</div><div class='input'><span class='fu'>str_conv</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"ISO-8859-1"</span><span class='op'>)</span> <span class='co'># Plus-minus</span>
-</div><div class='output co'>#&gt; [1] "±"</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># Example from encoding?stringi::stringi</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rawConversion.html'>rawToChar</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/raw.html'>as.raw</a></span><span class='op'>(</span><span class='fl'>177</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>x</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "\xb1"</span>
+<span class='r-in'><span class='fu'>str_conv</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"ISO-8859-2"</span><span class='op'>)</span> <span class='co'># Polish "a with ogonek"</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "ą"</span>
+<span class='r-in'><span class='fu'>str_conv</span><span class='op'>(</span><span class='va'>x</span>, <span class='st'>"ISO-8859-1"</span><span class='op'>)</span> <span class='co'># Plus-minus</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "±"</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

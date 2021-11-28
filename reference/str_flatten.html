@@ -211,15 +211,22 @@ input, it always returns a single string.</p>
     <p>A character vector of length 1</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "abcdefghijklmnopqrstuvwxyz"</div><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span>, <span class='st'>"-"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"</div><div class='input'>
-<span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a, b, c, d, and e"</div><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a, b, and c"</div><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a, and b"</div><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a"</div><div class='input'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>0</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] ""</div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "abcdefghijklmnopqrstuvwxyz"</span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span>, <span class='st'>"-"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a, b, c, d, and e"</span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a, b, and c"</span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a, and b"</span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "a"</span>
+<span class='r-in'><span class='fu'>str_flatten</span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>0</span><span class='op'>]</span>, <span class='st'>", "</span>, <span class='st'>", and "</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] ""</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

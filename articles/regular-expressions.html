@@ -299,7 +299,7 @@
 <li>
 <code>[^abc]</code>: matches anything except a, b, or c.</li>
 <li>
-<code>[\^\-]</code>: matches <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>.</li>
+<code>[\^\-]</code>: matches <code>^</code> or <code>-</code>.</li>
 </ul>
 <p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p>
 <ul>
@@ -334,11 +334,11 @@
 <div id="alternation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#alternation" class="anchor"></a>Alternation</h2>
-<p><code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>:</p>
+<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span><span class="op">)</span>, <span class="st">"abc|def"</span><span class="op">)</span>
 <span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
-<p>Note that the precedence for <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> is low: <code>abc|def</code> is equivalent to <code>(abc)|(def)</code> not <code>ab(c|d)ef</code>.</p>
+<p>Note that the precedence for <code>|</code> is low: <code>abc|def</code> is equivalent to <code>(abc)|(def)</code> not <code>ab(c|d)ef</code>.</p>
 </div>
 <div id="grouping" class="section level2">
 <h2 class="hasAnchor">
@@ -352,13 +352,13 @@
 <p>Parenthesis also define “groups” that you can refer to with <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code><a href="../reference/str_match.html">str_match()</a></code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"(..)\\1"</span>
-<span class="va">fruit</span> <span class="op">%&gt;%</span> 
+<span class="va">fruit</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">pattern</span><span class="op">)</span>
 <span class="co">#&gt; [1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"     </span>
 <span class="co">#&gt; [6] "salal berry"</span>
 
-<span class="va">fruit</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">pattern</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">fruit</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">pattern</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="va">pattern</span><span class="op">)</span>
 <span class="co">#&gt;      [,1]   [,2]</span>
 <span class="co">#&gt; [1,] "anan" "an"</span>
@@ -385,9 +385,9 @@
 <p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
 <ul>
 <li>
-<code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> matches the start of string.</li>
+<code>^</code> matches the start of string.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> matches the end of the string.</li>
+<code>$</code> matches the end of the string.</li>
 </ul>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span><span class="op">)</span>
@@ -396,10 +396,10 @@
 <span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"a$"</span><span class="op">)</span>
 <span class="co">#&gt; [1] NA  "a" NA</span></code></pre></div>
 <p>To match a literal “$” or “^”, you need to escape them, <code>\$</code>, and <code>\^</code>.</p>
-<p>For multiline strings, you can use <code><a href="../reference/modifiers.html">regex(multiline = TRUE)</a></code>. This changes the behaviour of <code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> and <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>, and introduces three new operators:</p>
+<p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>. This changes the behaviour of <code>^</code> and <code>$</code>, and introduces three new operators:</p>
 <ul>
-<li><p><code><a href="https://rdrr.io/r/base/Arithmetic.html">^</a></code> now matches the start of each line.</p></li>
-<li><p><code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> now matches the end of each line.</p></li>
+<li><p><code>^</code> now matches the start of each line.</p></li>
+<li><p><code>$</code> now matches the end of each line.</p></li>
 <li><p><code>\A</code> matches the start of the input.</p></li>
 <li><p><code>\z</code> matches the end of the input.</p></li>
 <li><p><code>\Z</code> matches the end of the input, but before the final line terminator, if it exists.</p></li>
@@ -419,11 +419,11 @@
 <p>You can control how many times a pattern matches with the repetition operators:</p>
 <ul>
 <li>
-<code><a href="https://rdrr.io/r/utils/Question.html">?</a></code>: 0 or 1.</li>
+<code>?</code>: 0 or 1.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>: 1 or more.</li>
+<code>+</code>: 1 or more.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>: 0 or more.</li>
+<code>*</code>: 0 or more.</li>
 </ul>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"1888 is the longest year in Roman numerals: MDCCCLXXXVIII"</span>
@@ -450,7 +450,7 @@
 <span class="co">#&gt; [1] "CCC"</span>
 <span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"C{2,3}"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "CCC"</span></code></pre></div>
-<p>By default these matches are “greedy”: they will match the longest string possible. You can make them “lazy”, matching the shortest string possible by putting a <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code> after them:</p>
+<p>By default these matches are “greedy”: they will match the longest string possible. You can make them “lazy”, matching the shortest string possible by putting a <code>?</code> after them:</p>
 <ul>
 <li>
 <code>??</code>: 0 or 1, prefer 0.</li>
@@ -468,7 +468,7 @@
 <span class="co">#&gt; [1] "CCC" "CC"</span>
 <span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C[LX]+"</span>, <span class="st">"C[LX]+?"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "CLXXX" "CL"</span></code></pre></div>
-<p>You can also make the matches possessive by putting a <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p>
+<p>You can also make the matches possessive by putting a <code>+</code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p>
 <ul>
 <li>
 <code>?+</code>: 0 or 1, possessive.</li>
@@ -499,9 +499,9 @@
 <li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the current input.</p></li>
 <li><p><code>(?!...)</code>: negative look-ahead assertion. Matches if <code>...</code> <strong>does not</strong> match at the current input.</p></li>
 <li><p><code>(?&lt;=...)</code>: positive look-behind assertion. Matches if <code>...</code> matches text preceding the current position, with the last character of the match being the character just before the current position. Length must be bounded<br>
-(i.e. no <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>).</p></li>
+(i.e. no <code>*</code> or <code>+</code>).</p></li>
 <li><p><code>(?&lt;!...)</code>: negative look-behind assertion. Matches if <code>...</code> <strong>does not</strong> match text preceding the current position. Length must be bounded<br>
-(i.e. no <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>).</p></li>
+(i.e. no <code>*</code> or <code>+</code>).</p></li>
 </ul>
 <p>These are useful when you want to check that a pattern exists, but you don’t want to include it in the result:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
@@ -520,7 +520,7 @@
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
-<p>The second is to use <code><a href="../reference/modifiers.html">regex(comments = TRUE)</a></code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
+<p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">phone</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"
   \\(?       # optional opening parens

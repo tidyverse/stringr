@@ -231,36 +231,41 @@ the same problem.</p></div>
     <p>Stefan Milton Bache</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Using values from the environment, and some formats</span>
-<span class='va'>user_name</span> <span class='op'>&lt;-</span> <span class='st'>"smbache"</span>
-<span class='va'>amount</span> <span class='op'>&lt;-</span> <span class='fl'>6.656</span>
-<span class='va'>account</span> <span class='op'>&lt;-</span> <span class='fl'>1337</span>
-<span class='fu'>str_interp</span><span class='op'>(</span><span class='st'>"User ${user_name} (account $[08d]{account}) has $$[.2f]{amount}."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "User smbache (account 00001337) has $6.66."</div><div class='input'>
-<span class='co'># Nested brace pairs work inside expressions too, and any braces can be</span>
-<span class='co'># placed outside the expressions.</span>
-<span class='fu'>str_interp</span><span class='op'>(</span><span class='st'>"Works with } nested { braces too: $[.2f]{{{2 + 2}*{amount}}}"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Works with } nested { braces too: 26.62"</div><div class='input'>
-<span class='co'># Values can also come from a list</span>
-<span class='fu'>str_interp</span><span class='op'>(</span>
-  <span class='st'>"One value, ${value1}, and then another, ${value2*2}."</span>,
-  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>value1 <span class='op'>=</span> <span class='fl'>10</span>, value2 <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "One value, 10, and then another, 40."</div><div class='input'>
-<span class='co'># Or a data frame</span>
-<span class='fu'>str_interp</span><span class='op'>(</span>
-  <span class='st'>"Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}."</span>,
-  <span class='va'>iris</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Values are 4.40 and 2.00."</div><div class='input'>
-<span class='co'># Use a vector when the string is long:</span>
-<span class='va'>max_char</span> <span class='op'>&lt;-</span> <span class='fl'>80</span>
-<span class='fu'>str_interp</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-  <span class='st'>"This particular line is so long that it is hard to write "</span>,
-  <span class='st'>"without breaking the ${max_char}-char barrier!"</span>
-<span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "This particular line is so long that it is hard to write without breaking the 80-char barrier!"</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='co'># Using values from the environment, and some formats</span></span>
+<span class='r-in'><span class='va'>user_name</span> <span class='op'>&lt;-</span> <span class='st'>"smbache"</span></span>
+<span class='r-in'><span class='va'>amount</span> <span class='op'>&lt;-</span> <span class='fl'>6.656</span></span>
+<span class='r-in'><span class='va'>account</span> <span class='op'>&lt;-</span> <span class='fl'>1337</span></span>
+<span class='r-in'><span class='fu'>str_interp</span><span class='op'>(</span><span class='st'>"User ${user_name} (account $[08d]{account}) has $$[.2f]{amount}."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "User smbache (account 00001337) has $6.66."</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Nested brace pairs work inside expressions too, and any braces can be</span></span>
+<span class='r-in'><span class='co'># placed outside the expressions.</span></span>
+<span class='r-in'><span class='fu'>str_interp</span><span class='op'>(</span><span class='st'>"Works with } nested { braces too: $[.2f]{{{2 + 2}*{amount}}}"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Works with } nested { braces too: 26.62"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Values can also come from a list</span></span>
+<span class='r-in'><span class='fu'>str_interp</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='st'>"One value, ${value1}, and then another, ${value2*2}."</span>,</span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>value1 <span class='op'>=</span> <span class='fl'>10</span>, value2 <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "One value, 10, and then another, 40."</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Or a data frame</span></span>
+<span class='r-in'><span class='fu'>str_interp</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='st'>"Values are $[.2f]{max(Sepal.Width)} and $[.2f]{min(Sepal.Width)}."</span>,</span>
+<span class='r-in'>  <span class='va'>iris</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Values are 4.40 and 2.00."</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Use a vector when the string is long:</span></span>
+<span class='r-in'><span class='va'>max_char</span> <span class='op'>&lt;-</span> <span class='fl'>80</span></span>
+<span class='r-in'><span class='fu'>str_interp</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='st'>"This particular line is so long that it is hard to write "</span>,</span>
+<span class='r-in'>  <span class='st'>"without breaking the ${max_char}-char barrier!"</span></span>
+<span class='r-in'><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "This particular line is so long that it is hard to write without breaking the 80-char barrier!"</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

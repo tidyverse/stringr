@@ -206,7 +206,7 @@ Named arguments are taken to be temporary variables available for substitution.<
     </tr>
     <tr>
       <th>.sep</th>
-      <td><p>[<code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>: &#8216;""&#8217;]<br /> Separator used to separate elements.</p></td>
+      <td><p>[<code>character(1)</code>: &#8216;""&#8217;]<br /> Separator used to separate elements.</p></td>
     </tr>
     <tr>
       <th>.envir</th>
@@ -220,7 +220,7 @@ evaluated in that environment and <code>.envir</code> is ignored. If <code>NULL<
     </tr>
     <tr>
       <th>.na</th>
-      <td><p>[<code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>: &#8216;NA&#8217;]<br /> Value to replace NA values
+      <td><p>[<code>character(1)</code>: &#8216;NA&#8217;]<br /> Value to replace NA values
 with. If <code>NULL</code> missing values are propagated, that is an <code>NA</code> result will
 cause <code>NA</code> output. Otherwise the value is replaced by the value of <code>.na</code>.</p></td>
     </tr>
@@ -228,60 +228,64 @@ cause <code>NA</code> output. Otherwise the value is replaced by the value of <c
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Fred"</span>
-<span class='va'>age</span> <span class='op'>&lt;-</span> <span class='fl'>50</span>
-<span class='va'>anniversary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1991-10-12"</span><span class='op'>)</span>
-<span class='fu'>str_glue</span><span class='op'>(</span>
-  <span class='st'>"My name is {name}, "</span>,
-  <span class='st'>"my age next year is {age + 1}, "</span>,
-  <span class='st'>"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</div><div class='input'>
-<span class='co'># single braces can be inserted by doubling them</span>
-<span class='fu'>str_glue</span><span class='op'>(</span><span class='st'>"My name is {name}, not {{name}}."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; My name is Fred, not {name}.</div><div class='input'>
-<span class='co'># You can also used named arguments</span>
-<span class='fu'>str_glue</span><span class='op'>(</span>
-  <span class='st'>"My name is {name}, "</span>,
-  <span class='st'>"and my age next year is {age + 1}."</span>,
-  name <span class='op'>=</span> <span class='st'>"Joe"</span>,
-  age <span class='op'>=</span> <span class='fl'>40</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; My name is Joe, and my age next year is 41.</div><div class='input'>
-<span class='co'># `str_glue_data()` is useful in data pipelines</span>
-<span class='va'>mtcars</span> <span class='op'>%&gt;%</span> <span class='fu'>str_glue_data</span><span class='op'>(</span><span class='st'>"{rownames(.)} has {hp} hp"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Mazda RX4 has 110 hp
-#&gt; Mazda RX4 Wag has 110 hp
-#&gt; Datsun 710 has 93 hp
-#&gt; Hornet 4 Drive has 110 hp
-#&gt; Hornet Sportabout has 175 hp
-#&gt; Valiant has 105 hp
-#&gt; Duster 360 has 245 hp
-#&gt; Merc 240D has 62 hp
-#&gt; Merc 230 has 95 hp
-#&gt; Merc 280 has 123 hp
-#&gt; Merc 280C has 123 hp
-#&gt; Merc 450SE has 180 hp
-#&gt; Merc 450SL has 180 hp
-#&gt; Merc 450SLC has 180 hp
-#&gt; Cadillac Fleetwood has 205 hp
-#&gt; Lincoln Continental has 215 hp
-#&gt; Chrysler Imperial has 230 hp
-#&gt; Fiat 128 has 66 hp
-#&gt; Honda Civic has 52 hp
-#&gt; Toyota Corolla has 65 hp
-#&gt; Toyota Corona has 97 hp
-#&gt; Dodge Challenger has 150 hp
-#&gt; AMC Javelin has 150 hp
-#&gt; Camaro Z28 has 245 hp
-#&gt; Pontiac Firebird has 175 hp
-#&gt; Fiat X1-9 has 66 hp
-#&gt; Porsche 914-2 has 91 hp
-#&gt; Lotus Europa has 113 hp
-#&gt; Ford Pantera L has 264 hp
-#&gt; Ferrari Dino has 175 hp
-#&gt; Maserati Bora has 335 hp
-#&gt; Volvo 142E has 109 hp</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Fred"</span></span>
+<span class='r-in'><span class='va'>age</span> <span class='op'>&lt;-</span> <span class='fl'>50</span></span>
+<span class='r-in'><span class='va'>anniversary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"1991-10-12"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>str_glue</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='st'>"My name is {name}, "</span>,</span>
+<span class='r-in'>  <span class='st'>"my age next year is {age + 1}, "</span>,</span>
+<span class='r-in'>  <span class='st'>"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}."</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># single braces can be inserted by doubling them</span></span>
+<span class='r-in'><span class='fu'>str_glue</span><span class='op'>(</span><span class='st'>"My name is {name}, not {{name}}."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> My name is Fred, not {name}.</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># You can also used named arguments</span></span>
+<span class='r-in'><span class='fu'>str_glue</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='st'>"My name is {name}, "</span>,</span>
+<span class='r-in'>  <span class='st'>"and my age next year is {age + 1}."</span>,</span>
+<span class='r-in'>  name <span class='op'>=</span> <span class='st'>"Joe"</span>,</span>
+<span class='r-in'>  age <span class='op'>=</span> <span class='fl'>40</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> My name is Joe, and my age next year is 41.</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># `str_glue_data()` is useful in data pipelines</span></span>
+<span class='r-in'><span class='va'>mtcars</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span> <span class='fu'>str_glue_data</span><span class='op'>(</span><span class='st'>"{rownames(.)} has {hp} hp"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Mazda RX4 has 110 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Mazda RX4 Wag has 110 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Datsun 710 has 93 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Hornet 4 Drive has 110 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Hornet Sportabout has 175 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Valiant has 105 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Duster 360 has 245 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 240D has 62 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 230 has 95 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 280 has 123 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 280C has 123 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 450SE has 180 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 450SL has 180 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Merc 450SLC has 180 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cadillac Fleetwood has 205 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Lincoln Continental has 215 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Chrysler Imperial has 230 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Fiat 128 has 66 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Honda Civic has 52 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Toyota Corolla has 65 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Toyota Corona has 97 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Dodge Challenger has 150 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> AMC Javelin has 150 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Camaro Z28 has 245 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Pontiac Firebird has 175 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Fiat X1-9 has 66 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Porsche 914-2 has 91 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Lotus Europa has 113 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Ford Pantera L has 264 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Ferrari Dino has 175 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Maserati Bora has 335 hp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Volvo 142E has 109 hp</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

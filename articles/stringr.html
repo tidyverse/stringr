@@ -155,7 +155,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3</span></code></pre></div>
-<p>This is now equivalent to the base R function <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code>. Previously it was needed to work around issues with <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> such as the fact that it returned 2 for <code><a href="https://rdrr.io/r/base/nchar.html">nchar(NA)</a></code>. This has been fixed as of R 3.3.0, so it is no longer so important.</p>
+<p>This is now equivalent to the base R function <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code>. Previously it was needed to work around issues with <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> such as the fact that it returned 2 for <code>nchar(NA)</code>. This has been fixed as of R 3.3.0, so it is no longer so important.</p>
 <p>You can access individual character using <code><a href="../reference/str_sub.html">str_sub()</a></code>. It takes three arguments: a character vector, a <code>start</code> position and an <code>end</code> position. Either position can either be a positive integer, which counts from the left, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"abcdef"</span>, <span class="st">"ghifjk"</span><span class="op">)</span>
@@ -199,8 +199,8 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Short"</span>, <span class="st">"This is a long string"</span><span class="op">)</span>
 
-<span class="va">x</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/str_trunc.html">str_trunc</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">x</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/str_trunc.html">str_trunc</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"right"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Short     " "This is..."</span></code></pre></div>
 </li>
@@ -412,7 +412,7 @@
 <div id="fixed-matches" class="section level4">
 <h4 class="hasAnchor">
 <a href="#fixed-matches" class="anchor"></a>Fixed matches</h4>
-<p><code><a href="../reference/modifiers.html">fixed(x)</a></code> only matches the exact sequence of bytes specified by <code>x</code>. This is a very limited “pattern”, but the restriction can make matching much faster. Beware using <code><a href="../reference/modifiers.html">fixed()</a></code> with non-English data. It is problematic because there are often multiple ways of representing the same character. For example, there are two ways to define “á”: either as a single character or as an “a” plus an accent:</p>
+<p><code>fixed(x)</code> only matches the exact sequence of bytes specified by <code>x</code>. This is a very limited “pattern”, but the restriction can make matching much faster. Beware using <code><a href="../reference/modifiers.html">fixed()</a></code> with non-English data. It is problematic because there are often multiple ways of representing the same character. For example, there are two ways to define “á”: either as a single character or as an “a” plus an accent:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a1</span> <span class="op">&lt;-</span> <span class="st">"\u00e1"</span>
 <span class="va">a2</span> <span class="op">&lt;-</span> <span class="st">"a\u0301"</span>
@@ -430,7 +430,7 @@
 <div id="collation-search" class="section level4">
 <h4 class="hasAnchor">
 <a href="#collation-search" class="anchor"></a>Collation search</h4>
-<p><code><a href="../reference/modifiers.html">coll(x)</a></code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules differ around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
+<p><code>coll(x)</code> looks for a match to <code>x</code> using human-language <strong>coll</strong>ation rules, and is particularly important if you want to do case insensitive matching. Collation rules differ around the world, so you’ll also need to supply a <code>locale</code> parameter.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"I"</span>, <span class="st">"İ"</span>, <span class="st">"i"</span>, <span class="st">"ı"</span><span class="op">)</span>
 <span class="va">i</span>
@@ -456,7 +456,7 @@
 <span class="fu"><a href="../reference/str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/modifiers.html">boundary</a></span><span class="op">(</span><span class="st">"word"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt; [1] "This"     "is"       "a"        "sentence"</span></code></pre></div>
-<p>By convention, <code>""</code> is treated as <code><a href="../reference/modifiers.html">boundary("character")</a></code>:</p>
+<p>By convention, <code>""</code> is treated as <code>boundary("character")</code>:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_split.html">str_split</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">""</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
