@@ -36,12 +36,11 @@ you’ve mastered stringr, you should find stringi similarly easy to use.
 ## Installation
 
 ``` r
-# Install the released version from CRAN:
-install.packages("stringr")
+# The easiest way to get dplyr is to install the whole tidyverse:
+install.packages("tidyverse")
 
-# Install the cutting edge development version from GitHub:
-# install.packages("devtools")
-devtools::install_github("tidyverse/stringr")
+# Alternatively, install just dplyr:
+install.packages("dplyr")
 ```
 
 ## Cheatsheet
