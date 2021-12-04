@@ -9,7 +9,7 @@
 status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
 [![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
+coverage](https://codecov.io/gh/tidyverse/stringr/branch/main/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=main)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
@@ -46,7 +46,7 @@ devtools::install_github("tidyverse/stringr")
 
 ## Cheatsheet
 
-<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>
+<a href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>
 
 ## Usage
 
