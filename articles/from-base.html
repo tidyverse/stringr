@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="stringr">
 <title>From base R • stringr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -12,140 +13,97 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="../tidyverse.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.0/font.css" rel="stylesheet">
+<link href="../deps/_Source%20Code%20Pro-0.4.0/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../tidyverse-2.css" rel="stylesheet">
-<!--optional theme--><link href="../.css" rel="stylesheet">
-<meta property="og:title" content="From base R">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="From base R">
 <meta property="og:description" content="stringr">
 <meta property="og:image" content="https://stringr.tidyverse.org/logo.png">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-115082821-1');
-</script>
+<![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<body>
+    <a href="#container" class="visually-hidden-focusable">Skip to content</a>
+    
 
-      <div class="navbar-brand-container">
-        <a class="navbar-brand" href="../index.html">stringr</a>
-        <div class="info hidden-xs hidden-sm">
-          <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
-        </div>
-      </div>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-none"><div class="container">
+    
+    <a class="navbar-brand me-2" href="../index.html">stringr</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.9000</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-2">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="../articles/stringr.html">Get started</a>
 </li>
-<li>
-  <a href="../articles/stringr.html">Get started</a>
+<li class="nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
+<li class="active nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/from-base.html">From base R</a>
+    <a class="dropdown-item" href="../articles/regular-expressions.html">Regular expressions</a>
+  </div>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/from-base.html">From base R</a>
-    </li>
-    <li>
-      <a href="../articles/regular-expressions.html">Regular expressions</a>
-    </li>
-  </ul>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-news">News</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-news">
+    <h6 class="dropdown-header" data-toc-skip>Releases</h6>
+    <a class="external-link dropdown-item" href="https://www.tidyverse.org/articles/2019/02/stringr-1-4-0/">Version 1.4.0</a>
+    <a class="external-link dropdown-item" href="https://www.tidyverse.org/articles/2018/02/stringr-1-3-0/">Version 1.3.0</a>
+    <a class="external-link dropdown-item" href="https://blog.rstudio.com/2017/04/12/tidyverse-updates/">Version 1.2.0</a>
+    <a class="external-link dropdown-item" href="https://blog.rstudio.com/2016/08/24/stringr-1-1-0/">Version 1.1.0</a>
+    <a class="external-link dropdown-item" href="https://blog.rstudio.com/2015/05/05/stringr-1-0-0/">Version 1.0.0</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="../news/index.html">Changelog</a>
+  </div>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    News
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Releases</li>
-    <li>
-      <a href="https://www.tidyverse.org/articles/2019/02/stringr-1-4-0/">Version 1.4.0</a>
-    </li>
-    <li>
-      <a href="https://www.tidyverse.org/articles/2018/02/stringr-1-3-0/">Version 1.3.0</a>
-    </li>
-    <li>
-      <a href="https://blog.rstudio.com/2017/04/12/tidyverse-updates/">Version 1.2.0</a>
-    </li>
-    <li>
-      <a href="https://blog.rstudio.com/2016/08/24/stringr-1-1-0/">Version 1.1.0</a>
-    </li>
-    <li>
-      <a href="https://blog.rstudio.com/2015/05/05/stringr-1-0-0/">Version 1.0.0</a>
-    </li>
-    <li class="divider">
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
-  </ul>
-</li>
-        <li>
-  <a href="https://github.com/tidyverse/stringr/">
-    <span class="fab fa-github fa-lg"></span>
+      </ul>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/tidyverse/stringr/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
-
-      
-
-      </header><script src="from-base_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>From base R</h1>
-                        <h4 class="author">Sara Stoudt</h4>
+</nav><div class="container template-article" id="container">
+<script src="from-base_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+  <main id="main"><div class="page-header">
+      <img src="../logo.png" class="logo" alt=""><h1>From base R</h1>
+                        <h4 data-toc-skip class="author">Sara Stoudt</h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/tidyverse/stringr/blob/master/vignettes/from-base.Rmd"><code>vignettes/from-base.Rmd</code></a></small>
-      <div class="hidden name"><code>from-base.Rmd</code></div>
-
+      <small class="dont-index">Source: <a href="https://github.com/tidyverse/stringr/blob/HEAD/vignettes/from-base.Rmd" class="external-link"><code>vignettes/from-base.Rmd</code></a></small>
+      <div class="d-none name"><code>from-base.Rmd</code></div>
     </div>
 
     
     
 <p>This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr.</p>
-<div id="overall-differences" class="section level1">
-<h1 class="hasAnchor">
-<a href="#overall-differences" class="anchor"></a>Overall differences</h1>
+<div class="section level1">
+<h1 id="overall-differences">Overall differences<a class="anchor" aria-label="anchor" href="#overall-differences"></a>
+</h1>
 <p>We’ll begin with a lookup table between the most important base string functions and their stringr equivalents.</p>
 <table class="table">
 <thead><tr class="header">
@@ -183,13 +141,13 @@
 </tr>
 <tr class="even">
 <td>
-<code>regexec(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html">regmatches()</a></code>
+<code>regexec(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>
 </td>
 <td><code>str_match(x, pattern)</code></td>
 </tr>
 <tr class="odd">
 <td>
-<code>regexpr(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html">regmatches()</a></code>
+<code>regexpr(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>
 </td>
 <td><code>str_extract(x, pattern)</code></td>
 </tr>
@@ -242,72 +200,76 @@
 <p>Overall the main differences between base R and stringr are:</p>
 <ol style="list-style-type: decimal">
 <li><p>stringr functions start with <code>str_</code> prefix; base R string functions have no consistent naming scheme.</p></li>
-<li><p>The order of inputs is usually different between base R and stringr. In base R, the <code>pattern</code> to match usually comes first; in stringr, the <code>string</code> to manupulate always comes first. This makes stringr easier to use in pipes, and with <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> or <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>.</p></li>
+<li><p>The order of inputs is usually different between base R and stringr. In base R, the <code>pattern</code> to match usually comes first; in stringr, the <code>string</code> to manupulate always comes first. This makes stringr easier to use in pipes, and with <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply()</a></code> or <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map()</a></code>.</p></li>
 <li><p>Functions in stringr tend to do less, where many of the string processing functions in base R have multiple purposes.</p></li>
-<li><p>The output and input of stringr functions has been carefully designed. For example, the output of <code><a href="../reference/str_locate.html">str_locate()</a></code> can be fed directly into <code><a href="../reference/str_sub.html">str_sub()</a></code>; the same is not true of <code>regpexpr()</code> and <code><a href="https://rdrr.io/r/base/substr.html">substr()</a></code>.</p></li>
-<li><p>Base functions use arguments (like <code>perl</code>, <code>fixed</code>, and <code>ignore.case</code>) to control how the pattern is interpreted. To avoid dependence between arguments, stringr instead uses helper functions (like <code><a href="../reference/modifiers.html">fixed()</a></code>, <code><a href="https://rdrr.io/r/base/regex.html">regexp()</a></code>, and <code><a href="../reference/modifiers.html">coll()</a></code>).</p></li>
+<li><p>The output and input of stringr functions has been carefully designed. For example, the output of <code><a href="../reference/str_locate.html">str_locate()</a></code> can be fed directly into <code><a href="../reference/str_sub.html">str_sub()</a></code>; the same is not true of <code>regpexpr()</code> and <code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code>.</p></li>
+<li><p>Base functions use arguments (like <code>perl</code>, <code>fixed</code>, and <code>ignore.case</code>) to control how the pattern is interpreted. To avoid dependence between arguments, stringr instead uses helper functions (like <code><a href="../reference/modifiers.html">fixed()</a></code>, <code><a href="https://rdrr.io/r/base/regex.html" class="external-link">regexp()</a></code>, and <code><a href="../reference/modifiers.html">coll()</a></code>).</p></li>
 </ol>
-<p>Next we’ll walk through each of the functions, noting the similarities and important differences. These examples come from the <a href="https://cran.r-project.org/web/packages/stringr/stringr.pdf">stringr documentation</a> and here, they are contrasted with the analogous base R operation(s).</p>
+<p>Next we’ll walk through each of the functions, noting the similarities and important differences. These examples come from the <a href="https://cran.r-project.org/web/packages/stringr/stringr.pdf" class="external-link">stringr documentation</a> and here, they are contrasted with the analogous base R operation(s).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="detect-matches" class="section level1">
-<h1 class="hasAnchor">
-<a href="#detect-matches" class="anchor"></a>Detect matches</h1>
-<div id="str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string" class="anchor"></a><code>str_detect()</code>: Detect the presence or absence of a pattern in a string</h2>
+<div class="section level1">
+<h1 id="detect-matches">Detect matches<a class="anchor" aria-label="anchor" href="#detect-matches"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string">
+<code>str_detect()</code>: Detect the presence or absence of a pattern in a string<a class="anchor" aria-label="anchor" href="#str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string"></a>
+</h2>
 <p>Suppose you want to know whether each word in a vector of fruit names contains an “a”.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, x <span class="op">=</span> <span class="va">fruit</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, x <span class="op">=</span> <span class="va">fruit</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">fruit</span>, pattern <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE</span></code></pre></div>
-<p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code> (see the “l” and think logical) while in stringr you use <code><a href="../reference/str_detect.html">str_detect()</a></code> (see the verb “detect” and think of a yes/no action).</p>
+<p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl()</a></code> (see the “l” and think logical) while in stringr you use <code><a href="../reference/str_detect.html">str_detect()</a></code> (see the verb “detect” and think of a yes/no action).</p>
 </div>
-<div id="str_which-find-positions-matching-a-pattern" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_which-find-positions-matching-a-pattern" class="anchor"></a><code>str_which()</code>: Find positions matching a pattern</h2>
+<div class="section level2">
+<h2 id="str_which-find-positions-matching-a-pattern">
+<code>str_which()</code>: Find positions matching a pattern<a class="anchor" aria-label="anchor" href="#str_which-find-positions-matching-a-pattern"></a>
+</h2>
 <p>Now you want to identify the positions of the words in a vector of fruit names that contain an “a”.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, x <span class="op">=</span> <span class="va">fruit</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, x <span class="op">=</span> <span class="va">fruit</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2 3 4</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_subset.html">str_which</a></span><span class="op">(</span><span class="va">fruit</span>, pattern <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2 3 4</span></code></pre></div>
-<p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html">grep()</a></code> while in stringr you use <code><a href="../reference/str_subset.html">str_which()</a></code> (by analogy to <code><a href="https://rdrr.io/r/base/which.html">which()</a></code>).</p>
+<p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep()</a></code> while in stringr you use <code><a href="../reference/str_subset.html">str_which()</a></code> (by analogy to <code><a href="https://rdrr.io/r/base/which.html" class="external-link">which()</a></code>).</p>
 </div>
-<div id="str_count-count-the-number-of-matches-in-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_count-count-the-number-of-matches-in-a-string" class="anchor"></a><code>str_count()</code>: Count the number of matches in a string</h2>
+<div class="section level2">
+<h2 id="str_count-count-the-number-of-matches-in-a-string">
+<code>str_count()</code>: Count the number of matches in a string<a class="anchor" aria-label="anchor" href="#str_count-count-the-number-of-matches-in-a-string"></a>
+</h2>
 <p>How many “a”s are in each fruit?</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base </span>
-<span class="va">loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, text <span class="op">=</span> <span class="va">fruit</span>, fixed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">loc</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"match.length"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"a"</span>, text <span class="op">=</span> <span class="va">fruit</span>, fixed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">loc</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"match.length"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 3 1 1</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_count.html">str_count</a></span><span class="op">(</span><span class="va">fruit</span>, pattern <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 3 1 1</span></code></pre></div>
-<p>This information can be gleaned from <code><a href="https://rdrr.io/r/base/grep.html">gregexpr()</a></code> in base, but you need to look at the <code>match.length</code> attribute as the vector uses a length-1 integer vector (<code>-1</code>) to indicate no match.</p>
+<p>This information can be gleaned from <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr()</a></code> in base, but you need to look at the <code>match.length</code> attribute as the vector uses a length-1 integer vector (<code>-1</code>) to indicate no match.</p>
 </div>
-<div id="str_locate-locate-the-position-of-patterns-in-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_locate-locate-the-position-of-patterns-in-a-string" class="anchor"></a><code>str_locate()</code>: Locate the position of patterns in a string</h2>
+<div class="section level2">
+<h2 id="str_locate-locate-the-position-of-patterns-in-a-string">
+<code>str_locate()</code>: Locate the position of patterns in a string<a class="anchor" aria-label="anchor" href="#str_locate-locate-the-position-of-patterns-in-a-string"></a>
+</h2>
 <p>Within each fruit, where does the first “p” occur? Where are all of the “p”s?</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fruit3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"papaya"</span>, <span class="st">"lime"</span>, <span class="st">"apple"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fruit3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"papaya"</span>, <span class="st">"lime"</span>, <span class="st">"apple"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"p"</span>, text <span class="op">=</span> <span class="va">fruit3</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"p"</span>, text <span class="op">=</span> <span class="va">fruit3</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; List of 3</span>
 <span class="co">#&gt;  $ : int [1:2] 1 3</span>
 <span class="co">#&gt;   ..- attr(*, "match.length")= int [1:2] 1 1</span>
@@ -343,20 +305,21 @@
 <span class="co">#&gt; [2,]     3   3</span></code></pre></div>
 </div>
 </div>
-<div id="subset-strings" class="section level1">
-<h1 class="hasAnchor">
-<a href="#subset-strings" class="anchor"></a>Subset strings</h1>
-<div id="str_sub-extract-and-replace-substrings-from-a-character-vector" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_sub-extract-and-replace-substrings-from-a-character-vector" class="anchor"></a><code>str_sub()</code>: Extract and replace substrings from a character vector</h2>
+<div class="section level1">
+<h1 id="subset-strings">Subset strings<a class="anchor" aria-label="anchor" href="#subset-strings"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_sub-extract-and-replace-substrings-from-a-character-vector">
+<code>str_sub()</code>: Extract and replace substrings from a character vector<a class="anchor" aria-label="anchor" href="#str_sub-extract-and-replace-substrings-from-a-character-vector"></a>
+</h2>
 <p>What if we want to grab part of a string?</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">hw</span> <span class="op">&lt;-</span> <span class="st">"Hadley Wickham"</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substring</a></span><span class="op">(</span><span class="va">hw</span>, first <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substring</a></span><span class="op">(</span><span class="va">hw</span>, first <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> 
 <span class="co">#&gt; [1] "Hadley Wickham"</span>
 
 <span class="co"># stringr</span>
@@ -366,7 +329,7 @@
 <span class="co">#&gt; [1] "Hadley Wickham"</span>
 <span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="va">hw</span>, end <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley"</span></code></pre></div>
-<p>In base you could use <code><a href="https://rdrr.io/r/base/substr.html">substr()</a></code> or <code><a href="https://rdrr.io/r/base/substr.html">substring()</a></code>. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, <code><a href="../reference/str_sub.html">str_sub()</a></code> has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs.</p>
+<p>In base you could use <code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code> or <code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substring()</a></code>. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, <code><a href="../reference/str_sub.html">str_sub()</a></code> has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs.</p>
 <p>In stringr you can use negative numbers to index from the right-hand side string: -1 is the last letter, -2 is the second to last, and so on.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
@@ -378,15 +341,15 @@
 <code class="sourceCode R"><span class="va">al</span> <span class="op">&lt;-</span> <span class="st">"Ada Lovelace"</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley" "Ada Lo"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, stop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, stop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley"  "Ada Lov"</span>
 
 <span class="co"># stringr</span>
-<span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley Wickham" "Ada Lovelace"</span>
-<span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">hw</span>,<span class="va">al</span><span class="op">)</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley Wickham" "Ada Lovelac"</span></code></pre></div>
 <p>stringr will automatically recycle the first argument to the same length as <code>start</code> and <code>stop</code>:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -395,17 +358,18 @@
 <span class="co">#&gt; [5] "ey Wickham"</span></code></pre></div>
 <p>Whereas the base equivalent silently uses just the first value:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, stop <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, stop <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley Wickham"</span></code></pre></div>
 </div>
-<div id="str_sub---subset-assignment" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_sub---subset-assignment" class="anchor"></a><code>str_sub() &lt;-</code>: Subset assignment</h2>
-<p><code><a href="https://rdrr.io/r/base/substr.html">substr()</a></code> behaves in a surprising way when you replace a substring with a different number of characters:</p>
+<div class="section level2">
+<h2 id="str_sub---subset-assignment">
+<code>str_sub() &lt;-</code>: Subset assignment<a class="anchor" aria-label="anchor" href="#str_sub---subset-assignment"></a>
+</h2>
+<p><code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code> behaves in a surprising way when you replace a substring with a different number of characters:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"ABCDEF"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"x"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"x"</span>
 <span class="va">x</span>
 <span class="co">#&gt; [1] "xBCDEF"</span></code></pre></div>
 <p><code><a href="../reference/str_sub.html">str_sub()</a></code> does what you would expect:</p>
@@ -416,33 +380,35 @@
 <span class="va">x</span>
 <span class="co">#&gt; [1] "xDEF"</span></code></pre></div>
 </div>
-<div id="str_subset-keep-strings-matching-a-pattern-or-find-positions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_subset-keep-strings-matching-a-pattern-or-find-positions" class="anchor"></a><code>str_subset()</code>: Keep strings matching a pattern, or find positions</h2>
+<div class="section level2">
+<h2 id="str_subset-keep-strings-matching-a-pattern-or-find-positions">
+<code>str_subset()</code>: Keep strings matching a pattern, or find positions<a class="anchor" aria-label="anchor" href="#str_subset-keep-strings-matching-a-pattern-or-find-positions"></a>
+</h2>
 <p>We may want to retrieve strings that contain a pattern of interest:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"g"</span>, x <span class="op">=</span> <span class="va">fruit</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"g"</span>, x <span class="op">=</span> <span class="va">fruit</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; character(0)</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">fruit</span>, pattern <span class="op">=</span> <span class="st">"g"</span><span class="op">)</span>
 <span class="co">#&gt; character(0)</span></code></pre></div>
 </div>
-<div id="str_extract-extract-matching-patterns-from-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_extract-extract-matching-patterns-from-a-string" class="anchor"></a><code>str_extract()</code>: Extract matching patterns from a string</h2>
+<div class="section level2">
+<h2 id="str_extract-extract-matching-patterns-from-a-string">
+<code>str_extract()</code>: Extract matching patterns from a string<a class="anchor" aria-label="anchor" href="#str_extract-extract-matching-patterns-from-a-string"></a>
+</h2>
 <p>We may want to pick out certain patterns from a string, for example, the digits in a shopping list:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">shopping_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apples x4"</span>, <span class="st">"bag of flour"</span>, <span class="st">"10"</span>, <span class="st">"milk x2"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">shopping_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apples x4"</span>, <span class="st">"bag of flour"</span>, <span class="st">"10"</span>, <span class="st">"milk x2"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">regexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\d+"</span>, text <span class="op">=</span> <span class="va">shopping_list</span><span class="op">)</span> <span class="co"># digits</span>
-<span class="fu"><a href="https://rdrr.io/r/base/regmatches.html">regmatches</a></span><span class="op">(</span><span class="va">shopping_list</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span>
+<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"\\d+"</span>, text <span class="op">=</span> <span class="va">shopping_list</span><span class="op">)</span> <span class="co"># digits</span>
+<span class="fu"><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches</a></span><span class="op">(</span><span class="va">shopping_list</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span>
 <span class="co">#&gt; [1] "4"  "10" "2"</span>
 
-<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"[a-z]+"</span>, text <span class="op">=</span> <span class="va">shopping_list</span><span class="op">)</span> <span class="co"># words</span>
-<span class="fu"><a href="https://rdrr.io/r/base/regmatches.html">regmatches</a></span><span class="op">(</span><span class="va">shopping_list</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span>
+<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"[a-z]+"</span>, text <span class="op">=</span> <span class="va">shopping_list</span><span class="op">)</span> <span class="co"># words</span>
+<span class="fu"><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches</a></span><span class="op">(</span><span class="va">shopping_list</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt; [1] "apples" "x"     </span>
 <span class="co">#&gt; </span>
@@ -470,14 +436,15 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [[4]]</span>
 <span class="co">#&gt; [1] "milk" "x"</span></code></pre></div>
-<p>Base R requires the combination of <code><a href="https://rdrr.io/r/base/grep.html">regexpr()</a></code> with <code><a href="https://rdrr.io/r/base/regmatches.html">regmatches()</a></code>; but note that the strings without matches are dropped from the output. stringr provides <code><a href="../reference/str_extract.html">str_extract()</a></code> and <code><a href="../reference/str_extract.html">str_extract_all()</a></code>, and the output is always the same length as the input.</p>
+<p>Base R requires the combination of <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexpr()</a></code> with <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>; but note that the strings without matches are dropped from the output. stringr provides <code><a href="../reference/str_extract.html">str_extract()</a></code> and <code><a href="../reference/str_extract.html">str_extract_all()</a></code>, and the output is always the same length as the input.</p>
 </div>
-<div id="str_match-extract-matched-groups-from-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_match-extract-matched-groups-from-a-string" class="anchor"></a><code>str_match()</code>: Extract matched groups from a string</h2>
-<p>We may also want to extract groups from a string. Here I’m going to use the scenario from Section 14.4.3 in <a href="https://r4ds.had.co.nz/strings.html">R for Data Science</a>.</p>
+<div class="section level2">
+<h2 id="str_match-extract-matched-groups-from-a-string">
+<code>str_match()</code>: Extract matched groups from a string<a class="anchor" aria-label="anchor" href="#str_match-extract-matched-groups-from-a-string"></a>
+</h2>
+<p>We may also want to extract groups from a string. Here I’m going to use the scenario from Section 14.4.3 in <a href="https://r4ds.had.co.nz/strings.html" class="external-link">R for Data Science</a>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
 <span class="co">#&gt; [1] "The birch canoe slid on the smooth planks." </span>
 <span class="co">#&gt; [2] "Glue the sheet to the dark blue background."</span>
 <span class="co">#&gt; [3] "It's easy to tell the depth of a well."     </span>
@@ -487,8 +454,8 @@
 <span class="va">noun</span> <span class="op">&lt;-</span> <span class="st">"([A]a|[Tt]he) ([^ ]+)"</span>
 
 <span class="co"># base</span>
-<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">regexec</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="va">noun</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>, <span class="fu"><a href="https://rdrr.io/r/base/regmatches.html">regmatches</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span><span class="op">)</span>
+<span class="va">matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexec</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="va">noun</span>, text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="st">"rbind"</span>, <span class="fu"><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>, m <span class="op">=</span> <span class="va">matches</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;      [,1]        [,2]  [,3]   </span>
 <span class="co">#&gt; [1,] "The birch" "The" "birch"</span>
 <span class="co">#&gt; [2,] "the sheet" "the" "sheet"</span>
@@ -496,7 +463,7 @@
 <span class="co">#&gt; [4,] "The juice" "The" "juice"</span>
 
 <span class="co"># stringr</span>
-<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>, pattern <span class="op">=</span> <span class="va">noun</span><span class="op">)</span>
+<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>, pattern <span class="op">=</span> <span class="va">noun</span><span class="op">)</span>
 <span class="co">#&gt;      [,1]        [,2]  [,3]   </span>
 <span class="co">#&gt; [1,] "The birch" "The" "birch"</span>
 <span class="co">#&gt; [2,] "the sheet" "the" "sheet"</span>
@@ -507,55 +474,57 @@
 <p>As for extracting the full match base R requires the combination of two functions, and inputs with no matches are dropped from the output.</p>
 </div>
 </div>
-<div id="manage-lengths" class="section level1">
-<h1 class="hasAnchor">
-<a href="#manage-lengths" class="anchor"></a>Manage lengths</h1>
-<div id="str_length-the-length-of-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_length-the-length-of-a-string" class="anchor"></a><code>str_length()</code>: The length of a string</h2>
-<p>To determine the length of a string, base R uses <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> (not to be confused with <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> which gives the length of vectors, etc.) while stringr uses <code><a href="../reference/str_length.html">str_length()</a></code>.</p>
+<div class="section level1">
+<h1 id="manage-lengths">Manage lengths<a class="anchor" aria-label="anchor" href="#manage-lengths"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_length-the-length-of-a-string">
+<code>str_length()</code>: The length of a string<a class="anchor" aria-label="anchor" href="#str_length-the-length-of-a-string"></a>
+</h2>
+<p>To determine the length of a string, base R uses <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> (not to be confused with <code><a href="https://rdrr.io/r/base/length.html" class="external-link">length()</a></code> which gives the length of vectors, etc.) while stringr uses <code><a href="../reference/str_length.html">str_length()</a></code>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
 <span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
 <span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span></code></pre></div>
-<p>There are some subtle differences between base and stringr here. <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> requires a character vector, so it will return an error if used on a factor. <code><a href="../reference/str_length.html">str_length()</a></code> can handle a factor input.</p>
+<p>There are some subtle differences between base and stringr here. <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> requires a character vector, so it will return an error if used on a factor. <code><a href="../reference/str_length.html">str_length()</a></code> can handle a factor input.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span><span class="op">)</span> 
 <span class="co">#&gt; Error in nchar(factor("abc")): 'nchar()' requires a character vector</span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># stringr</span>
-<span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3</span></code></pre></div>
-<p>Note that “characters” is a poorly defined concept, and technically both <code><a href="https://rdrr.io/r/base/nchar.html">nchar()</a></code> and <code><a href="../reference/str_length.html">str_length()</a></code> returns the number of code points. This is usually the same as what you’d consider to be a charcter, but not always:</p>
+<p>Note that “characters” is a poorly defined concept, and technically both <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> and <code><a href="../reference/str_length.html">str_length()</a></code> returns the number of code points. This is usually the same as what you’d consider to be a charcter, but not always:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"\u00fc"</span>, <span class="st">"u\u0308"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u00fc"</span>, <span class="st">"u\u0308"</span><span class="op">)</span>
 <span class="va">x</span>
 <span class="co">#&gt; [1] "ü" "ü"</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2</span>
 <span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2</span></code></pre></div>
 </div>
-<div id="str_pad-pad-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_pad-pad-a-string" class="anchor"></a><code>str_pad()</code>: Pad a string</h2>
-<p>To pad a string to a certain width, use stringr’s <code><a href="../reference/str_pad.html">str_pad()</a></code>. In base R you could use <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code>, but unlike <code><a href="../reference/str_pad.html">str_pad()</a></code>, <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code> has many other functionalities.</p>
+<div class="section level2">
+<h2 id="str_pad-pad-a-string">
+<code>str_pad()</code>: Pad a string<a class="anchor" aria-label="anchor" href="#str_pad-pad-a-string"></a>
+</h2>
+<p>To pad a string to a certain width, use stringr’s <code><a href="../reference/str_pad.html">str_pad()</a></code>. In base R you could use <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code>, but unlike <code><a href="../reference/str_pad.html">str_pad()</a></code>, <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code> has many other functionalities.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%30s"</span>, <span class="st">"hadley"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%30s"</span>, <span class="st">"hadley"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "                        hadley"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%-30s"</span>, <span class="st">"hadley"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%-30s"</span>, <span class="st">"hadley"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "hadley                        "</span>
 <span class="co"># "both" is not as straightforward</span>
 
 <span class="co"># stringr</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span>
   <span class="fu"><a href="../reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="st">"hadley"</span>, <span class="fl">30</span>, <span class="st">"left"</span><span class="op">)</span>,
   <span class="fu"><a href="../reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="st">"hadley"</span>, <span class="fl">30</span>, <span class="st">"right"</span><span class="op">)</span>,
   <span class="fu"><a href="../reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="st">"hadley"</span>, <span class="fl">30</span>, <span class="st">"both"</span><span class="op">)</span>
@@ -565,15 +534,16 @@
 <span class="co">#&gt; [2,] "hadley                        "</span>
 <span class="co">#&gt; [3,] "            hadley            "</span></code></pre></div>
 </div>
-<div id="str_trunc-truncate-a-character-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_trunc-truncate-a-character-string" class="anchor"></a><code>str_trunc()</code>: Truncate a character string</h2>
+<div class="section level2">
+<h2 id="str_trunc-truncate-a-character-string">
+<code>str_trunc()</code>: Truncate a character string<a class="anchor" aria-label="anchor" href="#str_trunc-truncate-a-character-string"></a>
+</h2>
 <p>The stringr package provides an easy way to truncate a character string: <code><a href="../reference/str_trunc.html">str_trunc()</a></code>. Base R has no function to do this directly.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"This string is moderately long"</span>
 
 <span class="co"># stringr</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span>
   <span class="fu"><a href="../reference/str_trunc.html">str_trunc</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">20</span>, <span class="st">"right"</span><span class="op">)</span>,
   <span class="fu"><a href="../reference/str_trunc.html">str_trunc</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">20</span>, <span class="st">"left"</span><span class="op">)</span>,
   <span class="fu"><a href="../reference/str_trunc.html">str_trunc</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">20</span>, <span class="st">"center"</span><span class="op">)</span>
@@ -583,15 +553,16 @@
 <span class="co">#&gt; [2,] "...s moderately long"</span>
 <span class="co">#&gt; [3,] "This stri...ely long"</span></code></pre></div>
 </div>
-<div id="str_trim-trim-whitespace-from-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_trim-trim-whitespace-from-a-string" class="anchor"></a><code>str_trim()</code>: Trim whitespace from a string</h2>
-<p>Similarly, stringr provides <code><a href="../reference/str_trim.html">str_trim()</a></code> to trim whitespace from a string. This is analogous to base R’s <code><a href="https://rdrr.io/r/base/trimws.html">trimws()</a></code> added in R 3.3.0.</p>
+<div class="section level2">
+<h2 id="str_trim-trim-whitespace-from-a-string">
+<code>str_trim()</code>: Trim whitespace from a string<a class="anchor" aria-label="anchor" href="#str_trim-trim-whitespace-from-a-string"></a>
+</h2>
+<p>Similarly, stringr provides <code><a href="../reference/str_trim.html">str_trim()</a></code> to trim whitespace from a string. This is analogous to base R’s <code><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws()</a></code> added in R 3.3.0.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="st">" String with trailing and leading white space\t"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="st">" String with trailing and leading white space\t"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "String with trailing and leading white space"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="st">"\n\nString with trailing and leading white space\n\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="st">"\n\nString with trailing and leading white space\n\n"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "String with trailing and leading white space"</span>
 
 <span class="co"># stringr</span>
@@ -599,7 +570,7 @@
 <span class="co">#&gt; [1] "String with trailing and leading white space"</span>
 <span class="fu"><a href="../reference/str_trim.html">str_trim</a></span><span class="op">(</span><span class="st">"\n\nString with trailing and leading white space\n\n"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "String with trailing and leading white space"</span></code></pre></div>
-<p>The stringr function <code><a href="../reference/str_trim.html">str_squish()</a></code> allows for extra whitespace within a string to be trimmed (in contrast to <code><a href="../reference/str_trim.html">str_trim()</a></code> which removes whitespace at the beginning and/or end of string). In base R, one might take advantage of <code><a href="https://rdrr.io/r/base/grep.html">gsub()</a></code> to accomplish the same effect.</p>
+<p>The stringr function <code><a href="../reference/str_trim.html">str_squish()</a></code> allows for extra whitespace within a string to be trimmed (in contrast to <code><a href="../reference/str_trim.html">str_trim()</a></code> which removes whitespace at the beginning and/or end of string). In base R, one might take advantage of <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub()</a></code> to accomplish the same effect.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_trim.html">str_squish</a></span><span class="op">(</span><span class="st">" String with trailing, middle,   and leading white space\t"</span><span class="op">)</span>
@@ -607,42 +578,44 @@
 <span class="fu"><a href="../reference/str_trim.html">str_squish</a></span><span class="op">(</span><span class="st">"\n\nString with excess, trailing and leading white space\n\n"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "String with excess, trailing and leading white space"</span></code></pre></div>
 </div>
-<div id="str_wrap-wrap-strings-into-nicely-formatted-paragraphs" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_wrap-wrap-strings-into-nicely-formatted-paragraphs" class="anchor"></a><code>str_wrap()</code>: Wrap strings into nicely formatted paragraphs</h2>
-<p><code><a href="https://rdrr.io/r/base/strwrap.html">strwrap()</a></code> and <code><a href="../reference/str_wrap.html">str_wrap()</a></code> use different algorithms. <code><a href="../reference/str_wrap.html">str_wrap()</a></code> uses the famous <a href="http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html">Knuth-Plass algorithm</a>.</p>
+<div class="section level2">
+<h2 id="str_wrap-wrap-strings-into-nicely-formatted-paragraphs">
+<code>str_wrap()</code>: Wrap strings into nicely formatted paragraphs<a class="anchor" aria-label="anchor" href="#str_wrap-wrap-strings-into-nicely-formatted-paragraphs"></a>
+</h2>
+<p><code><a href="https://rdrr.io/r/base/strwrap.html" class="external-link">strwrap()</a></code> and <code><a href="../reference/str_wrap.html">str_wrap()</a></code> use different algorithms. <code><a href="../reference/str_wrap.html">str_wrap()</a></code> uses the famous <a href="http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html" class="external-link">Knuth-Plass algorithm</a>.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gettysburg</span> <span class="op">&lt;-</span> <span class="st">"Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strwrap.html">strwrap</a></span><span class="op">(</span><span class="va">gettysburg</span>, width <span class="op">=</span> <span class="fl">60</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strwrap.html" class="external-link">strwrap</a></span><span class="op">(</span><span class="va">gettysburg</span>, width <span class="op">=</span> <span class="fl">60</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
 <span class="co">#&gt; Four score and seven years ago our fathers brought forth on</span>
 <span class="co">#&gt; this continent, a new nation, conceived in Liberty, and</span>
 <span class="co">#&gt; dedicated to the proposition that all men are created</span>
 <span class="co">#&gt; equal.</span>
 
 <span class="co"># stringr</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="../reference/str_wrap.html">str_wrap</a></span><span class="op">(</span><span class="va">gettysburg</span>, width <span class="op">=</span> <span class="fl">60</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="../reference/str_wrap.html">str_wrap</a></span><span class="op">(</span><span class="va">gettysburg</span>, width <span class="op">=</span> <span class="fl">60</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span>
 <span class="co">#&gt; Four score and seven years ago our fathers brought forth</span>
 <span class="co">#&gt; on this continent, a new nation, conceived in Liberty, and</span>
 <span class="co">#&gt; dedicated to the proposition that all men are created equal.</span></code></pre></div>
-<p>Note that <code><a href="https://rdrr.io/r/base/strwrap.html">strwrap()</a></code> returns a character vector with one element for each line; <code><a href="../reference/str_wrap.html">str_wrap()</a></code> returns a single string containing line breaks.</p>
+<p>Note that <code><a href="https://rdrr.io/r/base/strwrap.html" class="external-link">strwrap()</a></code> returns a character vector with one element for each line; <code><a href="../reference/str_wrap.html">str_wrap()</a></code> returns a single string containing line breaks.</p>
 </div>
 </div>
-<div id="mutate-strings" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mutate-strings" class="anchor"></a>Mutate strings</h1>
-<div id="str_replace-replace-matched-patterns-in-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_replace-replace-matched-patterns-in-a-string" class="anchor"></a><code>str_replace()</code>: Replace matched patterns in a string</h2>
-<p>To replace certain patterns within a string, stringr provides the functions <code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code>. The base R equivalents are <code><a href="https://rdrr.io/r/base/grep.html">sub()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html">gsub()</a></code>. Note the difference in default input order again.</p>
+<div class="section level1">
+<h1 id="mutate-strings">Mutate strings<a class="anchor" aria-label="anchor" href="#mutate-strings"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_replace-replace-matched-patterns-in-a-string">
+<code>str_replace()</code>: Replace matched patterns in a string<a class="anchor" aria-label="anchor" href="#str_replace-replace-matched-patterns-in-a-string"></a>
+</h2>
+<p>To replace certain patterns within a string, stringr provides the functions <code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code>. The base R equivalents are <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub()</a></code>. Note the difference in default input order again.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span><span class="op">(</span><span class="st">"[aeiou]"</span>, <span class="st">"-"</span>, <span class="va">fruits</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub</a></span><span class="op">(</span><span class="st">"[aeiou]"</span>, <span class="st">"-"</span>, <span class="va">fruits</span><span class="op">)</span>
 <span class="co">#&gt; [1] "-pple"     "b-nana"    "p-ar"      "p-neapple"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"[aeiou]"</span>, <span class="st">"-"</span>, <span class="va">fruits</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"[aeiou]"</span>, <span class="st">"-"</span>, <span class="va">fruits</span><span class="op">)</span>
 <span class="co">#&gt; [1] "-ppl-"     "b-n-n-"    "p--r"      "p-n--ppl-"</span>
 
 <span class="co"># stringr</span>
@@ -651,19 +624,19 @@
 <span class="fu"><a href="../reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "-ppl-"     "b-n-n-"    "p--r"      "p-n--ppl-"</span></code></pre></div>
 </div>
-<div id="case-convert-case-of-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#case-convert-case-of-a-string" class="anchor"></a>case: Convert case of a string</h2>
+<div class="section level2">
+<h2 id="case-convert-case-of-a-string">case: Convert case of a string<a class="anchor" aria-label="anchor" href="#case-convert-case-of-a-string"></a>
+</h2>
 <p>Both stringr and base R have functions to convert to upper and lower case. Title case is also provided in stringr.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dog</span> <span class="op">&lt;-</span> <span class="st">"The quick brown dog"</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">toupper</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
 <span class="co">#&gt; [1] "THE QUICK BROWN DOG"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
 <span class="co">#&gt; [1] "the quick brown dog"</span>
-<span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html">toTitleCase</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
+<span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html" class="external-link">toTitleCase</a></span><span class="op">(</span><span class="va">dog</span><span class="op">)</span>
 <span class="co">#&gt; [1] "The Quick Brown Dog"</span>
 
 <span class="co"># stringr</span>
@@ -682,34 +655,36 @@
 <span class="co">#&gt; [1] "İ"</span></code></pre></div>
 </div>
 </div>
-<div id="join-and-split" class="section level1">
-<h1 class="hasAnchor">
-<a href="#join-and-split" class="anchor"></a>Join and split</h1>
-<div id="str_flatten-flatten-a-string" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_flatten-flatten-a-string" class="anchor"></a><code>str_flatten()</code>: Flatten a string</h2>
-<p>If we want to take elements of a string vector and collapse them to a single string we can use the <code>collapse</code> argument in <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> or use stringr’s <code><a href="../reference/str_flatten.html">str_flatten()</a></code>.</p>
+<div class="section level1">
+<h1 id="join-and-split">Join and split<a class="anchor" aria-label="anchor" href="#join-and-split"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_flatten-flatten-a-string">
+<code>str_flatten()</code>: Flatten a string<a class="anchor" aria-label="anchor" href="#str_flatten-flatten-a-string"></a>
+</h2>
+<p>If we want to take elements of a string vector and collapse them to a single string we can use the <code>collapse</code> argument in <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> or use stringr’s <code><a href="../reference/str_flatten.html">str_flatten()</a></code>.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_flatten.html">str_flatten</a></span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"</span></code></pre></div>
-<p>The advantage of <code><a href="../reference/str_flatten.html">str_flatten()</a></code> is that it always returns a vector the same length as its input; to predict the return length of <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> you must carefully read all arguments.</p>
+<p>The advantage of <code><a href="../reference/str_flatten.html">str_flatten()</a></code> is that it always returns a vector the same length as its input; to predict the return length of <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> you must carefully read all arguments.</p>
 </div>
-<div id="str_dup-duplicate-strings-within-a-character-vector" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_dup-duplicate-strings-within-a-character-vector" class="anchor"></a><code>str_dup()</code>: duplicate strings within a character vector</h2>
-<p>To duplicate strings within a character vector use <code><a href="https://rdrr.io/r/base/strrep.html">strrep()</a></code> (in R 3.3.0 or greater) or <code><a href="../reference/str_dup.html">str_dup()</a></code>:</p>
+<div class="section level2">
+<h2 id="str_dup-duplicate-strings-within-a-character-vector">
+<code>str_dup()</code>: duplicate strings within a character vector<a class="anchor" aria-label="anchor" href="#str_dup-duplicate-strings-within-a-character-vector"></a>
+</h2>
+<p>To duplicate strings within a character vector use <code><a href="https://rdrr.io/r/base/strrep.html" class="external-link">strrep()</a></code> (in R 3.3.0 or greater) or <code><a href="../reference/str_dup.html">str_dup()</a></code>:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"banana"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"banana"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/strrep.html">strrep</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/strrep.html" class="external-link">strrep</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] "appleapple"   "pearpear"     "bananabanana"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/strrep.html">strrep</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/strrep.html" class="external-link">strrep</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "apple"              "pearpear"           "bananabananabanana"</span>
 
 <span class="co"># stringr</span>
@@ -718,17 +693,18 @@
 <span class="fu"><a href="../reference/str_dup.html">str_dup</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "apple"              "pearpear"           "bananabananabanana"</span></code></pre></div>
 </div>
-<div id="str_split-split-up-a-string-into-pieces" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_split-split-up-a-string-into-pieces" class="anchor"></a><code>str_split()</code>: Split up a string into pieces</h2>
-<p>To split a string into pieces with breaks based on a particular pattern match stringr uses <code><a href="../reference/str_split.html">str_split()</a></code> and base R uses <code><a href="https://rdrr.io/r/base/strsplit.html">strsplit()</a></code>. Unlike most other functions, <code><a href="https://rdrr.io/r/base/strsplit.html">strsplit()</a></code> starts with the character vector to modify.</p>
+<div class="section level2">
+<h2 id="str_split-split-up-a-string-into-pieces">
+<code>str_split()</code>: Split up a string into pieces<a class="anchor" aria-label="anchor" href="#str_split-split-up-a-string-into-pieces"></a>
+</h2>
+<p>To split a string into pieces with breaks based on a particular pattern match stringr uses <code><a href="../reference/str_split.html">str_split()</a></code> and base R uses <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>. Unlike most other functions, <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code> starts with the character vector to modify.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
   <span class="st">"apples and oranges and pears and bananas"</span>,
   <span class="st">"pineapples and mangos and guavas"</span>
 <span class="op">)</span>
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt; [1] "apples"  "oranges" "pears"   "bananas"</span>
 <span class="co">#&gt; </span>
@@ -758,21 +734,22 @@
 <span class="co">#&gt; [[2]]</span>
 <span class="co">#&gt; [1] "pineapples"        "mangos and guavas"</span></code></pre></div>
 </div>
-<div id="str_glue-interpolate-strings" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_glue-interpolate-strings" class="anchor"></a><code>str_glue()</code>: Interpolate strings</h2>
-<p>It’s often useful to interpolate varying values into a fixed string. In base R, you can use <code><a href="https://rdrr.io/r/base/sprintf.html">sprintf()</a></code> for this purpose; stringr provides a wrapper for the more general purpose <a href="https://glue.tidyverse.org">glue</a> package.</p>
+<div class="section level2">
+<h2 id="str_glue-interpolate-strings">
+<code>str_glue()</code>: Interpolate strings<a class="anchor" aria-label="anchor" href="#str_glue-interpolate-strings"></a>
+</h2>
+<p>It’s often useful to interpolate varying values into a fixed string. In base R, you can use <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code> for this purpose; stringr provides a wrapper for the more general purpose <a href="https://glue.tidyverse.org" class="external-link">glue</a> package.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Fred"</span>
 <span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">50</span>
-<span class="va">anniversary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"1991-10-12"</span><span class="op">)</span>
+<span class="va">anniversary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1991-10-12"</span><span class="op">)</span>
 
 <span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span>
   <span class="st">"My name is %s my age next year is %s and my anniversary is %s."</span>, 
   <span class="va">name</span>,
   <span class="va">age</span> <span class="op">+</span> <span class="fl">1</span>,
-  <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">anniversary</span>, <span class="st">"%A, %B %d, %Y"</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">anniversary</span>, <span class="st">"%A, %B %d, %Y"</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt; [1] "My name is Fred my age next year is 51 and my anniversary is Saturday, October 12, 1991."</span>
 
@@ -785,32 +762,33 @@
 <span class="co">#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</span></code></pre></div>
 </div>
 </div>
-<div id="order-strings" class="section level1">
-<h1 class="hasAnchor">
-<a href="#order-strings" class="anchor"></a>Order strings</h1>
-<div id="str_order-order-or-sort-a-character-vector" class="section level2">
-<h2 class="hasAnchor">
-<a href="#str_order-order-or-sort-a-character-vector" class="anchor"></a><code>str_order()</code>: Order or sort a character vector</h2>
+<div class="section level1">
+<h1 id="order-strings">Order strings<a class="anchor" aria-label="anchor" href="#order-strings"></a>
+</h1>
+<div class="section level2">
+<h2 id="str_order-order-or-sort-a-character-vector">
+<code>str_order()</code>: Order or sort a character vector<a class="anchor" aria-label="anchor" href="#str_order-order-or-sort-a-character-vector"></a>
+</h2>
 <p>Both base R and stringr have separate functions to order and sort strings.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
-<span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
-<span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span>
-<span class="co">#&gt; [26] 26</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"</span>
-<span class="co">#&gt; [20] "t" "u" "v" "w" "x" "y" "z"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
+<span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</span>
+<span class="co">#&gt; [24] 24 25 26</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"</span>
+<span class="co">#&gt; [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"</span>
 
 <span class="co"># stringr</span>
 <span class="fu"><a href="../reference/str_order.html">str_order</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
-<span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</span>
-<span class="co">#&gt; [26] 26</span>
+<span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</span>
+<span class="co">#&gt; [24] 24 25 26</span>
 <span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"</span>
-<span class="co">#&gt; [20] "t" "u" "v" "w" "x" "y" "z"</span></code></pre></div>
-<p>Some options in <code><a href="../reference/str_order.html">str_order()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code> don’t have analogous base R options. For example, the stringr functions have a <code>locale</code> argument to control how to order or sort. In base R the locale is a global setting, so the outputs of <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> and <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> may differ across different computers. For example, in the Norwegian alphabet, å comes after z:</p>
+<span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"</span>
+<span class="co">#&gt; [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></code></pre></div>
+<p>Some options in <code><a href="../reference/str_order.html">str_order()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code> don’t have analogous base R options. For example, the stringr functions have a <code>locale</code> argument to control how to order or sort. In base R the locale is a global setting, so the outputs of <code><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort()</a></code> and <code><a href="https://rdrr.io/r/base/order.html" class="external-link">order()</a></code> may differ across different computers. For example, in the Norwegian alphabet, å comes after z:</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"å"</span>, <span class="st">"a"</span>, <span class="st">"z"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"å"</span>, <span class="st">"a"</span>, <span class="st">"z"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; [1] "a" "å" "z"</span>
 <span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">x</span>, locale <span class="op">=</span> <span class="st">"no"</span><span class="op">)</span>
@@ -818,41 +796,31 @@
 <p>The stringr functions also have a <code>numeric</code> argument to sort digits numerically instead of treating them as strings.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># stringr</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"100a10"</span>, <span class="st">"100a5"</span>, <span class="st">"2b"</span>, <span class="st">"2a"</span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"100a10"</span>, <span class="st">"100a5"</span>, <span class="st">"2b"</span>, <span class="st">"2a"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; [1] "100a10" "100a5"  "2a"     "2b"</span>
 <span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">x</span>, numeric <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] "2a"     "2b"     "100a5"  "100a10"</span></code></pre></div>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
-
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
-      <footer><div class="tidyverse">
-  <p>stringr is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="https://tidyverse.org">tidyverse.org</a>.</p>
+   </div>
+  <footer><div class="container">
+  <div class="pkgdown-footer-left">
+  <p></p>
+<p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" width="72"></a>.</p>
 </div>
 
-<div class="author">
-  <p>
-    Developed by <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://www.rstudio.com"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.
-    Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
-  </p>
+<div class="pkgdown-footer-right">
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
-      </footer>
-</div>
-
-  
-
-
-  </body>
+  </div></footer>
+</body>
 </html>

@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://stringr.tidyverse.org/404.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/articles/from-base.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/articles/regular-expressions.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/articles/stringr.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/authors.html</loc>
+  </url>
+  <url>
     <loc>https://stringr.tidyverse.org/index.html</loc>
   </url>
   <url>
+    <loc>https://stringr.tidyverse.org/news/index.html</loc>
+  </url>
+  <url>
     <loc>https://stringr.tidyverse.org/reference/case.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/reference/index.html</loc>
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/reference/invert_match.html</loc>
@@ -107,14 +137,5 @@
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/reference/word.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/from-base.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/regular-expressions.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/stringr.html</loc>
   </url>
 </urlset>
