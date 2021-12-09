@@ -1,9 +1,10 @@
-#' View HTML rendering of regular expression match
+#' View regular expression matches
 #'
 #' @description
 #' `str_view()` shows the first match; `str_view_all()` shows all matches.
-#' Whitespace characters (apart from space, `" "`) are shown with a red
-#' background.
+#' Matches are surrounded by `<>` and coloured blue; unusual whitespace
+#' characters (i.e. everything apart from `" "` and `"\n"`) are shown with a
+#' red background.
 #'
 #' To build regular expressions interactively, check out the
 #' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).

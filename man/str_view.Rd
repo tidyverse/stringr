@@ -3,7 +3,7 @@
 \name{str_view}
 \alias{str_view}
 \alias{str_view_all}
-\title{View HTML rendering of regular expression match}
+\title{View regular expression matches}
 \usage{
 str_view(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE)
 
@@ -22,8 +22,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
-\code{\link[=regex]{regex()}}.
+\code{vignette(regular-expressions)}.Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -49,8 +48,9 @@ values are stored in the string.}
 }
 \description{
 \code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
-Whitespace characters (apart from space, \code{" "}) are shown with a red
-background.
+Matches are surrounded by \verb{<>} and coloured blue; unusual whitespace
+characters (i.e. everything apart from \code{" "} and \code{"\\n"}) are shown with a
+red background.
 
 To build regular expressions interactively, check out the
 \href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
