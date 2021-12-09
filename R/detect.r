@@ -9,8 +9,7 @@
 #' @param pattern Pattern to look for.
 #'
 #'   The default interpretation is a regular expression, as described
-#'   in [stringi::about_search_regex]. Control options with
-#'   [regex()].
+#'   `vignette("regular-expressions")`.Control options with [regex()].
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,

@@ -13,15 +13,22 @@ str_match_all(string, pattern)
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{pattern}{Pattern to look for, as defined by an ICU regular
-expression. See \link[stringi:about_search_regex]{stringi::about_search_regex} for more details.}
+\item{pattern}{The default interpretation is a regular expression, as
+described \code{vignette("regular-expressions")}. Should contain at least
+one capturing group.}
 }
 \value{
-For \code{str_match}, a character matrix. First column is the
-complete match, followed by one column for each capture group.
-For \code{str_match_all}, a list of character matrices.
+For \code{str_match()}, a character matrix; for \code{str_match_all()}, a
+list of character matrices. First column is the complete match, followed
+by one column for each capture group. The columns will be named if you used
+"named captured groups", i.e. \verb{(?<name>pattern')}.
 }
 \description{
+Extract any number of matches defined by unnamed, \code{(pattern)}, and
+named, \verb{(?<name>pattern)} capture groups. Use a non-capturing group,
+\verb{(?:pattern)}, if you need to override default operate precedence but
+don't want to capture the result.
+
 Vectorised over \code{string} and \code{pattern}.
 }
 \examples{
@@ -38,6 +45,10 @@ str_match(strings, phone)
 str_extract_all(strings, phone)
 str_match_all(strings, phone)
 
+# You can also name the groups to make further manipulation easier
+phone <- "(?<area>[2-9][0-9]{2})[- .](?<phone>[0-9]{3}[- .][0-9]{4})"
+str_match(strings, phone)
+
 x <- c("<a> <b>", "<a> <>", "<a>", "", NA)
 str_match(x, "<(.*?)> <(.*?)>")
 str_match_all(x, "<(.*?)>")
@@ -47,6 +58,5 @@ str_extract_all(x, "<.*?>")
 }
 \seealso{
 \code{\link[=str_extract]{str_extract()}} to extract the complete match,
-\code{\link[stringi:stri_match]{stringi::stri_match()}} for the underlying
-implementation.
+\code{\link[stringi:stri_match]{stringi::stri_match()}} for the underlying implementation.
 }

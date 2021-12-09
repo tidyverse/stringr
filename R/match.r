@@ -1,17 +1,23 @@
 #' Extract matched groups from a string
 #'
+#' @description
+#' Extract any number of matches defined by unnamed, `(pattern)`, and
+#' named, `(?<name>pattern)` capture groups. Use a non-capturing group,
+#' `(?:pattern)`, if you need to override default operate precedence but
+#' don't want to capture the result.
+#'
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
-#' @param pattern Pattern to look for, as defined by an ICU regular
-#'   expression. See [stringi::about_search_regex] for more details.
-#' @return For `str_match`, a character matrix. First column is the
-#'   complete match, followed by one column for each capture group.
-#'   For `str_match_all`, a list of character matrices.
-#'
+#' @param pattern The default interpretation is a regular expression, as
+#'   described `vignette("regular-expressions")`. Should contain at least
+#'   one capturing group.
+#' @return For `str_match()`, a character matrix; for `str_match_all()`, a
+#' list of character matrices. First column is the complete match, followed
+#' by one column for each capture group. The columns will be named if you used
+#' "named captured groups", i.e. `(?<name>pattern')`.
 #' @seealso [str_extract()] to extract the complete match,
-#'   [stringi::stri_match()] for the underlying
-#'   implementation.
+#'   [stringi::stri_match()] for the underlying implementation.
 #' @export
 #' @examples
 #' strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
@@ -26,6 +32,10 @@
 #' # Extract/match all
 #' str_extract_all(strings, phone)
 #' str_match_all(strings, phone)
+#'
+#' # You can also name the groups to make further manipulation easier
+#' phone <- "(?<area>[2-9][0-9]{2})[- .](?<phone>[0-9]{3}[- .][0-9]{4})"
+#' str_match(strings, phone)
 #'
 #' x <- c("<a> <b>", "<a> <>", "<a>", "", NA)
 #' str_match(x, "<(.*?)> <(.*?)>")
