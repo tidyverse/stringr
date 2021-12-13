@@ -11,7 +11,7 @@ str_equal(x, y, locale = "en", ignore_case = FALSE, ...)
 
 \item{locale}{Locale to use for comparisons. See
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
-Defaults to "en" (English) to ensure that the default collation is
+Defaults to "en" (English) to ensure that default behaviour is
 consistent across platforms.}
 
 \item{ignore_case}{Ignore case when comparing strings?}

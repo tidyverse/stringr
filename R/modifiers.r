@@ -63,7 +63,7 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #' @rdname modifiers
 #' @param locale Locale to use for comparisons. See
 #'   [stringi::stri_locale_list()] for all possible options.
-#'   Defaults to "en" (English) to ensure that the default collation is
+#'   Defaults to "en" (English) to ensure that default behaviour is
 #'   consistent across platforms.
 #' @param ... Other less frequently used arguments passed on to
 #'   [stringi::stri_opts_collator()],

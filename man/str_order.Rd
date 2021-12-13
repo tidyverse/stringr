@@ -34,7 +34,7 @@ lowest to highest; if \code{TRUE} sorts from highest to lowest.}
 
 \item{locale}{Locale to use for comparisons. See
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
-Defaults to "en" (English) to ensure that the default collation is
+Defaults to "en" (English) to ensure that default behaviour is
 consistent across platforms.}
 
 \item{numeric}{If \code{TRUE}, will sort digits numerically, instead
