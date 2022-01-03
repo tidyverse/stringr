@@ -36,11 +36,11 @@ you’ve mastered stringr, you should find stringi similarly easy to use.
 ## Installation
 
 ``` r
-# The easiest way to get dplyr is to install the whole tidyverse:
+# The easiest way to get stringr is to install the whole tidyverse:
 install.packages("tidyverse")
 
-# Alternatively, install just dplyr:
-install.packages("dplyr")
+# Alternatively, install just stringr:
+install.packages("stringr")
 ```
 
 ## Cheatsheet
