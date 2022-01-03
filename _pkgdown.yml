@@ -1,5 +1,8 @@
 url: https://stringr.tidyverse.org
 
+development:
+  mode: auto
+
 template:
   package: tidytemplate
   bootstrap: 5
