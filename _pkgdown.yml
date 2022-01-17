@@ -6,6 +6,9 @@ development:
 template:
   package: tidytemplate
   bootstrap: 5
+  includes:
+    in_header: |
+      <script defer data-domain="stringr.tidyverse.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 
 home:
   links:
