@@ -1,3 +1,6 @@
+test_that("results are truncated", {
+  expect_snapshot(str_view(words, html = FALSE))
+})
 
 test_that("view highlights matches", {
   x <- c("abc", "def", "fgh")
@@ -46,4 +49,9 @@ test_that("view_all shows all matches", {
 
   a <- str_view_all(x, "d|e", match = FALSE)
   expect_equal(str_count(a$x$html, "match"), 0)
+})
+
+test_that("[ preserves class", {
+  x <- str_view(letters, html = FALSE)
+  expect_s3_class(x[], "stringr_view")
 })

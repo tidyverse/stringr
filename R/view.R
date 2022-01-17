@@ -152,7 +152,18 @@ str_view_widget <- function(lines) {
 }
 
 #' @export
-print.stringr_view <- function(x, ...) {
-  cat(x, sep = "\n")
+print.stringr_view <- function(x, ..., n = 20) {
+  if (length(x) > n) {
+    cat(x[seq_len(n)], sep = "\n")
+    cat("... and ", length(x) - n, " more\n", sep = "")
+  } else {
+    cat(x, sep = "\n")
+  }
+
   invisible(x)
+}
+
+#' @export
+`[.stringr_view` <- function(x, ...) {
+  structure(NextMethod(), class = "stringr_view")
 }

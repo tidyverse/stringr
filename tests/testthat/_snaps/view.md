@@ -1,3 +1,30 @@
+# results are truncated
+
+    Code
+      str_view(words, html = FALSE)
+    Output
+      a
+      able
+      about
+      absolute
+      accept
+      account
+      achieve
+      across
+      act
+      active
+      actual
+      add
+      address
+      admit
+      advertise
+      affect
+      afford
+      after
+      afternoon
+      again
+      ... and 960 more
+
 # view highlights matches
 
     Code
