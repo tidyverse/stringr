@@ -30,6 +30,10 @@
   help you move to stringr if you're already familiar with base R string
   functions (#266).
 
+* New `str_escape()` escapes regular expression metacharacters, providing
+  an alternative to `fixed()` if you want to compose a pattern from external
+  strings (#408).
+
 * New `str_equal()` compares two character vectors using unicode rules,
   and optionally ignores case (#381).
 
