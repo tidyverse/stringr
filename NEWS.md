@@ -23,7 +23,8 @@
   places than HTML widgets and requires fewer dependencies. `str_view()` also 
   no longer requires a pattern so you can use it to display strings with 
   special characters. It now highlights whitespace characters apart from space
-  since otherwise they are often confusing.
+  since otherwise they are often confusing. It's also now vectorised over both
+  `string` and `pattern` (#407).
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to

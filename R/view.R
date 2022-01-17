@@ -43,9 +43,16 @@
 #' # Show all matches
 #' str_view_all(c("abc", "def", "fgh"), "d|e")
 str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
+  rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
+  string <- rec$string
+  pattern <- rec$pattern
+
   html <- str_view_use_html(html)
 
-  out <- str_view_filter(string, pattern, match)
+  filter <- str_view_filter(string, pattern, match)
+  out <- string[filter]
+  pattern <- pattern[filter]
+
   if (!is.null(pattern)) {
     out <- str_replace(out, pattern, str_view_highlighter(html))
   }
@@ -62,9 +69,16 @@ str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escape
 #' @rdname str_view
 #' @export
 str_view_all <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
+  rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
+  string <- rec$string
+  pattern <- rec$pattern
+
   html <- str_view_use_html(html)
 
-  out <- str_view_filter(string, pattern, match)
+  filter <- str_view_filter(string, pattern, match)
+  out <- string[filter]
+  pattern <- pattern[filter]
+
   if (!is.null(pattern)) {
     out <- str_replace_all(out, pattern, str_view_highlighter(html))
   }
@@ -80,14 +94,14 @@ str_view_all <- function(string, pattern = NULL, match = NA, html = NULL, use_es
 
 str_view_filter <- function(x, pattern, match) {
   if (is.null(pattern)) {
-    x
+    TRUE
   } else {
     if (identical(match, TRUE)) {
-      x[str_detect(x, pattern)]
+      str_detect(x, pattern)
     } else if (identical(match, FALSE)) {
-      x[!str_detect(x, pattern)]
+      !str_detect(x, pattern)
     } else {
-      x
+      TRUE
     }
   }
 }

@@ -51,6 +51,11 @@ test_that("view_all shows all matches", {
   expect_equal(str_count(a$x$html, "match"), 0)
 })
 
+test_that("vectorised over pattern", {
+  x <- str_view("a", c("a", "b"), html = FALSE)
+  expect_equal(length(x), 2)
+})
+
 test_that("[ preserves class", {
   x <- str_view(letters, html = FALSE)
   expect_s3_class(x[], "stringr_view")
