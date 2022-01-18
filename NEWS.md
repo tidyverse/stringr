@@ -17,6 +17,8 @@
 
 * `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
 
+* `regex()` and friends now generate class names with `stringr_` prefix (#384).
+
 ## New features
 
 * `str_view()` will use ANSI colouring if available (#370). This works in more 
