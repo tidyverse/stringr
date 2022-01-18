@@ -40,6 +40,9 @@
 * New `str_equal()` compares two character vectors using unicode rules,
   and optionally ignores case (#381).
 
+* New `str_split_1()` is tailored for the special case of splitting up a single 
+  string (#409).
+
 * New `str_split_n()` function to extract only a single piece from a string
   (#278, @bfgray3).
   
