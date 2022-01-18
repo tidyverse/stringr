@@ -49,6 +49,8 @@
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
 
+* New `str_width()` returns the display width of a string (#380).
+
 * stringr is now licensed as MIT (#351).
 
 ## Minor improvements and bug fixes
@@ -60,7 +62,7 @@
 * `str_flatten()` gains a `last` argument that optionally override the
   final separator (#377).
 
-* `str_pad()` gains `use_length` argument to control whether to use the total code
+* `str_pad()` gains `use_width` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
 
 * `str_replace()` and `str_replace_all()` can use standard tidyverse formula

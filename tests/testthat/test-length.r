@@ -15,3 +15,8 @@ test_that("str_length of factor is length of level", {
   expect_equal(str_length(factor("ab")), 2)
   expect_equal(str_length(factor("abc")), 3)
 })
+
+test_that("str_width returns display width", {
+  x <- c("\u0308", "x", "\U0001f60a")
+  expect_equal(str_width(x), c(0, 1, 2))
+})
