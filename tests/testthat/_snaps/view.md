@@ -49,14 +49,14 @@
     Code
       str_view(x, "[aeiou]", html = FALSE)
     Output
-      [1] <a > bc
-      [2] d<e > f
+      [1] <a>bc
+      [2] d<e>f
       [3] fgh
     Code
       str_view_all(x, "d|e", html = FALSE)
     Output
       [1] abc
-      [2] <d > <e > f
+      [2] <d><e>f
       [3] fgh
 
 # view highlights whitespace (except a space/nl)

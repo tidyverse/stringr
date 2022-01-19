@@ -117,7 +117,7 @@ str_view_highlighter <- function(html = TRUE) {
     function(x) paste0("<span class='match'>", x, "</span>")
   } else {
     # Need to considering printing: colour alone is not enough
-    function(x) cli::col_cyan("<", x, " > ")
+    function(x) cli::col_cyan("<", x, ">")
   }
 }
 
