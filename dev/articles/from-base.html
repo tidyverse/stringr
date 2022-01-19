@@ -43,7 +43,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="../articles/stringr.html">Get started</a>
@@ -90,6 +90,9 @@
   </div>
 </nav><div class="container template-article" id="container">
 
+
+
+
 <div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>From base R</h1>
@@ -103,9 +106,9 @@
     
     
 <p>This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr.</p>
-<div class="section level1">
-<h1 id="overall-differences">Overall differences<a class="anchor" aria-label="anchor" href="#overall-differences"></a>
-</h1>
+<div class="section level2">
+<h2 id="overall-differences">Overall differences<a class="anchor" aria-label="anchor" href="#overall-differences"></a>
+</h2>
 <p>We’ll begin with a lookup table between the most important base string functions and their stringr equivalents.</p>
 <table class="table">
 <thead><tr class="header">
@@ -211,13 +214,13 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="detect-matches">Detect matches<a class="anchor" aria-label="anchor" href="#detect-matches"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string">
-<code>str_detect()</code>: Detect the presence or absence of a pattern in a string<a class="anchor" aria-label="anchor" href="#str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string"></a>
+<h2 id="detect-matches">Detect matches<a class="anchor" aria-label="anchor" href="#detect-matches"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string">
+<code>str_detect()</code>: Detect the presence or absence of a pattern in a string<a class="anchor" aria-label="anchor" href="#str_detect-detect-the-presence-or-absence-of-a-pattern-in-a-string"></a>
+</h3>
 <p>Suppose you want to know whether each word in a vector of fruit names contains an “a”.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
@@ -231,10 +234,10 @@
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE</span></code></pre></div>
 <p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl()</a></code> (see the “l” and think logical) while in stringr you use <code><a href="../reference/str_detect.html">str_detect()</a></code> (see the verb “detect” and think of a yes/no action).</p>
 </div>
-<div class="section level2">
-<h2 id="str_which-find-positions-matching-a-pattern">
+<div class="section level3">
+<h3 id="str_which-find-positions-matching-a-pattern">
 <code>str_which()</code>: Find positions matching a pattern<a class="anchor" aria-label="anchor" href="#str_which-find-positions-matching-a-pattern"></a>
-</h2>
+</h3>
 <p>Now you want to identify the positions of the words in a vector of fruit names that contain an “a”.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -246,10 +249,10 @@
 <span class="co">#&gt; [1] 1 2 3 4</span></code></pre></div>
 <p>In base you would use <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep()</a></code> while in stringr you use <code><a href="../reference/str_subset.html">str_which()</a></code> (by analogy to <code><a href="https://rdrr.io/r/base/which.html" class="external-link">which()</a></code>).</p>
 </div>
-<div class="section level2">
-<h2 id="str_count-count-the-number-of-matches-in-a-string">
+<div class="section level3">
+<h3 id="str_count-count-the-number-of-matches-in-a-string">
 <code>str_count()</code>: Count the number of matches in a string<a class="anchor" aria-label="anchor" href="#str_count-count-the-number-of-matches-in-a-string"></a>
-</h2>
+</h3>
 <p>How many “a”s are in each fruit?</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base </span>
@@ -262,10 +265,10 @@
 <span class="co">#&gt; [1] 1 3 1 1</span></code></pre></div>
 <p>This information can be gleaned from <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr()</a></code> in base, but you need to look at the <code>match.length</code> attribute as the vector uses a length-1 integer vector (<code>-1</code>) to indicate no match.</p>
 </div>
-<div class="section level2">
-<h2 id="str_locate-locate-the-position-of-patterns-in-a-string">
+<div class="section level3">
+<h3 id="str_locate-locate-the-position-of-patterns-in-a-string">
 <code>str_locate()</code>: Locate the position of patterns in a string<a class="anchor" aria-label="anchor" href="#str_locate-locate-the-position-of-patterns-in-a-string"></a>
-</h2>
+</h3>
 <p>Within each fruit, where does the first “p” occur? Where are all of the “p”s?</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fruit3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"papaya"</span>, <span class="st">"lime"</span>, <span class="st">"apple"</span><span class="op">)</span>
@@ -307,13 +310,13 @@
 <span class="co">#&gt; [2,]     3   3</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="subset-strings">Subset strings<a class="anchor" aria-label="anchor" href="#subset-strings"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_sub-extract-and-replace-substrings-from-a-character-vector">
-<code>str_sub()</code>: Extract and replace substrings from a character vector<a class="anchor" aria-label="anchor" href="#str_sub-extract-and-replace-substrings-from-a-character-vector"></a>
+<h2 id="subset-strings">Subset strings<a class="anchor" aria-label="anchor" href="#subset-strings"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_sub-extract-and-replace-substrings-from-a-character-vector">
+<code>str_sub()</code>: Extract and replace substrings from a character vector<a class="anchor" aria-label="anchor" href="#str_sub-extract-and-replace-substrings-from-a-character-vector"></a>
+</h3>
 <p>What if we want to grab part of a string?</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">hw</span> <span class="op">&lt;-</span> <span class="st">"Hadley Wickham"</span>
@@ -363,10 +366,10 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, stop <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Hadley Wickham"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_sub---subset-assignment">
+<div class="section level3">
+<h3 id="str_sub---subset-assignment">
 <code>str_sub() &lt;-</code>: Subset assignment<a class="anchor" aria-label="anchor" href="#str_sub---subset-assignment"></a>
-</h2>
+</h3>
 <p><code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code> behaves in a surprising way when you replace a substring with a different number of characters:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -382,10 +385,10 @@
 <span class="va">x</span>
 <span class="co">#&gt; [1] "xDEF"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_subset-keep-strings-matching-a-pattern-or-find-positions">
+<div class="section level3">
+<h3 id="str_subset-keep-strings-matching-a-pattern-or-find-positions">
 <code>str_subset()</code>: Keep strings matching a pattern, or find positions<a class="anchor" aria-label="anchor" href="#str_subset-keep-strings-matching-a-pattern-or-find-positions"></a>
-</h2>
+</h3>
 <p>We may want to retrieve strings that contain a pattern of interest:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -396,10 +399,10 @@
 <span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">fruit</span>, pattern <span class="op">=</span> <span class="st">"g"</span><span class="op">)</span>
 <span class="co">#&gt; character(0)</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_extract-extract-matching-patterns-from-a-string">
+<div class="section level3">
+<h3 id="str_extract-extract-matching-patterns-from-a-string">
 <code>str_extract()</code>: Extract matching patterns from a string<a class="anchor" aria-label="anchor" href="#str_extract-extract-matching-patterns-from-a-string"></a>
-</h2>
+</h3>
 <p>We may want to pick out certain patterns from a string, for example, the digits in a shopping list:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">shopping_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apples x4"</span>, <span class="st">"bag of flour"</span>, <span class="st">"10"</span>, <span class="st">"milk x2"</span><span class="op">)</span>
@@ -440,10 +443,10 @@
 <span class="co">#&gt; [1] "milk" "x"</span></code></pre></div>
 <p>Base R requires the combination of <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexpr()</a></code> with <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>; but note that the strings without matches are dropped from the output. stringr provides <code><a href="../reference/str_extract.html">str_extract()</a></code> and <code><a href="../reference/str_extract.html">str_extract_all()</a></code>, and the output is always the same length as the input.</p>
 </div>
-<div class="section level2">
-<h2 id="str_match-extract-matched-groups-from-a-string">
+<div class="section level3">
+<h3 id="str_match-extract-matched-groups-from-a-string">
 <code>str_match()</code>: Extract matched groups from a string<a class="anchor" aria-label="anchor" href="#str_match-extract-matched-groups-from-a-string"></a>
-</h2>
+</h3>
 <p>We may also want to extract groups from a string. Here I’m going to use the scenario from Section 14.4.3 in <a href="https://r4ds.had.co.nz/strings.html" class="external-link">R for Data Science</a>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
@@ -476,13 +479,13 @@
 <p>As for extracting the full match base R requires the combination of two functions, and inputs with no matches are dropped from the output.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="manage-lengths">Manage lengths<a class="anchor" aria-label="anchor" href="#manage-lengths"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_length-the-length-of-a-string">
-<code>str_length()</code>: The length of a string<a class="anchor" aria-label="anchor" href="#str_length-the-length-of-a-string"></a>
+<h2 id="manage-lengths">Manage lengths<a class="anchor" aria-label="anchor" href="#manage-lengths"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_length-the-length-of-a-string">
+<code>str_length()</code>: The length of a string<a class="anchor" aria-label="anchor" href="#str_length-the-length-of-a-string"></a>
+</h3>
 <p>To determine the length of a string, base R uses <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> (not to be confused with <code><a href="https://rdrr.io/r/base/length.html" class="external-link">length()</a></code> which gives the length of vectors, etc.) while stringr uses <code><a href="../reference/str_length.html">str_length()</a></code>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -512,10 +515,10 @@
 <span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1 2</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_pad-pad-a-string">
+<div class="section level3">
+<h3 id="str_pad-pad-a-string">
 <code>str_pad()</code>: Pad a string<a class="anchor" aria-label="anchor" href="#str_pad-pad-a-string"></a>
-</h2>
+</h3>
 <p>To pad a string to a certain width, use stringr’s <code><a href="../reference/str_pad.html">str_pad()</a></code>. In base R you could use <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code>, but unlike <code><a href="../reference/str_pad.html">str_pad()</a></code>, <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code> has many other functionalities.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -536,10 +539,10 @@
 <span class="co">#&gt; [2,] "hadley                        "</span>
 <span class="co">#&gt; [3,] "            hadley            "</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_trunc-truncate-a-character-string">
+<div class="section level3">
+<h3 id="str_trunc-truncate-a-character-string">
 <code>str_trunc()</code>: Truncate a character string<a class="anchor" aria-label="anchor" href="#str_trunc-truncate-a-character-string"></a>
-</h2>
+</h3>
 <p>The stringr package provides an easy way to truncate a character string: <code><a href="../reference/str_trunc.html">str_trunc()</a></code>. Base R has no function to do this directly.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"This string is moderately long"</span>
@@ -555,10 +558,10 @@
 <span class="co">#&gt; [2,] "...s moderately long"</span>
 <span class="co">#&gt; [3,] "This stri...ely long"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_trim-trim-whitespace-from-a-string">
+<div class="section level3">
+<h3 id="str_trim-trim-whitespace-from-a-string">
 <code>str_trim()</code>: Trim whitespace from a string<a class="anchor" aria-label="anchor" href="#str_trim-trim-whitespace-from-a-string"></a>
-</h2>
+</h3>
 <p>Similarly, stringr provides <code><a href="../reference/str_trim.html">str_trim()</a></code> to trim whitespace from a string. This is analogous to base R’s <code><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws()</a></code> added in R 3.3.0.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -580,10 +583,10 @@
 <span class="fu"><a href="../reference/str_trim.html">str_squish</a></span><span class="op">(</span><span class="st">"\n\nString with excess, trailing and leading white space\n\n"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "String with excess, trailing and leading white space"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_wrap-wrap-strings-into-nicely-formatted-paragraphs">
+<div class="section level3">
+<h3 id="str_wrap-wrap-strings-into-nicely-formatted-paragraphs">
 <code>str_wrap()</code>: Wrap strings into nicely formatted paragraphs<a class="anchor" aria-label="anchor" href="#str_wrap-wrap-strings-into-nicely-formatted-paragraphs"></a>
-</h2>
+</h3>
 <p><code><a href="https://rdrr.io/r/base/strwrap.html" class="external-link">strwrap()</a></code> and <code><a href="../reference/str_wrap.html">str_wrap()</a></code> use different algorithms. <code><a href="../reference/str_wrap.html">str_wrap()</a></code> uses the famous <a href="http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html" class="external-link">Knuth-Plass algorithm</a>.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gettysburg</span> <span class="op">&lt;-</span> <span class="st">"Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."</span>
@@ -603,13 +606,13 @@
 <p>Note that <code><a href="https://rdrr.io/r/base/strwrap.html" class="external-link">strwrap()</a></code> returns a character vector with one element for each line; <code><a href="../reference/str_wrap.html">str_wrap()</a></code> returns a single string containing line breaks.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="mutate-strings">Mutate strings<a class="anchor" aria-label="anchor" href="#mutate-strings"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_replace-replace-matched-patterns-in-a-string">
-<code>str_replace()</code>: Replace matched patterns in a string<a class="anchor" aria-label="anchor" href="#str_replace-replace-matched-patterns-in-a-string"></a>
+<h2 id="mutate-strings">Mutate strings<a class="anchor" aria-label="anchor" href="#mutate-strings"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_replace-replace-matched-patterns-in-a-string">
+<code>str_replace()</code>: Replace matched patterns in a string<a class="anchor" aria-label="anchor" href="#str_replace-replace-matched-patterns-in-a-string"></a>
+</h3>
 <p>To replace certain patterns within a string, stringr provides the functions <code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code>. The base R equivalents are <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">sub()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub()</a></code>. Note the difference in default input order again.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"pineapple"</span><span class="op">)</span>
@@ -626,9 +629,9 @@
 <span class="fu"><a href="../reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "-ppl-"     "b-n-n-"    "p--r"      "p-n--ppl-"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="case-convert-case-of-a-string">case: Convert case of a string<a class="anchor" aria-label="anchor" href="#case-convert-case-of-a-string"></a>
-</h2>
+<div class="section level3">
+<h3 id="case-convert-case-of-a-string">case: Convert case of a string<a class="anchor" aria-label="anchor" href="#case-convert-case-of-a-string"></a>
+</h3>
 <p>Both stringr and base R have functions to convert to upper and lower case. Title case is also provided in stringr.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dog</span> <span class="op">&lt;-</span> <span class="st">"The quick brown dog"</span>
@@ -657,13 +660,13 @@
 <span class="co">#&gt; [1] "İ"</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="join-and-split">Join and split<a class="anchor" aria-label="anchor" href="#join-and-split"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_flatten-flatten-a-string">
-<code>str_flatten()</code>: Flatten a string<a class="anchor" aria-label="anchor" href="#str_flatten-flatten-a-string"></a>
+<h2 id="join-and-split">Join and split<a class="anchor" aria-label="anchor" href="#join-and-split"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_flatten-flatten-a-string">
+<code>str_flatten()</code>: Flatten a string<a class="anchor" aria-label="anchor" href="#str_flatten-flatten-a-string"></a>
+</h3>
 <p>If we want to take elements of a string vector and collapse them to a single string we can use the <code>collapse</code> argument in <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> or use stringr’s <code><a href="../reference/str_flatten.html">str_flatten()</a></code>.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -675,10 +678,10 @@
 <span class="co">#&gt; [1] "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"</span></code></pre></div>
 <p>The advantage of <code><a href="../reference/str_flatten.html">str_flatten()</a></code> is that it always returns a vector the same length as its input; to predict the return length of <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> you must carefully read all arguments.</p>
 </div>
-<div class="section level2">
-<h2 id="str_dup-duplicate-strings-within-a-character-vector">
+<div class="section level3">
+<h3 id="str_dup-duplicate-strings-within-a-character-vector">
 <code>str_dup()</code>: duplicate strings within a character vector<a class="anchor" aria-label="anchor" href="#str_dup-duplicate-strings-within-a-character-vector"></a>
-</h2>
+</h3>
 <p>To duplicate strings within a character vector use <code><a href="https://rdrr.io/r/base/strrep.html" class="external-link">strrep()</a></code> (in R 3.3.0 or greater) or <code><a href="../reference/str_dup.html">str_dup()</a></code>:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"banana"</span><span class="op">)</span>
@@ -695,10 +698,10 @@
 <span class="fu"><a href="../reference/str_dup.html">str_dup</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "apple"              "pearpear"           "bananabananabanana"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_split-split-up-a-string-into-pieces">
+<div class="section level3">
+<h3 id="str_split-split-up-a-string-into-pieces">
 <code>str_split()</code>: Split up a string into pieces<a class="anchor" aria-label="anchor" href="#str_split-split-up-a-string-into-pieces"></a>
-</h2>
+</h3>
 <p>To split a string into pieces with breaks based on a particular pattern match stringr uses <code><a href="../reference/str_split.html">str_split()</a></code> and base R uses <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code>. Unlike most other functions, <code><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit()</a></code> starts with the character vector to modify.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
@@ -736,10 +739,10 @@
 <span class="co">#&gt; [[2]]</span>
 <span class="co">#&gt; [1] "pineapples"        "mangos and guavas"</span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="str_glue-interpolate-strings">
+<div class="section level3">
+<h3 id="str_glue-interpolate-strings">
 <code>str_glue()</code>: Interpolate strings<a class="anchor" aria-label="anchor" href="#str_glue-interpolate-strings"></a>
-</h2>
+</h3>
 <p>It’s often useful to interpolate varying values into a fixed string. In base R, you can use <code><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf()</a></code> for this purpose; stringr provides a wrapper for the more general purpose <a href="https://glue.tidyverse.org" class="external-link">glue</a> package.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Fred"</span>
@@ -764,13 +767,13 @@
 <span class="co">#&gt; My name is Fred, my age next year is 51, and my anniversary is Saturday, October 12, 1991.</span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="order-strings">Order strings<a class="anchor" aria-label="anchor" href="#order-strings"></a>
-</h1>
 <div class="section level2">
-<h2 id="str_order-order-or-sort-a-character-vector">
-<code>str_order()</code>: Order or sort a character vector<a class="anchor" aria-label="anchor" href="#str_order-order-or-sort-a-character-vector"></a>
+<h2 id="order-strings">Order strings<a class="anchor" aria-label="anchor" href="#order-strings"></a>
 </h2>
+<div class="section level3">
+<h3 id="str_order-order-or-sort-a-character-vector">
+<code>str_order()</code>: Order or sort a character vector<a class="anchor" aria-label="anchor" href="#str_order-order-or-sort-a-character-vector"></a>
+</h3>
 <p>Both base R and stringr have separate functions to order and sort strings.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># base</span>
@@ -820,7 +823,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
   </div></footer>
