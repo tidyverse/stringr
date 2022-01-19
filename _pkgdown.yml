@@ -20,6 +20,7 @@ reference:
   contents:
   - str_count
   - str_detect
+  - str_escape
   - str_extract
   - str_locate
   - str_match
