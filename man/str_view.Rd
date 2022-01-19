@@ -50,7 +50,7 @@ values are stored in the string.}
 \code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
 Matches are surrounded by \verb{<>} and coloured blue; unusual whitespace
 characters (i.e. everything apart from \code{" "} and \code{"\\n"}) are shown with a
-red background.
+blue background.
 
 To build regular expressions interactively, check out the
 \href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.

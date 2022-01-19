@@ -4,7 +4,7 @@
 #' `str_view()` shows the first match; `str_view_all()` shows all matches.
 #' Matches are surrounded by `<>` and coloured blue; unusual whitespace
 #' characters (i.e. everything apart from `" "` and `"\n"`) are shown with a
-#' red background.
+#' blue background.
 #'
 #' To build regular expressions interactively, check out the
 #' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
@@ -117,7 +117,7 @@ str_view_highlighter <- function(html = TRUE) {
     function(x) paste0("<span class='match'>", x, "</span>")
   } else {
     # Need to considering printing: colour alone is not enough
-    function(x) cli::col_cyan("<", x, ">")
+    function(x) cli::col_cyan("<", x, " > ")
   }
 }
 
@@ -125,10 +125,10 @@ str_view_special <- function(x, html = TRUE) {
   if (html) {
     replace <- function(x) paste0("<span class='special'>", x, "</span>")
   } else {
-    replace <- function(x) cli::col_white(cli::bg_red(x))
+    replace <- function(x) cli::bg_cyan(x)
   }
 
-  # Highlight, anything whitespace characters that aren't a space.
+  # Highlight any non-standard whitespace characters
   str_replace_all(x, "[\\p{Whitespace}-- \n]+", replace)
 }
 
@@ -167,11 +167,18 @@ str_view_widget <- function(lines) {
 
 #' @export
 print.stringr_view <- function(x, ..., n = 20) {
-  if (length(x) > n) {
-    cat(x[seq_len(n)], sep = "\n")
-    cat("... and ", length(x) - n, " more\n", sep = "")
-  } else {
-    cat(x, sep = "\n")
+  n_extra <- length(x) - n
+  if (n_extra > 0) {
+    x <- x[seq_len(n)]
+  }
+
+  id <- format(paste0("[", seq_along(x), "] "), justify = "right")
+  x <- paste0(id, x)
+  x <- str_replace_all(x, "\n", paste0("\n", strrep(" ", nchar(id[[1]]))))
+
+  cat(x, sep = "\n")
+  if (n_extra > 0) {
+    cat("... and ", n_extra, " more\n", sep = "")
   }
 
   invisible(x)
