@@ -63,7 +63,7 @@ str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escape
     out <- str_view_special(out, html = html)
   }
 
-  str_view_print(out, html)
+  str_view_print(out, filter, html = html)
 }
 
 #' @rdname str_view
@@ -89,19 +89,19 @@ str_view_all <- function(string, pattern = NULL, match = NA, html = NULL, use_es
     out <- str_replace_all(out, fixed("\\u001b"), "\u001b")
   }
 
-  str_view_print(out, html)
+  str_view_print(out, filter, html = html)
 }
 
 str_view_filter <- function(x, pattern, match) {
   if (is.null(pattern)) {
-    TRUE
+    rep(TRUE, length(x))
   } else {
     if (identical(match, TRUE)) {
       str_detect(x, pattern)
     } else if (identical(match, FALSE)) {
       !str_detect(x, pattern)
     } else {
-      TRUE
+      rep(TRUE, length(x))
     }
   }
 }
@@ -132,11 +132,11 @@ str_view_special <- function(x, html = TRUE) {
   str_replace_all(x, "[\\p{Whitespace}-- \n]+", replace)
 }
 
-str_view_print <- function(x, html = TRUE) {
+str_view_print <- function(x, filter, html = TRUE) {
   if (html) {
     str_view_widget(x)
   } else {
-    structure(x, class = "stringr_view")
+    structure(x, id = which(filter), class = "stringr_view")
   }
 }
 
@@ -172,7 +172,7 @@ print.stringr_view <- function(x, ..., n = 20) {
     x <- x[seq_len(n)]
   }
 
-  id <- format(paste0("[", seq_along(x), "] "), justify = "right")
+  id <- format(paste0("[", attr(x, "id"), "] "), justify = "right")
   x <- paste0(id, x)
   x <- str_replace_all(x, "\n", paste0("\n", strrep(" ", nchar(id[[1]]))))
 
@@ -185,6 +185,6 @@ print.stringr_view <- function(x, ..., n = 20) {
 }
 
 #' @export
-`[.stringr_view` <- function(x, ...) {
-  structure(NextMethod(), class = "stringr_view")
+`[.stringr_view` <- function(x, i, ...) {
+  structure(NextMethod(), id = attr(x, "id")[i], class = "stringr_view")
 }

@@ -25,6 +25,14 @@
       [20] again
       ... and 960 more
 
+# indices come from original vector
+
+    Code
+      str_view(letters, "a|z", match = TRUE, html = FALSE)
+    Output
+       [1] <a>
+      [26] <z>
+
 # view highlights matches
 
     Code

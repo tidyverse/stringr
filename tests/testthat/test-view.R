@@ -2,6 +2,10 @@ test_that("results are truncated", {
   expect_snapshot(str_view(words, html = FALSE))
 })
 
+test_that("indices come from original vector", {
+  expect_snapshot(str_view(letters, "a|z", match = TRUE, html = FALSE))
+})
+
 test_that("view highlights matches", {
   x <- c("abc", "def", "fgh")
   expect_snapshot({
