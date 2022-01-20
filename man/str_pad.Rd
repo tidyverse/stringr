@@ -9,7 +9,7 @@ str_pad(
   width,
   side = c("left", "right", "both"),
   pad = " ",
-  use_length = FALSE
+  use_width = TRUE
 )
 }
 \arguments{
@@ -21,8 +21,8 @@ str_pad(
 
 \item{pad}{Single padding character (default is a space).}
 
-\item{use_length}{If \code{TRUE}, use the number of characters instead of the
-total of character widths (see \link[stringi:stri_width]{stringi::stri_width}).}
+\item{use_width}{If \code{FALSE}, use the length of the string instead of the
+width; see \code{\link[=str_width]{str_width()}}/\code{\link[=str_length]{str_length()}} for the difference.}
 }
 \value{
 A character vector.

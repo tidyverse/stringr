@@ -22,7 +22,7 @@ test_that("padding based of length works", {
   pad <- function(...) str_pad("\u4e2d", ..., side = "both")
 
   expect_equal(pad(width = 6),                    "  \u4e2d  ")
-  expect_equal(pad(width = 5, use_length = TRUE), "  \u4e2d  ")
+  expect_equal(pad(width = 5, use_width = FALSE), "  \u4e2d  ")
 })
 
 test_that("uses tidyverse recycling rules", {

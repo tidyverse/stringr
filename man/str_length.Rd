@@ -2,9 +2,12 @@
 % Please edit documentation in R/length.r
 \name{str_length}
 \alias{str_length}
-\title{The length of a string}
+\alias{str_width}
+\title{The length/width of a string}
 \usage{
 str_length(string)
+
+str_width(string)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -15,11 +18,12 @@ A numeric vector giving number of characters (code points) in each
 element of the character vector. Missing string have missing length.
 }
 \description{
-Compute the number of characters in a string. Technically, this returns the
-number of "code points", in a string. One code point usually corresponds to
-one character, but not always. For example, an u with a umlaut might be
-represented as a single code point or as "u" code point and an umlaut
-code point.
+\code{str_length()} returns the number of codepoints in a string. These are
+the individual elements (which are often, but not always letters) that
+can be extracted with \code{\link[=str_sub]{str_sub()}}.
+
+\code{str_width()} returns how much space the string will occupy when printed
+in a fixed width font (i.e. when printed in the console).
 }
 \examples{
 str_length(letters)
@@ -27,18 +31,21 @@ str_length(NA)
 str_length(factor("abc"))
 str_length(c("i", "like", "programming", NA))
 
-# Two ways of representing a u with an umlaut
-u1 <- "\u00fc"
-u2 <- stringi::stri_trans_nfd(u1)
-# The print the same:
-u1
-u2
-# But have a different length
-str_length(u1)
-str_length(u2)
-# Even though they have the same number of characters
-str_count(u1)
-str_count(u2)
+# Some characters, like emoji and Chinese characters (hanzi), are square
+# which means they take up the width of two Latin characters
+x <- c("\u6c49\u5b57", "\U0001f60a")
+str_view(x)
+str_width(x)
+str_length(x)
+
+# There are two ways of representing a u with an umlaut
+u <- c("\u00fc", "u\u0308")
+# They have the same width
+str_width(u)
+# But a different length
+str_length(u)
+# Because the second element is made up of a u + an accent
+str_sub(u, 1, 1)
 }
 \seealso{
 \code{\link[stringi:stri_length]{stringi::stri_length()}} which this function wraps.
