@@ -3,21 +3,20 @@
 #' * `str_split()` takes a character vector and returns a list.
 #' * `str_split_1()` takes a single string and returns a character vector.
 #' * `str_split_fixed()` takes a character vector and returns a matrix.
-#' * `str_split_n()` takes a character vector and returns a character
+#' * `str_split_i()` takes a character vector and returns a character
 #'   vector.
 #'
 #' @inheritParams str_detect
 #' @inheritParams str_extract
-#' @param n number of pieces to return.  Default (Inf) uses all
+#' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
 #'
-#'   For `str_split_fixed`, if `n` is greater than the number of pieces,
-#'   the result will be padded with `NA`.
-#'
-#'   For `str_split_n`, `n` is the desired index of each element of
-#'   the split `string`.  When there are fewer pieces than `n`, return `NA`.
-#' @return For `str_split_fixed`, a character matrix with `n` columns.
-#'   For `str_split`, a list of character vectors.  For `str_split_n`,
+#'   For `split_split()`, this determines the maximum length of each element
+#'   of the output. For `str_split_fixed()`, this determines the number of
+#'   columns in the output; if an input is too short, the result will be padded
+#'   with `NA`.
+#' @return For `str_split_fixed()`, a character matrix with `n` columns.
+#'   For `str_split()`, a list of character vectors.  For `str_split_n()`,
 #'   a length `n` character vector.
 #' @seealso [stri_split()] for the underlying implementation.
 #' @export
@@ -43,9 +42,9 @@
 #' str_split_fixed(fruits, " and ", 3)
 #' str_split_fixed(fruits, " and ", 4)
 #'
-#' # str_split_n extracts only a single piece from a string
-#' str_split_n(fruits, " and ", 1)
-#' str_split_n(fruits, " and ", 3)
+#' # str_split_i extracts only a single piece from a string
+#' str_split_i(fruits, " and ", 1)
+#' str_split_i(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   if (identical(n, Inf)) n <- -1L
   check_lengths(string, pattern)
@@ -71,27 +70,19 @@ str_split_1 <- function(string, pattern) {
 #' @export
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
-  if (length(n) != 1 || n < 0 || identical(n, Inf)) {
-    abort("`n` must be a postive integer")
+  if (length(n) != 1 || n <= 0 || identical(n, Inf)) {
+    abort("`n` must be a positive integer")
   }
-
-  out <- str_split(string, pattern, n = n)
-  out <- map(out, function(x) c(x, rep(NA_character_, n - length(x))))
-
-  out <- unlist(out)
-  matrix(out, ncol = n, byrow = TRUE)
-}
-
-subset_safely <- function(x, index) {
-  if (length(x) < index) {
-    return(NA_character_)
-  }
-  x[[index]]
+  str_split(string, pattern, n = n, simplify = NA)
 }
 
 #' @export
 #' @rdname str_split
-str_split_n <- function(string, pattern, n) {
-  out <- str_split(string, pattern)
-  vapply(out, subset_safely, character(1L), index = n)
+#' @param i Element to return.
+str_split_i <- function(string, pattern, i) {
+  if (length(i) != 1 || i <= 0 || identical(i, Inf)) {
+    abort("`i` must be a positive integer")
+  }
+  out <- str_split(string, pattern, simplify = NA, n = i + 1)
+  out[, i]
 }

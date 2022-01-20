@@ -43,7 +43,7 @@
 * New `str_split_1()` is tailored for the special case of splitting up a single 
   string (#409).
 
-* New `str_split_n()` function to extract only a single piece from a string
+* New `str_split_i()` function to extract only a single piece from a string
   (#278, @bfgray3).
   
 * New `str_like()` function which allows the use of SQL wildcards

@@ -4,18 +4,36 @@ test_that("special cases are correct", {
 })
 
 test_that("str_split functions as expected", {
-  test <- c("bab", "cac", "dadad")
-  result <- str_split(test, "a")
-
-  expect_type(result, "list")
-  expect_equal(length(result), 3)
-
-  lengths <- vapply(result, length, integer(1))
-  expect_equal(lengths, c(2, 2, 3))
-
-  expect_equal(result,
+  expect_equal(
+    str_split(c("bab", "cac", "dadad"), "a"),
     list(c("b", "b"), c("c", "c"), c("d", "d", "d"))
   )
+})
+
+test_that("str_split() can split by special patterns", {
+  expect_equal(str_split("ab", ""), list(c("a", "b")))
+  expect_equal(str_split("this that.", boundary("word")), list(c("this", "that")))
+  expect_equal(str_split("a-b", fixed("-")), list(c("a", "b")))
+  expect_equal(str_split("aXb", coll("X", ignore_case = TRUE)), list(c("a", "b")))
+})
+
+test_that("str_split() can control maximum number of splits", {
+  expect_equal(
+    str_split(c("a", "a-b"), n = 1, "-"),
+    list("a", "a-b")
+  )
+  expect_equal(
+    str_split(c("a", "a-b"), n = 3, "-"),
+    list("a", c("a", "b"))
+  )
+})
+
+test_that("str_split() checks its inputs", {
+  expect_snapshot(error = TRUE, {
+    str_split(letters[1:3], letters[1:2])
+    str_split("x", 1)
+    str_split("x", "x", n = 0)
+  })
 })
 
 test_that("str_split_1 takes string and returns character vector", {
@@ -23,74 +41,30 @@ test_that("str_split_1 takes string and returns character vector", {
   expect_snapshot_error(str_split_1(letters, ""))
 })
 
-test_that("str_split_fix pads with NA", {
-  test <- c(NA, "", "a", "a a", "a a a")
-  result <- str_split_fixed(test, " ", n = 2)
-
-  expect_equal(result, matrix(ncol = 2, byrow = TRUE, c(
-    NA, NA,
-    "", NA,
-    "a", NA,
-    "a", "a",
-    "a", "a a"
-  )))
-})
-
-test_that("n sets maximum number of splits in str_split", {
-  test <- "Subject: Roger: his drinking problems"
-
-  expect_equal(length(str_split(test, ": ")[[1]]), 3)
-  expect_equal(length(str_split(test, ": ", 4)[[1]]), 3)
-  expect_equal(length(str_split(test, ": ", 3)[[1]]), 3)
-  expect_equal(length(str_split(test, ": ", 2)[[1]]), 2)
-  expect_equal(length(str_split(test, ": ", 1)[[1]]), 1)
-
+test_that("str_split_fixed pads with NA", {
   expect_equal(
-    str_split(test, ": ", 3)[[1]],
-    c("Subject", "Roger", "his drinking problems")
+    str_split_fixed(c("a", "a-b"), "-", 1),
+    cbind(c("a", "a-b")))
+  expect_equal(
+    str_split_fixed(c("a", "a-b"), "-", 2),
+    cbind(c("a", "a"), c(NA, "b"))
   )
   expect_equal(
-    str_split(test, ": ", 2)[[1]],
-    c("Subject", "Roger: his drinking problems")
-  )
-
-})
-
-test_that("n sets exact number of splits in str_split_fixed", {
-  test <- "Subject: Roger: his drinking problems"
-
-  expect_equal(ncol(str_split_fixed(test, ": ", 4)), 4)
-  expect_equal(ncol(str_split_fixed(test, ": ", 3)), 3)
-  expect_equal(ncol(str_split_fixed(test, ": ", 2)), 2)
-  expect_equal(ncol(str_split_fixed(test, ": ", 1)), 1)
-
-  expect_equal(
-    str_split_fixed(test, ": ", 3)[1, ],
-    c("Subject", "Roger", "his drinking problems")
-  )
-  expect_equal(
-    str_split_fixed(test, ": ", 2)[1, ],
-    c("Subject", "Roger: his drinking problems")
-  )
-
-})
-
-test_that("str_split can split sentences correctly", {
- test <- "This is a sentence. Is this a sentence? Why, yes it is."
- expect_equal(length(str_split(test, boundary("sentence"))[[1]]), 3)
- expect_equal(
-   str_split(test, boundary("sentence")),
-   list(c("This is a sentence. ", "Is this a sentence? ", "Why, yes it is."))
+    str_split_fixed(c("a", "a-b"), "-", 3),
+    cbind(c("a", "a"), c(NA, "b"), c(NA, NA))
   )
 })
 
-test_that("str_split_n functions as expected", {
-  test <- c("bab", "cac", "jajajaj", "qwertyuiop")
-  result <- str_split_n(test, "a", 2)
+test_that("str_split_fixed check its inputs", {
+  expect_snapshot(str_split_fixed("x", "x", 0), error = TRUE)
+})
 
-  expect_type(result, "character")
-  expect_length(result, 4)
+test_that("str_split_i returns NA for absent components", {
+  expect_equal(str_split_i(c("a", "b-c"), "-", 1), c("a", "b"))
+  expect_equal(str_split_i(c("a", "b-c"), "-", 2), c(NA, "c"))
+  expect_equal(str_split_i(c("a", "b-c"), "-", 3), c(NA_character_, NA))
+})
 
-  expect_equal(str_length(result), c(1, 1, 1, NA))
-  expect_equal(result, c("b", "c", "j", NA))
+test_that("str_split_i check its inputs", {
+  expect_snapshot(str_split_i("x", "x", 0), error = TRUE)
 })
