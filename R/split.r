@@ -1,6 +1,10 @@
 #' Split up a string into pieces
 #'
-#' Vectorised over `string` and `pattern`.
+#' * `str_split()` takes a character vector and returns a list.
+#' * `str_split_1()` takes a single string and returns a character vector.
+#' * `str_split_fixed()` takes a character vector and returns a matrix.
+#' * `str_split_n()` takes a character vector and returns a character
+#'   vector.
 #'
 #' @inheritParams str_detect
 #' @inheritParams str_extract
@@ -26,6 +30,9 @@
 #' str_split(fruits, " and ")
 #' str_split(fruits, " and ", simplify = TRUE)
 #'
+#' # If you want to split a single string, use `str_split1`
+#' str_split_1(fruits[[1]], " and ")
+#'
 #' # Specify n to restrict the number of possible matches
 #' str_split(fruits, " and ", n = 3)
 #' str_split(fruits, " and ", n = 2)
@@ -50,6 +57,15 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     regex = stri_split_regex(string, pattern, n = n, simplify = simplify, opts_regex = opts(pattern)),
     coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
   )
+}
+
+#' @export
+#' @rdname str_split
+str_split_1 <- function(string, pattern) {
+  if (length(string) != 1) {
+    abort("`string` must be a single string")
+  }
+  str_split(string, pattern)[[1]]
 }
 
 #' @export

@@ -2,11 +2,14 @@
 % Please edit documentation in R/split.r
 \name{str_split}
 \alias{str_split}
+\alias{str_split_1}
 \alias{str_split_fixed}
 \alias{str_split_n}
 \title{Split up a string into pieces}
 \usage{
 str_split(string, pattern, n = Inf, simplify = FALSE)
+
+str_split_1(string, pattern)
 
 str_split_fixed(string, pattern, n)
 
@@ -48,7 +51,13 @@ For \code{str_split}, a list of character vectors.  For \code{str_split_n},
 a length \code{n} character vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+\itemize{
+\item \code{str_split()} takes a character vector and returns a list.
+\item \code{str_split_1()} takes a single string and returns a character vector.
+\item \code{str_split_fixed()} takes a character vector and returns a matrix.
+\item \code{str_split_n()} takes a character vector and returns a character
+vector.
+}
 }
 \examples{
 fruits <- c(
@@ -58,6 +67,9 @@ fruits <- c(
 
 str_split(fruits, " and ")
 str_split(fruits, " and ", simplify = TRUE)
+
+# If you want to split a single string, use `str_split1`
+str_split_1(fruits[[1]], " and ")
 
 # Specify n to restrict the number of possible matches
 str_split(fruits, " and ", n = 3)

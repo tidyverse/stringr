@@ -18,6 +18,11 @@ test_that("str_split functions as expected", {
   )
 })
 
+test_that("str_split_1 takes string and returns character vector", {
+  expect_equal(str_split_1("abc", ""), c("a", "b", "c"))
+  expect_snapshot_error(str_split_1(letters, ""))
+})
+
 test_that("str_split_fix pads with NA", {
   test <- c(NA, "", "a", "a a", "a a a")
   result <- str_split_fixed(test, " ", n = 2)
