@@ -4,7 +4,7 @@
 str_split() takes a character vector and returns a list.
 str_split_1() takes a single string and returns a character vector.
 str_split_fixed() takes a character vector and returns a matrix.
-str_split_n() takes a character vector and returns a character
+str_split_i() takes a character vector and returns a character
 vector.
 
 "><title>Split up a string into pieces — str_split • stringr</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.0/font.css" rel="stylesheet"><link href="../deps/_Source%20Code%20Pro-0.4.0/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Split up a string into pieces — str_split"><meta property="og:description" content="
@@ -12,7 +12,7 @@ vector.
 str_split() takes a character vector and returns a list.
 str_split_1() takes a single string and returns a character vector.
 str_split_fixed() takes a character vector and returns a matrix.
-str_split_n() takes a character vector and returns a character
+str_split_i() takes a character vector and returns a character
 vector.
 
 "><meta property="og:image" content="https://stringr.tidyverse.org/logo.png"><meta name="robots" content="noindex"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -86,7 +86,7 @@ vector.
 <ul><li><p><code>str_split()</code> takes a character vector and returns a list.</p></li>
 <li><p><code>str_split_1()</code> takes a single string and returns a character vector.</p></li>
 <li><p><code>str_split_fixed()</code> takes a character vector and returns a matrix.</p></li>
-<li><p><code>str_split_n()</code> takes a character vector and returns a character
+<li><p><code>str_split_i()</code> takes a character vector and returns a character
 vector.</p></li>
 </ul></div>
 
@@ -98,7 +98,7 @@ vector.</p></li>
 
 <span class="fu">str_split_fixed</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span>, <span class="va">n</span><span class="op">)</span>
 
-<span class="fu">str_split_n</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span>, <span class="va">n</span><span class="op">)</span></code></pre></div>
+<span class="fu">str_split_i</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span>, <span class="va">i</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -118,20 +118,22 @@ respects character matching rules for the specified locale.</p>
 <code><a href="modifiers.html">boundary()</a></code>. An empty pattern, "", is equivalent to
 <code>boundary("character")</code>.</p></dd>
 <dt>n</dt>
-<dd><p>number of pieces to return.  Default (Inf) uses all
+<dd><p>Maximum number of pieces to return. Default (Inf) uses all
 possible split positions.</p>
-<p>For <code>str_split_fixed</code>, if <code>n</code> is greater than the number of pieces,
-the result will be padded with <code>NA</code>.</p>
-<p>For <code>str_split_n</code>, <code>n</code> is the desired index of each element of
-the split <code>string</code>.  When there are fewer pieces than <code>n</code>, return <code>NA</code>.</p></dd>
+<p>For <code>split_split()</code>, this determines the maximum length of each element
+of the output. For <code>str_split_fixed()</code>, this determines the number of
+columns in the output; if an input is too short, the result will be padded
+with <code>NA</code>.</p></dd>
 <dt>simplify</dt>
 <dd><p>If <code>FALSE</code>, the default, returns a list of character
 vectors. If <code>TRUE</code> returns a character matrix.</p></dd>
+<dt>i</dt>
+<dd><p>Element to return.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>For <code>str_split_fixed</code>, a character matrix with <code>n</code> columns.
-For <code>str_split</code>, a list of character vectors.  For <code>str_split_n</code>,
+    <p>For <code>str_split_fixed()</code>, a character matrix with <code>n</code> columns.
+For <code>str_split()</code>, a list of character vectors.  For <code>str_split_n()</code>,
 a length <code>n</code> character vector.</p>
     </div>
     <div class="section level2">
@@ -196,10 +198,10 @@ a length <code>n</code> character vector.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "apples"     "oranges" "pears"  "bananas"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "pineapples" "mangos"  "guavas" NA       </span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co"># str_split_n extracts only a single piece from a string</span></span>
-<span class="r-in"><span class="fu">str_split_n</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span class="co"># str_split_i extracts only a single piece from a string</span></span>
+<span class="r-in"><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "apples"     "pineapples"</span>
-<span class="r-in"><span class="fu">str_split_n</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pears"  "guavas"</span>
 </code></pre></div>
     </div>
