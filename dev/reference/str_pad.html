@@ -76,7 +76,7 @@
   <span class="va">width</span>,
   side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span>, <span class="st">"both"</span><span class="op">)</span>,
   pad <span class="op">=</span> <span class="st">" "</span>,
-  use_length <span class="op">=</span> <span class="cn">FALSE</span>
+  use_width <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -90,9 +90,9 @@
 <dd><p>Side on which padding character is added (left, right or both).</p></dd>
 <dt>pad</dt>
 <dd><p>Single padding character (default is a space).</p></dd>
-<dt>use_length</dt>
-<dd><p>If <code>TRUE</code>, use the number of characters instead of the
-total of character widths (see <a href="https://rdrr.io/pkg/stringi/man/stri_width.html" class="external-link">stringi::stri_width</a>).</p></dd>
+<dt>use_width</dt>
+<dd><p>If <code>FALSE</code>, use the length of the string instead of the
+width; see <code><a href="str_length.html">str_width()</a></code>/<code><a href="str_length.html">str_length()</a></code> for the difference.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
