@@ -3,11 +3,14 @@
 \name{str_sub}
 \alias{str_sub}
 \alias{str_sub<-}
+\alias{str_sub_all}
 \title{Extract and replace substrings from a character vector}
 \usage{
 str_sub(string, start = 1L, end = -1L)
 
 str_sub(string, start = 1L, end = -1L, omit_na = FALSE) <- value
+
+str_sub_all(string, start = list(1L), end = list(-1L))
 }
 \arguments{
 \item{string}{input character vector.}
@@ -25,8 +28,9 @@ arguments provided will result in an unchanged input.}
 \item{value}{replacement string}
 }
 \value{
-A character vector of substring from \code{start} to \code{end}
-(inclusive). Will be length of longest input argument.
+\code{str_sub()} returns a character vector of substring from \code{start}
+to \code{end} (inclusive). Will be length of longest input argument.
+\code{str_sub_all()} returns a list of character vectors.
 }
 \description{
 \code{str_sub} will recycle all arguments to be the same length as the
