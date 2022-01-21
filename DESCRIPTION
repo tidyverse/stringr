@@ -21,7 +21,7 @@ Depends:
 Imports: 
     cli,
     ellipsis,
-    glue (>= 1.2.0),
+    glue (>= 1.6.0.9000),
     lifecycle,
     magrittr,
     rlang,
@@ -37,6 +37,8 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr
+Remotes: 
+    tidyverse/glue
 Config/Needs/website: tidyverse/tidytemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
