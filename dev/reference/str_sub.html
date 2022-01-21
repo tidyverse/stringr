@@ -79,7 +79,9 @@ a zero length character vector.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">str_sub</span><span class="op">(</span><span class="va">string</span>, start <span class="op">=</span> <span class="fl">1L</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1L</span><span class="op">)</span>
 
-<span class="fu">str_sub</span><span class="op">(</span><span class="va">string</span>, start <span class="op">=</span> <span class="fl">1L</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1L</span>, omit_na <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span></code></pre></div>
+<span class="fu">str_sub</span><span class="op">(</span><span class="va">string</span>, start <span class="op">=</span> <span class="fl">1L</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1L</span>, omit_na <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">value</span>
+
+<span class="fu">str_sub_all</span><span class="op">(</span><span class="va">string</span>, start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span>, end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -100,7 +102,8 @@ arguments provided will result in an unchanged input.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A character vector of substring from <code>start</code> to <code>end</code>(inclusive). Will be length of longest input argument.</p>
+    <p><code>str_sub()</code> returns a character vector of substring from <code>start</code>to <code>end</code> (inclusive). Will be length of longest input argument.
+<code>str_sub_all()</code> returns a list of character vectors.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
