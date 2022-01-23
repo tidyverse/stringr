@@ -49,6 +49,8 @@
 * New `str_like()` function which allows the use of SQL wildcards
   (#280, @rjpat).
 
+* New `str_rank()` to complete set of order/rank/sort functions (#353).
+
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
 

@@ -1,7 +1,11 @@
 #' Order or sort a character vector
 #'
-#' `str_order()` returns an integer vector that returns the desired order
-#' when used for subsetting; `str_sort()` returns the sorted vector.
+#' * `str_sort()` returns the sorted vector.
+#' * `str_order()` returns an integer vector that returns the desired
+#'   order when used for subsetting, i.e. `x[str_order(x)]` is the same
+#'   as `str_sort()`
+#' * `str_rank()` returns the ranks of the values, i.e.
+#'   `arrange(df, str_rank(x))` is the same as `str_sort(df$x)`.
 #'
 #' @param x A character vector to sort.
 #' @param decreasing A boolean. If `FALSE`, the default, sorts from
@@ -16,12 +20,18 @@
 #' @seealso [stringi::stri_order()] for the underlying implementation.
 #' @export
 #' @examples
-#' str_order(letters)
-#' str_sort(letters)
+#' x <- c("apple", "car", "happy", "char")
+#' str_sort(x)
 #'
-#' str_order(letters, locale = "haw")
-#' str_sort(letters, locale = "haw")
+#' str_order(x)
+#' x[str_order(x)]
 #'
+#' str_rank(x)
+#'
+#' # In Czech, ch is a digraph that sorts after h
+#' str_sort(x, locale = "cs")
+#'
+#' # Use numeric = TRUE to sort numbers in strings
 #' x <- c("100a10", "100a5", "2b", "2a")
 #' str_sort(x)
 #' str_sort(x, numeric = TRUE)
@@ -36,6 +46,19 @@ str_order <- function(x,
   stri_order(x,
     decreasing = decreasing,
     na_last = na_last,
+    opts_collator = opts
+  )
+}
+
+#' @export
+#' @rdname str_order
+str_rank <- function(x,
+                     locale = "en",
+                     numeric = FALSE,
+                     ...) {
+
+  opts <- stri_opts_collator(locale, numeric = numeric, ...)
+  stri_rank(x,
     opts_collator = opts
   )
 }
