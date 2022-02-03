@@ -12,10 +12,10 @@
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
-#' @param html Use HTML output? If `TRUE` will create an HTML widget;
-#'   if `FALSE` will style using ANSI escapes. The default will prefers
-#'   ANSI escapes if available in the current terminal; you can override by
-#'   setting `option(stringr.html = TRUE)`.
+#' @param html Use HTML output? If `TRUE` will create an HTML widget; if `FALSE`
+#'   will style using ANSI escapes. The default prefers ANSI escapes if
+#'   available in the current terminal; you can override by setting
+#'   `options(stringr.html = TRUE)`.
 #' @param use_escapes If `TRUE`, all non-ASCII characters will be rendered
 #'   with unicode escapes. This is useful to see exactly what underlying
 #'   values are stored in the string.
