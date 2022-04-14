@@ -6,6 +6,9 @@ development:
 template:
   package: tidytemplate
   bootstrap: 5
+  includes:
+    in_header: |
+      <script defer data-domain="stringr.tidyverse.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 
 home:
   links:
@@ -17,6 +20,7 @@ reference:
   contents:
   - str_count
   - str_detect
+  - str_escape
   - str_extract
   - str_locate
   - str_match

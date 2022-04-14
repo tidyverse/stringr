@@ -2,15 +2,18 @@
 % Please edit documentation in R/split.r
 \name{str_split}
 \alias{str_split}
+\alias{str_split_1}
 \alias{str_split_fixed}
-\alias{str_split_n}
+\alias{str_split_i}
 \title{Split up a string into pieces}
 \usage{
 str_split(string, pattern, n = Inf, simplify = FALSE)
 
+str_split_1(string, pattern)
+
 str_split_fixed(string, pattern, n)
 
-str_split_n(string, pattern, n)
+str_split_i(string, pattern, i)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -30,25 +33,32 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
-\item{n}{number of pieces to return.  Default (Inf) uses all
+\item{n}{Maximum number of pieces to return. Default (Inf) uses all
 possible split positions.
 
-For \code{str_split_fixed}, if \code{n} is greater than the number of pieces,
-the result will be padded with \code{NA}.
-
-For \code{str_split_n}, \code{n} is the desired index of each element of
-the split \code{string}.  When there are fewer pieces than \code{n}, return \code{NA}.}
+For \code{split_split()}, this determines the maximum length of each element
+of the output. For \code{str_split_fixed()}, this determines the number of
+columns in the output; if an input is too short, the result will be padded
+with \code{NA}.}
 
 \item{simplify}{If \code{FALSE}, the default, returns a list of character
 vectors. If \code{TRUE} returns a character matrix.}
+
+\item{i}{Element to return.}
 }
 \value{
-For \code{str_split_fixed}, a character matrix with \code{n} columns.
-For \code{str_split}, a list of character vectors.  For \code{str_split_n},
+For \code{str_split_fixed()}, a character matrix with \code{n} columns.
+For \code{str_split()}, a list of character vectors.  For \code{str_split_n()},
 a length \code{n} character vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+\itemize{
+\item \code{str_split()} takes a character vector and returns a list.
+\item \code{str_split_1()} takes a single string and returns a character vector.
+\item \code{str_split_fixed()} takes a character vector and returns a matrix.
+\item \code{str_split_i()} takes a character vector and returns a character
+vector.
+}
 }
 \examples{
 fruits <- c(
@@ -58,6 +68,9 @@ fruits <- c(
 
 str_split(fruits, " and ")
 str_split(fruits, " and ", simplify = TRUE)
+
+# If you want to split a single string, use `str_split1`
+str_split_1(fruits[[1]], " and ")
 
 # Specify n to restrict the number of possible matches
 str_split(fruits, " and ", n = 3)
@@ -69,9 +82,9 @@ str_split(fruits, " and ", n = 5)
 str_split_fixed(fruits, " and ", 3)
 str_split_fixed(fruits, " and ", 4)
 
-# str_split_n extracts only a single piece from a string
-str_split_n(fruits, " and ", 1)
-str_split_n(fruits, " and ", 3)
+# str_split_i extracts only a single piece from a string
+str_split_i(fruits, " and ", 1)
+str_split_i(fruits, " and ", 3)
 }
 \seealso{
 \code{\link[=stri_split]{stri_split()}} for the underlying implementation.

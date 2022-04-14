@@ -11,3 +11,8 @@ test_that("last optionally used instead of final separator", {
   expect_equal(str_flatten(letters[1:2], ", ", ", and "), "a, and b")
   expect_equal(str_flatten(letters[1], ", ", ", and "), "a")
 })
+
+test_that("can remove missing values", {
+  expect_equal(str_flatten(c("a", NA)), NA_character_)
+  expect_equal(str_flatten(c("a", NA), na.rm = TRUE), "a")
+})

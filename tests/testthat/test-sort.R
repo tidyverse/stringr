@@ -6,6 +6,9 @@ test_that("digits can be sorted/ordered as strings or numbers", {
 
   expect_equal(str_order(x, numeric = FALSE), c(2, 3, 1))
   expect_equal(str_order(x, numeric = TRUE), c(2, 1, 3))
+
+  expect_equal(str_rank(x, numeric = FALSE), c(3, 1, 2))
+  expect_equal(str_rank(x, numeric = TRUE), c(2, 1, 3))
 })
 
 test_that("NA can be at beginning or end", {

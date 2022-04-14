@@ -4,6 +4,13 @@ test_that("correct substring extracted", {
   expect_equal(str_sub(alphabet, 24, 26), "xyz")
 })
 
+test_that("can extract multiple substrings", {
+  expect_equal(
+    str_sub_all(c("abc", "def"), list(c(1, 2), 1), list(c(1, 2), 2)),
+    list(c("a", "b"), "de")
+  )
+})
+
 test_that("arguments expanded to longest", {
   alphabet <- str_c(letters, collapse = "")
 

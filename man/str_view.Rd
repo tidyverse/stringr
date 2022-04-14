@@ -37,10 +37,10 @@ Match character, word, line and sentence boundaries with
 If \code{FALSE}, shows only the strings that don't match the pattern.
 Otherwise (the default, \code{NA}) displays both matches and non-matches.}
 
-\item{html}{Use HTML output? If \code{TRUE} will create an HTML widget;
-if \code{FALSE} will style using ANSI escapes. The default will prefers
-ANSI escapes if available in the current terminal; you can override by
-setting \code{option(stringr.html = TRUE)}.}
+\item{html}{Use HTML output? If \code{TRUE} will create an HTML widget; if \code{FALSE}
+will style using ANSI escapes. The default prefers ANSI escapes if
+available in the current terminal; you can override by setting
+\code{options(stringr.html = TRUE)}.}
 
 \item{use_escapes}{If \code{TRUE}, all non-ASCII characters will be rendered
 with unicode escapes. This is useful to see exactly what underlying
@@ -50,7 +50,7 @@ values are stored in the string.}
 \code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
 Matches are surrounded by \verb{<>} and coloured blue; unusual whitespace
 characters (i.e. everything apart from \code{" "} and \code{"\\n"}) are shown with a
-red background.
+blue background.
 
 To build regular expressions interactively, check out the
 \href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.

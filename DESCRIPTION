@@ -21,7 +21,7 @@ Depends:
 Imports: 
     cli,
     ellipsis,
-    glue (>= 1.2.0),
+    glue (>= 1.6.1),
     lifecycle,
     magrittr,
     rlang,

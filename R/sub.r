@@ -18,8 +18,9 @@
 #' @param omit_na Single logical value. If `TRUE`, missing values in any of the
 #'   arguments provided will result in an unchanged input.
 #' @param value replacement string
-#' @return A character vector of substring from `start` to `end`
-#'   (inclusive). Will be length of longest input argument.
+#' @return `str_sub()` returns a character vector of substring from `start`
+#'   to `end` (inclusive). Will be length of longest input argument.
+#'   `str_sub_all()` returns a list of character vectors.
 #' @seealso The underlying implementation in [stringi::stri_sub()]
 #' @export
 #' @examples
@@ -83,4 +84,14 @@ str_sub <- function(string, start = 1L, end = -1L) {
     stri_sub(string, from = start, to = end, omit_na = omit_na) <- value
   }
   string
+}
+
+#' @export
+#' @rdname str_sub
+str_sub_all <- function(string, start = list(1L), end = list(-1L)) {
+  if (is.matrix(start)) {
+    stri_sub_all(string, from = start)
+  } else {
+    stri_sub_all(string, from = start, to = end)
+  }
 }

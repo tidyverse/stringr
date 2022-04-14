@@ -55,7 +55,7 @@ fixed <- function(pattern, ignore_case = FALSE) {
   structure(
     pattern,
     options = options,
-    class = c("fixed", "pattern", "character")
+    class = c("stringr_fixed", "stringr_pattern", "character")
   )
 }
 
@@ -80,7 +80,7 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   structure(
     pattern,
     options = options,
-    class = c("coll", "pattern", "character")
+    class = c("stringr_coll", "stringr_pattern", "character")
   )
 }
 
@@ -116,7 +116,7 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
   structure(
     pattern,
     options = options,
-    class = c("regex", "pattern", "character")
+    class = c("stringr_regex", "stringr_pattern", "character")
   )
 }
 
@@ -152,7 +152,7 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
   structure(
     character(),
     options = options,
-    class = c("boundary", "pattern", "character")
+    class = c("stringr_boundary", "stringr_pattern", "character")
   )
 }
 
@@ -166,13 +166,13 @@ opts <- function(x) {
 
 type <- function(x) UseMethod("type")
 #' @export
-type.boundary <- function(x) "bound"
+type.stringr_boundary <- function(x) "bound"
 #' @export
-type.regex <- function(x) "regex"
+type.stringr_regex <- function(x) "regex"
 #' @export
-type.coll <- function(x) "coll"
+type.stringr_coll <- function(x) "coll"
 #' @export
-type.fixed <- function(x) "fixed"
+type.stringr_fixed <- function(x) "fixed"
 #' @export
 type.character <- function(x) if (identical(x, "")) "empty" else "regex"
 #' @export

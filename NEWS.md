@@ -17,30 +17,44 @@
 
 * `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
 
+* `regex()` and friends now generate class names with `stringr_` prefix (#384).
+
 ## New features
 
 * `str_view()` will use ANSI colouring if available (#370). This works in more 
   places than HTML widgets and requires fewer dependencies. `str_view()` also 
   no longer requires a pattern so you can use it to display strings with 
   special characters. It now highlights whitespace characters apart from space
-  since otherwise they are often confusing.
+  since otherwise they are often confusing. It's also now vectorised over both
+  `string` and `pattern` (#407).
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
   help you move to stringr if you're already familiar with base R string
   functions (#266).
 
+* New `str_escape()` escapes regular expression metacharacters, providing
+  an alternative to `fixed()` if you want to compose a pattern from external
+  strings (#408).
+
 * New `str_equal()` compares two character vectors using unicode rules,
   and optionally ignores case (#381).
 
-* New `str_split_n()` function to extract only a single piece from a string
+* New `str_split_1()` is tailored for the special case of splitting up a single 
+  string (#409).
+
+* New `str_split_i()` function to extract only a single piece from a string
   (#278, @bfgray3).
   
 * New `str_like()` function which allows the use of SQL wildcards
   (#280, @rjpat).
 
+* New `str_rank()` to complete set of order/rank/sort functions (#353).
+
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
+
+* New `str_width()` returns the display width of a string (#380).
 
 * stringr is now licensed as MIT (#351).
 
@@ -51,9 +65,10 @@
 * Many typos in `sentences` have been fixed (@romatik, #299)
 
 * `str_flatten()` gains a `last` argument that optionally override the
-  final separator (#377).
+  final separator (#377). It gains a `na.rm` argument to remove missing 
+  values (since it's a summary function) (#439).
 
-* `str_pad()` gains `use_length` argument to control whether to use the total code
+* `str_pad()` gains `use_width` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
 
 * `str_replace()` and `str_replace_all()` can use standard tidyverse formula
