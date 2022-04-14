@@ -13,13 +13,12 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-# stringr <a href='https:/stringr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# stringr <a href='https://stringr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
-[![Travis build status](https://travis-ci.org/tidyverse/stringr.svg?branch=master)](https://travis-ci.org/tidyverse/stringr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tidyverse/stringr?branch=master&svg=true)](https://ci.appveyor.com/project/tidyverse/stringr)
-[![Codecov test coverage](https://codecov.io/gh/tidyverse/stringr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=master)
+[![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
+[![Codecov test coverage](https://codecov.io/gh/tidyverse/stringr/branch/main/graph/badge.svg)](https://codecov.io/gh/tidyverse/stringr?branch=main)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 
@@ -32,17 +31,16 @@ stringr is built on top of [stringi](https://github.com/gagolews/stringi), which
 ## Installation
 
 ```r
-# Install the released version from CRAN:
-install.packages("stringr")
+# The easiest way to get stringr is to install the whole tidyverse:
+install.packages("tidyverse")
 
-# Install the cutting edge development version from GitHub:
-# install.packages("devtools")
-devtools::install_github("tidyverse/stringr")
+# Alternatively, install just stringr:
+install.packages("stringr")
 ```
 
 ## Cheatsheet
 
-<a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>  
+<a href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>  
 
 ## Usage
 
