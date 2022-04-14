@@ -65,7 +65,8 @@
 * Many typos in `sentences` have been fixed (@romatik, #299)
 
 * `str_flatten()` gains a `last` argument that optionally override the
-  final separator (#377).
+  final separator (#377). It gains a `na.rm` argument to remove missing 
+  values (since it's a summary function) (#439).
 
 * `str_pad()` gains `use_width` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
