@@ -18,7 +18,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 Strings are not glamorous, high-profile components of R, but they do
 play a big role in many data cleaning and preparation tasks. The stringr
-package provide a cohesive set of functions designed to make working
+package provides a cohesive set of functions designed to make working
 with strings as easy as possible. If you’re not familiar with strings,
 the best place to start is the [chapter on
 strings](http://r4ds.had.co.nz/strings.html) in R for Data Science.
@@ -50,7 +50,7 @@ install.packages("stringr")
 ## Usage
 
 All functions in stringr start with `str_` and take a vector of strings
-as the first argument.
+as the first argument:
 
 ``` r
 x <- c("why", "video", "cross", "extra", "deal", "authority")
@@ -76,28 +76,28 @@ str_count(x, "[aeiou]")
 There are seven main verbs that work with patterns:
 
 -   `str_detect(x, pattern)` tells you if there’s any match to the
-    pattern.
+    pattern:
 
     ``` r
     str_detect(x, "[aeiou]")
     #> [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
     ```
 
--   `str_count(x, pattern)` counts the number of patterns.
+-   `str_count(x, pattern)` counts the number of patterns:
 
     ``` r
     str_count(x, "[aeiou]")
     #> [1] 0 3 1 2 2 4
     ```
 
--   `str_subset(x, pattern)` extracts the matching components.
+-   `str_subset(x, pattern)` extracts the matching components:
 
     ``` r
     str_subset(x, "[aeiou]")
     #> [1] "video"     "cross"     "extra"     "deal"      "authority"
     ```
 
--   `str_locate(x, pattern)` gives the position of the match.
+-   `str_locate(x, pattern)` gives the position of the match:
 
     ``` r
     str_locate(x, "[aeiou]")
@@ -110,7 +110,7 @@ There are seven main verbs that work with patterns:
     #> [6,]     1   1
     ```
 
--   `str_extract(x, pattern)` extracts the text of the match.
+-   `str_extract(x, pattern)` extracts the text of the match:
 
     ``` r
     str_extract(x, "[aeiou]")
@@ -118,7 +118,7 @@ There are seven main verbs that work with patterns:
     ```
 
 -   `str_match(x, pattern)` extracts parts of the match defined by
-    parentheses.
+    parentheses:
 
     ``` r
     # extract the characters on either side of the vowel
@@ -133,14 +133,14 @@ There are seven main verbs that work with patterns:
     ```
 
 -   `str_replace(x, pattern, replacement)` replaces the matches with new
-    text.
+    text:
 
     ``` r
     str_replace(x, "[aeiou]", "?")
     #> [1] "why"       "v?deo"     "cr?ss"     "?xtra"     "d?al"      "?uthority"
     ```
 
--   `str_split(x, pattern)` splits up a string into multiple pieces.
+-   `str_split(x, pattern)` splits up a string into multiple pieces:
 
     ``` r
     str_split(c("a,b", "c,d,e"), ",")
