@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.0/font.css" rel="stylesheet">
-<link href="../deps/_Source%20Code%20Pro-0.4.0/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.1/font.css" rel="stylesheet">
+<link href="../deps/_Source%20Code%20Pro-0.4.1/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Regular expressions">
@@ -25,7 +25,7 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><script defer data-domain="stringr.tidyverse.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -35,14 +35,14 @@
     
     <a class="navbar-brand me-2" href="../index.html">stringr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="../articles/stringr.html">Get started</a>
@@ -53,8 +53,10 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/from-base.html">From base R</a>
     <a class="dropdown-item" href="../articles/regular-expressions.html">Regular expressions</a>
+    <a class="dropdown-item" href="../articles/releases/stringr-1.0.0.html">stringr 1.0.0</a>
+    <a class="dropdown-item" href="../articles/releases/stringr-1.1.0.html">stringr 1.1.0</a>
+    <a class="dropdown-item" href="../articles/releases/stringr-1.2.0.html">stringr 1.2.0</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -88,7 +90,11 @@
     
   </div>
 </nav><div class="container template-article" id="container">
-<script src="regular-expressions_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+
+
+
+<div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Regular expressions</h1>
             
@@ -292,11 +298,11 @@
 <div class="section level2">
 <h2 id="alternation">Alternation<a class="anchor" aria-label="anchor" href="#alternation"></a>
 </h2>
-<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>:</p>
+<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"ghi"</span><span class="op">)</span>, <span class="st">"abc|def"</span><span class="op">)</span>
 <span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></code></pre></div>
-<p>Note that the precedence for <code>|</code> is low: <code>abc|def</code> is equivalent to <code>(abc)|(def)</code> not <code>ab(c|d)ef</code>.</p>
+<p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="grouping">Grouping<a class="anchor" aria-label="anchor" href="#grouping"></a>
@@ -481,19 +487,17 @@
 <p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">phone</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"
-  \\(?       # optional opening parens
-  (\\d{3})   # area code
-  \\)?       # optional closing parens
-  (?:-|\\ )? # optional dash or space
-  (\\d{3})   # another three numbers
-  (?:-|\\ )? # optional dash or space
-  (\\d{3})   # three more numbers
+  \\(?     # optional opening parens
+  (\\d{3}) # area code
+  [)- ]?   # optional closing parens, dash, or space
+  (\\d{3}) # another three numbers
+  [ -]?    # optional space or dash
+  (\\d{3}) # three more numbers
   "</span>, comments <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"514-791-8141"</span>, <span class="st">"(514) 791 8141"</span><span class="op">)</span>, <span class="va">phone</span><span class="op">)</span>
-<span class="co">#&gt;      [,1]            [,2]  [,3]  [,4] </span>
-<span class="co">#&gt; [1,] "514-791-814"   "514" "791" "814"</span>
-<span class="co">#&gt; [2,] "(514) 791 814" "514" "791" "814"</span></code></pre></div>
+<span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="st">"514-791-8141"</span>, <span class="va">phone</span><span class="op">)</span>
+<span class="co">#&gt;      [,1]          [,2]  [,3]  [,4] </span>
+<span class="co">#&gt; [1,] "514-791-814" "514" "791" "814"</span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -510,7 +514,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
   </div></footer>
