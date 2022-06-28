@@ -2,7 +2,7 @@
 % Please edit documentation in R/unique.R
 \name{str_unique}
 \alias{str_unique}
-\title{Keep unique strings only}
+\title{Remove duplicated strings}
 \usage{
 str_unique(string, ...)
 }
@@ -16,7 +16,8 @@ strings. Passed on to \code{\link[stringi:stri_opts_collator]{stringi::stri_opts
 A character vector.
 }
 \description{
-Vectorized over \code{string}.
+\code{str_unique()} removes duplicated values, with optional control over
+how duplication is measured.
 }
 \examples{
 str_unique(c("a", "b", "c", "b", "a"))

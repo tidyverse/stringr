@@ -7,21 +7,19 @@
 word(string, start = 1L, end = start, sep = fixed(" "))
 }
 \arguments{
-\item{string}{input character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{start}{integer vector giving position of first word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.}
+\item{start, end}{Pair of integer vectors giving range of words (inclusive)
+to extract. If negative, counts backwards from the last word.
 
-\item{end}{integer vector giving position of last word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.}
+The default value select the first word.}
 
-\item{sep}{separator between words.  Defaults to single space.}
+\item{sep}{Separator between words. Defaults to single space.}
 }
 \value{
-character vector of words from \code{start} to \code{end}
-(inclusive). Will be length of longest input argument.
+A character vector with length given by recycled length of
+\code{string}, \code{start}, and \code{end}.
 }
 \description{
 Extract words from a sentence

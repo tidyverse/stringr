@@ -1,15 +1,15 @@
-#' Detect the presence or absence of a pattern in a string
+#' Detect the presence/absence of a pattern
 #'
-#' Vectorised over `string` and `pattern`.
-#' Equivalent to `grepl(pattern, x)`.
-#' See [str_which()] for an equivalent to `grep(pattern, x)`.
+#' `str_detect()` returns a logical vector `TRUE` if `pattern` is found within
+#' each element of `string` or a `FALSE` if not. It's equivalent
+#' `grepl(pattern, string)`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.
 #' @param pattern Pattern to look for.
 #'
 #'   The default interpretation is a regular expression, as described
-#'   `vignette("regular-expressions")`.Control options with [regex()].
+#'   `vignette("regular-expressions")`. Control options with [regex()].
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
@@ -107,23 +107,23 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect the presence of a pattern in the string using SQL LIKE convention.
+#' Detect a pattern in the same way as `SQL`'s `LIKE` operator.
 #'
 #' @description
-#' Follows the structure of the SQL `LIKE` operator:
+#' `str_like()` follows the conventions of the SQL `LIKE` operator:
 #'
-#' * Must match the entire string
-#' * `_` matches a single character (like `.`)
-#' * `%` matches any number of characters (like `.*`)
-#' * `\%` and `\_` match literal `%` and `_`
-#' * The match is case insensitive by default
+#' * Must match the entire string.
+#' * `_` matches a single character (like `.`).
+#' * `%` matches any number of characters (like `.*`).
+#' * `\%` and `\_` match literal `%` and `_`.
+#' * The match is case insensitive by default.
 #'
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
 #' @param ignore_case Ignore case of matches? Defaults to `TRUE` to match
 #'   the SQL `LIKE` operator.
-#' @return A logical vector.
+#' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")

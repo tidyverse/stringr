@@ -2,7 +2,7 @@
 % Please edit documentation in R/detect.r
 \name{str_detect}
 \alias{str_detect}
-\title{Detect the presence or absence of a pattern in a string}
+\title{Detect the presence/absence of a pattern}
 \usage{
 str_detect(string, pattern, negate = FALSE)
 }
@@ -13,7 +13,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}.Control options with \code{\link[=regex]{regex()}}.
+\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -30,9 +30,9 @@ Match character, word, line and sentence boundaries with
 A logical vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
-Equivalent to \code{grepl(pattern, x)}.
-See \code{\link[=str_which]{str_which()}} for an equivalent to \code{grep(pattern, x)}.
+\code{str_detect()} returns a logical vector \code{TRUE} if \code{pattern} is found within
+each element of \code{string} or a \code{FALSE} if not. It's equivalent
+\code{grepl(pattern, string)}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

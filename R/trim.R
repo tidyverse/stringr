@@ -4,7 +4,8 @@
 #' also reduces repeated whitespace inside a string.
 #'
 #' @param string A character vector.
-#' @param side Side on which to remove whitespace (left, right or both).
+#' @param side Side on which to remove whitespace: "left", "right", or
+#'   "both", the default..
 #' @return A character vector.
 #' @export
 #' @seealso [str_pad()] to add whitespace

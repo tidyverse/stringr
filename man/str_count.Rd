@@ -13,7 +13,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}.Control options with \code{\link[=regex]{regex()}}.
+\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,

@@ -2,13 +2,12 @@
 #'
 #' @description
 #' Modifier functions control the meaning of the `pattern` argument to
-#' stringr functions. The default uses the ICU regular expression engine,
-#' but you can choose other options:
+#' stringr functions:
 #'
 #' * `boundary()`: Match boundaries between things.
 #' * `coll()`: Compare strings using standard Unicode collation rules.
 #' * `fixed()`: Compare literal bytes.
-#' * `regex()`: the default. Uses ICU regular expressions.
+#' * `regex()` (the default): Uses ICU regular expressions.
 #'
 #' @param pattern Pattern to modify behaviour.
 #' @param ignore_case Should case differences be ignored in the match?

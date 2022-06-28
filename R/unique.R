@@ -1,6 +1,7 @@
-#' Keep unique strings only
+#' Remove duplicated strings
 #'
-#' Vectorized over `string`.
+#' `str_unique()` removes duplicated values, with optional control over
+#' how duplication is measured.
 #'
 #' @param string A character vector to return unique entries.
 #' @param ... Other options used to control matching behavior between duplicate
@@ -14,7 +15,6 @@
 #' str_unique(c("motley", "mötley", "pinguino", "pingüino"))
 #' str_unique(c("motley", "mötley", "pinguino", "pingüino"), strength = 1)
 #' @export
-#' @rdname str_unique
 str_unique <- function(string, ...) {
   stri_unique(string, opts_collator = stri_opts_collator(...))
 }

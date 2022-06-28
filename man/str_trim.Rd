@@ -12,7 +12,8 @@ str_squish(string)
 \arguments{
 \item{string}{A character vector.}
 
-\item{side}{Side on which to remove whitespace (left, right or both).}
+\item{side}{Side on which to remove whitespace: "left", "right", or
+"both", the default..}
 }
 \value{
 A character vector.
