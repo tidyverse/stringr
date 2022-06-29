@@ -7,7 +7,8 @@
 str_trunc(string, width, side = c("right", "left", "center"), ellipsis = "...")
 }
 \arguments{
-\item{string}{A character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{width}{Maximum width of string.}
 

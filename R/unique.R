@@ -3,7 +3,7 @@
 #' `str_unique()` removes duplicated values, with optional control over
 #' how duplication is measured.
 #'
-#' @param string A character vector to return unique entries.
+#' @inheritParams str_detect
 #' @param ... Other options used to control matching behavior between duplicate
 #'   strings. Passed on to [stringi::stri_opts_collator()].
 #' @return A character vector.

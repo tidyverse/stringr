@@ -7,7 +7,8 @@
 str_conv(string, encoding)
 }
 \arguments{
-\item{string}{String to re-encode.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{encoding}{Name of encoding. See \code{\link[stringi:stri_enc_list]{stringi::stri_enc_list()}}
 for a complete list.}

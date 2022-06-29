@@ -7,7 +7,8 @@
 str_unique(string, ...)
 }
 \arguments{
-\item{string}{A character vector to return unique entries.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{...}{Other options used to control matching behavior between duplicate
 strings. Passed on to \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}

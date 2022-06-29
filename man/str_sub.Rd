@@ -13,7 +13,8 @@ str_sub(string, start = 1L, end = -1L, omit_na = FALSE) <- value
 str_sub_all(string, start = list(1L), end = list(-1L))
 }
 \arguments{
-\item{string}{input character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{start, end}{Two integer vectors. \code{start} gives the position
 of the first character (defaults to first), \code{end} gives the position

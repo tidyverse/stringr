@@ -2,7 +2,7 @@
 #'
 #' Vectorised over `string` and `times`.
 #'
-#' @param string Input character vector.
+#' @inheritParams str_detect
 #' @param times Number of times to duplicate each string.
 #' @return A character vector.
 #' @export

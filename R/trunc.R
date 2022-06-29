@@ -1,6 +1,6 @@
 #' Truncate a character string
 #'
-#' @param string A character vector.
+#' @inheritParams str_detect
 #' @param width Maximum width of string.
 #' @param side,ellipsis Location and content of ellipsis that indicates
 #'   content has been removed.

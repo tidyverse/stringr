@@ -2,7 +2,7 @@
 #'
 #' Vectorised over `string`, `width` and `pad`.
 #'
-#' @param string A character vector.
+#' @inheritParams str_detect
 #' @param width Minimum width of padded strings.
 #' @param side Side on which padding character is added (left, right or both).
 #' @param pad Single padding character (default is a space).

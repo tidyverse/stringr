@@ -7,7 +7,8 @@
 str_dup(string, times)
 }
 \arguments{
-\item{string}{Input character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{times}{Number of times to duplicate each string.}
 }
