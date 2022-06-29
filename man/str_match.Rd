@@ -3,7 +3,7 @@
 \name{str_match}
 \alias{str_match}
 \alias{str_match_all}
-\title{Extract matched groups from a string}
+\title{Extract all capture groups from each match}
 \usage{
 str_match(string, pattern)
 

@@ -2,12 +2,9 @@
 % Please edit documentation in R/subset.R
 \name{str_subset}
 \alias{str_subset}
-\alias{str_which}
-\title{Keep strings matching a pattern, or find positions}
+\title{Find location of matches in a vector}
 \usage{
 str_subset(string, pattern, negate = FALSE)
-
-str_which(string, pattern, negate = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -35,9 +32,6 @@ A character vector.
 \description{
 \code{str_subset()} is a wrapper around \code{x[str_detect(x, pattern)]},
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
-\code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
-and is equivalent to \code{grep(pattern, x)}.
-See \code{\link[=str_detect]{str_detect()}} for an equivalent to \code{grepl(pattern, x)}.
 }
 \details{
 Vectorised over \code{string} and \code{pattern}
@@ -45,19 +39,17 @@ Vectorised over \code{string} and \code{pattern}
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
 str_subset(fruit, "a")
-str_which(fruit, "a")
 
 str_subset(fruit, "^a")
 str_subset(fruit, "a$")
 str_subset(fruit, "b")
 str_subset(fruit, "[aeiou]")
 
-# Returns elements that do NOT match
+# Elements that don't match
 str_subset(fruit, "^p", negate = TRUE)
 
 # Missings never match
 str_subset(c("a", NA, "b"), ".")
-str_which(c("a", NA, "b"), ".")
 }
 \seealso{
 \code{\link[=grep]{grep()}} with argument \code{value = TRUE},

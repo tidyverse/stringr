@@ -1,4 +1,4 @@
-#' Detect the presence/absence of a pattern
+#' Detect the presence/absence of a match
 #'
 #' `str_detect()` returns a logical vector `TRUE` if `pattern` is found within
 #' each element of `string` or a `FALSE` if not. It's equivalent

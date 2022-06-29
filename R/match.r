@@ -1,4 +1,4 @@
-#' Extract matched groups from a string
+#' Extract all capture groups from each match
 #'
 #' @description
 #' Extract any number of matches defined by unnamed, `(pattern)`, and

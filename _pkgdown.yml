@@ -17,18 +17,30 @@ home:
 
 reference:
 - title: Pattern matching
+
+- subtitle: Simple matching
   contents:
   - str_count
   - str_detect
-  - str_escape
   - str_extract
   - str_locate
-  - str_match
-  - str_remove
-  - str_replace
-  - str_starts
-  - str_split
   - str_subset
+  - str_starts
+  - str_which
+
+- subtitle: Replacement
+  contents:
+  - str_replace
+  - str_remove
+
+- subtitle: Splitting and matching
+  contents:
+  - str_match
+  - str_split
+
+- subtitle: Control matching
+  contents:
+  - str_escape
   - modifiers
 
 - title: Combining strings

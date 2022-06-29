@@ -1,4 +1,4 @@
-#' Locate the position of patterns in a string
+#' Find location of a match with in a string
 #'
 #' Vectorised over `string` and `pattern`. If the match is of length
 #' 0, (e.g. from a special match like `$`) end will be one character less
