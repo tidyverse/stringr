@@ -2,7 +2,7 @@
 % Please edit documentation in R/count.r
 \name{str_count}
 \alias{str_count}
-\title{Count the number of matches in a string}
+\title{Count number of matches}
 \usage{
 str_count(string, pattern = "")
 }
@@ -25,10 +25,12 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-An integer vector.
+An integer vector with size found by recycling \code{string} and
+\code{pattern}.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+Counts the number of times \code{pattern} is found within each element
+of \code{string.}
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
