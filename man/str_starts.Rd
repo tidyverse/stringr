@@ -17,7 +17,7 @@ coercible to one.}
 \item{pattern}{Pattern with which the string starts or ends.
 
 The default interpretation is a regular expression, as described in
-\link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with \code{\link[=regex]{regex()}}.
+\link[stringi:about_search_regex]{stringi::stringi-search-regex}. Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using \code{\link[=fixed]{fixed()}}. This
 is fast, but approximate. Generally, for matching human text, you'll want

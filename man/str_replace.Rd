@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-in \link[stringi:stringi-search-regex]{stringi::stringi-search-regex}. Control options with
+in \link[stringi:about_search_regex]{stringi::stringi-search-regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
@@ -26,8 +26,8 @@ respects character matching rules for the specified locale.}
 
 \item{replacement}{A character vector of replacements. Should be either
 length one, or the same length as \code{string} or \code{pattern}.
-References of the form \code{\1}, \code{\2}, etc will be replaced with
-the contents of the respective matched group (created by \code{()}).
+References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
+the contents of the respective matched group (created by \verb{()}).
 
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to

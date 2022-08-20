@@ -7,26 +7,27 @@
 \usage{
 str_glue(..., .sep = "", .envir = parent.frame())
 
-str_glue_data(.x, ..., .sep = "", .envir = parent.frame(),
-  .na = "NA")
+str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
 }
 \arguments{
-\item{...}{[\code{expressions}]\cr Expressions string(s) to format, multiple inputs are concatenated together before formatting.}
+\item{...}{[\code{expressions}]\cr Unnamed arguments are taken to be expression
+string(s) to format. Multiple inputs are concatenated together before formatting.
+Named arguments are taken to be temporary variables available for substitution.}
 
 \item{.sep}{[\code{character(1)}: \sQuote{""}]\cr Separator used to separate elements.}
 
 \item{.envir}{[\code{environment}: \code{parent.frame()}]\cr Environment to evaluate each expression in. Expressions are
 evaluated from left to right. If \code{.x} is an environment, the expressions are
-evaluated in that environment and \code{.envir} is ignored.}
+evaluated in that environment and \code{.envir} is ignored. If \code{NULL} is passed, it is equivalent to \code{\link[=emptyenv]{emptyenv()}}.}
 
-\item{.x}{[\code{listish}]\cr An environment, list or data frame used to lookup values.}
+\item{.x}{[\code{listish}]\cr An environment, list, or data frame used to lookup values.}
 
-\item{.na}{[\code{character(1)}: \sQuote{NA}]\cr Value to replace NA values
+\item{.na}{[\code{character(1)}: \sQuote{NA}]\cr Value to replace \code{NA} values
 with. If \code{NULL} missing values are propagated, that is an \code{NA} result will
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
 \description{
-These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue_data]{glue::glue_data()}},
+These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue]{glue::glue_data()}},
 which provide a powerful and elegant syntax for interpolating strings.
 These wrappers provide a small set of the full options. Use the functions
 directly from glue for more control.

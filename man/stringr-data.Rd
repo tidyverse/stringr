@@ -7,7 +7,15 @@
 \alias{fruit}
 \alias{words}
 \title{Sample character vectors for practicing string manipulations.}
-\format{A character vector.}
+\format{
+A character vector.
+
+An object of class \code{character} of length 720.
+
+An object of class \code{character} of length 80.
+
+An object of class \code{character} of length 980.
+}
 \usage{
 sentences
 

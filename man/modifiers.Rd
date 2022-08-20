@@ -12,11 +12,20 @@ fixed(pattern, ignore_case = FALSE)
 
 coll(pattern, ignore_case = FALSE, locale = "en", ...)
 
-regex(pattern, ignore_case = FALSE, multiline = FALSE,
-  comments = FALSE, dotall = FALSE, ...)
+regex(
+  pattern,
+  ignore_case = FALSE,
+  multiline = FALSE,
+  comments = FALSE,
+  dotall = FALSE,
+  ...
+)
 
-boundary(type = c("character", "line_break", "sentence", "word"),
-  skip_word_none = NA, ...)
+boundary(
+  type = c("character", "line_break", "sentence", "word"),
+  skip_word_none = NA,
+  ...
+)
 }
 \arguments{
 \item{pattern}{Pattern to modify behaviour.}
@@ -38,7 +47,7 @@ the beginning and end of each line. If \code{FALSE}, the
 default, only match the start and end of the input.}
 
 \item{comments}{If \code{TRUE}, white space and comments beginning with
-\code{#} are ignored. Escape literal spaces with \code{\\ }.}
+\verb{#} are ignored. Escape literal spaces with \verb{\\\\ }.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
 
@@ -74,7 +83,7 @@ str_detect(strings, fixed(pattern))
 str_detect(strings, coll(pattern))
 
 # coll() is useful for locale-aware case-insensitive matching
-i <- c("I", "\\u0130", "i")
+i <- c("I", "\u0130", "i")
 i
 str_detect(i, fixed("i", TRUE))
 str_detect(i, coll("i", TRUE))
@@ -90,15 +99,15 @@ str_split(words, boundary("word"))[[1]]
 str_extract_all("The Cat in the Hat", "[a-z]+")
 str_extract_all("The Cat in the Hat", regex("[a-z]+", TRUE))
 
-str_extract_all("a\\nb\\nc", "^.")
-str_extract_all("a\\nb\\nc", regex("^.", multiline = TRUE))
+str_extract_all("a\nb\nc", "^.")
+str_extract_all("a\nb\nc", regex("^.", multiline = TRUE))
 
-str_extract_all("a\\nb\\nc", "a.")
-str_extract_all("a\\nb\\nc", regex("a.", dotall = TRUE))
+str_extract_all("a\nb\nc", "a.")
+str_extract_all("a\nb\nc", regex("a.", dotall = TRUE))
 }
 \seealso{
 \code{\link[=str_wrap]{str_wrap()}} for breaking text to form paragraphs
 
-\code{\link[stringi:stringi-search-boundaries]{stringi::stringi-search-boundaries}} for more detail on the
+\code{\link[stringi:about_search_boundaries]{stringi::stringi-search-boundaries}} for more detail on the
 various boundaries
 }
