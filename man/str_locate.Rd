@@ -28,9 +28,14 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-For \code{str_locate}, an integer matrix. First column gives start
-postion of match, and second column gives end position. For
-\code{str_locate_all} a list of integer matrices.
+\code{str_locate()} returns an integer matrix with two columns and
+one row for each element of \code{string}. The first column, \code{start},
+gives the position at the start of the match, and second column, \code{end},
+gives the position of the end.
+
+\code{str_locate_all()} returns a list of integer matrices as above, but
+the matrices have one row for each match in the corresponding element
+in \code{string}.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}. If the match is of length

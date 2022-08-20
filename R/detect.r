@@ -21,7 +21,9 @@
 #'   `boundary("character")`.
 #'
 #' @param negate If `TRUE`, return non-matching elements.
-#' @return A logical vector.
+#' @return A logical vector. The length is usually the same as `string`.
+#' (But it might not be if you're using a single string and a vector
+#' of patterns.)
 #' @seealso [stringi::stri_detect()] which this function wraps,
 #'   [str_subset()] for a convenient wrapper around
 #'   `x[str_detect(x, pattern)]`

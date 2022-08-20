@@ -14,8 +14,8 @@ coercible to one.}
 
 \item{last}{Optional string use in place of final separator.}
 
-\item{na.rm}{Remove missing values? If \code{FALSE}, the result will be \code{NA}
-if any element of \code{string} is \code{NA}.}
+\item{na.rm}{Remove missing values? If \code{FALSE} (the default), the result
+will be \code{NA} if any element of \code{string} is \code{NA}.}
 }
 \value{
 A string, i.e. a character vector of length 1
