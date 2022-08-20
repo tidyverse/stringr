@@ -1,6 +1,8 @@
-# stringr 1.3.2
+# stringr 1.4.1
 
-# stringr 1.3.1.9000
+Hot patch release to resolve R CMD check failures.
+
+# stringr 1.4.0
 
 * `str_interp()` now renders lists consistently independent on the presence of
   additional placeholders (@amhrasmussen).
