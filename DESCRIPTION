@@ -14,7 +14,7 @@ Description: A consistent, simple and easy to use set of
     "NA"'s and zero length vectors in the same way, and the output from
     one function is easy to feed into the input of another.
 License: GPL-2 | file LICENSE
-URL: http://stringr.tidyverse.org,
+URL: https://stringr.tidyverse.org,
     https://github.com/tidyverse/stringr
 BugReports: https://github.com/tidyverse/stringr/issues
 Depends: 
