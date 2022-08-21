@@ -3,7 +3,7 @@
 named, (?&amp;lt;name&amp;gt;pattern) capture groups. Use a non-capturing group,
 (?:pattern), if you need to override default operate precedence but
 don't want to capture the result.
-Vectorised over string and pattern."><title>Extract matched groups from a string — str_match • stringr</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.1/font.css" rel="stylesheet"><link href="../deps/_Source%20Code%20Pro-0.4.1/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Extract matched groups from a string — str_match"><meta property="og:description" content="Extract any number of matches defined by unnamed, (pattern), and
+Vectorised over string and pattern."><title>Extract matched groups from a string — str_match • stringr</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.2/font.css" rel="stylesheet"><link href="../deps/Source_Code_Pro-0.4.2/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Extract matched groups from a string — str_match"><meta property="og:description" content="Extract any number of matches defined by unnamed, (pattern), and
 named, (?&amp;lt;name&amp;gt;pattern) capture groups. Use a non-capturing group,
 (?:pattern), if you need to override default operate precedence but
 don't want to capture the result.
@@ -18,7 +18,7 @@ Vectorised over string and pattern."><meta property="og:image" content="https://
     
     <a class="navbar-brand me-2" href="../index.html">stringr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,9 +83,9 @@ don't want to capture the result.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">str_match</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span><span class="op">)</span>
-
-<span class="fu">str_match_all</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_match</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">str_match_all</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -93,14 +93,19 @@ don't want to capture the result.</p>
     <dl><dt>string</dt>
 <dd><p>Input vector. Either a character vector, or something
 coercible to one.</p></dd>
+
+
 <dt>pattern</dt>
 <dd><p>The default interpretation is a regular expression, as
 described <code><a href="../articles/regular-expressions.html">vignette("regular-expressions")</a></code>. Should contain at least
 one capturing group.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>For <code>str_match()</code>, a character matrix; for <code>str_match_all()</code>, a
+    
+
+<p>For <code>str_match()</code>, a character matrix; for <code>str_match_all()</code>, a
 list of character matrices. First column is the complete match, followed
 by one column for each capture group. The columns will be named if you used
 "named captured groups", i.e. <code>(?&lt;name&gt;pattern')</code>.</p>
@@ -113,17 +118,17 @@ by one column for each capture group. The columns will be named if you used
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">strings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">" 219 733 8965"</span>, <span class="st">"329-293-8753 "</span>, <span class="st">"banana"</span>, <span class="st">"595 794 7569"</span>,</span>
-<span class="r-in">  <span class="st">"387 287 6718"</span>, <span class="st">"apple"</span>, <span class="st">"233.398.9187  "</span>, <span class="st">"482 952 3315"</span>,</span>
-<span class="r-in">  <span class="st">"239 923 8115 and 842 566 4692"</span>, <span class="st">"Work: 579-499-7527"</span>, <span class="st">"$1000"</span>,</span>
-<span class="r-in">  <span class="st">"Home: 543.355.3679"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">phone</span> <span class="op">&lt;-</span> <span class="st">"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">strings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">" 219 733 8965"</span>, <span class="st">"329-293-8753 "</span>, <span class="st">"banana"</span>, <span class="st">"595 794 7569"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"387 287 6718"</span>, <span class="st">"apple"</span>, <span class="st">"233.398.9187  "</span>, <span class="st">"482 952 3315"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"239 923 8115 and 842 566 4692"</span>, <span class="st">"Work: 579-499-7527"</span>, <span class="st">"$1000"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Home: 543.355.3679"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">phone</span> <span class="op">&lt;-</span> <span class="st">"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "219 733 8965" "329-293-8753" NA             "595 794 7569"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "387 287 6718" NA             "233.398.9187" "482 952 3315"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "239 923 8115" "579-499-7527" NA             "543.355.3679"</span>
-<span class="r-in"><span class="fu">str_match</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_match</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       [,1]           [,2]  [,3]  [,4]  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] "219 733 8965" "219" "733" "8965"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] "329-293-8753" "329" "293" "8753"</span>
@@ -137,9 +142,9 @@ by one column for each capture group. The columns will be named if you used
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,] "579-499-7527" "579" "499" "7527"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11,] NA             NA    NA    NA    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [12,] "543.355.3679" "543" "355" "3679"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Extract/match all</span></span>
-<span class="r-in"><span class="fu"><a href="str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Extract/match all</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "219 733 8965"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -176,7 +181,7 @@ by one column for each capture group. The columns will be named if you used
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[12]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "543.355.3679"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">str_match_all</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_match_all</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "219 733 8965" "219" "733" "8965"</span>
@@ -223,10 +228,10 @@ by one column for each capture group. The columns will be named if you used
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]           [,2]  [,3]  [,4]  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "543.355.3679" "543" "355" "3679"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># You can also name the groups to make further manipulation easier</span></span>
-<span class="r-in"><span class="va">phone</span> <span class="op">&lt;-</span> <span class="st">"(?&lt;area&gt;[2-9][0-9]{2})[- .](?&lt;phone&gt;[0-9]{3}[- .][0-9]{4})"</span></span>
-<span class="r-in"><span class="fu">str_match</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># You can also name the groups to make further manipulation easier</span></span></span>
+<span class="r-in"><span><span class="va">phone</span> <span class="op">&lt;-</span> <span class="st">"(?&lt;area&gt;[2-9][0-9]{2})[- .](?&lt;phone&gt;[0-9]{3}[- .][0-9]{4})"</span></span></span>
+<span class="r-in"><span><span class="fu">str_match</span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      area  phone     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] "219 733 8965" "219" "733 8965"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] "329-293-8753" "329" "293-8753"</span>
@@ -240,16 +245,16 @@ by one column for each capture group. The columns will be named if you used
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,] "579-499-7527" "579" "499-7527"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [11,] NA             NA    NA        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [12,] "543.355.3679" "543" "355.3679"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"&lt;a&gt; &lt;b&gt;"</span>, <span class="st">"&lt;a&gt; &lt;&gt;"</span>, <span class="st">"&lt;a&gt;"</span>, <span class="st">""</span>, <span class="cn">NA</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">str_match</span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;(.*?)&gt; &lt;(.*?)&gt;"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"&lt;a&gt; &lt;b&gt;"</span>, <span class="st">"&lt;a&gt; &lt;&gt;"</span>, <span class="st">"&lt;a&gt;"</span>, <span class="st">""</span>, <span class="cn">NA</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">str_match</span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;(.*?)&gt; &lt;(.*?)&gt;"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]      [,2] [,3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "&lt;a&gt; &lt;b&gt;" "a"  "b" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "&lt;a&gt; &lt;&gt;"  "a"  ""  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3,] NA        NA   NA  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] NA        NA   NA  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,] NA        NA   NA  </span>
-<span class="r-in"><span class="fu">str_match_all</span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;(.*?)&gt;"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_match_all</span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;(.*?)&gt;"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]  [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "&lt;a&gt;" "a" </span>
@@ -271,10 +276,10 @@ by one column for each capture group. The columns will be named if you used
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1] [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] NA   NA  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;.*?&gt;"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;.*?&gt;"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;a&gt;" "&lt;a&gt;" "&lt;a&gt;" NA    NA   </span>
-<span class="r-in"><span class="fu"><a href="str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;.*?&gt;"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"&lt;.*?&gt;"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;a&gt;" "&lt;b&gt;"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -303,7 +308,7 @@ by one column for each capture group. The columns will be named if you used
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
   </div></footer></body></html>
