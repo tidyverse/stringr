@@ -35,15 +35,20 @@ test_that("can instead use escapes", {
 })
 
 test_that("match argument controls what is shown", {
-  x <- c("abc", "def", "fgh")
+  x <- c("abc", "def", "fgh", NA)
   a <- str_view(x, "d|e")
-  expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
+  expect_equal(str_count(a$x$html, "\\<li\\>"), 4)
 
   a <- str_view(x, "d|e", match = TRUE)
   expect_equal(str_count(a$x$html, "\\<li\\>"), 1)
 
   a <- str_view(x, "d|e", match = FALSE)
-  expect_equal(str_count(a$x$html, "\\<li\\>"), 2)
+  expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
+})
+
+test_that("can match across lines", {
+  local_reproducible_output(crayon = TRUE)
+  expect_snapshot(str_view("a\nb\nbbb\nc", "(b|\n)+"))
 })
 
 test_that("view_all shows all matches", {

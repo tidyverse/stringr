@@ -1,6 +1,6 @@
 Package: stringr
 Title: Simple, Consistent Wrappers for Common String Operations
-Version: 1.4.0.9000
+Version: 1.4.1.9000
 Authors@R: 
     c(person(given = "Hadley",
              family = "Wickham",
@@ -20,14 +20,12 @@ Depends:
     R (>= 3.3)
 Imports: 
     cli,
-    ellipsis,
     glue (>= 1.6.1),
     lifecycle,
     magrittr,
     rlang,
     stringi (>= 1.5.3),
-    vctrs,
-    withr
+    vctrs
 Suggests: 
     covr,
     htmltools,
