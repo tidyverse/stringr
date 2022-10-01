@@ -69,6 +69,12 @@
       
 
       
+    </div><div class="section level2">
+      
+      <h3 id="simple-matching">Simple matching<a class="anchor" aria-label="anchor" href="#simple-matching"></a></h3>
+      
+
+      
     </div><div id="" class="section level2">
       
       
@@ -78,17 +84,12 @@
           
           <code><a href="str_count.html">str_count()</a></code> 
         </dt>
-        <dd>Count the number of matches in a string</dd>
+        <dd>Count number of matches</dd>
       </dl><dl><dt>
           
           <code><a href="str_detect.html">str_detect()</a></code> 
         </dt>
-        <dd>Detect the presence or absence of a pattern in a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_escape.html">str_escape()</a></code> 
-        </dt>
-        <dd>Escape regular expression metacharacters</dd>
+        <dd>Detect the presence/absence of a match</dd>
       </dl><dl><dt>
           
           <code><a href="str_extract.html">str_extract()</a></code> <code><a href="str_extract.html">str_extract_all()</a></code> 
@@ -98,22 +99,12 @@
           
           <code><a href="str_locate.html">str_locate()</a></code> <code><a href="str_locate.html">str_locate_all()</a></code> 
         </dt>
-        <dd>Locate the position of patterns in a string</dd>
+        <dd>Find location of a match with in a string</dd>
       </dl><dl><dt>
           
-          <code><a href="str_match.html">str_match()</a></code> <code><a href="str_match.html">str_match_all()</a></code> 
+          <code><a href="str_subset.html">str_subset()</a></code> 
         </dt>
-        <dd>Extract matched groups from a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_remove.html">str_remove()</a></code> <code><a href="str_remove.html">str_remove_all()</a></code> 
-        </dt>
-        <dd>Remove matched patterns in a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_replace.html">str_replace()</a></code> <code><a href="str_replace.html">str_replace_all()</a></code> 
-        </dt>
-        <dd>Replace matched patterns in a string</dd>
+        <dd>Find location of matches in a vector</dd>
       </dl><dl><dt>
           
           <code><a href="str_starts.html">str_starts()</a></code> <code><a href="str_starts.html">str_ends()</a></code> 
@@ -122,14 +113,67 @@
 string.</dd>
       </dl><dl><dt>
           
+          <code><a href="str_which.html">str_which()</a></code> 
+        </dt>
+        <dd>Find strings that match</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="replacement">Replacement<a class="anchor" aria-label="anchor" href="#replacement"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="str_replace.html">str_replace()</a></code> <code><a href="str_replace.html">str_replace_all()</a></code> 
+        </dt>
+        <dd>Replace matched patterns in a string</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_remove.html">str_remove()</a></code> <code><a href="str_remove.html">str_remove_all()</a></code> 
+        </dt>
+        <dd>Remove matched patterns in a string</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="splitting-and-matching">Splitting and matching<a class="anchor" aria-label="anchor" href="#splitting-and-matching"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="str_match.html">str_match()</a></code> <code><a href="str_match.html">str_match_all()</a></code> 
+        </dt>
+        <dd>Extract all capture groups from each match</dd>
+      </dl><dl><dt>
+          
           <code><a href="str_split.html">str_split()</a></code> <code><a href="str_split.html">str_split_1()</a></code> <code><a href="str_split.html">str_split_fixed()</a></code> <code><a href="str_split.html">str_split_i()</a></code> 
         </dt>
         <dd>Split up a string into pieces</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      
+      <h3 id="control-matching">Control matching<a class="anchor" aria-label="anchor" href="#control-matching"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="str_subset.html">str_subset()</a></code> <code><a href="str_subset.html">str_which()</a></code> 
+          <code><a href="str_escape.html">str_escape()</a></code> 
         </dt>
-        <dd>Keep strings matching a pattern, or find positions</dd>
+        <dd>Escape regular expression metacharacters</dd>
       </dl><dl><dt>
           
           <code><a href="modifiers.html">fixed()</a></code> <code><a href="modifiers.html">coll()</a></code> <code><a href="modifiers.html">regex()</a></code> <code><a href="modifiers.html">boundary()</a></code> 
@@ -186,7 +230,7 @@ string.</dd>
           
           <code><a href="str_wrap.html">str_wrap()</a></code> 
         </dt>
-        <dd>Wrap strings into nicely formatted paragraphs</dd>
+        <dd>Wrap words into nicely formatted paragraphs</dd>
       </dl></div><div class="section level2">
       <h2 id="locale-aware">Locale aware<a class="anchor" aria-label="anchor" href="#locale-aware"></a></h2>
       
@@ -212,7 +256,7 @@ string.</dd>
           
           <code><a href="case.html">str_to_upper()</a></code> <code><a href="case.html">str_to_lower()</a></code> <code><a href="case.html">str_to_title()</a></code> <code><a href="case.html">str_to_sentence()</a></code> 
         </dt>
-        <dd>Convert case of a string</dd>
+        <dd>Convert string to upper case, lower case, title case, or sentence case</dd>
       </dl></div><div class="section level2">
       <h2 id="other-helpers">Other helpers<a class="anchor" aria-label="anchor" href="#other-helpers"></a></h2>
       
@@ -248,7 +292,7 @@ string.</dd>
           
           <code><a href="str_like.html">str_like()</a></code> 
         </dt>
-        <dd>Detect the presence of a pattern in the string using SQL LIKE convention.</dd>
+        <dd>Detect a pattern in the same way as <code>SQL</code>'s <code>LIKE</code> operator.</dd>
       </dl><dl><dt>
           
           <code><a href="str_replace_na.html">str_replace_na()</a></code> 
@@ -263,7 +307,7 @@ string.</dd>
           
           <code><a href="str_unique.html">str_unique()</a></code> 
         </dt>
-        <dd>Keep unique strings only</dd>
+        <dd>Remove duplicated strings</dd>
       </dl><dl><dt>
           
           <code><a href="str_view.html">str_view()</a></code> <code><a href="str_view.html">str_view_all()</a></code> 

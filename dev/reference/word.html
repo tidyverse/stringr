@@ -77,33 +77,26 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>string</dt>
-<dd><p>input character vector.</p></dd>
+<dd><p>Input vector. Either a character vector, or something
+coercible to one.</p></dd>
 
 
-<dt>start</dt>
-<dd><p>integer vector giving position of first word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></dd>
-
-
-<dt>end</dt>
-<dd><p>integer vector giving position of last word to extract.
-Defaults to first word. If negative, counts backwards from last
-character.</p></dd>
+<dt>start, end</dt>
+<dd><p>Pair of integer vectors giving range of words (inclusive)
+to extract. If negative, counts backwards from the last word.</p>
+<p>The default value select the first word.</p></dd>
 
 
 <dt>sep</dt>
-<dd><p>separator between words.  Defaults to single space.</p></dd>
+<dd><p>Separator between words. Defaults to single space.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>character vector of words from <code>start</code> to <code>end</code></p>
-
-
-<p>(inclusive). Will be length of longest input argument.</p>
+<p>A character vector with length given by recycled length of
+<code>string</code>, <code>start</code>, and <code>end</code>.</p>
     </div>
 
     <div class="section level2">
