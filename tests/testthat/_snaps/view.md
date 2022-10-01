@@ -90,3 +90,13 @@
         <li><pre>\n</pre></li>
       </ul>
 
+# can match across lines
+
+    Code
+      str_view("a\nb\nbbb\nc", "(b|\n)+")
+    Output
+      [90m[1] |[39m a[36m<[39m
+          [90m|[39m [36mb[39m
+          [90m|[39m [36mbbb[39m
+          [90m|[39m [36m>[39mc
+

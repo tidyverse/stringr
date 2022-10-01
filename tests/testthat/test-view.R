@@ -46,6 +46,11 @@ test_that("match argument controls what is shown", {
   expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
 })
 
+test_that("can match across lines", {
+  local_reproducible_output(crayon = TRUE)
+  expect_snapshot(str_view("a\nb\nbbb\nc", "(b|\n)+"))
+})
+
 test_that("view_all shows all matches", {
   x <- c("abc", "def", "fgh")
   a <- str_view_all(x, "d|e", match = TRUE)
