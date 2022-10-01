@@ -97,9 +97,9 @@ str_view_filter <- function(x, pattern, match) {
     rep(TRUE, length(x))
   } else {
     if (identical(match, TRUE)) {
-      str_detect(x, pattern)
+      str_detect(x, pattern) & !is.na(x)
     } else if (identical(match, FALSE)) {
-      !str_detect(x, pattern)
+      !str_detect(x, pattern) | is.na(x)
     } else {
       rep(TRUE, length(x))
     }
@@ -172,9 +172,15 @@ print.stringr_view <- function(x, ..., n = 20) {
     x <- x[seq_len(n)]
   }
 
+  bar <- if (cli::is_utf8_output()) "\u2502" else "|"
+
   id <- format(paste0("[", attr(x, "id"), "] "), justify = "right")
-  x <- paste0(id, x)
-  x <- str_replace_all(x, "\n", paste0("\n", strrep(" ", nchar(id[[1]]))))
+  indent <- paste0(cli::col_grey(id, bar), " ")
+  exdent <- paste0(strrep(" ", nchar(id[[1]])), cli::col_grey(bar), " ")
+
+  x[is.na(x)] <- cli::col_red("NA")
+  x <- paste0(indent, x)
+  x <- str_replace_all(x, "\n", paste0("\n", exdent))
 
   cat(x, sep = "\n")
   if (n_extra > 0) {

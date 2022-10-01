@@ -3,26 +3,26 @@
     Code
       str_view(words, html = FALSE)
     Output
-       [1] a
-       [2] able
-       [3] about
-       [4] absolute
-       [5] accept
-       [6] account
-       [7] achieve
-       [8] across
-       [9] act
-      [10] active
-      [11] actual
-      [12] add
-      [13] address
-      [14] admit
-      [15] advertise
-      [16] affect
-      [17] afford
-      [18] after
-      [19] afternoon
-      [20] again
+       [1] | a
+       [2] | able
+       [3] | about
+       [4] | absolute
+       [5] | accept
+       [6] | account
+       [7] | achieve
+       [8] | across
+       [9] | act
+      [10] | active
+      [11] | actual
+      [12] | add
+      [13] | address
+      [14] | admit
+      [15] | advertise
+      [16] | affect
+      [17] | afford
+      [18] | after
+      [19] | afternoon
+      [20] | again
       ... and 960 more
 
 # indices come from original vector
@@ -30,8 +30,8 @@
     Code
       str_view(letters, "a|z", match = TRUE, html = FALSE)
     Output
-       [1] <a>
-      [26] <z>
+       [1] | <a>
+      [26] | <z>
 
 # view highlights matches
 
@@ -57,15 +57,15 @@
     Code
       str_view(x, "[aeiou]", html = FALSE)
     Output
-      [1] <a>bc
-      [2] d<e>f
-      [3] fgh
+      [1] | <a>bc
+      [2] | d<e>f
+      [3] | fgh
     Code
       str_view_all(x, "d|e", html = FALSE)
     Output
-      [1] abc
-      [2] <d><e>f
-      [3] fgh
+      [1] | abc
+      [2] | <d><e>f
+      [3] | fgh
 
 # view highlights whitespace (except a space/nl)
 
