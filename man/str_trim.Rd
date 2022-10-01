@@ -10,9 +10,11 @@ str_trim(string, side = c("both", "left", "right"))
 str_squish(string)
 }
 \arguments{
-\item{string}{A character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{side}{Side on which to remove whitespace (left, right or both).}
+\item{side}{Side on which to remove whitespace: "left", "right", or
+"both", the default..}
 }
 \value{
 A character vector.

@@ -1,15 +1,13 @@
 #' Extract words from a sentence
 #'
-#' @param string input character vector.
-#' @param start integer vector giving position of first word to extract.
-#'   Defaults to first word. If negative, counts backwards from last
-#'   character.
-#' @param end integer vector giving position of last word to extract.
-#'   Defaults to first word. If negative, counts backwards from last
-#'   character.
-#' @param sep separator between words.  Defaults to single space.
-#' @return character vector of words from `start` to `end`
-#'   (inclusive). Will be length of longest input argument.
+#' @inheritParams str_detect
+#' @param start,end Pair of integer vectors giving range of words (inclusive)
+#'   to extract. If negative, counts backwards from the last word.
+#'
+#'   The default value select the first word.
+#' @param sep Separator between words. Defaults to single space.
+#' @return A character vector with length given by recycled length of
+#'   `string`, `start`, and `end`.
 #' @export
 #' @examples
 #' sentences <- c("Jane saw a cat", "Jane sat down")

@@ -3,7 +3,7 @@
 \name{str_match}
 \alias{str_match}
 \alias{str_match_all}
-\title{Extract matched groups from a string}
+\title{Extract all capture groups from each match}
 \usage{
 str_match(string, pattern)
 
@@ -13,9 +13,9 @@ str_match_all(string, pattern)
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{pattern}{The default interpretation is a regular expression, as
-described \code{vignette("regular-expressions")}. Should contain at least
-one capturing group.}
+\item{pattern}{Unlike other stringr functions, \code{str_match()} only supports
+regular expressions, as described \code{vignette("regular-expressions")}.
+The pattern should contain at least one capturing group.}
 }
 \value{
 For \code{str_match()}, a character matrix; for \code{str_match_all()}, a

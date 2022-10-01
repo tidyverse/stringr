@@ -1,11 +1,12 @@
-#' Count the number of matches in a string
+#' Count number of matches
 #'
-#' Vectorised over `string` and `pattern`.
+#' Counts the number of times `pattern` is found within each element
+#' of `string.`
 #'
 #' @inheritParams str_detect
-#' @return An integer vector.
-#' @seealso
-#'  [stringi::stri_count()] which this function wraps.
+#' @return An integer vector with size found by recycling `string` and
+#'   `pattern`.
+#' @seealso [stringi::stri_count()] which this function wraps.
 #'
 #'  [str_locate()]/[str_locate_all()] to locate position
 #'  of matches

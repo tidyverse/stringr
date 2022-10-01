@@ -7,26 +7,29 @@
 str_flatten(string, collapse = "", last = NULL, na.rm = FALSE)
 }
 \arguments{
-\item{string}{Character to flatten.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{collapse}{String to insert between each piece.}
+\item{collapse}{String to insert between each piece. Defaults to \code{""}.}
 
 \item{last}{Optional string use in place of final separator.}
 
-\item{na.rm}{If \code{TRUE}, will remove missing values}
+\item{na.rm}{Remove missing values? If \code{FALSE} (the default), the result
+will be \code{NA} if any element of \code{string} is \code{NA}.}
 }
 \value{
-A character vector of length 1
+A string, i.e. a character vector of length 1
 }
 \description{
-This is a summary function for strings: regardless of the length of the
-input, it always returns a single string.
+Reduce a character vector to a single string. This is a summary function
+because regardless of the length of the input \code{x}, it always returns a
+single string.
 }
 \examples{
 str_flatten(letters)
 str_flatten(letters, "-")
 
-str_flatten(letters[1:5], ", ", ", and ")
+str_flatten(letters[1:4], ", ", ", and ")
 str_flatten(letters[1:3], ", ", ", and ")
 str_flatten(letters[1:2], ", ", ", and ")
 str_flatten(letters[1], ", ", ", and ")

@@ -70,13 +70,12 @@ only when splitting on \code{word} boundaries.}
 }
 \description{
 Modifier functions control the meaning of the \code{pattern} argument to
-stringr functions. The default uses the ICU regular expression engine,
-but you can choose other options:
+stringr functions:
 \itemize{
 \item \code{boundary()}: Match boundaries between things.
 \item \code{coll()}: Compare strings using standard Unicode collation rules.
 \item \code{fixed()}: Compare literal bytes.
-\item \code{regex()}: the default. Uses ICU regular expressions.
+\item \code{regex()} (the default): Uses ICU regular expressions.
 }
 }
 \examples{

@@ -8,7 +8,7 @@
 #' end positions. `str_sub(string, 1, -1)` will return the complete
 #' substring, from the first character to the last.
 #'
-#' @param string input character vector.
+#' @inheritParams str_detect
 #' @param start,end Two integer vectors. `start` gives the position
 #'   of the first character (defaults to first), `end` gives the position
 #'   of the last (defaults to last character). Alternatively, pass a two-column

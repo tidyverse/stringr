@@ -1,4 +1,4 @@
-#' Extract matched groups from a string
+#' Extract all capture groups from each match
 #'
 #' @description
 #' Extract any number of matches defined by unnamed, `(pattern)`, and
@@ -9,9 +9,9 @@
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
-#' @param pattern The default interpretation is a regular expression, as
-#'   described `vignette("regular-expressions")`. Should contain at least
-#'   one capturing group.
+#' @param pattern Unlike other stringr functions, `str_match()` only supports
+#'   regular expressions, as described `vignette("regular-expressions")`.
+#'   The pattern should contain at least one capturing group.
 #' @return For `str_match()`, a character matrix; for `str_match_all()`, a
 #' list of character matrices. First column is the complete match, followed
 #' by one column for each capture group. The columns will be named if you used

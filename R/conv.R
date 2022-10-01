@@ -2,7 +2,7 @@
 #'
 #' This is a convenient way to override the current encoding of a string.
 #'
-#' @param string String to re-encode.
+#' @inheritParams str_detect
 #' @param encoding Name of encoding. See [stringi::stri_enc_list()]
 #'   for a complete list.
 #' @export

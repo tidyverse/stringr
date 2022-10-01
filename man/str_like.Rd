@@ -2,7 +2,7 @@
 % Please edit documentation in R/detect.r
 \name{str_like}
 \alias{str_like}
-\title{Detect the presence of a pattern in the string using SQL LIKE convention.}
+\title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} operator.}
 \usage{
 str_like(string, pattern, ignore_case = TRUE)
 }
@@ -17,16 +17,16 @@ See above for details.}
 the SQL \code{LIKE} operator.}
 }
 \value{
-A logical vector.
+A logical vector the same length as \code{string}.
 }
 \description{
-Follows the structure of the SQL \code{LIKE} operator:
+\code{str_like()} follows the conventions of the SQL \code{LIKE} operator:
 \itemize{
-\item Must match the entire string
-\item \verb{_} matches a single character (like \code{.})
-\item \verb{\%} matches any number of characters (like \verb{.*})
-\item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}
-\item The match is case insensitive by default
+\item Must match the entire string.
+\item \verb{_} matches a single character (like \code{.}).
+\item \verb{\%} matches any number of characters (like \verb{.*}).
+\item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}.
+\item The match is case insensitive by default.
 }
 }
 \examples{

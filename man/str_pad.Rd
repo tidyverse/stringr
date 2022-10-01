@@ -13,7 +13,8 @@ str_pad(
 )
 }
 \arguments{
-\item{string}{A character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
 \item{width}{Minimum width of padded strings.}
 

@@ -2,31 +2,33 @@
 % Please edit documentation in R/wrap.r
 \name{str_wrap}
 \alias{str_wrap}
-\title{Wrap strings into nicely formatted paragraphs}
+\title{Wrap words into nicely formatted paragraphs}
 \usage{
 str_wrap(string, width = 80, indent = 0, exdent = 0, whitespace_only = TRUE)
 }
 \arguments{
-\item{string}{character vector of strings to reformat.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 
-\item{width}{positive integer giving target line width in characters. A
-width less than or equal to 1 will put each word on its own line.}
+\item{width}{Positive integer giving target line width (in number of
+characters). A width less than or equal to 1 will put each word on its
+own line.}
 
-\item{indent}{non-negative integer giving indentation of first line in
-each paragraph}
+\item{indent, exdent}{A non-negative integer giving the indent for the
+first line (\code{indent}) and all subsequent lines (\code{exdent}).}
 
-\item{exdent}{non-negative integer giving indentation of following lines in
-each paragraph}
-
-\item{whitespace_only}{If \code{TRUE}, the default, wrapping will only occur at
-whitespace. If \code{FALSE}, can break on any non-word character (e.g. \code{/}, \code{-}).}
+\item{whitespace_only}{A boolean.
+\itemize{
+\item If \code{TRUE} (the default) wrapping will only occur at whitespace.
+\item If \code{FALSE}, can break on any non-word character (e.g. \code{/}, \code{-}).
+}}
 }
 \value{
-A character vector of re-wrapped strings.
+A character vector the same length as \code{string}.
 }
 \description{
-This is a wrapper around \code{\link[stringi:stri_wrap]{stringi::stri_wrap()}} which implements
-the Knuth-Plass paragraph wrapping algorithm.
+Wrap words into paragraphs, minimizing the "raggedness" of the lines
+(i.e. the variation in length line) using the Knuth-Plass algorithm.
 }
 \examples{
 thanks_path <- file.path(R.home("doc"), "THANKS")
@@ -37,4 +39,7 @@ cat(str_wrap(thanks, width = 40), "\n")
 cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
+}
+\seealso{
+\code{\link[stringi:stri_wrap]{stringi::stri_wrap()}} for the underlying implementation.
 }
