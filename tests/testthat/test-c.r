@@ -1,7 +1,7 @@
 test_that("basic case works", {
   test <- c("a", "b", "c")
 
-  expect_equal(str_c(test), "d")
+  expect_equal(str_c(test), test)
   expect_equal(str_c(test, sep = " "), test)
   expect_equal(str_c(test, collapse = ""), "abc")
 })
