@@ -179,6 +179,11 @@ type.default <- function(x) {
   abort("`pattern` must be a string")
 }
 
+#' @export
+`[.stringr_pattern` <- function(x, i) {
+  structure(NextMethod(), class = class(x))
+}
+
 
 as_bare_character <- function(x) {
   if (is.character(x) && !is.object(x)) {
