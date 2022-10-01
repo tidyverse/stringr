@@ -52,6 +52,8 @@
 * New `str_like()` function which allows the use of SQL wildcards
   (#280, @rjpat).
 
+* New `str_rank()` to complete set of order/rank/sort functions (#353).
+
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
 
@@ -66,7 +68,8 @@
 * Many typos in `sentences` have been fixed (@romatik, #299)
 
 * `str_flatten()` gains a `last` argument that optionally override the
-  final separator (#377).
+  final separator (#377). It gains a `na.rm` argument to remove missing 
+  values (since it's a summary function) (#439).
 
 * `str_pad()` gains `use_width` argument to control whether to use the total code
   point width or the number of code points as "width" of a string (#190).
@@ -82,6 +85,10 @@
 
 * `word()` now returns all the sentence when using a negative `start` parameter
   that is greater or equal than the number of words. (@pdelboca, #245)
+
+# stringr 1.4.1
+
+Hot patch release to resolve R CMD check failures.
 
 # stringr 1.4.0
 

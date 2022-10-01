@@ -6,6 +6,7 @@
 #' @param string Character to flatten.
 #' @param collapse String to insert between each piece.
 #' @param last Optional string use in place of final separator.
+#' @param na.rm If `TRUE`, will remove missing values
 #' @return A character vector of length 1
 #' @export
 #' @examples
@@ -17,9 +18,13 @@
 #' str_flatten(letters[1:2], ", ", ", and ")
 #' str_flatten(letters[1], ", ", ", and ")
 #' str_flatten(letters[0], ", ", ", and ")
-str_flatten <- function(string, collapse = "", last = NULL) {
+str_flatten <- function(string, collapse = "", last = NULL, na.rm = FALSE) {
   if (!is_string(collapse)) {
     abort("`collapse` must be a single string.")
+  }
+
+  if (isTRUE(na.rm)) {
+    string <- string[!is.na(string)]
   }
 
   n <- length(string)

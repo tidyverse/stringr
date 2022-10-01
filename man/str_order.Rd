@@ -2,6 +2,7 @@
 % Please edit documentation in R/sort.R
 \name{str_order}
 \alias{str_order}
+\alias{str_rank}
 \alias{str_sort}
 \title{Order or sort a character vector}
 \usage{
@@ -13,6 +14,8 @@ str_order(
   numeric = FALSE,
   ...
 )
+
+str_rank(x, locale = "en", numeric = FALSE, ...)
 
 str_sort(
   x,
@@ -44,16 +47,28 @@ of as strings.}
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \description{
-\code{str_order()} returns an integer vector that returns the desired order
-when used for subsetting; \code{str_sort()} returns the sorted vector.
+\itemize{
+\item \code{str_sort()} returns the sorted vector.
+\item \code{str_order()} returns an integer vector that returns the desired
+order when used for subsetting, i.e. \code{x[str_order(x)]} is the same
+as \code{str_sort()}
+\item \code{str_rank()} returns the ranks of the values, i.e.
+\code{arrange(df, str_rank(x))} is the same as \code{str_sort(df$x)}.
+}
 }
 \examples{
-str_order(letters)
-str_sort(letters)
+x <- c("apple", "car", "happy", "char")
+str_sort(x)
 
-str_order(letters, locale = "haw")
-str_sort(letters, locale = "haw")
+str_order(x)
+x[str_order(x)]
 
+str_rank(x)
+
+# In Czech, ch is a digraph that sorts after h
+str_sort(x, locale = "cs")
+
+# Use numeric = TRUE to sort numbers in strings
 x <- c("100a10", "100a5", "2b", "2a")
 str_sort(x)
 str_sort(x, numeric = TRUE)

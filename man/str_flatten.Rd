@@ -4,7 +4,7 @@
 \alias{str_flatten}
 \title{Flatten a string}
 \usage{
-str_flatten(string, collapse = "", last = NULL)
+str_flatten(string, collapse = "", last = NULL, na.rm = FALSE)
 }
 \arguments{
 \item{string}{Character to flatten.}
@@ -12,6 +12,8 @@ str_flatten(string, collapse = "", last = NULL)
 \item{collapse}{String to insert between each piece.}
 
 \item{last}{Optional string use in place of final separator.}
+
+\item{na.rm}{If \code{TRUE}, will remove missing values}
 }
 \value{
 A character vector of length 1

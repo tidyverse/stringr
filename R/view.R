@@ -12,10 +12,10 @@
 #' @param match If `TRUE`, shows only strings that match the pattern.
 #'   If `FALSE`, shows only the strings that don't match the pattern.
 #'   Otherwise (the default, `NA`) displays both matches and non-matches.
-#' @param html Use HTML output? If `TRUE` will create an HTML widget;
-#'   if `FALSE` will style using ANSI escapes. The default will prefers
-#'   ANSI escapes if available in the current terminal; you can override by
-#'   setting `option(stringr.html = TRUE)`.
+#' @param html Use HTML output? If `TRUE` will create an HTML widget; if `FALSE`
+#'   will style using ANSI escapes. The default prefers ANSI escapes if
+#'   available in the current terminal; you can override by setting
+#'   `options(stringr.html = TRUE)`.
 #' @param use_escapes If `TRUE`, all non-ASCII characters will be rendered
 #'   with unicode escapes. This is useful to see exactly what underlying
 #'   values are stored in the string.
@@ -97,9 +97,9 @@ str_view_filter <- function(x, pattern, match) {
     rep(TRUE, length(x))
   } else {
     if (identical(match, TRUE)) {
-      str_detect(x, pattern)
+      str_detect(x, pattern) & !is.na(x)
     } else if (identical(match, FALSE)) {
-      !str_detect(x, pattern)
+      !str_detect(x, pattern) | is.na(x)
     } else {
       rep(TRUE, length(x))
     }
@@ -116,8 +116,15 @@ str_view_highlighter <- function(html = TRUE) {
   if (html) {
     function(x) paste0("<span class='match'>", x, "</span>")
   } else {
-    # Need to considering printing: colour alone is not enough
-    function(x) cli::col_cyan("<", x, ">")
+    function(x) {
+      out <- cli::col_cyan("<", x, ">")
+
+      # Ensure styling is starts and ends within each line
+      out <- cli::ansi_strsplit(out, "\n", fixed = TRUE)
+      out <- map_chr(out, str_flatten, "\n")
+
+      out
+    }
   }
 }
 
@@ -172,9 +179,15 @@ print.stringr_view <- function(x, ..., n = 20) {
     x <- x[seq_len(n)]
   }
 
+  bar <- if (cli::is_utf8_output()) "\u2502" else "|"
+
   id <- format(paste0("[", attr(x, "id"), "] "), justify = "right")
-  x <- paste0(id, x)
-  x <- str_replace_all(x, "\n", paste0("\n", strrep(" ", nchar(id[[1]]))))
+  indent <- paste0(cli::col_grey(id, bar), " ")
+  exdent <- paste0(strrep(" ", nchar(id[[1]])), cli::col_grey(bar), " ")
+
+  x[is.na(x)] <- cli::col_red("NA")
+  x <- paste0(indent, x)
+  x <- str_replace_all(x, "\n", paste0("\n", exdent))
 
   cat(x, sep = "\n")
   if (n_extra > 0) {
