@@ -122,8 +122,8 @@ element of the character vector. Missing string have missing length.</p>
 <span class="r-in"><span><span class="co"># which means they take up the width of two Latin characters</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u6c49\u5b57"</span>, <span class="st">"\U0001f60a"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="str_view.html">str_view</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 汉字</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] 😊</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> 汉字</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> 😊</span>
 <span class="r-in"><span><span class="fu">str_width</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4 2</span>
 <span class="r-in"><span><span class="fu">str_length</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>

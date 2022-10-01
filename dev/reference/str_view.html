@@ -141,9 +141,9 @@ values are stored in the string.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Show special characters</span></span></span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\"\\"</span>, <span class="st">"\\\\\\"</span>, <span class="st">"fgh"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "\</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] \\\</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] fgh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> "\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> \\\</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[3] │</span> fgh</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># A non-breaking space looks like a regular space:</span></span></span>
 <span class="r-in"><span><span class="va">nbsp</span> <span class="op">&lt;-</span> <span class="st">"Hi\u00A0you"</span></span></span>
@@ -154,31 +154,31 @@ values are stored in the string.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-in"><span><span class="co"># str_view() brings it to your attention:</span></span></span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="va">nbsp</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] Hi<span style="background-color: #00BBBB;"> </span>you</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> Hi<span style="background-color: #00BBBB;"> </span>you</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can also use escapes for all non-ASCII characters</span></span></span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="va">nbsp</span>, use_escapes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] Hi\u00a0you</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> Hi\u00a0you</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Show first match</span></span></span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"fgh"</span><span class="op">)</span>, <span class="st">"[aeiou]"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] <span style="color: #00BBBB;">&lt;a&gt;</span>bc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] d<span style="color: #00BBBB;">&lt;e&gt;</span>f</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] fgh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> <span style="color: #00BBBB;">&lt;a&gt;</span>bc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> d<span style="color: #00BBBB;">&lt;e&gt;</span>f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[3] │</span> fgh</span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"fgh"</span><span class="op">)</span>, <span class="st">"^"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] <span style="color: #00BBBB;">&lt;&gt;</span>abc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] <span style="color: #00BBBB;">&lt;&gt;</span>def</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] <span style="color: #00BBBB;">&lt;&gt;</span>fgh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> <span style="color: #00BBBB;">&lt;&gt;</span>abc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> <span style="color: #00BBBB;">&lt;&gt;</span>def</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[3] │</span> <span style="color: #00BBBB;">&lt;&gt;</span>fgh</span>
 <span class="r-in"><span><span class="fu">str_view</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"fgh"</span><span class="op">)</span>, <span class="st">".."</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] <span style="color: #00BBBB;">&lt;ab&gt;</span>c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] <span style="color: #00BBBB;">&lt;de&gt;</span>f</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] <span style="color: #00BBBB;">&lt;fg&gt;</span>h</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> <span style="color: #00BBBB;">&lt;ab&gt;</span>c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> <span style="color: #00BBBB;">&lt;de&gt;</span>f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[3] │</span> <span style="color: #00BBBB;">&lt;fg&gt;</span>h</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Show all matches</span></span></span>
 <span class="r-in"><span><span class="fu">str_view_all</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"def"</span>, <span class="st">"fgh"</span><span class="op">)</span>, <span class="st">"d|e"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] abc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] <span style="color: #00BBBB;">&lt;d&gt;&lt;e&gt;</span>f</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] fgh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[1] │</span> abc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[2] │</span> <span style="color: #00BBBB;">&lt;d&gt;&lt;e&gt;</span>f</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">[3] │</span> fgh</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
