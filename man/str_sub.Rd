@@ -10,18 +10,18 @@ str_sub(string, start = 1L, end = -1L)
 
 str_sub(string, start = 1L, end = -1L, omit_na = FALSE) <- value
 
-str_sub_all(string, start = list(1L), end = list(-1L))
+str_sub_all(string, start = 1L, end = -1L)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{start, end}{Two integer vectors. \code{start} gives the position
-of the first character (defaults to first), \code{end} gives the position
-of the last (defaults to last character). Alternatively, pass a two-column
-matrix to \code{start}.
+\item{start, end}{A pair of integer vectors defining the range of characters
+to extract (inclusive).
 
-Negative values count backwards from the last character.}
+Alternatively, instead a pair of vectors, you can pass a matrix to
+\code{start}. The matrix should have two columns, either labelled \code{start}
+and \code{end}, or \code{start} and \code{length}.}
 
 \item{omit_na}{Single logical value. If \code{TRUE}, missing values in any of the
 arguments provided will result in an unchanged input.}
@@ -34,14 +34,9 @@ to \code{end} (inclusive). Will be length of longest input argument.
 \code{str_sub_all()} returns a list of character vectors.
 }
 \description{
-\code{str_sub} will recycle all arguments to be the same length as the
-longest argument. If any arguments are of length 0, the output will be
-a zero length character vector.
-}
-\details{
-Substrings are inclusive - they include the characters at both start and
-end positions. \code{str_sub(string, 1, -1)} will return the complete
-substring, from the first character to the last.
+\code{str_sub()} extract or replaces the elements at single position in each
+string. \code{str_sub_all()} allows you to extract strings at multiple elements
+in every string.
 }
 \examples{
 hw <- "Hadley Wickham"
@@ -50,38 +45,33 @@ str_sub(hw, 1, 6)
 str_sub(hw, end = 6)
 str_sub(hw, 8, 14)
 str_sub(hw, 8)
-str_sub(hw, c(1, 8), c(6, 14))
 
-# Negative indices
+# Negative indices index from end of string
 str_sub(hw, -1)
 str_sub(hw, -7)
 str_sub(hw, end = -7)
 
+# str_sub() is vectorised by both string and position
+str_sub(hw, c(1, 8), c(6, 14))
+
+# if you want to extract multiple positions from multiple strings,
+# use str_sub_all()
+x <- c("abcde", "ghifgh")
+str_sub(x, c(1, 2), c(2, 4))
+str_sub_all(x, start = c(1, 2), end = c(2, 4))
+
 # Alternatively, you can pass in a two column matrix, as in the
 # output from str_locate_all
 pos <- str_locate_all(hw, "[aeio]")[[1]]
+pos
 str_sub(hw, pos)
-str_sub(hw, pos[, 1], pos[, 2])
 
-# Vectorisation
-str_sub(hw, seq_len(str_length(hw)))
-str_sub(hw, end = seq_len(str_length(hw)))
-
-# Replacement form
+# You can also use `str_sub()` to modify strings:
 x <- "BBCDEF"
 str_sub(x, 1, 1) <- "A"; x
 str_sub(x, -1, -1) <- "K"; x
 str_sub(x, -2, -2) <- "GHIJ"; x
 str_sub(x, 2, -2) <- ""; x
-
-# If you want to keep the original if some argument is NA,
-# use omit_na = TRUE
-x1 <- x2 <- x3 <- x4 <- "AAA"
-str_sub(x1, 1, NA) <- "B"
-str_sub(x2, 1, 2) <- NA
-str_sub(x3, 1, NA, omit_na = TRUE) <- "B"
-str_sub(x4, 1, 2, omit_na = TRUE) <- NA
-x1; x2; x3; x4
 }
 \seealso{
 The underlying implementation in \code{\link[stringi:stri_sub]{stringi::stri_sub()}}

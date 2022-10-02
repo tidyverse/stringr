@@ -51,6 +51,8 @@
 
 * New `str_rank()` to complete set of order/rank/sort functions (#353).
 
+* New `str_sub_all()` to extract multiple substrings from each string.
+
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
 
