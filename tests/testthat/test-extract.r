@@ -36,3 +36,8 @@ test_that("str_extract extracts first match if found, NA otherwise", {
   expect_length(word_1_to_4, length(shopping_list))
   expect_equal(word_1_to_4[1], NA_character_)
 })
+
+test_that("can extract a group", {
+  expect_equal(str_extract("abc", "(.).(.)", group = 1), "a")
+  expect_equal(str_extract("abc", "(.).(.)", group = 2), "c")
+})

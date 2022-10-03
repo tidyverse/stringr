@@ -5,7 +5,7 @@
 \alias{str_extract_all}
 \title{Extract matching patterns from a string}
 \usage{
-str_extract(string, pattern)
+str_extract(string, pattern, group = NULL)
 
 str_extract_all(string, pattern, simplify = FALSE)
 }
@@ -27,6 +27,9 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
+\item{group}{If supplied, instead of returning the complete match, will
+return the matched text from the specified capturing group.}
+
 \item{simplify}{A boolean.
 \itemize{
 \item \code{FALSE} (the default): returns a list of character vectors.
@@ -45,6 +48,10 @@ str_extract(shopping_list, "\\\\d")
 str_extract(shopping_list, "[a-z]+")
 str_extract(shopping_list, "[a-z]{1,4}")
 str_extract(shopping_list, "\\\\b[a-z]{1,4}\\\\b")
+
+str_extract(shopping_list, "([a-z]+) of ([a-z]+)")
+str_extract(shopping_list, "([a-z]+) of ([a-z]+)", group = 1)
+str_extract(shopping_list, "([a-z]+) of ([a-z]+)", group = 2)
 
 # Extract all matches
 str_extract_all(shopping_list, "[a-z]+")

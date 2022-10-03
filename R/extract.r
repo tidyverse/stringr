@@ -5,6 +5,8 @@
 #'
 #' @inheritParams str_detect
 #' @return A character vector.
+#' @param group If supplied, instead of returning the complete match, will
+#'   return the matched text from the specified capturing group.
 #' @seealso [str_match()] to extract matched groups;
 #'   [stringi::stri_extract()] for the underlying implementation.
 #' @param simplify A boolean.
@@ -18,6 +20,10 @@
 #' str_extract(shopping_list, "[a-z]{1,4}")
 #' str_extract(shopping_list, "\\b[a-z]{1,4}\\b")
 #'
+#' str_extract(shopping_list, "([a-z]+) of ([a-z]+)")
+#' str_extract(shopping_list, "([a-z]+) of ([a-z]+)", group = 1)
+#' str_extract(shopping_list, "([a-z]+) of ([a-z]+)", group = 2)
+#'
 #' # Extract all matches
 #' str_extract_all(shopping_list, "[a-z]+")
 #' str_extract_all(shopping_list, "\\b[a-z]+\\b")
@@ -29,9 +35,12 @@
 #'
 #' # Extract all words
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
-str_extract <- function(string, pattern) {
-  check_lengths(string, pattern)
+str_extract <- function(string, pattern, group = NULL) {
+  if (!is.null(group)) {
+    return(str_match(string, pattern)[, group + 1])
+  }
 
+  check_lengths(string, pattern)
   switch(type(pattern),
     empty = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
     bound = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
