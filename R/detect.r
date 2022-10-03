@@ -70,7 +70,6 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'   [coll()] which respects character matching rules for the specified locale.
 #'
 #' @return A logical vector.
-#' @seealso [str_detect()] which this function wraps when pattern is regex.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
