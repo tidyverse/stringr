@@ -12,14 +12,13 @@
       ! `pattern` must be a string
     Code
       str_split("x", "x", n = 0)
-    Output
-      [[1]]
-      character(0)
-      
+    Condition
+      Error in `str_split()`:
+      ! `n` must be a positive integer.
 
 # str_split_1 takes string and returns character vector
 
-    `string` must be a single string
+    `string` must be a single string, not a character vector.
 
 # str_split_fixed check its inputs
 
@@ -27,7 +26,7 @@
       str_split_fixed("x", "x", 0)
     Condition
       Error in `str_split_fixed()`:
-      ! `n` must be a positive integer
+      ! `n` must be a positive integer.
 
 # str_split_i check its inputs
 
@@ -35,5 +34,5 @@
       str_split_i("x", "x", 0)
     Condition
       Error in `str_split_i()`:
-      ! `i` must be a positive integer
+      ! `i` must be a positive integer.
 

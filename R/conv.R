@@ -13,9 +13,7 @@
 #' str_conv(x, "ISO-8859-2") # Polish "a with ogonek"
 #' str_conv(x, "ISO-8859-1") # Plus-minus
 str_conv <- function(string, encoding) {
-  if (!is_string(encoding)) {
-    abort("`encoding` must be a single string.")
-  }
+  check_string(encoding)
 
   stri_conv(string, encoding, "UTF-8")
 }

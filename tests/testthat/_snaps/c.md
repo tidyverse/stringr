@@ -12,10 +12,10 @@
       str_c(letters, sep = c("a", "b"))
     Condition
       Error in `str_c()`:
-      ! `sep` must be a single string
+      ! `sep` must be a single string, not a character vector.
     Code
       str_c(letters, collapse = c("a", "b"))
     Condition
       Error in `str_c()`:
-      ! `collapse` must be NULL or single string
+      ! `collapse` must be a single string or `NULL`, not a character vector.
 

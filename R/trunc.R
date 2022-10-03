@@ -16,15 +16,18 @@
 #'
 str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
+  check_number_whole(width)
   side <- arg_match(side)
-  if (!is.numeric(width) || length(width) != 1) {
-    abort("`width` must be a single number")
-  }
+  check_string(ellipsis)
 
   too_long <- !is.na(string) & str_length(string) > width
   width... <- width - str_length(ellipsis)
 
-  if (width... < 0) stop("`width` is shorter than `ellipsis`", call. = FALSE)
+  if (width... < 0) {
+    cli::cli_abort(
+      "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})"
+    )
+  }
 
   string[too_long] <- switch(side,
     right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),
