@@ -1,28 +1,28 @@
 test_that("results are truncated", {
-  expect_snapshot(str_view(words, html = FALSE))
+  expect_snapshot(str_view(words))
 })
 
 test_that("indices come from original vector", {
-  expect_snapshot(str_view(letters, "a|z", match = TRUE, html = FALSE))
+  expect_snapshot(str_view(letters, "a|z", match = TRUE))
 })
 
-test_that("view highlights matches", {
+test_that("view highlights all matches", {
   x <- c("abc", "def", "fgh")
   expect_snapshot({
     str_view(x, "[aeiou]", html = TRUE)$x$html
-    str_view_all(x, "d|e", html = TRUE)$x$html
+    str_view(x, "d|e", html = TRUE)$x$html
   })
 
   expect_snapshot({
-    str_view(x, "[aeiou]", html = FALSE)
-    str_view_all(x, "d|e", html = FALSE)
+    str_view(x, "[aeiou]")
+    str_view(x, "d|e")
   })
 })
 
 test_that("view highlights whitespace (except a space/nl)", {
-  x <- c(" ", "\u00A0", "\n")
+  x <- c(" ", "\u00A0", "\n", "\t")
   expect_snapshot({
-    str_view(x, html = TRUE)$x$html
+    str_view(x)
   })
 })
 
@@ -36,13 +36,13 @@ test_that("can instead use escapes", {
 
 test_that("match argument controls what is shown", {
   x <- c("abc", "def", "fgh", NA)
-  a <- str_view(x, "d|e")
+  a <- str_view(x, "d|e", html = TRUE)
   expect_equal(str_count(a$x$html, "\\<li\\>"), 4)
 
-  a <- str_view(x, "d|e", match = TRUE)
+  a <- str_view(x, "d|e", match = TRUE, html = TRUE)
   expect_equal(str_count(a$x$html, "\\<li\\>"), 1)
 
-  a <- str_view(x, "d|e", match = FALSE)
+  a <- str_view(x, "d|e", match = FALSE, html = TRUE)
   expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
 })
 
@@ -51,21 +51,16 @@ test_that("can match across lines", {
   expect_snapshot(str_view("a\nb\nbbb\nc", "(b|\n)+"))
 })
 
-test_that("view_all shows all matches", {
-  x <- c("abc", "def", "fgh")
-  a <- str_view_all(x, "d|e", match = TRUE)
-  expect_equal(str_count(a$x$html, "match"), 2)
-
-  a <- str_view_all(x, "d|e", match = FALSE)
-  expect_equal(str_count(a$x$html, "match"), 0)
-})
-
 test_that("vectorised over pattern", {
-  x <- str_view("a", c("a", "b"), html = FALSE)
+  x <- str_view("a", c("a", "b"))
   expect_equal(length(x), 2)
 })
 
 test_that("[ preserves class", {
-  x <- str_view(letters, html = FALSE)
+  x <- str_view(letters)
   expect_s3_class(x[], "stringr_view")
+})
+
+test_that("str_view_all() is deprecated", {
+  expect_snapshot(str_view_all("abc", "a|b"))
 })

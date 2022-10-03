@@ -3,17 +3,9 @@
 \name{str_view}
 \alias{str_view}
 \alias{str_view_all}
-\title{View regular expression matches}
+\title{View strings and matches}
 \usage{
-str_view(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE)
-
-str_view_all(
-  string,
-  pattern = NULL,
-  match = NA,
-  html = NULL,
-  use_escapes = FALSE
-)
+str_view(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -33,9 +25,14 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
-\item{match}{If \code{TRUE}, shows only strings that match the pattern.
-If \code{FALSE}, shows only the strings that don't match the pattern.
-Otherwise (the default, \code{NA}) displays both matches and non-matches.}
+\item{match}{If \code{pattern} is supplied, which elements should be shown?
+\itemize{
+\item \code{NA}, the default, shows all elements.
+\item \code{TRUE} shows only elements that match the pattern.
+\item \code{FALSE} shows only elements that don't match the pattern.
+}
+
+If \code{pattern} is not supplied, all elements are always shown.}
 
 \item{html}{Use HTML output? If \code{TRUE} will create an HTML widget; if \code{FALSE}
 will style using ANSI escapes. The default prefers ANSI escapes if
@@ -47,34 +44,35 @@ with unicode escapes. This is useful to see exactly what underlying
 values are stored in the string.}
 }
 \description{
-\code{str_view()} shows the first match; \code{str_view_all()} shows all matches.
-Matches are surrounded by \verb{<>} and coloured blue; unusual whitespace
-characters (i.e. everything apart from \code{" "} and \code{"\\n"}) are shown with a
-blue background.
+\code{str_view()} is used to print the underlying representation of a string and
+to see how a \code{pattern} matches.
 
-To build regular expressions interactively, check out the
-\href{https://www.garrickadenbuie.com/project/regexplain/}{RegExplain RStudio addin}.
+Matches are surrounded by \verb{<>} and unusual whitespace (i.e. all whitespace
+apart from \code{" "} and \code{"\\n"}) are surrounded by \code{{}} and escaped. Where
+possible, matches and unusual whitespace are coloured blue and \code{NA}s red.
 }
 \examples{
 # Show special characters
-str_view(c("\"\\\\", "\\\\\\\\\\\\", "fgh"))
+str_view(c("\"\\\\", "\\\\\\\\\\\\", "fgh", NA, "NA"))
 
 # A non-breaking space looks like a regular space:
 nbsp <- "Hi\u00A0you"
 nbsp
 # But it doesn't behave like one:
 str_detect(nbsp, " ")
-# str_view() brings it to your attention:
+# So str_view() brings it to your attention with a blue background
 str_view(nbsp)
 
-# You can also use escapes for all non-ASCII characters
+# You can also use escapes to see all non-ASCII characters
 str_view(nbsp, use_escapes = TRUE)
 
-# Show first match
-str_view(c("abc", "def", "fgh"), "[aeiou]")
-str_view(c("abc", "def", "fgh"), "^")
-str_view(c("abc", "def", "fgh"), "..")
+# Supply a pattern to see where it matches
+str_view(c("abc", "def", "fghi"), "[aeiou]")
+str_view(c("abc", "def", "fghi"), "^")
+str_view(c("abc", "def", "fghi"), "..")
 
-# Show all matches
-str_view_all(c("abc", "def", "fgh"), "d|e")
+# Set matches to see only elements that match:
+str_view(c("abc", "def", "fghi"), "e", match = TRUE)
+# or don't match:
+str_view(c("abc", "def", "fghi"), "e", match = FALSE)
 }

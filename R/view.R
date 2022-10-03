@@ -1,17 +1,21 @@
-#' View regular expression matches
+#' View strings and matches
 #'
 #' @description
-#' `str_view()` shows the first match; `str_view_all()` shows all matches.
-#' Matches are surrounded by `<>` and coloured blue; unusual whitespace
-#' characters (i.e. everything apart from `" "` and `"\n"`) are shown with a
-#' blue background.
+#' `str_view()` is used to print the underlying representation of a string and
+#' to see how a `pattern` matches.
 #'
-#' To build regular expressions interactively, check out the
-#' [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/).
+#' Matches are surrounded by `<>` and unusual whitespace (i.e. all whitespace
+#' apart from `" "` and `"\n"`) are surrounded by `{}` and escaped. Where
+#' possible, matches and unusual whitespace are coloured blue and `NA`s red.
+#'
 #' @inheritParams str_detect
-#' @param match If `TRUE`, shows only strings that match the pattern.
-#'   If `FALSE`, shows only the strings that don't match the pattern.
-#'   Otherwise (the default, `NA`) displays both matches and non-matches.
+#' @param match If `pattern` is supplied, which elements should be shown?
+#'
+#'   * `NA`, the default, shows all elements.
+#'   * `TRUE` shows only elements that match the pattern.
+#'   * `FALSE` shows only elements that don't match the pattern.
+#'
+#'   If `pattern` is not supplied, all elements are always shown.
 #' @param html Use HTML output? If `TRUE` will create an HTML widget; if `FALSE`
 #'   will style using ANSI escapes. The default prefers ANSI escapes if
 #'   available in the current terminal; you can override by setting
@@ -22,39 +26,43 @@
 #' @export
 #' @examples
 #' # Show special characters
-#' str_view(c("\"\\", "\\\\\\", "fgh"))
+#' str_view(c("\"\\", "\\\\\\", "fgh", NA, "NA"))
 #'
 #' # A non-breaking space looks like a regular space:
 #' nbsp <- "Hi\u00A0you"
 #' nbsp
 #' # But it doesn't behave like one:
 #' str_detect(nbsp, " ")
-#' # str_view() brings it to your attention:
+#' # So str_view() brings it to your attention with a blue background
 #' str_view(nbsp)
 #'
-#' # You can also use escapes for all non-ASCII characters
+#' # You can also use escapes to see all non-ASCII characters
 #' str_view(nbsp, use_escapes = TRUE)
 #'
-#' # Show first match
-#' str_view(c("abc", "def", "fgh"), "[aeiou]")
-#' str_view(c("abc", "def", "fgh"), "^")
-#' str_view(c("abc", "def", "fgh"), "..")
+#' # Supply a pattern to see where it matches
+#' str_view(c("abc", "def", "fghi"), "[aeiou]")
+#' str_view(c("abc", "def", "fghi"), "^")
+#' str_view(c("abc", "def", "fghi"), "..")
 #'
-#' # Show all matches
-#' str_view_all(c("abc", "def", "fgh"), "d|e")
-str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
+#' # Set matches to see only elements that match:
+#' str_view(c("abc", "def", "fghi"), "e", match = TRUE)
+#' # or don't match:
+#' str_view(c("abc", "def", "fghi"), "e", match = FALSE)
+str_view <- function(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE) {
   rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
   string <- rec$string
   pattern <- rec$pattern
 
-  html <- str_view_use_html(html)
+  check_bool(match, allow_na = TRUE)
+  check_bool(html)
+  check_bool(use_escapes)
 
   filter <- str_view_filter(string, pattern, match)
   out <- string[filter]
   pattern <- pattern[filter]
 
   if (!is.null(pattern)) {
-    out <- str_replace(out, pattern, str_view_highlighter(html))
+    out <- str_replace_all(out, pattern, str_view_highlighter(html))
   }
   if (use_escapes) {
     out <- stri_escape_unicode(out)
@@ -67,29 +75,18 @@ str_view <- function(string, pattern = NULL, match = NA, html = NULL, use_escape
 }
 
 #' @rdname str_view
+#' @usage NULL
 #' @export
-str_view_all <- function(string, pattern = NULL, match = NA, html = NULL, use_escapes = FALSE) {
-  rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
-  string <- rec$string
-  pattern <- rec$pattern
+str_view_all <- function(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE) {
+  lifecycle::deprecate_warn("1.5.0", "str_view()", "str_view_all()")
 
-  html <- str_view_use_html(html)
-
-  filter <- str_view_filter(string, pattern, match)
-  out <- string[filter]
-  pattern <- pattern[filter]
-
-  if (!is.null(pattern)) {
-    out <- str_replace_all(out, pattern, str_view_highlighter(html))
-  }
-  if (use_escapes) {
-    out <- stri_escape_unicode(out)
-  } else {
-    out <- str_view_special(out, html = html)
-    out <- str_replace_all(out, fixed("\\u001b"), "\u001b")
-  }
-
-  str_view_print(out, filter, html = html)
+  str_view(
+    string = string,
+    pattern = pattern,
+    match = match,
+    html = html,
+    use_escapes = use_escapes
+  )
 }
 
 str_view_filter <- function(x, pattern, match) {
@@ -107,10 +104,6 @@ str_view_filter <- function(x, pattern, match) {
 }
 
 # Helpers -----------------------------------------------------------------
-
-str_view_use_html <- function(html) {
-  html %||% getOption("stringr.html") %||% (cli::num_ansi_colors() == 1L)
-}
 
 str_view_highlighter <- function(html = TRUE) {
   if (html) {
@@ -132,7 +125,7 @@ str_view_special <- function(x, html = TRUE) {
   if (html) {
     replace <- function(x) paste0("<span class='special'>", x, "</span>")
   } else {
-    replace <- function(x) cli::bg_cyan(x)
+    replace <- function(x) cli::col_cyan("{", stri_escape_unicode(x), "}")
   }
 
   # Highlight any non-standard whitespace characters

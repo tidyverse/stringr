@@ -1,7 +1,7 @@
 # results are truncated
 
     Code
-      str_view(words, html = FALSE)
+      str_view(words)
     Output
        [1] | a
        [2] | able
@@ -28,12 +28,12 @@
 # indices come from original vector
 
     Code
-      str_view(letters, "a|z", match = TRUE, html = FALSE)
+      str_view(letters, "a|z", match = TRUE)
     Output
        [1] | <a>
       [26] | <z>
 
-# view highlights matches
+# view highlights all matches
 
     Code
       str_view(x, "[aeiou]", html = TRUE)$x$html
@@ -44,7 +44,7 @@
         <li><pre>fgh</pre></li>
       </ul>
     Code
-      str_view_all(x, "d|e", html = TRUE)$x$html
+      str_view(x, "d|e", html = TRUE)$x$html
     Output
       <ul>
         <li><pre>abc</pre></li>
@@ -55,13 +55,13 @@
 ---
 
     Code
-      str_view(x, "[aeiou]", html = FALSE)
+      str_view(x, "[aeiou]")
     Output
       [1] | <a>bc
       [2] | d<e>f
       [3] | fgh
     Code
-      str_view_all(x, "d|e", html = FALSE)
+      str_view(x, "d|e")
     Output
       [1] | abc
       [2] | <d><e>f
@@ -70,14 +70,13 @@
 # view highlights whitespace (except a space/nl)
 
     Code
-      str_view(x, html = TRUE)$x$html
+      str_view(x)
     Output
-      <ul>
-        <li><pre> </pre></li>
-        <li><pre><span class='special'> </span></pre></li>
-        <li><pre>
-      </pre></li>
-      </ul>
+      [1] |  
+      [2] | {\u00a0}
+      [3] | 
+          | 
+      [4] | {\t}
 
 # can instead use escapes
 
@@ -99,4 +98,15 @@
           [90m|[39m [36mb[39m
           [90m|[39m [36mbbb[39m
           [90m|[39m [36m>[39mc
+
+# str_view_all() is deprecated
+
+    Code
+      str_view_all("abc", "a|b")
+    Condition
+      Warning:
+      `str_view()` was deprecated in stringr 1.5.0.
+      Please use `str_view_all()` instead.
+    Output
+      [1] | <a><b>c
 
