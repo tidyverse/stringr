@@ -197,8 +197,14 @@ type.stringr_fixed <- function(x, error_call = caller_env()) {
 type.character <- function(x, error_call = caller_env()) {
   if (identical(x, "")) "empty" else "regex"
 }
+
 #' @export
 type.default <- function(x, error_call = caller_env()) {
+  if (inherits(x, "regex")) {
+    # Fallback for rex
+    return("regex")
+  }
+
   cli::cli_abort(
     "`pattern` must be a string, not {.obj_type_friendly {x}}.",
     call = error_call
