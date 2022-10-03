@@ -71,7 +71,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span>, group <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">str_extract_all</span><span class="op">(</span><span class="va">string</span>, <span class="va">pattern</span>, simplify <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -94,6 +94,11 @@ respects character matching rules for the specified locale.</p>
 <p>Match character, word, line and sentence boundaries with
 <code><a href="modifiers.html">boundary()</a></code>. An empty pattern, "", is equivalent to
 <code>boundary("character")</code>.</p></dd>
+
+
+<dt>group</dt>
+<dd><p>If supplied, instead of returning the complete match, will
+return the matched text from the specified capturing group.</p></dd>
 
 
 <dt>simplify</dt>
@@ -125,6 +130,13 @@ respects character matching rules for the specified locale.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "appl" "bag"  "bag"  "milk"</span>
 <span class="r-in"><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">shopping_list</span>, <span class="st">"\\b[a-z]{1,4}\\b"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA     "bag"  "bag"  "milk"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">shopping_list</span>, <span class="st">"([a-z]+) of ([a-z]+)"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA             "bag of flour" "bag of sugar" NA            </span>
+<span class="r-in"><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">shopping_list</span>, <span class="st">"([a-z]+) of ([a-z]+)"</span>, group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA    "bag" "bag" NA   </span>
+<span class="r-in"><span><span class="fu">str_extract</span><span class="op">(</span><span class="va">shopping_list</span>, <span class="st">"([a-z]+) of ([a-z]+)"</span>, group <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA      "flour" "sugar" NA     </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract all matches</span></span></span>
 <span class="r-in"><span><span class="fu">str_extract_all</span><span class="op">(</span><span class="va">shopping_list</span>, <span class="st">"[a-z]+"</span><span class="op">)</span></span></span>
