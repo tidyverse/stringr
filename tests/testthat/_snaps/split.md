@@ -3,12 +3,12 @@
     Code
       str_split(letters[1:3], letters[1:2])
     Condition
-      Error in `check_lengths()`:
+      Error in `str_split()`:
       ! Can't recycle `string` (size 3) to match `pattern` (size 2).
     Code
       str_split("x", 1)
     Condition
-      Error in `type()`:
+      Error in `str_split()`:
       ! `pattern` must be a string
     Code
       str_split("x", "x", n = 0)

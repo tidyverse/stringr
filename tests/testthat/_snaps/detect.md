@@ -3,21 +3,21 @@
     Code
       str_detect(1:2, 1:3)
     Condition
-      Error in `check_lengths()`:
+      Error in `str_detect()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
     Code
       str_starts(1:2, 1:3)
     Condition
-      Error in `check_lengths()`:
+      Error in `str_starts()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
     Code
       str_ends(1:2, 1:3)
     Condition
-      Error in `check_lengths()`:
+      Error in `str_ends()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
     Code
       str_like(1:2, c("a", "b", "c"))
     Condition
-      Error in `check_lengths()`:
+      Error in `str_like()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
 

@@ -163,20 +163,32 @@ opts <- function(x) {
   }
 }
 
-type <- function(x) UseMethod("type")
+type <- function(x, error_call = caller_env()) {
+  UseMethod("type")
+}
 #' @export
-type.stringr_boundary <- function(x) "bound"
+type.stringr_boundary <- function(x, error_call = caller_env()) {
+  "bound"
+}
 #' @export
-type.stringr_regex <- function(x) "regex"
+type.stringr_regex <- function(x, error_call = caller_env()) {
+  "regex"
+}
 #' @export
-type.stringr_coll <- function(x) "coll"
+type.stringr_coll <- function(x, error_call = caller_env()) {
+  "coll"
+}
 #' @export
-type.stringr_fixed <- function(x) "fixed"
+type.stringr_fixed <- function(x, error_call = caller_env()) {
+  "fixed"
+}
 #' @export
-type.character <- function(x) if (identical(x, "")) "empty" else "regex"
+type.character <- function(x, error_call = caller_env()) {
+  if (identical(x, "")) "empty" else "regex"
+}
 #' @export
-type.default <- function(x) {
-  abort("`pattern` must be a string")
+type.default <- function(x, error_call = caller_env()) {
+  cli::cli_abort("`pattern` must be a string", call = error_call)
 }
 
 #' @export
