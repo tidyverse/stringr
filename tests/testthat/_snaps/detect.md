@@ -4,12 +4,12 @@
       str_starts("x", "")
     Condition
       Error in `str_starts()`:
-      ! `pattern` must not be a boundary.
+      ! `pattern` can't be a boundary.
     Code
       str_ends("x", "")
     Condition
       Error in `str_ends()`:
-      ! `pattern` must not be a boundary.
+      ! `pattern` can't be a boundary.
 
 # functions use tidyverse recycling rules
 

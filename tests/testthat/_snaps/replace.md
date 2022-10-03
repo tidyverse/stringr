@@ -12,20 +12,20 @@
       str_replace("x", "", "")
     Condition
       Error in `str_replace()`:
-      ! `pattern` must not be empty.
+      ! `pattern` can't be empty.
     Code
       str_replace("x", boundary("word"), "")
     Condition
       Error in `str_replace()`:
-      ! `pattern` must not be a boundary.
+      ! `pattern` can't be a boundary.
     Code
       str_replace_all("x", "", "")
     Condition
       Error in `str_replace_all()`:
-      ! `pattern` must not be empty.
+      ! `pattern` can't be empty.
     Code
       str_replace_all("x", boundary("word"), "")
     Condition
       Error in `str_replace_all()`:
-      ! `pattern` must not be a boundary.
+      ! `pattern` can't be a boundary.
 
