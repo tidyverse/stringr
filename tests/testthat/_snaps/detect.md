@@ -1,3 +1,16 @@
+# str_starts/str_ends can't replace empty/boundary
+
+    Code
+      str_starts("x", "")
+    Condition
+      Error in `str_starts()`:
+      ! `pattern` must not be a boundary.
+    Code
+      str_ends("x", "")
+    Condition
+      Error in `str_ends()`:
+      ! `pattern` must not be a boundary.
+
 # functions use tidyverse recycling rules
 
     Code

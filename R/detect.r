@@ -84,7 +84,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} must not be a boundary."),
     fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -102,7 +102,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} must not be a boundary."),
     fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {

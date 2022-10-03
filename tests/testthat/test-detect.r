@@ -56,6 +56,14 @@ test_that("str_ends works", {
   expect_false(str_ends("ab", "c|a"))
 })
 
+
+test_that("str_starts/str_ends can't replace empty/boundary", {
+  expect_snapshot(error = TRUE, {
+    str_starts("x", "")
+    str_ends("x", "")
+  })
+})
+
 test_that("functions use tidyverse recycling rules", {
   expect_snapshot(error = TRUE, {
     str_detect(1:2, 1:3)
