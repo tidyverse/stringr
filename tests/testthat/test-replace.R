@@ -77,18 +77,9 @@ test_that("can't replace empty/boundary", {
 
 # functions ---------------------------------------------------------------
 
-test_that("can supply replacement function", {
+test_that("can replace multiple values", {
   expect_equal(str_replace("abc", "a|c", toupper), "Abc")
   expect_equal(str_replace_all("abc", "a|c", toupper), "AbC")
-})
-
-test_that("replacement can be different length", {
-  double <- function(x) str_dup(x, 2)
-  expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
-})
-
-test_that("replacement with NA works", {
-  expect_equal(str_replace("abc", "z", toupper), "abc")
 })
 
 test_that("can use formula", {
@@ -96,6 +87,26 @@ test_that("can use formula", {
   expect_equal(str_replace_all("abc", "b", ~ "x"), "axc")
 })
 
+test_that("replacement can be different length", {
+  double <- function(x) str_dup(x, 2)
+  expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
+})
+
+test_that("works with no match", {
+  expect_equal(str_replace("abc", "z", toupper), "abc")
+})
+
+test_that("works with zero length match", {
+  expect_equal(str_replace("abc", "$", toupper), "abc")
+  expect_equal(str_replace_all("abc", "$|^", ~ rep("X", length(.x))), "XabcX")
+})
+
+test_that("replacement function must return correct type/length", {
+  expect_snapshot(error = TRUE, {
+    str_replace_all("x", "x", ~ 1)
+    str_replace_all("x", "x", ~ c("a", "b"))
+  })
+})
 
 # fix_replacement ---------------------------------------------------------
 

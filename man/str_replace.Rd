@@ -32,8 +32,8 @@ the contents of the respective matched group (created by \verb{()}).
 To perform multiple replacements in each element of \code{string},
 pass a named vector (\code{c(pattern1 = replacement1)}) to
 \code{str_replace_all}. Alternatively, pass a function (or formula) to
-\code{replacement}: it will be called once for each match (from right to left)
-and its return value will be used to replace the match.
+\code{replacement}: it will be passed a single character vector and should
+return a character vector of the same length.
 
 To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
@@ -69,7 +69,7 @@ fruits \%>\%
 colours <- str_c("\\\\b", colors(), "\\\\b", collapse="|")
 col2hex <- function(col) {
   rgb <- col2rgb(col)
-  rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
+  rgb(rgb["red", ], rgb["green", ], rgb["blue", ], maxColorValue = 255)
 }
 
 x <- c(

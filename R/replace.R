@@ -21,8 +21,8 @@
 #'   To perform multiple replacements in each element of `string`,
 #'   pass a named vector (`c(pattern1 = replacement1)`) to
 #'   `str_replace_all`. Alternatively, pass a function (or formula) to
-#'   `replacement`: it will be called once for each match (from right to left)
-#'   and its return value will be used to replace the match.
+#'   `replacement`: it will be passed a single character vector and should
+#'   return a character vector of the same length.
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.
@@ -55,7 +55,7 @@
 #' colours <- str_c("\\b", colors(), "\\b", collapse="|")
 #' col2hex <- function(col) {
 #'   rgb <- col2rgb(col)
-#'   rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
+#'   rgb(rgb["red", ], rgb["green", ], rgb["blue", ], maxColorValue = 255)
 #' }
 #'
 #' x <- c(
@@ -179,18 +179,39 @@ str_replace_na <- function(string, replacement = "NA") {
 
 str_transform <- function(string, pattern, replacement) {
   loc <- str_locate(string, pattern)
-  str_sub(string, loc, omit_na = TRUE) <- replacement(str_sub(string, loc))
+  new <- replacement(str_sub(string, loc))
+  str_sub(string, loc, omit_na = TRUE) <- new
   string
 }
-str_transform_all <- function(string, pattern, replacement) {
+
+str_transform_all <- function(string, pattern, replacement, error_call = caller_env()) {
   locs <- str_locate_all(string, pattern)
 
-  for (i in seq_along(string)) {
-    for (j in rev(seq_len(nrow(locs[[i]])))) {
-      loc <- locs[[i]]
-      str_sub(string[[i]], loc[j, 1], loc[j, 2]) <- replacement(str_sub(string[[i]], loc[j, 1], loc[j, 2]))
-    }
+  old <- str_sub_all(string, locs)
+
+  ls <- lengths(old)
+  start <- cumsum(c(1, ls[-length(ls)]))
+  end <- start + ls - 1
+  idx <- lapply(seq_along(ls), function(i) seq2(start[[i]], end[[i]]))
+
+  old_flat <- vctrs::vec_unchop(old, idx$val)
+  new_flat <- replacement(old_flat)
+
+  if (!is.character(new_flat)) {
+    cli::cli_abort(
+      "{.fn replacement} must return a character vector, not {.obj_type_friendly {new_flat}}.",
+      call = error_call
+    )
+  }
+  if (length(new_flat) != length(old_flat)) {
+    cli::cli_abort(
+      "{.fn replacement} must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
+      call = error_call
+    )
   }
 
+  new <- vctrs::vec_chop(new_flat, idx)
+
+  stringi::stri_sub_all(string, locs) <- new
   string
 }
