@@ -1,15 +1,15 @@
-#' Detect the presence or absence of a pattern in a string
+#' Detect the presence/absence of a match
 #'
-#' Vectorised over `string` and `pattern`.
-#' Equivalent to `grepl(pattern, x)`.
-#' See [str_which()] for an equivalent to `grep(pattern, x)`.
+#' `str_detect()` returns a logical vector `TRUE` if `pattern` is found within
+#' each element of `string` or a `FALSE` if not. It's equivalent
+#' `grepl(pattern, string)`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.
 #' @param pattern Pattern to look for.
 #'
 #'   The default interpretation is a regular expression, as described
-#'   `vignette("regular-expressions")`.Control options with [regex()].
+#'   `vignette("regular-expressions")`. Control options with [regex()].
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
@@ -21,7 +21,9 @@
 #'   `boundary("character")`.
 #'
 #' @param negate If `TRUE`, return non-matching elements.
-#' @return A logical vector.
+#' @return A logical vector. The length is usually the same as `string`.
+#' (But it might not be if you're using a single string and a vector
+#' of patterns.)
 #' @seealso [stringi::stri_detect()] which this function wraps,
 #'   [str_subset()] for a convenient wrapper around
 #'   `x[str_detect(x, pattern)]`
@@ -41,6 +43,7 @@
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
@@ -67,7 +70,6 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'   [coll()] which respects character matching rules for the specified locale.
 #'
 #' @return A logical vector.
-#' @seealso [str_detect()] which this function wraps when pattern is regex.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
@@ -77,10 +79,11 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' str_ends(fruit, "e", negate = TRUE)
 str_starts <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -94,10 +97,11 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @export
 str_ends <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -107,23 +111,23 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect the presence of a pattern in the string using SQL LIKE convention.
+#' Detect a pattern in the same way as `SQL`'s `LIKE` operator.
 #'
 #' @description
-#' Follows the structure of the SQL `LIKE` operator:
+#' `str_like()` follows the conventions of the SQL `LIKE` operator:
 #'
-#' * Must match the entire string
-#' * `_` matches a single character (like `.`)
-#' * `%` matches any number of characters (like `.*`)
-#' * `\%` and `\_` match literal `%` and `_`
-#' * The match is case insensitive by default
+#' * Must match the entire string.
+#' * `_` matches a single character (like `.`).
+#' * `%` matches any number of characters (like `.*`).
+#' * `\%` and `\_` match literal `%` and `_`.
+#' * The match is case insensitive by default.
 #'
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
 #' @param ignore_case Ignore case of matches? Defaults to `TRUE` to match
 #'   the SQL `LIKE` operator.
-#' @return A logical vector.
+#' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
@@ -132,12 +136,14 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%APPLE")
 str_like <- function(string, pattern, ignore_case = TRUE) {
-  if (!is.character(pattern) || is.object(pattern)) {
-    stop("`pattern` must be a character vector", call. = FALSE)
+  check_lengths(string, pattern)
+  check_character(pattern)
+  if (inherits(pattern, "stringr_pattern")) {
+    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
   }
+  check_bool(ignore_case)
 
   pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
-  check_lengths(string, pattern)
   stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 

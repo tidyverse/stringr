@@ -72,8 +72,8 @@ str_replace <- function(string, pattern, replacement) {
   check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
-    empty = stop("Empty `pattern` not supported", call. = FALSE),
-    bound = stop("Boundary `pattern` not supported", call. = FALSE),
+    empty = cli::cli_abort("{.arg pattern} can't be empty."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
@@ -103,8 +103,8 @@ str_replace_all <- function(string, pattern, replacement) {
 
 
   switch(type(pattern),
-    empty = stop("Empty `pattern`` not supported", call. = FALSE),
-    bound = stop("Boundary `pattern` not supported", call. = FALSE),
+    empty = cli::cli_abort("{.arg pattern} can't be empty."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
       vectorize_all = vec, opts_fixed = opts(pattern)),
     coll  = stri_replace_all_coll(string, pattern, replacement,
@@ -118,11 +118,8 @@ is_replacement_fun <- function(x) {
   is.function(x) || is_formula(x)
 }
 
-fix_replacement <- function(x) {
-  if (!is.character(x)) {
-    stop("`replacement` must be a character vector", call. = FALSE)
-  }
-
+fix_replacement <- function(x, error_call = caller_env()) {
+  check_character(x, arg = "replacement", call = error_call)
   vapply(x, fix_replacement_one, character(1), USE.NAMES = FALSE)
 }
 
@@ -175,6 +172,7 @@ fix_replacement_one <- function(x) {
 #' @examples
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
+  check_string(replacement)
   stri_replace_na(string, replacement)
 }
 

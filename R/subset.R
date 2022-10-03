@@ -1,10 +1,7 @@
-#' Keep strings matching a pattern, or find positions
+#' Find location of matches in a vector
 #'
 #' `str_subset()` is a wrapper around `x[str_detect(x, pattern)]`,
 #' and is equivalent to `grep(pattern, x, value = TRUE)`.
-#' `str_which()` is a wrapper around `which(str_detect(x, pattern))`,
-#' and is equivalent to `grep(pattern, x)`.
-#' See [str_detect()] for an equivalent to `grepl(pattern, x)`.
 #'
 #' Vectorised over `string` and `pattern`
 #'
@@ -16,21 +13,20 @@
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_subset(fruit, "a")
-#' str_which(fruit, "a")
 #'
 #' str_subset(fruit, "^a")
 #' str_subset(fruit, "a$")
 #' str_subset(fruit, "b")
 #' str_subset(fruit, "[aeiou]")
 #'
-#' # Returns elements that do NOT match
+#' # Elements that don't match
 #' str_subset(fruit, "^p", negate = TRUE)
 #'
 #' # Missings never match
 #' str_subset(c("a", NA, "b"), ".")
-#' str_which(c("a", NA, "b"), ".")
 str_subset <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
@@ -41,8 +37,24 @@ str_subset <- function(string, pattern, negate = FALSE) {
   )
 }
 
+
+#' Find strings that match
+#'
+#' `str_which()` is a wrapper around `which(str_detect(x, pattern))`,
+#' and is equivalent to `grep(pattern, x)`.
+#'
+#' @inheritParams str_detect
+#' @return An integer vector.
 #' @export
-#' @rdname str_subset
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pineapple")
+#' str_which(fruit, "a")
+#'
+#' # Elements that don't match
+#' str_which(fruit, "^p", negate = TRUE)
+#'
+#' # Missings never match
+#' str_which(c("a", NA, "b"), ".")
 str_which <- function(string, pattern, negate = FALSE) {
   which(str_detect(string, pattern, negate = negate))
 }

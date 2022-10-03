@@ -38,6 +38,3 @@ str_starts(fruit, "p", negate = TRUE)
 str_ends(fruit, "e")
 str_ends(fruit, "e", negate = TRUE)
 }
-\seealso{
-\code{\link[=str_detect]{str_detect()}} which this function wraps when pattern is regex.
-}

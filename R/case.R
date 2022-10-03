@@ -1,8 +1,14 @@
-#' Convert case of a string
+#' Convert string to upper case, lower case, title case, or sentence case
 #'
-#' @param string String to modify
-#' @param locale Locale to use for translations. Defaults to "en" (English)
-#'   to ensure consistent default ordering across platforms.
+#' * `str_to_upper()` converts to upper case.
+#' * `str_to_lower()` converts to lower case.
+#' * `str_to_title()` converts to title case, where only the first letter of
+#'   each word is capitalized.
+#' * `str_to_sentence()` convert to sentence case, where only the first letter
+#'   of sentence is capitalized.
+#'
+#' @inheritParams str_detect
+#' @inheritParams coll
 #' @examples
 #' dog <- "The quick brown dog"
 #' str_to_upper(dog)
@@ -19,21 +25,29 @@ NULL
 #' @export
 #' @rdname case
 str_to_upper <- function(string, locale = "en") {
+  check_string(locale)
+
   stri_trans_toupper(string, locale = locale)
 }
 #' @export
 #' @rdname case
 str_to_lower <- function(string, locale = "en") {
+  check_string(locale)
+
   stri_trans_tolower(string, locale = locale)
 }
 #' @export
 #' @rdname case
 str_to_title <- function(string, locale = "en") {
+  check_string(locale)
+
   stri_trans_totitle(string, opts_brkiter = stri_opts_brkiter(locale = locale))
 }
 #' @export
 #' @rdname case
 str_to_sentence <- function(string, locale = "en") {
+  check_string(locale)
+
   stri_trans_totitle(
     string,
     opts_brkiter = stri_opts_brkiter(type = "sentence", locale = locale)

@@ -1,29 +1,31 @@
 #' Flatten a string
 #'
-#' This is a summary function for strings: regardless of the length of the
-#' input, it always returns a single string.
+#' Reduce a character vector to a single string. This is a summary function
+#' because regardless of the length of the input `x`, it always returns a
+#' single string.
 #'
-#' @param string Character to flatten.
-#' @param collapse String to insert between each piece.
+#' @inheritParams str_detect
+#' @param collapse String to insert between each piece. Defaults to `""`.
 #' @param last Optional string use in place of final separator.
-#' @param na.rm If `TRUE`, will remove missing values
-#' @return A character vector of length 1
+#' @param na.rm Remove missing values? If `FALSE` (the default), the result
+#'   will be `NA` if any element of `string` is `NA`.
+#' @return A string, i.e. a character vector of length 1
 #' @export
 #' @examples
 #' str_flatten(letters)
 #' str_flatten(letters, "-")
 #'
-#' str_flatten(letters[1:5], ", ", ", and ")
+#' str_flatten(letters[1:4], ", ", ", and ")
 #' str_flatten(letters[1:3], ", ", ", and ")
 #' str_flatten(letters[1:2], ", ", ", and ")
 #' str_flatten(letters[1], ", ", ", and ")
 #' str_flatten(letters[0], ", ", ", and ")
 str_flatten <- function(string, collapse = "", last = NULL, na.rm = FALSE) {
-  if (!is_string(collapse)) {
-    abort("`collapse` must be a single string.")
-  }
+  check_string(collapse, allow_empty = TRUE)
+  check_string(last, allow_empty = TRUE, allow_null = TRUE)
+  check_bool(na.rm)
 
-  if (isTRUE(na.rm)) {
+  if (na.rm) {
     string <- string[!is.na(string)]
   }
 

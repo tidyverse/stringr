@@ -52,12 +52,8 @@
 #' str_c("x", character())
 #' paste0("x", character())
 str_c <- function(..., sep = "", collapse = NULL) {
-  if (!is_string(sep)) {
-    abort("`sep` must be a single string")
-  }
-  if (!is.null(collapse) && !is_string(collapse)) {
-    abort("`collapse` must be NULL or single string")
-  }
+  check_string(sep, allow_empty = TRUE)
+  check_string(collapse, allow_null = TRUE, allow_empty = TRUE)
 
   dots <- list(...)
   dots <- dots[!map_lgl(dots, is.null)]

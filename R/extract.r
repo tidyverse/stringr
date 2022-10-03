@@ -1,5 +1,6 @@
 #' Extract matching patterns from a string
 #'
+#'
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
@@ -8,8 +9,9 @@
 #'   return the matched text from the specified capturing group.
 #' @seealso [str_match()] to extract matched groups;
 #'   [stringi::stri_extract()] for the underlying implementation.
-#' @param simplify If `FALSE`, the default, returns a list of character
-#'   vectors. If `TRUE` returns a character matrix.
+#' @param simplify A boolean.
+#'   * `FALSE` (the default): returns a list of character vectors.
+#'   * `TRUE`: returns a character matrix.
 #' @export
 #' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
@@ -52,6 +54,7 @@ str_extract <- function(string, pattern, group = NULL) {
 #' @export
 str_extract_all <- function(string, pattern, simplify = FALSE) {
   check_lengths(string, pattern)
+  check_bool(simplify)
 
   switch(type(pattern),
     empty = stri_extract_all_boundaries(string, pattern,

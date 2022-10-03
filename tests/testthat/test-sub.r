@@ -25,6 +25,19 @@ test_that("arguments expanded to longest", {
   )
 })
 
+test_that("can supply start and end/length as a matrix", {
+  x <- c("abc", "def")
+  expect_equal(str_sub(x, cbind(1, end = 1)), c("a", "d"))
+  expect_equal(str_sub(x, cbind(1, length = 2)), c("ab", "de"))
+
+  expect_equal(
+    str_sub_all(x, cbind(c(1, 2), end = c(2, 3))),
+    list(c("ab", "bc"), c("de", "ef"))
+  )
+
+  str_sub(x, cbind(1, end = 1)) <- c("A", "D")
+  expect_equal(x, c("Abc", "Def"))
+})
 
 test_that("specifying only end subsets from start", {
   alphabet <- str_c(letters, collapse = "")

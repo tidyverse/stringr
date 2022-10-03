@@ -42,6 +42,11 @@ str_order <- function(x,
                       numeric = FALSE,
                       ...) {
 
+  check_bool(decreasing)
+  check_bool(na_last, allow_na = TRUE)
+  check_string(locale)
+  check_bool(numeric)
+
   opts <- stri_opts_collator(locale, numeric = numeric, ...)
   stri_order(x,
     decreasing = decreasing,
@@ -57,6 +62,9 @@ str_rank <- function(x,
                      numeric = FALSE,
                      ...) {
 
+  check_string(locale)
+  check_bool(numeric)
+
   opts <- stri_opts_collator(locale, numeric = numeric, ...)
   stri_rank(x,
     opts_collator = opts
@@ -71,6 +79,11 @@ str_sort <- function(x,
                      locale = "en",
                      numeric = FALSE,
                      ...) {
+
+  check_bool(decreasing)
+  check_bool(na_last, allow_na = TRUE)
+  check_string(locale)
+  check_bool(numeric)
 
   opts <- stri_opts_collator(locale, numeric = numeric, ...)
   stri_sort(x,

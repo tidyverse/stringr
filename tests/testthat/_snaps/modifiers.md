@@ -2,6 +2,7 @@
 
     Code
       type(1:3)
-    Error <rlang_error>
-      `pattern` must be a string
+    Condition
+      Error:
+      ! `pattern` must be a string, not an integer vector.
 

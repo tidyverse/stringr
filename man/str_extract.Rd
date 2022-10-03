@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}.Control options with \code{\link[=regex]{regex()}}.
+\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -30,8 +30,11 @@ Match character, word, line and sentence boundaries with
 \item{group}{If supplied, instead of returning the complete match, will
 return the matched text from the specified capturing group.}
 
-\item{simplify}{If \code{FALSE}, the default, returns a list of character
-vectors. If \code{TRUE} returns a character matrix.}
+\item{simplify}{A boolean.
+\itemize{
+\item \code{FALSE} (the default): returns a list of character vectors.
+\item \code{TRUE}: returns a character matrix.
+}}
 }
 \value{
 A character vector.

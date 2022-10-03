@@ -1,4 +1,4 @@
-#' Extract matched groups from a string
+#' Extract all capture groups from each match
 #'
 #' @description
 #' Extract any number of matches defined by unnamed, `(pattern)`, and
@@ -9,9 +9,9 @@
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
-#' @param pattern The default interpretation is a regular expression, as
-#'   described `vignette("regular-expressions")`. Should contain at least
-#'   one capturing group.
+#' @param pattern Unlike other stringr functions, `str_match()` only supports
+#'   regular expressions, as described `vignette("regular-expressions")`.
+#'   The pattern should contain at least one capturing group.
 #' @return For `str_match()`, a character matrix; for `str_match_all()`, a
 #' list of character matrices. First column is the complete match, followed
 #' by one column for each capture group. The columns will be named if you used
@@ -44,11 +44,11 @@
 #' str_extract(x, "<.*?>")
 #' str_extract_all(x, "<.*?>")
 str_match <- function(string, pattern) {
+  check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    stop("Can only match regular expressions", call. = FALSE)
+    cli::cli_abort("`pattern` must be a regular expression.")
   }
 
-  check_lengths(string, pattern)
   stri_match_first_regex(string,
     pattern,
     opts_regex = opts(pattern)
@@ -58,11 +58,11 @@ str_match <- function(string, pattern) {
 #' @rdname str_match
 #' @export
 str_match_all <- function(string, pattern) {
+  check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    stop("Can only match regular expressions", call. = FALSE)
+    cli::cli_abort("`pattern` must be a regular expression.")
   }
 
-  check_lengths(string, pattern)
   stri_match_all_regex(string,
     pattern,
     omit_no_match = TRUE,

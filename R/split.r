@@ -46,8 +46,13 @@
 #' str_split_i(fruits, " and ", 1)
 #' str_split_i(fruits, " and ", 3)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
-  if (identical(n, Inf)) n <- -1L
   check_lengths(string, pattern)
+  check_positive_integer(n)
+  check_bool(simplify, allow_na = TRUE)
+
+  if (identical(n, Inf)) {
+    n <- -1L
+  }
 
   switch(type(pattern),
     empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
@@ -61,18 +66,17 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #' @export
 #' @rdname str_split
 str_split_1 <- function(string, pattern) {
-  if (length(string) != 1) {
-    abort("`string` must be a single string")
-  }
+  check_string(string, allow_empty = TRUE)
+
   str_split(string, pattern)[[1]]
 }
 
 #' @export
 #' @rdname str_split
 str_split_fixed <- function(string, pattern, n) {
-  if (length(n) != 1 || n <= 0 || identical(n, Inf)) {
-    abort("`n` must be a positive integer")
-  }
+  check_lengths(string, pattern)
+  check_positive_integer(n)
+
   str_split(string, pattern, n = n, simplify = NA)
 }
 
@@ -80,9 +84,17 @@ str_split_fixed <- function(string, pattern, n) {
 #' @rdname str_split
 #' @param i Element to return.
 str_split_i <- function(string, pattern, i) {
-  if (length(i) != 1 || i <= 0 || identical(i, Inf)) {
-    abort("`i` must be a positive integer")
-  }
+  check_positive_integer(i)
+
   out <- str_split(string, pattern, simplify = NA, n = i + 1)
   out[, i]
+}
+
+check_positive_integer <- function(x, arg = caller_arg(x), call = caller_env()) {
+  if (!identical(x, Inf)) {
+    check_number_whole(x, arg = arg, call = call)
+    if (x <= 0) {
+      cli::cli_abort("{.arg {arg}} must be a positive integer.", call = call)
+    }
+  }
 }

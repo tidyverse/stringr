@@ -3,7 +3,7 @@
 \name{str_locate}
 \alias{str_locate}
 \alias{str_locate_all}
-\title{Locate the position of patterns in a string}
+\title{Find location of a match with in a string}
 \usage{
 str_locate(string, pattern)
 
@@ -16,7 +16,7 @@ coercible to one.}
 \item{pattern}{Pattern to look for.
 
 The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}.Control options with \code{\link[=regex]{regex()}}.
+\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -28,9 +28,14 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-For \code{str_locate}, an integer matrix. First column gives start
-postion of match, and second column gives end position. For
-\code{str_locate_all} a list of integer matrices.
+\code{str_locate()} returns an integer matrix with two columns and
+one row for each element of \code{string}. The first column, \code{start},
+gives the position at the start of the match, and second column, \code{end},
+gives the position of the end.
+
+\code{str_locate_all()} returns a list of integer matrices as above, but
+the matrices have one row for each match in the corresponding element
+in \code{string}.
 }
 \description{
 Vectorised over \code{string} and \code{pattern}. If the match is of length
