@@ -199,7 +199,10 @@ type.character <- function(x, error_call = caller_env()) {
 }
 #' @export
 type.default <- function(x, error_call = caller_env()) {
-  cli::cli_abort("`pattern` must be a string", call = error_call)
+  cli::cli_abort(
+    "`pattern` must be a string, not {.obj_type_friendly {x}}.",
+    call = error_call
+  )
 }
 
 #' @export
