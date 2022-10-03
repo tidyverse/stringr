@@ -1,9 +1,9 @@
 ## revdepcheck results
 
-We checked 1638 reverse dependencies (1633 from CRAN + 5 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 17 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 17 new problems
- * We failed to check 4 packages
+ * We saw 13 new problems
+ * We failed to check 0 packages
 
 Issues with CRAN packages are summarised below.
 
@@ -23,23 +23,9 @@ Issues with CRAN packages are summarised below.
 * crispRdesignR
   checking examples ... ERROR
 
-* datefixR
-  checking examples ... ERROR
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
-* eye
-  checking examples ... ERROR
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
 * flair
   checking examples ... ERROR
   checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
-* GALLO
-  checking examples ... ERROR
   checking re-building of vignette outputs ... WARNING
 
 * gginnards
@@ -53,11 +39,6 @@ Issues with CRAN packages are summarised below.
   checking tests ... ERROR
 
 * hockeyR
-  checking re-building of vignette outputs ... WARNING
-
-* refdb
-  checking examples ... ERROR
-  checking tests ... ERROR
   checking re-building of vignette outputs ... WARNING
 
 * strex
@@ -78,9 +59,3 @@ Issues with CRAN packages are summarised below.
   checking tests ... ERROR
   checking re-building of vignette outputs ... WARNING
 
-### Failed to check
-
-* ggPMX         (NA)
-* tidySEM       (NA)
-* xpose.nlmixr  (NA)
-* xpose.nlmixr2 (NA)

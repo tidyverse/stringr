@@ -23,7 +23,7 @@ Imports:
     glue (>= 1.6.1),
     lifecycle,
     magrittr,
-    rlang,
+    rlang (>= 1.0.0),
     stringi (>= 1.5.3),
     vctrs
 Suggests: 

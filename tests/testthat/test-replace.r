@@ -51,7 +51,7 @@ test_that("multiple matches respects class", {
 })
 
 test_that("replacement must be a string", {
-  expect_error(str_replace("x", "x", 1), "must be a character vector")
+  expect_snapshot(str_replace("x", "x", 1), error = TRUE)
 })
 
 test_that("replacement must be a string", {
@@ -66,6 +66,14 @@ test_that("can replace all types of NA values", {
   expect_equal(str_replace_na(NA_real_), "NA")
 })
 
+test_that("can't replace empty/boundary", {
+  expect_snapshot(error = TRUE, {
+    str_replace("x", "", "")
+    str_replace("x", boundary("word"), "")
+    str_replace_all("x", "", "")
+    str_replace_all("x", boundary("word"), "")
+  })
+})
 
 # functions ---------------------------------------------------------------
 

@@ -49,6 +49,8 @@ NULL
 #' @rdname modifiers
 fixed <- function(pattern, ignore_case = FALSE) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+
   options <- stri_opts_fixed(case_insensitive = ignore_case)
 
   structure(
@@ -70,6 +72,9 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   [stringi::stri_opts_brkiter()]
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+  check_string(locale)
+
   options <- str_opts_collator(
     ignore_case = ignore_case,
     locale = locale,
@@ -104,6 +109,11 @@ str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NUL
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+  check_bool(multiline)
+  check_bool(comments)
+  check_bool(dotall)
+
   options <- stri_opts_regex(
     case_insensitive = ignore_case,
     multiline = multiline,
@@ -137,6 +147,7 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
                     skip_word_none = NA, ...) {
   type <- arg_match(type)
+  check_bool(skip_word_none, allow_na = TRUE)
 
   if (identical(skip_word_none, NA)) {
     skip_word_none <- type == "word"
@@ -163,27 +174,41 @@ opts <- function(x) {
   }
 }
 
-type <- function(x) UseMethod("type")
+type <- function(x, error_call = caller_env()) {
+  UseMethod("type")
+}
 #' @export
-type.stringr_boundary <- function(x) "bound"
+type.stringr_boundary <- function(x, error_call = caller_env()) {
+  "bound"
+}
 #' @export
-type.stringr_regex <- function(x) "regex"
+type.stringr_regex <- function(x, error_call = caller_env()) {
+  "regex"
+}
 #' @export
-type.stringr_coll <- function(x) "coll"
+type.stringr_coll <- function(x, error_call = caller_env()) {
+  "coll"
+}
 #' @export
-type.stringr_fixed <- function(x) "fixed"
+type.stringr_fixed <- function(x, error_call = caller_env()) {
+  "fixed"
+}
 #' @export
-type.character <- function(x) if (identical(x, "")) "empty" else "regex"
+type.character <- function(x, error_call = caller_env()) {
+  if (identical(x, "")) "empty" else "regex"
+}
 #' @export
-type.default <- function(x) {
-  abort("`pattern` must be a string")
+type.default <- function(x, error_call = caller_env()) {
+  cli::cli_abort(
+    "`pattern` must be a string, not {.obj_type_friendly {x}}.",
+    call = error_call
+  )
 }
 
 #' @export
 `[.stringr_pattern` <- function(x, i) {
   structure(NextMethod(), class = class(x))
 }
-
 
 as_bare_character <- function(x) {
   if (is.character(x) && !is.object(x)) {

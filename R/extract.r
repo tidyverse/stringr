@@ -45,6 +45,7 @@ str_extract <- function(string, pattern) {
 #' @export
 str_extract_all <- function(string, pattern, simplify = FALSE) {
   check_lengths(string, pattern)
+  check_bool(simplify)
 
   switch(type(pattern),
     empty = stri_extract_all_boundaries(string, pattern,

@@ -29,10 +29,13 @@ str_wrap <- function(string,
                      indent = 0,
                      exdent = 0,
                      whitespace_only = TRUE) {
-  if (!is.numeric(width) || length(width) != 1) {
-    abort("`width` must be a single number")
+  check_number_decimal(width)
+  if (width <= 0) {
+    width <- 1
   }
-  if (width <= 0) width <- 1
+  check_number_whole(indent)
+  check_number_whole(exdent)
+  check_bool(whitespace_only)
 
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
     whitespace_only = whitespace_only, simplify = FALSE)

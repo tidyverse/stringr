@@ -21,11 +21,11 @@
 #' str_flatten(letters[1], ", ", ", and ")
 #' str_flatten(letters[0], ", ", ", and ")
 str_flatten <- function(string, collapse = "", last = NULL, na.rm = FALSE) {
-  if (!is_string(collapse)) {
-    abort("`collapse` must be a single string.")
-  }
+  check_string(collapse, allow_empty = TRUE)
+  check_string(last, allow_empty = TRUE, allow_null = TRUE)
+  check_bool(na.rm)
 
-  if (isTRUE(na.rm)) {
+  if (na.rm) {
     string <- string[!is.na(string)]
   }
 

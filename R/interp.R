@@ -54,9 +54,7 @@
 #'   "without breaking the ${max_char}-char barrier!"
 #' ))
 str_interp <- function(string, env = parent.frame()) {
-  if (!is.character(string)) {
-    stop("string argument is not character.", call. = FALSE)
-  }
+  check_character(string)
   string <- str_c(string, collapse = "")
 
   # Find expression placeholders

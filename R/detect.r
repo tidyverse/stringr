@@ -43,6 +43,7 @@
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
@@ -69,7 +70,6 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'   [coll()] which respects character matching rules for the specified locale.
 #'
 #' @return A logical vector.
-#' @seealso [str_detect()] which this function wraps when pattern is regex.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
@@ -79,10 +79,11 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' str_ends(fruit, "e", negate = TRUE)
 str_starts <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -96,10 +97,11 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @export
 str_ends <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,
-    bound = stop("boundary() patterns are not supported."),
+    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
     fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -134,12 +136,14 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%APPLE")
 str_like <- function(string, pattern, ignore_case = TRUE) {
-  if (!is.character(pattern) || is.object(pattern)) {
-    stop("`pattern` must be a character vector", call. = FALSE)
+  check_lengths(string, pattern)
+  check_character(pattern)
+  if (inherits(pattern, "stringr_pattern")) {
+    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
   }
+  check_bool(ignore_case)
 
   pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
-  check_lengths(string, pattern)
   stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 
