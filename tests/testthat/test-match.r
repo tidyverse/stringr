@@ -79,3 +79,10 @@ test_that("uses tidyverse recycling rules", {
     class = "vctrs_error_incompatible_size"
   )
 })
+
+test_that("match can't use other modifiers", {
+  expect_snapshot(error = TRUE, {
+    str_match("x", coll("y"))
+    str_match_all("x", coll("y"))
+  })
+})

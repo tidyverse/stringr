@@ -49,6 +49,8 @@ NULL
 #' @rdname modifiers
 fixed <- function(pattern, ignore_case = FALSE) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+
   options <- stri_opts_fixed(case_insensitive = ignore_case)
 
   structure(
@@ -70,6 +72,9 @@ fixed <- function(pattern, ignore_case = FALSE) {
 #'   [stringi::stri_opts_brkiter()]
 coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+  check_string(locale)
+
   options <- str_opts_collator(
     ignore_case = ignore_case,
     locale = locale,
@@ -104,6 +109,11 @@ str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NUL
 regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
                    comments = FALSE, dotall = FALSE, ...) {
   pattern <- as_bare_character(pattern)
+  check_bool(ignore_case)
+  check_bool(multiline)
+  check_bool(comments)
+  check_bool(dotall)
+
   options <- stri_opts_regex(
     case_insensitive = ignore_case,
     multiline = multiline,
@@ -137,6 +147,7 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 boundary <- function(type = c("character", "line_break", "sentence", "word"),
                     skip_word_none = NA, ...) {
   type <- arg_match(type)
+  check_bool(skip_word_none, allow_na = TRUE)
 
   if (identical(skip_word_none, NA)) {
     skip_word_none <- type == "word"
@@ -195,7 +206,6 @@ type.default <- function(x, error_call = caller_env()) {
 `[.stringr_pattern` <- function(x, i) {
   structure(NextMethod(), class = class(x))
 }
-
 
 as_bare_character <- function(x) {
   if (is.character(x) && !is.object(x)) {

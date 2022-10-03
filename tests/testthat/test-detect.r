@@ -79,5 +79,5 @@ test_that("like_to_regex generates expected regexps",{
 
 test_that("str_like works", {
   expect_true(str_like("abc", "ab%"))
-  expect_error(str_like("abc", regex("x")), "character vector")
+  expect_snapshot(str_like("abc", regex("x")), error = TRUE)
 })

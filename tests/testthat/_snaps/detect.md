@@ -21,3 +21,11 @@
       Error in `str_like()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
 
+# str_like works
+
+    Code
+      str_like("abc", regex("x"))
+    Condition
+      Error in `str_like()`:
+      ! `pattern` must be a plain string, not a stringr modifier.
+

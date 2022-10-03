@@ -26,6 +26,7 @@
 #' str_subset(c("a", NA, "b"), ".")
 str_subset <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
+  check_bool(negate)
 
   switch(type(pattern),
     empty = ,

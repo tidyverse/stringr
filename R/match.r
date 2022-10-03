@@ -44,11 +44,11 @@
 #' str_extract(x, "<.*?>")
 #' str_extract_all(x, "<.*?>")
 str_match <- function(string, pattern) {
+  check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    stop("Can only match regular expressions", call. = FALSE)
+    cli::cli_abort("`pattern` must be a regular expression.")
   }
 
-  check_lengths(string, pattern)
   stri_match_first_regex(string,
     pattern,
     opts_regex = opts(pattern)
@@ -58,11 +58,11 @@ str_match <- function(string, pattern) {
 #' @rdname str_match
 #' @export
 str_match_all <- function(string, pattern) {
+  check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    stop("Can only match regular expressions", call. = FALSE)
+    cli::cli_abort("`pattern` must be a regular expression.")
   }
 
-  check_lengths(string, pattern)
   stri_match_all_regex(string,
     pattern,
     omit_no_match = TRUE,
