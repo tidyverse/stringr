@@ -19,6 +19,10 @@
 
 * `regex()` and friends now generate class names with `stringr_` prefix (#384).
 
+* In `str_replace_all()`, a `replacement` function now receives all values in
+  a single vector. This radically improves performance at the cost of breaking
+  some existing uses (#462).
+
 ## New features
 
 * `str_view()` will use ANSI colouring if available (#370). This works in more 
