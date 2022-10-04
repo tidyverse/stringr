@@ -100,6 +100,11 @@ test_that("replacement is vectorised", {
   )
 })
 
+test_that("is forgiving of 0 matches with paste", {
+  x <- c("a", "b", "c")
+  str_replace_all(x, "d", ~ paste("x", .x))
+})
+
 test_that("works with no match", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })

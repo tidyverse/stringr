@@ -193,7 +193,13 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
   # unchop list into a vector, apply replacement(), and then rechop back into
   # a list
   old_flat <- vctrs::vec_unchop(old, idx)
-  new_flat <- replacement(old_flat)
+  if (length(old_flat) == 0) {
+    # minor optimisation to avoid problems with the many replacement
+    # functions that use paste
+    new_flat <- character()
+  } else {
+    new_flat <- replacement(old_flat)
+  }
 
   if (!is.character(new_flat)) {
     cli::cli_abort(
