@@ -172,7 +172,7 @@ fix_replacement_one <- function(x) {
 #' @examples
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
-  check_string(replacement)
+  check_string(replacement, allow_empty = TRUE)
   stri_replace_na(string, replacement)
 }
 
