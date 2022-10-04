@@ -72,6 +72,11 @@
           | 
       [4] | {\t}
 
+# view displays nothing for empty vectors
+
+    Code
+      str_view(character())
+
 # can instead use escapes
 
     Code

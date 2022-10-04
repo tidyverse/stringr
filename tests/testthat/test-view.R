@@ -26,6 +26,10 @@ test_that("view highlights whitespace (except a space/nl)", {
   })
 })
 
+test_that("view displays nothing for empty vectors",{
+  expect_snapshot(str_view(character()))
+})
+
 test_that("can instead use escapes", {
   x <- c(" ", "\u00A0", "\n")
   expect_snapshot({

@@ -174,6 +174,10 @@ print.stringr_view <- function(x, ..., n = 20) {
     x <- x[seq_len(n)]
   }
 
+  if (length(x) == 0) {
+    return(invisible(x))
+  }
+
   bar <- if (cli::is_utf8_output()) "\u2502" else "|"
 
   id <- format(paste0("[", attr(x, "id"), "] "), justify = "right")
