@@ -92,6 +92,14 @@ test_that("replacement can be different length", {
   expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
 })
 
+test_that("replacement is vectorised", {
+  x <- c("", "a", "b", "ab", "abc", "cba")
+  expect_equal(
+    str_replace_all(x, "a|c", ~ toupper(str_dup(.x, 2))),
+    c("", "AA", "b", "AAb", "AAbCC", "CCbAA")
+  )
+})
+
 test_that("works with no match", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })
