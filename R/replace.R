@@ -188,13 +188,11 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
   locs <- str_locate_all(string, pattern)
 
   old <- str_sub_all(string, locs)
+  idx <- chop_index(old)
 
-  ls <- lengths(old)
-  start <- cumsum(c(1, ls[-length(ls)]))
-  end <- start + ls - 1
-  idx <- lapply(seq_along(ls), function(i) seq2(start[[i]], end[[i]]))
-
-  old_flat <- vctrs::vec_unchop(old, idx$val)
+  # unchop list into a vector, apply replacement(), and then rechop back into
+  # a list
+  old_flat <- vctrs::vec_unchop(old, idx)
   new_flat <- replacement(old_flat)
 
   if (!is.character(new_flat)) {
@@ -214,4 +212,11 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   stringi::stri_sub_all(string, locs) <- new
   string
+}
+
+chop_index <- function(x) {
+  ls <- lengths(x)
+  start <- cumsum(c(1, ls[-length(ls)]))
+  end <- start + ls - 1
+  lapply(seq_along(ls), function(i) seq2(start[[i]], end[[i]]))
 }
