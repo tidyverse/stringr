@@ -2,7 +2,7 @@
 % Please edit documentation in R/detect.R
 \name{str_like}
 \alias{str_like}
-\title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} operator.}
+\title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} operator}
 \usage{
 str_like(string, pattern, ignore_case = TRUE)
 }

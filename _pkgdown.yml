@@ -61,18 +61,21 @@ reference:
   - str_equal
   - case
 
+- title: Character based
+  contents:
+  - str_length
+  - str_sub
+  - str_trunc
+
 - title: Other helpers
   contents:
   - invert_match
   - str_conv
   - str_dup
-  - str_length
   - str_like
   - str_replace_na
-  - str_trunc
   - str_unique
   - str_view
-  - str_sub
   - word
 
 - title: Bundled data

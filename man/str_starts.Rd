@@ -3,8 +3,7 @@
 \name{str_starts}
 \alias{str_starts}
 \alias{str_ends}
-\title{Detect the presence or absence of a pattern at the beginning or end of a
-string.}
+\title{Detect the presence/absence of a match at the beginning/end}
 \usage{
 str_starts(string, pattern, negate = FALSE)
 
@@ -29,7 +28,8 @@ is fast, but approximate. Generally, for matching human text, you'll want
 A logical vector.
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+\code{str_starts()} and \code{str_ends()} are special cases of \code{\link[=str_detect]{str_detect()}} that
+only match at the beginning or end of a string, respectively.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
