@@ -41,15 +41,12 @@
       <ul>
         <li><pre><span class='match'>a</span>bc</pre></li>
         <li><pre>d<span class='match'>e</span>f</pre></li>
-        <li><pre>fgh</pre></li>
       </ul>
     Code
       str_view(x, "d|e", html = TRUE)$x$html
     Output
       <ul>
-        <li><pre>abc</pre></li>
         <li><pre><span class='match'>d</span><span class='match'>e</span>f</pre></li>
-        <li><pre>fgh</pre></li>
       </ul>
 
 ---
@@ -59,13 +56,10 @@
     Output
       [1] | <a>bc
       [2] | d<e>f
-      [3] | fgh
     Code
       str_view(x, "d|e")
     Output
-      [1] | abc
       [2] | <d><e>f
-      [3] | fgh
 
 # view highlights whitespace (except a space/nl)
 

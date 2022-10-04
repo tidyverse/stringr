@@ -36,7 +36,7 @@ test_that("can instead use escapes", {
 
 test_that("match argument controls what is shown", {
   x <- c("abc", "def", "fgh", NA)
-  a <- str_view(x, "d|e", html = TRUE)
+  a <- str_view(x, "d|e", match = NA, html = TRUE)
   expect_equal(str_count(a$x$html, "\\<li\\>"), 4)
 
   a <- str_view(x, "d|e", match = TRUE, html = TRUE)
@@ -52,7 +52,7 @@ test_that("can match across lines", {
 })
 
 test_that("vectorised over pattern", {
-  x <- str_view("a", c("a", "b"))
+  x <- str_view("a", c("a", "b"), match = NA)
   expect_equal(length(x), 2)
 })
 
