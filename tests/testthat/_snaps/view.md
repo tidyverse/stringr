@@ -25,6 +25,18 @@
       [20] | again
       ... and 960 more
 
+---
+
+    Code
+      str_view(words)
+    Output
+      [1] | a
+      [2] | able
+      [3] | about
+      [4] | absolute
+      [5] | accept
+      ... and 975 more
+
 # indices come from original vector
 
     Code

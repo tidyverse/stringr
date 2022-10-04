@@ -168,7 +168,7 @@ str_view_widget <- function(lines) {
 }
 
 #' @export
-print.stringr_view <- function(x, ..., n = 20) {
+print.stringr_view <- function(x, ..., n = getOption("stringr.view_n", 20)) {
   n_extra <- length(x) - n
   if (n_extra > 0) {
     x <- x[seq_len(n)]

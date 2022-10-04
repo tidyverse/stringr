@@ -1,5 +1,9 @@
 test_that("results are truncated", {
   expect_snapshot(str_view(words))
+
+  # and can control with option
+  local_options(stringr.view_n = 5)
+  expect_snapshot(str_view(words))
 })
 
 test_that("indices come from original vector", {
