@@ -25,6 +25,18 @@
       [20] | again
       ... and 960 more
 
+---
+
+    Code
+      str_view(words)
+    Output
+      [1] | a
+      [2] | able
+      [3] | about
+      [4] | absolute
+      [5] | accept
+      ... and 975 more
+
 # indices come from original vector
 
     Code
@@ -41,15 +53,12 @@
       <ul>
         <li><pre><span class='match'>a</span>bc</pre></li>
         <li><pre>d<span class='match'>e</span>f</pre></li>
-        <li><pre>fgh</pre></li>
       </ul>
     Code
       str_view(x, "d|e", html = TRUE)$x$html
     Output
       <ul>
-        <li><pre>abc</pre></li>
         <li><pre><span class='match'>d</span><span class='match'>e</span>f</pre></li>
-        <li><pre>fgh</pre></li>
       </ul>
 
 ---
@@ -59,13 +68,10 @@
     Output
       [1] | <a>bc
       [2] | d<e>f
-      [3] | fgh
     Code
       str_view(x, "d|e")
     Output
-      [1] | abc
       [2] | <d><e>f
-      [3] | fgh
 
 # view highlights whitespace (except a space/nl)
 
@@ -77,6 +83,11 @@
       [3] | 
           | 
       [4] | {\t}
+
+# view displays nothing for empty vectors
+
+    Code
+      str_view(character())
 
 # can instead use escapes
 

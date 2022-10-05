@@ -11,8 +11,8 @@
 #' @inheritParams str_detect
 #' @param match If `pattern` is supplied, which elements should be shown?
 #'
-#'   * `NA`, the default, shows all elements.
-#'   * `TRUE` shows only elements that match the pattern.
+#'   * `TRUE`, the default, shows only elements that match the pattern.
+#'   * `NA` shows all elements.
 #'   * `FALSE` shows only elements that don't match the pattern.
 #'
 #'   If `pattern` is not supplied, all elements are always shown.
@@ -44,11 +44,13 @@
 #' str_view(c("abc", "def", "fghi"), "^")
 #' str_view(c("abc", "def", "fghi"), "..")
 #'
-#' # Set matches to see only elements that match:
-#' str_view(c("abc", "def", "fghi"), "e", match = TRUE)
-#' # or don't match:
+#' # By default, only matching strings will be shown
+#' str_view(c("abc", "def", "fghi"), "e")
+#' # but you can show all:
+#' str_view(c("abc", "def", "fghi"), "e", match = NA)
+#' # or just those that don't match:
 #' str_view(c("abc", "def", "fghi"), "e", match = FALSE)
-str_view <- function(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE) {
+str_view <- function(string, pattern = NULL, match = TRUE, html = FALSE, use_escapes = FALSE) {
   rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
   string <- rec$string
   pattern <- rec$pattern
@@ -176,10 +178,14 @@ str_view_widget <- function(lines) {
 }
 
 #' @export
-print.stringr_view <- function(x, ..., n = 20) {
+print.stringr_view <- function(x, ..., n = getOption("stringr.view_n", 20)) {
   n_extra <- length(x) - n
   if (n_extra > 0) {
     x <- x[seq_len(n)]
+  }
+
+  if (length(x) == 0) {
+    return(invisible(x))
   }
 
   bar <- if (cli::is_utf8_output()) "\u2502" else "|"

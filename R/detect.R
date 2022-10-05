@@ -54,10 +54,10 @@ str_detect <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect the presence or absence of a pattern at the beginning or end of a
-#' string.
+#' Detect the presence/absence of a match at the beginning/end
 #'
-#' Vectorised over `string` and `pattern`.
+#' `str_starts()` and `str_ends()` are special cases of [str_detect()] that
+#' only match at the beginning or end of a string, respectively.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern with which the string starts or ends.
@@ -111,7 +111,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect a pattern in the same way as `SQL`'s `LIKE` operator.
+#' Detect a pattern in the same way as `SQL`'s `LIKE` operator
 #'
 #' @description
 #' `str_like()` follows the conventions of the SQL `LIKE` operator:

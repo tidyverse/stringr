@@ -5,7 +5,13 @@
 \alias{str_view_all}
 \title{View strings and matches}
 \usage{
-str_view(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE)
+str_view(
+  string,
+  pattern = NULL,
+  match = TRUE,
+  html = FALSE,
+  use_escapes = FALSE
+)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -27,8 +33,8 @@ Match character, word, line and sentence boundaries with
 
 \item{match}{If \code{pattern} is supplied, which elements should be shown?
 \itemize{
-\item \code{NA}, the default, shows all elements.
-\item \code{TRUE} shows only elements that match the pattern.
+\item \code{TRUE}, the default, shows only elements that match the pattern.
+\item \code{NA} shows all elements.
 \item \code{FALSE} shows only elements that don't match the pattern.
 }
 
@@ -71,8 +77,10 @@ str_view(c("abc", "def", "fghi"), "[aeiou]")
 str_view(c("abc", "def", "fghi"), "^")
 str_view(c("abc", "def", "fghi"), "..")
 
-# Set matches to see only elements that match:
-str_view(c("abc", "def", "fghi"), "e", match = TRUE)
-# or don't match:
+# By default, only matching strings will be shown
+str_view(c("abc", "def", "fghi"), "e")
+# but you can show all:
+str_view(c("abc", "def", "fghi"), "e", match = NA)
+# or just those that don't match:
 str_view(c("abc", "def", "fghi"), "e", match = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/locate.R
 \name{invert_match}
 \alias{invert_match}
-\title{Switch location of matches to location of non-matches.}
+\title{Switch location of matches to location of non-matches}
 \usage{
 invert_match(loc)
 }
