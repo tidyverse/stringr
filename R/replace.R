@@ -222,7 +222,7 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
 chop_index <- function(x) {
   ls <- lengths(x)
-  start <- cumsum(c(1, ls[-length(ls)]))
-  end <- start + ls - 1
+  start <- cumsum(c(1L, ls[-length(ls)]))
+  end <- start + ls - 1L
   lapply(seq_along(ls), function(i) seq2(start[[i]], end[[i]]))
 }
