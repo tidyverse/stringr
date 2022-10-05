@@ -18,3 +18,7 @@ check_lengths <- function(string, pattern, replacement = NULL, error_call = call
     .call = error_call
   )
 }
+
+no_boundary <- function(call = caller_env()) {
+  cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+}

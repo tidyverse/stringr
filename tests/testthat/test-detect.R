@@ -57,8 +57,9 @@ test_that("str_ends works", {
 })
 
 
-test_that("str_starts/str_ends can't replace empty/boundary", {
+test_that("can't empty/boundary", {
   expect_snapshot(error = TRUE, {
+    str_detect("x", "")
     str_starts("x", "")
     str_ends("x", "")
   })

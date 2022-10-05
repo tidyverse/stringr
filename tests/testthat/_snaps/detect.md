@@ -1,5 +1,10 @@
-# str_starts/str_ends can't replace empty/boundary
+# can't empty/boundary
 
+    Code
+      str_detect("x", "")
+    Condition
+      Error in `str_detect()`:
+      ! `pattern` can't be a boundary.
     Code
       str_starts("x", "")
     Condition

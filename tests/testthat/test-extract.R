@@ -10,7 +10,6 @@ test_that("single pattern extracted correctly", {
     str_extract_all(test, "[a-z]{3,}"),
     list(c("one", "two", "three"), character())
   )
-
 })
 
 test_that("uses tidyverse recycling rules", {
@@ -41,3 +40,18 @@ test_that("can extract a group", {
   expect_equal(str_extract("abc", "(.).(.)", group = 1), "a")
   expect_equal(str_extract("abc", "(.).(.)", group = 2), "c")
 })
+
+test_that("can extract boundaries", {
+  expect_equal(str_extract("a b c", ""), "a")
+  expect_equal(
+    str_extract_all("a b c", ""),
+    list(c("a", " ", "b", " ", "c"))
+  )
+
+  expect_equal(str_extract("a b c", boundary("word")), "a")
+  expect_equal(
+    str_extract_all("a b c", boundary("word")),
+    list(c("a", "b", "c"))
+  )
+})
+

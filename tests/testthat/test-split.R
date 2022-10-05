@@ -17,6 +17,10 @@ test_that("str_split() can split by special patterns", {
   expect_equal(str_split("aXb", coll("X", ignore_case = TRUE)), list(c("a", "b")))
 })
 
+test_that("boundary() can be recycled", {
+  expect_equal(str_split(c("x", "y"), boundary()), list("x", "y"))
+})
+
 test_that("str_split() can control maximum number of splits", {
   expect_equal(
     str_split(c("a", "a-b"), n = 1, "-"),

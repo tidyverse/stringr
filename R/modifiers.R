@@ -160,7 +160,7 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
   )
 
   structure(
-    character(),
+    NA_character_,
     options = options,
     class = c("stringr_boundary", "stringr_pattern", "character")
   )

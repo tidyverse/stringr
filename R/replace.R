@@ -72,8 +72,8 @@ str_replace <- function(string, pattern, replacement) {
   check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
-    empty = cli::cli_abort("{.arg pattern} can't be empty."),
-    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
+    empty = ,
+    bound = no_boundary(),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
