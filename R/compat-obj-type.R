@@ -3,6 +3,12 @@
 # Changelog
 # =========
 #
+# 2022-10-04:
+# - `obj_type_friendly(value = TRUE)` now shows numeric scalars
+#   literally.
+# - `stop_friendly_type()` now takes `show_value`, passed to
+#   `obj_type_friendly()` as the `value` argument.
+#
 # 2022-10-03:
 # - Added `allow_na` and `allow_null` arguments.
 # - `NULL` is now backticked.
@@ -34,12 +40,13 @@
 
 #' Return English-friendly type
 #' @param x Any R object.
-#' @param value Whether to describe the value of `x`.
+#' @param value Whether to describe the value of `x`. Special values
+#'   like `NA` or `""` are always described.
 #' @param length Whether to mention the length of vectors and lists.
 #' @return A string describing the type. Starts with an indefinite
 #'   article, e.g. "an integer vector".
 #' @noRd
-obj_type_friendly <- function(x, value = TRUE, length = FALSE) {
+obj_type_friendly <- function(x, value = TRUE) {
   if (is_missing(x)) {
     return("absent")
   }
@@ -59,44 +66,75 @@ obj_type_friendly <- function(x, value = TRUE, length = FALSE) {
 
   n_dim <- length(dim(x))
 
-  if (value && !n_dim) {
-    if (is_na(x)) {
-      return(switch(
-        typeof(x),
-        logical = "`NA`",
-        integer = "an integer `NA`",
-        double =
-          if (is.nan(x)) {
-            "`NaN`"
-          } else {
-            "a numeric `NA`"
-          },
-        complex = "a complex `NA`",
-        character = "a character `NA`",
-        .rlang_stop_unexpected_typeof(x)
-      ))
-    }
-    if (length(x) == 1 && !is_list(x)) {
-      return(switch(
-        typeof(x),
-        logical = if (x) "`TRUE`" else "`FALSE`",
-        integer = "an integer",
-        double =
-          if (is.infinite(x)) {
-            if (x > 0) {
-              "`Inf`"
+  if (!n_dim) {
+    if (!is_list(x) && length(x) == 1) {
+      if (is_na(x)) {
+        return(switch(
+          typeof(x),
+          logical = "`NA`",
+          integer = "an integer `NA`",
+          double =
+            if (is.nan(x)) {
+              "`NaN`"
             } else {
-              "`-Inf`"
-            }
-          } else {
-            "a number"
+              "a numeric `NA`"
+            },
+          complex = "a complex `NA`",
+          character = "a character `NA`",
+          .rlang_stop_unexpected_typeof(x)
+        ))
+      }
+
+      show_infinites <- function(x) {
+        if (x > 0) {
+          "`Inf`"
+        } else {
+          "`-Inf`"
+        }
+      }
+      str_encode <- function(x, width = 30, ...) {
+        if (nchar(x) > width) {
+          x <- substr(x, 1, width - 3)
+          x <- paste0(x, "...")
+        }
+        encodeString(x, ...)
+      }
+
+      if (value) {
+        if (is.numeric(x) && is.infinite(x)) {
+          return(show_infinites(x))
+        }
+
+        if (is.numeric(x) || is.complex(x)) {
+          number <- as.character(round(x, 2))
+          what <- if (is.complex(x)) "the complex number" else "the number"
+          return(paste(what, number))
+        }
+
+        return(switch(
+          typeof(x),
+          logical = if (x) "`TRUE`" else "`FALSE`",
+          character = {
+            what <- if (nzchar(x)) "the string" else "the empty string"
+            paste(what, str_encode(x, quote = "\""))
           },
+          raw = paste("the raw value", as.character(x)),
+          .rlang_stop_unexpected_typeof(x)
+        ))
+      }
+
+      return(switch(
+        typeof(x),
+        logical = "a logical value",
+        integer = "an integer",
+        double = if (is.infinite(x)) show_infinites(x) else "a number",
         complex = "a complex number",
-        character = if (nzchar(x)) "a string" else "`\"\"`",
+        character = if (nzchar(x)) "a string" else "\"\"",
         raw = "a raw value",
         .rlang_stop_unexpected_typeof(x)
       ))
     }
+
     if (length(x) == 0) {
       return(switch(
         typeof(x),
@@ -112,19 +150,29 @@ obj_type_friendly <- function(x, value = TRUE, length = FALSE) {
     }
   }
 
-  type <- .rlang_as_friendly_vector_type(typeof(x), n_dim)
-
-  if (length && !n_dim) {
-    type <- paste0(type, sprintf(" of length %s", length(x)))
-  }
-
-  type
+  vec_type_friendly(x)
 }
 
-.rlang_as_friendly_vector_type <- function(type, n_dim) {
+vec_type_friendly <- function(x, length = FALSE) {
+  if (!is_vector(x)) {
+    abort("`x` must be a vector.")
+  }
+  type <- typeof(x)
+  n_dim <- length(dim(x))
+
+  add_length <- function(type) {
+    if (length && !n_dim) {
+      paste0(type, sprintf(" of length %s", length(x)))
+    } else {
+      type
+    }
+  }
+
   if (type == "list") {
     if (n_dim < 2) {
-      return("a list")
+      return(add_length("a list"))
+    } else if (is.data.frame(x)) {
+      return("a data frame")
     } else if (n_dim == 2) {
       return("a list matrix")
     } else {
@@ -151,7 +199,13 @@ obj_type_friendly <- function(x, value = TRUE, length = FALSE) {
   } else {
     kind <- "array"
   }
-  sprintf(type, kind)
+  out <- sprintf(type, kind)
+
+  if (n_dim >= 2) {
+    out
+  } else {
+    add_length(out)
+  }
 }
 
 .rlang_as_friendly_type <- function(type) {
@@ -222,6 +276,7 @@ obj_type_oo <- function(x) {
 #' @param what The friendly expected type as a string. Can be a
 #'   character vector of expected types, in which case the error
 #'   message mentions all of them in an "or" enumeration.
+#' @param show_value Passed to `value` argument of `obj_type_friendly()`.
 #' @param ... Arguments passed to [abort()].
 #' @inheritParams args_error_context
 #' @noRd
@@ -230,6 +285,7 @@ stop_input_type <- function(x,
                             ...,
                             allow_na = FALSE,
                             allow_null = FALSE,
+                            show_value = TRUE,
                             arg = caller_arg(x),
                             call = caller_env()) {
   # From compat-cli.R
@@ -254,7 +310,7 @@ stop_input_type <- function(x,
     "%s must be %s, not %s.",
     cli$format_arg(arg),
     what,
-    obj_type_friendly(x)
+    obj_type_friendly(x, value = show_value)
   )
 
   abort(message, ..., call = call, arg = arg)

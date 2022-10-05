@@ -8,6 +8,10 @@
 # Changelog
 # =========
 #
+# 2022-10-04:
+# - Added `check_name()` that forbids the empty string.
+#   `check_string()` allows the empty string by default.
+#
 # 2022-09-28:
 # - Removed `what` arguments.
 # - Added `allow_na` and `allow_null` arguments.
@@ -55,22 +59,19 @@ check_bool <- function(x,
 
 check_string <- function(x,
                          ...,
-                         allow_empty = FALSE,
+                         allow_empty = TRUE,
                          allow_na = FALSE,
                          allow_null = FALSE,
                          arg = caller_arg(x),
                          call = caller_env()) {
   if (!missing(x)) {
-    if (is_string(x)) {
-      if (allow_empty || !is_string(x, "")) {
-        return(invisible(NULL))
-      }
-    }
-    if (allow_null && is_null(x)) {
-      return(invisible(NULL))
-    }
-    if (allow_na && (identical(x, NA) ||
-                     identical(x, na_chr))) {
+    is_string <- .rlang_check_is_string(
+      x,
+      allow_empty = allow_empty,
+      allow_na = allow_na,
+      allow_null = allow_null
+    )
+    if (is_string) {
       return(invisible(NULL))
     }
   }
@@ -84,11 +85,61 @@ check_string <- function(x,
     arg = arg,
     call = call
   )
+}
 
+.rlang_check_is_string <- function(x,
+                                   allow_empty,
+                                   allow_na,
+                                   allow_null) {
+  if (is_string(x)) {
+    if (allow_empty || !is_string(x, "")) {
+      return(TRUE)
+    }
+  }
+
+  if (allow_null && is_null(x)) {
+    return(TRUE)
+  }
+
+  if (allow_na && (identical(x, NA) || identical(x, na_chr))) {
+    return(TRUE)
+  }
+
+  FALSE
+}
+
+check_name <- function(x,
+                       ...,
+                       allow_null = FALSE,
+                       arg = caller_arg(x),
+                       call = caller_env()) {
+  if (!missing(x)) {
+    is_string <- .rlang_check_is_string(
+      x,
+      allow_empty = FALSE,
+      allow_na = FALSE,
+      allow_null = allow_null
+    )
+    if (is_string) {
+      return(invisible(NULL))
+    }
+  }
+
+  stop_input_type(
+    x,
+    "a valid name",
+    ...,
+    allow_na = FALSE,
+    allow_null = allow_null,
+    arg = arg,
+    call = call
+  )
 }
 
 check_number_decimal <- function(x,
                                  ...,
+                                 min = -Inf,
+                                 max = Inf,
                                  allow_infinite = TRUE,
                                  allow_na = FALSE,
                                  allow_null = FALSE,
@@ -97,6 +148,8 @@ check_number_decimal <- function(x,
   .rlang_types_check_number(
     x,
     ...,
+    min = min,
+    max = max,
     allow_decimal = TRUE,
     allow_infinite = allow_infinite,
     allow_na = allow_na,
@@ -108,6 +161,8 @@ check_number_decimal <- function(x,
 
 check_number_whole <- function(x,
                                ...,
+                               min = -Inf,
+                               max = Inf,
                                allow_na = FALSE,
                                allow_null = FALSE,
                                arg = caller_arg(x),
@@ -115,6 +170,8 @@ check_number_whole <- function(x,
   .rlang_types_check_number(
     x,
     ...,
+    min = min,
+    max = max,
     allow_decimal = FALSE,
     allow_infinite = FALSE,
     allow_na = allow_na,
@@ -126,21 +183,54 @@ check_number_whole <- function(x,
 
 .rlang_types_check_number <- function(x,
                                       ...,
+                                      min = -Inf,
+                                      max = Inf,
                                       allow_decimal = FALSE,
                                       allow_infinite = FALSE,
                                       allow_na = FALSE,
                                       allow_null = FALSE,
                                       arg = caller_arg(x),
                                       call = caller_env()) {
+  if (allow_decimal) {
+    what <- "a number"
+  } else {
+    what <- "a whole number"
+  }
+
+  .stop <- function(x, what, ...) stop_input_type(
+    x,
+    what,
+    ...,
+    allow_na = allow_na,
+    allow_null = allow_null,
+    arg = arg,
+    call = call
+  )
+
   if (!missing(x)) {
     is_number <- is_number(
       x,
       allow_decimal = allow_decimal,
       allow_infinite = allow_infinite
     )
+
     if (is_number) {
+      if (min > -Inf && max < Inf) {
+        what <- sprintf("a number between %s and %s", min, max)
+      } else {
+        what <- NULL
+      }
+      if (x < min) {
+        what <- what %||% sprintf("a number larger than %s", min)
+        .stop(x, what, ...)
+      }
+      if (x > max) {
+        what <- what %||% sprintf("a number smaller than %s", max)
+        .stop(x, what, ...)
+      }
       return(invisible(NULL))
     }
+
     if (allow_null && is_null(x)) {
       return(invisible(NULL))
     }
@@ -151,21 +241,7 @@ check_number_whole <- function(x,
     }
   }
 
-  if (allow_decimal) {
-    what <- "a number"
-  } else {
-    what <- "a whole number"
-  }
-
-  stop_input_type(
-    x,
-    what,
-    ...,
-    allow_na = allow_na,
-    allow_null = allow_null,
-    arg = arg,
-    call = call
-  )
+  .stop(x, what, ...)
 }
 
 is_number <- function(x,

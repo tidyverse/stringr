@@ -18,7 +18,7 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
   check_number_whole(width)
   side <- arg_match(side)
-  check_string(ellipsis, allow_empty = TRUE)
+  check_string(ellipsis)
 
   too_long <- !is.na(string) & str_length(string) > width
   width... <- width - str_length(ellipsis)

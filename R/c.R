@@ -52,8 +52,8 @@
 #' str_c("x", character())
 #' paste0("x", character())
 str_c <- function(..., sep = "", collapse = NULL) {
-  check_string(sep, allow_empty = TRUE)
-  check_string(collapse, allow_null = TRUE, allow_empty = TRUE)
+  check_string(sep)
+  check_string(collapse, allow_null = TRUE)
 
   dots <- list(...)
   dots <- dots[!map_lgl(dots, is.null)]

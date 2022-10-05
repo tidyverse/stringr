@@ -4,7 +4,7 @@
       str_replace("x", "x", 1)
     Condition
       Error in `str_replace()`:
-      ! `replacement` must be a character vector, not a number.
+      ! `replacement` must be a character vector, not the number 1.
 
 # can't replace empty/boundary
 

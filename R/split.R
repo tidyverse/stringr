@@ -66,7 +66,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #' @export
 #' @rdname str_split
 str_split_1 <- function(string, pattern) {
-  check_string(string, allow_empty = TRUE)
+  check_string(string)
 
   str_split(string, pattern)[[1]]
 }
@@ -92,9 +92,6 @@ str_split_i <- function(string, pattern, i) {
 
 check_positive_integer <- function(x, arg = caller_arg(x), call = caller_env()) {
   if (!identical(x, Inf)) {
-    check_number_whole(x, arg = arg, call = call)
-    if (x <= 0) {
-      cli::cli_abort("{.arg {arg}} must be a positive integer.", call = call)
-    }
+    check_number_whole(x, min = 1, arg = arg, call = call)
   }
 }
