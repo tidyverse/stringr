@@ -203,13 +203,13 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   if (!is.character(new_flat)) {
     cli::cli_abort(
-      "{.fn replacement} must return a character vector, not {.obj_type_friendly {new_flat}}.",
+      "Function {.arg replacement} must return a character vector, not {.obj_type_friendly {new_flat}}.",
       call = error_call
     )
   }
   if (length(new_flat) != length(old_flat)) {
     cli::cli_abort(
-      "{.fn replacement} must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
+      "Function {.arg replacement} must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
       call = error_call
     )
   }
