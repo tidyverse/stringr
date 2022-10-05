@@ -112,10 +112,6 @@ str_view_highlighter <- function(html = TRUE) {
     function(x) str_c("<span class='match'>", x, "</span>")
   } else {
     function(x) {
-      if (length(x) == 0) {
-        return(character())
-      }
-
       out <- cli::col_cyan("<", x, ">")
 
       # Ensure styling is starts and ends within each line
