@@ -26,7 +26,7 @@ test_that("ignore_case sets strength, but can override manually", {
   expect_equal(attr(x3, "options")$strength, 3)
 })
 
-test_that("subsetting preserves class", {
-  x <- regex("a")
+test_that("subsetting preserves class and options", {
+  x <- regex("a", multiline = TRUE)
   expect_equal(x[], x)
 })
