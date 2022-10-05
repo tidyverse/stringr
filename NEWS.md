@@ -72,7 +72,7 @@
 
 * Better error message if you supply a non-string pattern (#378).
 
-* Many typos in `sentences` have been fixed (@romatik, #299)
+* A new data source for `sentences` has fixed many small errors.
 
 * `str_flatten()` gains a `last` argument that optionally override the
   final separator (#377). It gains a `na.rm` argument to remove missing 
