@@ -43,6 +43,10 @@
   
 * `str_extract()` can now optionally extract a capturing group instead of
   the complete match (#420).
+  
+* `str_flatten_comma()` is a special case of `str_flatten()` designed for
+  comman separated flattening and can handle the special case of Oxford
+  commas with two elements (#444).
 
 * New `str_split_1()` is tailored for the special case of splitting up a single 
   string (#409).
