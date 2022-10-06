@@ -1,4 +1,4 @@
-#' Extract matching patterns from a string
+#' Extract the complete match
 #'
 #' `str_extract()` extracts the first complete match from each string,
 #' `str_extract_all()`extracts all matches from each string.

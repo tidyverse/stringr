@@ -2,7 +2,7 @@
 % Please edit documentation in R/dup.R
 \name{str_dup}
 \alias{str_dup}
-\title{Duplicate within a string}
+\title{Duplicate a string}
 \usage{
 str_dup(string, times)
 }

@@ -1,4 +1,4 @@
-#' Trim whitespace from a string
+#' Remove whitespace
 #'
 #' `str_trim()` removes whitespace from start and end of string; `str_squish()`
 #' also reduces repeated whitespace inside a string.

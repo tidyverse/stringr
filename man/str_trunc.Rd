@@ -2,7 +2,7 @@
 % Please edit documentation in R/trunc.R
 \name{str_trunc}
 \alias{str_trunc}
-\title{Truncate a character string}
+\title{Truncate a string to maximum width}
 \usage{
 str_trunc(string, width, side = c("right", "left", "center"), ellipsis = "...")
 }

@@ -1,4 +1,4 @@
-#' The length/width of a string
+#' Compute the length/width
 #'
 #' @description
 #' `str_length()` returns the number of codepoints in a string. These are

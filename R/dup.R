@@ -1,4 +1,4 @@
-#' Duplicate within a string
+#' Duplicate a string
 #'
 #' `str_dup()` duplicates the characters within a string, e.g.
 #' `str_dup("xy", 3)` returns `"xyxyxy"`.

@@ -33,6 +33,8 @@ A character vector, usually smaller than \code{string}.
 \code{str_subset()} returns all elements of \code{string} where there's at least
 one match to \code{pattern}. It's a wrapper around \code{x[str_detect(x, pattern)]},
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
+
+Use \code{\link[=str_extract]{str_extract()}} to find the location of the match \emph{within} each string.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

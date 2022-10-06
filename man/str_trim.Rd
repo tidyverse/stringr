@@ -3,7 +3,7 @@
 \name{str_trim}
 \alias{str_trim}
 \alias{str_squish}
-\title{Trim whitespace from a string}
+\title{Remove whitespace}
 \usage{
 str_trim(string, side = c("both", "left", "right"))
 

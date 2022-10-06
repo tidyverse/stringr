@@ -3,7 +3,7 @@
 \name{str_starts}
 \alias{str_starts}
 \alias{str_ends}
-\title{Detect the presence/absence of a match at the beginning/end}
+\title{Detect the presence/absence of a match at the start/end}
 \usage{
 str_starts(string, pattern, negate = FALSE)
 

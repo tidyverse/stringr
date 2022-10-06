@@ -18,30 +18,27 @@ home:
 reference:
 - title: Pattern matching
 
-- subtitle: Simple matching
+- subtitle: String
   contents:
   - str_count
   - str_detect
+  - str_escape
   - str_extract
   - str_locate
-  - str_subset
-  - str_starts
-  - str_which
-
-- subtitle: Replacement
-  contents:
+  - str_match
   - str_replace
   - str_remove
-
-- subtitle: Splitting and matching
-  contents:
-  - str_match
   - str_split
-
-- subtitle: Control matching
-  contents:
-  - str_escape
+  - str_starts
   - modifiers
+
+- subtitle: Vector
+  desc: >
+    Unlike other pattern matching functions, these functions operate on the
+    original character vector, not the individual matches.
+  contents:
+  - str_subset
+  - str_which
 
 - title: Combining strings
   contents:
@@ -49,10 +46,14 @@ reference:
   - str_flatten
   - str_glue
 
-- title: Whitespace
+- title: Character based
   contents:
+  - str_dup
+  - str_length
   - str_pad
+  - str_sub
   - str_trim
+  - str_trunc
   - str_wrap
 
 - title: Locale aware
@@ -60,21 +61,14 @@ reference:
   - str_order
   - str_equal
   - case
-
-- title: Character based
-  contents:
-  - str_length
-  - str_sub
-  - str_trunc
+  - str_unique
 
 - title: Other helpers
   contents:
   - invert_match
   - str_conv
-  - str_dup
   - str_like
   - str_replace_na
-  - str_unique
   - str_view
   - word
 

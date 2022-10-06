@@ -3,7 +3,7 @@
 \name{str_glue}
 \alias{str_glue}
 \alias{str_glue_data}
-\title{Format and interpolate a string with glue}
+\title{Interpolation with glue}
 \usage{
 str_glue(..., .sep = "", .envir = parent.frame())
 
@@ -32,8 +32,10 @@ A character vector with same length as the longest input.
 \description{
 These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue]{glue::glue_data()}},
 which provide a powerful and elegant syntax for interpolating strings
-using \code{{}}. These wrappers provide a small set of the full options. Use
-the functions directly from glue for more control.
+with \code{{}}.
+
+These wrappers provide a small set of the full options. Use \code{glue()} and
+\code{glue_data()} directly from glue for more control.
 }
 \examples{
 name <- "Fred"

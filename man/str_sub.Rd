@@ -4,7 +4,7 @@
 \alias{str_sub}
 \alias{str_sub<-}
 \alias{str_sub_all}
-\title{Extract and replace substrings from a character vector}
+\title{Get and set substrings using their positions}
 \usage{
 str_sub(string, start = 1L, end = -1L)
 

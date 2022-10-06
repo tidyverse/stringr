@@ -1,4 +1,4 @@
-#' Pad a string
+#' Pad a string to minimum width
 #'
 #' Pad a string to a fixed width, so that
 #' `str_length(str_pad(x, n))` is always greater than or equal to `n`.

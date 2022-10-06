@@ -1,4 +1,4 @@
-#' Extract and replace substrings from a character vector
+#' Get and set substrings using their positions
 #'
 #' `str_sub()` extract or replaces the elements at single position in each
 #' string. `str_sub_all()` allows you to extract strings at multiple elements

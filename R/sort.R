@@ -1,4 +1,4 @@
-#' Order or sort a character vector
+#' Order, rank, or sort a character vector
 #'
 #' * `str_sort()` returns the sorted vector.
 #' * `str_order()` returns an integer vector that returns the desired

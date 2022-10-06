@@ -2,7 +2,7 @@
 % Please edit documentation in R/pad.R
 \name{str_pad}
 \alias{str_pad}
-\title{Pad a string}
+\title{Pad a string to minimum width}
 \usage{
 str_pad(
   string,

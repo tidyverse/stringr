@@ -1,8 +1,11 @@
 #' Find matching elements
 #'
+#' @description
 #' `str_subset()` returns all elements of `string` where there's at least
 #' one match to `pattern`. It's a wrapper around `x[str_detect(x, pattern)]`,
 #' and is equivalent to `grep(pattern, x, value = TRUE)`.
+#'
+#' Use [str_extract()] to find the location of the match _within_ each string.
 #'
 #' @inheritParams str_detect
 #' @return A character vector, usually smaller than `string`.

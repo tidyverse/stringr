@@ -3,7 +3,7 @@
 \name{str_remove}
 \alias{str_remove}
 \alias{str_remove_all}
-\title{Remove matched patterns in a string}
+\title{Remove matched patterns}
 \usage{
 str_remove(string, pattern)
 
@@ -31,7 +31,7 @@ Match character, word, line and sentence boundaries with
 A character vector the same length as \code{string}/\code{pattern}.
 }
 \description{
-Alias for \code{str_replace(string, pattern, "")}.
+Remove matches, i.e. replace them with \code{""}.
 }
 \examples{
 fruits <- c("one apple", "two pears", "three bananas")

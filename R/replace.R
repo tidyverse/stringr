@@ -1,4 +1,4 @@
-#' Replace matched patterns in a string
+#' Replace matches with new text
 #'
 #' `str_replace()` replaces the first match; `str_replace_all()` replaces
 #' all matches.

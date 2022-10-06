@@ -3,7 +3,7 @@
 \name{str_locate}
 \alias{str_locate}
 \alias{str_locate_all}
-\title{Find location of a match with in a string}
+\title{Find location of match}
 \usage{
 str_locate(string, pattern)
 

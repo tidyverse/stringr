@@ -3,7 +3,7 @@
 \name{str_length}
 \alias{str_length}
 \alias{str_width}
-\title{The length/width of a string}
+\title{Compute the length/width}
 \usage{
 str_length(string)
 

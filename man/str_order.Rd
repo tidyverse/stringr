@@ -4,7 +4,7 @@
 \alias{str_order}
 \alias{str_rank}
 \alias{str_sort}
-\title{Order or sort a character vector}
+\title{Order, rank, or sort a character vector}
 \usage{
 str_order(
   x,

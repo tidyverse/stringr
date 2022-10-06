@@ -52,7 +52,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect the presence/absence of a match at the beginning/end
+#' Detect the presence/absence of a match at the start/end
 #'
 #' `str_starts()` and `str_ends()` are special cases of [str_detect()] that
 #' only match at the beginning or end of a string, respectively.

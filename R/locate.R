@@ -1,4 +1,4 @@
-#' Find location of a match with in a string
+#' Find location of match
 #'
 #' @description
 #' `str_locate()` returns the `start` and `end` position of the first match;
