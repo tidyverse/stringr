@@ -21,6 +21,8 @@
 
 ## New features
 
+* Many tweaks to the documentation to make it more useful and consistent.
+
 * `str_view()` will use ANSI colouring if available (#370). This works in more 
   places than HTML widgets and requires fewer dependencies. `str_view()` also 
   no longer requires a pattern so you can use it to display strings with 
