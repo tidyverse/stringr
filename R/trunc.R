@@ -25,7 +25,7 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
 
   if (width... < 0) {
     cli::cli_abort(
-      "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})"
+      "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
     )
   }
 
