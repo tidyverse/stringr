@@ -1,6 +1,7 @@
 #' Extract matching patterns from a string
 #'
-#' Vectorised over `string` and `pattern`.
+#' `str_extract()` extracts the first complete match from each string,
+#' `str_extract_all()`extracts all matches from each string.
 #'
 #' @inheritParams str_detect
 #' @param group If supplied, instead of returning the complete match, will

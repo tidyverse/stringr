@@ -2,11 +2,10 @@
 #'
 #' @description
 #' Extract any number of matches defined by unnamed, `(pattern)`, and
-#' named, `(?<name>pattern)` capture groups. Use a non-capturing group,
-#' `(?:pattern)`, if you need to override default operate precedence but
-#' don't want to capture the result.
+#' named, `(?<name>pattern)` capture groups.
 #'
-#' Vectorised over `string` and `pattern`.
+#' Use a non-capturing group, `(?:pattern)`, if you need to override default
+#' operate precedence but don't want to capture the result.
 #'
 #' @inheritParams str_detect
 #' @param pattern Unlike other stringr functions, `str_match()` only supports

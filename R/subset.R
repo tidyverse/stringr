@@ -1,12 +1,11 @@
-#' Find location of matches in a vector
+#' Find matching elements
 #'
-#' `str_subset()` is a wrapper around `x[str_detect(x, pattern)]`,
+#' `str_subset()` returns all elements of `string` where there's at least
+#' one match to `pattern`. It's a wrapper around `x[str_detect(x, pattern)]`,
 #' and is equivalent to `grep(pattern, x, value = TRUE)`.
 #'
-#' Vectorised over `string` and `pattern`
-#'
 #' @inheritParams str_detect
-#' @return A character vector the same length as `string`/`pattern`.
+#' @return A character vector, usually smaller than `string`.
 #' @seealso [grep()] with argument `value = TRUE`,
 #'    [stringi::stri_subset()] for the underlying implementation.
 #' @export
@@ -37,14 +36,14 @@ str_subset <- function(string, pattern, negate = FALSE) {
   )
 }
 
-
-#' Find strings that match
+#' Find matching indices
 #'
-#' `str_which()` is a wrapper around `which(str_detect(x, pattern))`,
-#' and is equivalent to `grep(pattern, x)`.
+#' `str_subset()` returns the indices of`string` where there's at least
+#' one match to `pattern`. It's a wrapper around
+#' `which(str_detect(x, pattern))`, and is equivalent to `grep(pattern, x)`.
 #'
 #' @inheritParams str_detect
-#' @return An integer vector.
+#' @return An integer vector, usually smaller than `string`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")

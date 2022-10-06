@@ -44,7 +44,8 @@ return the matched text from the specified capturing group.}
 }
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+\code{str_extract()} extracts the first complete match from each string,
+\code{str_extract_all()}extracts all matches from each string.
 }
 \examples{
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")

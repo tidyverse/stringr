@@ -2,7 +2,7 @@
 % Please edit documentation in R/subset.R
 \name{str_subset}
 \alias{str_subset}
-\title{Find location of matches in a vector}
+\title{Find matching elements}
 \usage{
 str_subset(string, pattern, negate = FALSE)
 }
@@ -27,14 +27,12 @@ Match character, word, line and sentence boundaries with
 \item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
-A character vector the same length as \code{string}/\code{pattern}.
+A character vector, usually smaller than \code{string}.
 }
 \description{
-\code{str_subset()} is a wrapper around \code{x[str_detect(x, pattern)]},
+\code{str_subset()} returns all elements of \code{string} where there's at least
+one match to \code{pattern}. It's a wrapper around \code{x[str_detect(x, pattern)]},
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
-}
-\details{
-Vectorised over \code{string} and \code{pattern}
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

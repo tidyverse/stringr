@@ -2,7 +2,7 @@
 % Please edit documentation in R/dup.R
 \name{str_dup}
 \alias{str_dup}
-\title{Duplicate and concatenate strings within a character vector}
+\title{Duplicate within a string}
 \usage{
 str_dup(string, times)
 }
@@ -16,7 +16,8 @@ coercible to one.}
 A character vector the same length as \code{string}/\code{times}.
 }
 \description{
-Vectorised over \code{string} and \code{times}.
+\code{str_dup()} duplicates the characters within a string, e.g.
+\code{str_dup("xy", 3)} returns \code{"xyxyxy"}.
 }
 \examples{
 fruit <- c("apple", "pear", "banana")

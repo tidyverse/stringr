@@ -2,7 +2,7 @@
 % Please edit documentation in R/subset.R
 \name{str_which}
 \alias{str_which}
-\title{Find strings that match}
+\title{Find matching indices}
 \usage{
 str_which(string, pattern, negate = FALSE)
 }
@@ -27,11 +27,12 @@ Match character, word, line and sentence boundaries with
 \item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
-An integer vector.
+An integer vector, usually smaller than \code{string}.
 }
 \description{
-\code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
-and is equivalent to \code{grep(pattern, x)}.
+\code{str_subset()} returns the indices of\code{string} where there's at least
+one match to \code{pattern}. It's a wrapper around
+\code{which(str_detect(x, pattern))}, and is equivalent to \code{grep(pattern, x)}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

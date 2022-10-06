@@ -1,6 +1,7 @@
-#' Duplicate and concatenate strings within a character vector
+#' Duplicate within a string
 #'
-#' Vectorised over `string` and `times`.
+#' `str_dup()` duplicates the characters within a string, e.g.
+#' `str_dup("xy", 3)` returns `"xyxyxy"`.
 #'
 #' @inheritParams str_detect
 #' @param times Number of times to duplicate each string.

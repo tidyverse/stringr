@@ -19,30 +19,30 @@ The default interpretation is a regular expression, as described
 in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
+To perform multiple replacements in each element of \code{string},
+pass supply a named vector (\code{c(pattern1 = replacement1)}).
+
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.}
 
-\item{replacement}{A character vector of replacements. Should be either
-length one, or the same length as \code{string} or \code{pattern}.
+\item{replacement}{The replacement value, usually a single string,
+but it can be the a vector the same length as \code{string} or \code{pattern}.
 References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
 the contents of the respective matched group (created by \verb{()}).
 
-To perform multiple replacements in each element of \code{string},
-pass a named vector (\code{c(pattern1 = replacement1)}) to
-\code{str_replace_all}. Alternatively, pass a function (or formula) to
-\code{replacement}: it will be called once for each match (from right to left)
-and its return value will be used to replace the match.
-
-To replace the complete string with \code{NA}, use
-\code{replacement = NA_character_}.}
+Alternatively, supply a function, which will be called once for each
+match (from right to left) and its return value will be used to replace
+the match.}
 }
 \value{
-A character vector the same length as \code{string}/\code{pattern}.
+A character vector the same length as
+\code{string}/\code{pattern}/\code{replacement}.
 }
 \description{
-Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+\code{str_replace()} replaces the first match; \code{str_replace_all()} replaces
+all matches.
 }
 \examples{
 fruits <- c("one apple", "two pears", "three bananas")

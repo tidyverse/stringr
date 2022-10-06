@@ -1,8 +1,11 @@
 #' Find location of a match with in a string
 #'
-#' Vectorised over `string` and `pattern`. If the match is of length
-#' 0, (e.g. from a special match like `$`) end will be one character less
-#' than start.
+#' @description
+#' `str_locate()` returns the `start` and `end` position of the first match;
+#' `str_locate_all()` returns the `start` and `end` position of each match.
+#'
+#' Because the `start` and `end` values are inclusive, zero-length matches
+#' (e.g. `$`, `^`, `\\b`) will have an `end` that is smaller than `start`.
 #'
 #' @inheritParams str_detect
 #' @return

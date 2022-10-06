@@ -30,11 +30,10 @@ and one row for each match.
 }
 \description{
 Extract any number of matches defined by unnamed, \code{(pattern)}, and
-named, \verb{(?<name>pattern)} capture groups. Use a non-capturing group,
-\verb{(?:pattern)}, if you need to override default operate precedence but
-don't want to capture the result.
+named, \verb{(?<name>pattern)} capture groups.
 
-Vectorised over \code{string} and \code{pattern}.
+Use a non-capturing group, \verb{(?:pattern)}, if you need to override default
+operate precedence but don't want to capture the result.
 }
 \examples{
 strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",

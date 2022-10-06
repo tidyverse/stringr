@@ -39,9 +39,11 @@ as above, and one row for each match.
 }
 }
 \description{
-Vectorised over \code{string} and \code{pattern}. If the match is of length
-0, (e.g. from a special match like \code{$}) end will be one character less
-than start.
+\code{str_locate()} returns the \code{start} and \code{end} position of the first match;
+\code{str_locate_all()} returns the \code{start} and \code{end} position of each match.
+
+Because the \code{start} and \code{end} values are inclusive, zero-length matches
+(e.g. \code{$}, \code{^}, \verb{\\\\b}) will have an \code{end} that is smaller than \code{start}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

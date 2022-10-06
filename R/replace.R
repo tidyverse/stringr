@@ -1,6 +1,7 @@
 #' Replace matched patterns in a string
 #'
-#' Vectorised over `string`, `pattern` and `replacement`.
+#' `str_replace()` replaces the first match; `str_replace_all()` replaces
+#' all matches.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern to look for.
@@ -9,24 +10,23 @@
 #'   in [stringi::about_search_regex]. Control options with
 #'   [regex()].
 #'
+#'   To perform multiple replacements in each element of `string`,
+#'   pass supply a named vector (`c(pattern1 = replacement1)`).
+#'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
-#' @param replacement A character vector of replacements. Should be either
-#'   length one, or the same length as `string` or `pattern`.
+#' @param replacement The replacement value, usually a single string,
+#'   but it can be the a vector the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
 #'   the contents of the respective matched group (created by `()`).
 #'
-#'   To perform multiple replacements in each element of `string`,
-#'   pass a named vector (`c(pattern1 = replacement1)`) to
-#'   `str_replace_all`. Alternatively, pass a function (or formula) to
-#'   `replacement`: it will be called once for each match (from right to left)
-#'   and its return value will be used to replace the match.
-#'
-#'   To replace the complete string with `NA`, use
-#'   `replacement = NA_character_`.
-#' @return A character vector the same length as `string`/`pattern`.
+#'   Alternatively, supply a function, which will be called once for each
+#'   match (from right to left) and its return value will be used to replace
+#'   the match.
+#' @return A character vector the same length as
+#'   `string`/`pattern`/`replacement`.
 #' @seealso [str_replace_na()] to turn missing values into "NA";
 #'   [stri_replace()] for the underlying implementation.
 #' @export
