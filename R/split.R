@@ -1,5 +1,8 @@
 #' Split up a string into pieces
 #'
+#' @description
+#' These functions differ primarily in their input and output types:
+#'
 #' * `str_split()` takes a character vector and returns a list.
 #' * `str_split_1()` takes a single string and returns a character vector.
 #' * `str_split_fixed()` takes a character vector and returns a matrix.
@@ -15,9 +18,13 @@
 #'   of the output. For `str_split_fixed()`, this determines the number of
 #'   columns in the output; if an input is too short, the result will be padded
 #'   with `NA`.
-#' @return For `str_split_fixed()`, a character matrix with `n` columns.
-#'   For `str_split()`, a list of character vectors.  For `str_split_n()`,
-#'   a length `n` character vector.
+#' @return
+#' * `str_split_1()`: a character vector.
+#' * `str_split()`: a list the same length as `string`/`pattern` containing
+#'   character vectors.
+#' * `str_split_fixed()`: a character matrix with `n` columns and the same
+#'   number of rows as the length of `string`/`pattern`.
+#' * `str_split_i()`: a character vector the same length as `string`/`pattern`.
 #' @seealso [stri_split()] for the underlying implementation.
 #' @export
 #' @examples

@@ -14,9 +14,10 @@
 #'   `FALSE` at the beginning, `NA` dropped.
 #' @param numeric If `TRUE`, will sort digits numerically, instead
 #'    of as strings.
-#' @inheritParams coll
 #' @param ... Other options used to control collation. Passed on to
 #'   [stringi::stri_opts_collator()].
+#' @inheritParams coll
+#' @return A character vector the same length as `string`.
 #' @seealso [stringi::stri_order()] for the underlying implementation.
 #' @export
 #' @examples

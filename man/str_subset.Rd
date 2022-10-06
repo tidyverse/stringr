@@ -27,7 +27,7 @@ Match character, word, line and sentence boundaries with
 \item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 \code{str_subset()} is a wrapper around \code{x[str_detect(x, pattern)]},

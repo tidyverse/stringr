@@ -5,6 +5,7 @@
 #' @param x,y A pair of character vectors.
 #' @inheritParams str_order
 #' @param ignore_case Ignore case when comparing strings?
+#' @return An logical vector the same length as `x`/`y`.
 #' @seealso [stringi::stri_cmp_equiv()] for the underlying implementation.
 #' @export
 #' @examples

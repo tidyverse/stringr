@@ -26,7 +26,7 @@
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.
-#' @return A character vector.
+#' @return A character vector the same length as `string`/`pattern`.
 #' @seealso [str_replace_na()] to turn missing values into "NA";
 #'   [stri_replace()] for the underlying implementation.
 #' @export

@@ -6,7 +6,7 @@
 #' Vectorised over `string` and `pattern`
 #'
 #' @inheritParams str_detect
-#' @return A character vector.
+#' @return A character vector the same length as `string`/`pattern`.
 #' @seealso [grep()] with argument `value = TRUE`,
 #'    [stringi::stri_subset()] for the underlying implementation.
 #' @export

@@ -26,10 +26,11 @@ coercible to one.}
 width; see \code{\link[=str_width]{str_width()}}/\code{\link[=str_length]{str_length()}} for the difference.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{stringr}/\code{width}/\code{pad}.
 }
 \description{
-Vectorised over \code{string}, \code{width} and \code{pad}.
+Pad a string to a fixed width, so that
+\code{str_length(str_pad(x, n))} is always greater than or equal to \code{n}.
 }
 \examples{
 rbind(

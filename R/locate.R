@@ -5,14 +5,15 @@
 #' than start.
 #'
 #' @inheritParams str_detect
-#' @return `str_locate()` returns an integer matrix with two columns and
+#' @return
+#' * `str_locate()` returns an integer matrix with two columns and
 #'   one row for each element of `string`. The first column, `start`,
 #'   gives the position at the start of the match, and second column, `end`,
 #'   gives the position of the end.
 #'
-#'   `str_locate_all()` returns a list of integer matrices as above, but
-#'   the matrices have one row for each match in the corresponding element
-#'   in `string`.
+#'* `str_locate_all()` returns a list of integer matrices with the same
+#'   length as `string`/`pattern`. The matrices have columns `start` and `end`
+#'   as above, and one row for each match.
 #' @seealso
 #'   [str_extract()] for a convenient way of extracting matches,
 #'   [stringi::stri_locate()] for the underlying implementation.

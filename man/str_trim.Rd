@@ -17,7 +17,7 @@ coercible to one.}
 "both", the default..}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}.
 }
 \description{
 \code{str_trim()} removes whitespace from start and end of string; \code{str_squish()}

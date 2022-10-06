@@ -19,6 +19,9 @@ consistent across platforms.}
 \item{...}{Other options used to control collation. Passed on to
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
+\value{
+An logical vector the same length as \code{x}/\code{y}.
+}
 \description{
 This uses Unicode canonicalisation rules, and optionally ignores case.
 }

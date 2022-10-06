@@ -6,7 +6,7 @@
 #' @inheritParams str_detect
 #' @param side Side on which to remove whitespace: "left", "right", or
 #'   "both", the default..
-#' @return A character vector.
+#' @return A character vector the same length as `string`.
 #' @export
 #' @seealso [str_pad()] to add whitespace
 #' @examples

@@ -14,9 +14,10 @@
 #' @param omit_na Single logical value. If `TRUE`, missing values in any of the
 #'   arguments provided will result in an unchanged input.
 #' @param value replacement string
-#' @return `str_sub()` returns a character vector of substring from `start`
-#'   to `end` (inclusive). Will be length of longest input argument.
-#'   `str_sub_all()` returns a list of character vectors.
+#' @return
+#' * `str_sub()`: A character vector the same length as `string`/`start`/`end`.
+#' * `str_sub_all()`: A list the same length as `string`. Each element is
+#'    a character vector the same length as `start`/`end`.
 #' @seealso The underlying implementation in [stringi::stri_sub()]
 #' @export
 #' @examples

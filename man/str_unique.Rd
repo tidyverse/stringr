@@ -14,7 +14,7 @@ coercible to one.}
 strings. Passed on to \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \value{
-A character vector.
+A character vector, usually shorter than \code{string}.
 }
 \description{
 \code{str_unique()} removes duplicated values, with optional control over

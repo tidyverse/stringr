@@ -39,7 +39,7 @@ To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 Vectorised over \code{string}, \code{pattern} and \code{replacement}.

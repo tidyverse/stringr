@@ -37,7 +37,11 @@ return the matched text from the specified capturing group.}
 }}
 }
 \value{
-A character vector.
+\itemize{
+\item \code{str_extract()}: an character vector the same length as \code{string}/\code{pattern}.
+\item \code{str_extract_all()}: a list of character vectors the same length as
+\code{string}/\code{pattern}.
+}
 }
 \description{
 Vectorised over \code{string} and \code{pattern}.

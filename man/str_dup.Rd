@@ -13,7 +13,7 @@ coercible to one.}
 \item{times}{Number of times to duplicate each string.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}/\code{times}.
 }
 \description{
 Vectorised over \code{string} and \code{times}.

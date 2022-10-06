@@ -27,9 +27,7 @@ Match character, word, line and sentence boundaries with
 \item{negate}{If \code{TRUE}, return non-matching elements.}
 }
 \value{
-A logical vector. The length is usually the same as \code{string}.
-(But it might not be if you're using a single string and a vector
-of patterns.)
+A logical vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 \code{str_detect()} returns a logical vector \code{TRUE} if \code{pattern} is found within

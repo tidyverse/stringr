@@ -25,6 +25,9 @@ coercible to one.}
 Defaults to "en" (English) to ensure that default behaviour is
 consistent across platforms.}
 }
+\value{
+A character vector the same length as \code{string}.
+}
 \description{
 \itemize{
 \item \code{str_to_upper()} converts to upper case.

@@ -50,11 +50,17 @@ with \code{NA}.}
 \item{i}{Element to return.}
 }
 \value{
-For \code{str_split_fixed()}, a character matrix with \code{n} columns.
-For \code{str_split()}, a list of character vectors.  For \code{str_split_n()},
-a length \code{n} character vector.
+\itemize{
+\item \code{str_split_1()}: a character vector.
+\item \code{str_split()}: a list the same length as \code{string}/\code{pattern} containing
+character vectors.
+\item \code{str_split_fixed()}: a character matrix with \code{n} columns and the same
+number of rows as the length of \code{string}/\code{pattern}.
+\item \code{str_split_i()}: a character vector the same length as \code{string}/\code{pattern}.
+}
 }
 \description{
+These functions differ primarily in their input and output types:
 \itemize{
 \item \code{str_split()} takes a character vector and returns a list.
 \item \code{str_split_1()} takes a single string and returns a character vector.

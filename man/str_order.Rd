@@ -46,6 +46,9 @@ of as strings.}
 \item{...}{Other options used to control collation. Passed on to
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
+\value{
+A character vector the same length as \code{string}.
+}
 \description{
 \itemize{
 \item \code{str_sort()} returns the sorted vector.

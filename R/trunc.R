@@ -1,9 +1,13 @@
 #' Truncate a character string
 #'
+#' Truncate a string to a fixed of characters, so that
+#' `str_length(str_trunc(x, n))` is always less than or equal to `n`.
+#'
 #' @inheritParams str_detect
 #' @param width Maximum width of string.
 #' @param side,ellipsis Location and content of ellipsis that indicates
 #'   content has been removed.
+#' @return A character vector the same length as `string`.
 #' @seealso [str_pad()] to increase the minimum width of a string.
 #' @export
 #' @examples
@@ -13,7 +17,6 @@
 #'   str_trunc(x, 20, "left"),
 #'   str_trunc(x, 20, "center")
 #' )
-#'
 str_trunc <- function(string, width, side = c("right", "left", "center"),
                       ellipsis = "...") {
   check_number_whole(width)

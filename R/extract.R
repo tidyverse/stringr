@@ -1,10 +1,8 @@
 #' Extract matching patterns from a string
 #'
-#'
 #' Vectorised over `string` and `pattern`.
 #'
 #' @inheritParams str_detect
-#' @return A character vector.
 #' @param group If supplied, instead of returning the complete match, will
 #'   return the matched text from the specified capturing group.
 #' @seealso [str_match()] to extract matched groups;
@@ -12,6 +10,10 @@
 #' @param simplify A boolean.
 #'   * `FALSE` (the default): returns a list of character vectors.
 #'   * `TRUE`: returns a character matrix.
+#' @return
+#' * `str_extract()`: an character vector the same length as `string`/`pattern`.
+#' * `str_extract_all()`: a list of character vectors the same length as
+#'   `string`/`pattern`.
 #' @export
 #' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")

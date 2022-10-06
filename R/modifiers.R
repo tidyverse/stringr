@@ -13,6 +13,8 @@
 #' @param ignore_case Should case differences be ignored in the match?
 #'   For `fixed()`, this uses a simple algorithm which assumes a
 #'   one-to-one mapping between upper and lower case letters.
+#' @return A stringr modifier object, i.e. a character vector with
+#'   parent S3 class `stringr_pattern`.
 #' @name modifiers
 #' @examples
 #' pattern <- "a.b"

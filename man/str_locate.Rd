@@ -28,14 +28,15 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-\code{str_locate()} returns an integer matrix with two columns and
+\itemize{
+\item \code{str_locate()} returns an integer matrix with two columns and
 one row for each element of \code{string}. The first column, \code{start},
 gives the position at the start of the match, and second column, \code{end},
 gives the position of the end.
-
-\code{str_locate_all()} returns a list of integer matrices as above, but
-the matrices have one row for each match in the corresponding element
-in \code{string}.
+\item \code{str_locate_all()} returns a list of integer matrices with the same
+length as \code{string}/\code{pattern}. The matrices have columns \code{start} and \code{end}
+as above, and one row for each match.
+}
 }
 \description{
 Vectorised over \code{string} and \code{pattern}. If the match is of length

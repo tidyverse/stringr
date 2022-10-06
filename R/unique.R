@@ -6,7 +6,7 @@
 #' @inheritParams str_detect
 #' @param ... Other options used to control matching behavior between duplicate
 #'   strings. Passed on to [stringi::stri_opts_collator()].
-#' @return A character vector.
+#' @return A character vector, usually shorter than `string`.
 #' @seealso [unique()], [stringi::stri_unique()] which this function wraps.
 #' @examples
 #' str_unique(c("a", "b", "c", "b", "a"))

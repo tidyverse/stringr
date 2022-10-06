@@ -28,7 +28,7 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 Alias for \code{str_replace(string, pattern, "")}.

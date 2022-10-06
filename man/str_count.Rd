@@ -25,8 +25,7 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-An integer vector with size found by recycling \code{string} and
-\code{pattern}.
+An integer vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 Counts the number of times \code{pattern} is found within each element

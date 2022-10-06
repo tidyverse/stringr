@@ -14,8 +14,7 @@ str_width(string)
 coercible to one.}
 }
 \value{
-A numeric vector giving number of characters (code points) in each
-element of the character vector. Missing string have missing length.
+A numeric vector the same length as \code{string}.
 }
 \description{
 \code{str_length()} returns the number of codepoints in a string. These are

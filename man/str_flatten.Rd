@@ -21,7 +21,7 @@ coercible to one.}
 will be \code{NA} if any element of \code{string} is \code{NA}.}
 }
 \value{
-A string, i.e. a character vector of length 1
+A string, i.e. a character vector of length 1.
 }
 \description{
 \code{str_flatten()} reduces a character vector to a single string. This is a

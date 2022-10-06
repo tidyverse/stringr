@@ -4,7 +4,7 @@
 #'
 #' @inheritParams str_detect
 #' @param times Number of times to duplicate each string.
-#' @return A character vector.
+#' @return A character vector the same length as `string`/`times`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "pear", "banana")

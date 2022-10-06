@@ -9,8 +9,7 @@
 #' in a fixed width font (i.e. when printed in the console).
 #'
 #' @inheritParams str_detect
-#' @return A numeric vector giving number of characters (code points) in each
-#'    element of the character vector. Missing string have missing length.
+#' @return A numeric vector the same length as `string`.
 #' @seealso [stringi::stri_length()] which this function wraps.
 #' @export
 #' @examples
@@ -43,4 +42,3 @@ str_length <- function(string) {
 str_width <- function(string) {
   stri_width(string)
 }
-

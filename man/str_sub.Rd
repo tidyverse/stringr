@@ -29,9 +29,11 @@ arguments provided will result in an unchanged input.}
 \item{value}{replacement string}
 }
 \value{
-\code{str_sub()} returns a character vector of substring from \code{start}
-to \code{end} (inclusive). Will be length of longest input argument.
-\code{str_sub_all()} returns a list of character vectors.
+\itemize{
+\item \code{str_sub()}: A character vector the same length as \code{string}/\code{start}/\code{end}.
+\item \code{str_sub_all()}: A list the same length as \code{string}. Each element is
+a character vector the same length as \code{start}/\code{end}.
+}
 }
 \description{
 \code{str_sub()} extract or replaces the elements at single position in each
