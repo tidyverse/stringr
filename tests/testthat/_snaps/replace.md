@@ -29,3 +29,11 @@
       Error in `str_replace_all()`:
       ! `pattern` can't be a boundary.
 
+# backrefs are correctly translated
+
+    Code
+      str_replace_all("abcde", "(b)(c)(d)", "\\4")
+    Condition
+      Error in `stri_replace_all_regex()`:
+      ! Trying to access the index that is out of bounds. (U_INDEX_OUTOFBOUNDS_ERROR)
+

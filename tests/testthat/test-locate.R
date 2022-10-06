@@ -34,7 +34,21 @@ test_that("both string and patterns are vectorised", {
   expect_equal(locs[[2]][, "start"], c(2, 4))
 })
 
-test_that("can locate boundaries", {
+test_that("can use fixed() and coll()", {
+  expect_equal(str_locate("x.x", fixed(".")), cbind(start = 2, end = 2))
+  expect_equal(
+    str_locate_all("x.x.", fixed(".")),
+    list(cbind(start = c(2, 4), end = c(2, 4)))
+  )
+
+  expect_equal(str_locate("\u0131", turkish_I()), cbind(start = 1, end = 1))
+  expect_equal(
+    str_locate_all("\u0131I", turkish_I()),
+    list(cbind(start = 1:2, end = 1:2))
+  )
+})
+
+test_that("can use boundaries", {
   expect_equal(
     str_locate(" x  y", ""),
     cbind(start = 1, end = 1)

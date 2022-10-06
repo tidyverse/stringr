@@ -41,6 +41,14 @@ test_that("can extract a group", {
   expect_equal(str_extract("abc", "(.).(.)", group = 2), "c")
 })
 
+test_that("can use fixed() and coll()", {
+  expect_equal(str_extract("x.x", fixed(".")), ".")
+  expect_equal(str_extract_all("x.x.", fixed(".")), list(c(".", ".")))
+
+  expect_equal(str_extract("\u0131", turkish_I()), "\u0131")
+  expect_equal(str_extract_all("\u0131I", turkish_I()), list(c("\u0131", "I")))
+})
+
 test_that("can extract boundaries", {
   expect_equal(str_extract("a b c", ""), "a")
   expect_equal(
