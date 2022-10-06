@@ -225,12 +225,12 @@ type.default <- function(x, error_call = caller_env()) {
   )
 }
 
-as_bare_character <- function(x) {
+as_bare_character <- function(x, call = caller_env()) {
   if (is.character(x) && !is.object(x)) {
     # All OK!
     return(x)
   }
 
-  warning("Coercing `pattern` to a plain character vector.", call. = FALSE)
+  warn("Coercing `pattern` to a plain character vector.", call = call)
   as.character(x)
 }
