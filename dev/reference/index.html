@@ -71,7 +71,7 @@
       
     </div><div class="section level2">
       
-      <h3 id="simple-matching">Simple matching<a class="anchor" aria-label="anchor" href="#simple-matching"></a></h3>
+      <h3 id="string">String<a class="anchor" aria-label="anchor" href="#string"></a></h3>
       
 
       
@@ -92,92 +92,70 @@
         <dd>Detect the presence/absence of a match</dd>
       </dl><dl><dt>
           
-          <code><a href="str_extract.html">str_extract()</a></code> <code><a href="str_extract.html">str_extract_all()</a></code> 
-        </dt>
-        <dd>Extract matching patterns from a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_locate.html">str_locate()</a></code> <code><a href="str_locate.html">str_locate_all()</a></code> 
-        </dt>
-        <dd>Find location of a match with in a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_subset.html">str_subset()</a></code> 
-        </dt>
-        <dd>Find location of matches in a vector</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_starts.html">str_starts()</a></code> <code><a href="str_starts.html">str_ends()</a></code> 
-        </dt>
-        <dd>Detect the presence/absence of a match at the beginning/end</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_which.html">str_which()</a></code> 
-        </dt>
-        <dd>Find strings that match</dd>
-      </dl></div><div class="section level2">
-      
-      <h3 id="replacement">Replacement<a class="anchor" aria-label="anchor" href="#replacement"></a></h3>
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="str_replace.html">str_replace()</a></code> <code><a href="str_replace.html">str_replace_all()</a></code> 
-        </dt>
-        <dd>Replace matched patterns in a string</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_remove.html">str_remove()</a></code> <code><a href="str_remove.html">str_remove_all()</a></code> 
-        </dt>
-        <dd>Remove matched patterns in a string</dd>
-      </dl></div><div class="section level2">
-      
-      <h3 id="splitting-and-matching">Splitting and matching<a class="anchor" aria-label="anchor" href="#splitting-and-matching"></a></h3>
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="str_match.html">str_match()</a></code> <code><a href="str_match.html">str_match_all()</a></code> 
-        </dt>
-        <dd>Extract all capture groups from each match</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_split.html">str_split()</a></code> <code><a href="str_split.html">str_split_1()</a></code> <code><a href="str_split.html">str_split_fixed()</a></code> <code><a href="str_split.html">str_split_i()</a></code> 
-        </dt>
-        <dd>Split up a string into pieces</dd>
-      </dl></div><div class="section level2">
-      
-      <h3 id="control-matching">Control matching<a class="anchor" aria-label="anchor" href="#control-matching"></a></h3>
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
           <code><a href="str_escape.html">str_escape()</a></code> 
         </dt>
         <dd>Escape regular expression metacharacters</dd>
       </dl><dl><dt>
           
+          <code><a href="str_extract.html">str_extract()</a></code> <code><a href="str_extract.html">str_extract_all()</a></code> 
+        </dt>
+        <dd>Extract the complete match</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_locate.html">str_locate()</a></code> <code><a href="str_locate.html">str_locate_all()</a></code> 
+        </dt>
+        <dd>Find location of match</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_match.html">str_match()</a></code> <code><a href="str_match.html">str_match_all()</a></code> 
+        </dt>
+        <dd>Extract components (capturing groups) from a match</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_replace.html">str_replace()</a></code> <code><a href="str_replace.html">str_replace_all()</a></code> 
+        </dt>
+        <dd>Replace matches with new text</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_remove.html">str_remove()</a></code> <code><a href="str_remove.html">str_remove_all()</a></code> 
+        </dt>
+        <dd>Remove matched patterns</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_split.html">str_split()</a></code> <code><a href="str_split.html">str_split_1()</a></code> <code><a href="str_split.html">str_split_fixed()</a></code> <code><a href="str_split.html">str_split_i()</a></code> 
+        </dt>
+        <dd>Split up a string into pieces</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_starts.html">str_starts()</a></code> <code><a href="str_starts.html">str_ends()</a></code> 
+        </dt>
+        <dd>Detect the presence/absence of a match at the start/end</dd>
+      </dl><dl><dt>
+          
           <code><a href="modifiers.html">fixed()</a></code> <code><a href="modifiers.html">coll()</a></code> <code><a href="modifiers.html">regex()</a></code> <code><a href="modifiers.html">boundary()</a></code> 
         </dt>
         <dd>Control matching behaviour with modifier functions</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="vector">Vector<a class="anchor" aria-label="anchor" href="#vector"></a></h3>
+      <p class="section-desc"></p><p>Unlike other pattern matching functions, these functions operate on the original character vector, not the individual matches.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="str_subset.html">str_subset()</a></code> 
+        </dt>
+        <dd>Find matching elements</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_which.html">str_which()</a></code> 
+        </dt>
+        <dd>Find matching indices</dd>
       </dl></div><div class="section level2">
       <h2 id="combining-strings">Combining strings<a class="anchor" aria-label="anchor" href="#combining-strings"></a></h2>
       
@@ -193,7 +171,7 @@
           
           <code><a href="str_c.html">str_c()</a></code> 
         </dt>
-        <dd>Join multiple strings into a single string</dd>
+        <dd>Join multiple strings into one string</dd>
       </dl><dl><dt>
           
           <code><a href="str_flatten.html">str_flatten()</a></code> <code><a href="str_flatten.html">str_flatten_comma()</a></code> 
@@ -203,9 +181,9 @@
           
           <code><a href="str_glue.html">str_glue()</a></code> <code><a href="str_glue.html">str_glue_data()</a></code> 
         </dt>
-        <dd>Format and interpolate a string with glue</dd>
+        <dd>Interpolation with glue</dd>
       </dl></div><div class="section level2">
-      <h2 id="whitespace">Whitespace<a class="anchor" aria-label="anchor" href="#whitespace"></a></h2>
+      <h2 id="character-based">Character based<a class="anchor" aria-label="anchor" href="#character-based"></a></h2>
       
       
 
@@ -217,14 +195,34 @@
 
       <dl><dt>
           
+          <code><a href="str_dup.html">str_dup()</a></code> 
+        </dt>
+        <dd>Duplicate a string</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_length.html">str_length()</a></code> <code><a href="str_length.html">str_width()</a></code> 
+        </dt>
+        <dd>Compute the length/width</dd>
+      </dl><dl><dt>
+          
           <code><a href="str_pad.html">str_pad()</a></code> 
         </dt>
-        <dd>Pad a string</dd>
+        <dd>Pad a string to minimum width</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_sub.html">str_sub()</a></code> <code><a href="str_sub.html">`str_sub&lt;-`()</a></code> <code><a href="str_sub.html">str_sub_all()</a></code> 
+        </dt>
+        <dd>Get and set substrings using their positions</dd>
       </dl><dl><dt>
           
           <code><a href="str_trim.html">str_trim()</a></code> <code><a href="str_trim.html">str_squish()</a></code> 
         </dt>
-        <dd>Trim whitespace from a string</dd>
+        <dd>Remove whitespace</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_trunc.html">str_trunc()</a></code> 
+        </dt>
+        <dd>Truncate a string to maximum width</dd>
       </dl><dl><dt>
           
           <code><a href="str_wrap.html">str_wrap()</a></code> 
@@ -245,7 +243,7 @@
           
           <code><a href="str_order.html">str_order()</a></code> <code><a href="str_order.html">str_rank()</a></code> <code><a href="str_order.html">str_sort()</a></code> 
         </dt>
-        <dd>Order or sort a character vector</dd>
+        <dd>Order, rank, or sort a character vector</dd>
       </dl><dl><dt>
           
           <code><a href="str_equal.html">str_equal()</a></code> 
@@ -256,32 +254,11 @@
           <code><a href="case.html">str_to_upper()</a></code> <code><a href="case.html">str_to_lower()</a></code> <code><a href="case.html">str_to_title()</a></code> <code><a href="case.html">str_to_sentence()</a></code> 
         </dt>
         <dd>Convert string to upper case, lower case, title case, or sentence case</dd>
-      </dl></div><div class="section level2">
-      <h2 id="character-based">Character based<a class="anchor" aria-label="anchor" href="#character-based"></a></h2>
-      
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="str_length.html">str_length()</a></code> <code><a href="str_length.html">str_width()</a></code> 
-        </dt>
-        <dd>The length/width of a string</dd>
       </dl><dl><dt>
           
-          <code><a href="str_sub.html">str_sub()</a></code> <code><a href="str_sub.html">`str_sub&lt;-`()</a></code> <code><a href="str_sub.html">str_sub_all()</a></code> 
+          <code><a href="str_unique.html">str_unique()</a></code> 
         </dt>
-        <dd>Extract and replace substrings from a character vector</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_trunc.html">str_trunc()</a></code> 
-        </dt>
-        <dd>Truncate a character string</dd>
+        <dd>Remove duplicated strings</dd>
       </dl></div><div class="section level2">
       <h2 id="other-helpers">Other helpers<a class="anchor" aria-label="anchor" href="#other-helpers"></a></h2>
       
@@ -305,11 +282,6 @@
         <dd>Specify the encoding of a string</dd>
       </dl><dl><dt>
           
-          <code><a href="str_dup.html">str_dup()</a></code> 
-        </dt>
-        <dd>Duplicate and concatenate strings within a character vector</dd>
-      </dl><dl><dt>
-          
           <code><a href="str_like.html">str_like()</a></code> 
         </dt>
         <dd>Detect a pattern in the same way as <code>SQL</code>'s <code>LIKE</code> operator</dd>
@@ -318,11 +290,6 @@
           <code><a href="str_replace_na.html">str_replace_na()</a></code> 
         </dt>
         <dd>Turn NA into "NA"</dd>
-      </dl><dl><dt>
-          
-          <code><a href="str_unique.html">str_unique()</a></code> 
-        </dt>
-        <dd>Remove duplicated strings</dd>
       </dl><dl><dt>
           
           <code><a href="str_view.html">str_view()</a></code> 
