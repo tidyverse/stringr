@@ -1,4 +1,4 @@
-#' Join multiple strings into a single string
+#' Join multiple strings into one string
 #'
 #' @description
 #' `str_c()` combines multiple character vectors into a single character
@@ -18,8 +18,8 @@
 #'
 #'   Like most other R functions, missing values are "infectious": whenever
 #'   a missing value is combined with another string the result will always
-#'   be missing. Use [dplyr::coalesce()] or [str_replace_na()] to convert
-#'   desired value.
+#'   be missing. Use [dplyr::coalesce()] or [str_replace_na()] to convert to
+#'   the desired value.
 #' @param sep String to insert between input vectors.
 #' @param collapse Optional string used to combine output into single
 #'   string. Generally better to use [str_flatten()] if you needed this
@@ -59,5 +59,5 @@ str_c <- function(..., sep = "", collapse = NULL) {
   dots <- dots[!map_lgl(dots, is.null)]
   vctrs::vec_size_common(!!!dots)
 
-  exec(stri_c, !!!dots, sep = sep, collapse = collapse)
+  inject(stri_c(!!!dots, sep = sep, collapse = collapse))
 }
