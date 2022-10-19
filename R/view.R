@@ -92,7 +92,7 @@ str_view_all <- function(string, pattern = NULL, match = NA, html = FALSE, use_e
 }
 
 str_view_filter <- function(x, pattern, match) {
-  if (is.null(pattern)) {
+  if (is.null(pattern) || inherits(pattern, "stringr_boundary")) {
     rep(TRUE, length(x))
   } else {
     if (identical(match, TRUE)) {
