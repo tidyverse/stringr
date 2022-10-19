@@ -21,7 +21,7 @@ Depends:
 Imports: 
     cli,
     glue (>= 1.6.1),
-    lifecycle,
+    lifecycle (>= 1.0.3),
     magrittr,
     rlang (>= 1.0.0),
     stringi (>= 1.5.3),

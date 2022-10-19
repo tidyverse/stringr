@@ -117,7 +117,7 @@
     Condition
       Warning:
       `str_view()` was deprecated in stringr 1.5.0.
-      Please use `str_view_all()` instead.
+      i Please use `str_view_all()` instead.
     Output
       [1] | <a><b>c
 
