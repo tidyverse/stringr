@@ -8,10 +8,10 @@
 #' (e.g. `$`, `^`, `\\b`) will have an `end` that is smaller than `start`.
 #'
 #' @inheritParams str_detect
-#' @return
+#' @returns
 #' * `str_locate()` returns an integer matrix with two columns and
 #'   one row for each element of `string`. The first column, `start`,
-#'   gives the position at the start of the match, and second column, `end`,
+#'   gives the position at the start of the match, and the second column, `end`,
 #'   gives the position of the end.
 #'
 #'* `str_locate_all()` returns a list of integer matrices with the same

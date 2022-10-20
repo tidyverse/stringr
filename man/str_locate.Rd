@@ -32,7 +32,7 @@ Match character, word, line and sentence boundaries with
 \itemize{
 \item \code{str_locate()} returns an integer matrix with two columns and
 one row for each element of \code{string}. The first column, \code{start},
-gives the position at the start of the match, and second column, \code{end},
+gives the position at the start of the match, and the second column, \code{end},
 gives the position of the end.
 \item \code{str_locate_all()} returns a list of integer matrices with the same
 length as \code{string}/\code{pattern}. The matrices have columns \code{start} and \code{end}
