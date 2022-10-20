@@ -15,7 +15,7 @@ coercible to one.}
 
 \item{collapse}{String to insert between each piece. Defaults to \code{""}.}
 
-\item{last}{Optional string use in place of final separator.}
+\item{last}{Optional string to use in place of the final separator.}
 
 \item{na.rm}{Remove missing values? If \code{FALSE} (the default), the result
 will be \code{NA} if any element of \code{string} is \code{NA}.}
