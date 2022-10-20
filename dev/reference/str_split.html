@@ -125,7 +125,7 @@ possible split positions.</p>
 <p>For <code>split_split()</code>, this determines the maximum length of each element
 of the output. For <code>str_split_fixed()</code>, this determines the number of
 columns in the output; if an input is too short, the result will be padded
-with <code>NA</code>.</p></dd>
+with <code>""</code>.</p></dd>
 
 
 <dt>simplify</dt>
@@ -209,7 +209,7 @@ number of rows as the length of <code>string</code>/<code>pattern</code>.</p></l
 <span class="r-in"><span><span class="fu">str_split_fixed</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]         [,2]      [,3]     [,4]     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "apples"     "oranges" "pears"  "bananas"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "pineapples" "mangos"  "guavas" NA       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "pineapples" "mangos"  "guavas" ""       </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># str_split_i extracts only a single piece from a string</span></span></span>
 <span class="r-in"><span><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">1</span><span class="op">)</span></span></span>
