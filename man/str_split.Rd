@@ -40,7 +40,7 @@ possible split positions.
 For \code{split_split()}, this determines the maximum length of each element
 of the output. For \code{str_split_fixed()}, this determines the number of
 columns in the output; if an input is too short, the result will be padded
-with \code{NA}.}
+with \code{""}.}
 
 \item{simplify}{A boolean.
 \itemize{

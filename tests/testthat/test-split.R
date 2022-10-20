@@ -45,17 +45,17 @@ test_that("str_split_1 takes string and returns character vector", {
   expect_snapshot_error(str_split_1(letters, ""))
 })
 
-test_that("str_split_fixed pads with NA", {
+test_that("str_split_fixed pads with empty string", {
   expect_equal(
     str_split_fixed(c("a", "a-b"), "-", 1),
     cbind(c("a", "a-b")))
   expect_equal(
     str_split_fixed(c("a", "a-b"), "-", 2),
-    cbind(c("a", "a"), c(NA, "b"))
+    cbind(c("a", "a"), c("", "b"))
   )
   expect_equal(
     str_split_fixed(c("a", "a-b"), "-", 3),
-    cbind(c("a", "a"), c(NA, "b"), c(NA, NA))
+    cbind(c("a", "a"), c("", "b"), c("", ""))
   )
 })
 
