@@ -1,15 +1,16 @@
 #' Detect the presence/absence of a match
 #'
-#' `str_detect()` returns a logical vector `TRUE` if `pattern` is found within
-#' each element of `string` or a `FALSE` if not. It's equivalent
+#' `str_detect()` returns a logical vector with `TRUE` for each element of
+#' `string` that matches `pattern` and `FALSE` otherwise. It's equivalent to
 #' `grepl(pattern, string)`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.
 #' @param pattern Pattern to look for.
 #'
-#'   The default interpretation is a regular expression, as described
-#'   `vignette("regular-expressions")`. Control options with [regex()].
+#'   The default interpretation is a regular expression, as described in
+#'   `vignette("regular-expressions")`. Use [regex()] for finer control of the
+#'   matching behaviour.
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
