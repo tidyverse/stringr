@@ -11,7 +11,7 @@
 #'
 #' @inheritParams str_detect
 #' @param collapse String to insert between each piece. Defaults to `""`.
-#' @param last Optional string use in place of final separator.
+#' @param last Optional string to use in place of the final separator.
 #' @param na.rm Remove missing values? If `FALSE` (the default), the result
 #'   will be `NA` if any element of `string` is `NA`.
 #' @return A string, i.e. a character vector of length 1.
