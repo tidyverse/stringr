@@ -25,7 +25,7 @@ Run `cloud_details(, "arrow")` for more info
       • tolower(Sys.info()[["sysname"]]) != "windows" is TRUE (1)
       
       ══ Failed tests ════════════════════════════════════════════════════════════════
-      ── Error (test-dplyr-funcs-string.R:145:3): paste, paste0, and str_c ───────────
+      ── Error ('test-dplyr-funcs-string.R:145'): paste, paste0, and str_c ───────────
       <dplyr:::mutate_error/rlang_error/error/condition>
       Error in `transmute(., str_c(x, y, sep = NA_character_))`: Problem while computing `..1 = str_c(x, y, sep = NA_character_)`.
       Caused by error in `str_c()`:
@@ -117,17 +117,17 @@ Run `cloud_details(, "autostats")` for more info
     Execution halted
     ```
 
-# bdpar
+# cmcR
 
 <details>
 
-* Version: 3.0.3
-* GitHub: https://github.com/miferreiro/bdpar
-* Source code: https://github.com/cran/bdpar
-* Date/Publication: 2022-08-22 13:30:05 UTC
-* Number of recursive dependencies: 74
+* Version: 0.1.9
+* GitHub: NA
+* Source code: https://github.com/cran/cmcR
+* Date/Publication: 2022-02-22 14:00:02 UTC
+* Number of recursive dependencies: 116
 
-Run `cloud_details(, "bdpar")` for more info
+Run `cloud_details(, "cmcR")` for more info
 
 </details>
 
@@ -135,31 +135,24 @@ Run `cloud_details(, "bdpar")` for more info
 
 *   checking tests ... ERROR
     ```
-      Running ‘test_all.R’
-    Running the tests in ‘tests/test_all.R’ failed.
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Backtrace:
-          ▆
-       1. ├─testthat::expect_equal(pipe$removeUserName(data), " ") at test_FindUserNamePipe.R:346:2
-       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
-       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
-       4. └─pipe$removeUserName(data)
-       5.   └─stringr::str_replace_all(...)
-       6.     ├─stringr:::type(pattern)
-       7.     └─stringr:::type.default(pattern)
-       8.       └─cli::cli_abort("`pattern` must be a string", call = error_call)
-       9.         └─rlang::abort(...)
+      ℹ Please use `"highCMCClassif"` instead of `.data$highCMCClassif`
       
-      [ FAIL 20 | WARN 0 | SKIP 5 | PASS 513 ]
+      ══ Failed ══════════════════════════════════════════════════════════════════════
+      ── 1. Error ('test-diagnosticTools.R:55'): (code run outside of `test_that()`) ─
+      Error in `stringr::str_extract_all(., string = ..2$cmcR.info$cellRange, 
+          pattern = "[0-9]{1,}")`: `simplify` must be `TRUE` or `FALSE`, not the string "rows: 1 - 69, cols: 1 - 69".
+      Backtrace:
+       1. cmcR::cmcPlot(...)
+            at test-diagnosticTools.R:55:0
+       8. stringr::str_extract_all(simplify = .)
+      
+      ══ DONE ════════════════════════════════════════════════════════════════════════
+      Don't worry, you'll get it.
       Error: Test failures
       Execution halted
-    ```
-
-## In both
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 2666 marked UTF-8 strings
     ```
 
 # crispRdesignR
@@ -170,7 +163,7 @@ Run `cloud_details(, "bdpar")` for more info
 * GitHub: NA
 * Source code: https://github.com/cran/crispRdesignR
 * Date/Publication: 2021-01-11 07:00:02 UTC
-* Number of recursive dependencies: 77
+* Number of recursive dependencies: 78
 
 Run `cloud_details(, "crispRdesignR")` for more info
 
@@ -225,7 +218,7 @@ Run `cloud_details(, "crispRdesignR")` for more info
 * GitHub: https://github.com/kbodwin/flair
 * Source code: https://github.com/cran/flair
 * Date/Publication: 2020-04-23 18:00:05 UTC
-* Number of recursive dependencies: 84
+* Number of recursive dependencies: 85
 
 Run `cloud_details(, "flair")` for more info
 
@@ -319,67 +312,6 @@ Run `cloud_details(, "flair")` for more info
       'LazyData' is specified without a 'data' directory
     ```
 
-# gginnards
-
-<details>
-
-* Version: 0.1.0-1
-* GitHub: https://github.com/aphalo/gginnards
-* Source code: https://github.com/cran/gginnards
-* Date/Publication: 2021-07-30 11:40:02 UTC
-* Number of recursive dependencies: 66
-
-Run `cloud_details(, "gginnards")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘gginnards-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: drop_vars
-    > ### Title: Explore and manipulate the embedded data.
-    > ### Aliases: drop_vars mapped_vars data_vars data_attributes
-    > 
-    > ### ** Examples
-    > 
-    > library(ggplot2)
-    ...
-      2. │ └─... %>% unlist()
-      3. ├─base::unlist(.)
-      4. ├─stringr::str_split(., pattern = stringr::boundary("word"))
-      5. │ └─stringr:::check_lengths(string, pattern)
-      6. │   └─vctrs::vec_size_common(...)
-      7. └─vctrs::stop_incompatible_size(...)
-      8.   └─vctrs:::stop_incompatible(...)
-      9.     └─vctrs:::stop_vctrs(...)
-     10.       └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘user-guide-1.Rmd’ using rmarkdown
-    --- finished re-building ‘user-guide-1.Rmd’
-    
-    --- re-building ‘user-guide-2.Rmd’ using rmarkdown
-    Quitting from lines 316-321 (user-guide-2.Rmd) 
-    Error: processing vignette 'user-guide-2.Rmd' failed with diagnostics:
-    Can't recycle `string` (size 2) to match `pattern` (size 0).
-    --- failed re-building ‘user-guide-2.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘user-guide-2.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
 # glmmPen
 
 <details>
@@ -466,45 +398,60 @@ Run `cloud_details(, "gmgm")` for more info
        7. └─gmgm::gmbn(A = `<gmm>`, B = `<gmm>`, C = `<gmm>`)
        8.   └─"the defined structure has cycles" %>% stop()
       
-      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 415 ]
+      [ FAIL 1 | WARN 9 | SKIP 0 | PASS 415 ]
       Error: Test failures
       Execution halted
     ```
 
-# hockeyR
+# repr
 
 <details>
 
-* Version: 1.2.0
-* GitHub: https://github.com/danmorse314/hockeyR
-* Source code: https://github.com/cran/hockeyR
-* Date/Publication: 2022-09-18 17:46:06 UTC
-* Number of recursive dependencies: 107
+* Version: 1.1.4
+* GitHub: https://github.com/IRkernel/repr
+* Source code: https://github.com/cran/repr
+* Date/Publication: 2022-01-04 14:20:06 UTC
+* Number of recursive dependencies: 69
 
-Run `cloud_details(, "hockeyR")` for more info
+Run `cloud_details(, "repr")` for more info
 
 </details>
 
 ## Newly broken
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking tests ... ERROR
     ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘hockey-ref-scrapers.Rmd’ using rmarkdown
-    Quitting from lines 94-136 (hockey-ref-scrapers.Rmd) 
-    Error: processing vignette 'hockey-ref-scrapers.Rmd' failed with diagnostics:
-    `string` must be a vector, not a <xml_nodeset> object.
-    --- failed re-building ‘hockey-ref-scrapers.Rmd’
-    
-    --- re-building ‘hockeyR.Rmd’ using rmarkdown
-    --- finished re-building ‘hockeyR.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘hockey-ref-scrapers.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      Backtrace:
+          ▆
+       1. └─testthat::expect_match(...) at test_repr_htmlwidget.r:19:8
+       2.   └─base::stopifnot(is.character(act$val))
+      ── Error ('test_repr_htmlwidget.r:31'): The dependency manager works ───────────
+      Error in `expect_match(r, "<meta charset=\"utf-8\">\n\t\t<script", fixed = TRUE, 
+          all = FALSE)`: is.character(act$val) is not TRUE
+      Backtrace:
+          ▆
+       1. └─testthat::expect_match(...) at test_repr_htmlwidget.r:31:8
+       2.   └─base::stopifnot(is.character(act$val))
+      
+      [ FAIL 3 | WARN 0 | SKIP 0 | PASS 127 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages which this enhances but not available for checking:
+      'data.table', 'vegalite', 'plotly', 'geojsonio'
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
     ```
 
 # strex
@@ -529,17 +476,17 @@ Run `cloud_details(, "strex")` for more info
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-           ▆
-        1. ├─testthat::expect_error(...) at test-trim.R:36:2
-        2. │ └─testthat:::quasi_capture(...)
-        3. │   ├─testthat (local) .capture(...)
-        4. │   │ └─base::withCallingHandlers(...)
-        5. │   └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-        6. └─strex::str_trim_anything("x", boundary("word"))
-        7.   └─strex:::verify_string_pattern(string, pattern, boundary_allowed = FALSE)
-        8.     └─checkmate::assert_character(pattern, min.len = 1)
-        9.       └─checkmate::makeAssertion(x, res, .var.name, add)
-       10.         └─checkmate:::mstop(...)
+      `str_trim_anything("x", boundary("word"))` threw an error with unexpected message.
+      Expected match: "Function cannot handle a `pattern` of type 'boundary'."
+      Actual message: "missing value where TRUE/FALSE needed"
+      Backtrace:
+          ▆
+       1. ├─testthat::expect_error(...) at test-trim.R:36:2
+       2. │ └─testthat:::quasi_capture(...)
+       3. │   ├─testthat (local) .capture(...)
+       4. │   │ └─base::withCallingHandlers(...)
+       5. │   └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
+       6. └─strex::str_trim_anything("x", boundary("word"))
       
       [ FAIL 2 | WARN 0 | SKIP 0 | PASS 285 ]
       Error: Test failures
@@ -566,158 +513,6 @@ Run `cloud_details(, "strex")` for more info
     
     SUMMARY: processing the following file failed:
       ‘important-miscellany.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-# TiPS
-
-<details>
-
-* Version: 1.2.1
-* GitHub: NA
-* Source code: https://github.com/cran/TiPS
-* Date/Publication: 2022-08-26 19:34:46 UTC
-* Number of recursive dependencies: 54
-
-Run `cloud_details(, "TiPS")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-        3. ├─TiPS::build_simulator(reactions)
-        4. │ └─TiPS:::simulator_generator(reactions, functions)
-        5. │   ├─base::unique(...)
-        6. │   ├─base::unlist(stringr::str_extract_all(unlist(reactions), stringr::boundary("word")))
-        7. │   └─stringr::str_extract_all(unlist(reactions), stringr::boundary("word"))
-        8. │     └─stringr:::check_lengths(string, pattern)
-        9. │       └─vctrs::vec_size_common(...)
-       10. └─vctrs::stop_incompatible_size(...)
-       11.   └─vctrs:::stop_incompatible(...)
-       12.     └─vctrs:::stop_vctrs(...)
-       13.       └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-      
-      [ FAIL 2 | WARN 0 | SKIP 0 | PASS 0 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘TiPS.Rmd’ using rmarkdown
-    Building the simulator ...
-    Quitting from lines 90-91 (TiPS.Rmd) 
-    Error: processing vignette 'TiPS.Rmd' failed with diagnostics:
-    Can't recycle `string` (size 2) to match `pattern` (size 0).
-    --- failed re-building ‘TiPS.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘TiPS.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-## In both
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is  7.6Mb
-      sub-directories of 1Mb or more:
-        doc    1.2Mb
-        libs   5.8Mb
-    ```
-
-# wordpredictor
-
-<details>
-
-* Version: 0.0.3
-* GitHub: https://github.com/pakjiddat/word-predictor
-* Source code: https://github.com/cran/wordpredictor
-* Date/Publication: 2022-01-04 14:30:02 UTC
-* Number of recursive dependencies: 79
-
-Run `cloud_details(, "wordpredictor")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘wordpredictor-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: DataCleaner
-    > ### Title: Provides data cleaning functionality
-    > ### Aliases: DataCleaner
-    > 
-    > ### ** Examples
-    > 
-    > 
-    ...
-      3. │   └─wordpredictor (local) process(lines)
-      4. │     └─self$clean_lines(lines)
-      5. │       └─stringr::str_count(l, pattern = boundary("word"))
-      6. │         └─stringr:::check_lengths(string, pattern)
-      7. │           └─vctrs::vec_size_common(...)
-      8. └─vctrs::stop_incompatible_size(...)
-      9.   └─vctrs:::stop_incompatible(...)
-     10.     └─vctrs:::stop_vctrs(...)
-     11.       └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-    Execution halted
-    ```
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-       3. │   └─stringr:::check_lengths(string, pattern)
-       4. │     └─vctrs::vec_size_common(...)
-       5. └─vctrs::stop_incompatible_size(...)
-       6.   └─vctrs:::stop_incompatible(...)
-       7.     └─vctrs:::stop_vctrs(...)
-       8.       └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-      
-      [ FAIL 3 | WARN 0 | SKIP 0 | PASS 117 ]
-      Error: Test failures
-      In addition: Warning messages:
-      1: In for (i in seq_len(n)) { :
-        closing unused connection 4 (/tmp/RtmpBKOHrE/sample.txt)
-      2: In for (i in seq_along(nms)) { :
-        closing unused connection 5 (/tmp/RtmpBKOHrE/test.txt)
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘features.Rmd’ using rmarkdown
-    Quitting from lines 157-185 (features.Rmd) 
-    Error: processing vignette 'features.Rmd' failed with diagnostics:
-    Can't recycle `string` (size 726) to match `pattern` (size 0).
-    --- failed re-building ‘features.Rmd’
-    
-    --- re-building ‘overview.Rmd’ using rmarkdown
-    Quitting from lines 115-146 (overview.Rmd) 
-    Error: processing vignette 'overview.Rmd' failed with diagnostics:
-    Can't recycle `string` (size 72) to match `pattern` (size 0).
-    --- failed re-building ‘overview.Rmd’
-    
-    SUMMARY: processing the following files failed:
-      ‘features.Rmd’ ‘overview.Rmd’
     
     Error: Vignette re-building failed.
     Execution halted
