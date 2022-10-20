@@ -17,7 +17,7 @@
 #'   For `split_split()`, this determines the maximum length of each element
 #'   of the output. For `str_split_fixed()`, this determines the number of
 #'   columns in the output; if an input is too short, the result will be padded
-#'   with `NA`.
+#'   with `""`.
 #' @return
 #' * `str_split_1()`: a character vector.
 #' * `str_split()`: a list the same length as `string`/`pattern` containing
@@ -84,7 +84,7 @@ str_split_fixed <- function(string, pattern, n) {
   check_lengths(string, pattern)
   check_positive_integer(n)
 
-  str_split(string, pattern, n = n, simplify = NA)
+  str_split(string, pattern, n = n, simplify = TRUE)
 }
 
 #' @export
