@@ -138,6 +138,7 @@ Run `cloud_details(, "cmcR")` for more info
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+      9. (code run outside of `test_that()`) ('test-decision.R:128') - Use of .data in tidyselect expressions was deprecated in tidyselect 1.2.0.
       ℹ Please use `"highCMCClassif"` instead of `.data$highCMCClassif`
       
       ══ Failed ══════════════════════════════════════════════════════════════════════
@@ -150,7 +151,6 @@ Run `cloud_details(, "cmcR")` for more info
        8. stringr::str_extract_all(simplify = .)
       
       ══ DONE ════════════════════════════════════════════════════════════════════════
-      Don't worry, you'll get it.
       Error: Test failures
       Execution halted
     ```
@@ -208,6 +208,72 @@ Run `cloud_details(, "crispRdesignR")` for more info
 *   checking LazyData ... NOTE
     ```
       'LazyData' is specified without a 'data' directory
+    ```
+
+# cspp
+
+<details>
+
+* Version: 0.3.2
+* GitHub: NA
+* Source code: https://github.com/cran/cspp
+* Date/Publication: 2021-10-16 23:30:19 UTC
+* Number of recursive dependencies: 100
+
+Run `cloud_details(, "cspp")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘cspp-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: get_cspp_data
+    > ### Title: Load CSPP data into the R environment
+    > ### Aliases: get_cspp_data
+    > 
+    > ### ** Examples
+    > 
+    > 
+    ...
+     12. ├─dplyr:::filter.data.frame(., stringr::str_detect(.data$category, cats))
+     13. │ └─dplyr:::filter_rows(.data, ..., caller_env = caller_env())
+     14. │   └─dplyr:::filter_eval(dots, mask = mask, error_call = error_call)
+     15. │     ├─base::withCallingHandlers(...)
+     16. │     └─mask$eval_all_filter(dots, env_filter)
+     17. └─stringr::str_detect(.data$category, cats)
+     18.   └─stringr:::no_boundary()
+     19.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     20.       └─rlang::abort(...)
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error(s) in re-building vignettes:
+    --- re-building ‘cspp-vignette.Rmd’ using rmarkdown
+    Loading required package: dplyr
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    ...
+    vars)`.
+    Caused by error in `stringr::str_detect()`:
+    ! `pattern` can't be a boundary.
+    --- failed re-building ‘cspp-vignette.Rmd’
+    
+    SUMMARY: processing the following file failed:
+      ‘cspp-vignette.Rmd’
+    
+    Error: Vignette re-building failed.
+    Execution halted
     ```
 
 # flair
@@ -312,6 +378,86 @@ Run `cloud_details(, "flair")` for more info
       'LazyData' is specified without a 'data' directory
     ```
 
+# GetLattesData
+
+<details>
+
+* Version: 1.4.1
+* GitHub: https://github.com/msperlin/GetLattesData
+* Source code: https://github.com/cran/GetLattesData
+* Date/Publication: 2022-06-08 12:40:02 UTC
+* Number of recursive dependencies: 79
+
+Run `cloud_details(, "GetLattesData")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘GetLattesData-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: gld_get_lattes_data_from_zip
+    > ### Title: Reads zip files from Lattes
+    > ### Aliases: gld_get_lattes_data_from_zip
+    > 
+    > ### ** Examples
+    > 
+    > 
+    ...
+      2.   ├─base::unlist(...)
+      3.   └─base::sapply(...)
+      4.     └─base::lapply(X = X, FUN = FUN, ...)
+      5.       └─GetLattesData (local) FUN(X[[i]], ...)
+      6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
+      7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
+      8.           └─stringr:::no_boundary()
+      9.             └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     10.               └─rlang::abort(...)
+    Execution halted
+    ```
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+           ▆
+        1. └─GetLattesData::gld_get_lattes_data_from_zip(c(f_1, f_2)) at test_gld.R:9:2
+        2.   ├─base::unlist(...)
+        3.   └─base::sapply(...)
+        4.     └─base::lapply(X = X, FUN = FUN, ...)
+        5.       └─GetLattesData (local) FUN(X[[i]], ...)
+        6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
+        7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
+        8.           └─stringr:::no_boundary()
+        9.             └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       10.               └─rlang::abort(...)
+      
+      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 0 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error(s) in re-building vignettes:
+      ...
+    --- re-building ‘gld_vignette-ReadLattes.Rmd’ using rmarkdown
+    Quitting from lines 31-44 (gld_vignette-ReadLattes.Rmd) 
+    Error: processing vignette 'gld_vignette-ReadLattes.Rmd' failed with diagnostics:
+    `pattern` can't be a boundary.
+    --- failed re-building ‘gld_vignette-ReadLattes.Rmd’
+    
+    SUMMARY: processing the following file failed:
+      ‘gld_vignette-ReadLattes.Rmd’
+    
+    Error: Vignette re-building failed.
+    Execution halted
+    ```
+
 # glmmPen
 
 <details>
@@ -403,6 +549,167 @@ Run `cloud_details(, "gmgm")` for more info
       Execution halted
     ```
 
+# mpwR
+
+<details>
+
+* Version: 0.1.0
+* GitHub: NA
+* Source code: https://github.com/cran/mpwR
+* Date/Publication: 2022-06-22 07:30:02 UTC
+* Number of recursive dependencies: 96
+
+Run `cloud_details(, "mpwR")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘mpwR-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: get_Upset_list
+    > ### Title: Generate Upset list
+    > ### Aliases: get_Upset_list
+    > 
+    > ### ** Examples
+    > 
+    > # Load libraries
+    ...
+    ! `pattern` can't be a boundary.
+    Backtrace:
+        ▆
+     1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs")
+     2.   ├─base::which(...)
+     3.   └─stringr::str_detect(string = names(output_list), pattern = "")
+     4.     └─stringr:::no_boundary()
+     5.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     6.         └─rlang::abort(...)
+    Execution halted
+    ```
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      ══ Failed tests ════════════════════════════════════════════════════════════════
+      ── Error ('test_Upset.R:72'): get_Upset_list works ─────────────────────────────
+      Error in `stringr::str_detect(string = names(output_list), pattern = "")`: `pattern` can't be a boundary.
+      Backtrace:
+          ▆
+       1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs") at test_Upset.R:72:3
+       2.   ├─base::which(...)
+       3.   └─stringr::str_detect(string = names(output_list), pattern = "")
+       4.     └─stringr:::no_boundary()
+       5.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       6.         └─rlang::abort(...)
+      
+      [ FAIL 1 | WARN 502 | SKIP 0 | PASS 598 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error(s) in re-building vignettes:
+    --- re-building ‘Import.Rmd’ using rmarkdown
+    --- finished re-building ‘Import.Rmd’
+    
+    --- re-building ‘Requirements.Rmd’ using rmarkdown
+    --- finished re-building ‘Requirements.Rmd’
+    
+    --- re-building ‘Workflow.Rmd’ using rmarkdown
+    
+    Attaching package: 'dplyr'
+    ...
+    Quitting from lines 225-226 (Workflow.Rmd) 
+    Error: processing vignette 'Workflow.Rmd' failed with diagnostics:
+    `pattern` can't be a boundary.
+    --- failed re-building ‘Workflow.Rmd’
+    
+    SUMMARY: processing the following file failed:
+      ‘Workflow.Rmd’
+    
+    Error: Vignette re-building failed.
+    Execution halted
+    ```
+
+# postpack
+
+<details>
+
+* Version: 0.5.3
+* GitHub: https://github.com/bstaton1/postpack
+* Source code: https://github.com/cran/postpack
+* Date/Publication: 2021-06-02 21:50:02 UTC
+* Number of recursive dependencies: 56
+
+Run `cloud_details(, "postpack")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘postpack-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: match_params
+    > ### Title: Find matching node names
+    > ### Aliases: match_params
+    > 
+    > ### ** Examples
+    > 
+    > # load example mcmc.list
+    ...
+    Backtrace:
+        ▆
+     1. └─postpack::match_params(cjs, "")
+     2.   └─base::lapply(...)
+     3.     └─postpack (local) FUN(X[[i]], ...)
+     4.       └─stringr::str_detect(all_params, x)
+     5.         └─stringr:::no_boundary()
+     6.           └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     7.             └─rlang::abort(...)
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error(s) in re-building vignettes:
+      ...
+    --- re-building ‘example-mcmclists.Rmd’ using rmarkdown
+    --- finished re-building ‘example-mcmclists.Rmd’
+    
+    --- re-building ‘feature-overview.Rmd’ using rmarkdown
+    Node(s) discarded:
+      "SIG[1,1]", "SIG[2,1]", "SIG[1,2]", and "SIG[2,2]"
+    Node(s) discarded:
+      "SIG[2,1]"
+    ...
+    --- failed re-building ‘multiple-models.Rmd’
+    
+    --- re-building ‘pattern-matching.Rmd’ using rmarkdown
+    --- finished re-building ‘pattern-matching.Rmd’
+    
+    SUMMARY: processing the following file failed:
+      ‘multiple-models.Rmd’
+    
+    Error: Vignette re-building failed.
+    Execution halted
+    ```
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘rstan’, ‘R2WinBUGS’, ‘R2jags’, ‘R2OpenBUGS’, ‘nimble’, ‘rjags’, ‘jagsUI’
+    ```
+
 # repr
 
 <details>
@@ -454,17 +761,17 @@ Run `cloud_details(, "repr")` for more info
     Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
     ```
 
-# strex
+# rheroicons
 
 <details>
 
-* Version: 1.4.3
-* GitHub: https://github.com/rorynolan/strex
-* Source code: https://github.com/cran/strex
-* Date/Publication: 2022-07-24 21:40:02 UTC
-* Number of recursive dependencies: 65
+* Version: 0.4.0
+* GitHub: NA
+* Source code: https://github.com/cran/rheroicons
+* Date/Publication: 2022-07-16 18:30:02 UTC
+* Number of recursive dependencies: 59
 
-Run `cloud_details(, "strex")` for more info
+Run `cloud_details(, "rheroicons")` for more info
 
 </details>
 
@@ -472,50 +779,171 @@ Run `cloud_details(, "strex")` for more info
 
 *   checking tests ... ERROR
     ```
-      Running ‘spelling.R’
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      `str_trim_anything("x", boundary("word"))` threw an error with unexpected message.
-      Expected match: "Function cannot handle a `pattern` of type 'boundary'."
-      Actual message: "missing value where TRUE/FALSE needed"
+      Error in `stringr::str_subset(string = names(rheroicons), pattern = query)`: `pattern` can't be a boundary.
       Backtrace:
           ▆
-       1. ├─testthat::expect_error(...) at test-trim.R:36:2
-       2. │ └─testthat:::quasi_capture(...)
-       3. │   ├─testthat (local) .capture(...)
-       4. │   │ └─base::withCallingHandlers(...)
-       5. │   └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-       6. └─strex::str_trim_anything("x", boundary("word"))
+       1. ├─testthat::expect_equal(...) at test-find-icon.R:16:4
+       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
+       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
+       4. └─rheroicons::find_icons()
+       5.   └─stringr::str_subset(string = names(rheroicons), pattern = query)
+       6.     └─stringr:::no_boundary()
+       7.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       8.         └─rlang::abort(...)
       
-      [ FAIL 2 | WARN 0 | SKIP 0 | PASS 285 ]
+      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 10 ]
       Error: Test failures
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+# tardis
+
+<details>
+
+* Version: 0.1.3
+* GitHub: https://github.com/chris31415926535/tardis
+* Source code: https://github.com/cran/tardis
+* Date/Publication: 2022-09-30 07:50:02 UTC
+* Number of recursive dependencies: 39
+
+Run `cloud_details(, "tardis")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking tests ... ERROR
     ```
-    Error(s) in re-building vignettes:
-    --- re-building ‘alphordering-numbers.Rmd’ using rmarkdown
-    --- finished re-building ‘alphordering-numbers.Rmd’
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      Backtrace:
+          ▆
+       1. ├─testthat::expect_equal(...) at test-tardis.R:35:2
+       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
+       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
+       4. ├─tardis:::split_text_into_sentences_cpp11(...)
+       5. │ └─dict_sentiments$word %>% ...
+       6. └─stringr::str_subset(., emoji_regex_internal)
+       7.   └─stringr:::no_boundary()
+       8.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       9.       └─rlang::abort(...)
+      
+      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 13 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 4 marked Latin-1 strings
+      Note: found 1270 marked UTF-8 strings
+    ```
+
+# tidyfst
+
+<details>
+
+* Version: 1.7.4
+* GitHub: https://github.com/hope-data-science/tidyfst
+* Source code: https://github.com/cran/tidyfst
+* Date/Publication: 2022-10-20 06:40:07 UTC
+* Number of recursive dependencies: 80
+
+Run `cloud_details(, "tidyfst")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘tidyfst-Ex.R’ failed
+    The error most likely occurred in:
     
-    --- re-building ‘argument-matching.Rmd’ using rmarkdown
-    --- finished re-building ‘argument-matching.Rmd’
-    
-    --- re-building ‘before-and-after.Rmd’ using rmarkdown
-    --- finished re-building ‘before-and-after.Rmd’
-    
+    > ### Name: unite_dt
+    > ### Title: Unite multiple columns into one by pasting strings together
+    > ### Aliases: unite_dt
+    > 
+    > ### ** Examples
+    > 
+    > df <- expand.grid(x = c("a", NA), y = c("b", NA))
     ...
-      Failed to tidy R code in chunk 'regex'. Reason:
-    Error in loadNamespace(x) : there is no package called 'styler'
-    
-    --- finished re-building ‘numbers-in-strings.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘important-miscellany.Rmd’
-    
-    Error: Vignette re-building failed.
+      2. ├─tidyfst::unite_dt(., "merged_name", "")
+      3. │ └─dt %>% select_dt(...)
+      4. ├─tidyfst::select_dt(., ...)
+      5. │ └─... %>% str_c(collapse = ",")
+      6. ├─stringr::str_c(., collapse = ",")
+      7. └─stringr::str_subset(names(dt), ., negate = negate)
+      8.   └─stringr:::no_boundary()
+      9.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     10.       └─rlang::abort(...)
     Execution halted
+    ```
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘fastDummies’, ‘widyr’, ‘pacman’, ‘sjmisc’
+    ```
+
+# tidyft
+
+<details>
+
+* Version: 0.4.5
+* GitHub: https://github.com/hope-data-science/tidyft
+* Source code: https://github.com/cran/tidyft
+* Date/Publication: 2020-04-10 10:20:02 UTC
+* Number of recursive dependencies: 43
+
+Run `cloud_details(, "tidyft")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘tidyft-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: unite
+    > ### Title: Unite multiple columns into one by pasting strings together
+    > ### Aliases: unite
+    > 
+    > ### ** Examples
+    > 
+    > df <- CJ(x = c("a", NA), y = c("b", NA))
+    ...
+      2. ├─tidyft::unite(., "merged_name", "")
+      3. │ └─dt %>% select_dt(...)
+      4. ├─tidyft::select_dt(., ...)
+      5. │ └─... %>% str_c(collapse = ",")
+      6. ├─stringr::str_c(., collapse = ",")
+      7. └─stringr::str_subset(names(dt), ., negate = negate)
+      8.   └─stringr:::no_boundary()
+      9.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     10.       └─rlang::abort(...)
+    Execution halted
+    ```
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘tidyfst’, ‘tidyr’, ‘fastDummies’
+    ```
+
+*   checking LazyData ... NOTE
+    ```
+      'LazyData' is specified without a 'data' directory
     ```
 
 # xpose
@@ -604,5 +1032,75 @@ Run `cloud_details(, "xpose")` for more info
     
     Error: Vignette re-building failed.
     Execution halted
+    ```
+
+# zipangu
+
+<details>
+
+* Version: 0.3.1
+* GitHub: https://github.com/uribo/zipangu
+* Source code: https://github.com/cran/zipangu
+* Date/Publication: 2022-09-01 02:20:03 UTC
+* Number of recursive dependencies: 60
+
+Run `cloud_details(, "zipangu")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘zipangu-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: kansuji2arabic
+    > ### Title: Convert kansuji character to arabic
+    > ### Aliases: kansuji2arabic kansuji2arabic_all kansuji2arabic_num
+    > ###   kansuji2arabic_str
+    > 
+    > ### ** Examples
+    > 
+    ...
+     1. ├─zipangu::kansuji2arabic_str("金一億二千三百四十五万円")
+     2. │ ├─... %>% unlist()
+     3. │ └─purrr::map(...)
+     4. │   └─zipangu (local) .f(.x[[i]], ...)
+     5. │     └─stringr::str_detect(doc_cha[i], pattern = "")
+     6. │       └─stringr:::no_boundary()
+     7. │         └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     8. │           └─rlang::abort(...)
+     9. └─base::unlist(.)
+    Execution halted
+    ```
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+        2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
+        3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
+        4. ├─zipangu::kansuji2arabic_str("金一億二千三百四十五万六千七百八十九円")
+        5. │ ├─... %>% unlist()
+        6. │ └─purrr::map(...)
+        7. │   └─zipangu (local) .f(.x[[i]], ...)
+        8. │     └─stringr::str_detect(doc_cha[i], pattern = "")
+        9. │       └─stringr:::no_boundary()
+       10. │         └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       11. │           └─rlang::abort(...)
+       12. └─base::unlist(.)
+      
+      [ FAIL 1 | WARN 0 | SKIP 2 | PASS 142 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 47 marked UTF-8 strings
     ```
 
