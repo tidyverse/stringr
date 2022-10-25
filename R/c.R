@@ -2,7 +2,7 @@
 #'
 #' @description
 #' `str_c()` combines multiple character vectors into a single character
-#' vector. It's very similar to [`paste0()`] but uses tidyverse recycling and
+#' vector. It's very similar to [paste0()] but uses tidyverse recycling and
 #' `NA` rules.
 #'
 #' One way to understand how `str_c()` works is picture a 2d matrix of strings,
