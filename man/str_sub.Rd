@@ -19,7 +19,7 @@ coercible to one.}
 \item{start, end}{A pair of integer vectors defining the range of characters
 to extract (inclusive).
 
-Alternatively, instead a pair of vectors, you can pass a matrix to
+Alternatively, instead of a pair of vectors, you can pass a matrix to
 \code{start}. The matrix should have two columns, either labelled \code{start}
 and \code{end}, or \code{start} and \code{length}.}
 
@@ -36,7 +36,7 @@ a character vector the same length as \code{start}/\code{end}.
 }
 }
 \description{
-\code{str_sub()} extract or replaces the elements at single position in each
+\code{str_sub()} extracts or replaces the elements at a single position in each
 string. \code{str_sub_all()} allows you to extract strings at multiple elements
 in every string.
 }

@@ -1,6 +1,6 @@
 #' Get and set substrings using their positions
 #'
-#' `str_sub()` extract or replaces the elements at single position in each
+#' `str_sub()` extracts or replaces the elements at a single position in each
 #' string. `str_sub_all()` allows you to extract strings at multiple elements
 #' in every string.
 #'
@@ -8,7 +8,7 @@
 #' @param start,end A pair of integer vectors defining the range of characters
 #'   to extract (inclusive).
 #'
-#'   Alternatively, instead a pair of vectors, you can pass a matrix to
+#'   Alternatively, instead of a pair of vectors, you can pass a matrix to
 #'   `start`. The matrix should have two columns, either labelled `start`
 #'   and `end`, or `start` and `length`.
 #' @param omit_na Single logical value. If `TRUE`, missing values in any of the
