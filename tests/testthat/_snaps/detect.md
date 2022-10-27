@@ -4,17 +4,17 @@
       str_detect("x", "")
     Condition
       Error in `str_detect()`:
-      ! `pattern` can't be a boundary.
+      ! `pattern` can't be the empty string (`""`).
     Code
       str_starts("x", "")
     Condition
       Error in `str_starts()`:
-      ! `pattern` can't be a boundary.
+      ! `pattern` can't be the empty string (`""`).
     Code
       str_ends("x", "")
     Condition
       Error in `str_ends()`:
-      ! `pattern` can't be a boundary.
+      ! `pattern` can't be the empty string (`""`).
 
 # functions use tidyverse recycling rules
 

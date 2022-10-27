@@ -12,7 +12,7 @@
       str_replace("x", "", "")
     Condition
       Error in `str_replace()`:
-      ! `pattern` can't be a boundary.
+      ! `pattern` can't be the empty string (`""`).
     Code
       str_replace("x", boundary("word"), "")
     Condition

@@ -45,7 +45,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
+    empty = no_empty(),
     bound = no_boundary(),
     fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
@@ -81,7 +81,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
+    empty = no_empty(),
     bound = no_boundary(),
     fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
@@ -99,7 +99,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
+    empty = no_empty(),
     bound = no_boundary(),
     fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),

@@ -72,7 +72,7 @@ str_replace <- function(string, pattern, replacement) {
   check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
-    empty = ,
+    empty = no_empty(),
     bound = no_boundary(),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
