@@ -70,11 +70,12 @@
 <h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
 <ul><li>
 <p>stringr functions now consistently implement the tidyverse recycling rules (<a href="https://github.com/tidyverse/stringr/issues/372" class="external-link">#372</a>). Overall this is a fairly minor change as stringi was already very close to the tidyverse rules. There are only two major changes:</p>
-<ul><li><p>Only vectors of length 1 are recycled: previously, <code>str_detect(letters, c("x", "y"))</code> worked, but it now errors.</p></li>
+<ul><li><p>Only vectors of length 1 are recycled: previously, (e.g.) <code>str_detect(letters, c("x", "y"))</code> worked, but it now errors.</p></li>
 <li><p><code><a href="../reference/str_c.html">str_c()</a></code> ignores <code>NULLs</code>, rather than treating them as length 0 vectors.</p></li>
-</ul><p>Additionally, many more non-vectorised arguments now throw errors, rather than warnings, if supplied a vector.</p>
+</ul><p>Additionally, many more arguments now throw errors, rather than warnings, if supplied the wrong type of input.</p>
 </li>
 <li><p><code><a href="../reference/modifiers.html">regex()</a></code> and friends now generate class names with <code>stringr_</code> prefix (<a href="https://github.com/tidyverse/stringr/issues/384" class="external-link">#384</a>).</p></li>
+<li><p><code><a href="../reference/str_detect.html">str_detect()</a></code>, <code><a href="../reference/str_starts.html">str_starts()</a></code>, <code><a href="../reference/str_starts.html">str_ends()</a></code> and <code><a href="../reference/str_subset.html">str_subset()</a></code> now error when used with either an empty string (<code>""</code>) or a <code><a href="../reference/modifiers.html">boundary()</a></code>. These operations didn’t really make sense (<code>str_detect(x, "")</code> returned <code>TRUE</code> for all non-empty strings) and made it easy to make mistakes when programming with patterns.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
@@ -98,6 +99,7 @@
 <h3 id="minor-improvements-and-bug-fixes-development-version">Minor improvements and bug fixes<a class="anchor" aria-label="anchor" href="#minor-improvements-and-bug-fixes-development-version"></a></h3>
 <ul><li><p>Better error message if you supply a non-string pattern (<a href="https://github.com/tidyverse/stringr/issues/378" class="external-link">#378</a>).</p></li>
 <li><p>A new data source for <code>sentences</code> has fixed many small errors.</p></li>
+<li><p><code><a href="../reference/str_extract.html">str_extract()</a></code> and <code>str_exctract_all()</code> now work correctly when <code>pattern</code> is a <code><a href="../reference/modifiers.html">boundary()</a></code>.</p></li>
 <li><p><code><a href="../reference/str_flatten.html">str_flatten()</a></code> gains a <code>last</code> argument that optionally override the final separator (<a href="https://github.com/tidyverse/stringr/issues/377" class="external-link">#377</a>). It gains a <code>na.rm</code> argument to remove missing values (since it’s a summary function) (<a href="https://github.com/tidyverse/stringr/issues/439" class="external-link">#439</a>).</p></li>
 <li><p><code><a href="../reference/str_pad.html">str_pad()</a></code> gains <code>use_width</code> argument to control whether to use the total code point width or the number of code points as “width” of a string (<a href="https://github.com/tidyverse/stringr/issues/190" class="external-link">#190</a>).</p></li>
 <li><p><code><a href="../reference/str_replace.html">str_replace()</a></code> and <code><a href="../reference/str_replace.html">str_replace_all()</a></code> can use standard tidyverse formula shorthand for <code>replacement</code> function (<a href="https://github.com/tidyverse/stringr/issues/331" class="external-link">#331</a>).</p></li>
@@ -127,7 +129,8 @@
 <h2 class="pkg-version" data-toc-text="1.3.0" id="stringr-130">stringr 1.3.0<a class="anchor" aria-label="anchor" href="#stringr-130"></a></h2><p class="text-muted">CRAN release: 2018-02-19</p>
 <div class="section level3">
 <h3 id="api-changes-1-3-0">API changes<a class="anchor" aria-label="anchor" href="#api-changes-1-3-0"></a></h3>
-<ul><li>During package build, you may see <code>Error : object ‘ignore.case’ is not exported by 'namespace:stringr'</code>. This is because the long deprecated <code>str_join()</code>, <code>ignore.case()</code> and <code>perl()</code> have now been removed.</li></ul></div>
+<ul><li>During package build, you may see <code>Error : object ‘ignore.case’ is not exported by 'namespace:stringr'</code>. This is because the long deprecated <code>str_join()</code>, <code>ignore.case()</code> and <code>perl()</code> have now been removed.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="new-features-1-3-0">New features<a class="anchor" aria-label="anchor" href="#new-features-1-3-0"></a></h3>
 <ul><li><p><code><a href="../reference/str_glue.html">str_glue()</a></code> and <code><a href="../reference/str_glue.html">str_glue_data()</a></code> provide convenient wrappers around <code>glue</code> and <code>glue_data()</code> from the <a href="http://glue.tidyverse.org/" class="external-link">glue</a> package (<a href="https://github.com/tidyverse/stringr/issues/157" class="external-link">#157</a>).</p></li>
@@ -148,7 +151,8 @@
 <div class="section level3">
 <h3 id="api-changes-1-2-0">API changes<a class="anchor" aria-label="anchor" href="#api-changes-1-2-0"></a></h3>
 <ul><li>
-<code><a href="../reference/str_match.html">str_match_all()</a></code> now returns NA if an optional group doesn’t match (previously it returned ““). This is more consistent with <code><a href="../reference/str_match.html">str_match()</a></code> and other match failures (<a href="https://github.com/tidyverse/stringr/issues/134" class="external-link">#134</a>).</li></ul></div>
+<code><a href="../reference/str_match.html">str_match_all()</a></code> now returns NA if an optional group doesn’t match (previously it returned ““). This is more consistent with <code><a href="../reference/str_match.html">str_match()</a></code> and other match failures (<a href="https://github.com/tidyverse/stringr/issues/134" class="external-link">#134</a>).</li>
+</ul></div>
 <div class="section level3">
 <h3 id="new-features-1-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-1-2-0"></a></h3>
 <ul><li><p>In <code><a href="../reference/str_replace.html">str_replace()</a></code>, <code>replacement</code> can now be a function that is called once for each match and whose return value is used to replace the match.</p></li>

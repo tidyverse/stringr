@@ -1,11 +1,11 @@
-pandoc: 2.14.2
+pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   from-base: from-base.html
   regular-expressions: regular-expressions.html
   stringr: stringr.html
-last_built: 2022-10-26T01:59Z
+last_built: 2022-10-27T19:25Z
 urls:
   reference: https://stringr.tidyverse.org/reference
   article: https://stringr.tidyverse.org/articles
