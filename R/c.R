@@ -28,7 +28,6 @@
 #'   length equal to the longest input. If `collapse` is a string, a character
 #'   vector of length 1.
 #' @export
-#' @keywords internal
 #' @examples
 #' str_c("Letter: ", letters)
 #' str_c("Letter", letters, sep = ": ")

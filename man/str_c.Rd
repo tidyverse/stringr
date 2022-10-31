@@ -62,4 +62,3 @@ paste0(1:2, 1:3)
 str_c("x", character())
 paste0("x", character())
 }
-\keyword{internal}
