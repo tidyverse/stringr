@@ -1,56 +1,3 @@
-# arrow
-
-<details>
-
-* Version: 9.0.0.2
-* GitHub: https://github.com/apache/arrow
-* Source code: https://github.com/cran/arrow
-* Date/Publication: 2022-10-02 02:40:05 UTC
-* Number of recursive dependencies: 72
-
-Run `cloud_details(, "arrow")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      • https://issues.apache.org/jira/browse/ARROW-7653 (1)
-      • packageVersion("lubridate") > "1.8" is not TRUE (1)
-      • pyarrow not available for testing (1)
-      • tolower(Sys.info()[["sysname"]]) != "windows" is TRUE (1)
-      
-      ══ Failed tests ════════════════════════════════════════════════════════════════
-      ── Error ('test-dplyr-funcs-string.R:145'): paste, paste0, and str_c ───────────
-      <dplyr:::mutate_error/rlang_error/error/condition>
-      Error in `transmute(., str_c(x, y, sep = NA_character_))`: Problem while computing `..1 = str_c(x, y, sep = NA_character_)`.
-      Caused by error in `str_c()`:
-      ! `sep` must be a single string, not a character `NA`.
-      
-      [ FAIL 1 | WARN 2 | SKIP 66 | PASS 8173 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-## In both
-
-*   checking installed package size ... NOTE
-    ```
-      installed size is 113.7Mb
-      sub-directories of 1Mb or more:
-        R       4.1Mb
-        libs  108.4Mb
-    ```
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Package unavailable to check Rd xrefs: ‘readr’
-    ```
-
 # autostats
 
 <details>
@@ -61,7 +8,7 @@ Run `cloud_details(, "arrow")` for more info
 * Date/Publication: 2022-08-19 13:10:06 UTC
 * Number of recursive dependencies: 233
 
-Run `cloud_details(, "autostats")` for more info
+Run `revdepcheck::cloud_details(, "autostats")` for more info
 
 </details>
 
@@ -125,9 +72,9 @@ Run `cloud_details(, "autostats")` for more info
 * GitHub: NA
 * Source code: https://github.com/cran/cmcR
 * Date/Publication: 2022-02-22 14:00:02 UTC
-* Number of recursive dependencies: 116
+* Number of recursive dependencies: 117
 
-Run `cloud_details(, "cmcR")` for more info
+Run `revdepcheck::cloud_details(, "cmcR")` for more info
 
 </details>
 
@@ -165,7 +112,7 @@ Run `cloud_details(, "cmcR")` for more info
 * Date/Publication: 2021-01-11 07:00:02 UTC
 * Number of recursive dependencies: 78
 
-Run `cloud_details(, "crispRdesignR")` for more info
+Run `revdepcheck::cloud_details(, "crispRdesignR")` for more info
 
 </details>
 
@@ -220,7 +167,7 @@ Run `cloud_details(, "crispRdesignR")` for more info
 * Date/Publication: 2021-10-16 23:30:19 UTC
 * Number of recursive dependencies: 100
 
-Run `cloud_details(, "cspp")` for more info
+Run `revdepcheck::cloud_details(, "cspp")` for more info
 
 </details>
 
@@ -245,8 +192,8 @@ Run `cloud_details(, "cspp")` for more info
      15. │     ├─base::withCallingHandlers(...)
      16. │     └─mask$eval_all_filter(dots, env_filter)
      17. └─stringr::str_detect(.data$category, cats)
-     18.   └─stringr:::no_boundary()
-     19.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     18.   └─stringr:::no_empty()
+     19.     └─cli::cli_abort(...)
      20.       └─rlang::abort(...)
     Execution halted
     ```
@@ -266,7 +213,7 @@ Run `cloud_details(, "cspp")` for more info
     ...
     vars)`.
     Caused by error in `stringr::str_detect()`:
-    ! `pattern` can't be a boundary.
+    ! `pattern` can't be the empty string (`""`).
     --- failed re-building ‘cspp-vignette.Rmd’
     
     SUMMARY: processing the following file failed:
@@ -286,7 +233,7 @@ Run `cloud_details(, "cspp")` for more info
 * Date/Publication: 2020-04-23 18:00:05 UTC
 * Number of recursive dependencies: 85
 
-Run `cloud_details(, "flair")` for more info
+Run `revdepcheck::cloud_details(, "flair")` for more info
 
 </details>
 
@@ -388,7 +335,7 @@ Run `cloud_details(, "flair")` for more info
 * Date/Publication: 2022-06-08 12:40:02 UTC
 * Number of recursive dependencies: 79
 
-Run `cloud_details(, "GetLattesData")` for more info
+Run `revdepcheck::cloud_details(, "GetLattesData")` for more info
 
 </details>
 
@@ -413,8 +360,8 @@ Run `cloud_details(, "GetLattesData")` for more info
       5.       └─GetLattesData (local) FUN(X[[i]], ...)
       6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
       7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
-      8.           └─stringr:::no_boundary()
-      9.             └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+      8.           └─stringr:::no_empty()
+      9.             └─cli::cli_abort(...)
      10.               └─rlang::abort(...)
     Execution halted
     ```
@@ -432,8 +379,8 @@ Run `cloud_details(, "GetLattesData")` for more info
         5.       └─GetLattesData (local) FUN(X[[i]], ...)
         6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
         7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
-        8.           └─stringr:::no_boundary()
-        9.             └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+        8.           └─stringr:::no_empty()
+        9.             └─cli::cli_abort(...)
        10.               └─rlang::abort(...)
       
       [ FAIL 1 | WARN 0 | SKIP 0 | PASS 0 ]
@@ -448,7 +395,7 @@ Run `cloud_details(, "GetLattesData")` for more info
     --- re-building ‘gld_vignette-ReadLattes.Rmd’ using rmarkdown
     Quitting from lines 31-44 (gld_vignette-ReadLattes.Rmd) 
     Error: processing vignette 'gld_vignette-ReadLattes.Rmd' failed with diagnostics:
-    `pattern` can't be a boundary.
+    `pattern` can't be the empty string (`""`).
     --- failed re-building ‘gld_vignette-ReadLattes.Rmd’
     
     SUMMARY: processing the following file failed:
@@ -468,7 +415,7 @@ Run `cloud_details(, "GetLattesData")` for more info
 * Date/Publication: 2022-04-29 12:30:07 UTC
 * Number of recursive dependencies: 90
 
-Run `cloud_details(, "glmmPen")` for more info
+Run `revdepcheck::cloud_details(, "glmmPen")` for more info
 
 </details>
 
@@ -511,44 +458,6 @@ Run `cloud_details(, "glmmPen")` for more info
       All declared Imports should be used.
     ```
 
-# gmgm
-
-<details>
-
-* Version: 1.1.2
-* GitHub: NA
-* Source code: https://github.com/cran/gmgm
-* Date/Publication: 2022-09-08 20:32:55 UTC
-* Number of recursive dependencies: 60
-
-Run `cloud_details(, "gmgm")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Error in `"the defined structure has cycles" %>% stop()`: the defined structure has cycles
-      Backtrace:
-          ▆
-       1. ├─testthat::expect_equal(...) at test-struct_learn.R:304:2
-       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
-       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
-       4. ├─gmgm::struct_learn(...)
-       5. │ └─list_gmm_score$gmm %>% do.call("gmbn", .)
-       6. ├─base::do.call("gmbn", .)
-       7. └─gmgm::gmbn(A = `<gmm>`, B = `<gmm>`, C = `<gmm>`)
-       8.   └─"the defined structure has cycles" %>% stop()
-      
-      [ FAIL 1 | WARN 9 | SKIP 0 | PASS 415 ]
-      Error: Test failures
-      Execution halted
-    ```
-
 # mpwR
 
 <details>
@@ -559,7 +468,7 @@ Run `cloud_details(, "gmgm")` for more info
 * Date/Publication: 2022-06-22 07:30:02 UTC
 * Number of recursive dependencies: 96
 
-Run `cloud_details(, "mpwR")` for more info
+Run `revdepcheck::cloud_details(, "mpwR")` for more info
 
 </details>
 
@@ -578,14 +487,14 @@ Run `cloud_details(, "mpwR")` for more info
     > 
     > # Load libraries
     ...
-    ! `pattern` can't be a boundary.
+    ! `pattern` can't be the empty string (`""`).
     Backtrace:
         ▆
      1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs")
      2.   ├─base::which(...)
      3.   └─stringr::str_detect(string = names(output_list), pattern = "")
-     4.     └─stringr:::no_boundary()
-     5.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     4.     └─stringr:::no_empty()
+     5.       └─cli::cli_abort(...)
      6.         └─rlang::abort(...)
     Execution halted
     ```
@@ -597,14 +506,14 @@ Run `cloud_details(, "mpwR")` for more info
     Last 13 lines of output:
       ══ Failed tests ════════════════════════════════════════════════════════════════
       ── Error ('test_Upset.R:72'): get_Upset_list works ─────────────────────────────
-      Error in `stringr::str_detect(string = names(output_list), pattern = "")`: `pattern` can't be a boundary.
+      Error in `stringr::str_detect(string = names(output_list), pattern = "")`: `pattern` can't be the empty string (`""`).
       Backtrace:
           ▆
        1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs") at test_Upset.R:72:3
        2.   ├─base::which(...)
        3.   └─stringr::str_detect(string = names(output_list), pattern = "")
-       4.     └─stringr:::no_boundary()
-       5.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       4.     └─stringr:::no_empty()
+       5.       └─cli::cli_abort(...)
        6.         └─rlang::abort(...)
       
       [ FAIL 1 | WARN 502 | SKIP 0 | PASS 598 ]
@@ -627,7 +536,7 @@ Run `cloud_details(, "mpwR")` for more info
     ...
     Quitting from lines 225-226 (Workflow.Rmd) 
     Error: processing vignette 'Workflow.Rmd' failed with diagnostics:
-    `pattern` can't be a boundary.
+    `pattern` can't be the empty string (`""`).
     --- failed re-building ‘Workflow.Rmd’
     
     SUMMARY: processing the following file failed:
@@ -647,7 +556,7 @@ Run `cloud_details(, "mpwR")` for more info
 * Date/Publication: 2021-06-02 21:50:02 UTC
 * Number of recursive dependencies: 56
 
-Run `cloud_details(, "postpack")` for more info
+Run `revdepcheck::cloud_details(, "postpack")` for more info
 
 </details>
 
@@ -672,8 +581,8 @@ Run `cloud_details(, "postpack")` for more info
      2.   └─base::lapply(...)
      3.     └─postpack (local) FUN(X[[i]], ...)
      4.       └─stringr::str_detect(all_params, x)
-     5.         └─stringr:::no_boundary()
-     6.           └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     5.         └─stringr:::no_empty()
+     6.           └─cli::cli_abort(...)
      7.             └─rlang::abort(...)
     Execution halted
     ```
@@ -718,9 +627,9 @@ Run `cloud_details(, "postpack")` for more info
 * GitHub: https://github.com/IRkernel/repr
 * Source code: https://github.com/cran/repr
 * Date/Publication: 2022-01-04 14:20:06 UTC
-* Number of recursive dependencies: 69
+* Number of recursive dependencies: 70
 
-Run `cloud_details(, "repr")` for more info
+Run `revdepcheck::cloud_details(, "repr")` for more info
 
 </details>
 
@@ -761,44 +670,6 @@ Run `cloud_details(, "repr")` for more info
     Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
     ```
 
-# rheroicons
-
-<details>
-
-* Version: 0.4.0
-* GitHub: NA
-* Source code: https://github.com/cran/rheroicons
-* Date/Publication: 2022-07-16 18:30:02 UTC
-* Number of recursive dependencies: 59
-
-Run `cloud_details(, "rheroicons")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Error in `stringr::str_subset(string = names(rheroicons), pattern = query)`: `pattern` can't be a boundary.
-      Backtrace:
-          ▆
-       1. ├─testthat::expect_equal(...) at test-find-icon.R:16:4
-       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
-       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
-       4. └─rheroicons::find_icons()
-       5.   └─stringr::str_subset(string = names(rheroicons), pattern = query)
-       6.     └─stringr:::no_boundary()
-       7.       └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
-       8.         └─rlang::abort(...)
-      
-      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 10 ]
-      Error: Test failures
-      Execution halted
-    ```
-
 # tardis
 
 <details>
@@ -809,7 +680,7 @@ Run `cloud_details(, "rheroicons")` for more info
 * Date/Publication: 2022-09-30 07:50:02 UTC
 * Number of recursive dependencies: 39
 
-Run `cloud_details(, "tardis")` for more info
+Run `revdepcheck::cloud_details(, "tardis")` for more info
 
 </details>
 
@@ -828,8 +699,8 @@ Run `cloud_details(, "tardis")` for more info
        4. ├─tardis:::split_text_into_sentences_cpp11(...)
        5. │ └─dict_sentiments$word %>% ...
        6. └─stringr::str_subset(., emoji_regex_internal)
-       7.   └─stringr:::no_boundary()
-       8.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+       7.   └─stringr:::no_empty()
+       8.     └─cli::cli_abort(...)
        9.       └─rlang::abort(...)
       
       [ FAIL 1 | WARN 0 | SKIP 0 | PASS 13 ]
@@ -849,13 +720,13 @@ Run `cloud_details(, "tardis")` for more info
 
 <details>
 
-* Version: 1.7.4
+* Version: 1.7.5
 * GitHub: https://github.com/hope-data-science/tidyfst
 * Source code: https://github.com/cran/tidyfst
-* Date/Publication: 2022-10-20 06:40:07 UTC
+* Date/Publication: 2022-10-27 07:00:02 UTC
 * Number of recursive dependencies: 80
 
-Run `cloud_details(, "tidyfst")` for more info
+Run `revdepcheck::cloud_details(, "tidyfst")` for more info
 
 </details>
 
@@ -880,8 +751,8 @@ Run `cloud_details(, "tidyfst")` for more info
       5. │ └─... %>% str_c(collapse = ",")
       6. ├─stringr::str_c(., collapse = ",")
       7. └─stringr::str_subset(names(dt), ., negate = negate)
-      8.   └─stringr:::no_boundary()
-      9.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+      8.   └─stringr:::no_empty()
+      9.     └─cli::cli_abort(...)
      10.       └─rlang::abort(...)
     Execution halted
     ```
@@ -903,7 +774,7 @@ Run `cloud_details(, "tidyfst")` for more info
 * Date/Publication: 2020-04-10 10:20:02 UTC
 * Number of recursive dependencies: 43
 
-Run `cloud_details(, "tidyft")` for more info
+Run `revdepcheck::cloud_details(, "tidyft")` for more info
 
 </details>
 
@@ -928,8 +799,8 @@ Run `cloud_details(, "tidyft")` for more info
       5. │ └─... %>% str_c(collapse = ",")
       6. ├─stringr::str_c(., collapse = ",")
       7. └─stringr::str_subset(names(dt), ., negate = negate)
-      8.   └─stringr:::no_boundary()
-      9.     └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+      8.   └─stringr:::no_empty()
+      9.     └─cli::cli_abort(...)
      10.       └─rlang::abort(...)
     Execution halted
     ```
@@ -956,7 +827,7 @@ Run `cloud_details(, "tidyft")` for more info
 * Date/Publication: 2021-06-30 08:00:02 UTC
 * Number of recursive dependencies: 108
 
-Run `cloud_details(, "xpose")` for more info
+Run `revdepcheck::cloud_details(, "xpose")` for more info
 
 </details>
 
@@ -1044,7 +915,7 @@ Run `cloud_details(, "xpose")` for more info
 * Date/Publication: 2022-09-01 02:20:03 UTC
 * Number of recursive dependencies: 60
 
-Run `cloud_details(, "zipangu")` for more info
+Run `revdepcheck::cloud_details(, "zipangu")` for more info
 
 </details>
 
@@ -1068,8 +939,8 @@ Run `cloud_details(, "zipangu")` for more info
      3. │ └─purrr::map(...)
      4. │   └─zipangu (local) .f(.x[[i]], ...)
      5. │     └─stringr::str_detect(doc_cha[i], pattern = "")
-     6. │       └─stringr:::no_boundary()
-     7. │         └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+     6. │       └─stringr:::no_empty()
+     7. │         └─cli::cli_abort(...)
      8. │           └─rlang::abort(...)
      9. └─base::unlist(.)
     Execution halted
@@ -1087,8 +958,8 @@ Run `cloud_details(, "zipangu")` for more info
         6. │ └─purrr::map(...)
         7. │   └─zipangu (local) .f(.x[[i]], ...)
         8. │     └─stringr::str_detect(doc_cha[i], pattern = "")
-        9. │       └─stringr:::no_boundary()
-       10. │         └─cli::cli_abort("{.arg pattern} can't be a boundary.", call = call)
+        9. │       └─stringr:::no_empty()
+       10. │         └─cli::cli_abort(...)
        11. │           └─rlang::abort(...)
        12. └─base::unlist(.)
       

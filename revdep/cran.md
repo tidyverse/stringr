@@ -1,17 +1,14 @@
 ## revdepcheck results
 
-We checked 1654 reverse dependencies (1646 from CRAN + 8 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 1659 reverse dependencies (1651 from CRAN + 8 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 18 new problems
+ * We saw 15 new problems
  * We failed to check 4 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
-
-* arrow
-  checking tests ... ERROR
 
 * autostats
   checking examples ... ERROR
@@ -40,9 +37,6 @@ Issues with CRAN packages are summarised below.
 * glmmPen
   checking tests ... ERROR
 
-* gmgm
-  checking tests ... ERROR
-
 * mpwR
   checking examples ... ERROR
   checking tests ... ERROR
@@ -53,9 +47,6 @@ Issues with CRAN packages are summarised below.
   checking re-building of vignette outputs ... WARNING
 
 * repr
-  checking tests ... ERROR
-
-* rheroicons
   checking tests ... ERROR
 
 * tardis

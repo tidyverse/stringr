@@ -7,7 +7,7 @@
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -41,9 +41,9 @@ Run `cloud_details(, "NA")` for more info
 * GitHub: https://github.com/ggPMXdevelopment/ggPMX
 * Source code: https://github.com/cran/ggPMX
 * Date/Publication: 2022-06-17 23:10:02 UTC
-* Number of recursive dependencies: 208
+* Number of recursive dependencies: 177
 
-Run `cloud_details(, "ggPMX")` for more info
+Run `revdepcheck::cloud_details(, "ggPMX")` for more info
 
 </details>
 
@@ -118,7 +118,7 @@ Status: 1 ERROR, 2 NOTEs
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -153,7 +153,7 @@ Run `cloud_details(, "NA")` for more info
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -188,7 +188,7 @@ Run `cloud_details(, "NA")` for more info
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -224,7 +224,7 @@ Run `cloud_details(, "NA")` for more info
 * Date/Publication: 2022-08-15 07:20:20 UTC
 * Number of recursive dependencies: 353
 
-Run `cloud_details(, "Platypus")` for more info
+Run `revdepcheck::cloud_details(, "Platypus")` for more info
 
 </details>
 
@@ -299,7 +299,7 @@ Status: 1 NOTE
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -334,7 +334,7 @@ Run `cloud_details(, "NA")` for more info
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -370,7 +370,7 @@ Run `cloud_details(, "NA")` for more info
 * Date/Publication: 2022-04-14 17:50:02 UTC
 * Number of recursive dependencies: 170
 
-Run `cloud_details(, "tidySEM")` for more info
+Run `revdepcheck::cloud_details(, "tidySEM")` for more info
 
 </details>
 
@@ -445,7 +445,7 @@ Status: 1 NOTE
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -480,7 +480,7 @@ Run `cloud_details(, "NA")` for more info
 * Source code: https://github.com/cran/NA
 * Number of recursive dependencies: 0
 
-Run `cloud_details(, "NA")` for more info
+Run `revdepcheck::cloud_details(, "NA")` for more info
 
 </details>
 
@@ -514,9 +514,9 @@ Run `cloud_details(, "NA")` for more info
 * GitHub: NA
 * Source code: https://github.com/cran/xpose.nlmixr2
 * Date/Publication: 2022-06-08 09:10:02 UTC
-* Number of recursive dependencies: 204
+* Number of recursive dependencies: 154
 
-Run `cloud_details(, "xpose.nlmixr2")` for more info
+Run `revdepcheck::cloud_details(, "xpose.nlmixr2")` for more info
 
 </details>
 
