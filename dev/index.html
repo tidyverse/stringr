@@ -109,8 +109,8 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provides a cohesive set of functions designed to make working with strings as easy as possible. If you’re not familiar with strings, the best place to start is the <a href="http://r4ds.had.co.nz/strings.html" class="external-link">chapter on strings</a> in R for Data Science.</p>
-<p>stringr is built on top of <a href="https://github.com/gagolews/stringi" class="external-link">stringi</a>, which uses the <a href="http://site.icu-project.org" class="external-link">ICU</a> C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you’ve mastered stringr, you should find stringi similarly easy to use.</p>
+<p>Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. The stringr package provides a cohesive set of functions designed to make working with strings as easy as possible. If you’re not familiar with strings, the best place to start is the <a href="https://r4ds.had.co.nz/strings.html" class="external-link">chapter on strings</a> in R for Data Science.</p>
+<p>stringr is built on top of <a href="https://github.com/gagolews/stringi" class="external-link">stringi</a>, which uses the <a href="https://icu.unicode.org" class="external-link">ICU</a> C library to provide fast, correct implementations of common string manipulations. stringr focusses on the most important and commonly used string manipulation functions whereas stringi provides a comprehensive set covering almost anything you can imagine. If you find that stringr is missing a function that you need, try looking in stringi. Both packages share similar conventions, so once you’ve mastered stringr, you should find stringi similarly easy to use.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -249,6 +249,7 @@
 <li><p>Simplifies string operations by eliminating options that you don’t need 95% of the time.</p></li>
 <li><p>Produces outputs than can easily be used as inputs. This includes ensuring that missing inputs result in missing outputs, and zero length inputs result in zero length outputs.</p></li>
 </ul>
+<p>Learn more in <code><a href="articles/from-base.html">vignette("from-base")</a></code></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -292,8 +293,8 @@
 <ul class="list-unstyled">
 <li><a href="https://cran.r-project.org/package=stringr" class="external-link"><img src="https://www.r-pkg.org/badges/version/stringr" alt="CRAN status"></a></li>
 <li><a href="https://github.com/tidyverse/stringr/actions" class="external-link"><img src="https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/tidyverse/stringr?branch=main" class="external-link"><img src="https://codecov.io/gh/tidyverse/stringr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://app.codecov.io/gh/tidyverse/stringr?branch=main" class="external-link"><img src="https://codecov.io/gh/tidyverse/stringr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 </ul>
 </div>
 
