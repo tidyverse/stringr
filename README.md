@@ -201,3 +201,5 @@ languages like Ruby or Python are rather hard to do in R.
 - Produces outputs than can easily be used as inputs. This includes
   ensuring that missing inputs result in missing outputs, and zero
   length inputs result in zero length outputs.
+
+Learn more in `vignette("from-base")`
