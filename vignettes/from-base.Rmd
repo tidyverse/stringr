@@ -66,7 +66,7 @@ Overall the main differences between base R and stringr are:
     arguments, stringr instead uses helper functions (like `fixed()`, 
     `regexp()`, and `coll()`).
 
-Next we'll walk through each of the functions, noting the similarities and important differences. These examples come from the [stringr documentation](https://cran.r-project.org/web/packages/stringr/stringr.pdf) and here, they are contrasted with the analogous base R operation(s).
+Next we'll walk through each of the functions, noting the similarities and important differences. These examples are adapted from the stringr documentation and here they are contrasted with the analogous base R operations.
 
 ```{r setup}
 library(stringr)
