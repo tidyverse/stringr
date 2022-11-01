@@ -4,14 +4,21 @@
 \alias{str_unique}
 \title{Remove duplicated strings}
 \usage{
-str_unique(string, ...)
+str_unique(string, locale = "en", ignore_case = FALSE, ...)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{...}{Other options used to control matching behavior between duplicate
-strings. Passed on to \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
+\item{locale}{Locale to use for comparisons. See
+\code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
+Defaults to "en" (English) to ensure that default behaviour is
+consistent across platforms.}
+
+\item{ignore_case}{Ignore case when comparing strings?}
+
+\item{...}{Other options used to control collation. Passed on to
+\code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \value{
 A character vector, usually shorter than \code{string}.
@@ -22,6 +29,9 @@ how duplication is measured.
 }
 \examples{
 str_unique(c("a", "b", "c", "b", "a"))
+
+str_unique(c("a", "b", "c", "B", "A"))
+str_unique(c("a", "b", "c", "B", "A"), ignore_case = TRUE)
 
 # Use ... to pass additional arguments to stri_unique()
 str_unique(c("motley", "mötley", "pinguino", "pingüino"))
