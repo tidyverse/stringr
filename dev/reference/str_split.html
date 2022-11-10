@@ -135,7 +135,8 @@ with <code>""</code>.</p></dd>
 
 
 <dt>i</dt>
-<dd><p>Element to return.</p></dd>
+<dd><p>Element to return. Use a negative value to count from the
+right hand side.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -214,8 +215,11 @@ number of rows as the length of <code>string</code>/<code>pattern</code>.</p></l
 <span class="r-in"><span><span class="co"># str_split_i extracts only a single piece from a string</span></span></span>
 <span class="r-in"><span><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "apples"     "pineapples"</span>
-<span class="r-in"><span><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pears"  "guavas"</span>
+<span class="r-in"><span><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "bananas" NA       </span>
+<span class="r-in"><span><span class="co"># use a negative number to select from the end</span></span></span>
+<span class="r-in"><span><span class="fu">str_split_i</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">" and "</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "bananas" "guavas" </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
