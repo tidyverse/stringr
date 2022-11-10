@@ -51,7 +51,9 @@
 #'
 #' # str_split_i extracts only a single piece from a string
 #' str_split_i(fruits, " and ", 1)
-#' str_split_i(fruits, " and ", 3)
+#' str_split_i(fruits, " and ", 4)
+#' # use a negative number to select from the end
+#' str_split_i(fruits, " and ", -1)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   check_lengths(string, pattern)
   check_positive_integer(n)
