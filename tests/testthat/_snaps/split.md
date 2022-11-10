@@ -34,5 +34,10 @@
       str_split_i("x", "x", 0)
     Condition
       Error in `str_split_i()`:
-      ! `i` must be a number larger than 1, not the number 0.
+      ! `i` must not be 0.
+    Code
+      str_split_i("x", "x", 0.5)
+    Condition
+      Error in `str_split_i()`:
+      ! `i` must be a whole number, not the number 0.5.
 

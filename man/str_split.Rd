@@ -48,7 +48,8 @@ with \code{""}.}
 \item \code{TRUE}: returns a character matrix.
 }}
 
-\item{i}{Element to return.}
+\item{i}{Element to return. Use a negative value to count from the
+right hand side.}
 }
 \value{
 \itemize{
@@ -94,7 +95,9 @@ str_split_fixed(fruits, " and ", 4)
 
 # str_split_i extracts only a single piece from a string
 str_split_i(fruits, " and ", 1)
-str_split_i(fruits, " and ", 3)
+str_split_i(fruits, " and ", 4)
+# use a negative number to select from the end
+str_split_i(fruits, " and ", -1)
 }
 \seealso{
 \code{\link[=stri_split]{stri_split()}} for the underlying implementation.

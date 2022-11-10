@@ -51,7 +51,9 @@
 #'
 #' # str_split_i extracts only a single piece from a string
 #' str_split_i(fruits, " and ", 1)
-#' str_split_i(fruits, " and ", 3)
+#' str_split_i(fruits, " and ", 4)
+#' # use a negative number to select from the end
+#' str_split_i(fruits, " and ", -1)
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
   check_lengths(string, pattern)
   check_positive_integer(n)
@@ -89,12 +91,29 @@ str_split_fixed <- function(string, pattern, n) {
 
 #' @export
 #' @rdname str_split
-#' @param i Element to return.
+#' @param i Element to return. Use a negative value to count from the
+#'   right hand side.
 str_split_i <- function(string, pattern, i) {
-  check_positive_integer(i)
+  check_number_whole(i)
 
-  out <- str_split(string, pattern, simplify = NA, n = i + 1)
-  out[, i]
+  if (i > 0) {
+    out <- str_split(string, pattern, simplify = NA, n = i + 1)
+    out[, i]
+  } else if (i < 0) {
+    i <- abs(i)
+    pieces <- str_split(string, pattern)
+    last <- function(x) {
+      n <- length(x)
+      if (i > n) {
+        NA_character_
+      } else{
+        x[[n + 1 - i]]
+      }
+    }
+    map_chr(pieces, last)
+  } else {
+    cli::cli_abort("{.arg i} must not be 0.")
+  }
 }
 
 check_positive_integer <- function(x, arg = caller_arg(x), call = caller_env()) {
