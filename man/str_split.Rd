@@ -48,7 +48,8 @@ with \code{""}.}
 \item \code{TRUE}: returns a character matrix.
 }}
 
-\item{i}{Element to return.}
+\item{i}{Element to return. Use a negative value to count from the
+right hand side.}
 }
 \value{
 \itemize{

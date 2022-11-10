@@ -63,10 +63,22 @@ test_that("str_split_fixed check its inputs", {
   expect_snapshot(str_split_fixed("x", "x", 0), error = TRUE)
 })
 
+
+# str_split_i -------------------------------------------------------------
+
+
+test_that("str_split_i can extract from LHS or RHS", {
+  expect_equal(str_split_i(c("1-2-3", "4-5"), "-", 1), c("1", "4"))
+  expect_equal(str_split_i(c("1-2-3", "4-5"), "-", -1), c("3", "5"))
+})
+
 test_that("str_split_i returns NA for absent components", {
   expect_equal(str_split_i(c("a", "b-c"), "-", 1), c("a", "b"))
   expect_equal(str_split_i(c("a", "b-c"), "-", 2), c(NA, "c"))
   expect_equal(str_split_i(c("a", "b-c"), "-", 3), c(NA_character_, NA))
+
+  expect_equal(str_split_i(c("1-2-3", "4-5"), "-", -3), c("1", NA))
+
 })
 
 test_that("str_split_i check its inputs", {
