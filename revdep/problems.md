@@ -1,69 +1,3 @@
-# autostats
-
-<details>
-
-* Version: 0.3.1
-* GitHub: https://github.com/Harrison4192/autostats
-* Source code: https://github.com/cran/autostats
-* Date/Publication: 2022-08-19 13:10:06 UTC
-* Number of recursive dependencies: 233
-
-Run `revdepcheck::cloud_details(, "autostats")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘autostats-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: f_modify_formula
-    > ### Title: Modify Formula
-    > ### Aliases: f_modify_formula
-    > 
-    > ### ** Examples
-    > 
-    > 
-    ...
-    +   f_modify_formula(
-    + rhs_remove = c("Petal.Width", "Sepal.Length"),
-    + rhs_add = "Custom_Variable"
-    + )
-    Error in `stringr::str_c()`:
-    ! `..1` must be a vector, not a symbol.
-    Backtrace:
-     1. f %>% ...
-     7. stringr::str_c(lhs, " ~ ", ., collapse = "")
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-    --- re-building ‘autostats.Rmd’ using rmarkdown
-    --- finished re-building ‘autostats.Rmd’
-    
-    --- re-building ‘tidyModels.Rmd’ using rmarkdown
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-    ...
-    Quitting from lines 104-109 (tidyModels.Rmd) 
-    Error: processing vignette 'tidyModels.Rmd' failed with diagnostics:
-    `..1` must be a vector, not a symbol.
-    --- failed re-building ‘tidyModels.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘tidyModels.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
 # cmcR
 
 <details>
@@ -85,7 +19,6 @@ Run `revdepcheck::cloud_details(, "cmcR")` for more info
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      9. (code run outside of `test_that()`) ('test-decision.R:128') - Use of .data in tidyselect expressions was deprecated in tidyselect 1.2.0.
       ℹ Please use `"highCMCClassif"` instead of `.data$highCMCClassif`
       
       ══ Failed ══════════════════════════════════════════════════════════════════════
@@ -98,6 +31,7 @@ Run `revdepcheck::cloud_details(, "cmcR")` for more info
        8. stringr::str_extract_all(simplify = .)
       
       ══ DONE ════════════════════════════════════════════════════════════════════════
+      Keep trying!
       Error: Test failures
       Execution halted
     ```
@@ -110,7 +44,7 @@ Run `revdepcheck::cloud_details(, "cmcR")` for more info
 * GitHub: NA
 * Source code: https://github.com/cran/crispRdesignR
 * Date/Publication: 2021-01-11 07:00:02 UTC
-* Number of recursive dependencies: 78
+* Number of recursive dependencies: 79
 
 Run `revdepcheck::cloud_details(, "crispRdesignR")` for more info
 
@@ -516,7 +450,7 @@ Run `revdepcheck::cloud_details(, "mpwR")` for more info
        5.       └─cli::cli_abort(...)
        6.         └─rlang::abort(...)
       
-      [ FAIL 1 | WARN 502 | SKIP 0 | PASS 598 ]
+      [ FAIL 1 | WARN 553 | SKIP 0 | PASS 598 ]
       Error: Test failures
       Execution halted
     ```
@@ -670,52 +604,6 @@ Run `revdepcheck::cloud_details(, "repr")` for more info
     Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
     ```
 
-# tardis
-
-<details>
-
-* Version: 0.1.3
-* GitHub: https://github.com/chris31415926535/tardis
-* Source code: https://github.com/cran/tardis
-* Date/Publication: 2022-09-30 07:50:02 UTC
-* Number of recursive dependencies: 39
-
-Run `revdepcheck::cloud_details(, "tardis")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Backtrace:
-          ▆
-       1. ├─testthat::expect_equal(...) at test-tardis.R:35:2
-       2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
-       3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
-       4. ├─tardis:::split_text_into_sentences_cpp11(...)
-       5. │ └─dict_sentiments$word %>% ...
-       6. └─stringr::str_subset(., emoji_regex_internal)
-       7.   └─stringr:::no_empty()
-       8.     └─cli::cli_abort(...)
-       9.       └─rlang::abort(...)
-      
-      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 13 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-## In both
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 4 marked Latin-1 strings
-      Note: found 1270 marked UTF-8 strings
-    ```
-
 # tidyfst
 
 <details>
@@ -817,94 +705,6 @@ Run `revdepcheck::cloud_details(, "tidyft")` for more info
       'LazyData' is specified without a 'data' directory
     ```
 
-# xpose
-
-<details>
-
-* Version: 0.4.13
-* GitHub: https://github.com/UUPharmacometrics/xpose
-* Source code: https://github.com/cran/xpose
-* Date/Publication: 2021-06-30 08:00:02 UTC
-* Number of recursive dependencies: 108
-
-Run `revdepcheck::cloud_details(, "xpose")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘xpose-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: amt_vs_idv
-    > ### Title: Compartment kinetics
-    > ### Aliases: amt_vs_idv
-    > 
-    > ### ** Examples
-    > 
-    > amt_vs_idv(xpdb_ex_pk, nrow = 2, ncol = 1)
-    ...
-        ▆
-     1. ├─base (local) `<fn>`(x)
-     2. ├─xpose:::print.xpose_plot(x)
-     3. │ └─xpose::append_suffix(x$xpose, x$labels$title, "title")
-     4. │   └─stringr::str_c(string, xpdb$xp_theme[stringr::str_c(type, "_suffix")], sep = "")
-     5. │     └─vctrs::vec_size_common(!!!dots)
-     6. └─vctrs:::stop_scalar_type(`<fn>`(`<uneval>`), "..2", `<env>`)
-     7.   └─vctrs:::stop_vctrs(...)
-     8.     └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-    Execution halted
-    ```
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-        2. │ └─ggplot2::ggsave(...)
-        3. │   ├─grid::grid.draw(plot)
-        4. │   └─ggplot2:::grid.draw.ggplot(plot)
-        5. │     ├─base::print(x)
-        6. │     └─xpose:::print.xpose_plot(x)
-        7. │       └─xpose::append_suffix(x$xpose, x$labels$title, "title")
-        8. │         └─stringr::str_c(string, xpdb$xp_theme[stringr::str_c(type, "_suffix")], sep = "")
-        9. │           └─vctrs::vec_size_common(!!!dots)
-       10. └─vctrs:::stop_scalar_type(`<fn>`(`<uneval>`), "..2", `<env>`)
-       11.   └─vctrs:::stop_vctrs(...)
-       12.     └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-      
-      [ FAIL 3 | WARN 0 | SKIP 7 | PASS 517 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-    --- re-building ‘access_xpdb_data.Rmd’ using rmarkdown
-    Returning data from run001.ext, $prob no.1, subprob no.0, method foce
-    Returning parameter estimates from $prob no.1, subprob no.0, method foce
-    --- finished re-building ‘access_xpdb_data.Rmd’
-    
-    --- re-building ‘customize_plots.Rmd’ using rmarkdown
-    Using data from $prob no.1
-    Filtering data by EVID == 0
-    Using data from $prob no.1
-    ...
-    Error: processing vignette 'vpc.Rmd' failed with diagnostics:
-    `..2` must be a vector, not a <uneval> object.
-    --- failed re-building ‘vpc.Rmd’
-    
-    SUMMARY: processing the following files failed:
-      ‘customize_plots.Rmd’ ‘introduction.Rmd’ ‘multiple_pages.Rmd’
-      ‘vpc.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
 # zipangu
 
 <details>
@@ -913,7 +713,7 @@ Run `revdepcheck::cloud_details(, "xpose")` for more info
 * GitHub: https://github.com/uribo/zipangu
 * Source code: https://github.com/cran/zipangu
 * Date/Publication: 2022-09-01 02:20:03 UTC
-* Number of recursive dependencies: 60
+* Number of recursive dependencies: 61
 
 Run `revdepcheck::cloud_details(, "zipangu")` for more info
 

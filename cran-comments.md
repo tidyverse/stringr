@@ -4,34 +4,72 @@
 
 ## revdepcheck results
 
-We checked 855 reverse dependencies (744 from CRAN + 111 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 1675 reverse dependencies (1663 from CRAN + 12 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 1 new problems
- * We failed to check 14 packages
+ * We saw 12 new problems
+ * We failed to check 12 packages
 
-Issues with CRAN packages are summarised below.
+Package maintainers with problems were supplied a patch and notified (twice) over a month ago.
 
 ### New problems
 (This reports the first line of each new failure)
 
-* banR
+* cmcR
+  checking tests ... ERROR
+
+* crispRdesignR
+  checking examples ... ERROR
+
+* cspp
   checking examples ... ERROR
   checking re-building of vignette outputs ... WARNING
-  Appears to be network related
+
+* flair
+  checking examples ... ERROR
+  checking tests ... ERROR
+  checking re-building of vignette outputs ... WARNING
+
+* GetLattesData
+  checking examples ... ERROR
+  checking tests ... ERROR
+  checking re-building of vignette outputs ... WARNING
+
+* glmmPen
+  checking tests ... ERROR
+
+* mpwR
+  checking examples ... ERROR
+  checking tests ... ERROR
+  checking re-building of vignette outputs ... WARNING
+
+* postpack
+  checking examples ... ERROR
+  checking re-building of vignette outputs ... WARNING
+
+* repr
+  checking tests ... ERROR
+
+* tidyfst
+  checking examples ... ERROR
+
+* tidyft
+  checking examples ... ERROR
+
+* zipangu
+  checking examples ... ERROR
+  checking tests ... ERROR
 
 ### Failed to check
 
-* annovarR    (failed to install)
-* aslib       (failed to install)
-* CollapsABEL (failed to install)
-* fastLink    (failed to install)
-* FRESA.CAD   (failed to install)
-* HTSSIP      (check timed out)
-* nauf        (failed to install)
-* RJafroc     (failed to install)
-* rpcdsearch  (failed to install)
-* sdcTable    (failed to install)
-* spatsurv    (failed to install)
-* subspace    (failed to install)
-* updog       (failed to install)
-* vortexR     (failed to install)
+* admiral       (NA)
+* admiralonco   (NA)
+* genekitr      (NA)
+* ggPMX         (NA)
+* MARVEL        (NA)
+* numbat        (NA)
+* OlinkAnalyze  (NA)
+* Platypus      (NA)
+* RVA           (NA)
+* tidySEM       (NA)
+* tinyarray     (NA)
+* xpose.nlmixr2 (NA)

@@ -1,18 +1,14 @@
 ## revdepcheck results
 
-We checked 1659 reverse dependencies (1651 from CRAN + 8 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 1675 reverse dependencies (1663 from CRAN + 12 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 15 new problems
- * We failed to check 4 packages
+ * We saw 12 new problems
+ * We failed to check 12 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
-
-* autostats
-  checking examples ... ERROR
-  checking re-building of vignette outputs ... WARNING
 
 * cmcR
   checking tests ... ERROR
@@ -49,19 +45,11 @@ Issues with CRAN packages are summarised below.
 * repr
   checking tests ... ERROR
 
-* tardis
-  checking tests ... ERROR
-
 * tidyfst
   checking examples ... ERROR
 
 * tidyft
   checking examples ... ERROR
-
-* xpose
-  checking examples ... ERROR
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
 
 * zipangu
   checking examples ... ERROR
@@ -69,7 +57,15 @@ Issues with CRAN packages are summarised below.
 
 ### Failed to check
 
+* admiral       (NA)
+* admiralonco   (NA)
+* genekitr      (NA)
 * ggPMX         (NA)
+* MARVEL        (NA)
+* numbat        (NA)
+* OlinkAnalyze  (NA)
 * Platypus      (NA)
+* RVA           (NA)
 * tidySEM       (NA)
+* tinyarray     (NA)
 * xpose.nlmixr2 (NA)
