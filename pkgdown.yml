@@ -1,13 +1,11 @@
-pandoc: 2.14.2
-pkgdown: 2.0.2
+pandoc: 2.19.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
+  from-base: from-base.html
   regular-expressions: regular-expressions.html
-  stringr-1.0.0: releases/stringr-1.0.0.html
-  stringr-1.1.0: releases/stringr-1.1.0.html
-  stringr-1.2.0: releases/stringr-1.2.0.html
   stringr: stringr.html
-last_built: 2022-04-14T21:32Z
+last_built: 2022-12-04T17:35Z
 urls:
   reference: https://stringr.tidyverse.org/reference
   article: https://stringr.tidyverse.org/articles

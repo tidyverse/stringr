@@ -7,19 +7,16 @@
     <loc>https://stringr.tidyverse.org/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>https://stringr.tidyverse.org/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/articles/from-base.html</loc>
+  </url>
+  <url>
     <loc>https://stringr.tidyverse.org/articles/index.html</loc>
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/articles/regular-expressions.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/releases/stringr-1.0.0.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/releases/stringr-1.1.0.html</loc>
-  </url>
-  <url>
-    <loc>https://stringr.tidyverse.org/articles/releases/stringr-1.2.0.html</loc>
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/articles/stringr.html</loc>
@@ -64,6 +61,12 @@
     <loc>https://stringr.tidyverse.org/reference/str_dup.html</loc>
   </url>
   <url>
+    <loc>https://stringr.tidyverse.org/reference/str_equal.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/reference/str_escape.html</loc>
+  </url>
+  <url>
     <loc>https://stringr.tidyverse.org/reference/str_extract.html</loc>
   </url>
   <url>
@@ -77,6 +80,9 @@
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/reference/str_length.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/reference/str_like.html</loc>
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/reference/str_locate.html</loc>
@@ -118,7 +124,13 @@
     <loc>https://stringr.tidyverse.org/reference/str_trunc.html</loc>
   </url>
   <url>
+    <loc>https://stringr.tidyverse.org/reference/str_unique.html</loc>
+  </url>
+  <url>
     <loc>https://stringr.tidyverse.org/reference/str_view.html</loc>
+  </url>
+  <url>
+    <loc>https://stringr.tidyverse.org/reference/str_which.html</loc>
   </url>
   <url>
     <loc>https://stringr.tidyverse.org/reference/str_wrap.html</loc>
