@@ -1,3 +1,5 @@
+# stringr (development version)
+
 # stringr 1.5.0
 
 ## Breaking changes
