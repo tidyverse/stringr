@@ -1,3 +1,7 @@
+# required for html=TRUE
+skip_if_not_installed("htmltools")
+skip_if_not_installed("htmlwidgets")
+
 test_that("results are truncated", {
   expect_snapshot(str_view(words))
 
