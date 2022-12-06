@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 
 library(stringr)
-library(magrittr, include.only = c("%>%", "%<>%", "%T>%", "%!>%", "%$%"))
+library(magrittr)
 ```
 
 This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr. 
