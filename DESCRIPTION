@@ -29,11 +29,13 @@ Imports:
 Suggests: 
     covr,
     dplyr,
+    downlit,
     gt,
     htmltools,
     htmlwidgets,
     knitr,
     pkgdown,
+    purrr,
     rmarkdown,
     testthat (>= 3.0.0),
     tibble,
