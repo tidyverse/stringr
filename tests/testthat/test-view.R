@@ -12,10 +12,6 @@ test_that("indices come from original vector", {
 
 test_that("view highlights all matches", {
   x <- c("abc", "def", "fgh")
-  expect_snapshot({
-    str_view(x, "[aeiou]", html = TRUE)$x$html
-    str_view(x, "d|e", html = TRUE)$x$html
-  })
 
   expect_snapshot({
     str_view(x, "[aeiou]")
@@ -27,6 +23,9 @@ test_that("view highlights whitespace (except a space/nl)", {
   x <- c(" ", "\u00A0", "\n", "\t")
   expect_snapshot({
     str_view(x)
+
+    "or can instead use escapes"
+    str_view(x, use_escapes = TRUE)
   })
 })
 
@@ -34,24 +33,16 @@ test_that("view displays nothing for empty vectors",{
   expect_snapshot(str_view(character()))
 })
 
-test_that("can instead use escapes", {
-  x <- c(" ", "\u00A0", "\n")
-  expect_snapshot({
-    str_view(x, html = TRUE, use_escapes = TRUE)$x$html
-  })
-
-})
-
 test_that("match argument controls what is shown", {
   x <- c("abc", "def", "fgh", NA)
-  a <- str_view(x, "d|e", match = NA, html = TRUE)
-  expect_equal(str_count(a$x$html, "\\<li\\>"), 4)
+  out <- str_view(x, "d|e", match = NA)
+  expect_length(out, 4)
 
-  a <- str_view(x, "d|e", match = TRUE, html = TRUE)
-  expect_equal(str_count(a$x$html, "\\<li\\>"), 1)
+  out <- str_view(x, "d|e", match = TRUE)
+  expect_length(out, 1)
 
-  a <- str_view(x, "d|e", match = FALSE, html = TRUE)
-  expect_equal(str_count(a$x$html, "\\<li\\>"), 3)
+  out <- str_view(x, "d|e", match = FALSE)
+  expect_length(out, 3)
 })
 
 test_that("can match across lines", {
@@ -71,4 +62,21 @@ test_that("[ preserves class", {
 
 test_that("str_view_all() is deprecated", {
   expect_snapshot(str_view_all("abc", "a|b"))
+})
+
+test_that("html mode continues to work", {
+  skip_if_not_installed("htmltools")
+  skip_if_not_installed("htmlwidgets")
+
+  x <- c("abc", "def", "fgh")
+  expect_snapshot({
+    str_view(x, "[aeiou]", html = TRUE)$x$html
+    str_view(x, "d|e", html = TRUE)$x$html
+  })
+
+  # can use escapes
+  x <- c(" ", "\u00A0", "\n")
+  expect_snapshot({
+    str_view(x, html = TRUE, use_escapes = TRUE)$x$html
+  })
 })
