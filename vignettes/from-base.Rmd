@@ -32,7 +32,7 @@ We'll begin with a lookup table between the most important stringr functions and
 #| echo: false
 
 data_stringr_base_diff <- tibble::tribble(
-  ~stringr,                                   ~`base_r`,
+  ~stringr,                                   ~base_r,
   "str_detect(x, pattern)",                   "grepl(pattern, x)",
   "str_dup(x, n)",                            "strrep(x, n)",
   "str_extract(x, pattern)",                  "regmatches(x, regexpr(pattern, x))",
