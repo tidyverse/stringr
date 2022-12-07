@@ -25,7 +25,7 @@ Imports:
     magrittr,
     rlang (>= 1.0.0),
     stringi (>= 1.5.3),
-    vctrs
+    vctrs (>= 0.4.0)
 Suggests: 
     covr,
     htmltools,
