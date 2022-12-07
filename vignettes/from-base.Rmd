@@ -58,7 +58,6 @@ data_stringr_base_diff <- tibble::tribble(
 
 # create MD table, arranged alphabetically by stringr fn name
 data_stringr_base_diff %>%
-  dplyr::select(-any_of("path_stringr_ref")) %>%
   dplyr::mutate(dplyr::across(.fns = ~ paste0("`", .x, "`"))) %>%
   dplyr::arrange(stringr) %>%
   dplyr::rename(`base R` = base_r) %>%
