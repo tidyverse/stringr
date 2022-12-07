@@ -28,11 +28,14 @@ Imports:
     vctrs (>= 0.4.0)
 Suggests: 
     covr,
+    dplyr,
+    gt,
     htmltools,
     htmlwidgets,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tibble
 VignetteBuilder: 
     knitr
 Config/Needs/website: tidyverse/tidytemplate

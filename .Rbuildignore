@@ -11,7 +11,9 @@
 ^codecov\.yml$
 ^\.httr-oauth$
 ^_pkgdown\.yml$
+^doc$
 ^docs$
+^Meta$
 ^README\.Rmd$
 ^README-.*\.png$
 ^appveyor\.yml$

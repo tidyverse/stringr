@@ -8,41 +8,63 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r}
+#| label: setup
+#| include: false
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(stringr)
+library(magrittr)
 ```
 
 This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr. 
 
 # Overall differences
 
-We'll begin with a lookup table between the most important base string functions and their stringr equivalents.
+We'll begin with a lookup table between the most important stringr functions and their base R equivalents.
 
-| base | stringr    |
-|------|------------|
-| `gregexpr(pattern, x)` | `str_locate_all(x, pattern)` |
-| `grep(pattern, x, value = TRUE)` | `str_subset(x, pattern)` |
-| `grep(pattern, x)` | `str_which(x, pattern)`  |
-| `grepl(pattern, x)` | `str_detect(x, pattern)` |
-| `gsub(pattern, replacement, x)` | `str_replace_all(x, pattern, replacement)`|
-| `nchar(x)` | `str_length(x)` |
-| `order(x)` | `str_order(x)` |
-| `regexec(pattern, x)` + `regmatches()` | `str_match(x, pattern)`  |
-| `regexpr(pattern, x)` + `regmatches()` | `str_extract(x, pattern)`|
-| `regexpr(pattern, x)` | `str_locate(x, pattern)`  |
-| `sort(x)` | `str_sort(x)` |
-| `strrep(x, n)` | `str_dup(x, n)` |
-| `strsplit(x, pattern)` | `str_split(x, pattern)`|
-| `strwrap(x)` | `str_wrap(x)` |
-| `sub(pattern, replacement, x)` | `str_replace(x, pattern, replacement)` |
-| `substr(x, start, end)` | `str_sub(x, start, end)` |
-| `tolower(x)` | `str_to_lower(x)` |
-| `tools::toTitleCase(x)` | `str_to_title(x)` |
-| `toupper(x)` | `str_to_upper(x)` |
-| `trimws(x)` | `str_trim(x)` |
+```{r}
+#| label: stringr-base-r-diff
+#| echo: false
+
+data_stringr_base_diff <- tibble::tribble(
+  ~stringr,                                        ~base_r,
+  "str_detect(string, pattern)",                   "grepl(pattern, x)",
+  "str_dup(string, times)",                        "strrep(x, times)",
+  "str_extract(string, pattern)",                  "regmatches(x, m = regexpr(pattern, text))",
+  "str_extract_all(string, pattern)",              "regmatches(x, m = gregexpr(pattern, text))",
+  "str_length(string)",                            "nchar(x)",
+  "str_locate(string, pattern)",                   "regexpr(pattern, text)",
+  "str_locate_all(string, pattern)",               "gregexpr(pattern, text)",
+  "str_match(string, pattern)",                    "regmatches(x, m = regexec(pattern, text))",
+  "str_order(string)",                             "order(...)",
+  "str_replace(string, pattern, replacement)",     "sub(pattern, replacement, x)",
+  "str_replace_all(string, pattern, replacement)", "gsub(pattern, replacement, x)",
+  "str_sort(string)",                              "sort(x)",
+  "str_split(string, pattern)",                    "strsplit(x, split)",
+  "str_sub(string, start, end)",                   "substr(x, start, stop)",
+  "str_subset(string, pattern)",                   "grep(pattern, x, value = TRUE)",
+  "str_to_lower(string)",                          "tolower(x)",
+  "str_to_title(string)",                          "tools::toTitleCase(text)",
+  "str_to_upper(string)",                          "toupper(x)",
+  "str_trim(string)",                              "trimws(x)",
+  "str_which(string, pattern)",                    "grep(pattern, x)",
+  "str_wrap(string)",                              "strwrap(x)"
+)
+
+# create MD table, arranged alphabetically by stringr fn name
+data_stringr_base_diff %>%
+  dplyr::mutate(dplyr::across(.fns = ~ paste0("`", .x, "`"))) %>%
+  dplyr::arrange(stringr) %>%
+  dplyr::rename(`base R` = base_r) %>%
+  gt::gt() %>%
+  gt::fmt_markdown(columns = everything()) %>%
+  gt::tab_options(column_labels.font.weight = "bold")
+```
 
 Overall the main differences between base R and stringr are:
 
@@ -64,13 +86,9 @@ Overall the main differences between base R and stringr are:
 1.  Base functions use arguments (like `perl`, `fixed`, and `ignore.case`)
     to control how the pattern is interpreted. To avoid dependence between
     arguments, stringr instead uses helper functions (like `fixed()`, 
-    `regexp()`, and `coll()`).
+    `regex()`, and `coll()`).
 
 Next we'll walk through each of the functions, noting the similarities and important differences. These examples are adapted from the stringr documentation and here they are contrasted with the analogous base R operations.
-
-```{r setup}
-library(stringr)
-```
 
 # Detect matches
 
@@ -275,7 +293,9 @@ str_length(letters)
 
 There are some subtle differences between base and stringr here. `nchar()` requires a character vector, so it will return an error if used on a factor. `str_length()` can handle a factor input.
 
-```{r, error = TRUE}
+```{r}
+#| error: true
+
 # base
 nchar(factor("abc")) 
 ```
@@ -388,7 +408,6 @@ str_replace_all(fruits, "[aeiou]", "-")
 
 Both stringr and base R have functions to convert to upper and lower case.  Title case is also provided in stringr.
 
-
 ```{r}
 dog <- "The quick brown dog"
 
@@ -431,7 +450,9 @@ The advantage of `str_flatten()` is that it always returns a vector the same len
 
 To duplicate strings within a character vector use `strrep()` (in R 3.3.0 or greater) or `str_dup()`:
 
-```{r, eval = (getRversion() >=  "3.3.0")}
+```{r}
+#| eval: !expr getRversion() >= "3.3.0"
+
 fruit <- c("apple", "pear", "banana")
 
 # base
