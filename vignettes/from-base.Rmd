@@ -56,32 +56,11 @@ data_stringr_base_diff <- tibble::tribble(
   "str_wrap(x)",                              "strwrap(x)"
 )
 
-# since downlit seems to omit tables, we manually link to pkgdown reference for HTML output
-if (pkgdown::in_pkgdown()) {
-  
-  withr::with_options(
-    new = list(
-      downlit.attached = "stringr",
-      downlit.local_packages = c("stringr" = "..")
-    ),
-    code = data_stringr_base_diff %<>%
-      dplyr::mutate(
-        path_stringr_ref = purrr::map_chr(
-          stringr,
-          ~ downlit::autolink_url(paste0(str_extract(.x, "\\w+"), "()"))
-        ),
-        stringr = paste0("[`", stringr, "`](", path_stringr_ref, ")"),
-        base_r = paste0("`", base_r, "`")
-      )
-  )
-} else {
-  
-  data_stringr_base_diff %<>%
-    dplyr::mutate(dplyr::across(.fns = ~ paste0("`", .x, "`")))
-}
-
+# create MD table, arranged alphabetically by stringr fn name
 data_stringr_base_diff %>%
   dplyr::select(-any_of("path_stringr_ref")) %>%
+  dplyr::mutate(dplyr::across(.fns = ~ paste0("`", .x, "`"))) %>%
+  dplyr::arrange(stringr) %>%
   dplyr::rename(`base R` = base_r) %>%
   gt::gt() %>%
   gt::fmt_markdown(columns = everything()) %>%
