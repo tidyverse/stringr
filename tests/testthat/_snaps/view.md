@@ -97,8 +97,8 @@
       str_view_all("abc", "a|b")
     Condition
       Warning:
-      `str_view()` was deprecated in stringr 1.5.0.
-      i Please use `str_view_all()` instead.
+      `str_view_all()` was deprecated in stringr 1.5.0.
+      i Please use `str_view()` instead.
     Output
       [1] | <a><b>c
 
