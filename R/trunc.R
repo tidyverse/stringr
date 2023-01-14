@@ -32,13 +32,19 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
     )
   }
 
+  str_sub_tail <- function(string, start) {
+    ifelse(start == 0,
+           "",
+           str_sub(string, start, -1))
+  }
+
   string[too_long] <- switch(side,
     right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),
-    left   = str_c(ellipsis, str_sub(string[too_long], -width..., -1)),
+    left   = str_c(ellipsis, str_sub_tail(string[too_long], -width...)),
     center = str_c(
         str_sub(string[too_long], 1, ceiling(width... / 2)),
         ellipsis,
-        str_sub(string[too_long], -floor(width... / 2), -1)
+        str_sub_tail(string[too_long], -floor(width... / 2))
       )
   )
   string
