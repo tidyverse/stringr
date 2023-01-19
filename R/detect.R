@@ -21,7 +21,7 @@
 #'   [boundary()]. An empty pattern, "", is equivalent to
 #'   `boundary("character")`.
 #'
-#' @param negate If `TRUE`, return non-matching elements.
+#' @param negate If `TRUE`, inverts the resulting boolean vector.
 #' @return A logical vector the same length as `string`/`pattern`.
 #' @seealso [stringi::stri_detect()] which this function wraps,
 #'   [str_subset()] for a convenient wrapper around

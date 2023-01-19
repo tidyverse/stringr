@@ -22,7 +22,7 @@ Match a fixed string (i.e. by comparing only bytes), using \code{\link[=fixed]{f
 is fast, but approximate. Generally, for matching human text, you'll want
 \code{\link[=coll]{coll()}} which respects character matching rules for the specified locale.}
 
-\item{negate}{If \code{TRUE}, return non-matching elements.}
+\item{negate}{If \code{TRUE}, inverts the resulting boolean vector.}
 }
 \value{
 A logical vector.

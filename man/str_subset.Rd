@@ -25,7 +25,7 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
-\item{negate}{If \code{TRUE}, return non-matching elements.}
+\item{negate}{If \code{TRUE}, inverts the resulting boolean vector.}
 }
 \value{
 A character vector, usually smaller than \code{string}.
