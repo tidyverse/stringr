@@ -14,7 +14,7 @@
 #' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
 #'
-#'   For `split_split()`, this determines the maximum length of each element
+#'   For `str_split()`, this determines the maximum length of each element
 #'   of the output. For `str_split_fixed()`, this determines the number of
 #'   columns in the output; if an input is too short, the result will be padded
 #'   with `""`.
