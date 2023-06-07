@@ -35,3 +35,12 @@ test_that("does not truncate to a length shorter than elipsis", {
     str_trunc("foobar", 3, ellipsis = "....")
   })
 })
+
+test_that("right side of ellipsis correctly substrings when internal var `width...` is 0 or 1", {
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 3, "center", ".."),
+               c('', 'a', 'aa', 'aaa', 'a..','a..'))
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 2, "left", ".."),
+               c('', 'a', 'aa', '..', '..','..'))
+})
+
+

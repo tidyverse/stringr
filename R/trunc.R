@@ -30,15 +30,21 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
     cli::cli_abort(
       "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
     )
+  } else if (width... > 1) {
+    end_c <- end_l <- -1
+  } else if (width... == 1) {
+    end_c <- 0; end_l <- -1
+  } else {
+    end_c <- end_l <- 0
   }
 
   string[too_long] <- switch(side,
     right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),
-    left   = str_c(ellipsis, str_sub(string[too_long], -width..., -1)),
+    left   = str_c(ellipsis, str_sub(string[too_long], -width..., end_l)),
     center = str_c(
         str_sub(string[too_long], 1, ceiling(width... / 2)),
         ellipsis,
-        str_sub(string[too_long], -floor(width... / 2), -1)
+        str_sub(string[too_long], -floor(width... / 2), end_c)
       )
   )
   string
