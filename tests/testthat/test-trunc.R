@@ -37,10 +37,12 @@ test_that("does not truncate to a length shorter than elipsis", {
 })
 
 test_that("right side of ellipsis correctly substrings when internal var `width...` is 0 or 1", {
-  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 3, "center", ".."),
-               c('', 'a', 'aa', 'aaa', 'a..','a..'))
-  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 2, "left", ".."),
-               c('', 'a', 'aa', '..', '..','..'))
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 3, "center", ".."), c('', 'a', 'aa', 'aaa', 'a..','a..')) # width... == 1
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 3, "left", ".."), c('', 'a', 'aa', 'aaa', '..a','..a')) # width... == 1
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 2, "center", ".."), c('', 'a', 'aa', '..', '..','..')) # width... == 0
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 2, "left", ".."), c('', 'a', 'aa', '..', '..','..')) # width... == 0
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 1, "center", ""), c('', 'a', 'a', 'a', 'a','a')) # width... == 1, empty ellipsis
+  expect_equal(str_trunc(c('', 'a', 'aa', 'aaa', 'aaaa','aaaaa'), width = 1, "left", ""), c('', 'a', 'a', 'a', 'a','a')) # width... == 1, empty ellipsis
 })
 
 
