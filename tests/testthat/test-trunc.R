@@ -18,15 +18,27 @@ test_that("truncations work for all elements of a vector", {
 
 test_that("truncations work for all sides", {
 
-  trunc <- function(direction) str_trunc(
+  trunc <- function(direction, width) str_trunc(
     "This string is moderately long",
     direction,
-    width = 20
+    width = width
   )
 
-  expect_equal(trunc("right"),   "This string is mo...")
-  expect_equal(trunc("left"),    "...s moderately long")
-  expect_equal(trunc("center"),  "This stri...ely long")
+  expect_equal(trunc("right", 20),  "This string is mo...")
+  expect_equal(trunc("left", 20),   "...s moderately long")
+  expect_equal(trunc("center", 20), "This stri...ely long")
+
+  expect_equal(trunc("right", 3),  "...")
+  expect_equal(trunc("left", 3),   "...")
+  expect_equal(trunc("center", 3), "...")
+
+  expect_equal(trunc("right", 4),  "T...")
+  expect_equal(trunc("left", 4),   "...g")
+  expect_equal(trunc("center", 4), "T...")
+
+  expect_equal(trunc("right", 5),  "Th...")
+  expect_equal(trunc("left", 5),   "...ng")
+  expect_equal(trunc("center", 5), "T...g")
 })
 
 test_that("does not truncate to a length shorter than elipsis", {
@@ -34,4 +46,23 @@ test_that("does not truncate to a length shorter than elipsis", {
     str_trunc("foobar", 2)
     str_trunc("foobar", 3, ellipsis = "....")
   })
+})
+
+test_that("str_trunc correctly snips rhs-of-ellipsis for truncated strings", {
+  trunc <- function(width, side) {
+    str_trunc(c("", "a", "aa", "aaa", "aaaa", "aaaaaaa"), width, side,
+              ellipsis = "..")
+  }
+
+  expect_equal(trunc(4, "right"), c("", "a", "aa", "aaa", "aaaa", "aa.."))
+  expect_equal(trunc(4, "left"), c("", "a", "aa", "aaa", "aaaa", "..aa"))
+  expect_equal(trunc(4, "center"), c("", "a", "aa", "aaa", "aaaa", "a..a"))
+
+  expect_equal(trunc(3, "right"), c("", "a", "aa", "aaa", "a..", "a.."))
+  expect_equal(trunc(3, "left"), c("", "a", "aa", "aaa", "..a", "..a"))
+  expect_equal(trunc(3, "center"), c("", "a", "aa", "aaa", "a..", "a.."))
+
+  expect_equal(trunc(2, "right"), c("", "a", "aa", "..", "..", ".."))
+  expect_equal(trunc(2, "left"), c("", "a", "aa", "..", "..", ".."))
+  expect_equal(trunc(2, "center"), c("", "a", "aa", "..", "..", ".."))
 })
