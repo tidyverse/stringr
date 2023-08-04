@@ -31,7 +31,7 @@ Match character, word, line and sentence boundaries with
 An integer vector, usually smaller than \code{string}.
 }
 \description{
-\code{str_subset()} returns the indices of\code{string} where there's at least
+\code{str_which()} returns the indices of \code{string} where there's at least
 one match to \code{pattern}. It's a wrapper around
 \code{which(str_detect(x, pattern))}, and is equivalent to \code{grep(pattern, x)}.
 }
