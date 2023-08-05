@@ -4,6 +4,9 @@
 
 ## Breaking changes
 
+* `str_trunc()` now correctly truncates strings when `side` is `"left"` or 
+  `"center"` (@UchidaMizuki, #512).
+
 * stringr functions now consistently implement the tidyverse recycling rules
   (#372). There are two main changes: 
   
