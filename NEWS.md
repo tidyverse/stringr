@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_trunc()` now correctly truncates strings when `side` is `"left"` or 
+  `"center"` (@UchidaMizuki, #512).
+
 # stringr 1.5.0
 
 ## Breaking changes

@@ -23,7 +23,8 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
   side <- arg_match(side)
   check_string(ellipsis)
 
-  too_long <- !is.na(string) & str_length(string) > width
+  len <- str_length(string)
+  too_long <- !is.na(string) & len > width
   width... <- width - str_length(ellipsis)
 
   if (width... < 0) {
@@ -34,11 +35,11 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
 
   string[too_long] <- switch(side,
     right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),
-    left   = str_c(ellipsis, str_sub(string[too_long], -width..., -1)),
+    left   = str_c(ellipsis, str_sub(string[too_long], len[too_long] - width... + 1, -1)),
     center = str_c(
         str_sub(string[too_long], 1, ceiling(width... / 2)),
         ellipsis,
-        str_sub(string[too_long], -floor(width... / 2), -1)
+        str_sub(string[too_long], len[too_long] - floor(width... / 2) + 1, -1)
       )
   )
   string
