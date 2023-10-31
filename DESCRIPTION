@@ -2,8 +2,8 @@ Package: stringr
 Title: Simple, Consistent Wrappers for Common String Operations
 Version: 1.5.0.9000
 Authors@R: c(
-    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre", "cph")),
-    person("RStudio", role = c("cph", "fnd"))
+    person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre", "cph")),
+    person("Posit Software, PBC", role = c("cph", "fnd"))
   )
 Description: A consistent, simple and easy to use set of wrappers around
     the fantastic 'stringi' package. All function and argument names (and
