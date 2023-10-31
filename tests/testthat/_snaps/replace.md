@@ -29,6 +29,19 @@
       Error in `str_replace_all()`:
       ! `pattern` can't be a boundary.
 
+# replacement function must return correct type/length
+
+    Code
+      str_replace_all("x", "x", ~1)
+    Condition
+      Error in `str_replace_all()`:
+      ! Function `replacement` must return a character vector, not a number.
+    Code
+      str_replace_all("x", "x", ~ c("a", "b"))
+    Condition
+      Error in `str_replace_all()`:
+      ! Function `replacement` must return a vector the same length as the input (1), not length 2.
+
 # backrefs are correctly translated
 
     Code
