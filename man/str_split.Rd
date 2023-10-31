@@ -80,7 +80,7 @@ fruits <- c(
 str_split(fruits, " and ")
 str_split(fruits, " and ", simplify = TRUE)
 
-# If you want to split a single string, use `str_split1`
+# If you want to split a single string, use `str_split_1`
 str_split_1(fruits[[1]], " and ")
 
 # Specify n to restrict the number of possible matches
