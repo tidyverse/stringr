@@ -1,10 +1,9 @@
-#' Extract matching patterns from a string
+#' Extract the complete match
 #'
-#'
-#' Vectorised over `string` and `pattern`.
+#' `str_extract()` extracts the first complete match from each string,
+#' `str_extract_all()`extracts all matches from each string.
 #'
 #' @inheritParams str_detect
-#' @return A character vector.
 #' @param group If supplied, instead of returning the complete match, will
 #'   return the matched text from the specified capturing group.
 #' @seealso [str_match()] to extract matched groups;
@@ -12,6 +11,10 @@
 #' @param simplify A boolean.
 #'   * `FALSE` (the default): returns a list of character vectors.
 #'   * `TRUE`: returns a character matrix.
+#' @return
+#' * `str_extract()`: an character vector the same length as `string`/`pattern`.
+#' * `str_extract_all()`: a list of character vectors the same length as
+#'   `string`/`pattern`.
 #' @export
 #' @examples
 #' shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
@@ -42,8 +45,8 @@ str_extract <- function(string, pattern, group = NULL) {
 
   check_lengths(string, pattern)
   switch(type(pattern),
-    empty = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
-    bound = stri_extract_first_boundaries(string, pattern, opts_brkiter = opts(pattern)),
+    empty = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
+    bound = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
     fixed = stri_extract_first_fixed(string, pattern, opts_fixed = opts(pattern)),
     coll  = stri_extract_first_coll(string, pattern, opts_collator = opts(pattern)),
     regex = stri_extract_first_regex(string, pattern, opts_regex = opts(pattern))
@@ -57,9 +60,9 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
   check_bool(simplify)
 
   switch(type(pattern),
-    empty = stri_extract_all_boundaries(string, pattern,
+    empty = stri_extract_all_boundaries(string,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
-    bound = stri_extract_all_boundaries(string, pattern,
+    bound = stri_extract_all_boundaries(string,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
     fixed = stri_extract_all_fixed(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_fixed = opts(pattern)),

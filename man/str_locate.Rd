@@ -3,7 +3,7 @@
 \name{str_locate}
 \alias{str_locate}
 \alias{str_locate_all}
-\title{Find location of a match with in a string}
+\title{Find location of match}
 \usage{
 str_locate(string, pattern)
 
@@ -15,8 +15,9 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
+The default interpretation is a regular expression, as described in
+\code{vignette("regular-expressions")}. Use \code{\link[=regex]{regex()}} for finer control of the
+matching behaviour.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -28,19 +29,22 @@ Match character, word, line and sentence boundaries with
 \code{boundary("character")}.}
 }
 \value{
-\code{str_locate()} returns an integer matrix with two columns and
+\itemize{
+\item \code{str_locate()} returns an integer matrix with two columns and
 one row for each element of \code{string}. The first column, \code{start},
-gives the position at the start of the match, and second column, \code{end},
+gives the position at the start of the match, and the second column, \code{end},
 gives the position of the end.
-
-\code{str_locate_all()} returns a list of integer matrices as above, but
-the matrices have one row for each match in the corresponding element
-in \code{string}.
+\item \code{str_locate_all()} returns a list of integer matrices with the same
+length as \code{string}/\code{pattern}. The matrices have columns \code{start} and \code{end}
+as above, and one row for each match.
+}
 }
 \description{
-Vectorised over \code{string} and \code{pattern}. If the match is of length
-0, (e.g. from a special match like \code{$}) end will be one character less
-than start.
+\code{str_locate()} returns the \code{start} and \code{end} position of the first match;
+\code{str_locate_all()} returns the \code{start} and \code{end} position of each match.
+
+Because the \code{start} and \code{end} values are inclusive, zero-length matches
+(e.g. \code{$}, \code{^}, \verb{\\\\b}) will have an \code{end} that is smaller than \code{start}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

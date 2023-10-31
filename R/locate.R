@@ -1,18 +1,22 @@
-#' Find location of a match with in a string
+#' Find location of match
 #'
-#' Vectorised over `string` and `pattern`. If the match is of length
-#' 0, (e.g. from a special match like `$`) end will be one character less
-#' than start.
+#' @description
+#' `str_locate()` returns the `start` and `end` position of the first match;
+#' `str_locate_all()` returns the `start` and `end` position of each match.
+#'
+#' Because the `start` and `end` values are inclusive, zero-length matches
+#' (e.g. `$`, `^`, `\\b`) will have an `end` that is smaller than `start`.
 #'
 #' @inheritParams str_detect
-#' @return `str_locate()` returns an integer matrix with two columns and
+#' @returns
+#' * `str_locate()` returns an integer matrix with two columns and
 #'   one row for each element of `string`. The first column, `start`,
-#'   gives the position at the start of the match, and second column, `end`,
+#'   gives the position at the start of the match, and the second column, `end`,
 #'   gives the position of the end.
 #'
-#'   `str_locate_all()` returns a list of integer matrices as above, but
-#'   the matrices have one row for each match in the corresponding element
-#'   in `string`.
+#'* `str_locate_all()` returns a list of integer matrices with the same
+#'   length as `string`/`pattern`. The matrices have columns `start` and `end`
+#'   as above, and one row for each match.
 #' @seealso
 #'   [str_extract()] for a convenient way of extracting matches,
 #'   [stringi::stri_locate()] for the underlying implementation.

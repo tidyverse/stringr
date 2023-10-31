@@ -1,15 +1,16 @@
 #' Detect the presence/absence of a match
 #'
-#' `str_detect()` returns a logical vector `TRUE` if `pattern` is found within
-#' each element of `string` or a `FALSE` if not. It's equivalent
+#' `str_detect()` returns a logical vector with `TRUE` for each element of
+#' `string` that matches `pattern` and `FALSE` otherwise. It's equivalent to
 #' `grepl(pattern, string)`.
 #'
 #' @param string Input vector. Either a character vector, or something
 #'  coercible to one.
 #' @param pattern Pattern to look for.
 #'
-#'   The default interpretation is a regular expression, as described
-#'   `vignette("regular-expressions")`. Control options with [regex()].
+#'   The default interpretation is a regular expression, as described in
+#'   `vignette("regular-expressions")`. Use [regex()] for finer control of the
+#'   matching behaviour.
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
@@ -20,10 +21,8 @@
 #'   [boundary()]. An empty pattern, "", is equivalent to
 #'   `boundary("character")`.
 #'
-#' @param negate If `TRUE`, return non-matching elements.
-#' @return A logical vector. The length is usually the same as `string`.
-#' (But it might not be if you're using a single string and a vector
-#' of patterns.)
+#' @param negate If `TRUE`, inverts the resulting boolean vector.
+#' @return A logical vector the same length as `string`/`pattern`.
 #' @seealso [stringi::stri_detect()] which this function wraps,
 #'   [str_subset()] for a convenient wrapper around
 #'   `x[str_detect(x, pattern)]`
@@ -46,15 +45,15 @@ str_detect <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
-    bound = str_count(string, pattern) > 0 & !negate,
+    empty = no_empty(),
+    bound = no_boundary(),
     fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
     regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 }
 
-#' Detect the presence/absence of a match at the beginning/end
+#' Detect the presence/absence of a match at the start/end
 #'
 #' `str_starts()` and `str_ends()` are special cases of [str_detect()] that
 #' only match at the beginning or end of a string, respectively.
@@ -82,8 +81,8 @@ str_starts <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
-    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
+    empty = no_empty(),
+    bound = no_boundary(),
     fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {
@@ -100,8 +99,8 @@ str_ends <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = ,
-    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
+    empty = no_empty(),
+    bound = no_boundary(),
     fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
     coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
     regex = {

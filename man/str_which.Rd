@@ -2,7 +2,7 @@
 % Please edit documentation in R/subset.R
 \name{str_which}
 \alias{str_which}
-\title{Find strings that match}
+\title{Find matching indices}
 \usage{
 str_which(string, pattern, negate = FALSE)
 }
@@ -12,8 +12,9 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
+The default interpretation is a regular expression, as described in
+\code{vignette("regular-expressions")}. Use \code{\link[=regex]{regex()}} for finer control of the
+matching behaviour.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -24,14 +25,15 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
-\item{negate}{If \code{TRUE}, return non-matching elements.}
+\item{negate}{If \code{TRUE}, inverts the resulting boolean vector.}
 }
 \value{
-An integer vector.
+An integer vector, usually smaller than \code{string}.
 }
 \description{
-\code{str_which()} is a wrapper around \code{which(str_detect(x, pattern))},
-and is equivalent to \code{grep(pattern, x)}.
+\code{str_which()} returns the indices of \code{string} where there's at least
+one match to \code{pattern}. It's a wrapper around
+\code{which(str_detect(x, pattern))}, and is equivalent to \code{grep(pattern, x)}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

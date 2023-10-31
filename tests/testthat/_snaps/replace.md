@@ -4,7 +4,7 @@
       str_replace("x", "x", 1)
     Condition
       Error in `str_replace()`:
-      ! `replacement` must be a character vector, not a number.
+      ! `replacement` must be a character vector, not the number 1.
 
 # can't replace empty/boundary
 
@@ -12,7 +12,7 @@
       str_replace("x", "", "")
     Condition
       Error in `str_replace()`:
-      ! `pattern` can't be empty.
+      ! `pattern` can't be the empty string (`""`).
     Code
       str_replace("x", boundary("word"), "")
     Condition
@@ -41,4 +41,12 @@
     Condition
       Error in `str_replace_all()`:
       ! Function `replacement` must return a vector the same length as the input (1), not length 2.
+
+# backrefs are correctly translated
+
+    Code
+      str_replace_all("abcde", "(b)(c)(d)", "\\4")
+    Condition
+      Error in `stri_replace_all_regex()`:
+      ! Trying to access the index that is out of bounds. (U_INDEX_OUTOFBOUNDS_ERROR)
 

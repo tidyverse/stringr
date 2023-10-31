@@ -2,7 +2,7 @@
 % Please edit documentation in R/trunc.R
 \name{str_trunc}
 \alias{str_trunc}
-\title{Truncate a character string}
+\title{Truncate a string to maximum width}
 \usage{
 str_trunc(string, width, side = c("right", "left", "center"), ellipsis = "...")
 }
@@ -15,8 +15,12 @@ coercible to one.}
 \item{side, ellipsis}{Location and content of ellipsis that indicates
 content has been removed.}
 }
+\value{
+A character vector the same length as \code{string}.
+}
 \description{
-Truncate a character string
+Truncate a string to a fixed of characters, so that
+\code{str_length(str_trunc(x, n))} is always less than or equal to \code{n}.
 }
 \examples{
 x <- "This string is moderately long"
@@ -25,7 +29,6 @@ rbind(
   str_trunc(x, 20, "left"),
   str_trunc(x, 20, "center")
 )
-
 }
 \seealso{
 \code{\link[=str_pad]{str_pad()}} to increase the minimum width of a string.

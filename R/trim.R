@@ -1,12 +1,13 @@
-#' Trim whitespace from a string
+#' Remove whitespace
 #'
 #' `str_trim()` removes whitespace from start and end of string; `str_squish()`
-#' also reduces repeated whitespace inside a string.
+#' removes whitespace at the start and end, and replaces all internal whitespace
+#' with a single space.
 #'
 #' @inheritParams str_detect
 #' @param side Side on which to remove whitespace: "left", "right", or
-#'   "both", the default..
-#' @return A character vector.
+#'   "both", the default.
+#' @return A character vector the same length as `string`.
 #' @export
 #' @seealso [str_pad()] to add whitespace
 #' @examples
@@ -28,5 +29,5 @@ str_trim <- function(string, side = c("both", "left", "right")) {
 #' @export
 #' @rdname str_trim
 str_squish <- function(string) {
-  stri_trim_both(str_replace_all(string,"\\s+"," "))
+  stri_trim_both(str_replace_all(string, "\\s+", " "))
 }

@@ -3,7 +3,7 @@
 \name{str_extract}
 \alias{str_extract}
 \alias{str_extract_all}
-\title{Extract matching patterns from a string}
+\title{Extract the complete match}
 \usage{
 str_extract(string, pattern, group = NULL)
 
@@ -15,8 +15,9 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
+The default interpretation is a regular expression, as described in
+\code{vignette("regular-expressions")}. Use \code{\link[=regex]{regex()}} for finer control of the
+matching behaviour.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -37,10 +38,15 @@ return the matched text from the specified capturing group.}
 }}
 }
 \value{
-A character vector.
+\itemize{
+\item \code{str_extract()}: an character vector the same length as \code{string}/\code{pattern}.
+\item \code{str_extract_all()}: a list of character vectors the same length as
+\code{string}/\code{pattern}.
+}
 }
 \description{
-Vectorised over \code{string} and \code{pattern}.
+\code{str_extract()} extracts the first complete match from each string,
+\code{str_extract_all()}extracts all matches from each string.
 }
 \examples{
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")

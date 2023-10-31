@@ -1,37 +1,38 @@
 # stringr (development version)
 
+* In `str_replace_all()`, a `replacement` function now receives all values in
+  a single vector. This radically improves performance at the cost of breaking
+  some existing uses (#462).
+
+* `str_trunc()` now correctly truncates strings when `side` is `"left"` or 
+  `"center"` (@UchidaMizuki, #512).
+
+# stringr 1.5.0
+
 ## Breaking changes
 
 * stringr functions now consistently implement the tidyverse recycling rules
-  (#372). Overall this is a fairly minor change as stringi was already very 
-  close to the tidyverse rules. There are only two major changes: 
+  (#372). There are two main changes: 
   
-    *  Only vectors of length 1 are recycled: previously,
+    *  Only vectors of length 1 are recycled. Previously, (e.g.)
        `str_detect(letters, c("x", "y"))` worked, but it now errors.
        
     *  `str_c()` ignores `NULLs`, rather than treating them as length 0 
         vectors.
         
-    Additionally, many more non-vectorised arguments now throw errors,
-    rather than warnings, if supplied a vector.
-
-* `str_split_fixed()` now pads with `NA` rather than `" "` (#195).
+    Additionally, many more arguments now throw errors, rather than warnings, 
+    if supplied the wrong type of input.
 
 * `regex()` and friends now generate class names with `stringr_` prefix (#384).
 
-* In `str_replace_all()`, a `replacement` function now receives all values in
-  a single vector. This radically improves performance at the cost of breaking
-  some existing uses (#462).
+* `str_detect()`, `str_starts()`, `str_ends()` and `str_subset()` now error
+  when used with either an empty string (`""`) or a `boundary()`. These 
+  operations didn't really make sense (`str_detect(x, "")` returned `TRUE`
+  for all non-empty strings) and made it easy to make mistakes when programming.
 
 ## New features
 
-* `str_view()` will use ANSI colouring if available (#370). This works in more 
-  places than HTML widgets and requires fewer dependencies. `str_view()` also 
-  no longer requires a pattern so you can use it to display strings with 
-  special characters. It now highlights whitespace characters apart from space
-  since otherwise they are often confusing. It's also now vectorised over both
-  `string` and `pattern` (#407). It defaults to displaying all matches, making
-  `str_view_all()` redundant (and hence deprecated) (#455).
+* Many tweaks to the documentation to make it more useful and consistent.
 
 * New `vignette("from-base")` by @sastoudt provides a comprehensive comparison
   between base R functions and their stringr equivalents. It's designed to
@@ -39,30 +40,43 @@
   functions (#266).
 
 * New `str_escape()` escapes regular expression metacharacters, providing
-  an alternative to `fixed()` if you want to compose a pattern from external
-  strings (#408).
+  an alternative to `fixed()` if you want to compose a pattern from user 
+  supplied strings (#408).
 
 * New `str_equal()` compares two character vectors using unicode rules,
-  and optionally ignores case (#381).
+  optionally ignoring case (#381).
   
 * `str_extract()` can now optionally extract a capturing group instead of
   the complete match (#420).
+  
+* New `str_flatten_comma()` is a special case of `str_flatten()` designed for
+  comma separated flattening and can correctly apply the Oxford commas 
+  when there are only two elements (#444).
 
 * New `str_split_1()` is tailored for the special case of splitting up a single 
   string (#409).
 
-* New `str_split_i()` function to extract only a single piece from a string
-  (#278, @bfgray3).
+* New `str_split_i()` extract a single piece from a string (#278, @bfgray3).
   
-* New `str_like()` function which allows the use of SQL wildcards
-  (#280, @rjpat).
+* New `str_like()` allows the use of SQL wildcards (#280, @rjpat).
 
-* New `str_rank()` to complete set of order/rank/sort functions (#353).
+* New `str_rank()` to complete the set of order/rank/sort functions (#353).
 
 * New `str_sub_all()` to extract multiple substrings from each string.
 
 * New `str_unique()` is a wrapper around `stri_unique()` and returns unique 
   string values in a character vector (#249, @seasmith).
+
+* `str_view()` uses ANSI colouring rather than an HTML widget (#370). This 
+  works in more places and requires fewer dependencies. It includes a number
+  of other small improvements:
+  
+    * It no longer requires a pattern so you can use it to display strings with
+      special characters. 
+    * It highlights unusual whitespace characters. 
+    * It's vectorised over both string` and `pattern` (#407). 
+    * It defaults to displaying all matches, making `str_view_all()` redundant 
+      (and hence deprecated) (#455).
 
 * New `str_width()` returns the display width of a string (#380).
 
@@ -72,14 +86,17 @@
 
 * Better error message if you supply a non-string pattern (#378).
 
-* Many typos in `sentences` have been fixed (@romatik, #299)
+* A new data source for `sentences` has fixed many small errors.
+
+* `str_extract()` and `str_exctract_all()` now work correctly when `pattern`
+  is a `boundary()`.
 
 * `str_flatten()` gains a `last` argument that optionally override the
   final separator (#377). It gains a `na.rm` argument to remove missing 
   values (since it's a summary function) (#439).
 
-* `str_pad()` gains `use_width` argument to control whether to use the total code
-  point width or the number of code points as "width" of a string (#190).
+* `str_pad()` gains `use_width` argument to control whether to use the total 
+  code point width or the number of code points as "width" of a string (#190).
 
 * `str_replace()` and `str_replace_all()` can use standard tidyverse formula
   shorthand for `replacement` function (#331).
@@ -134,7 +151,7 @@ Hot patch release to resolve R CMD check failures.
 ## New features
 
 * `str_glue()` and `str_glue_data()` provide convenient wrappers around
-  `glue` and `glue_data()` from the [glue](http://glue.tidyverse.org/) package
+  `glue` and `glue_data()` from the [glue](https://glue.tidyverse.org/) package
   (#157).
 
 * `str_flatten()` is a wrapper around `stri_flatten()` and clearly
@@ -228,7 +245,7 @@ Hot patch release to resolve R CMD check failures.
 
 # stringr 1.0.0
 
-* stringr is now powered by [stringi](https://github.com/Rexamine/stringi) 
+* stringr is now powered by [stringi](https://github.com/gagolews/stringi) 
   instead of base R regular expressions. This improves unicode and support, and 
   makes most operations considerably faster.  If you find stringr inadequate for
   your string processing needs, I highly recommend looking at stringi in more

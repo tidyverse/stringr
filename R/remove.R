@@ -1,9 +1,9 @@
-#' Remove matched patterns in a string
+#' Remove matched patterns
 #'
-#' Alias for `str_replace(string, pattern, "")`.
+#' Remove matches, i.e. replace them with `""`.
 #'
 #' @inheritParams str_detect
-#' @return A character vector.
+#' @return A character vector the same length as `string`/`pattern`.
 #' @seealso [str_replace()] for the underlying implementation.
 #' @export
 #' @examples

@@ -1,6 +1,6 @@
-#' Extract and replace substrings from a character vector
+#' Get and set substrings using their positions
 #'
-#' `str_sub()` extract or replaces the elements at single position in each
+#' `str_sub()` extracts or replaces the elements at a single position in each
 #' string. `str_sub_all()` allows you to extract strings at multiple elements
 #' in every string.
 #'
@@ -8,15 +8,16 @@
 #' @param start,end A pair of integer vectors defining the range of characters
 #'   to extract (inclusive).
 #'
-#'   Alternatively, instead a pair of vectors, you can pass a matrix to
+#'   Alternatively, instead of a pair of vectors, you can pass a matrix to
 #'   `start`. The matrix should have two columns, either labelled `start`
 #'   and `end`, or `start` and `length`.
 #' @param omit_na Single logical value. If `TRUE`, missing values in any of the
 #'   arguments provided will result in an unchanged input.
 #' @param value replacement string
-#' @return `str_sub()` returns a character vector of substring from `start`
-#'   to `end` (inclusive). Will be length of longest input argument.
-#'   `str_sub_all()` returns a list of character vectors.
+#' @return
+#' * `str_sub()`: A character vector the same length as `string`/`start`/`end`.
+#' * `str_sub_all()`: A list the same length as `string`. Each element is
+#'    a character vector the same length as `start`/`end`.
 #' @seealso The underlying implementation in [stringi::stri_sub()]
 #' @export
 #' @examples

@@ -3,7 +3,7 @@
 \name{str_match}
 \alias{str_match}
 \alias{str_match_all}
-\title{Extract all capture groups from each match}
+\title{Extract components (capturing groups) from a match}
 \usage{
 str_match(string, pattern)
 
@@ -18,18 +18,22 @@ regular expressions, as described \code{vignette("regular-expressions")}.
 The pattern should contain at least one capturing group.}
 }
 \value{
-For \code{str_match()}, a character matrix; for \code{str_match_all()}, a
-list of character matrices. First column is the complete match, followed
-by one column for each capture group. The columns will be named if you used
-"named captured groups", i.e. \verb{(?<name>pattern')}.
+\itemize{
+\item \code{str_match()}: a character matrix with the same number of rows as the
+length of \code{string}/\code{pattern}. The first column is the complete match,
+followed by one column for each capture group. The columns will be named
+if you used "named captured groups", i.e. \verb{(?<name>pattern')}.
+\item \code{str_match_all()}: a list of the same length as \code{string}/\code{pattern}
+containing character matrices. Each matrix has columns as descrbed above
+and one row for each match.
+}
 }
 \description{
 Extract any number of matches defined by unnamed, \code{(pattern)}, and
-named, \verb{(?<name>pattern)} capture groups. Use a non-capturing group,
-\verb{(?:pattern)}, if you need to override default operate precedence but
-don't want to capture the result.
+named, \verb{(?<name>pattern)} capture groups.
 
-Vectorised over \code{string} and \code{pattern}.
+Use a non-capturing group, \verb{(?:pattern)}, if you need to override default
+operate precedence but don't want to capture the result.
 }
 \examples{
 strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",

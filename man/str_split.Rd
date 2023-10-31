@@ -21,8 +21,9 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
+The default interpretation is a regular expression, as described in
+\code{vignette("regular-expressions")}. Use \code{\link[=regex]{regex()}} for finer control of the
+matching behaviour.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -36,10 +37,10 @@ Match character, word, line and sentence boundaries with
 \item{n}{Maximum number of pieces to return. Default (Inf) uses all
 possible split positions.
 
-For \code{split_split()}, this determines the maximum length of each element
+For \code{str_split()}, this determines the maximum length of each element
 of the output. For \code{str_split_fixed()}, this determines the number of
 columns in the output; if an input is too short, the result will be padded
-with \code{NA}.}
+with \code{""}.}
 
 \item{simplify}{A boolean.
 \itemize{
@@ -47,14 +48,21 @@ with \code{NA}.}
 \item \code{TRUE}: returns a character matrix.
 }}
 
-\item{i}{Element to return.}
+\item{i}{Element to return. Use a negative value to count from the
+right hand side.}
 }
 \value{
-For \code{str_split_fixed()}, a character matrix with \code{n} columns.
-For \code{str_split()}, a list of character vectors.  For \code{str_split_n()},
-a length \code{n} character vector.
+\itemize{
+\item \code{str_split_1()}: a character vector.
+\item \code{str_split()}: a list the same length as \code{string}/\code{pattern} containing
+character vectors.
+\item \code{str_split_fixed()}: a character matrix with \code{n} columns and the same
+number of rows as the length of \code{string}/\code{pattern}.
+\item \code{str_split_i()}: a character vector the same length as \code{string}/\code{pattern}.
+}
 }
 \description{
+These functions differ primarily in their input and output types:
 \itemize{
 \item \code{str_split()} takes a character vector and returns a list.
 \item \code{str_split_1()} takes a single string and returns a character vector.
@@ -87,7 +95,9 @@ str_split_fixed(fruits, " and ", 4)
 
 # str_split_i extracts only a single piece from a string
 str_split_i(fruits, " and ", 1)
-str_split_i(fruits, " and ", 3)
+str_split_i(fruits, " and ", 4)
+# use a negative number to select from the end
+str_split_i(fruits, " and ", -1)
 }
 \seealso{
 \code{\link[=stri_split]{stri_split()}} for the underlying implementation.

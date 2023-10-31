@@ -6,6 +6,7 @@
 #' if you are composing user provided strings into a pattern.
 #'
 #' @inheritParams str_detect
+#' @return A character vector the same length as `string`.
 #' @export
 #' @examples
 #' str_detect(c("a", "."), ".")

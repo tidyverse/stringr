@@ -18,8 +18,7 @@ The default value select the first word.}
 \item{sep}{Separator between words. Defaults to single space.}
 }
 \value{
-A character vector with length given by recycled length of
-\code{string}, \code{start}, and \code{end}.
+A character vector with the same length as \code{string}/\code{start}/\code{end}.
 }
 \description{
 Extract words from a sentence

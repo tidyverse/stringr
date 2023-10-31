@@ -1,9 +1,11 @@
 test_that("patterns coerced to character", {
   x <- factor("a")
 
-  expect_warning(regex(x), "plain character vector")
-  expect_warning(coll(x), "plain character vector")
-  expect_warning(fixed(x), "plain character vector")
+  expect_snapshot({
+    . <- regex(x)
+    . <- coll(x)
+    . <- fixed(x)
+  })
 })
 
 test_that("useful error message for bad type", {
@@ -26,7 +28,11 @@ test_that("ignore_case sets strength, but can override manually", {
   expect_equal(attr(x3, "options")$strength, 3)
 })
 
-test_that("subsetting preserves class", {
-  x <- regex("a")
+test_that("boundary has length 1", {
+  expect_length(boundary(), 1)
+})
+
+test_that("subsetting preserves class and options", {
+  x <- regex("a", multiline = TRUE)
   expect_equal(x[], x)
 })

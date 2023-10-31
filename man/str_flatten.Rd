@@ -2,9 +2,12 @@
 % Please edit documentation in R/flatten.R
 \name{str_flatten}
 \alias{str_flatten}
+\alias{str_flatten_comma}
 \title{Flatten a string}
 \usage{
 str_flatten(string, collapse = "", last = NULL, na.rm = FALSE)
+
+str_flatten_comma(string, last = NULL, na.rm = FALSE)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -12,26 +15,39 @@ coercible to one.}
 
 \item{collapse}{String to insert between each piece. Defaults to \code{""}.}
 
-\item{last}{Optional string use in place of final separator.}
+\item{last}{Optional string to use in place of the final separator.}
 
 \item{na.rm}{Remove missing values? If \code{FALSE} (the default), the result
 will be \code{NA} if any element of \code{string} is \code{NA}.}
 }
 \value{
-A string, i.e. a character vector of length 1
+A string, i.e. a character vector of length 1.
 }
 \description{
-Reduce a character vector to a single string. This is a summary function
-because regardless of the length of the input \code{x}, it always returns a
-single string.
+\code{str_flatten()} reduces a character vector to a single string. This is a
+summary function because regardless of the length of the input \code{x}, it
+always returns a single string.
+
+\code{str_flatten_comma()} is a variation designed specifically for flattening
+with commas. It automatically recognises if \code{last} uses the Oxford comma
+and handles the special case of 2 elements.
 }
 \examples{
 str_flatten(letters)
 str_flatten(letters, "-")
 
-str_flatten(letters[1:4], ", ", ", and ")
+str_flatten(letters[1:3], ", ")
+
+# Use last to customise the last component
+str_flatten(letters[1:3], ", ", " and ")
+
+# this almost works if you want an Oxford (aka serial) comma
 str_flatten(letters[1:3], ", ", ", and ")
+
+# but it will always add a comma, even when not necessary
 str_flatten(letters[1:2], ", ", ", and ")
-str_flatten(letters[1], ", ", ", and ")
-str_flatten(letters[0], ", ", ", and ")
+
+# str_flatten_comma knows how to handle the Oxford comma
+str_flatten_comma(letters[1:3], ", and ")
+str_flatten_comma(letters[1:2], ", and ")
 }

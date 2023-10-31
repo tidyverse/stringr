@@ -14,7 +14,7 @@
       str_split("x", "x", n = 0)
     Condition
       Error in `str_split()`:
-      ! `n` must be a positive integer.
+      ! `n` must be a number larger than 1, not the number 0.
 
 # str_split_1 takes string and returns character vector
 
@@ -26,7 +26,7 @@
       str_split_fixed("x", "x", 0)
     Condition
       Error in `str_split_fixed()`:
-      ! `n` must be a positive integer.
+      ! `n` must be a number larger than 1, not the number 0.
 
 # str_split_i check its inputs
 
@@ -34,5 +34,10 @@
       str_split_i("x", "x", 0)
     Condition
       Error in `str_split_i()`:
-      ! `i` must be a positive integer.
+      ! `i` must not be 0.
+    Code
+      str_split_i("x", "x", 0.5)
+    Condition
+      Error in `str_split_i()`:
+      ! `i` must be a whole number, not the number 0.5.
 

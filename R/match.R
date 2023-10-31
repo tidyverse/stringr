@@ -1,21 +1,26 @@
-#' Extract all capture groups from each match
+#' Extract components (capturing groups) from a match
 #'
 #' @description
 #' Extract any number of matches defined by unnamed, `(pattern)`, and
-#' named, `(?<name>pattern)` capture groups. Use a non-capturing group,
-#' `(?:pattern)`, if you need to override default operate precedence but
-#' don't want to capture the result.
+#' named, `(?<name>pattern)` capture groups.
 #'
-#' Vectorised over `string` and `pattern`.
+#' Use a non-capturing group, `(?:pattern)`, if you need to override default
+#' operate precedence but don't want to capture the result.
 #'
 #' @inheritParams str_detect
 #' @param pattern Unlike other stringr functions, `str_match()` only supports
 #'   regular expressions, as described `vignette("regular-expressions")`.
 #'   The pattern should contain at least one capturing group.
-#' @return For `str_match()`, a character matrix; for `str_match_all()`, a
-#' list of character matrices. First column is the complete match, followed
-#' by one column for each capture group. The columns will be named if you used
-#' "named captured groups", i.e. `(?<name>pattern')`.
+#' @return
+#' * `str_match()`: a character matrix with the same number of rows as the
+#'   length of `string`/`pattern`. The first column is the complete match,
+#'   followed by one column for each capture group. The columns will be named
+#'   if you used "named captured groups", i.e. `(?<name>pattern')`.
+#'
+#' * `str_match_all()`: a list of the same length as `string`/`pattern`
+#'   containing character matrices. Each matrix has columns as descrbed above
+#'   and one row for each match.
+#'
 #' @seealso [str_extract()] to extract the complete match,
 #'   [stringi::stri_match()] for the underlying implementation.
 #' @export

@@ -11,54 +11,33 @@ test_that("vectorised patterns work", {
   expect_equal(str_detect("ab", c("a", "b", "c"), negate = TRUE), c(F, F, T))
 })
 
-test_that("modifiers work", {
-  expect_false(str_detect("ab", "AB"))
-  expect_true(str_detect("ab", regex("AB", TRUE)))
-
-  expect_true(str_detect("abc", "ab[c]"))
-  expect_false(str_detect("abc", fixed("ab[c]")))
-  expect_true(str_detect("ab[c]", fixed("ab[c]")))
-  expect_true(str_detect("ab[c]", coll("ab[c]")))
-
-  expect_true(str_detect("abc", "(?x)a b c"))
-})
-
-test_that("str_starts works", {
-  expect_true(str_starts("ab", "a"))
-  expect_false(str_starts("ab", "b"))
+test_that("str_starts() and str_ends() match expected strings", {
+  expect_equal(str_starts(c("ab", "ba"), "a"), c(TRUE, FALSE))
+  expect_equal(str_ends(c("ab", "ba"), "a"), c(FALSE, TRUE))
 
   # negation
-  expect_false(str_starts("ab", "a", TRUE))
-  expect_true(str_starts("ab", "b", TRUE))
+  expect_equal(str_starts(c("ab", "ba"), "a", negate = TRUE), c(FALSE, TRUE))
+  expect_equal(str_ends(c("ab", "ba"), "a", negate = TRUE), c(TRUE, FALSE))
 
-  # Special typing of patterns.
-  expect_true(str_starts("ab", fixed("A", ignore_case = TRUE)))
-  expect_true(str_starts("ab", regex("A", ignore_case = TRUE)))
-
-  # Or operators are respected
-  expect_true(str_starts("ab", "b|a"))
-  expect_false(str_starts("ab", "c|b"))
+  # correct precedence
+  expect_equal(str_starts(c("ab", "ba", "cb"), "a|b"), c(TRUE, TRUE, FALSE))
+  expect_equal(str_ends(c("ab", "ba", "bc"), "a|b"), c(TRUE, TRUE, FALSE))
 })
 
-test_that("str_ends works", {
-  expect_true(str_ends("ab", "b"))
-  expect_false(str_ends("ab", "a"))
+test_that("can use fixed() and coll()", {
 
-  # negation
-  expect_false(str_ends("ab", "b", TRUE))
-  expect_true(str_ends("ab", "a", TRUE))
+  expect_equal(str_detect("X", fixed(".")), FALSE)
+  expect_equal(str_starts("X", fixed(".")), FALSE)
+  expect_equal(str_ends("X", fixed(".")), FALSE)
 
-  # Special typing of patterns.
-  expect_true(str_ends("ab", fixed("B", ignore_case = TRUE)))
-
-  # Or operators are respected
-  expect_true(str_ends("ab", "b|a"))
-  expect_false(str_ends("ab", "c|a"))
+  expect_equal(str_detect("\u0131", turkish_I()), TRUE)
+  expect_equal(str_starts("\u0131", turkish_I()), TRUE)
+  expect_equal(str_ends("\u0131", turkish_I()), TRUE)
 })
 
-
-test_that("str_starts/str_ends can't replace empty/boundary", {
+test_that("can't empty/boundary", {
   expect_snapshot(error = TRUE, {
+    str_detect("x", "")
     str_starts("x", "")
     str_ends("x", "")
   })
@@ -73,8 +52,13 @@ test_that("functions use tidyverse recycling rules", {
   })
 })
 
-
 # str_like ----------------------------------------------------------------
+
+
+test_that("str_like works", {
+  expect_true(str_like("abc", "ab%"))
+  expect_snapshot(str_like("abc", regex("x")), error = TRUE)
+})
 
 test_that("like_to_regex generates expected regexps",{
   expect_equal(like_to_regex("ab%"), "^ab.*$")
@@ -83,9 +67,4 @@ test_that("like_to_regex generates expected regexps",{
   # escaping
   expect_equal(like_to_regex("ab\\%"), "^ab\\%$")
   expect_equal(like_to_regex("ab[%]"), "^ab[%]$")
-})
-
-test_that("str_like works", {
-  expect_true(str_like("abc", "ab%"))
-  expect_snapshot(str_like("abc", regex("x")), error = TRUE)
 })

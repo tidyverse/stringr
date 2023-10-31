@@ -4,7 +4,7 @@
 \alias{str_order}
 \alias{str_rank}
 \alias{str_sort}
-\title{Order or sort a character vector}
+\title{Order, rank, or sort a character vector}
 \usage{
 str_order(
   x,
@@ -45,6 +45,9 @@ of as strings.}
 
 \item{...}{Other options used to control collation. Passed on to
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
+}
+\value{
+A character vector the same length as \code{string}.
 }
 \description{
 \itemize{

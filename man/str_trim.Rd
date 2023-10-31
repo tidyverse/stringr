@@ -3,7 +3,7 @@
 \name{str_trim}
 \alias{str_trim}
 \alias{str_squish}
-\title{Trim whitespace from a string}
+\title{Remove whitespace}
 \usage{
 str_trim(string, side = c("both", "left", "right"))
 
@@ -14,14 +14,15 @@ str_squish(string)
 coercible to one.}
 
 \item{side}{Side on which to remove whitespace: "left", "right", or
-"both", the default..}
+"both", the default.}
 }
 \value{
-A character vector.
+A character vector the same length as \code{string}.
 }
 \description{
 \code{str_trim()} removes whitespace from start and end of string; \code{str_squish()}
-also reduces repeated whitespace inside a string.
+removes whitespace at the start and end, and replaces all internal whitespace
+with a single space.
 }
 \examples{
 str_trim("  String with trailing and leading white space\t")

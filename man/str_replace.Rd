@@ -3,7 +3,7 @@
 \name{str_replace}
 \alias{str_replace}
 \alias{str_replace_all}
-\title{Replace matched patterns in a string}
+\title{Replace matches with new text}
 \usage{
 str_replace(string, pattern, replacement)
 
@@ -24,25 +24,29 @@ Match a fixed string (i.e. by comparing only bytes), using
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.}
 
-\item{replacement}{A character vector of replacements. Should be either
-length one, or the same length as \code{string} or \code{pattern}.
+\item{replacement}{The replacement value, usually a single string,
+but it can be the a vector the same length as \code{string} or \code{pattern}.
 References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
 the contents of the respective matched group (created by \verb{()}).
 
 To perform multiple replacements in each element of \code{string},
-pass a named vector (\code{c(pattern1 = replacement1)}) to
-\code{str_replace_all}. Alternatively, pass a function (or formula) to
-\code{replacement}: it will be passed a single character vector and should
-return a character vector of the same length.
+pass supply a named vector (\code{c(pattern1 = replacement1)}).
+
+Alternatively, supply a function (or formula): it will be passed a single
+character vector and should return a character vector of the same length.
 
 To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
 }
 \value{
 A character vector.
+
+A character vector the same length as
+\code{string}/\code{pattern}/\code{replacement}.
 }
 \description{
-Vectorised over \code{string}, \code{pattern} and \code{replacement}.
+\code{str_replace()} replaces the first match; \code{str_replace_all()} replaces
+all matches.
 }
 \examples{
 fruits <- c("one apple", "two pears", "three bananas")

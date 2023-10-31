@@ -1,21 +1,14 @@
 ## revdepcheck results
 
-We checked 36 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+We checked 1675 reverse dependencies (1663 from CRAN + 12 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 21 new problems
- * We failed to check 0 packages
+ * We saw 12 new problems
+ * We failed to check 12 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
-
-* arrow
-  checking tests ... ERROR
-
-* autostats
-  checking examples ... ERROR
-  checking re-building of vignette outputs ... WARNING
 
 * cmcR
   checking tests ... ERROR
@@ -23,7 +16,7 @@ Issues with CRAN packages are summarised below.
 * crispRdesignR
   checking examples ... ERROR
 
-* doseminer
+* cspp
   checking examples ... ERROR
   checking re-building of vignette outputs ... WARNING
 
@@ -32,57 +25,47 @@ Issues with CRAN packages are summarised below.
   checking tests ... ERROR
   checking re-building of vignette outputs ... WARNING
 
-* gginnards
+* GetLattesData
   checking examples ... ERROR
+  checking tests ... ERROR
   checking re-building of vignette outputs ... WARNING
 
 * glmmPen
   checking tests ... ERROR
 
-* gmgm
-  checking tests ... ERROR
-
-* hmer
-  checking tests ... ERROR
-
-* hockeyR
-  checking re-building of vignette outputs ... WARNING
-
-* huxtable
+* mpwR
   checking examples ... ERROR
-
-* latex2exp
   checking tests ... ERROR
   checking re-building of vignette outputs ... WARNING
 
-* priceR
+* postpack
   checking examples ... ERROR
+  checking re-building of vignette outputs ... WARNING
 
 * repr
   checking tests ... ERROR
 
-* rtiddlywiki
-  checking tests ... ERROR
+* tidyfst
+  checking examples ... ERROR
 
-* salty
+* tidyft
+  checking examples ... ERROR
+
+* zipangu
   checking examples ... ERROR
   checking tests ... ERROR
 
-* strex
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
+### Failed to check
 
-* TiPS
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
-* wordpredictor
-  checking examples ... ERROR
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
-* xpose
-  checking examples ... ERROR
-  checking tests ... ERROR
-  checking re-building of vignette outputs ... WARNING
-
+* admiral       (NA)
+* admiralonco   (NA)
+* genekitr      (NA)
+* ggPMX         (NA)
+* MARVEL        (NA)
+* numbat        (NA)
+* OlinkAnalyze  (NA)
+* Platypus      (NA)
+* RVA           (NA)
+* tidySEM       (NA)
+* tinyarray     (NA)
+* xpose.nlmixr2 (NA)

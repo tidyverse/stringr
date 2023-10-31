@@ -48,22 +48,6 @@
 # view highlights all matches
 
     Code
-      str_view(x, "[aeiou]", html = TRUE)$x$html
-    Output
-      <ul>
-        <li><pre><span class='match'>a</span>bc</pre></li>
-        <li><pre>d<span class='match'>e</span>f</pre></li>
-      </ul>
-    Code
-      str_view(x, "d|e", html = TRUE)$x$html
-    Output
-      <ul>
-        <li><pre><span class='match'>d</span><span class='match'>e</span>f</pre></li>
-      </ul>
-
----
-
-    Code
       str_view(x, "[aeiou]")
     Output
       [1] | <a>bc
@@ -83,22 +67,19 @@
       [3] | 
           | 
       [4] | {\t}
+    Code
+      # or can instead use escapes
+      str_view(x, use_escapes = TRUE)
+    Output
+      [1] |  
+      [2] | \u00a0
+      [3] | \n
+      [4] | \t
 
 # view displays nothing for empty vectors
 
     Code
       str_view(character())
-
-# can instead use escapes
-
-    Code
-      str_view(x, html = TRUE, use_escapes = TRUE)$x$html
-    Output
-      <ul>
-        <li><pre> </pre></li>
-        <li><pre>\u00a0</pre></li>
-        <li><pre>\n</pre></li>
-      </ul>
 
 # can match across lines
 
@@ -116,8 +97,35 @@
       str_view_all("abc", "a|b")
     Condition
       Warning:
-      `str_view()` was deprecated in stringr 1.5.0.
-      Please use `str_view_all()` instead.
+      `str_view_all()` was deprecated in stringr 1.5.0.
+      i Please use `str_view()` instead.
     Output
       [1] | <a><b>c
+
+# html mode continues to work
+
+    Code
+      str_view(x, "[aeiou]", html = TRUE)$x$html
+    Output
+      <ul>
+        <li><pre><span class='match'>a</span>bc</pre></li>
+        <li><pre>d<span class='match'>e</span>f</pre></li>
+      </ul>
+    Code
+      str_view(x, "d|e", html = TRUE)$x$html
+    Output
+      <ul>
+        <li><pre><span class='match'>d</span><span class='match'>e</span>f</pre></li>
+      </ul>
+
+---
+
+    Code
+      str_view(x, html = TRUE, use_escapes = TRUE)$x$html
+    Output
+      <ul>
+        <li><pre> </pre></li>
+        <li><pre>\u00a0</pre></li>
+        <li><pre>\n</pre></li>
+      </ul>
 

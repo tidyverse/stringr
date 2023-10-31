@@ -9,6 +9,7 @@
 #'
 #' @inheritParams str_detect
 #' @inheritParams coll
+#' @return A character vector the same length as `string`.
 #' @examples
 #' dog <- "The quick brown dog"
 #' str_to_upper(dog)

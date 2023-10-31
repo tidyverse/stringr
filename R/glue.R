@@ -1,10 +1,15 @@
-#' Format and interpolate a string with glue
+#' Interpolation with glue
 #'
+#' @description
 #' These functions are wrappers around [glue::glue()] and [glue::glue_data()],
-#' which provide a powerful and elegant syntax for interpolating strings.
-#' These wrappers provide a small set of the full options. Use the functions
-#' directly from glue for more control.
+#' which provide a powerful and elegant syntax for interpolating strings
+#' with `{}`.
 #'
+#' These wrappers provide a small set of the full options. Use `glue()` and
+#' `glue_data()` directly from glue for more control.
+#'
+#' @inheritParams glue::glue
+#' @return A character vector with same length as the longest input.
 #' @export
 #' @examples
 #' name <- "Fred"
@@ -35,7 +40,6 @@ str_glue <- function(..., .sep = "", .envir = parent.frame()) {
 
 #' @export
 #' @rdname str_glue
-#' @inheritParams glue::glue_data
 str_glue_data <- function(.x, ..., .sep = "", .envir = parent.frame(),
                           .na = "NA") {
   glue::glue_data(

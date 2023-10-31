@@ -68,6 +68,10 @@ using intelligent rules to avoid counting abbreviations
 or numbers - i.e. punctuation. Default \code{NA} will skip such "words"
 only when splitting on \code{word} boundaries.}
 }
+\value{
+A stringr modifier object, i.e. a character vector with
+parent S3 class \code{stringr_pattern}.
+}
 \description{
 Modifier functions control the meaning of the \code{pattern} argument to
 stringr functions:

@@ -13,6 +13,8 @@
 #' @param ignore_case Should case differences be ignored in the match?
 #'   For `fixed()`, this uses a simple algorithm which assumes a
 #'   one-to-one mapping between upper and lower case letters.
+#' @return A stringr modifier object, i.e. a character vector with
+#'   parent S3 class `stringr_pattern`.
 #' @name modifiers
 #' @examples
 #' pattern <- "a.b"
@@ -98,6 +100,11 @@ str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NUL
   )
 }
 
+# used for testing
+turkish_I <- function() {
+  coll("I", ignore_case = TRUE, locale = "tr")
+}
+
 #' @export
 #' @rdname modifiers
 #' @param multiline If `TRUE`, `$` and `^` match
@@ -160,7 +167,7 @@ boundary <- function(type = c("character", "line_break", "sentence", "word"),
   )
 
   structure(
-    character(),
+    NA_character_,
     options = options,
     class = c("stringr_boundary", "stringr_pattern", "character")
   )
@@ -213,15 +220,19 @@ type.default <- function(x, error_call = caller_env()) {
 
 #' @export
 `[.stringr_pattern` <- function(x, i) {
-  structure(NextMethod(), class = class(x))
+  structure(
+    NextMethod(),
+    options = attr(x, "options"),
+    class = class(x)
+  )
 }
 
-as_bare_character <- function(x) {
+as_bare_character <- function(x, call = caller_env()) {
   if (is.character(x) && !is.object(x)) {
     # All OK!
     return(x)
   }
 
-  warning("Coercing `pattern` to a plain character vector.", call. = FALSE)
+  warn("Coercing `pattern` to a plain character vector.", call = call)
   as.character(x)
 }

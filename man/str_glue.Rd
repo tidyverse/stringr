@@ -3,7 +3,7 @@
 \name{str_glue}
 \alias{str_glue}
 \alias{str_glue_data}
-\title{Format and interpolate a string with glue}
+\title{Interpolation with glue}
 \usage{
 str_glue(..., .sep = "", .envir = parent.frame())
 
@@ -26,11 +26,16 @@ evaluated in that environment and \code{.envir} is ignored. If \code{NULL} is pa
 with. If \code{NULL} missing values are propagated, that is an \code{NA} result will
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
+\value{
+A character vector with same length as the longest input.
+}
 \description{
 These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue]{glue::glue_data()}},
-which provide a powerful and elegant syntax for interpolating strings.
-These wrappers provide a small set of the full options. Use the functions
-directly from glue for more control.
+which provide a powerful and elegant syntax for interpolating strings
+with \code{{}}.
+
+These wrappers provide a small set of the full options. Use \code{glue()} and
+\code{glue_data()} directly from glue for more control.
 }
 \examples{
 name <- "Fred"

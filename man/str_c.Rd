@@ -2,7 +2,7 @@
 % Please edit documentation in R/c.R
 \name{str_c}
 \alias{str_c}
-\title{Join multiple strings into a single string}
+\title{Join multiple strings into one string}
 \usage{
 str_c(..., sep = "", collapse = NULL)
 }
@@ -14,8 +14,8 @@ the common length of vector inputs.
 
 Like most other R functions, missing values are "infectious": whenever
 a missing value is combined with another string the result will always
-be missing. Use \code{\link[dplyr:coalesce]{dplyr::coalesce()}} or \code{\link[=str_replace_na]{str_replace_na()}} to convert
-desired value.}
+be missing. Use \code{\link[dplyr:coalesce]{dplyr::coalesce()}} or \code{\link[=str_replace_na]{str_replace_na()}} to convert to
+the desired value.}
 
 \item{sep}{String to insert between input vectors.}
 
@@ -62,4 +62,3 @@ paste0(1:2, 1:3)
 str_c("x", character())
 paste0("x", character())
 }
-\keyword{internal}

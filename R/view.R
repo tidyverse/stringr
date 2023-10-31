@@ -80,7 +80,7 @@ str_view <- function(string, pattern = NULL, match = TRUE, html = FALSE, use_esc
 #' @usage NULL
 #' @export
 str_view_all <- function(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE) {
-  lifecycle::deprecate_warn("1.5.0", "str_view()", "str_view_all()")
+  lifecycle::deprecate_warn("1.5.0", "str_view_all()", "str_view()")
 
   str_view(
     string = string,
@@ -92,7 +92,7 @@ str_view_all <- function(string, pattern = NULL, match = NA, html = FALSE, use_e
 }
 
 str_view_filter <- function(x, pattern, match) {
-  if (is.null(pattern)) {
+  if (is.null(pattern) || inherits(pattern, "stringr_boundary")) {
     rep(TRUE, length(x))
   } else {
     if (identical(match, TRUE)) {

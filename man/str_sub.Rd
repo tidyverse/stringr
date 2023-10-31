@@ -4,7 +4,7 @@
 \alias{str_sub}
 \alias{str_sub<-}
 \alias{str_sub_all}
-\title{Extract and replace substrings from a character vector}
+\title{Get and set substrings using their positions}
 \usage{
 str_sub(string, start = 1L, end = -1L)
 
@@ -19,7 +19,7 @@ coercible to one.}
 \item{start, end}{A pair of integer vectors defining the range of characters
 to extract (inclusive).
 
-Alternatively, instead a pair of vectors, you can pass a matrix to
+Alternatively, instead of a pair of vectors, you can pass a matrix to
 \code{start}. The matrix should have two columns, either labelled \code{start}
 and \code{end}, or \code{start} and \code{length}.}
 
@@ -29,12 +29,14 @@ arguments provided will result in an unchanged input.}
 \item{value}{replacement string}
 }
 \value{
-\code{str_sub()} returns a character vector of substring from \code{start}
-to \code{end} (inclusive). Will be length of longest input argument.
-\code{str_sub_all()} returns a list of character vectors.
+\itemize{
+\item \code{str_sub()}: A character vector the same length as \code{string}/\code{start}/\code{end}.
+\item \code{str_sub_all()}: A list the same length as \code{string}. Each element is
+a character vector the same length as \code{start}/\code{end}.
+}
 }
 \description{
-\code{str_sub()} extract or replaces the elements at single position in each
+\code{str_sub()} extracts or replaces the elements at a single position in each
 string. \code{str_sub_all()} allows you to extract strings at multiple elements
 in every string.
 }

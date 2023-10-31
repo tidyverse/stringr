@@ -2,7 +2,7 @@
 % Please edit documentation in R/subset.R
 \name{str_subset}
 \alias{str_subset}
-\title{Find location of matches in a vector}
+\title{Find matching elements}
 \usage{
 str_subset(string, pattern, negate = FALSE)
 }
@@ -12,8 +12,9 @@ coercible to one.}
 
 \item{pattern}{Pattern to look for.
 
-The default interpretation is a regular expression, as described
-\code{vignette("regular-expressions")}. Control options with \code{\link[=regex]{regex()}}.
+The default interpretation is a regular expression, as described in
+\code{vignette("regular-expressions")}. Use \code{\link[=regex]{regex()}} for finer control of the
+matching behaviour.
 
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
@@ -24,17 +25,17 @@ Match character, word, line and sentence boundaries with
 \code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
 \code{boundary("character")}.}
 
-\item{negate}{If \code{TRUE}, return non-matching elements.}
+\item{negate}{If \code{TRUE}, inverts the resulting boolean vector.}
 }
 \value{
-A character vector.
+A character vector, usually smaller than \code{string}.
 }
 \description{
-\code{str_subset()} is a wrapper around \code{x[str_detect(x, pattern)]},
+\code{str_subset()} returns all elements of \code{string} where there's at least
+one match to \code{pattern}. It's a wrapper around \code{x[str_detect(x, pattern)]},
 and is equivalent to \code{grep(pattern, x, value = TRUE)}.
-}
-\details{
-Vectorised over \code{string} and \code{pattern}
+
+Use \code{\link[=str_extract]{str_extract()}} to find the location of the match \emph{within} each string.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

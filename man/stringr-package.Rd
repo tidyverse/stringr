@@ -13,7 +13,7 @@ A consistent, simple and easy to use set of wrappers around the fantastic 'strin
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://stringr.tidyverse.org}
+  \item \url{https://stringr.tidyverse.org}
   \item \url{https://github.com/tidyverse/stringr}
   \item Report bugs at \url{https://github.com/tidyverse/stringr/issues}
 }

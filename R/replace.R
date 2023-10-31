@@ -1,6 +1,7 @@
-#' Replace matched patterns in a string
+#' Replace matches with new text
 #'
-#' Vectorised over `string`, `pattern` and `replacement`.
+#' `str_replace()` replaces the first match; `str_replace_all()` replaces
+#' all matches.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern to look for.
@@ -13,20 +14,22 @@
 #'   [fixed()]. This is fast, but approximate. Generally,
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
-#' @param replacement A character vector of replacements. Should be either
-#'   length one, or the same length as `string` or `pattern`.
+#' @param replacement The replacement value, usually a single string,
+#'   but it can be the a vector the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
 #'   the contents of the respective matched group (created by `()`).
 #'
 #'   To perform multiple replacements in each element of `string`,
-#'   pass a named vector (`c(pattern1 = replacement1)`) to
-#'   `str_replace_all`. Alternatively, pass a function (or formula) to
-#'   `replacement`: it will be passed a single character vector and should
-#'   return a character vector of the same length.
+#'   pass supply a named vector (`c(pattern1 = replacement1)`).
+#'
+#'   Alternatively, supply a function (or formula): it will be passed a single
+#'   character vector and should return a character vector of the same length.
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.
 #' @return A character vector.
+#' @return A character vector the same length as
+#'   `string`/`pattern`/`replacement`.
 #' @seealso [str_replace_na()] to turn missing values into "NA";
 #'   [stri_replace()] for the underlying implementation.
 #' @export
@@ -72,8 +75,8 @@ str_replace <- function(string, pattern, replacement) {
   check_lengths(string, pattern, replacement)
 
   switch(type(pattern),
-    empty = cli::cli_abort("{.arg pattern} can't be empty."),
-    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
+    empty = no_empty(),
+    bound = no_boundary(),
     fixed = stri_replace_first_fixed(string, pattern, replacement,
       opts_fixed = opts(pattern)),
     coll  = stri_replace_first_coll(string, pattern, replacement,
@@ -172,7 +175,7 @@ fix_replacement_one <- function(x) {
 #' @examples
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
-  check_string(replacement, allow_empty = TRUE)
+  check_string(replacement)
   stri_replace_na(string, replacement)
 }
 
@@ -192,7 +195,7 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   # unchop list into a vector, apply replacement(), and then rechop back into
   # a list
-  old_flat <- vctrs::vec_unchop(old, idx)
+  old_flat <- vctrs::list_unchop(old, indices = idx)
   if (length(old_flat) == 0) {
     # minor optimisation to avoid problems with the many replacement
     # functions that use paste

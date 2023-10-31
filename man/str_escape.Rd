@@ -10,6 +10,9 @@ str_escape(string)
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 }
+\value{
+A character vector the same length as \code{string}.
+}
 \description{
 This function escapes metacharacter, the characters that have special
 meaning to the regular expression engine. In most cases you are better

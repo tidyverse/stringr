@@ -6,8 +6,7 @@
 #'
 #'   The default value select the first word.
 #' @param sep Separator between words. Defaults to single space.
-#' @return A character vector with length given by recycled length of
-#'   `string`, `start`, and `end`.
+#' @return A character vector with the same length as `string`/`start`/`end`.
 #' @export
 #' @examples
 #' sentences <- c("Jane saw a cat", "Jane sat down")
