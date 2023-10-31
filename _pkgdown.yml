@@ -13,7 +13,7 @@ template:
 home:
   links:
   - text: Learn more at R4DS
-    href: http://r4ds.had.co.nz/strings.html
+    href: http://r4ds.hadley.nz/strings.html
 
 reference:
 - title: Pattern matching
@@ -78,6 +78,8 @@ reference:
 
 news:
   releases:
+  - text: "Version 1.5.0"
+    href: https://www.tidyverse.org/blog/2022/12/stringr-1-5-0/
   - text: "Version 1.4.0"
     href: https://www.tidyverse.org/articles/2019/02/stringr-1-4-0/
   - text: "Version 1.3.0"
