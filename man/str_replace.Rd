@@ -19,6 +19,9 @@ The default interpretation is a regular expression, as described
 in \link[stringi:about_search_regex]{stringi::about_search_regex}. Control options with
 \code{\link[=regex]{regex()}}.
 
+To perform multiple replacements in each element of \code{string},
+pass supply a named vector (\code{c(pattern1 = replacement1)}).
+
 Match a fixed string (i.e. by comparing only bytes), using
 \code{\link[=fixed]{fixed()}}. This is fast, but approximate. Generally,
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
@@ -29,9 +32,6 @@ but it can be the a vector the same length as \code{string} or \code{pattern}.
 References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
 the contents of the respective matched group (created by \verb{()}).
 
-To perform multiple replacements in each element of \code{string},
-pass supply a named vector (\code{c(pattern1 = replacement1)}).
-
 Alternatively, supply a function (or formula): it will be passed a single
 character vector and should return a character vector of the same length.
 
@@ -39,8 +39,6 @@ To replace the complete string with \code{NA}, use
 \code{replacement = NA_character_}.}
 }
 \value{
-A character vector.
-
 A character vector the same length as
 \code{string}/\code{pattern}/\code{replacement}.
 }

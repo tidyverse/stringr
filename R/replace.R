@@ -10,6 +10,9 @@
 #'   in [stringi::about_search_regex]. Control options with
 #'   [regex()].
 #'
+#'   To perform multiple replacements in each element of `string`,
+#'   pass supply a named vector (`c(pattern1 = replacement1)`).
+#'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,
 #'   for matching human text, you'll want [coll()] which
@@ -19,15 +22,11 @@
 #'   References of the form `\1`, `\2`, etc will be replaced with
 #'   the contents of the respective matched group (created by `()`).
 #'
-#'   To perform multiple replacements in each element of `string`,
-#'   pass supply a named vector (`c(pattern1 = replacement1)`).
-#'
 #'   Alternatively, supply a function (or formula): it will be passed a single
 #'   character vector and should return a character vector of the same length.
 #'
 #'   To replace the complete string with `NA`, use
 #'   `replacement = NA_character_`.
-#' @return A character vector.
 #' @return A character vector the same length as
 #'   `string`/`pattern`/`replacement`.
 #' @seealso [str_replace_na()] to turn missing values into "NA";
