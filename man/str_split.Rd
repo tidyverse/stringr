@@ -62,13 +62,21 @@ number of rows as the length of \code{string}/\code{pattern}.
 }
 }
 \description{
-These functions differ primarily in their input and output types:
+This family of functions provides various ways of splitting a string up
+into pieces. These two functions return a character vector:
 \itemize{
-\item \code{str_split()} takes a character vector and returns a list.
-\item \code{str_split_1()} takes a single string and returns a character vector.
-\item \code{str_split_fixed()} takes a character vector and returns a matrix.
-\item \code{str_split_i()} takes a character vector and returns a character
-vector.
+\item \code{str_split_1()} takes a single string and splits it into pieces,
+returning a single character vector.
+\item \code{str_split_i()} splits each string in a character vector into pieces and
+extracts the \code{i}th value, returning a character vector.
+}
+
+These two functions return a more complex object:
+\itemize{
+\item \code{str_split()} splits each string in a character vector into a varying
+number of pieces, returning a list of character vectors.
+\item \code{str_split_fixed()} splits each string in a character vector into a
+fixed number of pieces, returning a character matrix.
 }
 }
 \examples{
