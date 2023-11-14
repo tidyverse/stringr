@@ -42,9 +42,7 @@ Match character, word, line and sentence boundaries with
 If \code{pattern} is not supplied, all elements are always shown.}
 
 \item{html}{Use HTML output? If \code{TRUE} will create an HTML widget; if \code{FALSE}
-will style using ANSI escapes. The default prefers ANSI escapes if
-available in the current terminal; you can override by setting
-\code{options(stringr.html = TRUE)}.}
+will style using ANSI escapes.}
 
 \item{use_escapes}{If \code{TRUE}, all non-ASCII characters will be rendered
 with unicode escapes. This is useful to see exactly what underlying
