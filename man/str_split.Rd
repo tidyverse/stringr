@@ -62,8 +62,8 @@ number of rows as the length of \code{string}/\code{pattern}.
 }
 }
 \description{
-This family of functions provide various ways of splitting a string up
-into pieces. There are two functions that return character vectors:
+This family of functions provides various ways of splitting a string up
+into pieces. These two functions return a character vector:
 \itemize{
 \item \code{str_split_1()} takes a single string and splits it into pieces,
 returning a single character vector.
@@ -71,7 +71,7 @@ returning a single character vector.
 extracts the \code{i}th value, returning a character vector.
 }
 
-There are two functions that return more complex objects:
+These two functions return a more complex object:
 \itemize{
 \item \code{str_split()} splits each string in a character vector into a varying
 number of pieces, returning a list of character vectors.
