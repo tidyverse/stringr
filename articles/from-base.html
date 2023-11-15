@@ -35,7 +35,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stringr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,104 +111,631 @@ to help users transitioning from using base R to stringr.</p>
 <div class="section level2">
 <h2 id="overall-differences">Overall differences<a class="anchor" aria-label="anchor" href="#overall-differences"></a>
 </h2>
-<p>We’ll begin with a lookup table between the most important base
-string functions and their stringr equivalents.</p>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="66%">
-</colgroup>
-<thead><tr class="header">
-<th>base</th>
-<th>stringr</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code>gregexpr(pattern, x)</code></td>
-<td><code>str_locate_all(x, pattern)</code></td>
+<p>We’ll begin with a lookup table between the most important stringr
+functions and their base R equivalents.</p>
+<pre><code><span><span class="co">#&gt; Warning: There was 1 warning in `dplyr::mutate()`.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> In argument: `dplyr::across(.fns = ~paste0("`", .x, "`"))`.</span></span>
+<span><span class="co">#&gt; Caused by warning:</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> Using `across()` without supplying `.cols` was deprecated in dplyr</span></span>
+<span><span class="co">#&gt;   1.1.0.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please supply `.cols` instead.</span></span></code></pre>
+<div id="poeaghaicr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#poeaghaicr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#poeaghaicr thead, #poeaghaicr tbody, #poeaghaicr tfoot, #poeaghaicr tr, #poeaghaicr td, #poeaghaicr th {
+  border-style: none;
+}
+
+#poeaghaicr p {
+  margin: 0;
+  padding: 0;
+}
+
+#poeaghaicr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#poeaghaicr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#poeaghaicr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#poeaghaicr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#poeaghaicr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#poeaghaicr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#poeaghaicr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#poeaghaicr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#poeaghaicr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#poeaghaicr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#poeaghaicr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#poeaghaicr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#poeaghaicr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#poeaghaicr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#poeaghaicr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#poeaghaicr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#poeaghaicr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#poeaghaicr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#poeaghaicr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#poeaghaicr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#poeaghaicr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#poeaghaicr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#poeaghaicr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#poeaghaicr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#poeaghaicr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#poeaghaicr .gt_left {
+  text-align: left;
+}
+
+#poeaghaicr .gt_center {
+  text-align: center;
+}
+
+#poeaghaicr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#poeaghaicr .gt_font_normal {
+  font-weight: normal;
+}
+
+#poeaghaicr .gt_font_bold {
+  font-weight: bold;
+}
+
+#poeaghaicr .gt_font_italic {
+  font-style: italic;
+}
+
+#poeaghaicr .gt_super {
+  font-size: 65%;
+}
+
+#poeaghaicr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#poeaghaicr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#poeaghaicr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#poeaghaicr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#poeaghaicr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#poeaghaicr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#poeaghaicr .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="table gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="stringr">stringr</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="base R">base R</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_detect(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>grepl(pattern, x)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>grep(pattern, x, value = TRUE)</code></td>
-<td><code>str_subset(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_dup(string, times)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>strrep(x, times)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>grep(pattern, x)</code></td>
-<td><code>str_which(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_extract(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>regmatches(x, m = regexpr(pattern, text))</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>grepl(pattern, x)</code></td>
-<td><code>str_detect(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_extract_all(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>regmatches(x, m = gregexpr(pattern, text))</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>gsub(pattern, replacement, x)</code></td>
-<td><code>str_replace_all(x, pattern, replacement)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_length(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>nchar(x)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>nchar(x)</code></td>
-<td><code>str_length(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_locate(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>regexpr(pattern, text)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>order(x)</code></td>
-<td><code>str_order(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_locate_all(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>gregexpr(pattern, text)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td>
-<code>regexec(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>
-</td>
-<td><code>str_match(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_match(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>regmatches(x, m = regexec(pattern, text))</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td>
-<code>regexpr(pattern, x)</code> + <code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>
-</td>
-<td><code>str_extract(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_order(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>order(...)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>regexpr(pattern, x)</code></td>
-<td><code>str_locate(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_replace(string, pattern, replacement)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>sub(pattern, replacement, x)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>sort(x)</code></td>
-<td><code>str_sort(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_replace_all(string, pattern, replacement)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>gsub(pattern, replacement, x)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>strrep(x, n)</code></td>
-<td><code>str_dup(x, n)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_sort(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>sort(x)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>strsplit(x, pattern)</code></td>
-<td><code>str_split(x, pattern)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_split(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>strsplit(x, split)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>strwrap(x)</code></td>
-<td><code>str_wrap(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_sub(string, start, end)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>substr(x, start, stop)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>sub(pattern, replacement, x)</code></td>
-<td><code>str_replace(x, pattern, replacement)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_subset(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>grep(pattern, x, value = TRUE)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>substr(x, start, end)</code></td>
-<td><code>str_sub(x, start, end)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_to_lower(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>tolower(x)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>tolower(x)</code></td>
-<td><code>str_to_lower(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_to_title(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>tools::toTitleCase(text)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>tools::toTitleCase(x)</code></td>
-<td><code>str_to_title(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_to_upper(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>toupper(x)</code></p>
+</div></td>
 </tr>
-<tr class="odd">
-<td><code>toupper(x)</code></td>
-<td><code>str_to_upper(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_trim(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>trimws(x)</code></p>
+</div></td>
 </tr>
-<tr class="even">
-<td><code>trimws(x)</code></td>
-<td><code>str_trim(x)</code></td>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_which(string, pattern)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>grep(pattern, x)</code></p>
+</div></td>
+</tr>
+<tr>
+<td headers="stringr" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>str_wrap(string)</code></p>
+</div></td>
+<td headers="base R" class="gt_row gt_left"><div class="gt_from_md">
+<p><code>strwrap(x)</code></p>
+</div></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Overall the main differences between base R and stringr are:</p>
 <ol style="list-style-type: decimal">
 <li><p>stringr functions start with <code>str_</code> prefix; base R
@@ -228,14 +755,12 @@ fed directly into <code><a href="../reference/str_sub.html">str_sub()</a></code>
 <code>fixed</code>, and <code>ignore.case</code>) to control how the
 pattern is interpreted. To avoid dependence between arguments, stringr
 instead uses helper functions (like <code><a href="../reference/modifiers.html">fixed()</a></code>,
-<code>regexp()</code>, and <code><a href="../reference/modifiers.html">coll()</a></code>).</p></li>
+<code><a href="../reference/modifiers.html">regex()</a></code>, and <code><a href="../reference/modifiers.html">coll()</a></code>).</p></li>
 </ol>
 <p>Next we’ll walk through each of the functions, noting the
 similarities and important differences. These examples are adapted from
 the stringr documentation and here they are contrasted with the
 analogous base R operations.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="detect-matches">Detect matches<a class="anchor" aria-label="anchor" href="#detect-matches"></a>
