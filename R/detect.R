@@ -119,30 +119,62 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' * `_` matches a single character (like `.`).
 #' * `%` matches any number of characters (like `.*`).
 #' * `\%` and `\_` match literal `%` and `_`.
-#' * The match is case insensitive by default.
+#' * The match is case sensitive.
 #'
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
-#' @param ignore_case Ignore case of matches? Defaults to `TRUE` to match
-#'   the SQL `LIKE` operator.
 #' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_like(fruit, "app")
 #' str_like(fruit, "app%")
+#' str_like(fruit, "APP%")
 #' str_like(fruit, "ba_ana")
-#' str_like(fruit, "%APPLE")
-str_like <- function(string, pattern, ignore_case = TRUE) {
+#' str_like(fruit, "%apple")
+str_like <- function(string, pattern) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
     cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
   }
-  check_bool(ignore_case)
 
-  pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
+  pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)
+  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+}
+
+#' Detect a pattern in the same way as `SQL`'s `ILIKE` operator
+#'
+#' @description
+#' `str_ilike()` follows the conventions of the SQL `ILIKE` operator:
+#'
+#' * Must match the entire string.
+#' * `_` matches a single character (like `.`).
+#' * `%` matches any number of characters (like `.*`).
+#' * `\%` and `\_` match literal `%` and `_`.
+#' * The match is case insensitive.
+#'
+#' @inheritParams str_detect
+#' @param pattern A character vector containing a SQL "like" pattern.
+#'   See above for details.
+#' @return A logical vector the same length as `string`.
+#' @export
+#' @examples
+#' fruit <- c("apple", "banana", "pear", "pineapple")
+#' str_ilike(fruit, "app")
+#' str_ilike(fruit, "app%")
+#' str_ilike(fruit, "APP%")
+#' str_ilike(fruit, "ba_ana")
+#' str_ilike(fruit, "%apple")
+str_ilike <- function(string, pattern) {
+  check_lengths(string, pattern)
+  check_character(pattern)
+  if (inherits(pattern, "stringr_pattern")) {
+    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
+  }
+
+  pattern <- regex(like_to_regex(pattern), ignore_case = TRUE)
   stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 
