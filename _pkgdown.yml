@@ -68,6 +68,7 @@ reference:
   - invert_match
   - str_conv
   - str_like
+  - str_ilike
   - str_replace_na
   - str_view
   - word
