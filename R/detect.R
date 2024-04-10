@@ -124,6 +124,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
+#' @param ignore_case `r lifecycle::badge("deprecated")`
 #' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
@@ -133,11 +134,17 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' str_like(fruit, "APP%")
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%apple")
-str_like <- function(string, pattern) {
+str_like <- function(string, pattern, ignore_case = deprecated()) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
     cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
+  }
+  if (lifecycle::is_present(ignore_case)) {
+    lifecycle::deprecate_warn(when = "1.5.2",
+                              what = "str_like(ignore_case)",
+                              details = "str_like() is always case sensitive. Use
+                              str_ilike() for case insensitive string matching.")
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)

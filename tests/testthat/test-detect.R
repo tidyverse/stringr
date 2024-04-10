@@ -61,6 +61,10 @@ test_that("str_like works", {
   expect_snapshot(str_like("abc", regex("x")), error = TRUE)
 })
 
+test_that("ignore_case is deprecated", {
+expect_snapshot(str_like("abc", "ab%", ignore_case = TRUE))
+})
+
 test_that("str_ilike works", {
   expect_true(str_ilike("abc", "ab%"))
   expect_true(str_ilike("abc", "AB%"))

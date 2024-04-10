@@ -4,7 +4,7 @@
 \alias{str_like}
 \title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} operator}
 \usage{
-str_like(string, pattern)
+str_like(string, pattern, ignore_case = deprecated())
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -12,6 +12,8 @@ coercible to one.}
 
 \item{pattern}{A character vector containing a SQL "like" pattern.
 See above for details.}
+
+\item{ignore_case}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
 }
 \value{
 A logical vector the same length as \code{string}.
