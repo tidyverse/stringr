@@ -57,7 +57,18 @@ test_that("functions use tidyverse recycling rules", {
 
 test_that("str_like works", {
   expect_true(str_like("abc", "ab%"))
+  expect_false(str_like("abc", "AB%"))
   expect_snapshot(str_like("abc", regex("x")), error = TRUE)
+})
+
+test_that("ignore_case is deprecated", {
+expect_snapshot(str_like("abc", "ab%", ignore_case = TRUE))
+})
+
+test_that("str_ilike works", {
+  expect_true(str_ilike("abc", "ab%"))
+  expect_true(str_ilike("abc", "AB%"))
+  expect_snapshot(str_ilike("abc", regex("x")), error = TRUE)
 })
 
 test_that("like_to_regex generates expected regexps",{

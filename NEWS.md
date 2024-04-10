@@ -1,5 +1,10 @@
 # stringr (development version)
 
+* Introduce `str_ilike()` that follows the conventions of the SQL ILIKE 
+  operator. The  `ignore_case` argument from  `str_like()` is deprecated, with
+  `str_like()` now always case sensitive to better follow the conventions of 
+  the SQL LIKE operator (@edward-burn, #543).
+
 # stringr 1.5.1
 
 * Some minor documentation improvements.

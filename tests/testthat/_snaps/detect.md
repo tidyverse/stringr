@@ -47,3 +47,22 @@
       Error in `str_like()`:
       ! `pattern` must be a plain string, not a stringr modifier.
 
+# ignore_case is deprecated
+
+    Code
+      str_like("abc", "ab%", ignore_case = TRUE)
+    Condition
+      Warning:
+      The `ignore_case` argument of `str_like()` is deprecated as of stringr 1.5.2.
+      i str_like() is always case sensitive. Use str_ilike() for case insensitive string matching.
+    Output
+      [1] TRUE
+
+# str_ilike works
+
+    Code
+      str_ilike("abc", regex("x"))
+    Condition
+      Error in `str_ilike()`:
+      ! `pattern` must be a plain string, not a stringr modifier.
+
