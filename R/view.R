@@ -17,9 +17,7 @@
 #'
 #'   If `pattern` is not supplied, all elements are always shown.
 #' @param html Use HTML output? If `TRUE` will create an HTML widget; if `FALSE`
-#'   will style using ANSI escapes. The default prefers ANSI escapes if
-#'   available in the current terminal; you can override by setting
-#'   `options(stringr.html = TRUE)`.
+#'   will style using ANSI escapes.
 #' @param use_escapes If `TRUE`, all non-ASCII characters will be rendered
 #'   with unicode escapes. This is useful to see exactly what underlying
 #'   values are stored in the string.

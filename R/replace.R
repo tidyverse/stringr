@@ -10,8 +10,9 @@
 #'   in [stringi::about_search_regex]. Control options with
 #'   [regex()].
 #'
-#'   To perform multiple replacements in each element of `string`,
-#'   pass supply a named vector (`c(pattern1 = replacement1)`).
+#'   For `str_replace_all()` this can also be a named vector
+#'   (`c(pattern1 = replacement1)`), in order to perform multiple replacements
+#'   in each element of `string`.
 #'
 #'   Match a fixed string (i.e. by comparing only bytes), using
 #'   [fixed()]. This is fast, but approximate. Generally,

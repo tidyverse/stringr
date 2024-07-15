@@ -4,6 +4,10 @@
   a single vector. This radically improves performance at the cost of breaking
   some existing uses (#462).
 
+# stringr 1.5.1
+
+* Some minor documentation improvements.
+
 * `str_trunc()` now correctly truncates strings when `side` is `"left"` or 
   `"center"` (@UchidaMizuki, #512).
 
