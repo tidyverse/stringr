@@ -84,6 +84,14 @@ test_that("is forgiving of 0 matches with paste", {
   expect_equal(str_replace_all(x, "d", ~ paste("x", .x)), x)
 })
 
+test_that("useful error if not vectorised correctly", {
+  x <- c("a", "b", "c")
+  expect_snapshot(
+    str_replace_all(x, "a|c", ~ if (nchar(.x)) "x" else "y"),
+    error = TRUE
+  )
+})
+
 test_that("works with no match", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })

@@ -200,7 +200,19 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
     # functions that use paste
     new_flat <- character()
   } else {
-    new_flat <- replacement(old_flat)
+    withCallingHandlers(
+      new_flat <- replacement(old_flat),
+      error = function(cnd) {
+        cli::cli_abort(
+          c(
+            "Failed to apply {.arg replacement} function.",
+            i = "It must accept a character vector of any length."
+          ),
+          parent = cnd,
+          call = error_call
+        )
+      }
+    )
   }
 
   if (!is.character(new_flat)) {
