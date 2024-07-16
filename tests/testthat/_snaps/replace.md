@@ -29,6 +29,30 @@
       Error in `str_replace_all()`:
       ! `pattern` can't be a boundary.
 
+# useful error if not vectorised correctly
+
+    Code
+      str_replace_all(x, "a|c", ~ if (length(x) > 1) stop("Bad"))
+    Condition
+      Error in `str_replace_all()`:
+      ! Failed to apply `replacement` function.
+      i It must accept a character vector of any length.
+      Caused by error in `replacement()`:
+      ! Bad
+
+# replacement function must return correct type/length
+
+    Code
+      str_replace_all("x", "x", ~1)
+    Condition
+      Error in `str_replace_all()`:
+      ! Function `replacement` must return a character vector, not a number.
+    Code
+      str_replace_all("x", "x", ~ c("a", "b"))
+    Condition
+      Error in `str_replace_all()`:
+      ! Function `replacement` must return a vector the same length as the input (1), not length 2.
+
 # backrefs are correctly translated
 
     Code

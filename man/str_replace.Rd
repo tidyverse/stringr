@@ -33,9 +33,11 @@ but it can be the a vector the same length as \code{string} or \code{pattern}.
 References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
 the contents of the respective matched group (created by \verb{()}).
 
-Alternatively, supply a function, which will be called once for each
-match (from right to left) and its return value will be used to replace
-the match.}
+Alternatively, supply a function (or formula): it will be passed a single
+character vector and should return a character vector of the same length.
+
+To replace the complete string with \code{NA}, use
+\code{replacement = NA_character_}.}
 }
 \value{
 A character vector the same length as
@@ -70,7 +72,7 @@ fruits \%>\%
 colours <- str_c("\\\\b", colors(), "\\\\b", collapse="|")
 col2hex <- function(col) {
   rgb <- col2rgb(col)
-  rgb(rgb["red", ], rgb["green", ], rgb["blue", ], max = 255)
+  rgb(rgb["red", ], rgb["green", ], rgb["blue", ], maxColorValue = 255)
 }
 
 x <- c(

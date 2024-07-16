@@ -1,5 +1,9 @@
 # stringr (development version)
 
+* In `str_replace_all()`, a `replacement` function now receives all values in
+  a single vector. This radically improves performance at the cost of breaking
+  some existing uses (#462).
+
 # stringr 1.5.1
 
 * Some minor documentation improvements.
