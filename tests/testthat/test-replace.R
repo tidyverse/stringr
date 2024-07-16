@@ -87,7 +87,7 @@ test_that("is forgiving of 0 matches with paste", {
 test_that("useful error if not vectorised correctly", {
   x <- c("a", "b", "c")
   expect_snapshot(
-    str_replace_all(x, "a|c", ~ if (nchar(.x)) "x" else "y"),
+    str_replace_all(x, "a|c", ~ if (length(x) > 1) stop("Bad")),
     error = TRUE
   )
 })

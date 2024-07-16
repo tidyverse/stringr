@@ -32,13 +32,13 @@
 # useful error if not vectorised correctly
 
     Code
-      str_replace_all(x, "a|c", ~ if (nchar(.x)) "x" else "y")
+      str_replace_all(x, "a|c", ~ if (length(x) > 1) stop("Bad"))
     Condition
       Error in `str_replace_all()`:
       ! Failed to apply `replacement` function.
       i It must accept a character vector of any length.
-      Caused by error in `if (nchar(.x)) ...`:
-      ! the condition has length > 1
+      Caused by error in `replacement()`:
+      ! Bad
 
 # replacement function must return correct type/length
 
