@@ -7,7 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/stringr)](https://cran.r-project.org/package=stringr)
-[![R-CMD-check](https://github.com/tidyverse/stringr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/stringr/actions)
+[![R-CMD-check](https://github.com/tidyverse/stringr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidyverse/stringr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/tidyverse/stringr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidyverse/stringr?branch=main)
 [![Lifecycle:
@@ -21,7 +21,7 @@ play a big role in many data cleaning and preparation tasks. The stringr
 package provides a cohesive set of functions designed to make working
 with strings as easy as possible. If you’re not familiar with strings,
 the best place to start is the [chapter on
-strings](https://r4ds.had.co.nz/strings.html) in R for Data Science.
+strings](https://r4ds.hadley.nz/strings) in R for Data Science.
 
 stringr is built on top of
 [stringi](https://github.com/gagolews/stringi), which uses the

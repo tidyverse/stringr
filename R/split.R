@@ -1,20 +1,27 @@
 #' Split up a string into pieces
 #'
 #' @description
-#' These functions differ primarily in their input and output types:
+#' This family of functions provides various ways of splitting a string up
+#' into pieces. These two functions return a character vector:
 #'
-#' * `str_split()` takes a character vector and returns a list.
-#' * `str_split_1()` takes a single string and returns a character vector.
-#' * `str_split_fixed()` takes a character vector and returns a matrix.
-#' * `str_split_i()` takes a character vector and returns a character
-#'   vector.
+#' * `str_split_1()` takes a single string and splits it into pieces,
+#'    returning a single character vector.
+#' * `str_split_i()` splits each string in a character vector into pieces and
+#'    extracts the `i`th value, returning a character vector.
+#'
+#' These two functions return a more complex object:
+#'
+#' * `str_split()` splits each string in a character vector into a varying
+#'    number of pieces, returning a list of character vectors.
+#' * `str_split_fixed()` splits each string in a character vector into a
+#'    fixed number of pieces, returning a character matrix.
 #'
 #' @inheritParams str_detect
 #' @inheritParams str_extract
 #' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
 #'
-#'   For `split_split()`, this determines the maximum length of each element
+#'   For `str_split()`, this determines the maximum length of each element
 #'   of the output. For `str_split_fixed()`, this determines the number of
 #'   columns in the output; if an input is too short, the result will be padded
 #'   with `""`.
@@ -36,7 +43,7 @@
 #' str_split(fruits, " and ")
 #' str_split(fruits, " and ", simplify = TRUE)
 #'
-#' # If you want to split a single string, use `str_split1`
+#' # If you want to split a single string, use `str_split_1`
 #' str_split_1(fruits[[1]], " and ")
 #'
 #' # Specify n to restrict the number of possible matches

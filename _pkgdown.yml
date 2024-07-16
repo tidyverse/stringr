@@ -13,7 +13,7 @@ template:
 home:
   links:
   - text: Learn more at R4DS
-    href: http://r4ds.had.co.nz/strings.html
+    href: http://r4ds.hadley.nz/strings.html
 
 reference:
 - title: Pattern matching

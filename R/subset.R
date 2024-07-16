@@ -41,7 +41,7 @@ str_subset <- function(string, pattern, negate = FALSE) {
 
 #' Find matching indices
 #'
-#' `str_subset()` returns the indices of`string` where there's at least
+#' `str_which()` returns the indices of `string` where there's at least
 #' one match to `pattern`. It's a wrapper around
 #' `which(str_detect(x, pattern))`, and is equivalent to `grep(pattern, x)`.
 #'
