@@ -91,9 +91,10 @@ respects character matching rules for the specified locale.</p></dd>
 but it can be the a vector the same length as <code>string</code> or <code>pattern</code>.
 References of the form <code>\1</code>, <code>\2</code>, etc will be replaced with
 the contents of the respective matched group (created by <code>()</code>).</p>
-<p>Alternatively, supply a function, which will be called once for each
-match (from right to left) and its return value will be used to replace
-the match.</p></dd>
+<p>Alternatively, supply a function (or formula): it will be passed a single
+character vector and should return a character vector of the same length.</p>
+<p>To replace the complete string with <code>NA</code>, use
+<code>replacement = NA_character_</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -142,7 +143,7 @@ the match.</p></dd>
 <span class="r-in"><span><span class="va">colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="str_c.html">str_c</a></span><span class="op">(</span><span class="st">"\\b"</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html" class="external-link">colors</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"\\b"</span>, collapse<span class="op">=</span><span class="st">"|"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">col2hex</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">col</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="va">rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></span><span class="op">(</span><span class="va">col</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="va">rgb</span><span class="op">[</span><span class="st">"red"</span>, <span class="op">]</span>, <span class="va">rgb</span><span class="op">[</span><span class="st">"green"</span>, <span class="op">]</span>, <span class="va">rgb</span><span class="op">[</span><span class="st">"blue"</span>, <span class="op">]</span>, max <span class="op">=</span> <span class="fl">255</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="va">rgb</span><span class="op">[</span><span class="st">"red"</span>, <span class="op">]</span>, <span class="va">rgb</span><span class="op">[</span><span class="st">"green"</span>, <span class="op">]</span>, <span class="va">rgb</span><span class="op">[</span><span class="st">"blue"</span>, <span class="op">]</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
