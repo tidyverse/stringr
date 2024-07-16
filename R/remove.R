@@ -21,26 +21,22 @@ str_remove_all <- function(string, pattern) {
 }
 
 
-#' @title str_dedent
-#' @description Remove common leading indentation from strings
-#' @note This function is similar to Python's `dedent` function in the `textwrap` library. It removes common leading indentation from strings.
+#' Remove common leading indentation from strings
+#' 
+#' This function is similar to Python's `dedent` function in the `textwrap` 
+#' library. It removes common leading indentation from strings.
+#' 
 #' @param text `character` The input string or character vector.
 #' @return The input string or character vector with leading indentation removed.
-#' @author chrimaho
-#' @importFrom stringr str_replace_all
-#' @importFrom stringr str_extract
-#' @importFrom stringr regex
+#' @export
 #' @examples
-#' dedent("  Hello\n    World")
-#' # Expected Output: "Hello\n  World"
+#' str_dedent("  Hello\n    World")
 #' 
-#' dedent("  Line 1\n  Line 2\n  Line 3")
-#' # Expected Output: "Line 1\nLine 2\nLine 3"
+#' str_dedent("  Line 1\n  Line 2\n  Line 3")
 #' 
-#' dedent("No indentation")
-#' # Expected Output: "No indentation"
+#' str_dedent("No indentation")
 #' 
-#' dedent(
+#' str_dedent(
 #'     "
 #'     this
 #'     is
@@ -48,20 +44,22 @@ str_remove_all <- function(string, pattern) {
 #'     test
 #'     "
 #' )
-#' # Expected Output: "\nthis\nis\n    a\ntest\n"
-#' @rdname str_dedent
-#' @export
 str_dedent <- function(text) {
-  lines <- strsplit(text, "\n", fixed=TRUE)[[1]]
+  lines <- str_split_1(text, fixed("\n"))
   
   # Determine the common leading whitespace
-  leading_ws <- NULL
+  leading_ws <- ""
   for (line in lines) {
-    if (str_extract(line, regex("^\\s*$"))) {
+    # Ignore completely blank lines
+    if (str_detect(line, "^\\s*$")) {
       next
     }
-    leading_ws <- str_extract(line, regex("^\\s+"))
-    break
+
+    ws <- str_extract(line, "^\\s+")
+    if (!is.na(ws)) {
+      leading_ws <- ws
+      break
+    }
   }
   
   if (is.null(leading_ws)) {
@@ -69,10 +67,8 @@ str_dedent <- function(text) {
   }
   
   # Remove the common leading whitespace from each line
-  dedented_lines <- str_replace_all(lines, regex(sprintf("^%s", leading_ws)), "")
+  dedented_lines <- str_replace_all(lines, paste0("^", leading_ws), "")
   
   # Combine the lines back into a single string
-  dedented_text <- paste(dedented_lines, collapse = "\n")
-  
-  return(dedented_text)
+  paste(dedented_lines, collapse = "\n")
 }

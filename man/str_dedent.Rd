@@ -2,7 +2,7 @@
 % Please edit documentation in R/remove.R
 \name{str_dedent}
 \alias{str_dedent}
-\title{str_dedent}
+\title{Remove common leading indentation from strings}
 \usage{
 str_dedent(text)
 }
@@ -13,22 +13,17 @@ str_dedent(text)
 The input string or character vector with leading indentation removed.
 }
 \description{
-Remove common leading indentation from strings
-}
-\note{
-This function is similar to Python's \code{dedent} function in the \code{textwrap} library. It removes common leading indentation from strings.
+This function is similar to Python's \code{dedent} function in the \code{textwrap}
+library. It removes common leading indentation from strings.
 }
 \examples{
-dedent("  Hello\n    World")
-# Expected Output: "Hello\n  World"
+str_dedent("  Hello\n    World")
 
-dedent("  Line 1\n  Line 2\n  Line 3")
-# Expected Output: "Line 1\nLine 2\nLine 3"
+str_dedent("  Line 1\n  Line 2\n  Line 3")
 
-dedent("No indentation")
-# Expected Output: "No indentation"
+str_dedent("No indentation")
 
-dedent(
+str_dedent(
     "
     this
     is
@@ -36,8 +31,4 @@ dedent(
     test
     "
 )
-# Expected Output: "\nthis\nis\n    a\ntest\n"
-}
-\author{
-chrimaho
 }
