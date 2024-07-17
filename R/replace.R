@@ -205,8 +205,8 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
       error = function(cnd) {
         cli::cli_abort(
           c(
-            "Failed to apply {.arg replacement} function.",
-            i = "It must accept a character vector of any length."
+            tr_("Failed to apply {.arg replacement} function."),
+            i = tr_("It must accept a character vector of any length.")
           ),
           parent = cnd,
           call = error_call
@@ -217,13 +217,13 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   if (!is.character(new_flat)) {
     cli::cli_abort(
-      "{.arg replacement} function must return a character vector, not {.obj_type_friendly {new_flat}}.",
+      tr_("{.arg replacement} function must return a character vector, not {.obj_type_friendly {new_flat}}."),
       call = error_call
     )
   }
   if (length(new_flat) != length(old_flat)) {
     cli::cli_abort(
-      "{.arg replacement} function must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
+      tr_("{.arg replacement} function must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}."),
       call = error_call
     )
   }

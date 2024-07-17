@@ -138,7 +138,7 @@ str_like <- function(string, pattern, ignore_case = TRUE) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
-    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
+    cli::cli_abort(tr_("{.arg pattern} must be a plain string, not a stringr modifier."))
   }
   check_bool(ignore_case)
 
