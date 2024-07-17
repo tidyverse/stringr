@@ -106,8 +106,8 @@ str_replace_all <- function(string, pattern, replacement) {
 
 
   switch(type(pattern),
-    empty = cli::cli_abort("{.arg pattern} can't be empty."),
-    bound = cli::cli_abort("{.arg pattern} can't be a boundary."),
+    empty = no_empty(),
+    bound = no_boundary(),
     fixed = stri_replace_all_fixed(string, pattern, replacement,
       vectorize_all = vec, opts_fixed = opts(pattern)),
     coll  = stri_replace_all_coll(string, pattern, replacement,
@@ -217,13 +217,13 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   if (!is.character(new_flat)) {
     cli::cli_abort(
-      "Function {.arg replacement} must return a character vector, not {.obj_type_friendly {new_flat}}.",
+      "{.arg replacement} function must return a character vector, not {.obj_type_friendly {new_flat}}.",
       call = error_call
     )
   }
   if (length(new_flat) != length(old_flat)) {
     cli::cli_abort(
-      "Function {.arg replacement} must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
+      "{.arg replacement} function must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}.",
       call = error_call
     )
   }

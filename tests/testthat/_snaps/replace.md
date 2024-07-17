@@ -22,7 +22,7 @@
       str_replace_all("x", "", "")
     Condition
       Error in `str_replace_all()`:
-      ! `pattern` can't be empty.
+      ! `pattern` can't be the empty string (`""`).
     Code
       str_replace_all("x", boundary("word"), "")
     Condition
@@ -46,12 +46,12 @@
       str_replace_all("x", "x", ~1)
     Condition
       Error in `str_replace_all()`:
-      ! Function `replacement` must return a character vector, not a number.
+      ! `replacement` function must return a character vector, not a number.
     Code
       str_replace_all("x", "x", ~ c("a", "b"))
     Condition
       Error in `str_replace_all()`:
-      ! Function `replacement` must return a vector the same length as the input (1), not length 2.
+      ! `replacement` function must return a vector the same length as the input (1), not length 2.
 
 # backrefs are correctly translated
 
