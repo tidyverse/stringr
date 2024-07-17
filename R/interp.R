@@ -100,8 +100,12 @@ interp_placeholders <- function(string, error_call = caller_env()) {
 
   # If there are nested placeholders, each part will not contain a full
   # placeholder in which case we report invalid string interpolation template.
-  if (any(!grepl("\\$(\\[.*?\\])?\\{.+\\}", parts)))
-    cli::cli_abort("Invalid template string for interpolation.", call = error_call)
+  if (any(!grepl("\\$(\\[.*?\\])?\\{.+\\}", parts))) {
+    cli::cli_abort(
+      tr_("Invalid template string for interpolation."),
+      call = error_call
+    )
+  }
 
   # For each part, find the opening and closing braces.
   opens  <- lapply(strsplit(parts, ""), function(v) which(v == "{"))
@@ -169,7 +173,7 @@ extract_expressions <- function(matches, error_call = caller_env()) {
       parse(text = text),
       error = function(e) {
         cli::cli_abort(
-          "Failed to parse input {.str {text}}",
+          tr_("Failed to parse input {.str {text}}"),
           parent = e,
           call = error_call
         )

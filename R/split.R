@@ -119,7 +119,7 @@ str_split_i <- function(string, pattern, i) {
     }
     map_chr(pieces, last)
   } else {
-    cli::cli_abort("{.arg i} must not be 0.")
+    cli::cli_abort(tr_("{.arg i} must not be 0."))
   }
 }
 

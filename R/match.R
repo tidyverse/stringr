@@ -51,7 +51,7 @@
 str_match <- function(string, pattern) {
   check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    cli::cli_abort("{.arg pattern} must be a regular expression.")
+    cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
   stri_match_first_regex(string,
@@ -65,7 +65,7 @@ str_match <- function(string, pattern) {
 str_match_all <- function(string, pattern) {
   check_lengths(string, pattern)
   if (type(pattern) != "regex") {
-    cli::cli_abort("{.arg pattern} must be a regular expression.")
+    cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
   stri_match_all_regex(string,
