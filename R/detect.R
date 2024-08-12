@@ -163,9 +163,7 @@ str_like <- function(string, pattern, ignore_case = deprecated()) {
 #' * `\%` and `\_` match literal `%` and `_`.
 #' * The match is case insensitive.
 #'
-#' @inheritParams str_detect
-#' @param pattern A character vector containing a SQL "like" pattern.
-#'   See above for details.
+#' @inheritParams str_like
 #' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
