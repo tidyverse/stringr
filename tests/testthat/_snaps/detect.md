@@ -39,7 +39,7 @@
       Error in `str_like()`:
       ! Can't recycle `string` (size 2) to match `pattern` (size 3).
 
-# str_like works
+# str_like is case sensitive
 
     Code
       str_like("abc", regex("x"))
@@ -50,13 +50,11 @@
 # ignore_case is deprecated
 
     Code
-      str_like("abc", "ab%", ignore_case = TRUE)
+      . <- str_like("abc", "ab%", ignore_case = TRUE)
     Condition
       Warning:
       The `ignore_case` argument of `str_like()` is deprecated as of stringr 1.5.2.
       i str_like() is always case sensitive. Use str_ilike() for case insensitive string matching.
-    Output
-      [1] TRUE
 
 # str_ilike works
 
