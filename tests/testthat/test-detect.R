@@ -62,7 +62,7 @@ test_that("str_like works", {
 })
 
 test_that("ignore_case is deprecated", {
-expect_snapshot(str_like("abc", "ab%", ignore_case = TRUE))
+  expect_snapshot(. <- str_like("abc", "ab%", ignore_case = TRUE))
 })
 
 test_that("str_ilike works", {
