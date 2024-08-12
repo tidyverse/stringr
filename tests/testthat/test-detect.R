@@ -55,7 +55,7 @@ test_that("functions use tidyverse recycling rules", {
 # str_like ----------------------------------------------------------------
 
 
-test_that("str_like works", {
+test_that("str_like is case sensitive", {
   expect_true(str_like("abc", "ab%"))
   expect_false(str_like("abc", "AB%"))
   expect_snapshot(str_like("abc", regex("x")), error = TRUE)
