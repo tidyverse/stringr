@@ -21,8 +21,8 @@ test_that("uses sep argument", {
   expect_equal(str_dup(c("a", "b"), 2, sep = "-"), c("a-a", "b-b"))
   expect_equal(str_dup(c("a", "b"), c(1, 2), sep = "-"), c("a", "b-b"))
 
-  expect_equal(str_dup(character(), 1, sep = ":"), character())
-  expect_equal(str_dup(character(), 2, sep = ":"), character())
+  expect_equal(str_dup(character(), 1, sep = "-"), character())
+  expect_equal(str_dup(character(), 2, sep = "-"), character())
 })
 
 test_that("separator must be a single string", {
