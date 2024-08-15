@@ -1,5 +1,7 @@
 # stringr (development version)
 
+* `str_remove()` and `str_remove_all()` now throw an error when `pattern` includes any `NA` values, including `NA_character_` (@nash-delcamp-slp, #546).
+
 * In `str_replace_all()`, a `replacement` function now receives all values in
   a single vector. This radically improves performance at the cost of breaking
   some existing uses (#462).

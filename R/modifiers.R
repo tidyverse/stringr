@@ -202,15 +202,6 @@ type.stringr_fixed <- function(x, error_call = caller_env()) {
 }
 #' @export
 type.character <- function(x, error_call = caller_env()) {
-  if (length(x) == 1) {
-    if(is.na(x)) {
-      cli::cli_abort(
-        tr_("{.arg pattern} must be a string, not {.obj_type_friendly {x}}."),
-        call = error_call
-      )
-    }
-  }
-
   if (any(is.na(x))) {
     cli::cli_abort(
       tr_("{.arg pattern} must be a character vector that does not contain NAs."),

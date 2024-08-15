@@ -24,19 +24,11 @@
       Error:
       ! `pattern` must be a string, not an integer vector.
 
-# useful error message for NA_character_
-
-    Code
-      type(NA_character_)
-    Condition
-      Error:
-      ! `pattern` must be a string, not a character `NA`.
-
 # useful error message for vector that includes NAs
 
     Code
       type(c("a", "b", NA_character_, "c"))
     Condition
       Error:
-      ! `pattern` must be a string that does not contain NAs.
+      ! `pattern` must be a character vector that does not contain NAs.
 
