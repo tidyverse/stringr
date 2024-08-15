@@ -14,14 +14,14 @@
 #' str_dup(fruit, 1:3)
 #' str_c("ba", str_dup("na", 0:5))
 str_dup <- function(string, times, sep = NULL) {
-  size <- vctrs::vec_size_common(string = string, times = times)
+  vctrs::vec_size_common(string = string, times = times)
   if (is.null(sep)) {
     stri_dup(string, times)
   } else {
     # stri_dup does not currently support sep
     check_string(sep)
     lapply(seq_along(string), function(i) {
-      if (size == 1) {
+      if (vctrs::vec_size(times) == 1) {
         paste(rep(string[i], times), collapse = sep)
       } else {
         paste(rep(string[i], times[i]), collapse = sep)
