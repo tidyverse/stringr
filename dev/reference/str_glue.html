@@ -67,7 +67,7 @@ with <code><a href="https://rdrr.io/r/base/Paren.html" class="external-link">{}<
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_glue</span><span class="op">(</span><span class="va">...</span>, .sep <span class="op">=</span> <span class="st">""</span>, .envir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_glue</span><span class="op">(</span><span class="va">...</span>, .sep <span class="op">=</span> <span class="st">""</span>, .envir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span>, .trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">str_glue_data</span><span class="op">(</span><span class="va">.x</span>, <span class="va">...</span>, .sep <span class="op">=</span> <span class="st">""</span>, .envir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span>, .na <span class="op">=</span> <span class="st">"NA"</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -91,6 +91,11 @@ Named arguments are taken to be temporary variables available for substitution.<
 <dd><p>[<code>environment</code>: <code><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame()</a></code>]<br> Environment to evaluate each expression in. Expressions are
 evaluated from left to right. If <code>.x</code> is an environment, the expressions are
 evaluated in that environment and <code>.envir</code> is ignored. If <code>NULL</code> is passed, it is equivalent to <code><a href="https://rdrr.io/r/base/environment.html" class="external-link">emptyenv()</a></code>.</p></dd>
+
+
+<dt id="arg--trim">.trim<a class="anchor" aria-label="anchor" href="#arg--trim"></a></dt>
+<dd><p>[<code>logical(1)</code>: ‘TRUE’]<br> Whether to trim the input
+template with <code><a href="https://glue.tidyverse.org/reference/trim.html" class="external-link">trim()</a></code> or not.</p></dd>
 
 
 <dt id="arg--x">.x<a class="anchor" aria-label="anchor" href="#arg--x"></a></dt>
