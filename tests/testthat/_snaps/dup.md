@@ -4,7 +4,7 @@
       str_dup("a", 3, sep = 1)
     Condition
       Error in `str_dup()`:
-      ! `sep` must be a single string, not the number 1.
+      ! `sep` must be a single string or `NULL`, not the number 1.
 
 ---
 
@@ -12,7 +12,7 @@
       str_dup("a", 3, sep = c("-", ";"))
     Condition
       Error in `str_dup()`:
-      ! `sep` must be a single string, not a character vector.
+      ! `sep` must be a single string or `NULL`, not a character vector.
 
 ---
 

@@ -14,22 +14,14 @@
 #' str_dup(fruit, 1:3)
 #' str_c("ba", str_dup("na", 0:5))
 str_dup <- function(string, times, sep = NULL) {
-  vctrs::vec_size_common(string = string, times = times)
+  input <- vctrs::vec_recycle_common(string = string, times = times)
+  check_string(sep, allow_null = TRUE)
+
   if (is.null(sep)) {
-    stri_dup(string, times)
+    stri_dup(input$string, input$times)
   } else {
-    # stri_dup does not currently support sep
-    check_string(sep)
-    lapply(seq_along(string), function(i) {
-      if (vctrs::vec_size(times) == 1) {
-        paste(rep(string[i], times), collapse = sep)
-      } else {
-        paste(rep(string[i], times[i]), collapse = sep)
-      }
-    }) %>%
-      rlang::flatten_chr()
+    map_chr(seq_along(input$string), function(i) {
+      paste(rep(string[i], input$times[i]), collapse = sep)
+    })
   }
-
 }
-
-
