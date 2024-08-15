@@ -1,6 +1,7 @@
 # stringr (development version)
 
-* Add sep argument to `str_dup()` (@edward-burn, #564).
+* Add sep argument to `str_dup()` so that it is possible to repeat a string and 
+  add a separator between every repeated value. (@edward-burn, #564).
 
 * In `str_replace_all()`, a `replacement` function now receives all values in
   a single vector. This radically improves performance at the cost of breaking
