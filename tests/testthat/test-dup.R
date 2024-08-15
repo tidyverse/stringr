@@ -15,17 +15,19 @@ test_that("uses tidyverse recycling rules", {
 })
 
 test_that("uses sep argument", {
+  expect_equal(str_dup("abc", 1, sep = "-"), "abc")
   expect_equal(str_dup("abc", 2, sep = "-"), "abc-abc")
-  expect_equal(str_dup(c("a", "b"), 2, sep = "x"), c("axa", "bxb"))
-  expect_equal(str_dup(c("aa", "bb", "ccc"), c(2, 3, 4), sep = ";"),
-               c("aa;aa", "bb;bb;bb", "ccc;ccc;ccc;ccc"))
 
-  expect_identical(character(), str_dup(character(), 1, sep = ":"))
+  expect_equal(str_dup(c("a", "b"), 2, sep = "-"), c("a-a", "b-b"))
+  expect_equal(str_dup(c("a", "b"), c(1, 2), sep = "-"), c("a", "b-b"))
 
-  expect_snapshot(str_dup("a", 3, sep = 1), error = TRUE)
-  expect_snapshot(str_dup("a", 3, sep = c("-", ";")), error = TRUE)
-  expect_snapshot(str_dup(c("aa", "bb"), c(2, 3, 4), sep = ";"), error = TRUE)
-  expect_snapshot(str_dup(c("aa", "bb", "cc"), c(2, 3), sep = ";"), error = TRUE)
-
+  expect_equal(str_dup(character(), 1, sep = ":"), character())
+  expect_equal(str_dup(character(), 2, sep = ":"), character())
 })
 
+test_that("separator must be a single string", {
+  expect_snapshot(error = TRUE, {
+    str_dup("a", 3, sep = 1)
+    str_dup("a", 3, sep = c("-", ";"))
+  })
+})
