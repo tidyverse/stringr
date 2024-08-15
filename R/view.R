@@ -179,6 +179,7 @@ print.stringr_view <- function(x, ..., n = getOption("stringr.view_n", 20)) {
   }
 
   if (length(x) == 0) {
+    cat("Empty `string` provided.\n")
     return(invisible(x))
   }
 
