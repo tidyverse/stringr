@@ -37,7 +37,7 @@ msgstr "Fallo en aplicar la función {.arg replacement}."
 
 #: replace.R:209
 msgid "It must accept a character vector of any length."
-msgstr ""
+msgstr "Debe aceptar un vector de caracteres de cualquier longitud."
 
 #: replace.R:220
 msgid ""
@@ -57,7 +57,7 @@ msgstr ""
 
 #: split.R:122
 msgid "{.arg i} must not be 0."
-msgstr ""
+msgstr "{.arg i} no debe ser igual a 0."
 
 #: trunc.R:32
 msgid "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
@@ -69,4 +69,4 @@ msgstr "{.arg pattern} no puede ser un límite."
 
 #: utils.R:26
 msgid "{.arg pattern} can't be the empty string ({.code \"\"})."
-msgstr ""
+msgstr "{.arg pattern} no puede ser una cadena de caracteres vacia ({.code \"\"})."
