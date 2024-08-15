@@ -7,7 +7,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
+```{r}
+#| label = "setup",
+#| include = FALSE
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -19,7 +21,8 @@ Regular expressions are a concise and flexible tool for describing patterns in s
 
 Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it's equivalent to wrapping it in a call to `regex()`:
 
-```{r, eval = FALSE}
+```{r}
+#| eval = FALSE
 # The regular call:
 str_extract(fruit, "nana")
 # Is shorthand for
