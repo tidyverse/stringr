@@ -36,3 +36,15 @@ test_that("subsetting preserves class and options", {
   x <- regex("a", multiline = TRUE)
   expect_equal(x[], x)
 })
+
+test_that("useful error message for NA_character_", {
+  expect_snapshot(error = TRUE, {
+    type(NA_character_)
+  })
+})
+
+test_that("useful error message for vector that includes NAs", {
+  expect_snapshot(error = TRUE, {
+    type(c("a", "b", NA_character_, "c"))
+  })
+})
