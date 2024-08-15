@@ -213,7 +213,7 @@ type.character <- function(x, error_call = caller_env()) {
 
   if (any(is.na(x))) {
     cli::cli_abort(
-      tr_("{.arg pattern} must be a string that does not contain NAs."),
+      tr_("{.arg pattern} must be a character vector that does not contain NAs."),
       call = error_call
     )
   }
