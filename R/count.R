@@ -4,6 +4,20 @@
 #' of `string.`
 #'
 #' @inheritParams str_detect
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression, as described in
+#'   `vignette("regular-expressions")`. Use [regex()] for finer control of the
+#'   matching behaviour.
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using
+#'   [fixed()]. This is fast, but approximate. Generally,
+#'   for matching human text, you'll want [coll()] which
+#'   respects character matching rules for the specified locale.
+#'
+#'   Match character, word, line and sentence boundaries with
+#'   [boundary()]. An empty pattern, "", is equivalent to
+#'   `boundary("character")`.
 #' @return An integer vector the same length as `string`/`pattern`.
 #' @seealso [stringi::stri_count()] which this function wraps.
 #'
