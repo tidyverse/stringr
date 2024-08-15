@@ -15,18 +15,17 @@ test_that("uses tidyverse recycling rules", {
 })
 
 test_that("uses sep argument", {
-  expect_equal(str_dup("a", 3, sep = ";"), "a;a;a")
-  expect_equal(str_dup("abc", 2, sep = "-"), "abc-abc")
-  expect_equal(str_dup("a", 3, sep = ";"), "a;a;a")
   expect_equal(str_dup("abc", 2, sep = "-"), "abc-abc")
   expect_equal(str_dup(c("a", "b"), 2, sep = "x"), c("axa", "bxb"))
   expect_equal(str_dup(c("aa", "bb", "ccc"), c(2, 3, 4), sep = ";"),
                c("aa;aa", "bb;bb;bb", "ccc;ccc;ccc;ccc"))
 
-  expect_error(str_dup("a", 3, sep = 1))
-  expect_error(str_dup("a", 3, sep = c("-", ";")))
-  expect_error(str_dup(c("aa", "bb"), c(2, 3, 4), sep = ";"))
-  expect_error(str_dup(c("aa", "bb", "cc"), c(2, 3), sep = ";"))
+  expect_identical(character(), str_dup(character(), 1, sep = ":"))
+
+  expect_snapshot(str_dup("a", 3, sep = 1), error = TRUE)
+  expect_snapshot(str_dup("a", 3, sep = c("-", ";")), error = TRUE)
+  expect_snapshot(str_dup(c("aa", "bb"), c(2, 3, 4), sep = ";"), error = TRUE)
+  expect_snapshot(str_dup(c("aa", "bb", "cc"), c(2, 3), sep = ";"), error = TRUE)
 
 })
 
