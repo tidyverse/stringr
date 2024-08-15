@@ -26,7 +26,7 @@ str_dup <- function(string, times, sep = NULL) {
     } else {
       paste(rep(string[i], times[i]), collapse = sep)
     }
-  }) |>
+  }) %>%
     rlang::flatten_chr()
   }
 
