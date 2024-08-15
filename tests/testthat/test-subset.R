@@ -39,3 +39,10 @@ test_that("can't use boundaries", {
     str_subset(c("a", "b c"), boundary())
   })
 })
+
+test_that("keep names", {
+  fruit <- c(A = "apple", B = "banana", C = "pear", D = "pineapple")
+  expect_identical(names(str_subset(fruit, "b")), "B")
+  expect_identical(names(str_subset(fruit, "p")), c("A", "C", "D"))
+  expect_identical(names(str_subset(fruit, "x")), as.character())
+})
