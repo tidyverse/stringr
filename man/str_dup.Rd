@@ -4,13 +4,15 @@
 \alias{str_dup}
 \title{Duplicate a string}
 \usage{
-str_dup(string, times)
+str_dup(string, times, sep = NULL)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
 \item{times}{Number of times to duplicate each string.}
+
+\item{sep}{String to insert between each duplicate.}
 }
 \value{
 A character vector the same length as \code{string}/\code{times}.
