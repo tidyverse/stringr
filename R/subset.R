@@ -31,12 +31,12 @@ str_subset <- function(string, pattern, negate = FALSE) {
   check_bool(negate)
 
   switch(type(pattern),
-    empty = no_empty(),
-    bound = no_boundary(),
-    fixed = stri_subset_fixed(string, pattern, omit_na = TRUE, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_subset_coll(string, pattern, omit_na = TRUE, negate = negate, opts_collator = opts(pattern)),
-    regex = stri_subset_regex(string, pattern, omit_na = TRUE, negate = negate, opts_regex = opts(pattern))
-  )
+         empty = no_empty(),
+         bound = no_boundary(),
+         fixed = string[str_detect(string, pattern, negate = negate)],
+         coll  = string[str_detect(string, pattern, negate = negate)],
+         regex = string[str_detect(string, pattern, negate = negate)])
+
 }
 
 #' Find matching indices
