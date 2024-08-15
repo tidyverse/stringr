@@ -37,10 +37,9 @@ test_that("subsetting preserves class and options", {
   expect_equal(x[], x)
 })
 
-test_that("stringr_pattern methods"){
-
+test_that("stringr_pattern methods", {
   ex <- coll(c("foo", "bar"))
   expect_true(inherits(ex[1], "stringr_pattern"))
   expect_true(inherits(ex[[1]], "stringr_pattern"))
 
-}
+})
