@@ -85,9 +85,7 @@ matching behaviour.</p>
 <code><a href="modifiers.html">fixed()</a></code>. This is fast, but approximate. Generally,
 for matching human text, you'll want <code><a href="modifiers.html">coll()</a></code> which
 respects character matching rules for the specified locale.</p>
-<p>Match character, word, line and sentence boundaries with
-<code><a href="modifiers.html">boundary()</a></code>. An empty pattern, "", is equivalent to
-<code>boundary("character")</code>.</p></dd>
+<p>You can not match boundaries, including <code>""</code>, with this function.</p></dd>
 
 
 <dt id="arg-negate">negate<a class="anchor" aria-label="anchor" href="#arg-negate"></a></dt>

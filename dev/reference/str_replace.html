@@ -83,7 +83,8 @@ in each element of <code>string</code>.</p>
 <p>Match a fixed string (i.e. by comparing only bytes), using
 <code><a href="modifiers.html">fixed()</a></code>. This is fast, but approximate. Generally,
 for matching human text, you'll want <code><a href="modifiers.html">coll()</a></code> which
-respects character matching rules for the specified locale.</p></dd>
+respects character matching rules for the specified locale.</p>
+<p>You can not match boundaries, including <code>""</code>, with this function.</p></dd>
 
 
 <dt id="arg-replacement">replacement<a class="anchor" aria-label="anchor" href="#arg-replacement"></a></dt>
