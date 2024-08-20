@@ -1,6 +1,8 @@
 # stringr (development version)
 
-* `str_*` now error if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
+* `str_*` now errors if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
+* `str_view()` now displays a message when called with a zero-length character
+  vector (@LouisMPenrod, #497).
 * Adds `[[.stringr_pattern` method to go along with existing `[.stringr_pattern`
   method (@edward-burn, #569).
 * In `str_replace_all()`, a `replacement` function now receives all values in
