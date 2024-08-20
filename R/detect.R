@@ -108,16 +108,22 @@ str_ends <- function(string, pattern, negate = FALSE) {
   )
 }
 
-#' Detect a pattern in the same way as `SQL`'s `LIKE` operator
+#' Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
 #'
 #' @description
-#' `str_like()` follows the conventions of the SQL `LIKE` operator:
+#' `str_like()` and `str_like()` follows the conventions of the SQL `LIKE`
+#' and `ILIKE` operators, namely:
 #'
 #' * Must match the entire string.
 #' * `_` matches a single character (like `.`).
 #' * `%` matches any number of characters (like `.*`).
 #' * `\%` and `\_` match literal `%` and `_`.
-#' * The match is case sensitive.
+#'
+#' The only difference is their case-sensitivity: `str_like()` is case sensitive
+#' and `str_ilike()` is not.
+#'
+#' @note
+#' Prior to stringr 1.6.0, `str_like()` was incorrectly case-insensitive.
 #'
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
@@ -132,45 +138,35 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' str_like(fruit, "APP%")
 #' str_like(fruit, "ba_ana")
 #' str_like(fruit, "%apple")
+#'
+#' str_ilike(fruit, "app")
+#' str_ilike(fruit, "app%")
+#' str_ilike(fruit, "APP%")
+#' str_ilike(fruit, "ba_ana")
+#' str_ilike(fruit, "%apple")
 str_like <- function(string, pattern, ignore_case = deprecated()) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
-    cli::cli_abort("{.arg pattern} must be a plain string,
-                   not a stringr modifier.")
+    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
   }
   if (lifecycle::is_present(ignore_case)) {
-    lifecycle::deprecate_warn(when = "1.5.2",
-                              what = "str_like(ignore_case)",
-                              details = "str_like() is always case sensitive. Use
-                              str_ilike() for case insensitive string matching.")
+    lifecycle::deprecate_warn(
+      when = "1.6.0",
+      what = "str_like(ignore_case)",
+      details = c(
+        "`str_like()` is always case sensitive.",
+        "Use `str_ilike()` for case insensitive string matching."
+      )
+    )
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)
   stri_detect_regex(string, pattern, opts_regex = opts(pattern))
 }
 
-#' Detect a pattern in the same way as `SQL`'s `ILIKE` operator
-#'
-#' @description
-#' `str_ilike()` follows the conventions of the SQL `ILIKE` operator:
-#'
-#' * Must match the entire string.
-#' * `_` matches a single character (like `.`).
-#' * `%` matches any number of characters (like `.*`).
-#' * `\%` and `\_` match literal `%` and `_`.
-#' * The match is case insensitive.
-#'
-#' @inheritParams str_like
-#' @return A logical vector the same length as `string`.
 #' @export
-#' @examples
-#' fruit <- c("apple", "banana", "pear", "pineapple")
-#' str_ilike(fruit, "app")
-#' str_ilike(fruit, "app%")
-#' str_ilike(fruit, "APP%")
-#' str_ilike(fruit, "ba_ana")
-#' str_ilike(fruit, "%apple")
+#' @rdname str_like
 str_ilike <- function(string, pattern) {
   check_lengths(string, pattern)
   check_character(pattern)

@@ -53,8 +53,9 @@
       . <- str_like("abc", "ab%", ignore_case = TRUE)
     Condition
       Warning:
-      The `ignore_case` argument of `str_like()` is deprecated as of stringr 1.5.2.
-      i str_like() is always case sensitive. Use str_ilike() for case insensitive string matching.
+      The `ignore_case` argument of `str_like()` is deprecated as of stringr 1.6.0.
+      i `str_like()` is always case sensitive.
+      i Use `str_ilike()` for case insensitive string matching.
 
 # str_ilike works
 
