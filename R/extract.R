@@ -3,7 +3,7 @@
 #' `str_extract()` extracts the first complete match from each string,
 #' `str_extract_all()`extracts all matches from each string.
 #'
-#' @inheritParams str_detect
+#' @inheritParams str_count
 #' @param group If supplied, instead of returning the complete match, will
 #'   return the matched text from the specified capturing group.
 #' @seealso [str_match()] to extract matched groups;

@@ -7,7 +7,7 @@
 #' Because the `start` and `end` values are inclusive, zero-length matches
 #' (e.g. `$`, `^`, `\\b`) will have an `end` that is smaller than `start`.
 #'
-#' @inheritParams str_detect
+#' @inheritParams str_count
 #' @returns
 #' * `str_locate()` returns an integer matrix with two columns and
 #'   one row for each element of `string`. The first column, `start`,
