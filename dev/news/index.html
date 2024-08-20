@@ -51,6 +51,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="stringr-development-version">stringr (development version)<a class="anchor" aria-label="anchor" href="#stringr-development-version"></a></h2>
 <ul><li>
+<code>str_*</code> now errors if <code>pattern</code> includes any <code>NA</code>s (<a href="https://github.com/nash-delcamp-slp" class="external-link">@nash-delcamp-slp</a>, <a href="https://github.com/tidyverse/stringr/issues/546" class="external-link">#546</a>).</li>
+<li>
 <code><a href="../reference/str_view.html">str_view()</a></code> now displays a message when called with a zero-length character vector (<a href="https://github.com/LouisMPenrod" class="external-link">@LouisMPenrod</a>, <a href="https://github.com/tidyverse/stringr/issues/497" class="external-link">#497</a>).</li>
 <li>Adds <code>[[.stringr_pattern</code> method to go along with existing <code>[.stringr_pattern</code> method (<a href="https://github.com/edward-burn" class="external-link">@edward-burn</a>, <a href="https://github.com/tidyverse/stringr/issues/569" class="external-link">#569</a>).</li>
 <li>In <code><a href="../reference/str_replace.html">str_replace_all()</a></code>, a <code>replacement</code> function now receives all values in a single vector. This radically improves performance at the cost of breaking some existing uses (<a href="https://github.com/tidyverse/stringr/issues/462" class="external-link">#462</a>).</li>
