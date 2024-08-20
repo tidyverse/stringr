@@ -80,8 +80,8 @@
 
     Code
       str_view(character())
-    Output
-      Empty `string` provided.
+    Message
+      x Empty `string` provided.
 
 # can match across lines
 
