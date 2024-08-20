@@ -234,6 +234,15 @@ type.default <- function(x, error_call = caller_env()) {
   )
 }
 
+#' @export
+`[[.stringr_pattern` <- function(x, i) {
+  structure(
+    NextMethod(),
+    options = attr(x, "options"),
+    class = class(x)
+  )
+}
+
 as_bare_character <- function(x, call = caller_env()) {
   if (is.character(x) && !is.object(x)) {
     # All OK!

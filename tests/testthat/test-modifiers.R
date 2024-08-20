@@ -42,3 +42,10 @@ test_that("useful error message for vector that includes NAs", {
     type(c("a", "b", NA_character_, "c"))
   })
 })
+
+test_that("stringr_pattern methods", {
+  ex <- coll(c("foo", "bar"))
+  expect_true(inherits(ex[1], "stringr_pattern"))
+  expect_true(inherits(ex[[1]], "stringr_pattern"))
+
+})

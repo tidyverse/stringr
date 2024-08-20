@@ -25,8 +25,7 @@ for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.
 
 Match character, word, line and sentence boundaries with
-\code{\link[=boundary]{boundary()}}. An empty pattern, "", is equivalent to
-\code{boundary("character")}.}
+\code{\link[=boundary]{boundary()}}. The empty string, \verb{""``, is equivalent to }boundary("character")`.}
 }
 \value{
 \itemize{

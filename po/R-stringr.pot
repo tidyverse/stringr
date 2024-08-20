@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: stringr 1.5.1.9000\n"
-"POT-Creation-Date: 2024-07-17 11:07-0500\n"
+"POT-Creation-Date: 2024-08-15 10:19-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
