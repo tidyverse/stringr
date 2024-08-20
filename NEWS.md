@@ -1,5 +1,6 @@
 # stringr (development version)
 
+* `str_sub<-` now gives a more informative error if `value` is not the correct length.
 * Add `sep` argument to `str_dup()` so that it is possible to repeat a string and
   add a separator between every repeated value (@edward-burn, #564).
 * `str_*` now errors if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
