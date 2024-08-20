@@ -4,6 +4,9 @@
   operator. The  `ignore_case` argument from  `str_like()` is deprecated, with
   `str_like()` now always case sensitive to better follow the conventions of
   the SQL LIKE operator (@edward-burn, #543).
+* Add `sep` argument to `str_dup()` so that it is possible to repeat a string and
+  add a separator between every repeated value (@edward-burn, #564).
+* `str_*` now errors if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
 * `str_view()` now displays a message when called with a zero-length character
   vector (@LouisMPenrod, #497).
 * Adds `[[.stringr_pattern` method to go along with existing `[.stringr_pattern`
