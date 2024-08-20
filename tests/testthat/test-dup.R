@@ -13,3 +13,21 @@ test_that("0 duplicates equals empty string", {
 test_that("uses tidyverse recycling rules", {
   expect_error(str_dup(1:2, 1:3), class = "vctrs_error_incompatible_size")
 })
+
+test_that("uses sep argument", {
+  expect_equal(str_dup("abc", 1, sep = "-"), "abc")
+  expect_equal(str_dup("abc", 2, sep = "-"), "abc-abc")
+
+  expect_equal(str_dup(c("a", "b"), 2, sep = "-"), c("a-a", "b-b"))
+  expect_equal(str_dup(c("a", "b"), c(1, 2), sep = "-"), c("a", "b-b"))
+
+  expect_equal(str_dup(character(), 1, sep = "-"), character())
+  expect_equal(str_dup(character(), 2, sep = "-"), character())
+})
+
+test_that("separator must be a single string", {
+  expect_snapshot(error = TRUE, {
+    str_dup("a", 3, sep = 1)
+    str_dup("a", 3, sep = c("-", ";"))
+  })
+})
