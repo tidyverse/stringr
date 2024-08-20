@@ -1,5 +1,6 @@
 # stringr (development version)
 
+* `str_sub<-` now gives a more informative error if `value` is not the correct length.
 * `str_*` now errors if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
 * `str_view()` now displays a message when called with a zero-length character
   vector (@LouisMPenrod, #497).

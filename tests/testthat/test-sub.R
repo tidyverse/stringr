@@ -73,7 +73,11 @@ test_that("missing arguments give missing results", {
 
   expect_equal(str_sub("test", NA, NA), NA_character_)
   expect_equal(str_sub(c(NA, "test"), NA, NA), rep(NA_character_, 2))
+})
 
+test_that("negative length or out of range gives empty string", {
+  expect_equal(str_sub("abc", 2, 1), "")
+  expect_equal(str_sub("abc", 4, 5), "")
 })
 
 test_that("replacement works", {
@@ -100,4 +104,12 @@ test_that("replacement with NA works", {
   str_sub(x, NA, omit_na = TRUE) <- "A"
   str_sub(x, 1, 1, omit_na = TRUE) <- NA
   expect_equal(x, "BBCDEF")
+})
+
+test_that("bad vectorisation gives informative error", {
+  x <- "a"
+  expect_snapshot(error = TRUE, {
+    str_sub(x, 1:2, 1:3)
+    str_sub(x, 1:2, 1:2) <- 1:3
+  })
 })
