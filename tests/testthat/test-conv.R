@@ -6,5 +6,5 @@ test_that("encoding conversion works", {
 })
 
 test_that("check encoding argument", {
-  expect_error(str_conv("A", c("ISO-8859-1", "ISO-8859-2")), "single string")
+  expect_snapshot(str_conv("A", c("ISO-8859-1", "ISO-8859-2")), error = TRUE)
 })

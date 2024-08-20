@@ -16,7 +16,6 @@
 #' * `str_split_fixed()` splits each string in a character vector into a
 #'    fixed number of pieces, returning a character matrix.
 #'
-#' @inheritParams str_detect
 #' @inheritParams str_extract
 #' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
