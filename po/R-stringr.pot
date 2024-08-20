@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: stringr 1.5.1.9000\n"
+"POT-Creation-Date: 2024-08-15 10:19-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: detect.R:141
+msgid "{.arg pattern} must be a plain string, not a stringr modifier."
+msgstr ""
+
+#: interp.R:105
+msgid "Invalid template string for interpolation."
+msgstr ""
+
+#: interp.R:176
+msgid "Failed to parse input {.str {text}}"
+msgstr ""
+
+#: match.R:54 match.R:68
+msgid "{.arg pattern} must be a regular expression."
+msgstr ""
+
+#: modifiers.R:216
+msgid "{.arg pattern} must be a string, not {.obj_type_friendly {x}}."
+msgstr ""
+
+#: replace.R:208
+msgid "Failed to apply {.arg replacement} function."
+msgstr ""
+
+#: replace.R:209
+msgid "It must accept a character vector of any length."
+msgstr ""
+
+#: replace.R:220
+msgid ""
+"{.arg replacement} function must return a character vector, not {."
+"obj_type_friendly {new_flat}}."
+msgstr ""
+
+#: replace.R:226
+msgid ""
+"{.arg replacement} function must return a vector the same length as the "
+"input ({length(old_flat)}), not length {length(new_flat)}."
+msgstr ""
+
+#: split.R:122
+msgid "{.arg i} must not be 0."
+msgstr ""
+
+#: trunc.R:32
+msgid "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
+msgstr ""
+
+#: utils.R:23
+msgid "{.arg pattern} can't be a boundary."
+msgstr ""
+
+#: utils.R:26
+msgid "{.arg pattern} can't be the empty string ({.code \"\"})."
+msgstr ""

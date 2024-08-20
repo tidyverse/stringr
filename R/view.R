@@ -107,7 +107,7 @@ str_view_filter <- function(x, pattern, match) {
 
 str_view_highlighter <- function(html = TRUE) {
   if (html) {
-    function(x) paste0("<span class='match'>", x, "</span>")
+    function(x) str_c("<span class='match'>", x, "</span>")
   } else {
     function(x) {
       out <- cli::col_cyan("<", x, ">")
@@ -123,9 +123,15 @@ str_view_highlighter <- function(html = TRUE) {
 
 str_view_special <- function(x, html = TRUE) {
   if (html) {
-    replace <- function(x) paste0("<span class='special'>", x, "</span>")
+    replace <- function(x) str_c("<span class='special'>", x, "</span>")
   } else {
-    replace <- function(x) cli::col_cyan("{", stri_escape_unicode(x), "}")
+    replace <- function(x) {
+      if (length(x) == 0) {
+        return(character())
+      }
+
+      cli::col_cyan("{", stri_escape_unicode(x), "}")
+    }
   }
 
   # Highlight any non-standard whitespace characters
@@ -173,6 +179,7 @@ print.stringr_view <- function(x, ..., n = getOption("stringr.view_n", 20)) {
   }
 
   if (length(x) == 0) {
+    cli::cli_inform(c(x = "Empty `string` provided.\n"))
     return(invisible(x))
   }
 

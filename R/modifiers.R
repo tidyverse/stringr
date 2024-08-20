@@ -213,13 +213,22 @@ type.default <- function(x, error_call = caller_env()) {
   }
 
   cli::cli_abort(
-    "`pattern` must be a string, not {.obj_type_friendly {x}}.",
+    tr_("{.arg pattern} must be a string, not {.obj_type_friendly {x}}."),
     call = error_call
   )
 }
 
 #' @export
 `[.stringr_pattern` <- function(x, i) {
+  structure(
+    NextMethod(),
+    options = attr(x, "options"),
+    class = class(x)
+  )
+}
+
+#' @export
+`[[.stringr_pattern` <- function(x, i) {
   structure(
     NextMethod(),
     options = attr(x, "options"),

@@ -17,9 +17,7 @@
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
 #'
-#'   Match character, word, line and sentence boundaries with
-#'   [boundary()]. An empty pattern, "", is equivalent to
-#'   `boundary("character")`.
+#'   You can not match boundaries, including `""`, with this function.
 #'
 #' @param negate If `TRUE`, inverts the resulting boolean vector.
 #' @return A logical vector the same length as `string`/`pattern`.
@@ -177,7 +175,7 @@ str_ilike <- function(string, pattern) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
-    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
+    cli::cli_abort(tr_("{.arg pattern} must be a plain string, not a stringr modifier."))
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = TRUE)

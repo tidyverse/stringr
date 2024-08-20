@@ -16,7 +16,6 @@
 #' * `str_split_fixed()` splits each string in a character vector into a
 #'    fixed number of pieces, returning a character matrix.
 #'
-#' @inheritParams str_detect
 #' @inheritParams str_extract
 #' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
@@ -119,7 +118,7 @@ str_split_i <- function(string, pattern, i) {
     }
     map_chr(pieces, last)
   } else {
-    cli::cli_abort("{.arg i} must not be 0.")
+    cli::cli_abort(tr_("{.arg i} must not be 0."))
   }
 }
 

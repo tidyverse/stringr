@@ -34,8 +34,8 @@
 #'
 #' # `str_glue_data()` is useful in data pipelines
 #' mtcars %>% str_glue_data("{rownames(.)} has {hp} hp")
-str_glue <- function(..., .sep = "", .envir = parent.frame()) {
-  glue::glue(..., .sep = .sep, .envir = .envir)
+str_glue <- function(..., .sep = "", .envir = parent.frame(), .trim = TRUE) {
+  glue::glue(..., .sep = .sep, .envir = .envir, .trim = .trim)
 }
 
 #' @export

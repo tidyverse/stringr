@@ -85,7 +85,7 @@ str_interp <- function(string, env = parent.frame()) {
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-interp_placeholders <- function(string) {
+interp_placeholders <- function(string, error_call = caller_env()) {
   # Find starting position of ${} or $[]{} placeholders.
   starts   <- gregexpr("\\$(\\[.*?\\])?\\{", string)[[1]]
 
@@ -100,8 +100,12 @@ interp_placeholders <- function(string) {
 
   # If there are nested placeholders, each part will not contain a full
   # placeholder in which case we report invalid string interpolation template.
-  if (any(!grepl("\\$(\\[.*?\\])?\\{.+\\}", parts)))
-    stop("Invalid template string for interpolation.", call. = FALSE)
+  if (any(!grepl("\\$(\\[.*?\\])?\\{.+\\}", parts))) {
+    cli::cli_abort(
+      tr_("Invalid template string for interpolation."),
+      call = error_call
+    )
+  }
 
   # For each part, find the opening and closing braces.
   opens  <- lapply(strsplit(parts, ""), function(v) which(v == "{"))
@@ -134,9 +138,9 @@ interp_placeholders <- function(string) {
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-eval_interp_matches <- function(matches, env) {
+eval_interp_matches <- function(matches, env, error_call = caller_env()) {
   # Extract expressions from the matches
-  expressions <- extract_expressions(matches)
+  expressions <- extract_expressions(matches, error_call = error_call)
 
   # Evaluate them in the given environment
   values <- lapply(expressions, eval, envir = env,
@@ -161,12 +165,19 @@ eval_interp_matches <- function(matches, env) {
 #'
 #' @noRd
 #' @author Stefan Milton Bache
-extract_expressions <- function(matches) {
+extract_expressions <- function(matches, error_call = caller_env()) {
   # Parse function for text argument as first argument.
+
   parse_text <- function(text) {
-    tryCatch(
+    withCallingHandlers(
       parse(text = text),
-      error = function(e) stop(conditionMessage(e), call. = FALSE)
+      error = function(e) {
+        cli::cli_abort(
+          tr_("Failed to parse input {.str {text}}"),
+          parent = e,
+          call = error_call
+        )
+      }
     )
   }
 

@@ -52,19 +52,19 @@ test_that("str_interp fails when encountering nested placeholders", {
   msg  <- "This will never see the light of day"
   num  <- 1.2345
 
-  expect_error(
-    str_interp("${${msg}}"),
-    "Invalid template string for interpolation"
-  )
-
-  expect_error(
-    str_interp("$[.2f]{${msg}}"),
-    "Invalid template string for interpolation"
-  )
+  expect_snapshot(error = TRUE, {
+    str_interp("${${msg}}")
+    str_interp("$[.2f]{${msg}}")
+  })
 })
 
 test_that("str_interp fails when input is not a character string", {
-  expect_error(str_interp(3L))
+  expect_snapshot(str_interp(3L), error = TRUE)
+})
+
+test_that("str_interp wraps parsing errors", {
+  expect_snapshot(str_interp("This is a ${1 +}"), error = TRUE)
+
 })
 
 test_that("str_interp formats list independetly of other placeholders", {
