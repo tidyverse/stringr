@@ -9,7 +9,7 @@
       str_split("x", 1)
     Condition
       Error in `str_split()`:
-      ! `pattern` must be a string, not a number.
+      ! `pattern` must be a character vector, not a number.
     Code
       str_split("x", "x", n = 0)
     Condition
