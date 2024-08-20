@@ -1,6 +1,6 @@
 # stringr (development version)
 
-* `str_remove()` and `str_remove_all()` now throw an error when `pattern` includes any `NA` values, including `NA_character_` (@nash-delcamp-slp, #546).
+* `str_*` now error if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
 * Adds `[[.stringr_pattern` method to go along with existing `[.stringr_pattern`
   method (@edward-burn, #569).
 * In `str_replace_all()`, a `replacement` function now receives all values in
