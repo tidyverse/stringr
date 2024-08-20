@@ -37,8 +37,9 @@ test_that("subsetting preserves class and options", {
   expect_equal(x[], x)
 })
 
-test_that("useful error message for vector that includes NAs", {
+test_that("useful errors for NAs", {
   expect_snapshot(error = TRUE, {
+    type(NA)
     type(c("a", "b", NA_character_, "c"))
   })
 })

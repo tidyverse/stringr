@@ -24,8 +24,13 @@
       Error:
       ! `pattern` must be a string, not an integer vector.
 
-# useful error message for vector that includes NAs
+# useful errors for NAs
 
+    Code
+      type(NA)
+    Condition
+      Error:
+      ! `pattern` must be a string, not `NA`.
     Code
       type(c("a", "b", NA_character_, "c"))
     Condition
