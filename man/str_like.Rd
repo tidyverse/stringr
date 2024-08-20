@@ -22,7 +22,7 @@ See above for details.}
 A logical vector the same length as \code{string}.
 }
 \description{
-\code{str_like()} and \code{str_like()} follows the conventions of the SQL \code{LIKE}
+\code{str_like()} and \code{str_like()} follow the conventions of the SQL \code{LIKE}
 and \code{ILIKE} operators, namely:
 \itemize{
 \item Must match the entire string.
@@ -31,8 +31,8 @@ and \code{ILIKE} operators, namely:
 \item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}.
 }
 
-The only difference is their case-sensitivity: \code{str_like()} is case sensitive
-and \code{str_ilike()} is not.
+The difference between the two functions is their case-sensitivity:
+\code{str_like()} is case sensitive and \code{str_ilike()} is not.
 }
 \note{
 Prior to stringr 1.6.0, \code{str_like()} was incorrectly case-insensitive.

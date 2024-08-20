@@ -111,7 +111,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
 #'
 #' @description
-#' `str_like()` and `str_like()` follows the conventions of the SQL `LIKE`
+#' `str_like()` and `str_like()` follow the conventions of the SQL `LIKE`
 #' and `ILIKE` operators, namely:
 #'
 #' * Must match the entire string.
@@ -119,8 +119,8 @@ str_ends <- function(string, pattern, negate = FALSE) {
 #' * `%` matches any number of characters (like `.*`).
 #' * `\%` and `\_` match literal `%` and `_`.
 #'
-#' The only difference is their case-sensitivity: `str_like()` is case sensitive
-#' and `str_ilike()` is not.
+#' The difference between the two functions is their case-sensitivity:
+#' `str_like()` is case sensitive and `str_ilike()` is not.
 #'
 #' @note
 #' Prior to stringr 1.6.0, `str_like()` was incorrectly case-insensitive.
@@ -159,6 +159,10 @@ str_like <- function(string, pattern, ignore_case = deprecated()) {
         "Use `str_ilike()` for case insensitive string matching."
       )
     )
+    check_bool(ignore_case)
+    if (ignore_case) {
+      return(str_ilike(string, pattern))
+    }
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)

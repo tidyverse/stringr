@@ -47,10 +47,10 @@
       Error in `str_like()`:
       ! `pattern` must be a plain string, not a stringr modifier.
 
-# ignore_case is deprecated
+# ignore_case is deprecated but still respected
 
     Code
-      . <- str_like("abc", "ab%", ignore_case = TRUE)
+      out <- str_like("abc", "AB%", ignore_case = TRUE)
     Condition
       Warning:
       The `ignore_case` argument of `str_like()` is deprecated as of stringr 1.6.0.

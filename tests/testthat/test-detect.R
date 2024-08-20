@@ -61,8 +61,12 @@ test_that("str_like is case sensitive", {
   expect_snapshot(str_like("abc", regex("x")), error = TRUE)
 })
 
-test_that("ignore_case is deprecated", {
-  expect_snapshot(. <- str_like("abc", "ab%", ignore_case = TRUE))
+test_that("ignore_case is deprecated but still respected", {
+  expect_snapshot(out <- str_like("abc", "AB%", ignore_case = TRUE))
+  expect_equal(out, TRUE)
+
+  expect_warning(out <- str_like("abc", "AB%", ignore_case = FALSE))
+  expect_equal(out, FALSE)
 })
 
 test_that("str_ilike works", {
