@@ -11,6 +11,7 @@
 #' @examples
 #' fruit <- c("apple", "pear", "banana")
 #' str_dup(fruit, 2)
+#' str_dup(fruit, 2, sep = " ")
 #' str_dup(fruit, 1:3)
 #' str_c("ba", str_dup("na", 0:5))
 str_dup <- function(string, times, sep = NULL) {
@@ -21,7 +22,7 @@ str_dup <- function(string, times, sep = NULL) {
     stri_dup(input$string, input$times)
   } else {
     map_chr(seq_along(input$string), function(i) {
-      paste(rep(string[i], input$times[i]), collapse = sep)
+      paste(rep(string[[i]], input$times[[i]]), collapse = sep)
     })
   }
 }
