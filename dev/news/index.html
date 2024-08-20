@@ -50,7 +50,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="stringr-development-version">stringr (development version)<a class="anchor" aria-label="anchor" href="#stringr-development-version"></a></h2>
-<ul><li>Add <code>sep</code> argument to <code><a href="../reference/str_dup.html">str_dup()</a></code> so that it is possible to repeat a string and add a separator between every repeated value (<a href="https://github.com/edward-burn" class="external-link">@edward-burn</a>, <a href="https://github.com/tidyverse/stringr/issues/564" class="external-link">#564</a>).</li>
+<ul><li>
+<code>str_sub&lt;-</code> now gives a more informative error if <code>value</code> is not the correct length.</li>
+<li>Add <code>sep</code> argument to <code><a href="../reference/str_dup.html">str_dup()</a></code> so that it is possible to repeat a string and add a separator between every repeated value (<a href="https://github.com/edward-burn" class="external-link">@edward-burn</a>, <a href="https://github.com/tidyverse/stringr/issues/564" class="external-link">#564</a>).</li>
 <li>
 <code>str_*</code> now errors if <code>pattern</code> includes any <code>NA</code>s (<a href="https://github.com/nash-delcamp-slp" class="external-link">@nash-delcamp-slp</a>, <a href="https://github.com/tidyverse/stringr/issues/546" class="external-link">#546</a>).</li>
 <li>
