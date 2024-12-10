@@ -22,6 +22,7 @@
 #'
 #' @inheritParams str_detect
 #' @inheritParams coll
+#' @param separator string. For snake case, can change the `_`
 #' @return A character vector the same length as `string`.
 #' @examples
 #' dog <- "The quick brown dog"
@@ -116,7 +117,7 @@ str_to_snake <- function(string, separator = "_", locale = "en") {
 }
 #' @export
 #' @rdname case
-str_to_kebab <- function(string) {
-  string <- str_to_snake(string, separator = "-")
+str_to_kebab <- function(string, locale = "en") {
+  string <- str_to_snake(string, separator = "-", locale = locale)
   return(string)
 }
