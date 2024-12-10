@@ -14,17 +14,21 @@ test_that("to_sentence capitalizes just the first letter", {
 })
 
 test_that("to_pascal converts to pascal case", {
-  expect_identical(str_to_pascal("a Test"), "ATest")
+  expect_identical(str_to_pascal("This is a sentence."), "ThisIsASentence")
 })
 
 test_that("to_camel converts to camel casee", {
-  expect_identical(str_to_camel("a Test"), "aTest")
+  expect_identical(str_to_camel("This is a sentence."), "thisIsASentence")
 })
 
 test_that("to_kebab converts to kebab case", {
-  expect_identical(str_to_kebab("a Test"), "a-test")
+  expect_identical(str_to_kebab("This is a sentence."), "this-is-a-sentence")
 })
 
 test_that("to_snake converts to snake case", {
-  expect_identical(str_to_snake("a Test"), "a_test")
+  expect_identical(str_to_snake("This is a sentence."), "this_is_a_sentence")
+})
+
+test_that("to_snake converts to snake case", {
+  expect_identical(str_to_snake("This is a sentence.", separator = "!"), "this!is!a!sentence")
 })
