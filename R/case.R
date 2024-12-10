@@ -30,7 +30,9 @@
 #' str_to_title(dog)
 #' str_to_sentence("the quick brown dog")
 #' str_to_pascal(dog)
+#' StrToPascal(dog)
 #' str_to_camel(dog)
+#' strToCamel(dog)
 #' str_to_kebab(dog)
 #' str_to_snake(dog)
 #'
@@ -73,50 +75,48 @@ str_to_sentence <- function(string, locale = "en") {
 }
 #' @export
 #' @rdname case
-str_to_pascal <- function(x) {
-  stopifnot(is.character(x))
-  x <- x |>
-    str_replace_all("([a-z0-9])([A-Z])", "\\1 \\2") |>
+str_to_pascal <- function(string, locale = "en") {
+  stopifnot(is.character(string))
+  string <- string |>
+    str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
     str_replace_all("([0-9])([a-zA-Z])", "\\1 \\2") |>
     str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1 \\2") |>
     str_replace_all(pattern = "[:punct:]", replace = " ") |>
-    str_to_lower() |>
-    str_to_title() |>
+    str_to_title(locale = locale) |>
     str_remove_all(pattern = "\\s+")
-  return(x)
+  return(string)
 }
 #' @export
 #' @rdname case
 StrToPascal <- str_to_pascal
 #' @export
 #' @rdname case
-str_to_camel <- function(x) {
-  x <- str_to_pascal(x)
-  x <- str_replace(x, "^.", str_to_lower(str_sub(x, 1, 1)))
-  return(x)
+str_to_camel <- function(string, locale = "en") {
+  string <- str_to_pascal(string, locale = locale)
+  string <- str_replace(string, pattern = "^.", replace = str_to_lower(str_sub(string, 1, 1)))
+  return(string)
 }
-#' str_to_camel and strToCamel are synonyms
 #' @export
 #' @rdname case
 strToCamel <- str_to_camel
 #' @export
 #' @rdname case
-str_to_snake <- function(x, separator = "_") {
-  stopifnot(is.character(x))
-  x <- x |>
-    str_replace_all("([a-z0-9])([A-Z])", "\\1_\\2") |>
-    str_replace_all("([a-zA-Z])([0-9])", "\\1_\\2") |>
-    str_replace_all("([0-9])([a-zA-Z])", "\\1_\\2") |>
-    str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1_\\2") |>
-    str_to_lower() |>
+str_to_snake <- function(string, separator = "_", locale = "en") {
+  stopifnot(is.character(string))
+  string <- string |>
+    str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
+    str_replace_all("([a-zA-Z])([0-9])", "\\1 \\2") |>
+    str_replace_all("([0-9])([a-zA-Z])", "\\1 \\2") |>
+    str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1 \\2") |>
+    str_to_lower(locale = locale) |>
     str_replace_all(pattern = "[:punct:]", replace = " ") |>
     str_trim() |>
     str_replace_all(pattern = "\\s+", replace = separator)
-  return(x)
+  return(string)
 }
 #' @export
 #' @rdname case
-str_to_kebab <- function(x) {
-  x <- str_to_snake(x, separator = "-")
-  return(x)
+str_to_kebab <- function(string) {
+  string <- str_to_snake(string, separator = "-")
+  return(string)
 }
