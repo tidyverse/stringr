@@ -10,6 +10,21 @@ test_that("to_title creates one capital letter per word", {
 })
 
 test_that("to_sentence capitalizes just the first letter", {
-  x <- "This is a sentence."
   expect_identical(str_to_sentence("a Test"), "A test")
+})
+
+test_that("to_pascal converts to pascal case", {
+  expect_identical(str_to_pascal("a Test"), "ATest")
+})
+
+test_that("to_camel converts to camel casee", {
+  expect_identical(str_to_camel("a Test"), "aTest")
+})
+
+test_that("to_kebab converts to kebab case", {
+  expect_identical(str_to_kebab("a Test"), "a-test")
+})
+
+test_that("to_snake converts to snake case", {
+  expect_identical(str_to_snake("a Test"), "a_test")
 })
