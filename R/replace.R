@@ -29,7 +29,7 @@
 #' @return A character vector the same length as
 #'   `string`/`pattern`/`replacement`.
 #' @seealso [str_replace_na()] to turn missing values into "NA";
-#'   [stri_replace()] for the underlying implementation.
+#'   [stringi::stri_replace()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c("one apple", "two pears", "three bananas")

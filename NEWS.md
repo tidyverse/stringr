@@ -1,3 +1,7 @@
+# stringr 1.5.2
+
+* `R CMD check` fixes
+
 # stringr 1.5.1
 
 * Some minor documentation improvements.

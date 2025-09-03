@@ -81,5 +81,5 @@ str_replace_all(x, colours, col2hex)
 }
 \seealso{
 \code{\link[=str_replace_na]{str_replace_na()}} to turn missing values into "NA";
-\code{\link[=stri_replace]{stri_replace()}} for the underlying implementation.
+\code{\link[stringi:stri_replace]{stringi::stri_replace()}} for the underlying implementation.
 }

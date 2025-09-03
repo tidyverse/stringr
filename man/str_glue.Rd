@@ -12,7 +12,9 @@ str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
 \arguments{
 \item{...}{[\code{expressions}]\cr Unnamed arguments are taken to be expression
 string(s) to format. Multiple inputs are concatenated together before formatting.
-Named arguments are taken to be temporary variables available for substitution.}
+Named arguments are taken to be temporary variables available for substitution.
+
+For \code{glue_data()}, elements in \code{...} override the values in \code{.x}.}
 
 \item{.sep}{[\code{character(1)}: \sQuote{""}]\cr Separator used to separate elements.}
 

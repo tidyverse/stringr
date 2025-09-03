@@ -32,7 +32,7 @@
 #' * `str_split_fixed()`: a character matrix with `n` columns and the same
 #'   number of rows as the length of `string`/`pattern`.
 #' * `str_split_i()`: a character vector the same length as `string`/`pattern`.
-#' @seealso [stri_split()] for the underlying implementation.
+#' @seealso [stringi::stri_split()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c(

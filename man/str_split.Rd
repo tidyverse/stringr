@@ -108,5 +108,5 @@ str_split_i(fruits, " and ", 4)
 str_split_i(fruits, " and ", -1)
 }
 \seealso{
-\code{\link[=stri_split]{stri_split()}} for the underlying implementation.
+\code{\link[stringi:stri_split]{stringi::stri_split()}} for the underlying implementation.
 }
