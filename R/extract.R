@@ -40,17 +40,21 @@
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern, group = NULL) {
   if (!is.null(group)) {
-    return(str_match(string, pattern)[, group + 1])
+    out <- str_match(string, pattern)[, group + 1]
+    if (length(out) == length(string)) names(out) <- names(string)
+    return(out)
   }
 
   check_lengths(string, pattern)
-  switch(type(pattern),
+  out <- switch(type(pattern),
     empty = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
     bound = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
     fixed = stri_extract_first_fixed(string, pattern, opts_fixed = opts(pattern)),
     coll  = stri_extract_first_coll(string, pattern, opts_collator = opts(pattern)),
     regex = stri_extract_first_regex(string, pattern, opts_regex = opts(pattern))
   )
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }
 
 #' @rdname str_extract
@@ -59,7 +63,7 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
   check_lengths(string, pattern)
   check_bool(simplify)
 
-  switch(type(pattern),
+  out <- switch(type(pattern),
     empty = stri_extract_all_boundaries(string,
       simplify = simplify, omit_no_match = TRUE, opts_brkiter = opts(pattern)),
     bound = stri_extract_all_boundaries(string,
@@ -71,4 +75,10 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
     regex = stri_extract_all_regex(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_regex = opts(pattern))
   )
+  if (isTRUE(simplify)) {
+    if (is.matrix(out) && nrow(out) == length(string)) rownames(out) <- names(string)
+  } else {
+    if (is.list(out) && length(out) == length(string)) names(out) <- names(string)
+  }
+  out
 }

@@ -34,11 +34,15 @@
 #' # Because the second element is made up of a u + an accent
 #' str_sub(u, 1, 1)
 str_length <- function(string) {
-  stri_length(string)
+  out <- stri_length(string)
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }
 
 #' @export
 #' @rdname str_length
 str_width <- function(string) {
-  stri_width(string)
+  out <- stri_width(string)
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }

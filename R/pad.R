@@ -32,9 +32,11 @@ str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ",
   side <- arg_match(side)
   check_bool(use_width)
 
-  switch(side,
+  out <- switch(side,
     left = stri_pad_left(string, width, pad = pad, use_length = !use_width),
     right = stri_pad_right(string, width, pad = pad, use_length = !use_width),
     both = stri_pad_both(string, width, pad = pad, use_length = !use_width)
   )
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }

@@ -39,5 +39,7 @@ str_wrap <- function(string,
 
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
     whitespace_only = whitespace_only, simplify = FALSE)
-  vapply(out, str_c, collapse = "\n", character(1))
+  out <- vapply(out, str_c, collapse = "\n", character(1))
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }
