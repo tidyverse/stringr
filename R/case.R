@@ -29,7 +29,7 @@ str_to_upper <- function(string, locale = "en") {
   check_string(locale)
 
   out <- stri_trans_toupper(string, locale = locale)
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }
 #' @export
@@ -38,7 +38,7 @@ str_to_lower <- function(string, locale = "en") {
   check_string(locale)
 
   out <- stri_trans_tolower(string, locale = locale)
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }
 #' @export
@@ -47,7 +47,7 @@ str_to_title <- function(string, locale = "en") {
   check_string(locale)
 
   out <- stri_trans_totitle(string, opts_brkiter = stri_opts_brkiter(locale = locale))
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }
 #' @export
@@ -59,6 +59,6 @@ str_to_sentence <- function(string, locale = "en") {
     string,
     opts_brkiter = stri_opts_brkiter(type = "sentence", locale = locale)
   )
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }

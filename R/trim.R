@@ -24,7 +24,7 @@ str_trim <- function(string, side = c("both", "left", "right")) {
     right = stri_trim_right(string),
     both =  stri_trim_both(string)
   )
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }
 
@@ -32,6 +32,6 @@ str_trim <- function(string, side = c("both", "left", "right")) {
 #' @rdname str_trim
 str_squish <- function(string) {
   out <- stri_trim_both(str_replace_all(string, "\\s+", " "))
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }

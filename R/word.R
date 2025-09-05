@@ -53,6 +53,6 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   ends <-   mapply(function(word, loc) word[loc, "end"], words, end)
 
   out <- str_sub(string, starts, ends)
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }

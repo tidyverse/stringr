@@ -16,6 +16,6 @@ str_conv <- function(string, encoding) {
   check_string(encoding)
 
   out <- stri_conv(string, encoding, "UTF-8")
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }

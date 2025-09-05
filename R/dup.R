@@ -25,6 +25,6 @@ str_dup <- function(string, times, sep = NULL) {
       paste(rep(string[[i]], input$times[[i]]), collapse = sep)
     })
   }
-  if (length(out) == length(input$string)) names(out) <- names(input$string)
+  names(out) <- names(input$string)
   out
 }

@@ -183,7 +183,7 @@ fix_replacement_one <- function(x) {
 str_replace_na <- function(string, replacement = "NA") {
   check_string(replacement)
   out <- stri_replace_na(string, replacement)
-  if (length(out) == length(string)) names(out) <- names(string)
+  names(out) <- names(string)
   out
 }
 
