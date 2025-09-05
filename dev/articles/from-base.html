@@ -6,18 +6,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>From base R • stringr</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="From base R">
 <meta name="robots" content="noindex">
 <script defer data-domain="stringr.tidyverse.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
@@ -550,7 +549,7 @@ functions and their base R equivalents.</p>
 <table class="table gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings">
 <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="stringr">stringr</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="base R">base R</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="base-R">base R</th>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
@@ -654,7 +653,7 @@ processing functions in base R have multiple purposes.</p></li>
 <li><p>The output and input of stringr functions has been carefully
 designed. For example, the output of <code><a href="../reference/str_locate.html">str_locate()</a></code> can be
 fed directly into <code><a href="../reference/str_sub.html">str_sub()</a></code>; the same is not true of
-<code>regpexpr()</code> and <code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code>.</p></li>
+<code><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexpr()</a></code> and <code><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr()</a></code>.</p></li>
 <li><p>Base functions use arguments (like <code>perl</code>,
 <code>fixed</code>, and <code>ignore.case</code>) to control how the
 pattern is interpreted. To avoid dependence between arguments, stringr
@@ -1313,19 +1312,19 @@ strings.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># base</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</span></span>
-<span><span class="co">#&gt; [24] 24 25 26</span></span>
+<span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22</span></span>
+<span><span class="co">#&gt; [23] 23 24 25 26</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"</span></span>
-<span><span class="co">#&gt; [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></span>
+<span><span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p"</span></span>
+<span><span class="co">#&gt; [17] "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></span>
 <span></span>
 <span><span class="co"># stringr</span></span>
 <span><span class="fu"><a href="../reference/str_order.html">str_order</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</span></span>
-<span><span class="co">#&gt; [24] 24 25 26</span></span>
+<span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22</span></span>
+<span><span class="co">#&gt; [23] 23 24 25 26</span></span>
 <span><span class="fu"><a href="../reference/str_order.html">str_sort</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"</span></span>
-<span><span class="co">#&gt; [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p"</span></span>
+<span><span class="co">#&gt; [17] "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></span></code></pre></div>
 <p>Some options in <code><a href="../reference/str_order.html">str_order()</a></code> and <code><a href="../reference/str_order.html">str_sort()</a></code>
 don’t have analogous base R options. For example, the stringr functions
 have a <code>locale</code> argument to control how to order or sort. In
@@ -1362,7 +1361,7 @@ sort digits numerically instead of treating them as strings.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
   </div></footer>
