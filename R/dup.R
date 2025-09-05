@@ -19,10 +19,12 @@ str_dup <- function(string, times, sep = NULL) {
   check_string(sep, allow_null = TRUE)
 
   if (is.null(sep)) {
-    stri_dup(input$string, input$times)
+    out <- stri_dup(input$string, input$times)
   } else {
-    map_chr(seq_along(input$string), function(i) {
+    out <- map_chr(seq_along(input$string), function(i) {
       paste(rep(string[[i]], input$times[[i]]), collapse = sep)
     })
   }
+  names(out) <- names(input$string)
+  out
 }

@@ -26,5 +26,11 @@ str_unique <- function(string, locale = "en", ignore_case = FALSE, ...) {
     ignore_case = ignore_case,
     ...
   )
-  stri_unique(string, opts_collator = opts)
+  out <- stri_unique(string, opts_collator = opts)
+  # Preserve names of first occurrence for each unique value
+  if (!is.null(names(string))) {
+    idx <- match(out, string)
+    names(out) <- names(string)[idx]
+  }
+  out
 }

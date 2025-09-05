@@ -37,11 +37,13 @@
 str_count <- function(string, pattern = "") {
   check_lengths(string, pattern)
 
-  switch(type(pattern),
+  out <- switch(type(pattern),
     empty = ,
     bound = stri_count_boundaries(string, opts_brkiter = opts(pattern)),
     fixed = stri_count_fixed(string, pattern, opts_fixed = opts(pattern)),
     coll  = stri_count_coll(string, pattern, opts_collator = opts(pattern)),
     regex = stri_count_regex(string, pattern, opts_regex = opts(pattern))
   )
+  if (length(out) == length(string)) names(out) <- names(string)
+  out
 }
