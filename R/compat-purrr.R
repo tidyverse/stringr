@@ -10,7 +10,9 @@ map <- function(.x, .f, ...) {
   lapply(.x, .f, ...)
 }
 map_mold <- function(.x, .f, .mold, ...) {
-  copy_names(.x, vapply(.x, .f, .mold, ..., USE.NAMES = FALSE))
+  out <- vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
+  names(out) <- names(.x)
+  out
 }
 map_lgl <- function(.x, .f, ...) {
   map_mold(.x, .f, logical(1), ...)
