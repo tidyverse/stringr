@@ -40,5 +40,5 @@ str_wrap <- function(string,
   out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
     whitespace_only = whitespace_only, simplify = FALSE)
   out <- vapply(out, str_c, collapse = "\n", character(1))
-  copy_names(out, string)
+  copy_names(string, out)
 }

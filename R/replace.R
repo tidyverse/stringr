@@ -182,7 +182,7 @@ fix_replacement_one <- function(x) {
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
   check_string(replacement)
-  copy_names(stri_replace_na(string, replacement), string)
+  copy_names(string, stri_replace_na(string, replacement))
 }
 
 str_transform <- function(string, pattern, replacement) {
