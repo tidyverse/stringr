@@ -77,7 +77,6 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
   )
 
-  # Preserve names from primary `string` argument when output corresponds 1:1
   if (is.list(out) && length(out) == length(string)) {
     names(out) <- names(string)
   } else if (is.matrix(out) && nrow(out) == length(string)) {

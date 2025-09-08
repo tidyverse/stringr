@@ -50,7 +50,6 @@ str_detect <- function(string, pattern, negate = FALSE) {
     regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 
-  # Preserve names when there's a 1:1 correspondence with `string`
   if (length(out) == length(string)) {
     names(out) <- names(string)
   }

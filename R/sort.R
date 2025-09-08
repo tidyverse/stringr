@@ -86,7 +86,6 @@ str_sort <- function(x,
   check_string(locale)
   check_bool(numeric)
 
-  # Order + subset to preserve names (like base::sort)
   opts <- stri_opts_collator(locale, numeric = numeric, ...)
   idx <- stri_order(
     x,
