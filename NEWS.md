@@ -14,6 +14,10 @@
   a single vector. This radically improves performance at the cost of breaking
   some existing uses (#462).
 
+# stringr 1.5.2
+
+* `R CMD check` fixes
+
 # stringr 1.5.1
 
 * Some minor documentation improvements.
