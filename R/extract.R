@@ -75,10 +75,10 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
     regex = stri_extract_all_regex(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_regex = opts(pattern))
   )
-  if (isTRUE(simplify)) {
-    if (is.matrix(out) && nrow(out) == length(string)) rownames(out) <- names(string)
+  if (simplify) {
+    rownames(out) <- names(string)
   } else {
-    if (is.list(out) && length(out) == length(string)) names(out) <- names(string)
+    names(out) <- names(string)
   }
   out
 }
