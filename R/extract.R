@@ -78,9 +78,9 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
       simplify = simplify, omit_no_match = TRUE, opts_regex = opt)
   )
   if (simplify) {
-    rownames(out) <- names(string)
+    if (nrow(out) == length(string)) rownames(out) <- names(string)
   } else {
-    names(out) <- names(string)
+    if (length(out) == length(string)) names(out) <- names(string)
   }
   out
 }
