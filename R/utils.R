@@ -33,3 +33,36 @@ tr_ <- function(...) {
 copy_names <- function(from, to) {
   set_names(to, names(from))
 }
+
+#' Preserve names based on inputs
+#'
+#' Decides whether to propagate `names(string)` to `out` based on the
+#' relationship between `string` and `pattern`, then applies those names to
+#' the appropriate structure.
+#'
+#' Names are preserved when `pattern` is missing, has length 1, or has the
+#' same length as `string`. For matrix outputs, row names are set; for vector
+#' or list outputs, names are set.
+#'
+#' @param out The result to potentially name; a vector, list, or matrix.
+#' @param string The primary input character vector whose names may be copied.
+#' @param pattern Optional pattern input used to decide if names should be
+#'   preserved.
+#' @return `out`, with `names(out)` or `rownames(out)` set from
+#'   `names(string)` when appropriate.
+#' @keywords internal
+#' @noRd
+keep_names <- function(out, string, pattern = NULL) {
+  nm <- names(string)
+  if (is.null(nm)) return(out)
+
+  keep <- is.null(pattern) || length(pattern) == 1L || length(pattern) == length(string)
+  if (!keep) return(out)
+
+  if (is.matrix(out)) {
+    rownames(out) <- nm
+  } else {
+    names(out) <- nm
+  }
+  out
+}
