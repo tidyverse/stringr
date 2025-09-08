@@ -29,3 +29,7 @@ no_empty <- function(call = caller_env()) {
 tr_ <- function(...) {
   enc2utf8(gettext(paste0(...), domain = "R-stringr"))
 }
+
+copy_names <- function(to, from) {
+  set_names(to, names(from))
+}

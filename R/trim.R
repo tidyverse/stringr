@@ -24,14 +24,11 @@ str_trim <- function(string, side = c("both", "left", "right")) {
     right = stri_trim_right(string),
     both =  stri_trim_both(string)
   )
-  names(out) <- names(string)
-  out
+  copy_names(out, string)
 }
 
 #' @export
 #' @rdname str_trim
 str_squish <- function(string) {
-  out <- stri_trim_both(str_replace_all(string, "\\s+", " "))
-  names(out) <- names(string)
-  out
+  copy_names(stri_trim_both(str_replace_all(string, "\\s+", " ")), string)
 }

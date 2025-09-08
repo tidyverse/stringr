@@ -15,7 +15,5 @@
 str_conv <- function(string, encoding) {
   check_string(encoding)
 
-  out <- stri_conv(string, encoding, "UTF-8")
-  names(out) <- names(string)
-  out
+  copy_names(stri_conv(string, encoding, "UTF-8"), string)
 }
