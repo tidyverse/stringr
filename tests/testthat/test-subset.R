@@ -46,3 +46,9 @@ test_that("keep names", {
   expect_identical(names(str_subset(fruit, "p")), c("A", "C", "D"))
   expect_identical(names(str_subset(fruit, "x")), as.character())
 })
+
+test_that("str_subset() preserves names of retained elements", {
+  x <- c(C = "3", B = "2", A = "1")
+  out <- str_subset(x, "[12]")
+  expect_equal(names(out), c("B", "A"))
+})

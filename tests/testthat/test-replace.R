@@ -146,3 +146,25 @@ test_that("\1 converted to $1 etc", {
 test_that("\\1 left as is", {
   expect_equal(fix_replacement("\\\\1"), "\\\\1")
 })
+
+test_that("replace functions preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_replace(x, "[0-9]", "x")), names(x))
+  expect_equal(names(str_replace_all(x, "[0-9]", "x")), names(x))
+})
+
+test_that("replace functions handle vectorised patterns and names", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(names(str_replace(x1, p2, "x")))
+  expect_null(names(str_replace_all(x1, p2, "x")))
+
+  x2 <- c(A = "ab", B = "cd")
+  expect_equal(names(str_replace(x2, p2, "x")), names(x2))
+  expect_equal(names(str_replace_all(x2, p2, "x")), names(x2))
+})
+
+test_that("str_replace_na() preserves names", {
+  y <- c(A = NA, B = "x")
+  expect_equal(names(str_replace_na(y)), names(y))
+})

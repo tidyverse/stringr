@@ -52,6 +52,35 @@ test_that("functions use tidyverse recycling rules", {
   })
 })
 
+test_that("detection functions preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_detect(x, "[123]")), names(x))
+  expect_equal(names(str_starts(x, "1")), names(x))
+  expect_equal(names(str_ends(x, "1")), names(x))
+  expect_equal(names(str_like(x, "%")), names(x))
+  expect_equal(names(str_ilike(x, "%")), names(x))
+})
+
+test_that("detection drops names when pattern is vector and string is scalar", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(names(str_detect(x1, p2)))
+  expect_null(names(str_starts(x1, p2)))
+  expect_null(names(str_ends(x1, p2)))
+  expect_null(names(str_like(x1, p2)))
+  expect_null(names(str_ilike(x1, p2)))
+})
+
+test_that("detection preserves names when pattern and string have same length", {
+  x2 <- c(A = "ab", B = "cd")
+  p2 <- c("a", "c")
+  expect_equal(names(str_detect(x2, p2)), names(x2))
+  expect_equal(names(str_starts(x2, p2)), names(x2))
+  expect_equal(names(str_ends(x2, p2)), names(x2))
+  expect_equal(names(str_like(x2, p2)), names(x2))
+  expect_equal(names(str_ilike(x2, p2)), names(x2))
+})
+
 # str_like ----------------------------------------------------------------
 
 

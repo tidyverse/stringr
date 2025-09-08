@@ -20,3 +20,8 @@ test_that("str_squish removes excess spaces from all parts of string", {
   expect_equal(str_squish("\ta  bc"),   "a bc")
   expect_equal(str_squish("\ta\t bc\t"), "a bc")
 })
+
+test_that("trimming functions preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_trim(x)), names(x))
+})

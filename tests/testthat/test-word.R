@@ -14,3 +14,8 @@ test_that("negative parameters", {
   expect_equal("walk the moon", word("walk the moon", -3, -1))
   expect_equal("walk the moon", word("walk the moon", -5, -1))
 })
+
+test_that("word() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(word(x, 1)), names(x))
+})
