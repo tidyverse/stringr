@@ -21,7 +21,7 @@ library(stringr)
 library(magrittr)
 ```
 
-This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr. 
+This vignette compares stringr functions to their base R equivalents to help users transitioning from using base R to stringr.
 
 # Overall differences
 
@@ -57,15 +57,15 @@ data_stringr_base_diff <- tibble::tribble(
 )
 
 # create MD table, arranged alphabetically by stringr fn name
-data_stringr_base_diff %>%
+data_stringr_base_diff |>
   dplyr::mutate(dplyr::across(
       .cols = everything(),
       .fns = ~ paste0("`", .x, "`"))
-  ) %>%
-  dplyr::arrange(stringr) %>%
-  dplyr::rename(`base R` = base_r) %>%
-  gt::gt() %>%
-  gt::fmt_markdown(columns = everything()) %>%
+  ) |>
+  dplyr::arrange(stringr) |>
+  dplyr::rename(`base R` = base_r) |>
+  gt::gt() |>
+  gt::fmt_markdown(columns = everything()) |>
   gt::tab_options(column_labels.font.weight = "bold")
 ```
 
@@ -73,22 +73,22 @@ Overall the main differences between base R and stringr are:
 
 1.  stringr functions start with `str_` prefix; base R string functions have no
     consistent naming scheme.
-   
-1.  The order of inputs is usually different between base R and stringr. 
+
+1.  The order of inputs is usually different between base R and stringr.
     In base R, the `pattern` to match usually comes first; in stringr, the
-    `string` to manupulate always comes first. This makes stringr easier 
+    `string` to manupulate always comes first. This makes stringr easier
     to use in pipes, and with `lapply()` or `purrr::map()`.
-    
-1.  Functions in stringr tend to do less, where many of the string processing 
+
+1.  Functions in stringr tend to do less, where many of the string processing
     functions in base R have multiple purposes.
-    
+
 1.  The output and input of stringr functions has been carefully designed.
-    For example, the output of `str_locate()` can be fed directly into 
+    For example, the output of `str_locate()` can be fed directly into
     `str_sub()`; the same is not true of `regexpr()` and `substr()`.
-    
+
 1.  Base functions use arguments (like `perl`, `fixed`, and `ignore.case`)
     to control how the pattern is interpreted. To avoid dependence between
-    arguments, stringr instead uses helper functions (like `fixed()`, 
+    arguments, stringr instead uses helper functions (like `fixed()`,
     `regex()`, and `coll()`).
 
 Next we'll walk through each of the functions, noting the similarities and important differences. These examples are adapted from the stringr documentation and here they are contrasted with the analogous base R operations.
@@ -97,7 +97,7 @@ Next we'll walk through each of the functions, noting the similarities and impor
 
 ## `str_detect()`: Detect the presence or absence of a pattern in a string
 
-Suppose you want to know whether each word in a vector of fruit names contains an "a". 
+Suppose you want to know whether each word in a vector of fruit names contains an "a".
 
 ```{r}
 fruit <- c("apple", "banana", "pear", "pineapple")
@@ -109,11 +109,11 @@ grepl(pattern = "a", x = fruit)
 str_detect(fruit, pattern = "a")
 ```
 
-In base you would use `grepl()` (see the "l" and think logical) while in stringr you use `str_detect()` (see the verb "detect" and think of a yes/no action). 
+In base you would use `grepl()` (see the "l" and think logical) while in stringr you use `str_detect()` (see the verb "detect" and think of a yes/no action).
 
 ## `str_which()`: Find positions matching a pattern
 
-Now you want to identify the positions of the words in a vector of fruit names that contain an "a". 
+Now you want to identify the positions of the words in a vector of fruit names that contain an "a".
 
 ```{r}
 # base
@@ -123,14 +123,14 @@ grep(pattern = "a", x = fruit)
 str_which(fruit, pattern = "a")
 ```
 
-In base you would use `grep()` while in stringr you use `str_which()` (by analogy to `which()`). 
+In base you would use `grep()` while in stringr you use `str_which()` (by analogy to `which()`).
 
 ## `str_count()`: Count the number of matches in a string
 
 How many "a"s are in each fruit?
 
 ```{r}
-# base 
+# base
 loc <- gregexpr(pattern = "a", text = fruit, fixed = TRUE)
 sapply(loc, function(x) length(attr(x, "match.length")))
 
@@ -166,7 +166,7 @@ hw <- "Hadley Wickham"
 
 # base
 substr(hw, start = 1, stop = 6)
-substring(hw, first = 1) 
+substring(hw, first = 1)
 
 # stringr
 str_sub(hw, start = 1, end = 6)
@@ -174,7 +174,7 @@ str_sub(hw, start = 1)
 str_sub(hw, end = 6)
 ```
 
-In base you could use `substr()` or `substring()`. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, `str_sub()` has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs. 
+In base you could use `substr()` or `substring()`. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, `str_sub()` has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs.
 
 In stringr you can use negative numbers to index from the right-hand side string: -1 is the last letter, -2 is the second to last, and so on.
 
@@ -256,7 +256,7 @@ matches <- gregexpr(pattern = "[a-z]+", text = shopping_list) # words
 regmatches(shopping_list, m = matches)
 
 # stringr
-str_extract(shopping_list, pattern = "\\d+") 
+str_extract(shopping_list, pattern = "\\d+")
 str_extract_all(shopping_list, "[a-z]+")
 ```
 
@@ -300,7 +300,7 @@ There are some subtle differences between base and stringr here. `nchar()` requi
 #| error: true
 
 # base
-nchar(factor("abc")) 
+nchar(factor("abc"))
 ```
 
 ```{r}
@@ -320,7 +320,7 @@ str_length(x)
 
 ## `str_pad()`: Pad a string
 
-To pad a string to a certain width, use stringr's `str_pad()`. In base R you could use `sprintf()`, but unlike `str_pad()`, `sprintf()` has many other functionalities. 
+To pad a string to a certain width, use stringr's `str_pad()`. In base R you could use `sprintf()`, but unlike `str_pad()`, `sprintf()` has many other functionalities.
 
 ```{r}
 # base
@@ -375,7 +375,7 @@ str_squish("\n\nString with excess, trailing and leading white space\n\n")
 
 ## `str_wrap()`: Wrap strings into nicely formatted paragraphs
 
-`strwrap()` and `str_wrap()` use different algorithms. `str_wrap()` uses the famous [Knuth-Plass algorithm](http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html). 
+`strwrap()` and `str_wrap()` use different algorithms. `str_wrap()` uses the famous [Knuth-Plass algorithm](http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html).
 
 ```{r}
 gettysburg <- "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."
@@ -393,7 +393,7 @@ Note that `strwrap()` returns a character vector with one element for each line;
 
 ## `str_replace()`: Replace matched patterns in a string
 
-To replace certain patterns within a string, stringr provides the functions `str_replace()` and `str_replace_all()`. The base R equivalents are `sub()` and `gsub()`. Note the difference in default input order again. 
+To replace certain patterns within a string, stringr provides the functions `str_replace()` and `str_replace_all()`. The base R equivalents are `sub()` and `gsub()`. Note the difference in default input order again.
 
 ```{r}
 fruits <- c("apple", "banana", "pear", "pineapple")
@@ -502,7 +502,7 @@ anniversary <- as.Date("1991-10-12")
 
 # base
 sprintf(
-  "My name is %s my age next year is %s and my anniversary is %s.", 
+  "My name is %s my age next year is %s and my anniversary is %s.",
   name,
   age + 1,
   format(anniversary, "%A, %B %d, %Y")

@@ -33,6 +33,7 @@
 #' )
 #'
 #' # `str_glue_data()` is useful in data pipelines
+#' # NOTE: this does not currently work with the `|>` base pipe
 #' mtcars %>% str_glue_data("{rownames(.)} has {hp} hp")
 str_glue <- function(..., .sep = "", .envir = parent.frame(), .trim = TRUE) {
   glue::glue(..., .sep = .sep, .envir = .envir, .trim = .trim)

@@ -54,7 +54,7 @@ as the first argument:
 
 ``` r
 x <- c("why", "video", "cross", "extra", "deal", "authority")
-str_length(x) 
+str_length(x)
 #> [1] 3 5 5 5 4 9
 str_c(x, collapse = ", ")
 #> [1] "why, video, cross, extra, deal, authority"
@@ -124,11 +124,11 @@ There are seven main verbs that work with patterns:
   # extract the characters on either side of the vowel
   str_match(x, "(.)[aeiou](.)")
   #>      [,1]  [,2] [,3]
-  #> [1,] NA    NA   NA  
-  #> [2,] "vid" "v"  "d" 
-  #> [3,] "ros" "r"  "s" 
-  #> [4,] NA    NA   NA  
-  #> [5,] "dea" "d"  "a" 
+  #> [1,] NA    NA   NA
+  #> [2,] "vid" "v"  "d"
+  #> [3,] "ros" "r"  "s"
+  #> [4,] NA    NA   NA
+  #> [5,] "dea" "d"  "a"
   #> [6,] "aut" "a"  "t"
   ```
 
@@ -146,7 +146,7 @@ There are seven main verbs that work with patterns:
   str_split(c("a,b", "c,d,e"), ",")
   #> [[1]]
   #> [1] "a" "b"
-  #> 
+  #>
   #> [[2]]
   #> [1] "c" "d" "e"
   ```
@@ -188,9 +188,9 @@ languages like Ruby or Python are rather hard to do in R.
   particularly well in conjunction with the pipe:
 
   ``` r
-  letters %>%
-    .[1:10] %>% 
-    str_pad(3, "right") %>%
+  letters |>
+    .[1:10] |>
+    str_pad(3, "right") |>
     str_c(letters[2:11])
   #>  [1] "a  b" "b  c" "c  d" "d  e" "e  f" "f  g" "g  h" "h  i" "i  j" "j  k"
   ```

@@ -40,7 +40,7 @@ install.packages("stringr")
 
 ## Cheatsheet
 
-<a href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>  
+<a href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/strings-cheatsheet-thumbs.png" width="630" height="242"/></a>
 
 ## Usage
 
@@ -48,7 +48,7 @@ All functions in stringr start with `str_` and take a vector of strings as the f
 
 ```{r}
 x <- c("why", "video", "cross", "extra", "deal", "authority")
-str_length(x) 
+str_length(x)
 str_c(x, collapse = ", ")
 str_sub(x, 1, 2)
 ```
@@ -66,7 +66,7 @@ There are seven main verbs that work with patterns:
     ```{r}
     str_detect(x, "[aeiou]")
     ```
-    
+
 *   `str_count(x, pattern)` counts the number of patterns:
     ```{r}
     str_count(x, "[aeiou]")
@@ -122,16 +122,16 @@ devtools::install_github("gadenbuie/regexplain")
 
 ## Compared to base R
 
-R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R. 
+R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages, so that some things that are easy to do in languages like Ruby or Python are rather hard to do in R.
 
 * Uses consistent function and argument names. The first argument is always
   the vector of strings to modify, which makes stringr work particularly well
   in conjunction with the pipe:
-  
+
     ```{r}
-    letters %>%
-      .[1:10] %>% 
-      str_pad(3, "right") %>%
+    letters |>
+      .[1:10] |>
+      str_pad(3, "right") |>
       str_c(letters[2:11])
     ```
 
@@ -141,5 +141,5 @@ R provides a solid set of string operations, but because they have grown organic
 * Produces outputs than can easily be used as inputs. This includes ensuring
   that missing inputs result in missing outputs, and zero length inputs
   result in zero length outputs.
-  
+
 Learn more in `vignette("from-base")`

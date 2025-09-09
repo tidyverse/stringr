@@ -64,5 +64,6 @@ str_glue(
 )
 
 # `str_glue_data()` is useful in data pipelines
+# NOTE: this does not currently work with the `|>` base pipe
 mtcars \%>\% str_glue_data("{rownames(.)} has {hp} hp")
 }
