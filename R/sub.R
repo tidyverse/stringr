@@ -75,7 +75,12 @@ str_sub <- function(string, start = 1L, end = -1L) {
 #' @export
 #' @rdname str_sub
 "str_sub<-" <- function(string, start = 1L, end = -1L, omit_na = FALSE, value) {
-  vctrs::vec_size_common(string = string, start = start, end = end, value = value)
+  vctrs::vec_size_common(
+    string = string,
+    start = start,
+    end = end,
+    value = value
+  )
 
   if (is.matrix(start)) {
     stri_sub(string, from = start, omit_na = omit_na) <- value

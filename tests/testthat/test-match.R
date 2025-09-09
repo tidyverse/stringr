@@ -3,9 +3,20 @@ num <- matrix(sample(9, 10 * 10, replace = T), ncol = 10)
 num_flat <- apply(num, 1, str_c, collapse = "")
 
 phones <- str_c(
-  "(", num[, 1], num[, 2], num[, 3], ") ",
-  num[, 4], num[, 5], num[, 6], " ",
-  num[, 7], num[, 8], num[, 9], num[, 10])
+  "(",
+  num[, 1],
+  num[, 2],
+  num[, 3],
+  ") ",
+  num[, 4],
+  num[, 5],
+  num[, 6],
+  " ",
+  num[, 7],
+  num[, 8],
+  num[, 9],
+  num[, 10]
+)
 
 test_that("empty strings return correct matrix of correct size", {
   skip_if_not_installed("stringi", "1.2.2")
@@ -36,8 +47,10 @@ test_that("single match works when all match", {
 })
 
 test_that("match returns NA when some inputs don't match", {
-  matches <- str_match(c(phones, "blah", NA),
-    "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
+  matches <- str_match(
+    c(phones, "blah", NA),
+    "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})"
+  )
 
   expect_equal(nrow(matches), length(phones) + 2)
   expect_equal(ncol(matches), 4)
@@ -56,10 +69,11 @@ test_that("match_all returns NA when option group doesn't match", {
 
 test_that("multiple match works", {
   phones_one <- str_c(phones, collapse = " ")
-  multi_match <- str_match_all(phones_one,
-    "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
-  single_matches <- str_match(phones,
-    "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
+  multi_match <- str_match_all(
+    phones_one,
+    "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})"
+  )
+  single_matches <- str_match(phones, "\\(([0-9]{3})\\) ([0-9]{3}) ([0-9]{4})")
 
   expect_equal(multi_match[[1]], single_matches)
 })

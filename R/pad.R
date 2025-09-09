@@ -27,12 +27,19 @@
 #'
 #' # Longer strings are returned unchanged
 #' str_pad("hadley", 3)
-str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE) {
+str_pad <- function(
+  string,
+  width,
+  side = c("left", "right", "both"),
+  pad = " ",
+  use_width = TRUE
+) {
   vctrs::vec_size_common(string = string, width = width, pad = pad)
   side <- arg_match(side)
   check_bool(use_width)
 
-  switch(side,
+  switch(
+    side,
     left = stri_pad_left(string, width, pad = pad, use_length = !use_width),
     right = stri_pad_right(string, width, pad = pad, use_length = !use_width),
     both = stri_pad_both(string, width, pad = pad, use_length = !use_width)

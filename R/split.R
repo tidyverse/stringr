@@ -69,12 +69,41 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     n <- -1L
   }
 
-  switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    bound = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify, opts_fixed = opts(pattern)),
-    regex = stri_split_regex(string, pattern, n = n, simplify = simplify, opts_regex = opts(pattern)),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
+  switch(
+    type(pattern),
+    empty = stri_split_boundaries(
+      string,
+      n = n,
+      simplify = simplify,
+      opts_brkiter = opts(pattern)
+    ),
+    bound = stri_split_boundaries(
+      string,
+      n = n,
+      simplify = simplify,
+      opts_brkiter = opts(pattern)
+    ),
+    fixed = stri_split_fixed(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_fixed = opts(pattern)
+    ),
+    regex = stri_split_regex(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_regex = opts(pattern)
+    ),
+    coll = stri_split_coll(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_collator = opts(pattern)
+    )
   )
 }
 
@@ -112,7 +141,7 @@ str_split_i <- function(string, pattern, i) {
       n <- length(x)
       if (i > n) {
         NA_character_
-      } else{
+      } else {
         x[[n + 1 - i]]
       }
     }
@@ -122,7 +151,11 @@ str_split_i <- function(string, pattern, i) {
   }
 }
 
-check_positive_integer <- function(x, arg = caller_arg(x), call = caller_env()) {
+check_positive_integer <- function(
+  x,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (!identical(x, Inf)) {
     check_number_whole(x, min = 1, arg = arg, call = call)
   }

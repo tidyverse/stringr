@@ -62,8 +62,8 @@ test_that("can replace multiple values", {
 })
 
 test_that("can use formula", {
-  expect_equal(str_replace("abc", "b", ~ "x"), "axc")
-  expect_equal(str_replace_all("abc", "b", ~ "x"), "axc")
+  expect_equal(str_replace("abc", "b", ~"x"), "axc")
+  expect_equal(str_replace_all("abc", "b", ~"x"), "axc")
 })
 
 test_that("replacement can be different length", {
@@ -103,7 +103,7 @@ test_that("works with zero length match", {
 
 test_that("replacement function must return correct type/length", {
   expect_snapshot(error = TRUE, {
-    str_replace_all("x", "x", ~ 1)
+    str_replace_all("x", "x", ~1)
     str_replace_all("x", "x", ~ c("a", "b"))
   })
 })

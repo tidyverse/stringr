@@ -62,4 +62,3 @@ test_that("can extract boundaries", {
     list(c("a", "b", "c"))
   )
 })
-

@@ -91,7 +91,12 @@ coll <- function(pattern, ignore_case = FALSE, locale = "en", ...) {
 }
 
 
-str_opts_collator <- function(locale = "en", ignore_case = FALSE, strength = NULL, ...) {
+str_opts_collator <- function(
+  locale = "en",
+  ignore_case = FALSE,
+  strength = NULL,
+  ...
+) {
   strength <- strength %||% if (ignore_case) 2L else 3L
   stri_opts_collator(
     strength = strength,
@@ -113,8 +118,14 @@ turkish_I <- function() {
 #' @param comments If `TRUE`, white space and comments beginning with
 #'   `#` are ignored. Escape literal spaces with `\\ `.
 #' @param dotall If `TRUE`, `.` will also match line terminators.
-regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
-                   comments = FALSE, dotall = FALSE, ...) {
+regex <- function(
+  pattern,
+  ignore_case = FALSE,
+  multiline = FALSE,
+  comments = FALSE,
+  dotall = FALSE,
+  ...
+) {
   pattern <- as_bare_character(pattern)
   check_bool(ignore_case)
   check_bool(multiline)
@@ -151,8 +162,11 @@ regex <- function(pattern, ignore_case = FALSE, multiline = FALSE,
 #'   only when splitting on `word` boundaries.
 #' @export
 #' @rdname modifiers
-boundary <- function(type = c("character", "line_break", "sentence", "word"),
-                    skip_word_none = NA, ...) {
+boundary <- function(
+  type = c("character", "line_break", "sentence", "word"),
+  skip_word_none = NA,
+  ...
+) {
   type <- arg_match(type)
   check_bool(skip_word_none, allow_na = TRUE)
 
@@ -204,7 +218,9 @@ type.stringr_fixed <- function(x, error_call = caller_env()) {
 type.character <- function(x, error_call = caller_env()) {
   if (any(is.na(x))) {
     cli::cli_abort(
-      tr_("{.arg pattern} must be a character vector that does not contain NAs."),
+      tr_(
+        "{.arg pattern} must be a character vector that does not contain NAs."
+      ),
       call = error_call
     )
   }
@@ -220,7 +236,9 @@ type.default <- function(x, error_call = caller_env()) {
   }
 
   cli::cli_abort(
-    tr_("{.arg pattern} must be a character vector, not {.obj_type_friendly {x}}."),
+    tr_(
+      "{.arg pattern} must be a character vector, not {.obj_type_friendly {x}}."
+    ),
     call = error_call
   )
 }
