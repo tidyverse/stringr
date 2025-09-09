@@ -52,3 +52,8 @@ test_that("str_subset() preserves names of retained elements", {
   out <- str_subset(x, "[12]")
   expect_equal(names(out), c("B", "A"))
 })
+
+test_that("str_subset() never matches missing values", {
+  expect_equal(str_subset(c("a", NA, "b"), "."), c("a", "b"))
+  expect_identical(str_subset(NA, "."), character(0))
+})
