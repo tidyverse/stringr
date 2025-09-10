@@ -50,10 +50,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
     regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
   )
 
-  if (length(out) == length(string)) {
-    names(out) <- names(string)
-  }
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' Detect the presence/absence of a match at the start/end
@@ -93,8 +90,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
       stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
     }
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @rdname str_starts
@@ -113,8 +109,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
       stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
     }
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
@@ -176,8 +171,7 @@ str_like <- function(string, pattern, ignore_case = deprecated()) {
 
   pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)
   out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @export
@@ -191,8 +185,7 @@ str_ilike <- function(string, pattern) {
 
   pattern <- regex(like_to_regex(pattern), ignore_case = TRUE)
   out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 like_to_regex <- function(pattern) {

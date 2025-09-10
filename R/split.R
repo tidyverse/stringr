@@ -77,13 +77,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
   )
 
-  if (is.list(out) && length(out) == length(string)) {
-    names(out) <- names(string)
-  } else if (is.matrix(out) && nrow(out) == length(string)) {
-    rownames(out) <- names(string)
-  }
-
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @export
@@ -113,8 +107,7 @@ str_split_i <- function(string, pattern, i) {
   if (i > 0) {
     out <- str_split(string, pattern, simplify = NA, n = i + 1)
     col <- out[, i]
-    if (length(col) == length(string)) names(col) <- names(string)
-    col
+    if (keep_names(string, pattern)) copy_names(string, col) else col
   } else if (i < 0) {
     i <- abs(i)
     pieces <- str_split(string, pattern)
@@ -127,8 +120,7 @@ str_split_i <- function(string, pattern, i) {
       }
     }
     out <- map_chr(pieces, last)
-    if (length(out) == length(string)) names(out) <- names(string)
-    out
+    if (keep_names(string, pattern)) copy_names(string, out) else out
   } else {
     cli::cli_abort(tr_("{.arg i} must not be 0."))
   }

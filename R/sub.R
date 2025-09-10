@@ -69,8 +69,7 @@ str_sub <- function(string, start = 1L, end = -1L) {
   } else {
     stri_sub(string, from = start, to = end)
   }
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (length(out) == length(string)) copy_names(string, out) else out
 }
 
 
@@ -95,6 +94,5 @@ str_sub_all <- function(string, start = 1L, end = -1L) {
   } else {
     stri_sub_all(string, from = start, to = end)
   }
-  if (is.list(out) && length(out) == length(string)) names(out) <- names(string)
-  out
+  if (length(out) == length(string)) copy_names(string, out) else out
 }

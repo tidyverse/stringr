@@ -1,44 +1,48 @@
-test_that("keep_names preserves names when pattern is missing", {
-  x <- c(A = "a", B = "b")
+test_that("keep_names() returns logical flag based on inputs", {
+  string_unnamed_scalar <- "s"
+  string_named_scalar <- c("A" = "s")
+  string_unnamed_vector <- c("s1", "s2")
+  string_named_vector <- c(A = "s1", B = "s2")
+  pattern_scalar <- "p"
+  pattern_vector <- c("p1", "p2")
 
-  # vector output
-  out_vec <- c("x", "y")
-  res_vec <- keep_names(out_vec, x)
-  expect_equal(names(res_vec), names(x))
-
-  # matrix output
-  out_mat <- matrix(c("x", "y"), nrow = 2)
-  res_mat <- keep_names(out_mat, x)
-  expect_equal(rownames(res_mat), names(x))
+  expect_true(keep_names(string_named_scalar, pattern_scalar))
+  expect_false(keep_names(string_named_scalar, pattern_vector))
+  expect_true(keep_names(string_named_vector, pattern_scalar))
+  expect_true(keep_names(string_named_vector, pattern_vector))
+  expect_false(keep_names(string_unnamed_scalar, pattern_scalar))
+  expect_false(keep_names(string_unnamed_scalar, pattern_vector))
+  expect_false(keep_names(string_unnamed_vector, pattern_scalar))
+  expect_false(keep_names(string_unnamed_vector, pattern_vector))
 })
 
-test_that("keep_names preserves names when pattern has length 1", {
-  x <- c(A = "a", B = "b")
-  pattern <- "p"
-
-  # vector output
-  out_vec <- c("x", "y")
-  res_vec <- keep_names(out_vec, x, pattern)
-  expect_equal(names(res_vec), names(x))
-
-  # matrix output
-  out_mat <- matrix(c("x", "y"), nrow = 2)
-  res_mat <- keep_names(out_mat, x, pattern)
-  expect_equal(rownames(res_mat), names(x))
+test_that("copy_names() applies names to vectors", {
+  from <- c(A = "a", B = "b")
+  to <- c("x", "y")
+  out <- copy_names(from, to)
+  expect_equal(names(out), names(from))
 })
 
-test_that("keep_names preserves names when pattern matches string length", {
-  x <- c(A = "a", B = "b")
-  pattern <- c("p1", "p2")
-
-  # vector output
-  out_vec <- c("x", "y")
-  res_vec <- keep_names(out_vec, x, pattern)
-  expect_equal(names(res_vec), names(x))
-
-  # matrix output
-  out_mat <- matrix(c("x", "y"), nrow = 2)
-  res_mat <- keep_names(out_mat, x, pattern)
-  expect_equal(rownames(res_mat), names(x))
+test_that("copy_names() applies rownames to matrices", {
+  from <- c(A = "a", B = "b")
+  to <- matrix(c("x", "y"), nrow = 2)
+  out <- copy_names(from, to)
+  expect_equal(rownames(out), names(from))
 })
 
+test_that("copy_names() applies names to lists", {
+  from <- c(A = "a", B = "b")
+  to <- list("x", "y")
+  out <- copy_names(from, to)
+  expect_equal(names(out), names(from))
+})
+
+test_that("copy_names() is a no-op for unnamed inputs", {
+  from <- c("a", "b")
+  to_vec <- c("x", "y")
+  to_mat <- matrix(c("x", "y"), nrow = 2)
+  out_vec <- copy_names(from, to_vec)
+  out_mat <- copy_names(from, to_mat)
+  expect_null(names(out_vec))
+  expect_null(rownames(out_mat))
+})

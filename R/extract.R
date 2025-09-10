@@ -41,8 +41,7 @@
 str_extract <- function(string, pattern, group = NULL) {
   if (!is.null(group)) {
     out <- str_match(string, pattern)[, group + 1]
-    if (length(out) == length(string)) names(out) <- names(string)
-    return(out)
+    return(if (keep_names(string, pattern)) copy_names(string, out) else out)
   }
 
   check_lengths(string, pattern)
@@ -54,8 +53,7 @@ str_extract <- function(string, pattern, group = NULL) {
     coll  = stri_extract_first_coll(string, pattern, opts_collator = opt),
     regex = stri_extract_first_regex(string, pattern, opts_regex = opt)
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @rdname str_extract
@@ -77,10 +75,5 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
     regex = stri_extract_all_regex(string, pattern,
       simplify = simplify, omit_no_match = TRUE, opts_regex = opt)
   )
-  if (simplify) {
-    if (nrow(out) == length(string)) rownames(out) <- names(string)
-  } else {
-    if (length(out) == length(string)) names(out) <- names(string)
-  }
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }

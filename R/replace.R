@@ -86,8 +86,7 @@ str_replace <- function(string, pattern, replacement) {
     regex = stri_replace_first_regex(string, pattern, fix_replacement(replacement),
       opts_regex = opts(pattern))
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @export
@@ -119,8 +118,7 @@ str_replace_all <- function(string, pattern, replacement) {
     regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
       vectorize_all = vec, opts_regex = opts(pattern))
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 is_replacement_fun <- function(x) {

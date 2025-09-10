@@ -44,8 +44,7 @@ str_locate <- function(string, pattern) {
     coll  = stri_locate_first_coll(string, pattern, opts_collator = opts(pattern)),
     regex = stri_locate_first_regex(string, pattern, opts_regex = opts(pattern))
   )
-  if (is.matrix(out) && nrow(out) == length(string)) rownames(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @rdname str_locate
@@ -61,8 +60,7 @@ str_locate_all <- function(string, pattern) {
     regex = stri_locate_all_regex(string, pattern, omit_no_match = TRUE, opts_regex = opts),
     coll  = stri_locate_all_coll(string, pattern, omit_no_match = TRUE, opts_collator = opts)
   )
-  if (is.list(out) && length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 

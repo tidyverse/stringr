@@ -58,8 +58,7 @@ str_match <- function(string, pattern) {
     pattern,
     opts_regex = opts(pattern)
   )
-  if (is.matrix(out) && nrow(out) == length(string)) rownames(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @rdname str_match
@@ -75,6 +74,5 @@ str_match_all <- function(string, pattern) {
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )
-  if (is.list(out) && length(out) == length(string)) names(out) <- names(string)
-  out
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }

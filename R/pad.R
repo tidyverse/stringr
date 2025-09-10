@@ -37,6 +37,5 @@ str_pad <- function(string, width, side = c("left", "right", "both"), pad = " ",
     right = stri_pad_right(string, width, pad = pad, use_length = !use_width),
     both = stri_pad_both(string, width, pad = pad, use_length = !use_width)
   )
-  if (length(out) == length(string)) names(out) <- names(string)
-  out
+  if (length(out) == length(string)) copy_names(string, out) else out
 }
