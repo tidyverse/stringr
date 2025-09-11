@@ -87,9 +87,11 @@ str_sort <- function(x,
   check_bool(numeric)
 
   opts <- stri_opts_collator(locale, numeric = numeric, ...)
-  stri_sort(x,
+  idx <- stri_order(
+    x,
     decreasing = decreasing,
     na_last = na_last,
     opts_collator = opts
   )
+  x[idx]
 }

@@ -63,3 +63,23 @@ test_that("can extract boundaries", {
   )
 })
 
+test_that("str_extract() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_extract(x, "[0-9]")), names(x))
+})
+
+test_that("str_extract_all() preserves names on outer structure", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_extract_all(x, "[0-9]")), names(x))
+})
+
+test_that("str_extract and extract_all handle vectorised patterns and names", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(names(str_extract(x1, p2)))
+  expect_null(names(str_extract_all(x1, p2)))
+
+  x2 <- c(A = "ab", B = "cd")
+  expect_equal(names(str_extract(x2, p2)), names(x2))
+  expect_equal(names(str_extract_all(x2, p2)), names(x2))
+})

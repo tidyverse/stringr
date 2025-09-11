@@ -54,10 +54,11 @@ str_match <- function(string, pattern) {
     cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
-  stri_match_first_regex(string,
+  out <- stri_match_first_regex(string,
     pattern,
     opts_regex = opts(pattern)
   )
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }
 
 #' @rdname str_match
@@ -68,9 +69,10 @@ str_match_all <- function(string, pattern) {
     cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
-  stri_match_all_regex(string,
+  out <- stri_match_all_regex(string,
     pattern,
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )
+  if (keep_names(string, pattern)) copy_names(string, out) else out
 }

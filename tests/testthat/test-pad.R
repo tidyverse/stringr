@@ -35,3 +35,8 @@ test_that("uses tidyverse recycling rules", {
     class = "vctrs_error_incompatible_size"
   )
 })
+
+test_that("str_pad() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_pad(x, 2, side = "left")), names(x))
+})

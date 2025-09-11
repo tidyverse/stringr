@@ -113,3 +113,13 @@ test_that("bad vectorisation gives informative error", {
     str_sub(x, 1:2, 1:2) <- 1:3
   })
 })
+
+test_that("str_sub() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_sub(x, 1, 1)), names(x))
+})
+
+test_that("str_sub_all() preserves names on outer structure", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_sub_all(x, 1, 1)), names(x))
+})

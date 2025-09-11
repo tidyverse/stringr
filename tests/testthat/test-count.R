@@ -20,3 +20,20 @@ test_that("can count boundaries", {
   expect_equal(str_count("a b c", ""), 5)
   expect_equal(str_count("a b c", boundary("word")), 3)
 })
+
+test_that("str_count() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_count(x, ".")), names(x))
+})
+
+test_that("str_count() drops names when pattern is vector and string is scalar", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(names(str_count(x1, p2)))
+})
+
+test_that("str_count() preserves names when pattern and string have same length", {
+  x2 <- c(A = "ab", B = "cd")
+  p2 <- c("a", "c")
+  expect_equal(names(str_count(x2, p2)), names(x2))
+})
