@@ -1,19 +1,13 @@
 test_that("keep_names() returns logical flag based on inputs", {
-  string_unnamed_scalar <- "s"
-  string_named_scalar <- c("A" = "s")
-  string_unnamed_vector <- c("s1", "s2")
-  string_named_vector <- c(A = "s1", B = "s2")
+  string_scalar <- c("A" = "s")
+  string_vector <- c(A = "s1", B = "s2")
   pattern_scalar <- "p"
   pattern_vector <- c("p1", "p2")
 
-  expect_true(keep_names(string_named_scalar, pattern_scalar))
-  expect_false(keep_names(string_named_scalar, pattern_vector))
-  expect_true(keep_names(string_named_vector, pattern_scalar))
-  expect_true(keep_names(string_named_vector, pattern_vector))
-  expect_false(keep_names(string_unnamed_scalar, pattern_scalar))
-  expect_false(keep_names(string_unnamed_scalar, pattern_vector))
-  expect_false(keep_names(string_unnamed_vector, pattern_scalar))
-  expect_false(keep_names(string_unnamed_vector, pattern_vector))
+  expect_true(keep_names(string_scalar, pattern_scalar))
+  expect_false(keep_names(string_scalar, pattern_vector))
+  expect_true(keep_names(string_vector, pattern_scalar))
+  expect_true(keep_names(string_vector, pattern_vector))
 })
 
 test_that("copy_names() applies names to vectors", {

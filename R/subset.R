@@ -30,18 +30,17 @@ str_subset <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  if (type(pattern) == "empty") no_empty()
-  if (type(pattern) == "bound") no_boundary()
+  idx <- switch(
+    type(pattern),
+    empty = no_empty(),
+    bound = no_boundary(),
+    fixed = str_detect(string, pattern, negate = negate),
+    coll = str_detect(string, pattern, negate = negate),
+    regex = str_detect(string, pattern, negate = negate)
+  )
 
-  idx <- str_detect(string, pattern, negate = negate)
-  # str_detect() returns NA for NAs in string, but str_subset() should drop them
   idx[is.na(idx)] <- FALSE
-  out <- string[idx]
-  # Work around the fact that as.character() drops names
-  nm <- names(out)
-  out <- as.character(out)
-  names(out) <- nm
-  out
+  string[idx]
 }
 
 #' Find matching indices

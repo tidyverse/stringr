@@ -27,10 +27,6 @@ str_unique <- function(string, locale = "en", ignore_case = FALSE, ...) {
     ...
   )
 
-  # Ensure character output while preserving names of first occurrences
-  string_chr <- as.character(string)
-  keep <- !stringi::stri_duplicated(string_chr, opts_collator = opts)
-  out <- string_chr[keep]
-  names(out) <- names(string)[keep]
-  out
+  keep <- !stringi::stri_duplicated(string, opts_collator = opts)
+  string[keep]
 }

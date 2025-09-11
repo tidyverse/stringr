@@ -55,5 +55,5 @@ test_that("str_subset() preserves names of retained elements", {
 
 test_that("str_subset() never matches missing values", {
   expect_equal(str_subset(c("a", NA, "b"), "."), c("a", "b"))
-  expect_identical(str_subset(NA, "."), character(0))
+  expect_identical(str_subset(NA_character_, "."), character(0))
 })
