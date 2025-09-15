@@ -76,15 +76,28 @@ str_replace <- function(string, pattern, replacement) {
 
   check_lengths(string, pattern, replacement)
 
-  switch(type(pattern),
+  switch(
+    type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = stri_replace_first_fixed(string, pattern, replacement,
-      opts_fixed = opts(pattern)),
-    coll  = stri_replace_first_coll(string, pattern, replacement,
-      opts_collator = opts(pattern)),
-    regex = stri_replace_first_regex(string, pattern, fix_replacement(replacement),
-      opts_regex = opts(pattern))
+    fixed = stri_replace_first_fixed(
+      string,
+      pattern,
+      replacement,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_replace_first_coll(
+      string,
+      pattern,
+      replacement,
+      opts_collator = opts(pattern)
+    ),
+    regex = stri_replace_first_regex(
+      string,
+      pattern,
+      fix_replacement(replacement),
+      opts_regex = opts(pattern)
+    )
   )
 }
 
@@ -96,7 +109,6 @@ str_replace_all <- function(string, pattern, replacement) {
     return(str_transform_all(string, pattern, replacement))
   }
 
-
   if (!is.null(names(pattern))) {
     vec <- FALSE
     replacement <- unname(pattern)
@@ -106,16 +118,31 @@ str_replace_all <- function(string, pattern, replacement) {
     vec <- TRUE
   }
 
-
-  switch(type(pattern),
+  switch(
+    type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = stri_replace_all_fixed(string, pattern, replacement,
-      vectorize_all = vec, opts_fixed = opts(pattern)),
-    coll  = stri_replace_all_coll(string, pattern, replacement,
-      vectorize_all = vec, opts_collator = opts(pattern)),
-    regex = stri_replace_all_regex(string, pattern, fix_replacement(replacement),
-      vectorize_all = vec, opts_regex = opts(pattern))
+    fixed = stri_replace_all_fixed(
+      string,
+      pattern,
+      replacement,
+      vectorize_all = vec,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_replace_all_coll(
+      string,
+      pattern,
+      replacement,
+      vectorize_all = vec,
+      opts_collator = opts(pattern)
+    ),
+    regex = stri_replace_all_regex(
+      string,
+      pattern,
+      fix_replacement(replacement),
+      vectorize_all = vec,
+      opts_regex = opts(pattern)
+    )
   )
 }
 
@@ -189,7 +216,12 @@ str_transform <- function(string, pattern, replacement) {
   string
 }
 
-str_transform_all <- function(string, pattern, replacement, error_call = caller_env()) {
+str_transform_all <- function(
+  string,
+  pattern,
+  replacement,
+  error_call = caller_env()
+) {
   locs <- str_locate_all(string, pattern)
 
   old <- str_sub_all(string, locs)
@@ -219,13 +251,17 @@ str_transform_all <- function(string, pattern, replacement, error_call = caller_
 
   if (!is.character(new_flat)) {
     cli::cli_abort(
-      tr_("{.arg replacement} function must return a character vector, not {.obj_type_friendly {new_flat}}."),
+      tr_(
+        "{.arg replacement} function must return a character vector, not {.obj_type_friendly {new_flat}}."
+      ),
       call = error_call
     )
   }
   if (length(new_flat) != length(old_flat)) {
     cli::cli_abort(
-      tr_("{.arg replacement} function must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}."),
+      tr_(
+        "{.arg replacement} function must return a vector the same length as the input ({length(old_flat)}), not length {length(new_flat)}."
+      ),
       call = error_call
     )
   }

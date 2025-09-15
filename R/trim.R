@@ -19,10 +19,11 @@
 str_trim <- function(string, side = c("both", "left", "right")) {
   side <- arg_match(side)
 
-  switch(side,
-    left =  stri_trim_left(string),
+  switch(
+    side,
+    left = stri_trim_left(string),
     right = stri_trim_right(string),
-    both =  stri_trim_both(string)
+    both = stri_trim_both(string)
   )
 }
 
