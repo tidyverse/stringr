@@ -5,7 +5,7 @@ articles:
   from-base: from-base.html
   regular-expressions: regular-expressions.html
   stringr: stringr.html
-last_built: 2025-09-08T22:23Z
+last_built: 2025-09-15T12:50Z
 urls:
   reference: https://stringr.tidyverse.org/reference
   article: https://stringr.tidyverse.org/articles
