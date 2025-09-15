@@ -25,7 +25,6 @@ test_that("str_starts() and str_ends() match expected strings", {
 })
 
 test_that("can use fixed() and coll()", {
-
   expect_equal(str_detect("X", fixed(".")), FALSE)
   expect_equal(str_starts("X", fixed(".")), FALSE)
   expect_equal(str_ends("X", fixed(".")), FALSE)
@@ -83,7 +82,6 @@ test_that("detection preserves names when pattern and string have same length", 
 
 # str_like ----------------------------------------------------------------
 
-
 test_that("str_like is case sensitive", {
   expect_true(str_like("abc", "ab%"))
   expect_false(str_like("abc", "AB%"))
@@ -104,7 +102,7 @@ test_that("str_ilike works", {
   expect_snapshot(str_ilike("abc", regex("x")), error = TRUE)
 })
 
-test_that("like_to_regex generates expected regexps",{
+test_that("like_to_regex generates expected regexps", {
   expect_equal(like_to_regex("ab%"), "^ab.*$")
   expect_equal(like_to_regex("ab_"), "^ab.$")
 

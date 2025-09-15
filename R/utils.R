@@ -8,7 +8,12 @@
 #' @usage lhs \%>\% rhs
 NULL
 
-check_lengths <- function(string, pattern, replacement = NULL, error_call = caller_env()) {
+check_lengths <- function(
+  string,
+  pattern,
+  replacement = NULL,
+  error_call = caller_env()
+) {
   # stringi already correctly recycles vectors of length 0 and 1
   # we just want more stringent vctrs checks for other lengths
   vctrs::vec_size_common(
@@ -23,7 +28,10 @@ no_boundary <- function(call = caller_env()) {
   cli::cli_abort(tr_("{.arg pattern} can't be a boundary."), call = call)
 }
 no_empty <- function(call = caller_env()) {
-  cli::cli_abort(tr_("{.arg pattern} can't be the empty string ({.code \"\"})."), call = call)
+  cli::cli_abort(
+    tr_("{.arg pattern} can't be the empty string ({.code \"\"})."),
+    call = call
+  )
 }
 
 tr_ <- function(...) {
@@ -35,7 +43,9 @@ tr_ <- function(...) {
 # For matrix output, set `rownames`.
 copy_names <- function(from, to) {
   nm <- names(from)
-  if (is.null(nm)) return(to)
+  if (is.null(nm)) {
+    return(to)
+  }
 
   if (is.matrix(to)) {
     rownames(to) <- nm

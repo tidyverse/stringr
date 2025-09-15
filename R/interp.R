@@ -58,7 +58,7 @@ str_interp <- function(string, env = parent.frame()) {
   string <- str_c(string, collapse = "")
 
   # Find expression placeholders
-  matches      <- interp_placeholders(string)
+  matches <- interp_placeholders(string)
 
   # Determine if any placeholders were found.
   if (matches$indices[1] <= 0) {
@@ -87,16 +87,19 @@ str_interp <- function(string, env = parent.frame()) {
 #' @author Stefan Milton Bache
 interp_placeholders <- function(string, error_call = caller_env()) {
   # Find starting position of ${} or $[]{} placeholders.
-  starts   <- gregexpr("\\$(\\[.*?\\])?\\{", string)[[1]]
+  starts <- gregexpr("\\$(\\[.*?\\])?\\{", string)[[1]]
 
   # Return immediately if no matches are found.
-  if (starts[1] <= 0)
+  if (starts[1] <= 0) {
     return(list(indices = starts))
+  }
 
   # Break up the string in parts
-  parts <- substr(rep(string, length(starts)),
-                  start = starts,
-                  stop  = c(starts[-1L] - 1L, nchar(string)))
+  parts <- substr(
+    rep(string, length(starts)),
+    start = starts,
+    stop = c(starts[-1L] - 1L, nchar(string))
+  )
 
   # If there are nested placeholders, each part will not contain a full
   # placeholder in which case we report invalid string interpolation template.
@@ -108,7 +111,7 @@ interp_placeholders <- function(string, error_call = caller_env()) {
   }
 
   # For each part, find the opening and closing braces.
-  opens  <- lapply(strsplit(parts, ""), function(v) which(v == "{"))
+  opens <- lapply(strsplit(parts, ""), function(v) which(v == "{"))
   closes <- lapply(strsplit(parts, ""), function(v) which(v == "}"))
 
   # Identify the positions within the parts of the matching closing braces.
@@ -120,8 +123,10 @@ interp_placeholders <- function(string, error_call = caller_env()) {
 
   # Return both the indices (regex match data) and the actual placeholder
   # matches (as strings.)
-  list(indices = starts,
-       matches = mapply(substr, starts, starts + lengths - 1, x = string))
+  list(
+    indices = starts,
+    matches = mapply(substr, starts, starts + lengths - 1, x = string)
+  )
 }
 
 #' Evaluate String Interpolation Matches
@@ -143,8 +148,12 @@ eval_interp_matches <- function(matches, env, error_call = caller_env()) {
   expressions <- extract_expressions(matches, error_call = error_call)
 
   # Evaluate them in the given environment
-  values <- lapply(expressions, eval, envir = env,
-                   enclos = if (is.environment(env)) env else environment(env))
+  values <- lapply(
+    expressions,
+    eval,
+    envir = env,
+    enclos = if (is.environment(env)) env else environment(env)
+  )
 
   # Find the formats to be used
   formats <- extract_formats(matches)
@@ -182,7 +191,7 @@ extract_expressions <- function(matches, error_call = caller_env()) {
   }
 
   # string representation of the expressions (without the possible formats).
-  strings  <- gsub("\\$(\\[.+?\\])?\\{", "", matches)
+  strings <- gsub("\\$(\\[.+?\\])?\\{", "", matches)
 
   # Remove the trailing closing brace and parse.
   lapply(substr(strings, 1L, nchar(strings) - 1), parse_text)
@@ -230,7 +239,7 @@ match_brace <- function(opening, closing) {
   path <- numeric(max_close)
 
   # Set openings to 1, and closings to -1
-  path[opening[opening < max_close]] <-  1
+  path[opening[opening < max_close]] <- 1
   path[closing] <- -1
 
   # Cumulate the path ...

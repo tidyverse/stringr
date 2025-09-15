@@ -12,9 +12,15 @@ test_that("str_split functions as expected", {
 
 test_that("str_split() can split by special patterns", {
   expect_equal(str_split("ab", ""), list(c("a", "b")))
-  expect_equal(str_split("this that.", boundary("word")), list(c("this", "that")))
+  expect_equal(
+    str_split("this that.", boundary("word")),
+    list(c("this", "that"))
+  )
   expect_equal(str_split("a-b", fixed("-")), list(c("a", "b")))
-  expect_equal(str_split("aXb", coll("X", ignore_case = TRUE)), list(c("a", "b")))
+  expect_equal(
+    str_split("aXb", coll("X", ignore_case = TRUE)),
+    list(c("a", "b"))
+  )
 })
 
 test_that("boundary() can be recycled", {
@@ -48,7 +54,8 @@ test_that("str_split_1 takes string and returns character vector", {
 test_that("str_split_fixed pads with empty string", {
   expect_equal(
     str_split_fixed(c("a", "a-b"), "-", 1),
-    cbind(c("a", "a-b")))
+    cbind(c("a", "a-b"))
+  )
   expect_equal(
     str_split_fixed(c("a", "a-b"), "-", 2),
     cbind(c("a", "a"), c("", "b"))

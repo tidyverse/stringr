@@ -24,7 +24,7 @@ length of \code{string}/\code{pattern}. The first column is the complete match,
 followed by one column for each capture group. The columns will be named
 if you used "named captured groups", i.e. \verb{(?<name>pattern')}.
 \item \code{str_match_all()}: a list of the same length as \code{string}/\code{pattern}
-containing character matrices. Each matrix has columns as descrbed above
+containing character matrices. Each matrix has columns as described above
 and one row for each match.
 }
 }

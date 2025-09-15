@@ -39,8 +39,10 @@ str_to_lower <- function(string, locale = "en") {
 #' @rdname case
 str_to_title <- function(string, locale = "en") {
   check_string(locale)
-  out <- stri_trans_totitle(string,
-                            opts_brkiter = stri_opts_brkiter(locale = locale))
+  out <- stri_trans_totitle(
+    string,
+    opts_brkiter = stri_opts_brkiter(locale = locale)
+  )
   copy_names(string, out)
 }
 #' @export

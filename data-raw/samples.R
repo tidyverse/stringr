@@ -2,7 +2,8 @@ words <- rcorpora::corpora("words/common")$commonWords
 fruit <- rcorpora::corpora("foods/fruits")$fruits
 
 html <- read_html("https://harvardsentences.com")
-html %>% html_elements("li") %>%
+html %>%
+  html_elements("li") %>%
   html_text() %>%
   iconv(to = "ASCII//translit") %>%
   writeLines("data-raw/harvard-sentences.txt")
