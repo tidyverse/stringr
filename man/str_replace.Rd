@@ -65,8 +65,8 @@ str_replace(fruits, c("a", "e", "i"), "-")
 
 # If you want to apply multiple patterns and replacements to the same
 # string, pass a named vector to pattern.
-fruits \%>\%
-  str_c(collapse = "---") \%>\%
+fruits |>
+  str_c(collapse = "---") |>
   str_replace_all(c("one" = "1", "two" = "2", "three" = "3"))
 
 # Use a function for more sophisticated replacement. This example
