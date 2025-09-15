@@ -44,5 +44,6 @@ str_pad <- function(
     right = stri_pad_right(string, width, pad = pad, use_length = !use_width),
     both = stri_pad_both(string, width, pad = pad, use_length = !use_width)
   )
+  # Preserve names unless `string` is recycled
   if (length(out) == length(string)) copy_names(string, out) else out
 }

@@ -69,6 +69,7 @@ str_sub <- function(string, start = 1L, end = -1L) {
   } else {
     stri_sub(string, from = start, to = end)
   }
+  # Preserve names unless `string` is recycled
   if (length(out) == length(string)) copy_names(string, out) else out
 }
 
