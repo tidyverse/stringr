@@ -1,0 +1,129 @@
+---
+title: "Locale sensitive functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Locale sensitive functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| label = "setup",
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(stringr)
+```
+
+When you're working with non-English text, there may be special characters that you need to instruct R how to encode. For example, a character that looks the same, may be encoded differently.
+
+```r
+u <- c("\u00fc", "u\u0308")
+str_view(u)
+#> [1] │ ü
+#> [2] │ ü
+```
+
+Alternatively, two distinct characters may be treated as the same character. In Turkish, there are two i's, with and without a dot. However, default behavior will result in the two different lowercase i's being capitalized as the same letter.
+
+```r
+str_to_upper(c("i", "ı"))
+#> [1] "I" "I"
+```
+
+Within `stringr` there are a number of locale-sensitive functions, meaning their behavior depends on your locale. `stringr` defaults to English rules by using the “en” locale and requires you to specify the `locale` argument to override it. A locale is specified by a lower-case language abbreviation, optionally followed by an underscore (_) and an upper-case region identifier. For example, “en” is English, “en_GB” is British English, and “en_US” is American English. For a list of language codes see [Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes). To determine which locales are supported in `stringr`, see `stringi::stri_locale_list()`.
+
+The three main categories of locale dependent operations:
+
+1. Case conversion
+2. Sorting and ordering
+3. String comparison
+
+## Case conversion
+The rules for changing cases differ among languages. Let's return to Turkish, and its two i's. Since they are two distinct letters, they should be capitalized and lowercased differently by using the `locale` argument. Let's first see what happens when we don't use the `locale` argument.
+
+```r
+str_to_upper(c("i", "ı"))
+# [1] "I" "I"
+str_to_lower(c("İ", "I"))
+# [1] "i̇" "i"
+```
+
+Now, by specifying the correct locale, we get the correct case conversion.
+
+```{r}
+str_to_upper(c("i", "ı"), locale = "tr")
+str_to_lower(c("İ", "I"), locale = "tr")
+```
+
+It is also important to consider the locale when converting text to title case, as this also differs by language. For example, Dutch has a digraph (ij), a two symbol letter that is treated as a single letter. Default `string_to_title()` behavior would capitalize this digraph incorrectly by only capialising the first letter.
+
+```{r, warning=FALSE}
+dutch_words <- c("ijsvrij yoghurt", "ijmuiden", "bij elkaar")
+
+# Default English locale doesn't correctly capitalize IJ
+str_to_title(dutch_words) 
+
+# Specifying locale = "nl" results in the digraph being correctly capitalized
+str_to_title(dutch_words, locale = "nl")
+```
+
+*Note: `str_to_title()` handles character-level locale differences (e.g., Turkish i, Dutch ij), but it doesn't implement language-specific rules about which words to capitalize in titles (articles, prepositions, etc.). For that, you'd need specialized libraries or custom logic.*
+
+## Sorting and ordering
+Sorting strings correctly requires understanding that alphabetical order varies dramatically across languages. What seems like a simple A-Z sequence in English becomes complex when working internationally. For example, Lithuanian places 'y' between 'i' and 'k' rather than at the end of the alphabet. Czech treats "ch" as a single compound letter that sorts after all other 'h' words, not by the 'c'. These differences mean that sorting using the default English locale will appear completely scrambled to speakers of other languages. These sorting differences can be mitigated by using `str_sort()` and `str_order()` with explicit locale specification.
+
+```{r}
+czech_words <- c("had", "chata", "hrad", "chůze", "house")
+
+# Czech words sorted incorrectly with default locale
+str_sort(czech_words) 
+
+# Czech sorting - "ch" is a letter that comes after 'h'
+str_sort(czech_words, locale = "cs")
+str_order(czech_words, locale = "cs")
+```
+
+## String comparison
+As mentioned at the beginning of this vignette, letters that appear the same can have different Unicode representations, which may result in string comparison issues. Luckily, `str_equal()` handles Unicode normalization correctly.
+
+```{r}
+# Unicode normalization - identical appearance, different encoding
+name1 <- "José"           # precomposed é (single character)
+name2 <- "Jose\u0301"     # e + combining acute accent (two characters)
+
+# They look identical but aren't equal with ==
+name1 == name2
+
+# str_equal() handles Unicode normalization correctly
+str_equal(name1, name2)
+```
+
+Case-sensitive string comparison becomes problematic in international contexts because different languages have different rules for which characters are considered equivalent. To handle this properly, combine the `ignore_case = TRUE` argument with the appropriate locale setting to ensure that case folding follows the correct linguistic rules.
+
+```{r}
+turkish_names <- c("İpek", "Işık", "İbrahim")
+search_name <- "ipek"
+
+# English case-insensitive comparison - WRONG for Turkish
+str_equal(turkish_names, search_name, ignore_case = TRUE)
+
+# Turkish case-insensitive comparison - CORRECT
+str_equal(turkish_names, search_name, ignore_case = TRUE, locale = "tr")
+```
+
+In some situations, the same word or name can be represented in multiple ways. 
+
+```{r}
+# Multiple strings comparison
+customer_names <- c("Müller", "mueller", "MÜLLER", "Mueller")
+search_term <- "müller"
+# Case-insensitive with German locale
+str_equal(customer_names, search_term, ignore_case = TRUE, locale = "de")
+```
+
+## Other locale-sensitive functions
+
+When using case-insensitive pattern matching, functions like `str_detect()`, `str_extract()`, and `str_replace()` also become locale-sensitive.
