@@ -52,5 +52,5 @@ word <- function(string, start = 1L, end = start, sep = fixed(" ")) {
   starts <- mapply(function(word, loc) word[loc, "start"], words, start)
   ends <- mapply(function(word, loc) word[loc, "end"], words, end)
 
-  str_sub(string, starts, ends)
+  copy_names(string, str_sub(string, starts, ends))
 }

@@ -31,3 +31,8 @@ test_that("separator must be a single string", {
     str_dup("a", 3, sep = c("-", ";"))
   })
 })
+
+test_that("str_dup() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_dup(x, 2)), names(x))
+})

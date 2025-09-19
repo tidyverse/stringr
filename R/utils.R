@@ -37,3 +37,26 @@ no_empty <- function(call = caller_env()) {
 tr_ <- function(...) {
   enc2utf8(gettext(paste0(...), domain = "R-stringr"))
 }
+
+# Helper to copy names from `string` to output.
+# For vector output (including list), set `names`.
+# For matrix output, set `rownames`.
+copy_names <- function(from, to) {
+  nm <- names(from)
+  if (is.null(nm)) {
+    return(to)
+  }
+
+  if (is.matrix(to)) {
+    rownames(to) <- nm
+    to
+  } else {
+    set_names(to, nm)
+  }
+}
+
+# Whether to name the output using names from `string`:
+# We'll preserve names if pattern is scalar or aligns with string.
+keep_names <- function(string, pattern) {
+  length(pattern) == 1L || length(pattern) == length(string)
+}

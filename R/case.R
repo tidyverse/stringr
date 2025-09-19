@@ -27,30 +27,31 @@ NULL
 #' @rdname case
 str_to_upper <- function(string, locale = "en") {
   check_string(locale)
-
-  stri_trans_toupper(string, locale = locale)
+  copy_names(string, stri_trans_toupper(string, locale = locale))
 }
 #' @export
 #' @rdname case
 str_to_lower <- function(string, locale = "en") {
   check_string(locale)
-
-  stri_trans_tolower(string, locale = locale)
+  copy_names(string, stri_trans_tolower(string, locale = locale))
 }
 #' @export
 #' @rdname case
 str_to_title <- function(string, locale = "en") {
   check_string(locale)
-
-  stri_trans_totitle(string, opts_brkiter = stri_opts_brkiter(locale = locale))
+  out <- stri_trans_totitle(
+    string,
+    opts_brkiter = stri_opts_brkiter(locale = locale)
+  )
+  copy_names(string, out)
 }
 #' @export
 #' @rdname case
 str_to_sentence <- function(string, locale = "en") {
   check_string(locale)
-
-  stri_trans_totitle(
+  out <- stri_trans_totitle(
     string,
     opts_brkiter = stri_opts_brkiter(type = "sentence", locale = locale)
   )
+  copy_names(string, out)
 }

@@ -16,3 +16,8 @@ test_that("wrapping at whitespace break works", {
   expect_equal(str_wrap("a/b", width = 0, whitespace_only = TRUE), "a/b")
   expect_equal(str_wrap("a/b", width = 0, whitespace_only = FALSE), "a/\nb")
 })
+
+test_that("str_wrap() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_wrap(x)), names(x))
+})

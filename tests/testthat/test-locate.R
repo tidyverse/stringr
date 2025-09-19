@@ -70,3 +70,24 @@ test_that("can use boundaries", {
     list(cbind(start = c(2, 6), end = c(3, 7)))
   )
 })
+
+test_that("str_locate() preserves row names when 1:1 with input", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(rownames(str_locate(x, "[0-9]")), names(x))
+})
+
+test_that("str_locate_all() preserves names on outer structure", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_locate_all(x, "[0-9]")), names(x))
+})
+
+test_that("locate handles vectorised patterns and names", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(rownames(str_locate(x1, p2)))
+  expect_null(names(str_locate_all(x1, p2)))
+
+  x2 <- c(A = "ab", B = "cd")
+  expect_equal(rownames(str_locate(x2, p2)), names(x2))
+  expect_equal(names(str_locate_all(x2, p2)), names(x2))
+})

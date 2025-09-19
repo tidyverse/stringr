@@ -30,14 +30,17 @@ str_subset <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(
+  idx <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = string[str_detect(string, pattern, negate = negate)],
-    coll = string[str_detect(string, pattern, negate = negate)],
-    regex = string[str_detect(string, pattern, negate = negate)]
+    fixed = str_detect(string, pattern, negate = negate),
+    coll = str_detect(string, pattern, negate = negate),
+    regex = str_detect(string, pattern, negate = negate)
   )
+
+  idx[is.na(idx)] <- FALSE
+  string[idx]
 }
 
 #' Find matching indices
