@@ -373,7 +373,7 @@ will pick between one or more possible matches. For example,
 <span><span class="co">#&gt; [1] "gre" "ay"</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"grey"</span>, <span class="st">"gray"</span><span class="op">)</span>, <span class="st">"gr(e|a)y"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "grey" "gray"</span></span></code></pre></div>
-<p>Parenthesis also define “groups” that you can refer to with
+<p>Parentheses also define “groups” that you can refer to with
 <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code>
 etc, and can be extracted with <code><a href="../reference/str_match.html">str_match()</a></code>. For example,
 the following regular expression finds all fruits that have a repeated
@@ -409,6 +409,33 @@ slightly more efficient than capturing parentheses.</p>
 <span><span class="co">#&gt; [2,] "gray"</span></span></code></pre></div>
 <p>This is most useful for more complex cases where you need to capture
 matches and control precedence independently.</p>
+<p>You can use <code>(?&lt;name&gt;...)</code>, the named capture group,
+to provide a reference to the matched text. This is more readable and
+maintainable, especially with complex regular expressions, because you
+can reference the matched text by name instead of a potentially
+confusing numerical index.</p>
+<p><em>Note: <code>&lt;name&gt;</code> should not include an underscore
+because they are not supported.</em></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">date_string</span> <span class="op">&lt;-</span> <span class="st">"Today's date is 2025-09-19."</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})-(?&lt;day&gt;\\d{2})"</span></span>
+<span><span class="fu"><a href="../reference/str_match.html">str_match</a></span><span class="op">(</span><span class="va">date_string</span>, <span class="va">pattern</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                   year   month day </span></span>
+<span><span class="co">#&gt; [1,] "2025-09-19" "2025" "09"  "19"</span></span></code></pre></div>
+<p>You can then use <code>\k&lt;name&gt;</code> to backreference the
+previously captured named group. It is an alternative to the standard
+numbered backreferences like <code>\1</code> or <code>\2</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"This is is a test test with duplicates duplicates"</span></span>
+<span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"(?&lt;word&gt;\\b\\w+\\b)\\s+\\k&lt;word&gt;"</span></span>
+<span><span class="fu"><a href="../reference/str_subset.html">str_subset</a></span><span class="op">(</span><span class="va">text</span>, <span class="va">pattern</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "This is is a test test with duplicates duplicates"</span></span>
+<span><span class="fu"><a href="../reference/str_match.html">str_match_all</a></span><span class="op">(</span><span class="va">text</span>, <span class="va">pattern</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt;                              word        </span></span>
+<span><span class="co">#&gt; [1,] "is is"                 "is"        </span></span>
+<span><span class="co">#&gt; [2,] "test test"             "test"      </span></span>
+<span><span class="co">#&gt; [3,] "duplicates duplicates" "duplicates"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="anchors">Anchors<a class="anchor" aria-label="anchor" href="#anchors"></a>
@@ -422,7 +449,7 @@ it matches from the start or end of the string:</p>
 <li>
 <code>$</code> matches the end of the string.</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"^a"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "a" NA  NA</span></span>
@@ -442,7 +469,7 @@ operators:</p>
 <li><p><code>\Z</code> matches the end of the input, but before the
 final line terminator, if it exists.</p></li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"Line 1\nLine 2\nLine 3\n"</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract_all</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"^Line.."</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] "Line 1"</span></span>
@@ -464,7 +491,7 @@ operators:</p>
 <li>
 <code>*</code>: 0 or more.</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"1888 is the longest year in Roman numerals: MDCCCLXXXVIII"</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"CC?"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "CC"</span></span>
@@ -485,7 +512,7 @@ spellings. That means most uses will need parentheses, like
 <li>
 <code>{n,m}</code>: between n and m</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"C{2}"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "CC"</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"C{2,}"</span><span class="op">)</span></span>
@@ -508,7 +535,7 @@ possible by putting a <code>?</code> after them:</p>
 <code>{n,m}?</code>: between n and m, , match as few times as
 possible, but at least n.</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C{2,3}"</span>, <span class="st">"C{2,3}?"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "CCC" "CC"</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C[LX]+"</span>, <span class="st">"C[LX]+?"</span><span class="op">)</span><span class="op">)</span></span>
@@ -536,7 +563,7 @@ scenarios (called “catastrophic backtracking”).</p>
 <code>(?&gt;...)</code>. If a later match fails and the engine needs to
 back-track, an atomic match is kept as is: it succeeds or fails as a
 whole. Compare the following two regular expressions:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"ABC"</span>, <span class="st">"(?&gt;A|.B)C"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"ABC"</span>, <span class="st">"(?:A|.B)C"</span><span class="op">)</span></span>
@@ -569,7 +596,7 @@ current position. Length must be bounded<br>
 </ul>
 <p>These are useful when you want to check that a pattern exists, but
 you don’t want to include it in the result:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1 piece"</span>, <span class="st">"2 pieces"</span>, <span class="st">"3"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"\\d+(?= pieces?)"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "1" "2" NA</span></span>
@@ -583,7 +610,7 @@ you don’t want to include it in the result:</p>
 </h2>
 <p>There are two ways to include comments in a regular expression. The
 first is with <code>(?#...)</code>:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>The second is to use <code>regex(comments = TRUE)</code>. This form
@@ -591,7 +618,7 @@ ignores spaces and newlines, and anything everything after
 <code>#</code>. To match a literal space, you’ll need to escape it:
 <code>"\\ "</code>. This is a useful way of describing complex regular
 expressions:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">phone</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">  \\(?       # optional opening parens</span></span>
 <span><span class="st">  (\\d{3})   # area code</span></span>
