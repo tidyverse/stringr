@@ -39,6 +39,7 @@
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_starts.html</loc></url>
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_sub.html</loc></url>
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_subset.html</loc></url>
+<url><loc>https://stringr.tidyverse.org/dev/reference/str_to_camel.html</loc></url>
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_trim.html</loc></url>
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_trunc.html</loc></url>
 <url><loc>https://stringr.tidyverse.org/dev/reference/str_unique.html</loc></url>
