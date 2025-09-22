@@ -1,6 +1,7 @@
 # stringr (development version)
 
 * New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573).
+* All relevant stringr functions now preserve names (@jonovik, #575).
 * New `vignette("locale-sensitive")` about locale sensitive functions (@kylieainslie, #404)
 * New `str_ilike()` that follows the conventions of the SQL ILIKE operator (@edward-burn, #543).
 * `str_like(ignore_case)` is deprecated, with `str_like()` now always case sensitive to better follow the conventions of the SQL LIKE operator (@edward-burn, #543).

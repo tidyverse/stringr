@@ -37,3 +37,31 @@ no_empty <- function(call = caller_env()) {
 tr_ <- function(...) {
   enc2utf8(gettext(paste0(...), domain = "R-stringr"))
 }
+
+# copy names from `string` to output, regardless of output type
+copy_names <- function(from, to) {
+  nm <- names(from)
+  if (is.null(nm)) {
+    return(to)
+  }
+
+  if (is.matrix(to)) {
+    rownames(to) <- nm
+    to
+  } else {
+    set_names(to, nm)
+  }
+}
+
+# keep names if pattern is scalar (i.e. vectorised) or same length as string.
+keep_names <- function(string, pattern) {
+  length(pattern) == 1L || length(pattern) == length(string)
+}
+
+preserve_names_if_possible <- function(string, pattern, out) {
+  if (keep_names(string, pattern)) {
+    copy_names(string, out)
+  } else {
+    out
+  }
+}

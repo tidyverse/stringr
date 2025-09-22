@@ -13,6 +13,13 @@ test_that("to_sentence capitalizes just the first letter", {
   expect_identical(str_to_sentence("a Test"), "A test")
 })
 
+test_that("case conversions preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_to_lower(x)), names(x))
+  expect_equal(names(str_to_upper(x)), names(x))
+  expect_equal(names(str_to_title(x)), names(x))
+})
+
 # programming cases -----------------------------------------------------------
 
 test_that("to_camel can control case of first argument", {

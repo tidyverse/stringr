@@ -38,10 +38,12 @@ str_pad <- function(
   side <- arg_match(side)
   check_bool(use_width)
 
-  switch(
+  out <- switch(
     side,
     left = stri_pad_left(string, width, pad = pad, use_length = !use_width),
     right = stri_pad_right(string, width, pad = pad, use_length = !use_width),
     both = stri_pad_both(string, width, pad = pad, use_length = !use_width)
   )
+  # Preserve names unless `string` is recycled
+  if (length(out) == length(string)) copy_names(string, out) else out
 }

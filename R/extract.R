@@ -40,30 +40,21 @@
 #' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern, group = NULL) {
   if (!is.null(group)) {
-    return(str_match(string, pattern)[, group + 1])
+    out <- str_match(string, pattern)[, group + 1]
+    return(preserve_names_if_possible(string, pattern, out))
   }
 
   check_lengths(string, pattern)
-  switch(
+  opt <- opts(pattern)
+  out <- switch(
     type(pattern),
-    empty = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
-    bound = stri_extract_first_boundaries(string, opts_brkiter = opts(pattern)),
-    fixed = stri_extract_first_fixed(
-      string,
-      pattern,
-      opts_fixed = opts(pattern)
-    ),
-    coll = stri_extract_first_coll(
-      string,
-      pattern,
-      opts_collator = opts(pattern)
-    ),
-    regex = stri_extract_first_regex(
-      string,
-      pattern,
-      opts_regex = opts(pattern)
-    )
+    empty = stri_extract_first_boundaries(string, opts_brkiter = opt),
+    bound = stri_extract_first_boundaries(string, opts_brkiter = opt),
+    fixed = stri_extract_first_fixed(string, pattern, opts_fixed = opt),
+    coll = stri_extract_first_coll(string, pattern, opts_collator = opt),
+    regex = stri_extract_first_regex(string, pattern, opts_regex = opt)
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_extract
@@ -72,40 +63,42 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
   check_lengths(string, pattern)
   check_bool(simplify)
 
-  switch(
+  opt <- opts(pattern)
+  out <- switch(
     type(pattern),
     empty = stri_extract_all_boundaries(
       string,
       simplify = simplify,
       omit_no_match = TRUE,
-      opts_brkiter = opts(pattern)
+      opts_brkiter = opt
     ),
     bound = stri_extract_all_boundaries(
       string,
       simplify = simplify,
       omit_no_match = TRUE,
-      opts_brkiter = opts(pattern)
+      opts_brkiter = opt
     ),
     fixed = stri_extract_all_fixed(
       string,
       pattern,
       simplify = simplify,
       omit_no_match = TRUE,
-      opts_fixed = opts(pattern)
+      opts_fixed = opt
     ),
     coll = stri_extract_all_coll(
       string,
       pattern,
       simplify = simplify,
       omit_no_match = TRUE,
-      opts_collator = opts(pattern)
+      opts_collator = opt
     ),
     regex = stri_extract_all_regex(
       string,
       pattern,
       simplify = simplify,
       omit_no_match = TRUE,
-      opts_regex = opts(pattern)
+      opts_regex = opt
     )
   )
+  preserve_names_if_possible(string, pattern, out)
 }

@@ -69,7 +69,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     n <- -1L
   }
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = stri_split_boundaries(
       string,
@@ -105,6 +105,8 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
       opts_collator = opts(pattern)
     )
   )
+
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -133,7 +135,8 @@ str_split_i <- function(string, pattern, i) {
 
   if (i > 0) {
     out <- str_split(string, pattern, simplify = NA, n = i + 1)
-    out[, i]
+    col <- out[, i]
+    if (keep_names(string, pattern)) copy_names(string, col) else col
   } else if (i < 0) {
     i <- abs(i)
     pieces <- str_split(string, pattern)
@@ -145,7 +148,8 @@ str_split_i <- function(string, pattern, i) {
         x[[n + 1 - i]]
       }
     }
-    map_chr(pieces, last)
+    out <- map_chr(pieces, last)
+    preserve_names_if_possible(string, pattern, out)
   } else {
     cli::cli_abort(tr_("{.arg i} must not be 0."))
   }

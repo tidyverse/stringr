@@ -76,7 +76,7 @@ str_replace <- function(string, pattern, replacement) {
 
   check_lengths(string, pattern, replacement)
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
@@ -99,6 +99,7 @@ str_replace <- function(string, pattern, replacement) {
       opts_regex = opts(pattern)
     )
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -118,7 +119,7 @@ str_replace_all <- function(string, pattern, replacement) {
     vec <- TRUE
   }
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
@@ -144,6 +145,7 @@ str_replace_all <- function(string, pattern, replacement) {
       opts_regex = opts(pattern)
     )
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 is_replacement_fun <- function(x) {
@@ -205,9 +207,8 @@ fix_replacement_one <- function(x) {
 #' str_replace_na(c(NA, "abc", "def"))
 str_replace_na <- function(string, replacement = "NA") {
   check_string(replacement)
-  stri_replace_na(string, replacement)
+  copy_names(string, stri_replace_na(string, replacement))
 }
-
 
 str_transform <- function(string, pattern, replacement) {
   loc <- str_locate(string, pattern)
