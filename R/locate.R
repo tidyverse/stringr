@@ -53,7 +53,7 @@ str_locate <- function(string, pattern) {
     ),
     regex = stri_locate_first_regex(string, pattern, opts_regex = opts(pattern))
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_locate
@@ -89,7 +89,7 @@ str_locate_all <- function(string, pattern) {
       opts_collator = opts
     )
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 

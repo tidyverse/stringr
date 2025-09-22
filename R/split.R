@@ -106,7 +106,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     )
   )
 
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -149,7 +149,7 @@ str_split_i <- function(string, pattern, i) {
       }
     }
     out <- map_chr(pieces, last)
-    if (keep_names(string, pattern)) copy_names(string, out) else out
+    preserve_names_if_possible(string, pattern, out)
   } else {
     cli::cli_abort(tr_("{.arg i} must not be 0."))
   }

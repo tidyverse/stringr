@@ -57,3 +57,11 @@ copy_names <- function(from, to) {
 keep_names <- function(string, pattern) {
   length(pattern) == 1L || length(pattern) == length(string)
 }
+
+preserve_names_if_possible <- function(string, pattern, out) {
+  if (keep_names(string, pattern)) {
+    copy_names(string, out)
+  } else {
+    out
+  }
+}

@@ -55,7 +55,7 @@ str_match <- function(string, pattern) {
   }
 
   out <- stri_match_first_regex(string, pattern, opts_regex = opts(pattern))
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_match
@@ -72,5 +72,5 @@ str_match_all <- function(string, pattern) {
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }

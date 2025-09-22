@@ -45,5 +45,5 @@ str_count <- function(string, pattern = "") {
     coll = stri_count_coll(string, pattern, opts_collator = opts(pattern)),
     regex = stri_count_regex(string, pattern, opts_regex = opts(pattern))
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }

@@ -99,7 +99,7 @@ str_replace <- function(string, pattern, replacement) {
       opts_regex = opts(pattern)
     )
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -145,7 +145,7 @@ str_replace_all <- function(string, pattern, replacement) {
       opts_regex = opts(pattern)
     )
   )
-  if (keep_names(string, pattern)) copy_names(string, out) else out
+  preserve_names_if_possible(string, pattern, out)
 }
 
 is_replacement_fun <- function(x) {
