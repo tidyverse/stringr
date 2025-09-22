@@ -89,17 +89,11 @@ str_to_pascal <- function(string, locale = "en") {
 }
 #' @export
 #' @rdname case
-StrToPascal <- str_to_pascal
-#' @export
-#' @rdname case
 str_to_camel <- function(string, locale = "en") {
   string <- str_to_pascal(string, locale = locale)
   string <- str_replace(string, pattern = "^.", replace = str_to_lower(str_sub(string, 1, 1)))
   return(string)
 }
-#' @export
-#' @rdname case
-strToCamel <- str_to_camel
 #' @export
 #' @rdname case
 str_to_snake <- function(string, separator = "_", locale = "en") {

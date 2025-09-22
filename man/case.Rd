@@ -7,9 +7,7 @@
 \alias{str_to_title}
 \alias{str_to_sentence}
 \alias{str_to_pascal}
-\alias{StrToPascal}
 \alias{str_to_camel}
-\alias{strToCamel}
 \alias{str_to_snake}
 \alias{str_to_kebab}
 \title{Convert string to upper case, lower case, title case, sentence case, pascal
@@ -25,11 +23,7 @@ str_to_sentence(string, locale = "en")
 
 str_to_pascal(string, locale = "en")
 
-StrToPascal(string, locale = "en")
-
 str_to_camel(string, locale = "en")
-
-strToCamel(string, locale = "en")
 
 str_to_snake(string, separator = "_", locale = "en")
 
