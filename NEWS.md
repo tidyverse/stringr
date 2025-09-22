@@ -1,5 +1,6 @@
 # stringr (development version)
 
+* New `vignette("locale-sensitive")` about locale sensitive functions (@kylieainslie, #404)
 * New `str_ilike()` that follows the conventions of the SQL ILIKE operator (@edward-burn, #543).
 * `str_like(ignore_case)` is deprecated, with `str_like()` now always case sensitive to better follow the conventions of the SQL LIKE operator (@edward-burn, #543).
 * `str_sub<-` now gives a more informative error if `value` is not the correct length.
