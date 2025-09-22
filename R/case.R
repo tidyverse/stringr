@@ -77,46 +77,46 @@ str_to_sentence <- function(string, locale = "en") {
 #'   lower case and separated by underscores (`_`).
 #' @inheritParams str_to_lower
 #' @export
-str_to_pascal <- function(string, locale = "en") {
-  stopifnot(is.character(string))
+#' @param first_upper Logical. Should the first letter be capitalized?
+str_to_camel <- function(string, first_upper = FALSE) {
+  check_character(string)
+  check_bool(first_upper)
+
   string <- string |>
-    str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
-    str_replace_all("([0-9])([a-zA-Z])", "\\1 \\2") |>
-    str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1 \\2") |>
-    str_replace_all(pattern = "[:punct:]", replace = " ") |>
-    str_to_title(locale = locale) |>
+    normalize() |>
+    str_to_title() |>
     str_remove_all(pattern = "\\s+")
-  return(string)
+
+  if (!first_upper) {
+    str_sub(string, 1, 1) <- str_to_lower(str_sub(string, 1, 1))
+  }
+
+  string
 }
 #' @export
 #' @rdname str_to_pascal
-str_to_camel <- function(string, locale = "en") {
-  string <- str_to_pascal(string, locale = locale)
-  string <- str_replace(
-    string,
-    pattern = "^.",
-    replace = str_to_lower(str_sub(string, 1, 1))
-  )
-  return(string)
+str_to_snake <- function(string) {
+  check_character(string)
+  string |>
+    normalize() |>
+    str_replace_all(pattern = "\\s+", replacement = "_")
 }
 #' @export
 #' @rdname str_to_pascal
-str_to_snake <- function(string, separator = "_", locale = "en") {
-  stopifnot(is.character(string))
-  string <- string |>
+str_to_kebab <- function(string) {
+  check_character(string)
+  string |>
+    normalize() |>
+    str_replace_all(pattern = "\\s+", replacement = "-")
+}
+
+normalize <- function(string) {
+  string |>
     str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
     str_replace_all("([a-zA-Z])([0-9])", "\\1 \\2") |>
     str_replace_all("([0-9])([a-zA-Z])", "\\1 \\2") |>
     str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1 \\2") |>
-    str_to_lower(locale = locale) |>
-    str_replace_all(pattern = "[:punct:]", replace = " ") |>
-    str_trim() |>
-    str_replace_all(pattern = "\\s+", replace = separator)
-  return(string)
-}
-#' @export
-#' @rdname str_to_pascal
-str_to_kebab <- function(string, locale = "en") {
-  string <- str_to_snake(string, separator = "-", locale = locale)
-  return(string)
+    str_to_lower() |>
+    str_replace_all(pattern = "[:punct:]", replacement = " ") |>
+    str_trim()
 }

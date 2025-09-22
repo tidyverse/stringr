@@ -13,22 +13,29 @@ test_that("to_sentence capitalizes just the first letter", {
   expect_identical(str_to_sentence("a Test"), "A test")
 })
 
-test_that("to_pascal converts to pascal case", {
-  expect_identical(str_to_pascal("This is a sentence."), "ThisIsASentence")
-})
+# programming cases -----------------------------------------------------------
 
-test_that("to_camel converts to camel casee", {
-  expect_identical(str_to_camel("This is a sentence."), "thisIsASentence")
+test_that("to_camel can control case of first argument", {
+  expect_equal(str_to_camel("my_variable"), "myVariable")
+  expect_equal(str_to_camel("my_variable", first_upper = TRUE), "MyVariable")
 })
 
 test_that("to_kebab converts to kebab case", {
-  expect_identical(str_to_kebab("This is a sentence."), "this-is-a-sentence")
+  expect_equal(str_to_kebab("myVariable"), "my-variable")
+  expect_equal(str_to_kebab("MyVariable"), "my-variable")
+  expect_equal(str_to_kebab("MyVariable1"), "my-variable-1")
 })
 
 test_that("to_snake converts to snake case", {
-  expect_identical(str_to_snake("This is a sentence."), "this_is_a_sentence")
+  expect_equal(str_to_snake("myVariable"), "my_variable")
+  expect_equal(str_to_snake("MyVariable"), "my_variable")
+  expect_equal(str_to_snake("MyVariable1"), "my_variable_1")
 })
 
-test_that("to_snake converts to snake case", {
-  expect_identical(str_to_snake("This is a sentence.", separator = "!"), "this!is!a!sentence")
+test_that("normalize handles common compound cases", {
+  expect_equal(normalize("a_b"), "a b")
+  expect_equal(normalize("a-b"), "a b")
+  expect_equal(normalize("aB"), "a b")
+  expect_equal(normalize("a123b"), "a 123 b")
+  expect_equal(normalize("HTML"), "html")
 })
