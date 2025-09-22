@@ -46,12 +46,6 @@ str_to_upper(dog)
 str_to_lower(dog)
 str_to_title(dog)
 str_to_sentence("the quick brown dog")
-str_to_pascal(dog)
-StrToPascal(dog)
-str_to_camel(dog)
-strToCamel(dog)
-str_to_kebab(dog)
-str_to_snake(dog)
 
 # Locale matters!
 str_to_upper("i") # English

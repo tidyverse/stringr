@@ -17,12 +17,6 @@
 #' str_to_lower(dog)
 #' str_to_title(dog)
 #' str_to_sentence("the quick brown dog")
-#' str_to_pascal(dog)
-#' StrToPascal(dog)
-#' str_to_camel(dog)
-#' strToCamel(dog)
-#' str_to_kebab(dog)
-#' str_to_snake(dog)
 #'
 #' # Locale matters!
 #' str_to_upper("i") # English
@@ -65,19 +59,25 @@ str_to_sentence <- function(string, locale = "en") {
 
 #' Convert between different types of programming case
 #'
-#' * `str_to_pascal()` converts to pascal case, where only the first letter of
-#'   each word is capitalized, with no separation between
-#'   words.
-#' * `str_to_camel()` converts to camel case, where only the first letter of
-#'   each word after the first word is capitalized, with no separation between
-#'   words.
+#' @description
+#' * `str_to_camel()` converts to camel case, where the first letter of
+#'   each word is capitalized, with no separation between words. By default
+#'   the first letter of the first word is not capitalized.
+#'
 #' * `str_to_kebab()` converts to kebab case, where words are converted to
 #'   lower case and separated by dashes (`-`).
+#'
 #' * `str_to_snake()` converts to snake case, where words are converted to
 #'   lower case and separated by underscores (`_`).
 #' @inheritParams str_to_lower
 #' @export
 #' @param first_upper Logical. Should the first letter be capitalized?
+#' @examples
+#' str_to_camel("my-variable")
+#' str_to_camel("my-variable", first_upper = TRUE)
+#'
+#' str_to_snake("MyVariable")
+#' str_to_kebab("MyVariable")
 str_to_camel <- function(string, first_upper = FALSE) {
   check_character(string)
   check_bool(first_upper)
@@ -94,7 +94,7 @@ str_to_camel <- function(string, first_upper = FALSE) {
   string
 }
 #' @export
-#' @rdname str_to_pascal
+#' @rdname str_to_camel
 str_to_snake <- function(string) {
   check_character(string)
   string |>
@@ -102,7 +102,7 @@ str_to_snake <- function(string) {
     str_replace_all(pattern = "\\s+", replacement = "_")
 }
 #' @export
-#' @rdname str_to_pascal
+#' @rdname str_to_camel
 str_to_kebab <- function(string) {
   check_character(string)
   string |>

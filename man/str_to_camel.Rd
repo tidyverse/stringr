@@ -2,9 +2,15 @@
 % Please edit documentation in R/case.R
 \name{str_to_camel}
 \alias{str_to_camel}
+\alias{str_to_snake}
+\alias{str_to_kebab}
 \title{Convert between different types of programming case}
 \usage{
 str_to_camel(string, first_upper = FALSE)
+
+str_to_snake(string)
+
+str_to_kebab(string)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -14,15 +20,19 @@ coercible to one.}
 }
 \description{
 \itemize{
-\item \code{str_to_pascal()} converts to pascal case, where only the first letter of
-each word is capitalized, with no separation between
-words.
-\item \code{str_to_camel()} converts to camel case, where only the first letter of
-each word after the first word is capitalized, with no separation between
-words.
+\item \code{str_to_camel()} converts to camel case, where the first letter of
+each word is capitalized, with no separation between words. By default
+the first letter of the first word is not capitalized.
 \item \code{str_to_kebab()} converts to kebab case, where words are converted to
 lower case and separated by dashes (\code{-}).
 \item \code{str_to_snake()} converts to snake case, where words are converted to
 lower case and separated by underscores (\verb{_}).
 }
+}
+\examples{
+str_to_camel("my-variable")
+str_to_camel("my-variable", first_upper = TRUE)
+
+str_to_snake("MyVariable")
+str_to_kebab("MyVariable")
 }
