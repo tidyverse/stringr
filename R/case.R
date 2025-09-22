@@ -9,7 +9,6 @@
 #'
 #' @inheritParams str_detect
 #' @inheritParams coll
-#' @param separator string. For snake case, can change the `_`
 #' @return A character vector the same length as `string`.
 #' @examples
 #' dog <- "The quick brown dog"

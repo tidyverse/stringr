@@ -24,8 +24,6 @@ coercible to one.}
 \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} for all possible options.
 Defaults to "en" (English) to ensure that default behaviour is
 consistent across platforms.}
-
-\item{separator}{string. For snake case, can change the \verb{_}}
 }
 \value{
 A character vector the same length as \code{string}.
