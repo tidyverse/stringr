@@ -38,9 +38,7 @@ tr_ <- function(...) {
   enc2utf8(gettext(paste0(...), domain = "R-stringr"))
 }
 
-# Helper to copy names from `string` to output.
-# For vector output (including list), set `names`.
-# For matrix output, set `rownames`.
+# copy names from `string` to output, regardless of output type
 copy_names <- function(from, to) {
   nm <- names(from)
   if (is.null(nm)) {
@@ -55,8 +53,7 @@ copy_names <- function(from, to) {
   }
 }
 
-# Whether to name the output using names from `string`:
-# We'll preserve names if pattern is scalar or aligns with string.
+# keep names if pattern is scalar (i.e. vectorised) or same length as string.
 keep_names <- function(string, pattern) {
   length(pattern) == 1L || length(pattern) == length(string)
 }
