@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-stringr provides a number of locale-sensitive functions, meaning their behavior depends on your locale, of which your language is a very important part. stringr defaults to English rules, `locale = "en"`, but you can override by providing a different `locale`. A locale is specified by a lower-case language abbreviation, optionally followed by an underscore (_) and an upper-case region identifier. For example, "en" is English, "en_GB" is British English, and "en_US" is American English. For a list of language codes see [Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes). To determine which locales are supported in stringr, see `stringi::stri_locale_list()`.
+stringr provides a number of locale-sensitive functions, i.e. functions whose behaviour depends on your locale, of which your language is a very important part. stringr defaults to English, `locale = "en"`, but you can override by providing a different `locale` specified by a lower-case language abbreviation, optionally followed by an underscore (_) and an upper-case region identifier. For example, "en" is English, "en_GB" is British English, and "en_US" is American English. For a list of language codes see [Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) and to see which are supported in stringr, run `stringi::stri_locale_list()`.
 
 There are three main types of function that vary based on locale:
 
@@ -26,7 +26,7 @@ There are three main types of function that vary based on locale:
 
 ## Case conversion
 
-Most languages that use the Latin alphabet (like English) have upper and lower case, but the rules aren't always the same. For example, Turkish has two forms of the letter "I", dotted and dotless.
+Most languages that use the Latin alphabet (like English) have upper and lower case, but the rules for converting between the two aren't always the same. For example, Turkish has two forms of the letter "I", dotted and dotless:
 
 ```{r}
 str_to_upper(c("i", "ı"))
@@ -35,7 +35,7 @@ str_to_upper(c("i", "ı"), locale = "tr")
 str_to_lower(c("İ", "I"), locale = "tr")
 ```
 
-Another example is Dutch, where "ij" is a digraph, a two symbol letter treated as a single letter. `string_to_title()` will incorrectly capitalizes this unless you specify the Dutch locale:
+Another example is Dutch, where "ij" is a digraph treated as a single letter. This means that `string_to_title()` will incorrectly capitalize it unless you use a Dutch locale:
 
 ```{r}
 #| warning: false
@@ -45,9 +45,9 @@ str_to_title(dutch_words)
 str_to_title(dutch_words, locale = "nl")
 ```
 
-(Note that `str_to_title()` handles character-level locale differences but it doesn't implement language-specific rules about which words to capitalize in titles. Fortunately, title case appears to be concept that applies primarily to English.)
+(Note that `str_to_title()` handles character-level locale differences but it doesn't implement locale-specific rules about which words not to capitalize. Fortunately, title case appears to be concept that applies primarily to English.)
 
-Case-sensitive string comparison also comes up in `str_equal()`/`str_unique()` and in pattern matching functions. To take advantage of locale-specific case matching, supply `locale` to `str_equal()`/`str_unique()`, and use `coll()` instead of `fixed()` for pattern matching functions.
+Case-sensitive string comparison also comes up in `str_equal()`/`str_unique()` and in pattern matching functions. To take advantage of locale-specific case matching, supply `locale` to `str_equal()`/`str_unique()` and use `coll()` instead of `fixed()` in pattern matching functions.
 
 ```{r}
 turkish_names <- c("İpek", "Işık", "İbrahim")
