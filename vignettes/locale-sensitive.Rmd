@@ -23,7 +23,7 @@ A locale is a set of parameters that define a user's language, region, and cultu
 - Format dates, numbers, and currency
 - Handle character encoding and display
 
-In stringr, you can control the locale using the `locale` argument, which takes language codes like "en" (English), "tr" (Turkish), or "es_MX" (Mexican Spanish). In general, a locale is a lower-case language abbreviation, optionally followed by an underscore (_) and an upper-case region identifier. You can see which locales are supported in stringr by running run `stringi::stri_locale_list()`.
+In stringr, you can control the locale using the `locale` argument, which takes language codes like "en" (English), "tr" (Turkish), or "es_MX" (Mexican Spanish). In general, a locale is a lower-case language abbreviation, optionally followed by an underscore (_) and an upper-case region identifier. You can see which locales are supported in stringr by running `stringi::stri_locale_list()`.
 
 This vignette describes locale-sensitive stringr functions, i.e. functions with a `locale` argument. These functions fall into two broad categories:
 
@@ -32,7 +32,7 @@ This vignette describes locale-sensitive stringr functions, i.e. functions with 
 
 ## Case conversion
 
-`str_to_lower()`, `str_to_upper()`, `str_to_title()`, and `str_to_sentence()` all change the case of their inputs. But while most languages that use the Latin alphabet (like English) have upper and lower case, the rules for converting between the two aren't always the same. For example, Turkish has two forms of the letter "I": as well as "i" and "I", Turkish also has "ı", the dotless lowercase i, and "İ" is the dotted uppercase I. This means the rules for coverting i to upper case and I to lower case are different from English:
+`str_to_lower()`, `str_to_upper()`, `str_to_title()`, and `str_to_sentence()` all change the case of their inputs. But while most languages that use the Latin alphabet (like English) have upper and lower case, the rules for converting between the two aren't always the same. For example, Turkish has two forms of the letter "I": as well as "i" and "I", Turkish also has "ı", the dotless lowercase i, and "İ" is the dotted uppercase I. This means the rules for converting i to upper case and I to lower case are different from English:
 
 ```{r}
 # English
@@ -56,7 +56,7 @@ str_to_sentence(dutch_sentence)
 str_to_sentence(dutch_sentence, locale = "nl")
 ```
 
-Case conversion also comes up in another situation: case-insensitive comparison. Case-insensitive comparison comes up in two places. Firstly, `str_equal()` and `str_unique()` can optionally ignore case, so it's important to also supply locale when working with non-English text. For example, imagine we're searching for a Turkish name, ignoring case:
+Case conversion also comes up in another situation: case-insensitive comparison. This is relevant in two contexts. First, `str_equal()` and `str_unique()` can optionally ignore case, so it's important to also supply locale when working with non-English text. For example, imagine we're searching for a Turkish name, ignoring case:
 
 ```{r}
 turkish_names <- c("İpek", "Işık", "İbrahim")
@@ -81,7 +81,7 @@ str_detect(turkish_names, coll(search_name, ignore_case = TRUE, locale = "tr"))
 
 ## Sorting and ordering
 
-`str_sort()`, `str_order()`, and `str_rank()` all rely on the alphabetical ordering of letters. But not every language uses the same ordering as English. For example, Lithuanian places 'y' between 'i' and 'k' and Czech treats "ch" as a single compound letter that sorts after all other 'h' words. That means that if you want to correctly sort words in these languages you must provide the correct locale:
+`str_sort()`, `str_order()`, and `str_rank()` all rely on the alphabetical ordering of letters. But not every language uses the same ordering as English. For example, Lithuanian places 'y' between 'i' and 'k', and Czech treats "ch" as a single compound letter that sorts after all other words beginning with 'h'. This means that to correctly sort words in these languages, you must provide the appropriate locale:
 
 ```{r}
 czech_words <- c("had", "chata", "hrad", "chůze")
