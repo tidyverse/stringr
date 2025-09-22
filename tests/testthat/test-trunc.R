@@ -71,3 +71,8 @@ test_that("str_trunc correctly snips rhs-of-ellipsis for truncated strings", {
   expect_equal(trunc(2, "left"), c("", "a", "aa", "..", "..", ".."))
   expect_equal(trunc(2, "center"), c("", "a", "aa", "..", "..", ".."))
 })
+
+test_that("str_trunc() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_trunc(x, 3)), names(x))
+})

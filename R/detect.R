@@ -42,7 +42,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
@@ -65,6 +65,8 @@ str_detect <- function(string, pattern, negate = FALSE) {
       opts_regex = opts(pattern)
     )
   )
+
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' Detect the presence/absence of a match at the start/end
@@ -94,7 +96,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
@@ -120,6 +122,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
       )
     }
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_starts
@@ -128,7 +131,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(
+  out <- switch(
     type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
@@ -154,6 +157,7 @@ str_ends <- function(string, pattern, negate = FALSE) {
       )
     }
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
@@ -216,7 +220,8 @@ str_like <- function(string, pattern, ignore_case = deprecated()) {
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)
-  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -231,7 +236,8 @@ str_ilike <- function(string, pattern) {
   }
 
   pattern <- regex(like_to_regex(pattern), ignore_case = TRUE)
-  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  preserve_names_if_possible(string, pattern, out)
 }
 
 like_to_regex <- function(pattern) {
