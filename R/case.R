@@ -1,5 +1,4 @@
-#' Convert string to upper case, lower case, title case, sentence case, pascal
-#' case, camel case, kebab case, or snake case
+#' Convert string to upper case, lower case, title case, or sentence case
 #'
 #' * `str_to_upper()` converts to upper case.
 #' * `str_to_lower()` converts to lower case.
@@ -7,18 +6,6 @@
 #'   each word is capitalized.
 #' * `str_to_sentence()` convert to sentence case, where only the first letter
 #'   of sentence is capitalized.
-#' * `str_to_pascal()` converts to pascal case, where only the first letter of
-#'   each word is capitalized, with no separation between
-#'   words.
-#' * `str_to_pascal()` and `StrToPascal()` are synonyms
-#' * `str_to_camel()` converts to camel case, where only the first letter of
-#'   each word after the first word is capitalized, with no separation between
-#'   words.
-#' * `str_to_camel()` and `strToCamel()` are synonyms
-#' * `str_to_kebab()` converts to kebab case, where words are converted to
-#'   lower case and separated by dashes (`-`).
-#' * `str_to_snake()` converts to snake case, where words are converted to
-#'   lower case and separated by underscores (`_`).
 #'
 #' @inheritParams str_detect
 #' @inheritParams coll
@@ -74,8 +61,22 @@ str_to_sentence <- function(string, locale = "en") {
     opts_brkiter = stri_opts_brkiter(type = "sentence", locale = locale)
   )
 }
+
+
+#' Convert between different types of programming case
+#'
+#' * `str_to_pascal()` converts to pascal case, where only the first letter of
+#'   each word is capitalized, with no separation between
+#'   words.
+#' * `str_to_camel()` converts to camel case, where only the first letter of
+#'   each word after the first word is capitalized, with no separation between
+#'   words.
+#' * `str_to_kebab()` converts to kebab case, where words are converted to
+#'   lower case and separated by dashes (`-`).
+#' * `str_to_snake()` converts to snake case, where words are converted to
+#'   lower case and separated by underscores (`_`).
+#' @inheritParams str_to_lower
 #' @export
-#' @rdname case
 str_to_pascal <- function(string, locale = "en") {
   stopifnot(is.character(string))
   string <- string |>
@@ -88,14 +89,18 @@ str_to_pascal <- function(string, locale = "en") {
   return(string)
 }
 #' @export
-#' @rdname case
+#' @rdname str_to_pascal
 str_to_camel <- function(string, locale = "en") {
   string <- str_to_pascal(string, locale = locale)
-  string <- str_replace(string, pattern = "^.", replace = str_to_lower(str_sub(string, 1, 1)))
+  string <- str_replace(
+    string,
+    pattern = "^.",
+    replace = str_to_lower(str_sub(string, 1, 1))
+  )
   return(string)
 }
 #' @export
-#' @rdname case
+#' @rdname str_to_pascal
 str_to_snake <- function(string, separator = "_", locale = "en") {
   stopifnot(is.character(string))
   string <- string |>
@@ -110,7 +115,7 @@ str_to_snake <- function(string, separator = "_", locale = "en") {
   return(string)
 }
 #' @export
-#' @rdname case
+#' @rdname str_to_pascal
 str_to_kebab <- function(string, locale = "en") {
   string <- str_to_snake(string, separator = "-", locale = locale)
   return(string)

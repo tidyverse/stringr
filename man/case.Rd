@@ -6,12 +6,7 @@
 \alias{str_to_lower}
 \alias{str_to_title}
 \alias{str_to_sentence}
-\alias{str_to_pascal}
-\alias{str_to_camel}
-\alias{str_to_snake}
-\alias{str_to_kebab}
-\title{Convert string to upper case, lower case, title case, sentence case, pascal
-case, camel case, kebab case, or snake case}
+\title{Convert string to upper case, lower case, title case, or sentence case}
 \usage{
 str_to_upper(string, locale = "en")
 
@@ -20,14 +15,6 @@ str_to_lower(string, locale = "en")
 str_to_title(string, locale = "en")
 
 str_to_sentence(string, locale = "en")
-
-str_to_pascal(string, locale = "en")
-
-str_to_camel(string, locale = "en")
-
-str_to_snake(string, separator = "_", locale = "en")
-
-str_to_kebab(string, locale = "en")
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -51,18 +38,6 @@ A character vector the same length as \code{string}.
 each word is capitalized.
 \item \code{str_to_sentence()} convert to sentence case, where only the first letter
 of sentence is capitalized.
-\item \code{str_to_pascal()} converts to pascal case, where only the first letter of
-each word is capitalized, with no separation between
-words.
-\item \code{str_to_pascal()} and \code{StrToPascal()} are synonyms
-\item \code{str_to_camel()} converts to camel case, where only the first letter of
-each word after the first word is capitalized, with no separation between
-words.
-\item \code{str_to_camel()} and \code{strToCamel()} are synonyms
-\item \code{str_to_kebab()} converts to kebab case, where words are converted to
-lower case and separated by dashes (\code{-}).
-\item \code{str_to_snake()} converts to snake case, where words are converted to
-lower case and separated by underscores (\verb{_}).
 }
 }
 \examples{
