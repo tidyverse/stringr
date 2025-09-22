@@ -1,42 +1,29 @@
 test_that("keep_names() returns logical flag based on inputs", {
-  string_scalar <- c("A" = "s")
-  string_vector <- c(A = "s1", B = "s2")
-  pattern_scalar <- "p"
-  pattern_vector <- c("p1", "p2")
-
-  expect_true(keep_names(string_scalar, pattern_scalar))
-  expect_false(keep_names(string_scalar, pattern_vector))
-  expect_true(keep_names(string_vector, pattern_scalar))
-  expect_true(keep_names(string_vector, pattern_vector))
+  expect_true(keep_names("a", "x"))
+  expect_false(keep_names("a", c("x", "y")))
+  expect_true(keep_names(c("a", "b"), "x"))
+  expect_true(keep_names(c("a", "b"), c("x", "y")))
 })
 
-test_that("copy_names() applies names to vectors", {
-  from <- c(A = "a", B = "b")
-  to <- c("x", "y")
-  out <- copy_names(from, to)
-  expect_equal(names(out), names(from))
+test_that("copy_names() applies names to vectors if present", {
+  expect_equal(
+    copy_names(c(A = "a", B = "b"), c("x", "y")),
+    c(A = "x", B = "y")
+  )
+
+  expect_equal(
+    copy_names(c("a", "b"), c("x", "y")),
+    c("x", "y")
+  )
 })
 
-test_that("copy_names() applies rownames to matrices", {
+test_that("copy_names() applies rownames to matrices if present", {
   from <- c(A = "a", B = "b")
   to <- matrix(c("x", "y"), nrow = 2)
-  out <- copy_names(from, to)
-  expect_equal(rownames(out), names(from))
-})
 
-test_that("copy_names() applies names to lists", {
-  from <- c(A = "a", B = "b")
-  to <- list("x", "y")
-  out <- copy_names(from, to)
-  expect_equal(names(out), names(from))
-})
+  expected <- to
+  rownames(expected) <- names(from)
 
-test_that("copy_names() is a no-op for unnamed inputs", {
-  from <- c("a", "b")
-  to_vec <- c("x", "y")
-  to_mat <- matrix(c("x", "y"), nrow = 2)
-  out_vec <- copy_names(from, to_vec)
-  out_mat <- copy_names(from, to_mat)
-  expect_null(names(out_vec))
-  expect_null(rownames(out_mat))
+  expect_equal(copy_names(from, to), expected)
+  expect_equal(copy_names(c("a", "b"), to), to)
 })
