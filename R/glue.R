@@ -40,8 +40,13 @@ str_glue <- function(..., .sep = "", .envir = parent.frame(), .trim = TRUE) {
 
 #' @export
 #' @rdname str_glue
-str_glue_data <- function(.x, ..., .sep = "", .envir = parent.frame(),
-                          .na = "NA") {
+str_glue_data <- function(
+  .x,
+  ...,
+  .sep = "",
+  .envir = parent.frame(),
+  .na = "NA"
+) {
   glue::glue_data(
     .x,
     ...,

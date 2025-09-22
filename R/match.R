@@ -18,7 +18,7 @@
 #'   if you used "named captured groups", i.e. `(?<name>pattern')`.
 #'
 #' * `str_match_all()`: a list of the same length as `string`/`pattern`
-#'   containing character matrices. Each matrix has columns as descrbed above
+#'   containing character matrices. Each matrix has columns as described above
 #'   and one row for each match.
 #'
 #' @seealso [str_extract()] to extract the complete match,
@@ -54,10 +54,7 @@ str_match <- function(string, pattern) {
     cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
-  stri_match_first_regex(string,
-    pattern,
-    opts_regex = opts(pattern)
-  )
+  stri_match_first_regex(string, pattern, opts_regex = opts(pattern))
 }
 
 #' @rdname str_match
@@ -68,7 +65,8 @@ str_match_all <- function(string, pattern) {
     cli::cli_abort(tr_("{.arg pattern} must be a regular expression."))
   }
 
-  stri_match_all_regex(string,
+  stri_match_all_regex(
+    string,
     pattern,
     omit_no_match = TRUE,
     opts_regex = opts(pattern)
