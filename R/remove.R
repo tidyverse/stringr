@@ -23,52 +23,61 @@ str_remove_all <- function(string, pattern) {
 
 #' Remove common leading indentation from strings
 #'
-#' This function is similar to Python's `dedent` function in the `textwrap`
-#' library. It removes common leading indentation from strings.
+#' @description
+#' `str_dedent()` is designed to make it possible to correctly indent multiline
+#' strings inside of function calls, while generating the desired amount of
+#' whitespace in the output.
 #'
-#' @param text `character` The input string or character vector.
-#' @return The input string or character vector with leading indentation removed.
+#' It does this by removing the common leading indentation from each line
+#' (ignoring lines only containing whitespace), and removing the first line,
+#' if it only contains whitespace.
+#'
+#' It is inspired by Python's
+#' [`textwrap.dedent()`](https://docs.python.org/3/library/textwrap.html#textwrap.dedent).
+#'
+#' @inheritParams str_detect
+#' @return A character vector the same length as `string`
 #' @export
 #' @examples
-#' str_dedent("  Hello\n    World")
+#' str_dedent("
+#'    Hello
+#'    World
+#' ")
 #'
-#' str_dedent("  Line 1\n  Line 2\n  Line 3")
-#'
-#' str_dedent("No indentation")
-#'
-#' str_dedent(
-#'     "
-#'     this
-#'     is
-#'         a
-#'     test
-#'     "
-#' )
-str_dedent <- function(text) {
-  lines <- str_split_1(text, fixed("\n"))
+#' f <- function() {
+#'   str_dedent("
+#'     Line 1
+#'     Line 2
+#'     Line 3
+#'   ")
+#' }
+#' cat(str_dedent(f()))
+str_dedent <- function(string) {
+  check_character(string)
 
-  # Determine the common leading whitespace
-  leading_ws <- ""
-  for (line in lines) {
-    # Ignore completely blank lines
-    if (str_detect(line, "^\\s*$")) {
-      next
-    }
+  lines <- str_split(string, fixed("\n"))
+  map_chr(lines, str_dedent_1)
+}
 
-    ws <- str_extract(line, "^\\s+")
-    if (!is.na(ws)) {
-      leading_ws <- ws
-      break
-    }
+str_dedent_1 <- function(lines, trim_empty_ends = TRUE) {
+  if (length(lines) <= 1) {
+    return(lines)
   }
 
-  if (is.null(leading_ws)) {
-    return(text)
+  ws <- str_length(str_extract(lines, "^ *"))
+  only_ws <- ws == str_length(lines)
+
+  # Drop the first line if it's completely blank
+  if (only_ws[1]) {
+    lines <- lines[-1]
+    ws <- ws[-1]
+    only_ws <- only_ws[-1]
   }
 
-  # Remove the common leading whitespace from each line
-  dedented_lines <- str_replace_all(lines, paste0("^", leading_ws), "")
-
-  # Combine the lines back into a single string
-  paste(dedented_lines, collapse = "\n")
+  if (all(only_ws)) {
+    dedented <- lines
+  } else {
+    dedented <- str_sub(lines, start = min(ws[!only_ws]) + 1)
+  }
+  paste0(dedented, collapse = "\n")
 }

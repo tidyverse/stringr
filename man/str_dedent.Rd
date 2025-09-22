@@ -4,31 +4,39 @@
 \alias{str_dedent}
 \title{Remove common leading indentation from strings}
 \usage{
-str_dedent(text)
+str_dedent(string)
 }
 \arguments{
-\item{text}{\code{character} The input string or character vector.}
+\item{string}{Input vector. Either a character vector, or something
+coercible to one.}
 }
 \value{
-The input string or character vector with leading indentation removed.
+A character vector the same length as \code{string}
 }
 \description{
-This function is similar to Python's \code{dedent} function in the \code{textwrap}
-library. It removes common leading indentation from strings.
+\code{str_dedent()} is designed to make it possible to correctly indent multiline
+strings inside of function calls, while generating the desired amount of
+whitespace in the output.
+
+It does this by removing the common leading indentation from each line
+(ignoring lines only containing whitespace), and removing the first line,
+if it only contains whitespace.
+
+It is inspired by Python's
+\href{https://docs.python.org/3/library/textwrap.html#textwrap.dedent}{\code{textwrap.dedent()}}.
 }
 \examples{
-str_dedent("  Hello\n    World")
+str_dedent("
+   Hello
+   World
+")
 
-str_dedent("  Line 1\n  Line 2\n  Line 3")
-
-str_dedent("No indentation")
-
-str_dedent(
-    "
-    this
-    is
-        a
-    test
-    "
-)
+f <- function() {
+  str_dedent("
+    Line 1
+    Line 2
+    Line 3
+  ")
+}
+cat(str_dedent(f()))
 }

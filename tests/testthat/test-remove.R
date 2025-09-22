@@ -8,22 +8,41 @@ test_that("str_remove() preserves names", {
   expect_equal(names(str_remove(x, "[0-9]")), names(x))
 })
 
-test_that("successfully dedent str_dedent", {
+test_that("strips common ws", {
   expect_equal(str_dedent("  Hello\n    World"), "Hello\n  World")
+  expect_equal(str_dedent("    Hello\n  World"), "  Hello\nWorld")
+})
+
+test_that("strips initial empty line", {
+  expect_equal(str_dedent("\n  Hello\n    World"), "Hello\n  World")
+
+  expect_equal(str_dedent("\n"), "")
+  expect_equal(str_dedent("\n\n"), "\n")
+})
+
+test_that("preserves final newline", {
+  expect_equal(str_dedent("  Hello\n  World"), "Hello\nWorld")
+  expect_equal(str_dedent("  Hello\n  World\n"), "Hello\nWorld\n")
+
+  # fmt: skip
   expect_equal(
-    str_dedent("  Line 1\n  Line 2\n  Line 3"),
-    "Line 1\nLine 2\nLine 3"
-  )
-  expect_equal(str_dedent("No indentation"), "No indentation")
+    str_dedent("
+      Hello
+      World"
+    ), 
+    "Hello\nWorld")
+  # fmt: skip
   expect_equal(
-    str_dedent(
-      "
-      this
-      is
-          a
-      test
-      "
-    ),
-    "\nthis\nis\n    a\ntest\n"
-  )
+    str_dedent("
+      Hello
+      World
+    "), 
+    "Hello\nWorld\n")
+})
+
+test_that("special cases are idempotent", {
+  expect_equal(str_dedent(character()), character())
+  expect_equal(str_dedent(""), "")
+  expect_equal(str_dedent("one line"), "one line")
+  expect_equal(NA_character_, NA_character_)
 })
