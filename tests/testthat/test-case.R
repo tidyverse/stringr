@@ -32,10 +32,10 @@ test_that("to_snake converts to snake case", {
   expect_equal(str_to_snake("MyVariable1"), "my_variable_1")
 })
 
-test_that("normalize handles common compound cases", {
-  expect_equal(normalize("a_b"), "a b")
-  expect_equal(normalize("a-b"), "a b")
-  expect_equal(normalize("aB"), "a b")
-  expect_equal(normalize("a123b"), "a 123 b")
-  expect_equal(normalize("HTML"), "html")
+test_that("to_words handles common compound cases", {
+  expect_equal(to_words("a_b"), "a b")
+  expect_equal(to_words("a-b"), "a b")
+  expect_equal(to_words("aB"), "a b")
+  expect_equal(to_words("a123b"), "a 123 b")
+  expect_equal(to_words("HTML"), "html")
 })

@@ -82,7 +82,7 @@ str_to_camel <- function(string, first_upper = FALSE) {
   check_bool(first_upper)
 
   string <- string |>
-    normalize() |>
+    to_words() |>
     str_to_title() |>
     str_remove_all(pattern = "\\s+")
 
@@ -97,7 +97,7 @@ str_to_camel <- function(string, first_upper = FALSE) {
 str_to_snake <- function(string) {
   check_character(string)
   string |>
-    normalize() |>
+    to_words() |>
     str_replace_all(pattern = "\\s+", replacement = "_")
 }
 #' @export
@@ -105,11 +105,11 @@ str_to_snake <- function(string) {
 str_to_kebab <- function(string) {
   check_character(string)
   string |>
-    normalize() |>
+    to_words() |>
     str_replace_all(pattern = "\\s+", replacement = "-")
 }
 
-normalize <- function(string) {
+to_words <- function(string) {
   string |>
     str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
     str_replace_all("([a-zA-Z])([0-9])", "\\1 \\2") |>
