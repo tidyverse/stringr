@@ -29,7 +29,7 @@ test_that("view highlights whitespace (except a space/nl)", {
   })
 })
 
-test_that("view displays nothing for empty vectors",{
+test_that("view displays message for empty vectors", {
   expect_snapshot(str_view(character()))
 })
 

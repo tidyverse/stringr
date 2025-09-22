@@ -39,3 +39,21 @@ test_that("can't use boundaries", {
     str_subset(c("a", "b c"), boundary())
   })
 })
+
+test_that("keep names", {
+  fruit <- c(A = "apple", B = "banana", C = "pear", D = "pineapple")
+  expect_identical(names(str_subset(fruit, "b")), "B")
+  expect_identical(names(str_subset(fruit, "p")), c("A", "C", "D"))
+  expect_identical(names(str_subset(fruit, "x")), as.character())
+})
+
+test_that("str_subset() preserves names of retained elements", {
+  x <- c(C = "3", B = "2", A = "1")
+  out <- str_subset(x, "[12]")
+  expect_equal(names(out), c("B", "A"))
+})
+
+test_that("str_subset() never matches missing values", {
+  expect_equal(str_subset(c("a", NA, "b"), "."), c("a", "b"))
+  expect_identical(str_subset(NA_character_, "."), character(0))
+})

@@ -24,11 +24,13 @@
 #' cat(str_wrap(thanks, width = 60, indent = 2), "\n")
 #' cat(str_wrap(thanks, width = 60, exdent = 2), "\n")
 #' cat(str_wrap(thanks, width = 0, exdent = 2), "\n")
-str_wrap <- function(string,
-                     width = 80,
-                     indent = 0,
-                     exdent = 0,
-                     whitespace_only = TRUE) {
+str_wrap <- function(
+  string,
+  width = 80,
+  indent = 0,
+  exdent = 0,
+  whitespace_only = TRUE
+) {
   check_number_decimal(width)
   if (width <= 0) {
     width <- 1
@@ -37,7 +39,14 @@ str_wrap <- function(string,
   check_number_whole(exdent)
   check_bool(whitespace_only)
 
-  out <- stri_wrap(string, width = width, indent = indent, exdent = exdent,
-    whitespace_only = whitespace_only, simplify = FALSE)
-  vapply(out, str_c, collapse = "\n", character(1))
+  out <- stri_wrap(
+    string,
+    width = width,
+    indent = indent,
+    exdent = exdent,
+    whitespace_only = whitespace_only,
+    simplify = FALSE
+  )
+  out <- vapply(out, str_c, collapse = "\n", character(1))
+  copy_names(string, out)
 }

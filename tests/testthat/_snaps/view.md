@@ -76,10 +76,12 @@
       [3] | \n
       [4] | \t
 
-# view displays nothing for empty vectors
+# view displays message for empty vectors
 
     Code
       str_view(character())
+    Message
+      x Empty `string` provided.
 
 # can match across lines
 

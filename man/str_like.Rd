@@ -2,9 +2,12 @@
 % Please edit documentation in R/detect.R
 \name{str_like}
 \alias{str_like}
-\title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} operator}
+\alias{str_ilike}
+\title{Detect a pattern in the same way as \code{SQL}'s \code{LIKE} and \code{ILIKE} operators}
 \usage{
-str_like(string, pattern, ignore_case = TRUE)
+str_like(string, pattern, ignore_case = deprecated())
+
+str_ilike(string, pattern)
 }
 \arguments{
 \item{string}{Input vector. Either a character vector, or something
@@ -13,26 +16,38 @@ coercible to one.}
 \item{pattern}{A character vector containing a SQL "like" pattern.
 See above for details.}
 
-\item{ignore_case}{Ignore case of matches? Defaults to \code{TRUE} to match
-the SQL \code{LIKE} operator.}
+\item{ignore_case}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
 }
 \value{
 A logical vector the same length as \code{string}.
 }
 \description{
-\code{str_like()} follows the conventions of the SQL \code{LIKE} operator:
+\code{str_like()} and \code{str_like()} follow the conventions of the SQL \code{LIKE}
+and \code{ILIKE} operators, namely:
 \itemize{
 \item Must match the entire string.
 \item \verb{_} matches a single character (like \code{.}).
 \item \verb{\%} matches any number of characters (like \verb{.*}).
 \item \verb{\\\%} and \verb{\\_} match literal \verb{\%} and \verb{_}.
-\item The match is case insensitive by default.
 }
+
+The difference between the two functions is their case-sensitivity:
+\code{str_like()} is case sensitive and \code{str_ilike()} is not.
+}
+\note{
+Prior to stringr 1.6.0, \code{str_like()} was incorrectly case-insensitive.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
 str_like(fruit, "app")
 str_like(fruit, "app\%")
+str_like(fruit, "APP\%")
 str_like(fruit, "ba_ana")
-str_like(fruit, "\%APPLE")
+str_like(fruit, "\%apple")
+
+str_ilike(fruit, "app")
+str_ilike(fruit, "app\%")
+str_ilike(fruit, "APP\%")
+str_ilike(fruit, "ba_ana")
+str_ilike(fruit, "\%apple")
 }

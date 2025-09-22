@@ -17,8 +17,12 @@
 #'   str_trunc(x, 20, "left"),
 #'   str_trunc(x, 20, "center")
 #' )
-str_trunc <- function(string, width, side = c("right", "left", "center"),
-                      ellipsis = "...") {
+str_trunc <- function(
+  string,
+  width,
+  side = c("right", "left", "center"),
+  ellipsis = "..."
+) {
   check_number_whole(width)
   side <- arg_match(side)
   check_string(ellipsis)
@@ -29,18 +33,24 @@ str_trunc <- function(string, width, side = c("right", "left", "center"),
 
   if (width... < 0) {
     cli::cli_abort(
-      "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
+      tr_(
+        "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
+      )
     )
   }
 
-  string[too_long] <- switch(side,
-    right  = str_c(str_sub(string[too_long], 1, width...), ellipsis),
-    left   = str_c(ellipsis, str_sub(string[too_long], len[too_long] - width... + 1, -1)),
+  string[too_long] <- switch(
+    side,
+    right = str_c(str_sub(string[too_long], 1, width...), ellipsis),
+    left = str_c(
+      ellipsis,
+      str_sub(string[too_long], len[too_long] - width... + 1, -1)
+    ),
     center = str_c(
-        str_sub(string[too_long], 1, ceiling(width... / 2)),
-        ellipsis,
-        str_sub(string[too_long], len[too_long] - floor(width... / 2) + 1, -1)
-      )
+      str_sub(string[too_long], 1, ceiling(width... / 2)),
+      ellipsis,
+      str_sub(string[too_long], len[too_long] - floor(width... / 2) + 1, -1)
+    )
   )
   string
 }

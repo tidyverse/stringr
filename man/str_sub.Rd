@@ -17,16 +17,19 @@ str_sub_all(string, start = 1L, end = -1L)
 coercible to one.}
 
 \item{start, end}{A pair of integer vectors defining the range of characters
-to extract (inclusive).
+to extract (inclusive). Positive values count from the left of the string,
+and negative values count from the right. In other words, if \code{string} is
+\code{"abcdef"} then 1 refers to \code{"a"} and -1 refers to \code{"f"}.
 
 Alternatively, instead of a pair of vectors, you can pass a matrix to
 \code{start}. The matrix should have two columns, either labelled \code{start}
-and \code{end}, or \code{start} and \code{length}.}
+and \code{end}, or \code{start} and \code{length}. This makes \code{str_sub()} work directly
+with the output from \code{\link[=str_locate]{str_locate()}} and friends.}
 
 \item{omit_na}{Single logical value. If \code{TRUE}, missing values in any of the
 arguments provided will result in an unchanged input.}
 
-\item{value}{replacement string}
+\item{value}{Replacement string.}
 }
 \value{
 \itemize{
@@ -34,6 +37,9 @@ arguments provided will result in an unchanged input.}
 \item \code{str_sub_all()}: A list the same length as \code{string}. Each element is
 a character vector the same length as \code{start}/\code{end}.
 }
+
+If \code{end} comes before \code{start} or \code{start} is outside the range of \code{string}
+then the corresponding output will be the empty string.
 }
 \description{
 \code{str_sub()} extracts or replaces the elements at a single position in each
@@ -48,7 +54,7 @@ str_sub(hw, end = 6)
 str_sub(hw, 8, 14)
 str_sub(hw, 8)
 
-# Negative indices index from end of string
+# Negative values index from end of string
 str_sub(hw, -1)
 str_sub(hw, -7)
 str_sub(hw, end = -7)

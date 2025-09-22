@@ -12,5 +12,6 @@
 #' str_detect(c("a", "."), ".")
 #' str_detect(c("a", "."), str_escape("."))
 str_escape <- function(string) {
-  str_replace_all(string, "([.^$\\\\|*+?{}\\[\\]()])", "\\\\\\1")
+  out <- str_replace_all(string, "([.^$\\\\|*+?{}\\[\\]()])", "\\\\\\1")
+  copy_names(string, out)
 }

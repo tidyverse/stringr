@@ -1,52 +1,14 @@
-# cmcR
+# huxtable
 
 <details>
 
-* Version: 0.1.9
-* GitHub: NA
-* Source code: https://github.com/cran/cmcR
-* Date/Publication: 2022-02-22 14:00:02 UTC
-* Number of recursive dependencies: 117
+* Version: 5.5.6
+* GitHub: https://github.com/hughjonesd/huxtable
+* Source code: https://github.com/cran/huxtable
+* Date/Publication: 2024-02-15 13:10:02 UTC
+* Number of recursive dependencies: 175
 
-Run `revdepcheck::cloud_details(, "cmcR")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ℹ Please use `"highCMCClassif"` instead of `.data$highCMCClassif`
-      
-      ══ Failed ══════════════════════════════════════════════════════════════════════
-      ── 1. Error ('test-diagnosticTools.R:55'): (code run outside of `test_that()`) ─
-      Error in `stringr::str_extract_all(., string = ..2$cmcR.info$cellRange, 
-          pattern = "[0-9]{1,}")`: `simplify` must be `TRUE` or `FALSE`, not the string "rows: 1 - 69, cols: 1 - 69".
-      Backtrace:
-       1. cmcR::cmcPlot(...)
-            at test-diagnosticTools.R:55:0
-       8. stringr::str_extract_all(simplify = .)
-      
-      ══ DONE ════════════════════════════════════════════════════════════════════════
-      Keep trying!
-      Error: Test failures
-      Execution halted
-    ```
-
-# crispRdesignR
-
-<details>
-
-* Version: 1.1.6
-* GitHub: NA
-* Source code: https://github.com/cran/crispRdesignR
-* Date/Publication: 2021-01-11 07:00:02 UTC
-* Number of recursive dependencies: 79
-
-Run `revdepcheck::cloud_details(, "crispRdesignR")` for more info
+Run `revdepcheck::cloud_details(, "huxtable")` for more info
 
 </details>
 
@@ -54,222 +16,169 @@ Run `revdepcheck::cloud_details(, "crispRdesignR")` for more info
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘crispRdesignR-Ex.R’ failed
+    Running examples in ‘huxtable-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: getofftargetdata
-    > ### Title: Off Target Data Frame Creation
-    > ### Aliases: getofftargetdata
+    > ### Name: number_format
+    > ### Title: Set how numbers are formatted in cells
+    > ### Aliases: number_format number_format<- set_number_format
+    > ###   map_number_format
     > 
     > ### ** Examples
     > 
-    > 
     ...
-    Backtrace:
-        ▆
-     1. ├─crispRdesignR::sgRNA_design(testseq, usergenome, gtfname, calloffs = FALSE)
-     2. │ └─stringr::str_replace_all(revsetPAM, "N", ".")
-     3. │   └─stringr:::check_lengths(string, pattern, replacement)
-     4. │     └─vctrs::vec_size_common(...)
-     5. └─vctrs:::stop_scalar_type(...)
-     6.   └─vctrs:::stop_vctrs(...)
-     7.     └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
+    +         function(x) if (x > 0) "+" else "-"
+    +       )
+    > 
+    > right_border(ht) <- 1
+    > bottom_border(ht)[1, ] <- 1
+    > 
+    > ht
+    Error in if (x > 0) "+" else "-" : the condition has length > 1
+    Calls: <Anonymous> ... <Anonymous> -> str_transform_all -> replacement -> <Anonymous>
     Execution halted
     ```
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘DT’ ‘gbm’
-      All declared Imports should be used.
-    ```
-
-*   checking LazyData ... NOTE
-    ```
-      'LazyData' is specified without a 'data' directory
-    ```
-
-# cspp
-
-<details>
-
-* Version: 0.3.2
-* GitHub: NA
-* Source code: https://github.com/cran/cspp
-* Date/Publication: 2021-10-16 23:30:19 UTC
-* Number of recursive dependencies: 100
-
-Run `revdepcheck::cloud_details(, "cspp")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘cspp-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: get_cspp_data
-    > ### Title: Load CSPP data into the R environment
-    > ### Aliases: get_cspp_data
-    > 
-    > ### ** Examples
-    > 
-    > 
-    ...
-     12. ├─dplyr:::filter.data.frame(., stringr::str_detect(.data$category, cats))
-     13. │ └─dplyr:::filter_rows(.data, ..., caller_env = caller_env())
-     14. │   └─dplyr:::filter_eval(dots, mask = mask, error_call = error_call)
-     15. │     ├─base::withCallingHandlers(...)
-     16. │     └─mask$eval_all_filter(dots, env_filter)
-     17. └─stringr::str_detect(.data$category, cats)
-     18.   └─stringr:::no_empty()
-     19.     └─cli::cli_abort(...)
-     20.       └─rlang::abort(...)
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-    --- re-building ‘cspp-vignette.Rmd’ using rmarkdown
-    Loading required package: dplyr
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    ...
-    vars)`.
-    Caused by error in `stringr::str_detect()`:
-    ! `pattern` can't be the empty string (`""`).
-    --- failed re-building ‘cspp-vignette.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘cspp-vignette.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-# flair
-
-<details>
-
-* Version: 0.0.2
-* GitHub: https://github.com/kbodwin/flair
-* Source code: https://github.com/cran/flair
-* Date/Publication: 2020-04-23 18:00:05 UTC
-* Number of recursive dependencies: 85
-
-Run `revdepcheck::cloud_details(, "flair")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘flair-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: decorate_code
-    > ### Title: Creates an object of the class 'with_flair'
-    > ### Aliases: decorate_code
-    > 
-    > ### ** Examples
-    > 
-    > 
-    ...
-      8. │       └─flair:::flair_rx.default(...)
-      9. │         └─... %>% unlist()
-     10. ├─base::unlist(.)
-     11. ├─stringr::str_extract_all(., "(\\<[^\\<\\>]*\\>)|((?<=\\>|^)([^\\<]|(\\<(?=(\\-|\\<))))*(?=\\<|$))")
-     12. │ └─stringr:::check_lengths(string, pattern)
-     13. │   └─vctrs::vec_size_common(...)
-     14. └─vctrs:::stop_scalar_type(`<fn>`(`<source>`), "string", `<env>`)
-     15.   └─vctrs:::stop_vctrs(...)
-     16.     └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-    Execution halted
-    ```
-
 *   checking tests ... ERROR
     ```
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-        2. ├─flair:::flair_lines.with_flair(test_wf, c(2:4))
-        3. │ └─... %>% map2(1:sum(where_sources), ~ 0:.x + .y)
-        4. ├─purrr::map2(., 1:sum(where_sources), ~0:.x + .y)
-        5. ├─purrr::map(., ~str_count(.x, "\\n|(<br>)"))
-        6. │ └─flair (local) .f(.x[[i]], ...)
-        7. │   └─stringr::str_count(.x, "\\n|(<br>)")
-        8. │     └─stringr:::check_lengths(string, pattern)
-        9. │       └─vctrs::vec_size_common(...)
-       10. └─vctrs:::stop_scalar_type(`<fn>`(`<source>`), "string", `<env>`)
-       11.   └─vctrs:::stop_vctrs(...)
-       12.     └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
+    Complete output:
+      > library(testthat)
+      > library(huxtable)
+      > 
+      > 
+      > we_are_in_R_CMD_check <- TRUE
+      > test_check("huxtable")
+      # weights:  9 (4 variable)
+    ...
+       11.     └─methods (local) `<rfMthdDf>`(...)
+       12.       └─methods::new(def, ...)
+       13.         ├─methods::initialize(value, ...)
+       14.         └─methods::initialize(value, ...)
+       15.           └─.Object$initialize(...)
+       16.             └─lme4 (local) initializePtr()
       
-      [ FAIL 2 | WARN 0 | SKIP 0 | PASS 5 ]
+      [ FAIL 1 | WARN 5 | SKIP 25 | PASS 1237 ]
       Error: Test failures
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘R6’ ‘xml2’
+      All declared Imports should be used.
+    ```
+
+*   checking re-building of vignette outputs ... NOTE
     ```
     Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘how_to_flair.Rmd’ using rmarkdown
+    --- re-building ‘design-principles.Rmd’ using rmarkdown
+    --- finished re-building ‘design-principles.Rmd’
     
-    Attaching package: 'dplyr'
+    --- re-building ‘huxreg.Rmd’ using rmarkdown
+    --- finished re-building ‘huxreg.Rmd’
     
-    The following objects are masked from 'package:stats':
+    --- re-building ‘huxtable.Rmd’ using rmarkdown
     
-        filter, lag
-    
+    tlmgr: Remote database (revision 71794 of the texlive-scripts package)
     ...
-    Quitting from lines 32-43 (how_to_flair.Rmd) 
-    Error: processing vignette 'how_to_flair.Rmd' failed with diagnostics:
-    `string` must be a vector, not a <source> object.
-    --- failed re-building ‘how_to_flair.Rmd’
+    --- failed re-building ‘huxtable.Rmd’
+    
+    --- re-building ‘themes.Rhtml’ using knitr
+    --- finished re-building ‘themes.Rhtml’
     
     SUMMARY: processing the following file failed:
-      ‘how_to_flair.Rmd’
+      ‘huxtable.Rmd’
     
     Error: Vignette re-building failed.
     Execution halted
     ```
 
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘dplyr’ ‘evaluate’ ‘ggplot2’
-      All declared Imports should be used.
-    ```
-
-*   checking LazyData ... NOTE
-    ```
-      'LazyData' is specified without a 'data' directory
-    ```
-
-# GetLattesData
+# latex2exp
 
 <details>
 
-* Version: 1.4.1
-* GitHub: https://github.com/msperlin/GetLattesData
-* Source code: https://github.com/cran/GetLattesData
-* Date/Publication: 2022-06-08 12:40:02 UTC
-* Number of recursive dependencies: 79
+* Version: 0.9.6
+* GitHub: https://github.com/stefano-meschiari/latex2exp
+* Source code: https://github.com/cran/latex2exp
+* Date/Publication: 2022-11-28 03:30:02 UTC
+* Number of recursive dependencies: 74
 
-Run `revdepcheck::cloud_details(, "GetLattesData")` for more info
+Run `revdepcheck::cloud_details(, "latex2exp")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+      > library(testthat)
+      > library(latex2exp)
+      > 
+      > test_check("latex2exp")
+      [ FAIL 1 | WARN 1 | SKIP 0 | PASS 100 ]
+      
+      ══ Failed tests ════════════════════════════════════════════════════════════════
+    ...
+       13. │ └─stringr:::check_lengths(string, pattern, replacement)
+       14. │   └─vctrs::vec_size_common(...)
+       15. └─stringr::str_replace_all(...)
+       16.   └─stringr:::str_transform_all(string, pattern, replacement)
+       17.     └─cli::cli_abort(...)
+       18.       └─rlang::abort(...)
+      
+      [ FAIL 1 | WARN 1 | SKIP 0 | PASS 100 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+*   checking running R code from vignettes ... ERROR
+    ```
+    Errors in running code in vignettes:
+    when running code in ‘using-latex2exp.Rmd’
+      ...
+    +     ylab = TeX("$\\alpha  x^\\alpha$, where $\\alpha \\in \\{1 \\ldots 5\\}$"), 
+    +     type  .... [TRUNCATED] 
+    Warning in charToRaw(str_replace_fixed(char, "\\", "")) :
+      argument should be a character vector of length 1
+    all but the first element will be ignored
+    
+      When sourcing ‘using-latex2exp.R’:
+    Error: Function `replacement` must return a vector the same length as the input
+    (2), not length 1.
+    Execution halted
+    
+      ‘supported-commands.Rmd’ using ‘UTF-8’... OK
+      ‘using-latex2exp.Rmd’ using ‘UTF-8’... failed
+    ```
+
+*   checking re-building of vignette outputs ... NOTE
+    ```
+    Error(s) in re-building vignettes:
+    --- re-building ‘supported-commands.Rmd’ using rmarkdown
+    --- finished re-building ‘supported-commands.Rmd’
+    
+    --- re-building ‘using-latex2exp.Rmd’ using rmarkdown
+    ```
+
+# phenofit
+
+<details>
+
+* Version: 0.3.9
+* GitHub: https://github.com/eco-hydro/phenofit
+* Source code: https://github.com/cran/phenofit
+* Date/Publication: 2024-01-23 06:50:02 UTC
+* Number of recursive dependencies: 83
+
+Run `revdepcheck::cloud_details(, "phenofit")` for more info
 
 </details>
 
@@ -277,26 +186,26 @@ Run `revdepcheck::cloud_details(, "GetLattesData")` for more info
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘GetLattesData-Ex.R’ failed
+    Running examples in ‘phenofit-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: gld_get_lattes_data_from_zip
-    > ### Title: Reads zip files from Lattes
-    > ### Aliases: gld_get_lattes_data_from_zip
+    > ### Name: roughFit
+    > ### Title: Rough fitting
+    > ### Aliases: roughFit
+    > ### Keywords: internal
     > 
     > ### ** Examples
     > 
-    > 
     ...
-      2.   ├─base::unlist(...)
-      3.   └─base::sapply(...)
-      4.     └─base::lapply(X = X, FUN = FUN, ...)
-      5.       └─GetLattesData (local) FUN(X[[i]], ...)
-      6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
-      7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
-      8.           └─stringr:::no_empty()
-      9.             └─cli::cli_abort(...)
-     10.               └─rlang::abort(...)
+    iloop = 1: lambda = 10.0, ntrough_PerYear = 0.00, npeak_PerYear = 0.00
+    iloop = 2: lambda = 5.0, ntrough_PerYear = 0.00, npeak_PerYear = 0.00
+    iloop = 3: lambda = 2.5, ntrough_PerYear = 0.00, npeak_PerYear = 0.00
+    > plot_season(INPUT, brks_mov)
+    > 
+    > rfit <- brks2rfit(brks_mov)
+    > r <- get_pheno(rfit)
+    Error in rep(replacement, nchar(x)) : invalid 'times' argument
+    Calls: get_pheno ... freduce -> withVisible -> <Anonymous> -> replace -> paste
     Execution halted
     ```
 
@@ -304,75 +213,23 @@ Run `revdepcheck::cloud_details(, "GetLattesData")` for more info
     ```
       Running ‘testthat.R’
     Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-           ▆
-        1. └─GetLattesData::gld_get_lattes_data_from_zip(c(f_1, f_2)) at test_gld.R:9:2
-        2.   ├─base::unlist(...)
-        3.   └─base::sapply(...)
-        4.     └─base::lapply(X = X, FUN = FUN, ...)
-        5.       └─GetLattesData (local) FUN(X[[i]], ...)
-        6.         ├─base::which(stringr::str_detect(df.sjr$Issn, issn.in))
-        7.         └─stringr::str_detect(df.sjr$Issn, issn.in)
-        8.           └─stringr:::no_empty()
-        9.             └─cli::cli_abort(...)
-       10.               └─rlang::abort(...)
+    Complete output:
+      > library(testthat)
+      > library(phenofit)
+      > 
+      > test_check("phenofit")
+      List of 5
+       $ AG    : tibble [6 × 8] (S3: tbl_df/tbl/data.frame)
+       $ Beck  : tibble [6 × 7] (S3: tbl_df/tbl/data.frame)
+    ...
+       18.     └─magrittr (local) replacement(old_flat)
+       19.       └─magrittr::freduce(value, `_function_list`)
+       20.         ├─base::withVisible(function_list[[k]](value))
+       21.         └─function_list[[k]](value)
+       22.           └─phenofit (local) replace(., "-")
+       23.             └─base::paste(rep(replacement, nchar(x)), collapse = "")
       
-      [ FAIL 1 | WARN 0 | SKIP 0 | PASS 0 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘gld_vignette-ReadLattes.Rmd’ using rmarkdown
-    Quitting from lines 31-44 (gld_vignette-ReadLattes.Rmd) 
-    Error: processing vignette 'gld_vignette-ReadLattes.Rmd' failed with diagnostics:
-    `pattern` can't be the empty string (`""`).
-    --- failed re-building ‘gld_vignette-ReadLattes.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘gld_vignette-ReadLattes.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-# glmmPen
-
-<details>
-
-* Version: 1.5.1.10
-* GitHub: NA
-* Source code: https://github.com/cran/glmmPen
-* Date/Publication: 2022-04-29 12:30:07 UTC
-* Number of recursive dependencies: 90
-
-Run `revdepcheck::cloud_details(, "glmmPen")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-        3. │   ├─testthat (local) .capture(...)
-        4. │   │ └─base::withCallingHandlers(...)
-        5. │   └─rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
-        6. ├─glmmPen::glmmPen(...)
-        7. │ └─glmmPen:::fD_adj(out = fD_out0)
-        8. │   └─stringr::str_c(rep(cnms, each = d), ":", levels(group))
-        9. │     └─vctrs::vec_size_common(!!!dots)
-       10. └─vctrs::stop_incompatible_size(...)
-       11.   └─vctrs:::stop_incompatible(...)
-       12.     └─vctrs:::stop_vctrs(...)
-       13.       └─rlang::abort(message, class = c(class, "vctrs_error"), ..., call = vctrs_error_call(call))
-      
-      [ FAIL 4 | WARN 0 | SKIP 0 | PASS 6 ]
+      [ FAIL 2 | WARN 2 | SKIP 0 | PASS 66 ]
       Error: Test failures
       Execution halted
     ```
@@ -381,288 +238,22 @@ Run `revdepcheck::cloud_details(, "glmmPen")` for more info
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 103.2Mb
+      installed size is  5.9Mb
       sub-directories of 1Mb or more:
-        libs  102.2Mb
+        libs   4.6Mb
     ```
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘rstantools’
-      All declared Imports should be used.
-    ```
-
-# mpwR
+# priceR
 
 <details>
 
-* Version: 0.1.0
-* GitHub: NA
-* Source code: https://github.com/cran/mpwR
-* Date/Publication: 2022-06-22 07:30:02 UTC
-* Number of recursive dependencies: 96
-
-Run `revdepcheck::cloud_details(, "mpwR")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘mpwR-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: get_Upset_list
-    > ### Title: Generate Upset list
-    > ### Aliases: get_Upset_list
-    > 
-    > ### ** Examples
-    > 
-    > # Load libraries
-    ...
-    ! `pattern` can't be the empty string (`""`).
-    Backtrace:
-        ▆
-     1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs")
-     2.   ├─base::which(...)
-     3.   └─stringr::str_detect(string = names(output_list), pattern = "")
-     4.     └─stringr:::no_empty()
-     5.       └─cli::cli_abort(...)
-     6.         └─rlang::abort(...)
-    Execution halted
-    ```
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ══ Failed tests ════════════════════════════════════════════════════════════════
-      ── Error ('test_Upset.R:72'): get_Upset_list works ─────────────────────────────
-      Error in `stringr::str_detect(string = names(output_list), pattern = "")`: `pattern` can't be the empty string (`""`).
-      Backtrace:
-          ▆
-       1. └─mpwR::get_Upset_list(input_list = data, level = "Precursor.IDs") at test_Upset.R:72:3
-       2.   ├─base::which(...)
-       3.   └─stringr::str_detect(string = names(output_list), pattern = "")
-       4.     └─stringr:::no_empty()
-       5.       └─cli::cli_abort(...)
-       6.         └─rlang::abort(...)
-      
-      [ FAIL 1 | WARN 553 | SKIP 0 | PASS 598 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-    --- re-building ‘Import.Rmd’ using rmarkdown
-    --- finished re-building ‘Import.Rmd’
-    
-    --- re-building ‘Requirements.Rmd’ using rmarkdown
-    --- finished re-building ‘Requirements.Rmd’
-    
-    --- re-building ‘Workflow.Rmd’ using rmarkdown
-    
-    Attaching package: 'dplyr'
-    ...
-    Quitting from lines 225-226 (Workflow.Rmd) 
-    Error: processing vignette 'Workflow.Rmd' failed with diagnostics:
-    `pattern` can't be the empty string (`""`).
-    --- failed re-building ‘Workflow.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘Workflow.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-# postpack
-
-<details>
-
-* Version: 0.5.3
-* GitHub: https://github.com/bstaton1/postpack
-* Source code: https://github.com/cran/postpack
-* Date/Publication: 2021-06-02 21:50:02 UTC
-* Number of recursive dependencies: 56
-
-Run `revdepcheck::cloud_details(, "postpack")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘postpack-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: match_params
-    > ### Title: Find matching node names
-    > ### Aliases: match_params
-    > 
-    > ### ** Examples
-    > 
-    > # load example mcmc.list
-    ...
-    Backtrace:
-        ▆
-     1. └─postpack::match_params(cjs, "")
-     2.   └─base::lapply(...)
-     3.     └─postpack (local) FUN(X[[i]], ...)
-     4.       └─stringr::str_detect(all_params, x)
-     5.         └─stringr:::no_empty()
-     6.           └─cli::cli_abort(...)
-     7.             └─rlang::abort(...)
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error(s) in re-building vignettes:
-      ...
-    --- re-building ‘example-mcmclists.Rmd’ using rmarkdown
-    --- finished re-building ‘example-mcmclists.Rmd’
-    
-    --- re-building ‘feature-overview.Rmd’ using rmarkdown
-    Node(s) discarded:
-      "SIG[1,1]", "SIG[2,1]", "SIG[1,2]", and "SIG[2,2]"
-    Node(s) discarded:
-      "SIG[2,1]"
-    ...
-    --- failed re-building ‘multiple-models.Rmd’
-    
-    --- re-building ‘pattern-matching.Rmd’ using rmarkdown
-    --- finished re-building ‘pattern-matching.Rmd’
-    
-    SUMMARY: processing the following file failed:
-      ‘multiple-models.Rmd’
-    
-    Error: Vignette re-building failed.
-    Execution halted
-    ```
-
-## In both
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Packages unavailable to check Rd xrefs: ‘rstan’, ‘R2WinBUGS’, ‘R2jags’, ‘R2OpenBUGS’, ‘nimble’, ‘rjags’, ‘jagsUI’
-    ```
-
-# repr
-
-<details>
-
-* Version: 1.1.4
-* GitHub: https://github.com/IRkernel/repr
-* Source code: https://github.com/cran/repr
-* Date/Publication: 2022-01-04 14:20:06 UTC
-* Number of recursive dependencies: 70
-
-Run `revdepcheck::cloud_details(, "repr")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Backtrace:
-          ▆
-       1. └─testthat::expect_match(...) at test_repr_htmlwidget.r:19:8
-       2.   └─base::stopifnot(is.character(act$val))
-      ── Error ('test_repr_htmlwidget.r:31'): The dependency manager works ───────────
-      Error in `expect_match(r, "<meta charset=\"utf-8\">\n\t\t<script", fixed = TRUE, 
-          all = FALSE)`: is.character(act$val) is not TRUE
-      Backtrace:
-          ▆
-       1. └─testthat::expect_match(...) at test_repr_htmlwidget.r:31:8
-       2.   └─base::stopifnot(is.character(act$val))
-      
-      [ FAIL 3 | WARN 0 | SKIP 0 | PASS 127 ]
-      Error: Test failures
-      Execution halted
-    ```
-
-## In both
-
-*   checking package dependencies ... NOTE
-    ```
-    Packages which this enhances but not available for checking:
-      'data.table', 'vegalite', 'plotly', 'geojsonio'
-    ```
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Packages unavailable to check Rd xrefs: ‘geojsonio’, ‘plotly’, ‘vegalite’
-    ```
-
-# tidyfst
-
-<details>
-
-* Version: 1.7.5
-* GitHub: https://github.com/hope-data-science/tidyfst
-* Source code: https://github.com/cran/tidyfst
-* Date/Publication: 2022-10-27 07:00:02 UTC
-* Number of recursive dependencies: 80
-
-Run `revdepcheck::cloud_details(, "tidyfst")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘tidyfst-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: unite_dt
-    > ### Title: Unite multiple columns into one by pasting strings together
-    > ### Aliases: unite_dt
-    > 
-    > ### ** Examples
-    > 
-    > df <- expand.grid(x = c("a", NA), y = c("b", NA))
-    ...
-      2. ├─tidyfst::unite_dt(., "merged_name", "")
-      3. │ └─dt %>% select_dt(...)
-      4. ├─tidyfst::select_dt(., ...)
-      5. │ └─... %>% str_c(collapse = ",")
-      6. ├─stringr::str_c(., collapse = ",")
-      7. └─stringr::str_subset(names(dt), ., negate = negate)
-      8.   └─stringr:::no_empty()
-      9.     └─cli::cli_abort(...)
-     10.       └─rlang::abort(...)
-    Execution halted
-    ```
-
-## In both
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Packages unavailable to check Rd xrefs: ‘fastDummies’, ‘widyr’, ‘pacman’, ‘sjmisc’
-    ```
-
-# tidyft
-
-<details>
-
-* Version: 0.4.5
-* GitHub: https://github.com/hope-data-science/tidyft
-* Source code: https://github.com/cran/tidyft
-* Date/Publication: 2020-04-10 10:20:02 UTC
+* Version: 1.0.1
+* GitHub: https://github.com/stevecondylios/priceR
+* Source code: https://github.com/cran/priceR
+* Date/Publication: 2023-10-22 00:10:03 UTC
 * Number of recursive dependencies: 43
 
-Run `revdepcheck::cloud_details(, "tidyft")` for more info
+Run `revdepcheck::cloud_details(, "priceR")` for more info
 
 </details>
 
@@ -670,108 +261,209 @@ Run `revdepcheck::cloud_details(, "tidyft")` for more info
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘tidyft-Ex.R’ failed
+    Running examples in ‘priceR-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: unite
-    > ### Title: Unite multiple columns into one by pasting strings together
-    > ### Aliases: unite
+    > ### Name: extract_salary
+    > ### Title: Extract numeric salary from text data
+    > ### Aliases: extract_salary
     > 
     > ### ** Examples
     > 
-    > df <- CJ(x = c("a", NA), y = c("b", NA))
+    > 
     ...
-      2. ├─tidyft::unite(., "merged_name", "")
-      3. │ └─dt %>% select_dt(...)
-      4. ├─tidyft::select_dt(., ...)
-      5. │ └─... %>% str_c(collapse = ",")
-      6. ├─stringr::str_c(., collapse = ",")
-      7. └─stringr::str_subset(names(dt), ., negate = negate)
-      8.   └─stringr:::no_empty()
+      2. │ └─... %>% gsub("(\\d+)K", "\\1000", .)
+      3. ├─base::gsub("(\\d+)K", "\\1000", .)
+      4. │ └─base::is.factor(x)
+      5. ├─base::gsub("(\\d+)k", "\\1000", .)
+      6. │ └─base::is.factor(x)
+      7. └─stringr::str_replace_all(...)
+      8.   └─stringr:::str_transform_all(string, pattern, replacement)
       9.     └─cli::cli_abort(...)
      10.       └─rlang::abort(...)
     Execution halted
-    ```
-
-## In both
-
-*   checking Rd cross-references ... NOTE
-    ```
-    Packages unavailable to check Rd xrefs: ‘tidyfst’, ‘tidyr’, ‘fastDummies’
-    ```
-
-*   checking LazyData ... NOTE
-    ```
-      'LazyData' is specified without a 'data' directory
-    ```
-
-# zipangu
-
-<details>
-
-* Version: 0.3.1
-* GitHub: https://github.com/uribo/zipangu
-* Source code: https://github.com/cran/zipangu
-* Date/Publication: 2022-09-01 02:20:03 UTC
-* Number of recursive dependencies: 61
-
-Run `revdepcheck::cloud_details(, "zipangu")` for more info
-
-</details>
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘zipangu-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: kansuji2arabic
-    > ### Title: Convert kansuji character to arabic
-    > ### Aliases: kansuji2arabic kansuji2arabic_all kansuji2arabic_num
-    > ###   kansuji2arabic_str
-    > 
-    > ### ** Examples
-    > 
-    ...
-     1. ├─zipangu::kansuji2arabic_str("金一億二千三百四十五万円")
-     2. │ ├─... %>% unlist()
-     3. │ └─purrr::map(...)
-     4. │   └─zipangu (local) .f(.x[[i]], ...)
-     5. │     └─stringr::str_detect(doc_cha[i], pattern = "")
-     6. │       └─stringr:::no_empty()
-     7. │         └─cli::cli_abort(...)
-     8. │           └─rlang::abort(...)
-     9. └─base::unlist(.)
-    Execution halted
-    ```
-
-*   checking tests ... ERROR
-    ```
-      Running ‘testthat.R’
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-        2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
-        3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
-        4. ├─zipangu::kansuji2arabic_str("金一億二千三百四十五万六千七百八十九円")
-        5. │ ├─... %>% unlist()
-        6. │ └─purrr::map(...)
-        7. │   └─zipangu (local) .f(.x[[i]], ...)
-        8. │     └─stringr::str_detect(doc_cha[i], pattern = "")
-        9. │       └─stringr:::no_empty()
-       10. │         └─cli::cli_abort(...)
-       11. │           └─rlang::abort(...)
-       12. └─base::unlist(.)
-      
-      [ FAIL 1 | WARN 0 | SKIP 2 | PASS 142 ]
-      Error: Test failures
-      Execution halted
     ```
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 47 marked UTF-8 strings
+      Note: found 165 marked UTF-8 strings
+    ```
+
+# PubChemR
+
+<details>
+
+* Version: 2.0
+* GitHub: https://github.com/selcukorkmaz/PubChemR
+* Source code: https://github.com/cran/PubChemR
+* Date/Publication: 2024-07-13 06:30:02 UTC
+* Number of recursive dependencies: 68
+
+Run `revdepcheck::cloud_details(, "PubChemR")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+      > # This file is part of the standard setup for testthat.
+      > # It is recommended that you do not modify it.
+      > #
+      > # Where should you do additional test configuration?
+      > # Learn more about the roles of various files in:
+      > # * https://r-pkgs.org/testing-design.html#sec-tests-files-overview
+      > # * https://testthat.r-lib.org/articles/special-files.html
+    ...
+      `expected`: TRUE 
+      ── Failure ('test-get_substances.R:30:3'): incorrect/undefined substance identifier returns error ──
+      all(!is.null(tmp$result[[1]]$error), is.list(tmp$result[[1]]$error)) is not TRUE
+      
+      `actual`:   FALSE
+      `expected`: TRUE 
+      
+      [ FAIL 2 | WARN 0 | SKIP 0 | PASS 203 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+*   checking running R code from vignettes ... ERROR
+    ```
+    Errors in running code in vignettes:
+    when running code in ‘Exploring_Chemical_Data_with_PubChemR.Rmd’
+      ...
+           See ?pubChemData for details.
+    
+    > result <- get_pug_rest(identifier = "2244", namespace = "cid", 
+    +     domain = "compound", property = "MolecularWeight", output = "TXT")
+    Warning in file(file, "rt") :
+      cannot open URL 'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/property/MolecularWeight/TXT': HTTP status was '503 Service Unavailable'
+    
+      When sourcing ‘Exploring_Chemical_Data_with_PubChemR.R’:
+    Error: cannot open the connection to 'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/property/MolecularWeight/TXT'
+    Execution halted
+    
+      ‘Enhancing_Chemical_Data_Access_with_PubChemR.Rmd’ using ‘UTF-8’... OK
+      ‘Exploring_Chemical_Data_with_PubChemR.Rmd’ using ‘UTF-8’... failed
+      ‘Working_with_PubChemR_to_Access_Chemical_Data.Rmd’ using ‘UTF-8’... OK
+    ```
+
+# rtiddlywiki
+
+<details>
+
+* Version: 0.1.0
+* GitHub: https://github.com/byzheng/rtiddlywiki
+* Source code: https://github.com/cran/rtiddlywiki
+* Date/Publication: 2022-07-05 21:00:02 UTC
+* Number of recursive dependencies: 60
+
+Run `revdepcheck::cloud_details(, "rtiddlywiki")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+      > library(testthat)
+      > library(rtiddlywiki)
+      > 
+      > test_check("rtiddlywiki")
+      [ FAIL 1 | WARN 1 | SKIP 1 | PASS 23 ]
+      
+      ══ Skipped tests (1) ═══════════════════════════════════════════════════════════
+    ...
+      ══ Failed tests ════════════════════════════════════════════════════════════════
+      ── Failure ('test-rmarkdown.R:30:5'): markdown link ────────────────────────────
+      text2[3] not equal to "this line has [link one](#link%201) and [link two](#link2)".
+      1/1 mismatches
+      x[1]: "this line has [link one](#link%201) and [link two](#link%201)"
+      y[1]: "this line has [link one](#link%201) and [link two](#link2)"
+      
+      [ FAIL 1 | WARN 1 | SKIP 1 | PASS 23 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+# salty
+
+<details>
+
+* Version: 0.1.0
+* GitHub: https://github.com/mdlincoln/salty
+* Source code: https://github.com/cran/salty
+* Date/Publication: 2018-09-17 11:40:03 UTC
+* Number of recursive dependencies: 47
+
+Run `revdepcheck::cloud_details(, "salty")` for more info
+
+</details>
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘salty-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: salt_replace
+    > ### Title: Replace certain patterns into some values in a vector
+    > ### Aliases: salt_replace
+    > 
+    > ### ** Examples
+    > 
+    > 
+    ...
+      4.       ├─purrr:::with_indexed_errors(...)
+      5.       │ └─base::withCallingHandlers(...)
+      6.       ├─purrr:::call_with_cleanup(...)
+      7.       └─salty (local) .f(.x[[i]], .y[[i]], ...)
+      8.         └─salty:::selective_replacement(xc, replacements(i = si), rep_p)
+      9.           └─stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
+     10.             └─stringr:::str_transform_all(string, pattern, replacement)
+     11.               └─cli::cli_abort(...)
+     12.                 └─rlang::abort(...)
+    Execution halted
+    ```
+
+*   checking tests ... ERROR
+    ```
+      Running ‘testthat.R’
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+      > library(testthat)
+      > library(salty)
+      > 
+      > test_check("salty")
+      
+      Attaching package: 'purrr'
+      
+    ...
+       24. │   └─rlang::abort(...)
+       25. │     └─rlang:::signal_abort(cnd, .file)
+       26. │       └─base::signalCondition(cnd)
+       27. └─purrr (local) `<fn>`(`<prrr_rr_>`)
+       28.   └─cli::cli_abort(...)
+       29.     └─rlang::abort(...)
+      
+      [ FAIL 5 | WARN 0 | SKIP 0 | PASS 755 ]
+      Error: Test failures
+      Execution halted
+    ```
+
+## In both
+
+*   checking LazyData ... NOTE
+    ```
+      'LazyData' is specified without a 'data' directory
     ```
 

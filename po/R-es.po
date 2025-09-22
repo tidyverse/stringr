@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: stringr 1.5.1.9000\n"
+"POT-Creation-Date: 2024-07-17 11:07-0500\n"
+"PO-Revision-Date: 2024-07-17 11:07-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: detect.R:141
+msgid "{.arg pattern} must be a plain string, not a stringr modifier."
+msgstr "{.arg pattern} debe ser una cadena de caracteres, no un modificador de stringr"
+
+#: interp.R:105
+msgid "Invalid template string for interpolation."
+msgstr "Plantilla de cadenas invalida para interpolación."
+
+#: interp.R:176
+msgid "Failed to parse input {.str {text}}"
+msgstr "Fallo en segmentar el input {.str {text}}"
+
+#: match.R:54 match.R:68
+msgid "{.arg pattern} must be a regular expression."
+msgstr "{.arg pattern} debe ser una expresión regular."
+
+#: modifiers.R:216
+msgid "{.arg pattern} must be a string, not {.obj_type_friendly {x}}."
+msgstr "{.arg pattern} debe ser una cadena de caracteres, no {.obj_type_friendly {x}}."
+
+#: replace.R:208
+msgid "Failed to apply {.arg replacement} function."
+msgstr "Fallo en aplicar la función {.arg replacement}."
+
+#: replace.R:209
+msgid "It must accept a character vector of any length."
+msgstr "Debe aceptar un vector de caracteres de cualquier longitud."
+
+#: replace.R:220
+msgid ""
+"{.arg replacement} function must return a character vector, not {."
+"obj_type_friendly {new_flat}}."
+msgstr ""
+"La función {.arg replacement} debe devolver un vector de caracteres, no {."
+"obj_type_friendly {new_flat}}."
+
+#: replace.R:226
+msgid ""
+"{.arg replacement} function must return a vector the same length as the input "
+"({length(old_flat)}), not length {length(new_flat)}."
+msgstr ""
+"La función {.arg replacement} debe devolver un vector del mismo largo que el input "
+"({length(old_flat)}), no de {length(new_flat)} de largo."
+
+#: split.R:122
+msgid "{.arg i} must not be 0."
+msgstr "{.arg i} no debe ser igual a 0."
+
+#: trunc.R:32
+msgid "`width` ({width}) is shorter than `ellipsis` ({str_length(ellipsis)})."
+msgstr "`width` ({width}) es más corto que `ellipsis` ({str_length(ellipsis)})."
+
+#: utils.R:23
+msgid "{.arg pattern} can't be a boundary."
+msgstr "{.arg pattern} no puede ser un límite."
+
+#: utils.R:26
+msgid "{.arg pattern} can't be the empty string ({.code \"\"})."
+msgstr "{.arg pattern} no puede ser una cadena de caracteres vacia ({.code \"\"})."

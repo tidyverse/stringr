@@ -7,7 +7,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
+```{r}
+#| label = "setup",
+#| include = FALSE
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -19,7 +21,8 @@ Regular expressions are a concise and flexible tool for describing patterns in s
 
 Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it's equivalent to wrapping it in a call to `regex()`:
 
-```{r, eval = FALSE}
+```{r}
+#| eval = FALSE
 # The regular call:
 str_extract(fruit, "nana")
 # Is shorthand for
@@ -246,7 +249,7 @@ str_extract(c("grey", "gray"), "gre|ay")
 str_extract(c("grey", "gray"), "gr(e|a)y")
 ```
 
-Parenthesis also define "groups" that you can refer to with __backreferences__, like `\1`, `\2` etc, and can be extracted with `str_match()`. For example, the following regular expression finds all fruits that have a repeated pair of letters:
+Parentheses also define "groups" that you can refer to with __backreferences__, like `\1`, `\2` etc, and can be extracted with `str_match()`. For example, the following regular expression finds all fruits that have a repeated pair of letters:
 
 ```{r}
 pattern <- "(..)\\1"
@@ -266,6 +269,25 @@ str_match(c("grey", "gray"), "gr(?:e|a)y")
 ```
 
 This is most useful for more complex cases where you need to capture matches and control precedence independently.
+
+You can use `(?<name>...)`, the named capture group, to provide a reference to the matched text. This is more readable and maintainable, especially with complex regular expressions, because you can reference the matched text by name instead of a potentially confusing numerical index. 
+
+*Note: `<name>` should not include an underscore because they are not supported.*
+
+```{r}
+date_string <- "Today's date is 2025-09-19."
+pattern <- "(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})"
+str_match(date_string, pattern)
+```
+
+You can then use `\k<name>` to backreference the previously captured named group. It is an alternative to the standard numbered backreferences like `\1` or `\2`. 
+
+```{r}
+text <- "This is is a test test with duplicates duplicates"
+pattern <- "(?<word>\\b\\w+\\b)\\s+\\k<word>"
+str_subset(text, pattern)
+str_match_all(text, pattern)
+```
 
 ## Anchors
 

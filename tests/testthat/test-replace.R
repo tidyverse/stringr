@@ -56,9 +56,14 @@ test_that("can't replace empty/boundary", {
 
 # functions ---------------------------------------------------------------
 
-test_that("can supply replacement function", {
+test_that("can replace multiple values", {
   expect_equal(str_replace("abc", "a|c", toupper), "Abc")
   expect_equal(str_replace_all("abc", "a|c", toupper), "AbC")
+})
+
+test_that("can use formula", {
+  expect_equal(str_replace("abc", "b", ~"x"), "axc")
+  expect_equal(str_replace_all("abc", "b", ~"x"), "axc")
 })
 
 test_that("replacement can be different length", {
@@ -66,13 +71,41 @@ test_that("replacement can be different length", {
   expect_equal(str_replace_all("abc", "a|c", double), "aabcc")
 })
 
-test_that("replacement with NA works", {
+test_that("replacement is vectorised", {
+  x <- c("", "a", "b", "ab", "abc", "cba")
+  expect_equal(
+    str_replace_all(x, "a|c", ~ toupper(str_dup(.x, 2))),
+    c("", "AA", "b", "AAb", "AAbCC", "CCbAA")
+  )
+})
+
+test_that("is forgiving of 0 matches with paste", {
+  x <- c("a", "b", "c")
+  expect_equal(str_replace_all(x, "d", ~ paste("x", .x)), x)
+})
+
+test_that("useful error if not vectorised correctly", {
+  x <- c("a", "b", "c")
+  expect_snapshot(
+    str_replace_all(x, "a|c", ~ if (length(x) > 1) stop("Bad")),
+    error = TRUE
+  )
+})
+
+test_that("works with no match", {
   expect_equal(str_replace("abc", "z", toupper), "abc")
 })
 
-test_that("can use formula", {
-  expect_equal(str_replace("abc", "b", ~ "x"), "axc")
-  expect_equal(str_replace_all("abc", "b", ~ "x"), "axc")
+test_that("works with zero length match", {
+  expect_equal(str_replace("abc", "$", toupper), "abc")
+  expect_equal(str_replace_all("abc", "$|^", ~ rep("X", length(.x))), "XabcX")
+})
+
+test_that("replacement function must return correct type/length", {
+  expect_snapshot(error = TRUE, {
+    str_replace_all("x", "x", ~1)
+    str_replace_all("x", "x", ~ c("a", "b"))
+  })
 })
 
 # fix_replacement ---------------------------------------------------------
@@ -112,4 +145,26 @@ test_that("\1 converted to $1 etc", {
 
 test_that("\\1 left as is", {
   expect_equal(fix_replacement("\\\\1"), "\\\\1")
+})
+
+test_that("replace functions preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_replace(x, "[0-9]", "x")), names(x))
+  expect_equal(names(str_replace_all(x, "[0-9]", "x")), names(x))
+})
+
+test_that("replace functions handle vectorised patterns and names", {
+  x1 <- c(A = "ab")
+  p2 <- c("a", "b")
+  expect_null(names(str_replace(x1, p2, "x")))
+  expect_null(names(str_replace_all(x1, p2, "x")))
+
+  x2 <- c(A = "ab", B = "cd")
+  expect_equal(names(str_replace(x2, p2, "x")), names(x2))
+  expect_equal(names(str_replace_all(x2, p2, "x")), names(x2))
+})
+
+test_that("str_replace_na() preserves names", {
+  y <- c(A = NA, B = "x")
+  expect_equal(names(str_replace_na(y)), names(y))
 })

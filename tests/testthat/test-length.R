@@ -20,3 +20,9 @@ test_that("str_width returns display width", {
   x <- c("\u0308", "x", "\U0001f60a")
   expect_equal(str_width(x), c(0, 1, 2))
 })
+
+test_that("length/width preserve names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_length(x)), names(x))
+  expect_equal(names(str_width(x)), names(x))
+})

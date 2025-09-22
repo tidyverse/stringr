@@ -70,6 +70,7 @@ reference:
   - str_conv
   - str_like
   - str_replace_na
+  - str_to_camel
   - str_view
   - word
 

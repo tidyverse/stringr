@@ -17,9 +17,7 @@
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
 #'
-#'   Match character, word, line and sentence boundaries with
-#'   [boundary()]. An empty pattern, "", is equivalent to
-#'   `boundary("character")`.
+#'   You can not match boundaries, including `""`, with this function.
 #'
 #' @param negate If `TRUE`, inverts the resulting boolean vector.
 #' @return A logical vector the same length as `string`/`pattern`.
@@ -44,13 +42,31 @@ str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(type(pattern),
+  out <- switch(
+    type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = stri_detect_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_detect_coll(string,  pattern, negate = negate, opts_collator = opts(pattern)),
-    regex = stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern))
+    fixed = stri_detect_fixed(
+      string,
+      pattern,
+      negate = negate,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_detect_coll(
+      string,
+      pattern,
+      negate = negate,
+      opts_collator = opts(pattern)
+    ),
+    regex = stri_detect_regex(
+      string,
+      pattern,
+      negate = negate,
+      opts_regex = opts(pattern)
+    )
   )
+
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' Detect the presence/absence of a match at the start/end
@@ -80,16 +96,33 @@ str_starts <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(type(pattern),
+  out <- switch(
+    type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = stri_startswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_startswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
+    fixed = stri_startswith_fixed(
+      string,
+      pattern,
+      negate = negate,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_startswith_coll(
+      string,
+      pattern,
+      negate = negate,
+      opts_collator = opts(pattern)
+    ),
     regex = {
       pattern2 <- paste0("^(", pattern, ")")
-      stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
+      stri_detect_regex(
+        string,
+        pattern2,
+        negate = negate,
+        opts_regex = opts(pattern)
+      )
     }
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_starts
@@ -98,56 +131,121 @@ str_ends <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)
   check_bool(negate)
 
-  switch(type(pattern),
+  out <- switch(
+    type(pattern),
     empty = no_empty(),
     bound = no_boundary(),
-    fixed = stri_endswith_fixed(string, pattern, negate = negate, opts_fixed = opts(pattern)),
-    coll  = stri_endswith_coll(string, pattern, negate = negate, opts_collator = opts(pattern)),
+    fixed = stri_endswith_fixed(
+      string,
+      pattern,
+      negate = negate,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_endswith_coll(
+      string,
+      pattern,
+      negate = negate,
+      opts_collator = opts(pattern)
+    ),
     regex = {
       pattern2 <- paste0("(", pattern, ")$")
-      stri_detect_regex(string, pattern2, negate = negate, opts_regex = opts(pattern))
+      stri_detect_regex(
+        string,
+        pattern2,
+        negate = negate,
+        opts_regex = opts(pattern)
+      )
     }
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
-#' Detect a pattern in the same way as `SQL`'s `LIKE` operator
+#' Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
 #'
 #' @description
-#' `str_like()` follows the conventions of the SQL `LIKE` operator:
+#' `str_like()` and `str_like()` follow the conventions of the SQL `LIKE`
+#' and `ILIKE` operators, namely:
 #'
 #' * Must match the entire string.
 #' * `_` matches a single character (like `.`).
 #' * `%` matches any number of characters (like `.*`).
 #' * `\%` and `\_` match literal `%` and `_`.
-#' * The match is case insensitive by default.
+#'
+#' The difference between the two functions is their case-sensitivity:
+#' `str_like()` is case sensitive and `str_ilike()` is not.
+#'
+#' @note
+#' Prior to stringr 1.6.0, `str_like()` was incorrectly case-insensitive.
 #'
 #' @inheritParams str_detect
 #' @param pattern A character vector containing a SQL "like" pattern.
 #'   See above for details.
-#' @param ignore_case Ignore case of matches? Defaults to `TRUE` to match
-#'   the SQL `LIKE` operator.
+#' @param ignore_case `r lifecycle::badge("deprecated")`
 #' @return A logical vector the same length as `string`.
 #' @export
 #' @examples
 #' fruit <- c("apple", "banana", "pear", "pineapple")
 #' str_like(fruit, "app")
 #' str_like(fruit, "app%")
+#' str_like(fruit, "APP%")
 #' str_like(fruit, "ba_ana")
-#' str_like(fruit, "%APPLE")
-str_like <- function(string, pattern, ignore_case = TRUE) {
+#' str_like(fruit, "%apple")
+#'
+#' str_ilike(fruit, "app")
+#' str_ilike(fruit, "app%")
+#' str_ilike(fruit, "APP%")
+#' str_ilike(fruit, "ba_ana")
+#' str_ilike(fruit, "%apple")
+str_like <- function(string, pattern, ignore_case = deprecated()) {
   check_lengths(string, pattern)
   check_character(pattern)
   if (inherits(pattern, "stringr_pattern")) {
-    cli::cli_abort("{.arg pattern} must be a plain string, not a stringr modifier.")
+    cli::cli_abort(
+      "{.arg pattern} must be a plain string, not a stringr modifier."
+    )
   }
-  check_bool(ignore_case)
+  if (lifecycle::is_present(ignore_case)) {
+    lifecycle::deprecate_warn(
+      when = "1.6.0",
+      what = "str_like(ignore_case)",
+      details = c(
+        "`str_like()` is always case sensitive.",
+        "Use `str_ilike()` for case insensitive string matching."
+      )
+    )
+    check_bool(ignore_case)
+    if (ignore_case) {
+      return(str_ilike(string, pattern))
+    }
+  }
 
-  pattern <- regex(like_to_regex(pattern), ignore_case = ignore_case)
-  stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  pattern <- regex(like_to_regex(pattern), ignore_case = FALSE)
+  out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  preserve_names_if_possible(string, pattern, out)
+}
+
+#' @export
+#' @rdname str_like
+str_ilike <- function(string, pattern) {
+  check_lengths(string, pattern)
+  check_character(pattern)
+  if (inherits(pattern, "stringr_pattern")) {
+    cli::cli_abort(tr_(
+      "{.arg pattern} must be a plain string, not a stringr modifier."
+    ))
+  }
+
+  pattern <- regex(like_to_regex(pattern), ignore_case = TRUE)
+  out <- stri_detect_regex(string, pattern, opts_regex = opts(pattern))
+  preserve_names_if_possible(string, pattern, out)
 }
 
 like_to_regex <- function(pattern) {
-  converted <- stri_replace_all_regex(pattern, "(?<!\\\\|\\[)%(?!\\])", "\\.\\*")
+  converted <- stri_replace_all_regex(
+    pattern,
+    "(?<!\\\\|\\[)%(?!\\])",
+    "\\.\\*"
+  )
   converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
   paste0("^", converted, "$")
 }

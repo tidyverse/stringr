@@ -19,15 +19,17 @@
 str_trim <- function(string, side = c("both", "left", "right")) {
   side <- arg_match(side)
 
-  switch(side,
-    left =  stri_trim_left(string),
+  out <- switch(
+    side,
+    left = stri_trim_left(string),
     right = stri_trim_right(string),
-    both =  stri_trim_both(string)
+    both = stri_trim_both(string)
   )
+  copy_names(string, out)
 }
 
 #' @export
 #' @rdname str_trim
 str_squish <- function(string) {
-  stri_trim_both(str_replace_all(string, "\\s+", " "))
+  copy_names(string, stri_trim_both(str_replace_all(string, "\\s+", " ")))
 }

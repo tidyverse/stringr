@@ -6,5 +6,10 @@ test_that("encoding conversion works", {
 })
 
 test_that("check encoding argument", {
-  expect_error(str_conv("A", c("ISO-8859-1", "ISO-8859-2")), "single string")
+  expect_snapshot(str_conv("A", c("ISO-8859-1", "ISO-8859-2")), error = TRUE)
+})
+
+test_that("str_conv() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  expect_equal(names(str_conv(x, "UTF-8")), names(x))
 })

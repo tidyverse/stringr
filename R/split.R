@@ -16,7 +16,6 @@
 #' * `str_split_fixed()` splits each string in a character vector into a
 #'    fixed number of pieces, returning a character matrix.
 #'
-#' @inheritParams str_detect
 #' @inheritParams str_extract
 #' @param n Maximum number of pieces to return. Default (Inf) uses all
 #'   possible split positions.
@@ -32,7 +31,7 @@
 #' * `str_split_fixed()`: a character matrix with `n` columns and the same
 #'   number of rows as the length of `string`/`pattern`.
 #' * `str_split_i()`: a character vector the same length as `string`/`pattern`.
-#' @seealso [stri_split()] for the underlying implementation.
+#' @seealso [stringi::stri_split()] for the underlying implementation.
 #' @export
 #' @examples
 #' fruits <- c(
@@ -70,13 +69,44 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
     n <- -1L
   }
 
-  switch(type(pattern),
-    empty = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    bound = stri_split_boundaries(string, n = n, simplify = simplify, opts_brkiter = opts(pattern)),
-    fixed = stri_split_fixed(string, pattern, n = n, simplify = simplify, opts_fixed = opts(pattern)),
-    regex = stri_split_regex(string, pattern, n = n, simplify = simplify, opts_regex = opts(pattern)),
-    coll  = stri_split_coll(string, pattern, n = n, simplify = simplify, opts_collator = opts(pattern))
+  out <- switch(
+    type(pattern),
+    empty = stri_split_boundaries(
+      string,
+      n = n,
+      simplify = simplify,
+      opts_brkiter = opts(pattern)
+    ),
+    bound = stri_split_boundaries(
+      string,
+      n = n,
+      simplify = simplify,
+      opts_brkiter = opts(pattern)
+    ),
+    fixed = stri_split_fixed(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_fixed = opts(pattern)
+    ),
+    regex = stri_split_regex(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_regex = opts(pattern)
+    ),
+    coll = stri_split_coll(
+      string,
+      pattern,
+      n = n,
+      simplify = simplify,
+      opts_collator = opts(pattern)
+    )
   )
+
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @export
@@ -105,7 +135,8 @@ str_split_i <- function(string, pattern, i) {
 
   if (i > 0) {
     out <- str_split(string, pattern, simplify = NA, n = i + 1)
-    out[, i]
+    col <- out[, i]
+    if (keep_names(string, pattern)) copy_names(string, col) else col
   } else if (i < 0) {
     i <- abs(i)
     pieces <- str_split(string, pattern)
@@ -113,17 +144,22 @@ str_split_i <- function(string, pattern, i) {
       n <- length(x)
       if (i > n) {
         NA_character_
-      } else{
+      } else {
         x[[n + 1 - i]]
       }
     }
-    map_chr(pieces, last)
+    out <- map_chr(pieces, last)
+    preserve_names_if_possible(string, pattern, out)
   } else {
-    cli::cli_abort("{.arg i} must not be 0.")
+    cli::cli_abort(tr_("{.arg i} must not be 0."))
   }
 }
 
-check_positive_integer <- function(x, arg = caller_arg(x), call = caller_env()) {
+check_positive_integer <- function(
+  x,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (!identical(x, Inf)) {
     check_number_whole(x, min = 1, arg = arg, call = call)
   }
