@@ -64,18 +64,25 @@
 str_sub <- function(string, start = 1L, end = -1L) {
   vctrs::vec_size_common(string = string, start = start, end = end)
 
-  if (is.matrix(start)) {
+  out <- if (is.matrix(start)) {
     stri_sub(string, from = start)
   } else {
     stri_sub(string, from = start, to = end)
   }
+  # Preserve names unless `string` is recycled
+  if (length(out) == length(string)) copy_names(string, out) else out
 }
 
 
 #' @export
 #' @rdname str_sub
 "str_sub<-" <- function(string, start = 1L, end = -1L, omit_na = FALSE, value) {
-  vctrs::vec_size_common(string = string, start = start, end = end, value = value)
+  vctrs::vec_size_common(
+    string = string,
+    start = start,
+    end = end,
+    value = value
+  )
 
   if (is.matrix(start)) {
     stri_sub(string, from = start, omit_na = omit_na) <- value
@@ -88,9 +95,10 @@ str_sub <- function(string, start = 1L, end = -1L) {
 #' @export
 #' @rdname str_sub
 str_sub_all <- function(string, start = 1L, end = -1L) {
-  if (is.matrix(start)) {
+  out <- if (is.matrix(start)) {
     stri_sub_all(string, from = start)
   } else {
     stri_sub_all(string, from = start, to = end)
   }
+  copy_names(string, out)
 }

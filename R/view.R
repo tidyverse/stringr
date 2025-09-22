@@ -48,7 +48,13 @@
 #' str_view(c("abc", "def", "fghi"), "e", match = NA)
 #' # or just those that don't match:
 #' str_view(c("abc", "def", "fghi"), "e", match = FALSE)
-str_view <- function(string, pattern = NULL, match = TRUE, html = FALSE, use_escapes = FALSE) {
+str_view <- function(
+  string,
+  pattern = NULL,
+  match = TRUE,
+  html = FALSE,
+  use_escapes = FALSE
+) {
   rec <- vctrs::vec_recycle_common(string = string, pattern = pattern)
   string <- rec$string
   pattern <- rec$pattern
@@ -77,7 +83,13 @@ str_view <- function(string, pattern = NULL, match = TRUE, html = FALSE, use_esc
 #' @rdname str_view
 #' @usage NULL
 #' @export
-str_view_all <- function(string, pattern = NULL, match = NA, html = FALSE, use_escapes = FALSE) {
+str_view_all <- function(
+  string,
+  pattern = NULL,
+  match = NA,
+  html = FALSE,
+  use_escapes = FALSE
+) {
   lifecycle::deprecate_warn("1.5.0", "str_view_all()", "str_view()")
 
   str_view(

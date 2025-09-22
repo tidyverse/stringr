@@ -37,13 +37,23 @@
 str_locate <- function(string, pattern) {
   check_lengths(string, pattern)
 
-  switch(type(pattern),
+  out <- switch(
+    type(pattern),
     empty = ,
     bound = stri_locate_first_boundaries(string, opts_brkiter = opts(pattern)),
-    fixed = stri_locate_first_fixed(string, pattern, opts_fixed = opts(pattern)),
-    coll  = stri_locate_first_coll(string, pattern, opts_collator = opts(pattern)),
+    fixed = stri_locate_first_fixed(
+      string,
+      pattern,
+      opts_fixed = opts(pattern)
+    ),
+    coll = stri_locate_first_coll(
+      string,
+      pattern,
+      opts_collator = opts(pattern)
+    ),
     regex = stri_locate_first_regex(string, pattern, opts_regex = opts(pattern))
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 #' @rdname str_locate
@@ -52,13 +62,34 @@ str_locate_all <- function(string, pattern) {
   check_lengths(string, pattern)
   opts <- opts(pattern)
 
-  switch(type(pattern),
+  out <- switch(
+    type(pattern),
     empty = ,
-    bound = stri_locate_all_boundaries(string, omit_no_match = TRUE, opts_brkiter = opts),
-    fixed = stri_locate_all_fixed(string, pattern, omit_no_match = TRUE, opts_fixed = opts),
-    regex = stri_locate_all_regex(string, pattern, omit_no_match = TRUE, opts_regex = opts),
-    coll  = stri_locate_all_coll(string, pattern, omit_no_match = TRUE, opts_collator = opts)
+    bound = stri_locate_all_boundaries(
+      string,
+      omit_no_match = TRUE,
+      opts_brkiter = opts
+    ),
+    fixed = stri_locate_all_fixed(
+      string,
+      pattern,
+      omit_no_match = TRUE,
+      opts_fixed = opts
+    ),
+    regex = stri_locate_all_regex(
+      string,
+      pattern,
+      omit_no_match = TRUE,
+      opts_regex = opts
+    ),
+    coll = stri_locate_all_coll(
+      string,
+      pattern,
+      omit_no_match = TRUE,
+      opts_collator = opts
+    )
   )
+  preserve_names_if_possible(string, pattern, out)
 }
 
 

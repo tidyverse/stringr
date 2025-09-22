@@ -26,5 +26,7 @@ str_unique <- function(string, locale = "en", ignore_case = FALSE, ...) {
     ignore_case = ignore_case,
     ...
   )
-  stri_unique(string, opts_collator = opts)
+
+  keep <- !stringi::stri_duplicated(string, opts_collator = opts)
+  string[keep]
 }

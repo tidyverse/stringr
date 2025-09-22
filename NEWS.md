@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573).
+* All relevant stringr functions now preserve names (@jonovik, #575).
+* New `vignette("locale-sensitive")` about locale sensitive functions (@kylieainslie, #404)
 * New `str_ilike()` that follows the conventions of the SQL ILIKE operator (@edward-burn, #543).
 * `str_like(ignore_case)` is deprecated, with `str_like()` now always case sensitive to better follow the conventions of the SQL LIKE operator (@edward-burn, #543).
 * `str_sub<-` now gives a more informative error if `value` is not the correct length.
@@ -13,6 +16,10 @@
 * In `str_replace_all()`, a `replacement` function now receives all values in
   a single vector. This radically improves performance at the cost of breaking
   some existing uses (#462).
+
+# stringr 1.5.2
+
+* `R CMD check` fixes
 
 # stringr 1.5.1
 

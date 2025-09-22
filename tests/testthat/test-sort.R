@@ -20,3 +20,9 @@ test_that("NA can be at beginning or end", {
   na_start <- str_sort(x, numeric = TRUE, na_last = FALSE)
   expect_equal(head(na_start, 1), NA_character_)
 })
+
+test_that("str_sort() preserves names", {
+  x <- c(C = "3", B = "2", A = "1")
+  out <- str_sort(x)
+  expect_equal(names(out), c("A", "B", "C"))
+})
