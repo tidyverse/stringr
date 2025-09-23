@@ -1,22 +1,59 @@
 ## revdepcheck results
 
-We checked 2023 reverse dependencies (2022 from CRAN + 1 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 2355 reverse dependencies (2354 from CRAN + 1 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 7 new problems
- * We failed to check 33 packages
+ * We saw 22 new problems
+ * We failed to check 32 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
 
+* APCI
+  checking tests ... ERROR
+
+* bennu
+  checking tests ... ERROR
+
+* bioseq
+  checking tests ... ERROR
+
+* breathtestcore
+  checking tests ... ERROR
+
+* bskyr
+  checking tests ... ERROR
+
+* dataspice
+  checking tests ... ERROR
+
+* diseasystore
+  checking tests ... ERROR
+
+* echoice2
+  checking examples ... ERROR
+
+* ECOTOXr
+  checking examples ... ERROR
+  checking tests ... ERROR
+
+* handwriterRF
+  checking tests ... ERROR
+
 * huxtable
   checking examples ... ERROR
+  checking tests ... ERROR
 
 * latex2exp
   checking tests ... ERROR
-  checking running R code from vignettes ... ERROR
-  checking re-building of vignette outputs ... NOTE
+  checking re-building of vignette outputs ... ERROR
+
+* NMsim
+  checking tests ... ERROR
+
+* nrlR
+  checking examples ... ERROR
 
 * phenofit
   checking examples ... ERROR
@@ -27,7 +64,6 @@ Issues with CRAN packages are summarised below.
 
 * PubChemR
   checking tests ... ERROR
-  checking running R code from vignettes ... ERROR
 
 * rtiddlywiki
   checking tests ... ERROR
@@ -36,38 +72,46 @@ Issues with CRAN packages are summarised below.
   checking examples ... ERROR
   checking tests ... ERROR
 
+* survivoR
+  checking tests ... ERROR
+
+* tfrmt
+  checking examples ... ERROR
+
+* zipangu
+  checking tests ... ERROR
+
 ### Failed to check
 
-* AovBay         (NA)
-* apollo         (NA)
-* arealDB        (NA)
-* BayesFactor    (NA)
-* CGPfunctions   (NA)
-* covid19india   (NA)
-* CSCNet         (NA)
-* dataone        (NA)
-* FAIRmaterials  (NA)
-* Greg           (NA)
-* interactionRCS (NA)
-* iNZightPlots   (NA)
-* metajam        (NA)
-* miceafter      (NA)
-* Multiaovbay    (NA)
-* ontologics     (NA)
-* popstudy       (NA)
-* pre            (NA)
-* psfmi          (NA)
-* qris           (NA)
-* QTOCen         (NA)
-* quantoptr      (NA)
-* quid           (NA)
-* rlme           (NA)
-* scaper         (NA)
-* scCustomize    (NA)
-* scpi           (NA)
-* scRNAstat      (NA)
-* SEERaBomb      (NA)
-* seqimpute      (NA)
-* SimplyAgree    (NA)
-* tidyseurat     (NA)
-* weightQuant    (NA)
+* apa                 (NA)
+* arealDB             (NA)
+* dataone             (NA)
+* DFD                 (NA)
+* DSMolgenisArmadillo (NA)
+* dySEM               (NA)
+* FAIRmaterials       (NA)
+* GDINA               (NA)
+* genekitr            (NA)
+* ggmulti             (NA)
+* Grouphmap           (NA)
+* lcsm                (NA)
+* MARVEL              (NA)
+* metajam             (NA)
+* multinma            (NA)
+* numbat              (NA)
+* OlinkAnalyze        (NA)
+* ontologics          (NA)
+* psycModel           (NA)
+* rattle              (NA)
+* regsem              (NA)
+* ReporterScore       (NA)
+* Revticulate         (NA)
+* RVA                 (NA)
+* SCpubr              (NA)
+* ssdGSA              (NA)
+* Surrogate           (NA)
+* TestAnaAPP          (NA)
+* tidybins            (NA)
+* tidycomm            (NA)
+* tinyarray           (NA)
+* TransProR           (NA)
