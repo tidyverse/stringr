@@ -218,9 +218,7 @@ type.stringr_fixed <- function(x, error_call = caller_env()) {
 type.character <- function(x, error_call = caller_env()) {
   if (any(is.na(x))) {
     cli::cli_abort(
-      tr_(
-        "{.arg pattern} must be a character vector that does not contain NAs."
-      ),
+      tr_("{.arg pattern} can not contain NAs."),
       call = error_call
     )
   }
