@@ -1,21 +1,24 @@
 # stringr (development version)
 
-* New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573).
+## Breaking changes
+
 * All relevant stringr functions now preserve names (@jonovik, #575).
+* `str_like(ignore_case)` is deprecated, with `str_like()` now always case sensitive to better follow the conventions of the SQL LIKE operator (@edward-burn, #543).
+* In `str_replace_all()`, a `replacement` function now receives all values in a single vector. This radically improves performance at the cost of breaking some existing uses (#462).
+
+## New features
+
 * New `vignette("locale-sensitive")` about locale sensitive functions (@kylieainslie, #404)
 * New `str_ilike()` that follows the conventions of the SQL ILIKE operator (@edward-burn, #543).
-* `str_like(ignore_case)` is deprecated, with `str_like()` now always case sensitive to better follow the conventions of the SQL LIKE operator (@edward-burn, #543).
-* `str_sub<-` now gives a more informative error if `value` is not the correct length.
-* Add `sep` argument to `str_dup()` so that it is possible to repeat a string and
-  add a separator between every repeated value (@edward-burn, #564).
+* New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573).
+
+## Minor bug fies and improvements
+
 * `str_*` now errors if `pattern` includes any `NA`s (@nash-delcamp-slp, #546).
-* `str_view()` now displays a message when called with a zero-length character
-  vector (@LouisMPenrod, #497).
-* Adds `[[.stringr_pattern` method to go along with existing `[.stringr_pattern`
-  method (@edward-burn, #569).
-* In `str_replace_all()`, a `replacement` function now receives all values in
-  a single vector. This radically improves performance at the cost of breaking
-  some existing uses (#462).
+* `str_dup()` gains a `sep` argument so you can add a separator between every repeated value (@edward-burn, #564).
+* `str_sub<-` now gives a more informative error if `value` is not the correct length.
+* `str_view()` displays a message when called with a zero-length character vector (@LouisMPenrod, #497).
+* New `[[.stringr_pattern` method to match existing `[.stringr_pattern` (@edward-burn, #569).
 
 # stringr 1.5.2
 
