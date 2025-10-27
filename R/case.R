@@ -112,15 +112,20 @@ to_separated_case <- function(string, sep) {
 }
 
 to_words <- function(string) {
-  pattern <- paste(
+  breakpoints <- paste(
+    # non-word characters
     "[^\\p{L}\\p{N}]+",
+    # lowercase followed by uppercase
     "(?<=\\p{Ll})(?=\\p{Lu})",
+    # letter followed by number
     "(?<=\\p{L})(?=\\p{N})",
+    # number followed by letter
     "(?<=\\p{N})(?=\\p{L})",
+    # uppercase followed uppercase then lowercase (i.e. end of acronym)
     "(?<=\\p{Lu})(?=\\p{Lu}\\p{Ll})",
     sep = "|"
   )
-  out <- str_replace_all(string, pattern, " ")
+  out <- str_replace_all(string, breakpoints, " ")
   out <- str_to_lower(out)
   str_trim(out)
 }

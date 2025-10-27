@@ -10,7 +10,7 @@
 
 * New `vignette("locale-sensitive")` about locale sensitive functions (@kylieainslie, #404)
 * New `str_ilike()` that follows the conventions of the SQL ILIKE operator (@edward-burn, #543).
-* New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573).
+* New `str_to_camel()`, `str_to_snake()`, and `str_to_kebab()` for changing "programming" case (@librill, #573 + @arnaudgallou, #593).
 
 ## Minor bug fies and improvements
 
