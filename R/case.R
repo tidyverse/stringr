@@ -85,7 +85,7 @@ str_to_camel <- function(string, first_upper = FALSE) {
   string <- string |>
     to_words() |>
     str_to_title() |>
-    str_remove_all(pattern = "\\s+")
+    str_remove_all(pattern = fixed(" "))
 
   if (!first_upper) {
     str_sub(string, 1, 1) <- str_to_lower(str_sub(string, 1, 1))
@@ -97,26 +97,35 @@ str_to_camel <- function(string, first_upper = FALSE) {
 #' @rdname str_to_camel
 str_to_snake <- function(string) {
   check_character(string)
-  string |>
-    to_words() |>
-    str_replace_all(pattern = "\\s+", replacement = "_")
+  to_separated_case(string, sep = "_")
 }
 #' @export
 #' @rdname str_to_camel
 str_to_kebab <- function(string) {
   check_character(string)
-  string |>
-    to_words() |>
-    str_replace_all(pattern = "\\s+", replacement = "-")
+  to_separated_case(string, sep = "-")
+}
+
+to_separated_case <- function(string, sep) {
+  out <- to_words(string)
+  str_replace_all(out, fixed(" "), sep)
 }
 
 to_words <- function(string) {
-  string |>
-    str_replace_all("([a-z])([A-Z])", "\\1 \\2") |>
-    str_replace_all("([a-zA-Z])([0-9])", "\\1 \\2") |>
-    str_replace_all("([0-9])([a-zA-Z])", "\\1 \\2") |>
-    str_replace_all("([A-Z]+)([A-Z][a-z])", "\\1 \\2") |>
-    str_to_lower() |>
-    str_replace_all(pattern = "[:punct:]", replacement = " ") |>
-    str_trim()
+  breakpoints <- paste(
+    # non-word characters
+    "[^\\p{L}\\p{N}]+",
+    # lowercase followed by uppercase
+    "(?<=\\p{Ll})(?=\\p{Lu})",
+    # letter followed by number
+    "(?<=\\p{L})(?=\\p{N})",
+    # number followed by letter
+    "(?<=\\p{N})(?=\\p{L})",
+    # uppercase followed uppercase then lowercase (i.e. end of acronym)
+    "(?<=\\p{Lu})(?=\\p{Lu}\\p{Ll})",
+    sep = "|"
+  )
+  out <- str_replace_all(string, breakpoints, " ")
+  out <- str_to_lower(out)
+  str_trim(out)
 }
