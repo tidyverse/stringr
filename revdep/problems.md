@@ -1,91 +1,3 @@
-# breathtestcore (0.8.9)
-
-* GitHub: <https://github.com/dmenne/breathtestcore>
-* Email: <mailto:dieter.menne@menne-biomed.de>
-* GitHub mirror: <https://github.com/cran/breathtestcore>
-
-Run `revdepcheck::cloud_details(, "breathtestcore")` for more info
-
-## Newly broken
-
-*   checking tests ... ERROR
-     ```
-       Running ‘test-all.R’
-     Running the tests in ‘tests/test-all.R’ failed.
-     Complete output:
-       > library(testthat)
-       > 
-       > #options(Ncpus = parallelly::availableCores(omit = 1))
-       > #options(Ncpus = 1)
-       > options(lifecycle_verbosity = "warning")
-       > test_check("breathtestcore")
-       Loading required package: breathtestcore
-       Starting 2 test processes
-       [ FAIL 1 | WARN 15 | SKIP 4 | PASS 362 ]
-       
-       ══ Skipped tests (4) ═══════════════════════════════════════════════════════════
-       • On CRAN (4): 'test_coef_by_group.R:55:3', 'test_coef_diff_by_group.R:54:3',
-         'test_read_iris_csv.R:49:3', 'test_plot_breathtestfit.R:49:3'
-       
-       ══ Failed tests ════════════════════════════════════════════════════════════════
-       ── Failure ('test_cleanup_data.R:178:3'): data from BreathId device is accepted as input ──
-       `cleanup_data(data)` produced warnings.
-       
-       [ FAIL 1 | WARN 15 | SKIP 4 | PASS 362 ]
-       Error: Test failures
-       Execution halted
-     ```
-
-## In both
-
-*   checking DESCRIPTION meta-information ... NOTE
-     ```
-       Missing dependency on R >= 4.1.0 because package code uses the pipe
-       |> or function shorthand \(...) syntax added in R 4.1.0.
-       File(s) using such syntax:
-         ‘read_any_breathtest.R’
-     ```
-
-# echoice2 (0.2.4)
-
-* GitHub: <https://github.com/ninohardt/echoice2>
-* Email: <mailto:me@ninohardt.com>
-* GitHub mirror: <https://github.com/cran/echoice2>
-
-Run `revdepcheck::cloud_details(, "echoice2")` for more info
-
-## Newly broken
-
-*   checking examples ... ERROR
-     ```
-     ...
-     ! `pattern` can not contain NAs.
-     Backtrace:
-          ▆
-       1. ├─echoice2::get_attr_lvl(dummied_data)
-       2. │ └─... %>% rename(attr_level = value)
-       3. ├─dplyr::rename(., attr_level = value)
-       4. ├─dplyr::mutate(., lvl_abbrv = abbreviate(lvl))
-       5. ├─dplyr::mutate(...)
-       6. ├─dplyr::mutate(., reference_lvl = dplyr::first(lvl))
-       7. ├─dplyr::group_by(., across("attribute"))
-       8. ├─dplyr::mutate(., lvl = stringr::str_remove(.$lvl, "^(:)"))
-       9. ├─dplyr::mutate(., lvl = stringr::str_remove(.$value, .$attribute))
-      10. ├─dplyr:::mutate.data.frame(., lvl = stringr::str_remove(.$value, .$attribute))
-      11. │ └─dplyr:::mutate_cols(.data, dplyr_quosures(...), by)
-      12. │   ├─base::withCallingHandlers(...)
-      13. │   └─dplyr:::mutate_col(dots[[i]], data, mask, new_columns)
-      14. │     └─mask$eval_all_mutate(quo)
-      15. │       └─dplyr (local) eval()
-      16. └─stringr::str_remove(.$value, .$attribute)
-      17.   └─stringr::str_replace(string, pattern, "")
-      18.     ├─stringr:::type(pattern)
-      19.     └─stringr:::type.character(pattern)
-      20.       └─cli::cli_abort(tr_("{.arg pattern} can not contain NAs."), call = error_call)
-      21.         └─rlang::abort(...)
-     Execution halted
-     ```
-
 # huxtable (5.7.0)
 
 * GitHub: <https://github.com/hughjonesd/huxtable>
@@ -363,46 +275,6 @@ Run `revdepcheck::cloud_details(, "phenofit")` for more info
        Execution halted
      ```
 
-# priceR (1.0.2)
-
-* GitHub: <https://github.com/stevecondylios/priceR>
-* Email: <mailto:steve.condylios@gmail.com>
-* GitHub mirror: <https://github.com/cran/priceR>
-
-Run `revdepcheck::cloud_details(, "priceR")` for more info
-
-## Newly broken
-
-*   checking examples ... ERROR
-     ```
-     ...
-     > 
-     > # Provide a salary string and 'extract_salary' and will extract the salary and return it
-     > extract_salary("$160,000 per annum")
-       salary
-     1 160000
-     > # 160000
-     > 
-     > 
-     > # If a range is present, the average will be taken by default
-     > extract_salary("$160,000 - $180000.00 per annum")
-     Error in `str_replace_all()`:
-     ! `replacement` function must return a character vector, not an integer.
-     Backtrace:
-          ▆
-       1. ├─priceR::extract_salary("$160,000 - $180000.00 per annum")
-       2. │ └─... %>% gsub("(\\d+)K", "\\1000", .)
-       3. ├─base::gsub("(\\d+)K", "\\1000", .)
-       4. │ └─base::is.factor(x)
-       5. ├─base::gsub("(\\d+)k", "\\1000", .)
-       6. │ └─base::is.factor(x)
-       7. └─stringr::str_replace_all(...)
-       8.   └─stringr:::str_transform_all(string, pattern, replacement)
-       9.     └─cli::cli_abort(...)
-      10.       └─rlang::abort(...)
-     Execution halted
-     ```
-
 # psycModel (0.5.0)
 
 * GitHub: <https://github.com/jasonmoy28/psycModel>
@@ -450,46 +322,6 @@ Run `revdepcheck::cloud_details(, "psycModel")` for more info
      Namespaces in Imports field not imported from:
        ‘lifecycle’ ‘patchwork’
        All declared Imports should be used.
-     ```
-
-# reslr (0.1.1)
-
-* GitHub: <https://github.com/maeveupton/reslr>
-* Email: <mailto:uptonmaeve010@gmail.com>
-* GitHub mirror: <https://github.com/cran/reslr>
-
-Run `revdepcheck::cloud_details(, "reslr")` for more info
-
-## Newly broken
-
-*   checking tests ... ERROR
-     ```
-     ...
-       ── Error ('test-test_reslr_load.R:76:3'): Simplest example with list of tide gauges ──
-       Error in `utils::download.file(url, destfile = temp_file, quiet = TRUE)`: cannot open URL 'https://psmsl.org/data/obtaining/rlr.annual.data/rlr_annual.zip'
-       Backtrace:
-           ▆
-        1. └─reslr::reslr_load(...) at test-test_reslr_load.R:76:3
-        2.   └─reslr:::clean_tidal_gauge_data(...)
-        3.     └─utils::download.file(url, destfile = temp_file, quiet = TRUE)
-       ── Error ('test-test_reslr_load.R:98:3'): Simplest example with all tide gauges within 1 degree ──
-       Error in `utils::download.file(url, destfile = temp_file, quiet = TRUE)`: cannot open URL 'https://psmsl.org/data/obtaining/rlr.annual.data/rlr_annual.zip'
-       Backtrace:
-           ▆
-        1. └─reslr::reslr_load(...) at test-test_reslr_load.R:98:3
-        2.   └─reslr:::clean_tidal_gauge_data(...)
-        3.     └─utils::download.file(url, destfile = temp_file, quiet = TRUE)
-       ── Error ('test-test_reslr_load.R:142:3'): Simplest example with linear rate and closes tide gauge ──
-       Error in `utils::download.file(url, destfile = temp_file, quiet = TRUE)`: cannot open URL 'https://psmsl.org/data/obtaining/rlr.annual.data/rlr_annual.zip'
-       Backtrace:
-           ▆
-        1. └─reslr::reslr_load(...) at test-test_reslr_load.R:142:3
-        2.   └─reslr:::clean_tidal_gauge_data(...)
-        3.     └─utils::download.file(url, destfile = temp_file, quiet = TRUE)
-       
-       [ FAIL 6 | WARN 7 | SKIP 1 | PASS 52 ]
-       Error: Test failures
-       Execution halted
      ```
 
 # salty (0.1.1)
@@ -558,6 +390,46 @@ Run `revdepcheck::cloud_details(, "salty")` for more info
         29.     └─rlang::abort(...)
        
        [ FAIL 5 | WARN 0 | SKIP 0 | PASS 755 ]
+       Error: Test failures
+       Execution halted
+     ```
+
+# sdbuildR (1.0.7)
+
+* GitHub: <https://github.com/KCEvers/sdbuildR>
+* Email: <mailto:kyra.c.evers@gmail.com>
+* GitHub mirror: <https://github.com/cran/sdbuildR>
+
+Run `revdepcheck::cloud_details(, "sdbuildR")` for more info
+
+## Newly broken
+
+*   checking tests ... ERROR
+     ```
+     ...
+        12.     └─cli::cli_abort(...)
+        13.       └─rlang::abort(...)
+       ── Error ('test-conv_julia.R:723:3'): adding scientific notation ───────────────
+       Error in `stringr::str_replace_all(eqn, pattern = pattern, replacement = reformat_scientific)`: Failed to apply `replacement` function.
+       i It must accept a character vector of any length.
+       Caused by error in `if (nchar(format(num, scientific = FALSE)) > digits_max) ...`:
+       ! the condition has length > 1
+       Backtrace:
+            ▆
+         1. ├─testthat::expect_equal(...) at test-conv_julia.R:723:3
+         2. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
+         3. │   └─rlang::eval_bare(expr, quo_get_env(quo))
+         4. ├─sdbuildR:::scientific_notation("hiding 1e+23", task = "add")
+         5. │ └─stringr::str_replace_all(eqn, pattern = pattern, replacement = reformat_scientific)
+         6. │   └─stringr:::str_transform_all(string, pattern, replacement)
+         7. │     ├─base::withCallingHandlers(...)
+         8. │     └─sdbuildR (local) replacement(old_flat)
+         9. └─base::.handleSimpleError(...)
+        10.   └─stringr (local) h(simpleError(msg, call))
+        11.     └─cli::cli_abort(...)
+        12.       └─rlang::abort(...)
+       
+       [ FAIL 4 | WARN 0 | SKIP 30 | PASS 915 ]
        Error: Test failures
        Execution halted
      ```
