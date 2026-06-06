@@ -153,6 +153,17 @@ test_that("replace functions preserve names", {
   expect_equal(names(str_replace_all(x, "[0-9]", "x")), names(x))
 })
 
+test_that("str_replace_all works with named input and function replacement (#595)", {
+  expect_equal(
+    str_replace_all(c(name = "string string"), "string", function(x) rep("strong", length(x))),
+    c(name = "strong strong")
+  )
+  expect_equal(
+    str_replace_all(c(a = "a1 b2", b = "c3"), "[a-z]", toupper),
+    c(a = "A1 B2", b = "C3")
+  )
+})
+
 test_that("replace functions handle vectorised patterns and names", {
   x1 <- c(A = "ab")
   p2 <- c("a", "b")

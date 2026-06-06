@@ -223,13 +223,14 @@ str_transform_all <- function(
   replacement,
   error_call = caller_env()
 ) {
+  nms <- names(string)
   locs <- str_locate_all(string, pattern)
 
   old <- str_sub_all(string, locs)
 
   # unchop list into a vector, apply replacement(), and then rechop back into
   # a list
-  old_flat <- vctrs::list_unchop(old)
+  old_flat <- vctrs::list_unchop(unname(old))
   if (length(old_flat) == 0) {
     # minor optimisation to avoid problems with the many replacement
     # functions that use paste
@@ -271,6 +272,7 @@ str_transform_all <- function(
   new <- vctrs::vec_chop(new_flat, idx)
 
   stringi::stri_sub_all(string, locs) <- new
+  names(string) <- nms
   string
 }
 
