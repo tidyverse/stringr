@@ -84,11 +84,13 @@ str_sub <- function(string, start = 1L, end = -1L) {
     value = value
   )
 
+  nms <- names(string)
   if (is.matrix(start)) {
     stri_sub(string, from = start, omit_na = omit_na) <- value
   } else {
     stri_sub(string, from = start, to = end, omit_na = omit_na) <- value
   }
+  names(string) <- nms
   string
 }
 

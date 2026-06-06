@@ -20,6 +20,14 @@ test_that("case conversions preserve names", {
   expect_equal(names(str_to_title(x)), names(x))
 })
 
+test_that("programming case conversions preserve names", {
+  x <- c(A = "hello-world", B = "foo-bar")
+  expect_equal(names(str_to_camel(x)), names(x))
+  expect_equal(names(str_to_camel(x, first_upper = TRUE)), names(x))
+  expect_equal(names(str_to_snake(c(A = "helloWorld", B = "fooBar"))), c("A", "B"))
+  expect_equal(names(str_to_kebab(c(A = "helloWorld", B = "fooBar"))), c("A", "B"))
+})
+
 # programming cases -----------------------------------------------------------
 
 test_that("to_camel can control case of first argument", {
