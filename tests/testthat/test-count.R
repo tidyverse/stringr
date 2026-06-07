@@ -37,3 +37,28 @@ test_that("str_count() preserves names when pattern and string have same length"
   p2 <- c("a", "c")
   expect_equal(names(str_count(x2, p2)), names(x2))
 })
+
+test_that("str_count() handles NA values", {
+  expect_equal(str_count(NA, "a"), NA_integer_)
+  expect_equal(str_count(c("a", NA, "b"), "a"), c(1L, NA_integer_, 0L))
+})
+
+test_that("str_count() handles empty strings", {
+  expect_equal(str_count("", "a"), 0L)
+  expect_equal(str_count(character(), "a"), integer())
+})
+
+test_that("str_count() errors on NA pattern", {
+  expect_error(str_count("abc", NA_character_), "can not contain NAs")
+})
+
+test_that("str_count() counts non-overlapping regex matches", {
+  expect_equal(str_count("aaa", regex("aa")), 1L)
+  expect_equal(str_count("aaaa", regex("aa")), 2L)
+  expect_equal(str_count("ababab", "ab"), 3L)
+})
+
+test_that("str_count() handles multibyte characters", {
+  expect_equal(str_count("\u00e9\u00e8\u00ea", regex("[\u00e9\u00e8\u00ea]")), 3L)
+  expect_equal(str_count("\u4e2d\u6587\u6d4b\u8bd5", "\u6587"), 1L)
+})
