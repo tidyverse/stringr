@@ -43,3 +43,86 @@ test_that("str_pad() preserves names", {
   x <- c(C = "3", B = "2", A = "1")
   expect_equal(names(str_pad(x, 2, side = "left")), names(x))
 })
+
+test_that("str_pad() handles NA values", {
+  expect_equal(str_pad(NA_character_, 5), NA_character_)
+  expect_equal(str_pad(c("a", NA, "b"), 5), c("    a", NA, "    b"))
+  expect_equal(
+    str_pad(c("a", NA), 5, side = "right"),
+    c("a    ", NA)
+  )
+  expect_equal(
+    str_pad(c("a", NA), 5, side = "both"),
+    c("  a  ", NA)
+  )
+})
+
+test_that("str_pad() handles empty strings", {
+  expect_equal(str_pad("", 5), "     ")
+  expect_equal(str_pad("", 5, side = "right"), "     ")
+  expect_equal(str_pad("", 5, side = "both"), "     ")
+  expect_equal(str_pad("", 0), "")
+  expect_equal(str_pad("", 1), " ")
+})
+
+test_that("str_pad() handles empty character(0)", {
+  expect_equal(str_pad(character(0), 5), character(0))
+  expect_equal(str_pad(character(0), 5, side = "right"), character(0))
+})
+
+test_that("str_pad() respects custom pad character", {
+  expect_equal(str_pad("a", 5, pad = "0"), "0000a")
+  expect_equal(str_pad("a", 5, pad = "-"), "----a")
+  expect_equal(str_pad("a", 5, side = "right", pad = "."), "a....")
+  expect_equal(str_pad("a", 5, side = "both", pad = "*"), "**a**")
+})
+
+test_that("str_pad() handles width of 0", {
+  expect_equal(str_pad("hello", 0), "hello")
+  expect_equal(str_pad("a", 0), "a")
+  expect_equal(str_pad("", 0), "")
+})
+
+test_that("str_pad() does not pad when width equals string width", {
+  expect_equal(str_pad("abc", 3), "abc")
+  expect_equal(str_pad("abc", 3, side = "right"), "abc")
+  expect_equal(str_pad("abc", 3, side = "both"), "abc")
+})
+
+test_that("str_pad() does not pad when width is less than string width", {
+  expect_equal(str_pad("hello", 3), "hello")
+  expect_equal(str_pad("hello", 1), "hello")
+  expect_equal(str_pad("hello", 0), "hello")
+})
+
+test_that("str_pad() vectorises width", {
+  expect_equal(str_pad("a", c(3, 5, 7)), c("  a", "    a", "      a"))
+  expect_equal(
+    str_pad("a", c(3, 5), side = "right"),
+    c("a  ", "a    ")
+  )
+})
+
+test_that("str_pad() vectorises pad", {
+  expect_equal(str_pad("a", 5, pad = c("0", "-")), c("0000a", "----a"))
+  expect_equal(
+    str_pad("a", 5, side = "right", pad = c(".", "*")),
+    c("a....", "a****")
+  )
+})
+
+test_that("str_pad() preserves names for all sides", {
+  x <- c(A = "a", B = "b")
+  expect_equal(names(str_pad(x, 5, side = "left")), c("A", "B"))
+  expect_equal(names(str_pad(x, 5, side = "right")), c("A", "B"))
+  expect_equal(names(str_pad(x, 5, side = "both")), c("A", "B"))
+})
+
+test_that("str_pad() validates inputs", {
+  expect_snapshot(error = TRUE, {
+    str_pad("a", 5, side = "top")
+  })
+  expect_snapshot(error = TRUE, {
+    str_pad("a", 5, use_width = "yes")
+  })
+})
