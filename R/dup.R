@@ -22,7 +22,7 @@ str_dup <- function(string, times, sep = NULL) {
     out <- stri_dup(input$string, input$times)
   } else {
     out <- map_chr(seq_along(input$string), function(i) {
-      paste(rep(string[[i]], input$times[[i]]), collapse = sep)
+      paste(rep(input$string[[i]], input$times[[i]]), collapse = sep)
     })
   }
   names(out) <- names(input$string)

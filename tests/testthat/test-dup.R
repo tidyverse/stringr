@@ -23,6 +23,11 @@ test_that("uses sep argument", {
 
   expect_equal(str_dup(character(), 1, sep = "-"), character())
   expect_equal(str_dup(character(), 2, sep = "-"), character())
+
+  expect_equal(
+    str_dup("na", 0:5, sep = "-"),
+    c("", "na", "na-na", "na-na-na", "na-na-na-na", "na-na-na-na-na")
+  )
 })
 
 test_that("separator must be a single string", {
