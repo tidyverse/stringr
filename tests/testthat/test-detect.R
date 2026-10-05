@@ -102,6 +102,25 @@ test_that("str_ilike works", {
   expect_snapshot(str_ilike("abc", regex("x")), error = TRUE)
 })
 
+test_that("str_like and str_ilike treat regex metacharacters literally", {
+  expect_equal(str_like(c("a.c", "abc"), "a.c%"), c(TRUE, FALSE))
+  expect_equal(str_ilike(c("A.C", "ABC"), "a.c%"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a*c", "aac"), "a*c"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a(b)c", "abc"), "a(b)c"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a|b", "a"), "a|b"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a+b", "aab"), "a+b"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a?", "a"), "a?"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a^b$", "ab"), "a^b$"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a{2}", "aa"), "a{2}"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a.b]", "axb]"), "a.b]"), c(TRUE, FALSE))
+  expect_equal(str_like(c("a(b)]", "abb]"), "a(b)]"), c(TRUE, FALSE))
+  expect_equal(str_like(c("f(x]", "fx]"), "f(x]"), c(TRUE, FALSE))
+  expect_equal(
+    str_like(c("a.b9", "axb9", "a.bz"), "a.b[0-9]"),
+    c(TRUE, FALSE, FALSE)
+  )
+})
+
 test_that("like_to_regex generates expected regexps", {
   expect_equal(like_to_regex("ab%"), "^ab.*$")
   expect_equal(like_to_regex("ab_"), "^ab.$")

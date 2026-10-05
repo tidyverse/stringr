@@ -1,5 +1,7 @@
 # stringr (development version)
 
+* `str_like()` and `str_ilike()` now match regular expression metacharacters such as `.` and `*` literally (@taekop, #617).
+
 # stringr 1.6.0
 
 ## Breaking changes
