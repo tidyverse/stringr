@@ -1,4 +1,4 @@
-# does not truncate to a length shorter than elipsis
+# does not truncate to a length shorter than ellipsis
 
     Code
       str_trunc("foobar", 2)
@@ -10,4 +10,3 @@
     Condition
       Error in `str_trunc()`:
       ! `width` (3) is shorter than `ellipsis` (4).
-

@@ -17,7 +17,7 @@ test_that("can remove missing values", {
   expect_equal(str_flatten(c("a", NA), na.rm = TRUE), "a")
 })
 
-test_that("str_flatten_oxford removes comma iif necessary", {
+test_that("str_flatten_oxford removes comma if necessary", {
   expect_equal(str_flatten_comma(letters[1:2], ", or "), "a or b")
 
   expect_equal(str_flatten_comma(letters[1:3], ", or "), "a, b, or c")

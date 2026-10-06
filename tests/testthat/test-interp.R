@@ -41,7 +41,7 @@ test_that("str_interp works with nested expressions", {
   )
 })
 
-test_that("str_interp works in the absense of placeholders", {
+test_that("str_interp works in the absence of placeholders", {
   expect_equal(
     str_interp("A quite static string here."),
     "A quite static string here."
@@ -66,7 +66,7 @@ test_that("str_interp wraps parsing errors", {
   expect_snapshot(str_interp("This is a ${1 +}"), error = TRUE)
 })
 
-test_that("str_interp formats list independetly of other placeholders", {
+test_that("str_interp formats list independently of other placeholders", {
   a_list <- c("item1", "item2", "item3")
   other <- "1"
   extract <- function(text) regmatches(text, regexpr("xx[^x]+xx", text))
