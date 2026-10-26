@@ -37,8 +37,7 @@ str_extract_all(string, pattern, simplify = FALSE)
 
   Match character, word, line and sentence boundaries with
   [`boundary()`](https://stringr.tidyverse.org/dev/reference/modifiers.md).
-  The empty string,
-  ``` ""``, is equivalent to  ```boundary("character")\`.
+  The empty string, `""`, is equivalent to `boundary("character")`.
 
 - group:
 

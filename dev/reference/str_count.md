@@ -35,8 +35,7 @@ str_count(string, pattern = "")
 
   Match character, word, line and sentence boundaries with
   [`boundary()`](https://stringr.tidyverse.org/dev/reference/modifiers.md).
-  The empty string,
-  ``` ""``, is equivalent to  ```boundary("character")\`.
+  The empty string, `""`, is equivalent to `boundary("character")`.
 
 ## Value
 

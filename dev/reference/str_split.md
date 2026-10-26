@@ -55,8 +55,7 @@ str_split_i(string, pattern, i)
 
   Match character, word, line and sentence boundaries with
   [`boundary()`](https://stringr.tidyverse.org/dev/reference/modifiers.md).
-  The empty string,
-  ``` ""``, is equivalent to  ```boundary("character")\`.
+  The empty string, `""`, is equivalent to `boundary("character")`.
 
 - n:
 
