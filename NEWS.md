@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_dup()` now recycles `string` to the length of `times` when `sep` is
+  supplied, instead of failing with a subscript out of bounds error.
+
 # stringr 1.6.0
 
 ## Breaking changes
