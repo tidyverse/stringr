@@ -46,7 +46,7 @@ CRAN release: 2025-11-04
   [@arnaudgallou](https://github.com/arnaudgallou),
   [\#593](https://github.com/tidyverse/stringr/issues/593)).
 
-### Minor bug fies and improvements
+### Minor bug fixes and improvements
 
 - `str_*` now errors if `pattern` includes any `NA`s
   ([@nash-delcamp-slp](https://github.com/nash-delcamp-slp),

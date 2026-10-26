@@ -143,9 +143,9 @@ str_extract_all(shopping_list, "\\d", simplify = TRUE)
 #> [4,] "2" 
 
 # Extract all words
-str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
+str_extract_all("This is, surprisingly, a sentence.", boundary("word"))
 #> [[1]]
-#> [1] "This"        "is"          "suprisingly" "a"          
-#> [5] "sentence"   
+#> [1] "This"         "is"           "surprisingly" "a"           
+#> [5] "sentence"    
 #> 
 ```

@@ -1,6 +1,6 @@
 # Detect a pattern in the same way as `SQL`'s `LIKE` and `ILIKE` operators
 
-`str_like()` and `str_like()` follow the conventions of the SQL `LIKE`
+`str_like()` and `str_ilike()` follow the conventions of the SQL `LIKE`
 and `ILIKE` operators, namely:
 
 - Must match the entire string.

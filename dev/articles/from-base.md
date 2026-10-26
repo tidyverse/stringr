@@ -39,7 +39,7 @@ Overall the main differences between base R and stringr are:
 
 2.  The order of inputs is usually different between base R and stringr.
     In base R, the `pattern` to match usually comes first; in stringr,
-    the `string` to manupulate always comes first. This makes stringr
+    the `string` to manipulate always comes first. This makes stringr
     easier to use in pipes, and with
     [`lapply()`](https://rdrr.io/r/base/lapply.html) or
     [`purrr::map()`](https://purrr.tidyverse.org/reference/map.html).
@@ -122,7 +122,7 @@ How many “a”s are in each fruit?
 
 ``` r
 
-# base 
+# base
 loc <- gregexpr(pattern = "a", text = fruit, fixed = TRUE)
 sapply(loc, function(x) length(attr(x, "match.length")))
 #> [1] 1 3 1 1
@@ -196,7 +196,7 @@ hw <- "Hadley Wickham"
 # base
 substr(hw, start = 1, stop = 6)
 #> [1] "Hadley"
-substring(hw, first = 1) 
+substring(hw, first = 1)
 #> [1] "Hadley Wickham"
 
 # stringr
@@ -337,7 +337,7 @@ regmatches(shopping_list, m = matches)
 #> [1] "milk" "x"
 
 # stringr
-str_extract(shopping_list, pattern = "\\d+") 
+str_extract(shopping_list, pattern = "\\d+")
 #> [1] "4"  NA   "10" "2"
 str_extract_all(shopping_list, "[a-z]+")
 #> [[1]]
@@ -433,7 +433,7 @@ can handle a factor input.
 ``` r
 
 # base
-nchar(factor("abc")) 
+nchar(factor("abc"))
 #> Error in `nchar()`:
 #> ! 'nchar()' requires a character vector
 ```
@@ -449,7 +449,7 @@ Note that “characters” is a poorly defined concept, and technically both
 [`nchar()`](https://rdrr.io/r/base/nchar.html) and
 [`str_length()`](https://stringr.tidyverse.org/dev/reference/str_length.md)
 returns the number of code points. This is usually the same as what
-you’d consider to be a charcter, but not always:
+you’d consider to be a character, but not always:
 
 ``` r
 
@@ -780,7 +780,7 @@ anniversary <- as.Date("1991-10-12")
 
 # base
 sprintf(
-  "My name is %s my age next year is %s and my anniversary is %s.", 
+  "My name is %s my age next year is %s and my anniversary is %s.",
   name,
   age + 1,
   format(anniversary, "%A, %B %d, %Y")
