@@ -1,7 +1,7 @@
 #' Extract the complete match
 #'
 #' `str_extract()` extracts the first complete match from each string,
-#' `str_extract_all()`extracts all matches from each string.
+#' `str_extract_all()` extracts all matches from each string.
 #'
 #' @inheritParams str_count
 #' @param group If supplied, instead of returning the complete match, will
@@ -12,7 +12,7 @@
 #'   * `FALSE` (the default): returns a list of character vectors.
 #'   * `TRUE`: returns a character matrix.
 #' @return
-#' * `str_extract()`: an character vector the same length as `string`/`pattern`.
+#' * `str_extract()`: a character vector the same length as `string`/`pattern`.
 #' * `str_extract_all()`: a list of character vectors the same length as
 #'   `string`/`pattern`.
 #' @export

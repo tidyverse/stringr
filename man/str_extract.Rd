@@ -38,14 +38,14 @@ return the matched text from the specified capturing group.}
 }
 \value{
 \itemize{
-\item \code{str_extract()}: an character vector the same length as \code{string}/\code{pattern}.
+\item \code{str_extract()}: a character vector the same length as \code{string}/\code{pattern}.
 \item \code{str_extract_all()}: a list of character vectors the same length as
 \code{string}/\code{pattern}.
 }
 }
 \description{
 \code{str_extract()} extracts the first complete match from each string,
-\code{str_extract_all()}extracts all matches from each string.
+\code{str_extract_all()} extracts all matches from each string.
 }
 \examples{
 shopping_list <- c("apples x4", "bag of flour", "bag of sugar", "milk x2")
