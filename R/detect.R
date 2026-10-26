@@ -241,11 +241,29 @@ str_ilike <- function(string, pattern) {
 }
 
 like_to_regex <- function(pattern) {
+  converted <- escape_like_metachars(pattern)
   converted <- stri_replace_all_regex(
-    pattern,
+    converted,
     "(?<!\\\\|\\[)%(?!\\])",
     "\\.\\*"
   )
   converted <- stri_replace_all_regex(converted, "(?<!\\\\|\\[)_(?!\\])", "\\.")
   paste0("^", converted, "$")
+}
+
+# Escapes regex metacharacters, except inside `[...]` groups or after `\`
+escape_like_metachars <- function(pattern) {
+  out <- rep(NA_character_, length(pattern))
+  tokens <- stri_extract_all_regex(
+    pattern,
+    "(?s)\\[[^\\]]*\\]|\\\\.|.",
+    omit_no_match = TRUE
+  )
+  for (i in which(!is.na(pattern))) {
+    token <- tokens[[i]]
+    meta <- stri_detect_regex(token, "^[.^$*+?(){}|]$")
+    token[meta] <- paste0("\\", token[meta])
+    out[[i]] <- paste0(token, collapse = "")
+  }
+  out
 }
