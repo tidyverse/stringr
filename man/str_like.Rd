@@ -22,7 +22,7 @@ See above for details.}
 A logical vector the same length as \code{string}.
 }
 \description{
-\code{str_like()} and \code{str_like()} follow the conventions of the SQL \code{LIKE}
+\code{str_like()} and \code{str_ilike()} follow the conventions of the SQL \code{LIKE}
 and \code{ILIKE} operators, namely:
 \itemize{
 \item Must match the entire string.
