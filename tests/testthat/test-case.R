@@ -24,19 +24,29 @@ test_that("case conversions preserve names", {
 
 test_that("to_camel can control case of first argument", {
   expect_equal(str_to_camel("my_variable"), "myVariable")
+  expect_equal(str_to_camel("my$variable"), "myVariable")
+  expect_equal(str_to_camel(" my    variable  "), "myVariable")
   expect_equal(str_to_camel("my_variable", first_upper = TRUE), "MyVariable")
 })
 
 test_that("to_kebab converts to kebab case", {
   expect_equal(str_to_kebab("myVariable"), "my-variable")
   expect_equal(str_to_kebab("MyVariable"), "my-variable")
-  expect_equal(str_to_kebab("MyVariable1"), "my-variable-1")
+  expect_equal(str_to_kebab("1MyVariable1"), "1-my-variable-1")
+  expect_equal(str_to_kebab("My$Variable"), "my-variable")
+  expect_equal(str_to_kebab(" My   Variable  "), "my-variable")
+  expect_equal(str_to_kebab("testABCTest"), "test-abc-test")
+  expect_equal(str_to_kebab("IlÉtaitUneFois"), "il-était-une-fois")
 })
 
 test_that("to_snake converts to snake case", {
   expect_equal(str_to_snake("myVariable"), "my_variable")
   expect_equal(str_to_snake("MyVariable"), "my_variable")
-  expect_equal(str_to_snake("MyVariable1"), "my_variable_1")
+  expect_equal(str_to_snake("1MyVariable1"), "1_my_variable_1")
+  expect_equal(str_to_snake("My$Variable"), "my_variable")
+  expect_equal(str_to_snake(" My   Variable  "), "my_variable")
+  expect_equal(str_to_snake("testABCTest"), "test_abc_test")
+  expect_equal(str_to_snake("IlÉtaitUneFois"), "il_était_une_fois")
 })
 
 test_that("to_words handles common compound cases", {

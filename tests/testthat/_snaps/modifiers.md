@@ -35,5 +35,5 @@
       type(c("a", "b", NA_character_, "c"))
     Condition
       Error:
-      ! `pattern` must be a character vector that does not contain NAs.
+      ! `pattern` can not contain NAs.
 

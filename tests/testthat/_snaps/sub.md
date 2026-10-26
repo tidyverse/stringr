@@ -4,10 +4,10 @@
       str_sub(x, 1:2, 1:3)
     Condition
       Error in `str_sub()`:
-      ! Can't recycle `string` (size 2) to match `end` (size 3).
+      ! Can't recycle `start` (size 2) to match `end` (size 3).
     Code
       str_sub(x, 1:2, 1:2) <- 1:3
     Condition
       Error in `str_sub<-`:
-      ! Can't recycle `string` (size 2) to match `value` (size 3).
+      ! Can't recycle `start` (size 2) to match `value` (size 3).
 
