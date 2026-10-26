@@ -1,7 +1,7 @@
 # Extract the complete match
 
 `str_extract()` extracts the first complete match from each string,
-`str_extract_all()`extracts all matches from each string.
+`str_extract_all()` extracts all matches from each string.
 
 ## Usage
 
@@ -55,7 +55,7 @@ str_extract_all(string, pattern, simplify = FALSE)
 
 ## Value
 
-- `str_extract()`: an character vector the same length as
+- `str_extract()`: a character vector the same length as
   `string`/`pattern`.
 
 - `str_extract_all()`: a list of character vectors the same length as
