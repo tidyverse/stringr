@@ -42,7 +42,7 @@ test_that("truncations work for all sides", {
   expect_equal(trunc("center", 5), "T...g")
 })
 
-test_that("does not truncate to a length shorter than elipsis", {
+test_that("does not truncate to a length shorter than ellipsis", {
   expect_snapshot(error = TRUE, {
     str_trunc("foobar", 2)
     str_trunc("foobar", 3, ellipsis = "....")

@@ -37,7 +37,7 @@
 #' str_extract_all(shopping_list, "\\d", simplify = TRUE)
 #'
 #' # Extract all words
-#' str_extract_all("This is, suprisingly, a sentence.", boundary("word"))
+#' str_extract_all("This is, surprisingly, a sentence.", boundary("word"))
 str_extract <- function(string, pattern, group = NULL) {
   if (!is.null(group)) {
     out <- str_match(string, pattern)[, group + 1]
