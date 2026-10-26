@@ -2,6 +2,10 @@
 
 ## stringr (development version)
 
+- [`str_dup()`](https://stringr.tidyverse.org/dev/reference/str_dup.md)
+  now recycles `string` to the length of `times` when `sep` is supplied,
+  instead of failing with a subscript out of bounds error.
+
 ## stringr 1.6.0
 
 CRAN release: 2025-11-04

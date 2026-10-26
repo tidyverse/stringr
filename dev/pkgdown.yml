@@ -6,7 +6,7 @@ articles:
   locale-sensitive: locale-sensitive.html
   regular-expressions: regular-expressions.html
   stringr: stringr.html
-last_built: 2026-10-26T20:58Z
+last_built: 2026-10-26T21:01Z
 urls:
   reference: https://stringr.tidyverse.org/reference
   article: https://stringr.tidyverse.org/articles
