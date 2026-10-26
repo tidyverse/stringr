@@ -44,5 +44,5 @@ ohm == omega
 str_equal(ohm, omega)
 }
 \seealso{
-\code{\link[stringi:stri_compare]{stringi::stri_cmp_equiv()}} for the underlying implementation.
+\code{\link[stringi:stri_cmp_equiv]{stringi::stri_cmp_equiv()}} for the underlying implementation.
 }

@@ -35,7 +35,7 @@ cause \code{NA} output. Otherwise the value is replaced by the value of \code{.n
 A character vector with same length as the longest input.
 }
 \description{
-These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue]{glue::glue_data()}},
+These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue_data]{glue::glue_data()}},
 which provide a powerful and elegant syntax for interpolating strings
 with \code{{}}.
 

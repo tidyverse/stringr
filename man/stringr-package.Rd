@@ -22,6 +22,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Hadley Wickham \email{hadley@posit.co} [copyright holder]
 
+Authors:
+\itemize{
+  \item Hadley Wickham \email{hadley@posit.co} [copyright holder]
+}
+
 Other contributors:
 \itemize{
   \item Posit Software, PBC [copyright holder, funder]
