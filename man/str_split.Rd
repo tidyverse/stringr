@@ -31,7 +31,8 @@ for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.
 
 Match character, word, line and sentence boundaries with
-\code{\link[=boundary]{boundary()}}. The empty string, \verb{""``, is equivalent to }boundary("character")`.}
+\code{\link[=boundary]{boundary()}}. The empty string, \code{""}, is equivalent to
+\code{boundary("character")}.}
 
 \item{n}{Maximum number of pieces to return. Default (Inf) uses all
 possible split positions.
