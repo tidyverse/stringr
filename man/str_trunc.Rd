@@ -19,7 +19,7 @@ content has been removed.}
 A character vector the same length as \code{string}.
 }
 \description{
-Truncate a string to a fixed of characters, so that
+Truncate a string to a fixed number of characters, so that
 \code{str_length(str_trunc(x, n))} is always less than or equal to \code{n}.
 }
 \examples{

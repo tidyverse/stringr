@@ -43,8 +43,8 @@ then the corresponding output will be the empty string.
 }
 \description{
 \code{str_sub()} extracts or replaces the elements at a single position in each
-string. \code{str_sub_all()} allows you to extract strings at multiple elements
-in every string.
+string. \code{str_sub_all()} allows you to extract substrings at multiple
+positions in every string.
 }
 \examples{
 hw <- "Hadley Wickham"

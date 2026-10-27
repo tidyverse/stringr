@@ -28,7 +28,7 @@ A character vector the same length as \code{string}.
 }
 \description{
 Wrap words into paragraphs, minimizing the "raggedness" of the lines
-(i.e. the variation in length line) using the Knuth-Plass algorithm.
+(i.e. the variation in line length) using the Knuth-Plass algorithm.
 }
 \examples{
 thanks_path <- file.path(R.home("doc"), "THANKS")

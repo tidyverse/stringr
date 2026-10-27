@@ -17,7 +17,7 @@
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
 #'
-#'   You can not match boundaries, including `""`, with this function.
+#'   You cannot match boundaries, including `""`, with this function.
 #'
 #' @param negate If `TRUE`, inverts the resulting boolean vector.
 #' @return A logical vector the same length as `string`/`pattern`.
@@ -36,7 +36,7 @@
 #' # Also vectorised over pattern
 #' str_detect("aecfg", letters)
 #'
-#' # Returns TRUE if the pattern do NOT match
+#' # Returns TRUE if the pattern does NOT match
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)

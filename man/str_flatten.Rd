@@ -29,7 +29,7 @@ summary function because regardless of the length of the input \code{x}, it
 always returns a single string.
 
 \code{str_flatten_comma()} is a variation designed specifically for flattening
-with commas. It automatically recognises if \code{last} uses the Oxford comma
+with commas. It automatically recognizes if \code{last} uses the Oxford comma
 and handles the special case of 2 elements.
 }
 \examples{

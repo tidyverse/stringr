@@ -1,10 +1,10 @@
 #' Extract words from a sentence
 #'
 #' @inheritParams str_detect
-#' @param start,end Pair of integer vectors giving range of words (inclusive)
+#' @param start,end Pair of integer vectors giving the range of words (inclusive)
 #'   to extract. If negative, counts backwards from the last word.
 #'
-#'   The default value select the first word.
+#'   The default value selects the first word.
 #' @param sep Separator between words. Defaults to single space.
 #' @return A character vector with the same length as `string`/`start`/`end`.
 #' @export

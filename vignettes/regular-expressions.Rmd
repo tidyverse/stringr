@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 library(stringr)
 ```
 
-Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr's regular expressions, as implemented by [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so if you're unfamiliar regular expressions, I'd recommend starting at <https://r4ds.had.co.nz/strings.html>. If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124) by Jeffrey E. F. Friedl. 
+Regular expressions are a concise and flexible tool for describing patterns in strings. This vignette describes the key features of stringr's regular expressions, as implemented by [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so if you're unfamiliar with regular expressions, I'd recommend starting at <https://r4ds.had.co.nz/strings.html>. If you want to master the details, I'd recommend reading the classic [_Mastering Regular Expressions_](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124) by Jeffrey E. F. Friedl. 
 
 Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it's equivalent to wrapping it in a call to `regex()`:
 
@@ -162,7 +162,7 @@ There are five other escaped pairs that match narrower classes of characters:
     
 *   `\s`: matches any whitespace. This includes tabs, newlines, form feeds, 
     and any character in the Unicode Z Category (which includes a variety of 
-    space characters and other separators.). The complement, `\S`, matches any
+    space characters and other separators). The complement, `\S`, matches any
     non-whitespace character.
     
     ```{r}
@@ -170,7 +170,7 @@ There are five other escaped pairs that match narrower classes of characters:
     str_replace_all(text, "\\s+", " ")
     ```
 
-*   `\p{property name}` matches any character with specific unicode property,
+*   `\p{property name}` matches any character with a specific unicode property,
     like `\p{Uppercase}` or `\p{Diacritic}`. The complement, 
     `\P{property name}`, matches all characters without the property.
     A complete list of unicode properties can be found at
@@ -216,7 +216,7 @@ There are a number of pre-built classes that you can use inside `[]`:
 * `[:punct:]`: punctuation.
 * `[:alpha:]`: letters.
 * `[:lower:]`: lowercase letters.
-* `[:upper:]`: upperclass letters.
+* `[:upper:]`: uppercase letters.
 * `[:digit:]`: digits.
 * `[:xdigit:]`: hex digits.
 * `[:alnum:]`: letters and numbers.
@@ -228,7 +228,7 @@ There are a number of pre-built classes that you can use inside `[]`:
 
 These all go inside the `[]` for character classes, i.e. `[[:digit:]AX]` matches all digits, A, and X.
 
-You can also using Unicode properties, like `[\p{Letter}]`, and various set operations, like `[\p{Letter}--\p{script=latin}]`. See `?"stringi-search-charclass"` for details.
+You can also use Unicode properties, like `[\p{Letter}]`, and various set operations, like `[\p{Letter}--\p{script=latin}]`. See `?"stringi-search-charclass"` for details.
 
 ## Alternation
 
@@ -272,7 +272,7 @@ This is most useful for more complex cases where you need to capture matches and
 
 You can use `(?<name>...)`, the named capture group, to provide a reference to the matched text. This is more readable and maintainable, especially with complex regular expressions, because you can reference the matched text by name instead of a potentially confusing numerical index. 
 
-*Note: `<name>` should not include an underscore because they are not supported.*
+*Note: `<name>` should not include an underscore because underscores are not supported.*
 
 ```{r}
 date_string <- "Today's date is 2025-09-19."
@@ -359,7 +359,7 @@ By default these matches are "greedy": they will match the longest string possib
 * `+?`: 1 or more, match as few times as possible.
 * `*?`: 0 or more, match as few times as possible.
 * `{n,}?`: n or more, match as few times as possible.
-* `{n,m}?`: between n and m, , match as few times as possible, but at least n.
+* `{n,m}?`: between n and m, match as few times as possible, but at least n.
 
 ```{r}
 str_extract(x, c("C{2,3}", "C{2,3}?"))
@@ -421,7 +421,7 @@ There are two ways to include comments in a regular expression. The first is wit
 str_detect("xyz", "x(?#this is a comment)")
 ```
 
-The second is to use `regex(comments = TRUE)`. This form ignores spaces and newlines, and anything everything after `#`. To match a literal space, you'll need to escape it: `"\\ "`. This is a useful way of describing complex regular expressions:
+The second is to use `regex(comments = TRUE)`. This form ignores spaces and newlines, and everything after `#`. To match a literal space, you'll need to escape it: `"\\ "`. This is a useful way of describing complex regular expressions:
 
 ```{r}
 phone <- regex("

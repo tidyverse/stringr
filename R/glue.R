@@ -9,7 +9,7 @@
 #' `glue_data()` directly from glue for more control.
 #'
 #' @inheritParams glue::glue
-#' @return A character vector with same length as the longest input.
+#' @return A character vector with the same length as the longest input.
 #' @export
 #' @examples
 #' name <- "Fred"
@@ -24,7 +24,7 @@
 #' # single braces can be inserted by doubling them
 #' str_glue("My name is {name}, not {{name}}.")
 #'
-#' # You can also used named arguments
+#' # You can also use named arguments
 #' str_glue(
 #'   "My name is {name}, ",
 #'   "and my age next year is {age + 1}.",

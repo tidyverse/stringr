@@ -34,8 +34,8 @@ A character vector the same length as \code{string}.
 \item \code{str_to_lower()} converts to lower case.
 \item \code{str_to_title()} converts to title case, where only the first letter of
 each word is capitalized.
-\item \code{str_to_sentence()} convert to sentence case, where only the first letter
-of sentence is capitalized.
+\item \code{str_to_sentence()} converts to sentence case, where only the first letter
+of each sentence is capitalized.
 }
 }
 \examples{

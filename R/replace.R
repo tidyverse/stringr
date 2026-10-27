@@ -19,9 +19,9 @@
 #'   for matching human text, you'll want [coll()] which
 #'   respects character matching rules for the specified locale.
 #'
-#'   You can not match boundaries, including `""`, with this function.
+#'   You cannot match boundaries, including `""`, with this function.
 #' @param replacement The replacement value, usually a single string,
-#'   but it can be the a vector the same length as `string` or `pattern`.
+#'   but it can be a vector the same length as `string` or `pattern`.
 #'   References of the form `\1`, `\2`, etc will be replaced with
 #'   the contents of the respective matched group (created by `()`).
 #'

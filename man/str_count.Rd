@@ -30,7 +30,7 @@ An integer vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 Counts the number of times \code{pattern} is found within each element
-of \code{string.}
+of \code{string}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")
@@ -45,6 +45,6 @@ str_count(c("a.", "...", ".a.a"), fixed("."))
 \seealso{
 \code{\link[stringi:stri_count]{stringi::stri_count()}} which this function wraps.
 
-\code{\link[=str_locate]{str_locate()}}/\code{\link[=str_locate_all]{str_locate_all()}} to locate position
-of matches
+\code{\link[=str_locate]{str_locate()}}/\code{\link[=str_locate_all]{str_locate_all()}} to locate the position
+of matches.
 }

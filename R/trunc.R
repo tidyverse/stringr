@@ -1,6 +1,6 @@
 #' Truncate a string to maximum width
 #'
-#' Truncate a string to a fixed of characters, so that
+#' Truncate a string to a fixed number of characters, so that
 #' `str_length(str_trunc(x, n))` is always less than or equal to `n`.
 #'
 #' @inheritParams str_detect

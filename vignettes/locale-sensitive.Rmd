@@ -56,7 +56,7 @@ str_to_sentence(dutch_sentence)
 str_to_sentence(dutch_sentence, locale = "nl")
 ```
 
-Case conversion also comes up in another situation: case-insensitive comparison. This is relevant in two contexts. First, `str_equal()` and `str_unique()` can optionally ignore case, so it's important to also supply locale when working with non-English text. For example, imagine we're searching for a Turkish name, ignoring case:
+Case conversion also comes up in another situation: case-insensitive comparison. This is relevant in two contexts. First, `str_equal()` and `str_unique()` can optionally ignore case, so it's important to also supply a locale when working with non-English text. For example, imagine we're searching for a Turkish name, ignoring case:
 
 ```{r}
 turkish_names <- c("İpek", "Işık", "İbrahim")
@@ -69,7 +69,7 @@ str_equal(turkish_names, search_name, ignore_case = TRUE)
 str_equal(turkish_names, search_name, ignore_case = TRUE, locale = "tr")
 ```
 
-Case conversion also comes up in pattern matching functions like `str_detect()`. You might be accustomed to use `ignore_case = TRUE` with `regex()` or `fixed()`, but if you want to use locale-sensitive comparison you instead need to use `coll()`:
+Case conversion also comes up in pattern matching functions like `str_detect()`. You might be accustomed to using `ignore_case = TRUE` with `regex()` or `fixed()`, but if you want to use locale-sensitive comparison you instead need to use `coll()`:
 
 ```{r}
 # incorrect

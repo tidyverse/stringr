@@ -19,8 +19,8 @@ the desired value.}
 
 \item{sep}{String to insert between input vectors.}
 
-\item{collapse}{Optional string used to combine output into single
-string. Generally better to use \code{\link[=str_flatten]{str_flatten()}} if you needed this
+\item{collapse}{Optional string used to combine output into a single
+string. Generally better to use \code{\link[=str_flatten]{str_flatten()}} if you need this
 behaviour.}
 }
 \value{
@@ -33,7 +33,7 @@ vector of length 1.
 vector. It's very similar to \code{\link[=paste0]{paste0()}} but uses tidyverse recycling and
 \code{NA} rules.
 
-One way to understand how \code{str_c()} works is picture a 2d matrix of strings,
+One way to understand how \code{str_c()} works is to picture a 2d matrix of strings,
 where each argument forms a column. \code{sep} is inserted between each column,
 and then each row is combined together into a single string. If \code{collapse}
 is set, it's inserted between each row, and then the result is again
@@ -52,7 +52,7 @@ str_c(letters, collapse = ", ")
 # Missing inputs give missing outputs
 str_c(c("a", NA, "b"), "-d")
 paste0(c("a", NA, "b"), "-d")
-# Use str_replace_NA to display literal NAs:
+# Use str_replace_na to display literal NAs:
 str_c(str_replace_na(c("a", NA, "b")), "-d")
 
 # Uses tidyverse recycling rules

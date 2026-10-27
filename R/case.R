@@ -4,8 +4,8 @@
 #' * `str_to_lower()` converts to lower case.
 #' * `str_to_title()` converts to title case, where only the first letter of
 #'   each word is capitalized.
-#' * `str_to_sentence()` convert to sentence case, where only the first letter
-#'   of sentence is capitalized.
+#' * `str_to_sentence()` converts to sentence case, where only the first letter
+#'   of each sentence is capitalized.
 #'
 #' @inheritParams str_detect
 #' @inheritParams coll
@@ -121,7 +121,7 @@ to_words <- function(string) {
     "(?<=\\p{L})(?=\\p{N})",
     # number followed by letter
     "(?<=\\p{N})(?=\\p{L})",
-    # uppercase followed uppercase then lowercase (i.e. end of acronym)
+    # uppercase followed by uppercase then lowercase (i.e. end of acronym)
     "(?<=\\p{Lu})(?=\\p{Lu}\\p{Ll})",
     sep = "|"
   )

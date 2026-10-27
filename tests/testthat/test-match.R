@@ -18,7 +18,7 @@ phones <- str_c(
   num[, 10]
 )
 
-test_that("empty strings return correct matrix of correct size", {
+test_that("empty inputs return correctly sized matrices", {
   skip_if_not_installed("stringi", "1.2.2")
 
   expect_equal(str_match(NA, "(a)"), matrix(NA_character_, 1, 2))
@@ -63,7 +63,7 @@ test_that("match returns NA when optional group doesn't match", {
   expect_equal(str_match(c("ab", "a"), "(a)(b)?")[, 3], c("b", NA))
 })
 
-test_that("match_all returns NA when option group doesn't match", {
+test_that("match_all returns NA when optional group doesn't match", {
   expect_equal(str_match_all("a", "(a)(b)?")[[1]][1, ], c("a", "a", NA))
 })
 

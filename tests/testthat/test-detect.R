@@ -34,7 +34,7 @@ test_that("can use fixed() and coll()", {
   expect_equal(str_ends("\u0131", turkish_I()), TRUE)
 })
 
-test_that("can't empty/boundary", {
+test_that("can't use empty/boundary", {
   expect_snapshot(error = TRUE, {
     str_detect("x", "")
     str_starts("x", "")

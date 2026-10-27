@@ -14,10 +14,10 @@ coercible to one.}
 A character vector the same length as \code{string}.
 }
 \description{
-This function escapes metacharacter, the characters that have special
+This function escapes metacharacters, the characters that have special
 meaning to the regular expression engine. In most cases you are better
 off using \code{\link[=fixed]{fixed()}} since it is faster, but \code{str_escape()} is useful
-if you are composing user provided strings into a pattern.
+if you are composing user-provided strings into a pattern.
 }
 \examples{
 str_detect(c("a", "."), ".")

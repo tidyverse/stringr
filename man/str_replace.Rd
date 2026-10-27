@@ -28,10 +28,10 @@ Match a fixed string (i.e. by comparing only bytes), using
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.
 
-You can not match boundaries, including \code{""}, with this function.}
+You cannot match boundaries, including \code{""}, with this function.}
 
 \item{replacement}{The replacement value, usually a single string,
-but it can be the a vector the same length as \code{string} or \code{pattern}.
+but it can be a vector the same length as \code{string} or \code{pattern}.
 References of the form \verb{\\1}, \verb{\\2}, etc will be replaced with
 the contents of the respective matched group (created by \verb{()}).
 

@@ -85,7 +85,7 @@
 * New `str_split_1()` is tailored for the special case of splitting up a single
   string (#409).
 
-* New `str_split_i()` extract a single piece from a string (#278, @bfgray3).
+* New `str_split_i()` extracts a single piece from a string (#278, @bfgray3).
 
 * New `str_like()` allows the use of SQL wildcards (#280, @rjpat).
 
@@ -103,7 +103,7 @@
     * It no longer requires a pattern so you can use it to display strings with
       special characters.
     * It highlights unusual whitespace characters.
-    * It's vectorised over both string` and `pattern` (#407).
+    * It's vectorised over both `string` and `pattern` (#407).
     * It defaults to displaying all matches, making `str_view_all()` redundant
       (and hence deprecated) (#455).
 
@@ -117,10 +117,10 @@
 
 * A new data source for `sentences` has fixed many small errors.
 
-* `str_extract()` and `str_exctract_all()` now work correctly when `pattern`
+* `str_extract()` and `str_extract_all()` now work correctly when `pattern`
   is a `boundary()`.
 
-* `str_flatten()` gains a `last` argument that optionally override the
+* `str_flatten()` gains a `last` argument that optionally overrides the
   final separator (#377). It gains a `na.rm` argument to remove missing
   values (since it's a summary function) (#439).
 
@@ -137,7 +137,7 @@
   `whitespace_only = FALSE` to return to the previous behaviour (#335, @rjpat).
 
 * `word()` now returns all the sentence when using a negative `start` parameter
-  that is greater or equal than the number of words. (@pdelboca, #245)
+  that is greater than or equal to the number of words. (@pdelboca, #245)
 
 # stringr 1.4.1
 
@@ -145,7 +145,7 @@ Hot patch release to resolve R CMD check failures.
 
 # stringr 1.4.0
 
-* `str_interp()` now renders lists consistently independent on the presence of
+* `str_interp()` now renders lists consistently independently of the presence of
   additional placeholders (@amhrasmussen).
 
 * New `str_starts()` and `str_ends()` functions to detect patterns at the
@@ -191,7 +191,7 @@ Hot patch release to resolve R CMD check failures.
   (@Shians, #178)
 
 * `str_squish()` removes spaces from both the left and right side of strings,
-  and also converts multiple space (or space-like characters) to a single
+  and also converts multiple spaces (or space-like characters) to a single
   space within strings (@stephlocke, #197).
 
 * `str_sub()` gains `omit_na` argument for ignoring `NA`. Accordingly,
@@ -235,7 +235,7 @@ Hot patch release to resolve R CMD check failures.
 
 * `str_replace_all()` now throws an error if `replacement` is not a character
   vector. If `replacement` is `NA_character_` it replaces the complete string
-  with replaces with `NA` (#124).
+  with `NA` (#124).
 
 * All functions that take a locale (e.g. `str_to_lower()` and `str_sort()`)
   default to "en" (English) to ensure that the default is consistent across
@@ -280,7 +280,7 @@ Hot patch release to resolve R CMD check failures.
   your string processing needs, I highly recommend looking at stringi in more
   detail.
 
-* stringr gains a vignette, currently a straight forward update of the article
+* stringr gains a vignette, currently a straightforward update of the article
   that appeared in the R Journal.
 
 * `str_c()` now returns a zero length vector if any of its inputs are
@@ -323,7 +323,7 @@ Hot patch release to resolve R CMD check failures.
 
 # stringr 0.6.2
 
-* fixed path in `str_wrap` example so works for more R installations.
+* fixed path in `str_wrap` example so it works for more R installations.
 
 * remove dependency on plyr
 
@@ -345,7 +345,7 @@ Hot patch release to resolve R CMD check failures.
 * new `str_wrap` function which gives `strwrap` output in a more convenient
   format
 
-* new `word` function extract words from a string given user defined
+* new `word` function extracts words from a string given user defined
   separator (thanks to suggestion by David Cooper)
 
 * `str_locate` now returns consistent type when matching empty string (thanks

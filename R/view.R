@@ -5,7 +5,7 @@
 #' to see how a `pattern` matches.
 #'
 #' Matches are surrounded by `<>` and unusual whitespace (i.e. all whitespace
-#' apart from `" "` and `"\n"`) are surrounded by `{}` and escaped. Where
+#' apart from `" "` and `"\n"`) is surrounded by `{}` and escaped. Where
 #' possible, matches and unusual whitespace are coloured blue and `NA`s red.
 #'
 #' @inheritParams str_detect
@@ -124,7 +124,7 @@ str_view_highlighter <- function(html = TRUE) {
     function(x) {
       out <- cli::col_cyan("<", x, ">")
 
-      # Ensure styling is starts and ends within each line
+      # Ensure styling starts and ends within each line
       out <- cli::ansi_strsplit(out, "\n", fixed = TRUE)
       out <- map_chr(out, str_flatten, "\n")
 

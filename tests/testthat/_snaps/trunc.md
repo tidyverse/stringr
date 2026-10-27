@@ -10,3 +10,4 @@
     Condition
       Error in `str_trunc()`:
       ! `width` (3) is shorter than `ellipsis` (4).
+

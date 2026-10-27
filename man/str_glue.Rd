@@ -32,7 +32,7 @@ with. If \code{NULL} missing values are propagated, that is an \code{NA} result 
 cause \code{NA} output. Otherwise the value is replaced by the value of \code{.na}.}
 }
 \value{
-A character vector with same length as the longest input.
+A character vector with the same length as the longest input.
 }
 \description{
 These functions are wrappers around \code{\link[glue:glue]{glue::glue()}} and \code{\link[glue:glue_data]{glue::glue_data()}},
@@ -55,7 +55,7 @@ str_glue(
 # single braces can be inserted by doubling them
 str_glue("My name is {name}, not {{name}}.")
 
-# You can also used named arguments
+# You can also use named arguments
 str_glue(
   "My name is {name}, ",
   "and my age next year is {age + 1}.",

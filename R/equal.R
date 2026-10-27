@@ -1,11 +1,11 @@
 #' Determine if two strings are equivalent
 #'
-#' This uses Unicode canonicalisation rules, and optionally ignores case.
+#' This uses Unicode canonicalization rules, and optionally ignores case.
 #'
 #' @param x,y A pair of character vectors.
 #' @inheritParams str_order
 #' @param ignore_case Ignore case when comparing strings?
-#' @return An logical vector the same length as `x`/`y`.
+#' @return A logical vector the same length as `x`/`y`.
 #' @seealso [stringi::stri_cmp_equiv()] for the underlying implementation.
 #' @export
 #' @examples

@@ -10,7 +10,7 @@ invert_match(loc)
 \item{loc}{matrix of match locations, as from \code{\link[=str_locate_all]{str_locate_all()}}}
 }
 \value{
-numeric match giving locations of non-matches
+numeric matrix giving locations of non-matches
 }
 \description{
 Invert a matrix of match locations to match the opposite of what was
