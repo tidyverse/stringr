@@ -1,5 +1,5 @@
 #' Flatten a string
-#
+#'
 #' @description
 #' `str_flatten()` reduces a character vector to a single string. This is a
 #' summary function because regardless of the length of the input `x`, it

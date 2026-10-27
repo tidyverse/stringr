@@ -51,7 +51,7 @@ values are stored in the string.}
 to see how a \code{pattern} matches.
 
 Matches are surrounded by \verb{<>} and unusual whitespace (i.e. all whitespace
-apart from \code{" "} and \code{"\\n"}) are surrounded by \code{{}} and escaped. Where
+apart from \code{" "} and \code{"\\n"}) is surrounded by \code{{}} and escaped. Where
 possible, matches and unusual whitespace are coloured blue and \code{NA}s red.
 }
 \examples{

@@ -5,7 +5,7 @@
 #' vector. It's very similar to [paste0()] but uses tidyverse recycling and
 #' `NA` rules.
 #'
-#' One way to understand how `str_c()` works is picture a 2d matrix of strings,
+#' One way to understand how `str_c()` works is to picture a 2d matrix of strings,
 #' where each argument forms a column. `sep` is inserted between each column,
 #' and then each row is combined together into a single string. If `collapse`
 #' is set, it's inserted between each row, and then the result is again
@@ -22,7 +22,7 @@
 #'   the desired value.
 #' @param sep String to insert between input vectors.
 #' @param collapse Optional string used to combine output into single
-#'   string. Generally better to use [str_flatten()] if you needed this
+#'   string. Generally better to use [str_flatten()] if you need this
 #'   behaviour.
 #' @return If `collapse = NULL` (the default) a character vector with
 #'   length equal to the longest input. If `collapse` is a string, a character

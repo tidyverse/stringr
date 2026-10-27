@@ -9,7 +9,7 @@
 #' @param pad Single padding character (default is a space).
 #' @param use_width If `FALSE`, use the length of the string instead of the
 #'   width; see [str_width()]/[str_length()] for the difference.
-#' @return A character vector the same length as `stringr`/`width`/`pad`.
+#' @return A character vector the same length as `string`/`width`/`pad`.
 #' @seealso [str_trim()] to remove whitespace;
 #'   [str_trunc()] to decrease the maximum width of a string.
 #' @export

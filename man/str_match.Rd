@@ -14,7 +14,7 @@ str_match_all(string, pattern)
 coercible to one.}
 
 \item{pattern}{Unlike other stringr functions, \code{str_match()} only supports
-regular expressions, as described \code{vignette("regular-expressions")}.
+regular expressions, as described in \code{vignette("regular-expressions")}.
 The pattern should contain at least one capturing group.}
 }
 \value{
@@ -22,7 +22,7 @@ The pattern should contain at least one capturing group.}
 \item \code{str_match()}: a character matrix with the same number of rows as the
 length of \code{string}/\code{pattern}. The first column is the complete match,
 followed by one column for each capture group. The columns will be named
-if you used "named captured groups", i.e. \verb{(?<name>pattern')}.
+if you used "named captured groups", i.e. \verb{(?<name>pattern)}.
 \item \code{str_match_all()}: a list of the same length as \code{string}/\code{pattern}
 containing character matrices. Each matrix has columns as described above
 and one row for each match.
@@ -33,7 +33,7 @@ Extract any number of matches defined by unnamed, \code{(pattern)}, and
 named, \verb{(?<name>pattern)} capture groups.
 
 Use a non-capturing group, \verb{(?:pattern)}, if you need to override default
-operate precedence but don't want to capture the result.
+operator precedence but don't want to capture the result.
 }
 \examples{
 strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",

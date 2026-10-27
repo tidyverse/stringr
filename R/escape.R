@@ -1,6 +1,6 @@
 #' Escape regular expression metacharacters
 #'
-#' This function escapes metacharacter, the characters that have special
+#' This function escapes metacharacters, the characters that have special
 #' meaning to the regular expression engine. In most cases you are better
 #' off using [fixed()] since it is faster, but `str_escape()` is useful
 #' if you are composing user provided strings into a pattern.

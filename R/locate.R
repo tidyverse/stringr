@@ -99,7 +99,7 @@ str_locate_all <- function(string, pattern) {
 #' previously matched.
 #'
 #' @param loc matrix of match locations, as from [str_locate_all()]
-#' @return numeric match giving locations of non-matches
+#' @return numeric matrix giving locations of non-matches
 #' @export
 #' @examples
 #' numbers <- "1 and 2 and 4 and 456"

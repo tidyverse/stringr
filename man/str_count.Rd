@@ -30,7 +30,7 @@ An integer vector the same length as \code{string}/\code{pattern}.
 }
 \description{
 Counts the number of times \code{pattern} is found within each element
-of \code{string.}
+of \code{string}.
 }
 \examples{
 fruit <- c("apple", "banana", "pear", "pineapple")

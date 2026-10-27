@@ -36,7 +36,7 @@
 #' # Also vectorised over pattern
 #' str_detect("aecfg", letters)
 #'
-#' # Returns TRUE if the pattern do NOT match
+#' # Returns TRUE if the pattern does NOT match
 #' str_detect(fruit, "^p", negate = TRUE)
 str_detect <- function(string, pattern, negate = FALSE) {
   check_lengths(string, pattern)

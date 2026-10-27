@@ -5,17 +5,17 @@
 #' named, `(?<name>pattern)` capture groups.
 #'
 #' Use a non-capturing group, `(?:pattern)`, if you need to override default
-#' operate precedence but don't want to capture the result.
+#' operator precedence but don't want to capture the result.
 #'
 #' @inheritParams str_detect
 #' @param pattern Unlike other stringr functions, `str_match()` only supports
-#'   regular expressions, as described `vignette("regular-expressions")`.
+#'   regular expressions, as described in `vignette("regular-expressions")`.
 #'   The pattern should contain at least one capturing group.
 #' @return
 #' * `str_match()`: a character matrix with the same number of rows as the
 #'   length of `string`/`pattern`. The first column is the complete match,
 #'   followed by one column for each capture group. The columns will be named
-#'   if you used "named captured groups", i.e. `(?<name>pattern')`.
+#'   if you used "named captured groups", i.e. `(?<name>pattern)`.
 #'
 #' * `str_match_all()`: a list of the same length as `string`/`pattern`
 #'   containing character matrices. Each matrix has columns as described above

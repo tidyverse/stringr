@@ -1,7 +1,7 @@
 #' Count number of matches
 #'
 #' Counts the number of times `pattern` is found within each element
-#' of `string.`
+#' of `string`.
 #'
 #' @inheritParams str_detect
 #' @param pattern Pattern to look for.

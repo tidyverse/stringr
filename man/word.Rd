@@ -13,7 +13,7 @@ coercible to one.}
 \item{start, end}{Pair of integer vectors giving range of words (inclusive)
 to extract. If negative, counts backwards from the last word.
 
-The default value select the first word.}
+The default value selects the first word.}
 
 \item{sep}{Separator between words. Defaults to single space.}
 }

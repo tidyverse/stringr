@@ -24,7 +24,7 @@
 #' # single braces can be inserted by doubling them
 #' str_glue("My name is {name}, not {{name}}.")
 #'
-#' # You can also used named arguments
+#' # You can also use named arguments
 #' str_glue(
 #'   "My name is {name}, ",
 #'   "and my age next year is {age + 1}.",

@@ -72,7 +72,7 @@ str_interp <- function(string, env = parent.frame()) {
   }
 }
 
-#' Match String Interpolation Placeholders
+#' Match string interpolation placeholders
 #'
 #' Given a character string a set of expression placeholders are matched. They
 #' are of the form \code{${...}} or optionally \code{$[f]{...}} where `f`
@@ -117,8 +117,6 @@ interp_placeholders <- function(string, error_call = caller_env()) {
   # Identify the positions within the parts of the matching closing braces.
   # These are the lengths of the placeholder matches.
   lengths <- mapply(match_brace, opens, closes)
-
-  # Update the `starts` match data with the
   attr(starts, "match.length") <- lengths
 
   # Return both the indices (regex match data) and the actual placeholder
@@ -129,7 +127,7 @@ interp_placeholders <- function(string, error_call = caller_env()) {
   )
 }
 
-#' Evaluate String Interpolation Matches
+#' Evaluate string interpolation matches
 #'
 #' The expression part of string interpolation matches are evaluated in a
 #' specified environment and formatted for replacement in the original string.
@@ -162,7 +160,7 @@ eval_interp_matches <- function(matches, env, error_call = caller_env()) {
   mapply(sprintf, formats, values, SIMPLIFY = FALSE)
 }
 
-#' Extract Expression Objects from String Interpolation Matches
+#' Extract expression objects from string interpolation matches
 #'
 #' An interpolation match object will contain both its wrapping \code{${ }} part
 #' and possibly a format. This extracts the expression parts and parses them to
@@ -198,7 +196,7 @@ extract_expressions <- function(matches, error_call = caller_env()) {
 }
 
 
-#' Extract String Interpolation Formats from Matched Placeholders
+#' Extract string interpolation formats from matched placeholders
 #'
 #' An expression placeholder for string interpolation may optionally contain a
 #' format valid for [sprintf()]. This function will extract such or
@@ -218,7 +216,7 @@ extract_formats <- function(matches) {
   paste0("%", ifelse(formats == "", "s", formats))
 }
 
-#' Utility Function for Matching a Closing Brace
+#' Utility function for matching a closing brace
 #'
 #' Given positions of opening and closing braces `match_brace` identifies
 #' the closing brace matching the first opening brace.
@@ -227,7 +225,7 @@ extract_formats <- function(matches) {
 #'
 #' @param closing integer: Vector with positions of closing braces.
 #'
-#' @return Integer with the posision of the matching brace.
+#' @return Integer with the position of the matching brace.
 #'
 #' @noRd
 #' @author Stefan Milton Bache
@@ -235,7 +233,7 @@ match_brace <- function(opening, closing) {
   # maximum index for the matching closing brace
   max_close <- max(closing)
 
-  # "path" for mapping opening and closing breaces
+  # "path" for mapping opening and closing braces
   path <- numeric(max_close)
 
   # Set openings to 1, and closings to -1

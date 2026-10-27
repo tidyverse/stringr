@@ -26,7 +26,7 @@ coercible to one.}
 width; see \code{\link[=str_width]{str_width()}}/\code{\link[=str_length]{str_length()}} for the difference.}
 }
 \value{
-A character vector the same length as \code{stringr}/\code{width}/\code{pad}.
+A character vector the same length as \code{string}/\code{width}/\code{pad}.
 }
 \description{
 Pad a string to a fixed width, so that
