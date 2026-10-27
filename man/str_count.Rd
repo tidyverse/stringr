@@ -45,6 +45,6 @@ str_count(c("a.", "...", ".a.a"), fixed("."))
 \seealso{
 \code{\link[stringi:stri_count]{stringi::stri_count()}} which this function wraps.
 
-\code{\link[=str_locate]{str_locate()}}/\code{\link[=str_locate_all]{str_locate_all()}} to locate position
-of matches
+\code{\link[=str_locate]{str_locate()}}/\code{\link[=str_locate_all]{str_locate_all()}} to locate the position
+of matches.
 }

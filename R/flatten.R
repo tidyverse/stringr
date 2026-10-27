@@ -6,7 +6,7 @@
 #' always returns a single string.
 #'
 #' `str_flatten_comma()` is a variation designed specifically for flattening
-#' with commas. It automatically recognises if `last` uses the Oxford comma
+#' with commas. It automatically recognizes if `last` uses the Oxford comma
 #' and handles the special case of 2 elements.
 #'
 #' @inheritParams str_detect

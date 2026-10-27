@@ -47,14 +47,14 @@ of as strings.}
 \code{\link[stringi:stri_opts_collator]{stringi::stri_opts_collator()}}.}
 }
 \value{
-A character vector the same length as \code{string}.
+A character vector the same length as \code{x}.
 }
 \description{
 \itemize{
 \item \code{str_sort()} returns the sorted vector.
-\item \code{str_order()} returns an integer vector that returns the desired
+\item \code{str_order()} returns an integer vector that gives the desired
 order when used for subsetting, i.e. \code{x[str_order(x)]} is the same
-as \code{str_sort()}
+as \code{str_sort()}.
 \item \code{str_rank()} returns the ranks of the values, i.e.
 \code{arrange(df, str_rank(x))} is the same as \code{str_sort(df$x)}.
 }

@@ -9,7 +9,7 @@
 #' `glue_data()` directly from glue for more control.
 #'
 #' @inheritParams glue::glue
-#' @return A character vector with same length as the longest input.
+#' @return A character vector with the same length as the longest input.
 #' @export
 #' @examples
 #' name <- "Fred"

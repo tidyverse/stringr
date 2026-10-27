@@ -1,6 +1,6 @@
 #' Determine if two strings are equivalent
 #'
-#' This uses Unicode canonicalisation rules, and optionally ignores case.
+#' This uses Unicode canonicalization rules, and optionally ignores case.
 #'
 #' @param x,y A pair of character vectors.
 #' @inheritParams str_order

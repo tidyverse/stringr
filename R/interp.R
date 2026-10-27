@@ -74,7 +74,7 @@ str_interp <- function(string, env = parent.frame()) {
 
 #' Match string interpolation placeholders
 #'
-#' Given a character string a set of expression placeholders are matched. They
+#' Given a character string, a set of expression placeholders is matched. They
 #' are of the form \code{${...}} or optionally \code{$[f]{...}} where `f`
 #' is a valid format for [sprintf()].
 #'
@@ -199,8 +199,8 @@ extract_expressions <- function(matches, error_call = caller_env()) {
 #' Extract string interpolation formats from matched placeholders
 #'
 #' An expression placeholder for string interpolation may optionally contain a
-#' format valid for [sprintf()]. This function will extract such or
-#' default to "s" the format for strings.
+#' format valid for [sprintf()]. This function extracts such formats, or
+#' defaults to `"s"`, the format for strings.
 #'
 #' @param matches Match data
 #'

@@ -121,7 +121,7 @@ to_words <- function(string) {
     "(?<=\\p{L})(?=\\p{N})",
     # number followed by letter
     "(?<=\\p{N})(?=\\p{L})",
-    # uppercase followed uppercase then lowercase (i.e. end of acronym)
+    # uppercase followed by uppercase then lowercase (i.e. end of acronym)
     "(?<=\\p{Lu})(?=\\p{Lu}\\p{Ll})",
     sep = "|"
   )

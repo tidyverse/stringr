@@ -21,7 +21,7 @@
 #'   be missing. Use [dplyr::coalesce()] or [str_replace_na()] to convert to
 #'   the desired value.
 #' @param sep String to insert between input vectors.
-#' @param collapse Optional string used to combine output into single
+#' @param collapse Optional string used to combine output into a single
 #'   string. Generally better to use [str_flatten()] if you need this
 #'   behaviour.
 #' @return If `collapse = NULL` (the default) a character vector with

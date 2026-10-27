@@ -1,7 +1,7 @@
 #' Extract words from a sentence
 #'
 #' @inheritParams str_detect
-#' @param start,end Pair of integer vectors giving range of words (inclusive)
+#' @param start,end Pair of integer vectors giving the range of words (inclusive)
 #'   to extract. If negative, counts backwards from the last word.
 #'
 #'   The default value selects the first word.

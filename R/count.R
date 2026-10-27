@@ -21,8 +21,8 @@
 #' @return An integer vector the same length as `string`/`pattern`.
 #' @seealso [stringi::stri_count()] which this function wraps.
 #'
-#'  [str_locate()]/[str_locate_all()] to locate position
-#'  of matches
+#'  [str_locate()]/[str_locate_all()] to locate the position
+#'  of matches.
 #'
 #' @export
 #' @examples

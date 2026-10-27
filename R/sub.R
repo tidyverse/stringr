@@ -1,8 +1,8 @@
 #' Get and set substrings using their positions
 #'
 #' `str_sub()` extracts or replaces the elements at a single position in each
-#' string. `str_sub_all()` allows you to extract strings at multiple elements
-#' in every string.
+#' string. `str_sub_all()` allows you to extract substrings at multiple
+#' positions in every string.
 #'
 #' @inheritParams str_detect
 #' @param start,end A pair of integer vectors defining the range of characters

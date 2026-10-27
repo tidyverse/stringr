@@ -1,9 +1,9 @@
 #' Order, rank, or sort a character vector
 #'
 #' * `str_sort()` returns the sorted vector.
-#' * `str_order()` returns an integer vector that returns the desired
+#' * `str_order()` returns an integer vector that gives the desired
 #'   order when used for subsetting, i.e. `x[str_order(x)]` is the same
-#'   as `str_sort()`
+#'   as `str_sort()`.
 #' * `str_rank()` returns the ranks of the values, i.e.
 #'   `arrange(df, str_rank(x))` is the same as `str_sort(df$x)`.
 #'
@@ -17,7 +17,7 @@
 #' @param ... Other options used to control collation. Passed on to
 #'   [stringi::stri_opts_collator()].
 #' @inheritParams coll
-#' @return A character vector the same length as `string`.
+#' @return A character vector the same length as `x`.
 #' @seealso [stringi::stri_order()] for the underlying implementation.
 #' @export
 #' @examples

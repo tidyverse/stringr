@@ -15,7 +15,7 @@
 #' * `str_match()`: a character matrix with the same number of rows as the
 #'   length of `string`/`pattern`. The first column is the complete match,
 #'   followed by one column for each capture group. The columns will be named
-#'   if you used "named captured groups", i.e. `(?<name>pattern)`.
+#'   if you used "named capture groups", i.e. `(?<name>pattern)`.
 #'
 #' * `str_match_all()`: a list of the same length as `string`/`pattern`
 #'   containing character matrices. Each matrix has columns as described above

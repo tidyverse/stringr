@@ -21,7 +21,7 @@ Match a fixed string (i.e. by comparing only bytes), using
 for matching human text, you'll want \code{\link[=coll]{coll()}} which
 respects character matching rules for the specified locale.
 
-You can not match boundaries, including \code{""}, with this function.}
+You cannot match boundaries, including \code{""}, with this function.}
 
 \item{negate}{If \code{TRUE}, inverts the resulting boolean vector.}
 }

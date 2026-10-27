@@ -19,7 +19,7 @@ the desired value.}
 
 \item{sep}{String to insert between input vectors.}
 
-\item{collapse}{Optional string used to combine output into single
+\item{collapse}{Optional string used to combine output into a single
 string. Generally better to use \code{\link[=str_flatten]{str_flatten()}} if you need this
 behaviour.}
 }

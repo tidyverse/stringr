@@ -4,7 +4,7 @@
 #' written by Gabor Csardi; the data was collected by Darius Kazemi
 #' and made available at \url{https://github.com/dariusk/corpora}.
 #' `sentences` is a collection of "Harvard sentences" used for
-#' standardised testing of voice.
+#' standardized testing of voice.
 #'
 #' @format Character vectors.
 #' @name stringr-data

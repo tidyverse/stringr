@@ -14,7 +14,7 @@
 #'   gives the position at the start of the match, and the second column, `end`,
 #'   gives the position of the end.
 #'
-#'* `str_locate_all()` returns a list of integer matrices with the same
+#' * `str_locate_all()` returns a list of integer matrices with the same
 #'   length as `string`/`pattern`. The matrices have columns `start` and `end`
 #'   as above, and one row for each match.
 #' @seealso

@@ -23,7 +23,7 @@ consistent across platforms.}
 A logical vector the same length as \code{x}/\code{y}.
 }
 \description{
-This uses Unicode canonicalisation rules, and optionally ignores case.
+This uses Unicode canonicalization rules, and optionally ignores case.
 }
 \examples{
 # These two strings encode "a" with an accent in two different ways

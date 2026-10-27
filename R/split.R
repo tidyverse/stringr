@@ -48,7 +48,7 @@
 #' # Specify n to restrict the number of possible matches
 #' str_split(fruits, " and ", n = 3)
 #' str_split(fruits, " and ", n = 2)
-#' # If n greater than number of pieces, no padding occurs
+#' # If n is greater than the number of pieces, no padding occurs
 #' str_split(fruits, " and ", n = 5)
 #'
 #' # Use fixed to return a character matrix

@@ -10,7 +10,7 @@ word(string, start = 1L, end = start, sep = fixed(" "))
 \item{string}{Input vector. Either a character vector, or something
 coercible to one.}
 
-\item{start, end}{Pair of integer vectors giving range of words (inclusive)
+\item{start, end}{Pair of integer vectors giving the range of words (inclusive)
 to extract. If negative, counts backwards from the last word.
 
 The default value selects the first word.}
