@@ -25,7 +25,7 @@ test_that("replacement must be a string", {
   expect_snapshot(str_replace("x", "x", 1), error = TRUE)
 })
 
-test_that("replacement must be a string", {
+test_that("NA replacement returns NA", {
   expect_equal(str_replace("xyz", "x", NA_character_), NA_character_)
 })
 
