@@ -96,8 +96,8 @@
 <p>Regular expressions are a concise and flexible tool for describing
 patterns in strings. This vignette describes the key features of
 stringr’s regular expressions, as implemented by <a href="https://github.com/gagolews/stringi" class="external-link">stringi</a>. It is not a
-tutorial, so if you’re unfamiliar regular expressions, I’d recommend
-starting at <a href="https://r4ds.had.co.nz/strings.html" class="external-link uri">https://r4ds.had.co.nz/strings.html</a>. If you want to
+tutorial, so if you’re unfamiliar with regular expressions, I’d
+recommend starting at <a href="https://r4ds.had.co.nz/strings.html" class="external-link uri">https://r4ds.had.co.nz/strings.html</a>. If you want to
 master the details, I’d recommend reading the classic <a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124" class="external-link"><em>Mastering
 Regular Expressions</em></a> by Jeffrey E. F. Friedl.</p>
 <p>Regular expressions are the default pattern engine in stringr. That
@@ -260,7 +260,7 @@ symbols from other languages:</p>
 <li>
 <p><code>\s</code>: matches any whitespace. This includes tabs,
 newlines, form feeds, and any character in the Unicode Z Category (which
-includes a variety of space characters and other separators.). The
+includes a variety of space characters and other separators). The
 complement, <code>\S</code>, matches any non-whitespace character.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"Some  \t badly\n\t\tspaced \f text"</span><span class="op">)</span></span>
@@ -269,7 +269,7 @@ complement, <code>\S</code>, matches any non-whitespace character.</p>
 <span><span class="co">#&gt; [1] "Some badly spaced text"</span></span></code></pre></div>
 </li>
 <li>
-<p><code>\p{property name}</code> matches any character with
+<p><code>\p{property name}</code> matches any character with a
 specific unicode property, like <code>\p{Uppercase}</code> or
 <code>\p{Diacritic}</code>. The complement,
 <code>\P{property name}</code>, matches all characters without the
@@ -328,7 +328,7 @@ Unicode code point order).</li>
 <li>
 <code>[:lower:]</code>: lowercase letters.</li>
 <li>
-<code>[:upper:]</code>: upperclass letters.</li>
+<code>[:upper:]</code>: uppercase letters.</li>
 <li>
 <code>[:digit:]</code>: digits.</li>
 <li>
@@ -350,8 +350,8 @@ whitespace.</li>
 </ul>
 <p>These all go inside the <code>[]</code> for character classes,
 i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p>
-<p>You can also using Unicode properties, like
-<code>[\p{Letter}]</code>, and various set operations, like
+<p>You can also use Unicode properties, like <code>[\p{Letter}]</code>,
+and various set operations, like
 <code>[\p{Letter}--\p{script=latin}]</code>. See
 <code>?"stringi-search-charclass"</code> for details.</p>
 </div>
@@ -420,7 +420,7 @@ maintainable, especially with complex regular expressions, because you
 can reference the matched text by name instead of a potentially
 confusing numerical index.</p>
 <p><em>Note: <code>&lt;name&gt;</code> should not include an underscore
-because they are not supported.</em></p>
+because underscores are not supported.</em></p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">date_string</span> <span class="op">&lt;-</span> <span class="st">"Today's date is 2025-09-19."</span></span>
 <span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})-(?&lt;day&gt;\\d{2})"</span></span>
@@ -537,7 +537,7 @@ possible by putting a <code>?</code> after them:</p>
 <li>
 <code>{n,}?</code>: n or more, match as few times as possible.</li>
 <li>
-<code>{n,m}?</code>: between n and m, , match as few times as
+<code>{n,m}?</code>: between n and m, match as few times as
 possible, but at least n.</li>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
@@ -619,10 +619,9 @@ first is with <code>(?#...)</code>:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="st">"xyz"</span>, <span class="st">"x(?#this is a comment)"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>The second is to use <code>regex(comments = TRUE)</code>. This form
-ignores spaces and newlines, and anything everything after
-<code>#</code>. To match a literal space, you’ll need to escape it:
-<code>"\\ "</code>. This is a useful way of describing complex regular
-expressions:</p>
+ignores spaces and newlines, and everything after <code>#</code>. To
+match a literal space, you’ll need to escape it: <code>"\\ "</code>.
+This is a useful way of describing complex regular expressions:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">phone</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modifiers.html">regex</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">  \\(?       # optional opening parens</span></span>

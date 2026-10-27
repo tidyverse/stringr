@@ -218,7 +218,8 @@ beginning of the string). Both the base and stringr functions have the
 same order of expected inputs.
 
 In stringr you can use negative numbers to index from the right-hand
-side string: -1 is the last letter, -2 is the second to last, and so on.
+side of the string: -1 is the last letter, -2 is the second to last, and
+so on.
 
 ``` r
 
@@ -448,8 +449,8 @@ str_length(factor("abc"))
 Note that “characters” is a poorly defined concept, and technically both
 [`nchar()`](https://rdrr.io/r/base/nchar.html) and
 [`str_length()`](https://stringr.tidyverse.org/dev/reference/str_length.md)
-returns the number of code points. This is usually the same as what
-you’d consider to be a character, but not always:
+return the number of code points. This is usually the same as what you’d
+consider to be a character, but not always:
 
 ``` r
 
@@ -686,7 +687,7 @@ predict the return length of
 [`paste()`](https://rdrr.io/r/base/paste.html) you must carefully read
 all arguments.
 
-### `str_dup()`: duplicate strings within a character vector
+### `str_dup()`: Duplicate strings within a character vector
 
 To duplicate strings within a character vector use
 [`strrep()`](https://rdrr.io/r/base/strrep.html) (in R 3.3.0 or greater)

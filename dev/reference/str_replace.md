@@ -38,14 +38,14 @@ str_replace_all(string, pattern, replacement)
   [`coll()`](https://stringr.tidyverse.org/dev/reference/modifiers.md)
   which respects character matching rules for the specified locale.
 
-  You can not match boundaries, including `""`, with this function.
+  You cannot match boundaries, including `""`, with this function.
 
 - replacement:
 
-  The replacement value, usually a single string, but it can be the a
-  vector the same length as `string` or `pattern`. References of the
-  form `\1`, `\2`, etc will be replaced with the contents of the
-  respective matched group (created by `()`).
+  The replacement value, usually a single string, but it can be a vector
+  the same length as `string` or `pattern`. References of the form `\1`,
+  `\2`, etc will be replaced with the contents of the respective matched
+  group (created by `()`).
 
   Alternatively, supply a function (or formula): it will be passed a
   single character vector and should return a character vector of the

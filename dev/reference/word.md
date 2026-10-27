@@ -17,10 +17,10 @@ word(string, start = 1L, end = start, sep = fixed(" "))
 
 - start, end:
 
-  Pair of integer vectors giving range of words (inclusive) to extract.
-  If negative, counts backwards from the last word.
+  Pair of integer vectors giving the range of words (inclusive) to
+  extract. If negative, counts backwards from the last word.
 
-  The default value select the first word.
+  The default value selects the first word.
 
 - sep:
 

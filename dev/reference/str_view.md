@@ -4,7 +4,7 @@
 and to see how a `pattern` matches.
 
 Matches are surrounded by `<>` and unusual whitespace (i.e. all
-whitespace apart from `" "` and `"\n"`) are surrounded by
+whitespace apart from `" "` and `"\n"`) is surrounded by
 [`{}`](https://rdrr.io/r/base/Paren.html) and escaped. Where possible,
 matches and unusual whitespace are coloured blue and `NA`s red.
 
@@ -44,7 +44,7 @@ str_view(
   [`coll()`](https://stringr.tidyverse.org/dev/reference/modifiers.md)
   which respects character matching rules for the specified locale.
 
-  You can not match boundaries, including `""`, with this function.
+  You cannot match boundaries, including `""`, with this function.
 
 - match:
 

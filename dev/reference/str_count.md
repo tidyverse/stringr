@@ -1,7 +1,7 @@
 # Count number of matches
 
 Counts the number of times `pattern` is found within each element of
-`string.`
+`string`.
 
 ## Usage
 
@@ -47,7 +47,7 @@ An integer vector the same length as `string`/`pattern`.
 which this function wraps.
 
 [`str_locate()`](https://stringr.tidyverse.org/dev/reference/str_locate.md)/[`str_locate_all()`](https://stringr.tidyverse.org/dev/reference/str_locate.md)
-to locate position of matches
+to locate the position of matches.
 
 ## Examples
 

@@ -18,7 +18,7 @@ invert_match(loc)
 
 ## Value
 
-numeric match giving locations of non-matches
+numeric matrix giving locations of non-matches
 
 ## Examples
 

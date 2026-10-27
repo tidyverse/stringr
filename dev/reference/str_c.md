@@ -5,7 +5,7 @@ vector. It's very similar to
 [`paste0()`](https://rdrr.io/r/base/paste.html) but uses tidyverse
 recycling and `NA` rules.
 
-One way to understand how `str_c()` works is picture a 2d matrix of
+One way to understand how `str_c()` works is to picture a 2d matrix of
 strings, where each argument forms a column. `sep` is inserted between
 each column, and then each row is combined together into a single
 string. If `collapse` is set, it's inserted between each row, and then
@@ -40,10 +40,10 @@ str_c(..., sep = "", collapse = NULL)
 
 - collapse:
 
-  Optional string used to combine output into single string. Generally
+  Optional string used to combine output into a single string. Generally
   better to use
   [`str_flatten()`](https://stringr.tidyverse.org/dev/reference/str_flatten.md)
-  if you needed this behaviour.
+  if you need this behaviour.
 
 ## Value
 
@@ -98,7 +98,7 @@ str_c(c("a", NA, "b"), "-d")
 #> [1] "a-d" NA    "b-d"
 paste0(c("a", NA, "b"), "-d")
 #> [1] "a-d"  "NA-d" "b-d" 
-# Use str_replace_NA to display literal NAs:
+# Use str_replace_na to display literal NAs:
 str_c(str_replace_na(c("a", NA, "b")), "-d")
 #> [1] "a-d"  "NA-d" "b-d" 
 

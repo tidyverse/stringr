@@ -4,7 +4,7 @@ Regular expressions are a concise and flexible tool for describing
 patterns in strings. This vignette describes the key features of
 stringr’s regular expressions, as implemented by
 [stringi](https://github.com/gagolews/stringi). It is not a tutorial, so
-if you’re unfamiliar regular expressions, I’d recommend starting at
+if you’re unfamiliar with regular expressions, I’d recommend starting at
 <https://r4ds.had.co.nz/strings.html>. If you want to master the
 details, I’d recommend reading the classic [*Mastering Regular
 Expressions*](https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124)
@@ -212,7 +212,7 @@ characters:
 
 - `\s`: matches any whitespace. This includes tabs, newlines, form
   feeds, and any character in the Unicode Z Category (which includes a
-  variety of space characters and other separators.). The complement,
+  variety of space characters and other separators). The complement,
   `\S`, matches any non-whitespace character.
 
   ``` r
@@ -223,7 +223,7 @@ characters:
   #> [1] "Some badly spaced text"
   ```
 
-- `\p{property name}` matches any character with specific unicode
+- `\p{property name}` matches any character with a specific unicode
   property, like `\p{Uppercase}` or `\p{Diacritic}`. The complement,
   `\P{property name}`, matches all characters without the property. A
   complete list of unicode properties can be found at
@@ -278,7 +278,7 @@ There are a number of pre-built classes that you can use inside `[]`:
 - `[:punct:]`: punctuation.
 - `[:alpha:]`: letters.
 - `[:lower:]`: lowercase letters.
-- `[:upper:]`: upperclass letters.
+- `[:upper:]`: uppercase letters.
 - `[:digit:]`: digits.
 - `[:xdigit:]`: hex digits.
 - `[:alnum:]`: letters and numbers.
@@ -291,7 +291,7 @@ There are a number of pre-built classes that you can use inside `[]`:
 These all go inside the `[]` for character classes, i.e. `[[:digit:]AX]`
 matches all digits, A, and X.
 
-You can also using Unicode properties, like `[\p{Letter}]`, and various
+You can also use Unicode properties, like `[\p{Letter}]`, and various
 set operations, like `[\p{Letter}--\p{script=latin}]`. See
 `?"stringi-search-charclass"` for details.
 
@@ -372,8 +372,8 @@ especially with complex regular expressions, because you can reference
 the matched text by name instead of a potentially confusing numerical
 index.
 
-*Note: `<name>` should not include an underscore because they are not
-supported.*
+*Note: `<name>` should not include an underscore because underscores are
+not supported.*
 
 ``` r
 
@@ -496,7 +496,7 @@ possible by putting a `?` after them:
 - `+?`: 1 or more, match as few times as possible.
 - `*?`: 0 or more, match as few times as possible.
 - `{n,}?`: n or more, match as few times as possible.
-- `{n,m}?`: between n and m, , match as few times as possible, but at
+- `{n,m}?`: between n and m, match as few times as possible, but at
   least n.
 
 ``` r
@@ -585,9 +585,9 @@ str_detect("xyz", "x(?#this is a comment)")
 ```
 
 The second is to use `regex(comments = TRUE)`. This form ignores spaces
-and newlines, and anything everything after `#`. To match a literal
-space, you’ll need to escape it: `"\\ "`. This is a useful way of
-describing complex regular expressions:
+and newlines, and everything after `#`. To match a literal space, you’ll
+need to escape it: `"\\ "`. This is a useful way of describing complex
+regular expressions:
 
 ``` r
 

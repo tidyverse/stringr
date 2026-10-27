@@ -137,7 +137,7 @@ str_split(fruits, " and ", n = 2)
 #> [[2]]
 #> [1] "pineapples"        "mangos and guavas"
 #> 
-# If n greater than number of pieces, no padding occurs
+# If n is greater than the number of pieces, no padding occurs
 str_split(fruits, " and ", n = 5)
 #> [[1]]
 #> [1] "apples"  "oranges" "pears"   "bananas"

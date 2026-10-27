@@ -165,7 +165,7 @@ CRAN release: 2022-12-02
 
 - New
   [`str_split_i()`](https://stringr.tidyverse.org/dev/reference/str_split.md)
-  extract a single piece from a string
+  extracts a single piece from a string
   ([\#278](https://github.com/tidyverse/stringr/issues/278),
   [@bfgray3](https://github.com/bfgray3)).
 
@@ -200,7 +200,7 @@ CRAN release: 2022-12-02
   - It no longer requires a pattern so you can use it to display strings
     with special characters.
   - It highlights unusual whitespace characters.
-  - It’s vectorised over both string`and`pattern\`
+  - It’s vectorised over both `string` and `pattern`
     ([\#407](https://github.com/tidyverse/stringr/issues/407)).
   - It defaults to displaying all matches, making
     [`str_view_all()`](https://stringr.tidyverse.org/dev/reference/str_view.md)
@@ -223,11 +223,13 @@ CRAN release: 2022-12-02
 - A new data source for `sentences` has fixed many small errors.
 
 - [`str_extract()`](https://stringr.tidyverse.org/dev/reference/str_extract.md)
-  and `str_exctract_all()` now work correctly when `pattern` is a
+  and
+  [`str_extract_all()`](https://stringr.tidyverse.org/dev/reference/str_extract.md)
+  now work correctly when `pattern` is a
   [`boundary()`](https://stringr.tidyverse.org/dev/reference/modifiers.md).
 
 - [`str_flatten()`](https://stringr.tidyverse.org/dev/reference/str_flatten.md)
-  gains a `last` argument that optionally override the final separator
+  gains a `last` argument that optionally overrides the final separator
   ([\#377](https://github.com/tidyverse/stringr/issues/377)). It gains a
   `na.rm` argument to remove missing values (since it’s a summary
   function) ([\#439](https://github.com/tidyverse/stringr/issues/439)).
@@ -257,7 +259,7 @@ CRAN release: 2022-12-02
 
 - [`word()`](https://stringr.tidyverse.org/dev/reference/word.md) now
   returns all the sentence when using a negative `start` parameter that
-  is greater or equal than the number of words.
+  is greater than or equal to the number of words.
   ([@pdelboca](https://github.com/pdelboca),
   [\#245](https://github.com/tidyverse/stringr/issues/245))
 
@@ -272,7 +274,7 @@ Hot patch release to resolve R CMD check failures.
 CRAN release: 2019-02-10
 
 - [`str_interp()`](https://stringr.tidyverse.org/dev/reference/str_interp.md)
-  now renders lists consistently independent on the presence of
+  now renders lists consistently independently of the presence of
   additional placeholders
   ([@amhrasmussen](https://github.com/amhrasmussen)).
 
@@ -357,7 +359,7 @@ CRAN release: 2018-02-19
 
 - [`str_squish()`](https://stringr.tidyverse.org/dev/reference/str_trim.md)
   removes spaces from both the left and right side of strings, and also
-  converts multiple space (or space-like characters) to a single space
+  converts multiple spaces (or space-like characters) to a single space
   within strings ([@stephlocke](https://github.com/stephlocke),
   [\#197](https://github.com/tidyverse/stringr/issues/197)).
 
@@ -425,8 +427,7 @@ CRAN release: 2017-02-18
 - [`str_replace_all()`](https://stringr.tidyverse.org/dev/reference/str_replace.md)
   now throws an error if `replacement` is not a character vector. If
   `replacement` is `NA_character_` it replaces the complete string with
-  replaces with `NA`
-  ([\#124](https://github.com/tidyverse/stringr/issues/124)).
+  `NA` ([\#124](https://github.com/tidyverse/stringr/issues/124)).
 
 - All functions that take a locale
   (e.g. [`str_to_lower()`](https://stringr.tidyverse.org/dev/reference/case.md)
@@ -514,7 +515,7 @@ CRAN release: 2015-04-30
   your string processing needs, I highly recommend looking at stringi in
   more detail.
 
-- stringr gains a vignette, currently a straight forward update of the
+- stringr gains a vignette, currently a straightforward update of the
   article that appeared in the R Journal.
 
 - [`str_c()`](https://stringr.tidyverse.org/dev/reference/str_c.md) now
@@ -579,7 +580,7 @@ CRAN release: 2015-04-30
 
 CRAN release: 2012-12-06
 
-- fixed path in `str_wrap` example so works for more R installations.
+- fixed path in `str_wrap` example so it works for more R installations.
 
 - remove dependency on plyr
 
@@ -608,7 +609,7 @@ CRAN release: 2011-06-30
 - new `str_wrap` function which gives `strwrap` output in a more
   convenient format
 
-- new `word` function extract words from a string given user defined
+- new `word` function extracts words from a string given user defined
   separator (thanks to suggestion by David Cooper)
 
 - `str_locate` now returns consistent type when matching empty string

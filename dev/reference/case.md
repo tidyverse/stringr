@@ -7,8 +7,8 @@
 - `str_to_title()` converts to title case, where only the first letter
   of each word is capitalized.
 
-- `str_to_sentence()` convert to sentence case, where only the first
-  letter of sentence is capitalized.
+- `str_to_sentence()` converts to sentence case, where only the first
+  letter of each sentence is capitalized.
 
 ## Usage
 

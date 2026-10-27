@@ -811,8 +811,8 @@ functionality, but also gives a default start value (the beginning of
 the string). Both the base and stringr functions have the same order of
 expected inputs.</p>
 <p>In stringr you can use negative numbers to index from the right-hand
-side string: -1 is the last letter, -2 is the second to last, and so
-on.</p>
+side of the string: -1 is the last letter, -2 is the second to last, and
+so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="va">hw</span>, start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Hadley Wickham"</span></span>
@@ -1003,7 +1003,7 @@ input.</p>
 <span><span class="fu"><a href="../reference/str_length.html">str_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="st">"abc"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 <p>Note that “characters” is a poorly defined concept, and technically
-both <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> and <code><a href="../reference/str_length.html">str_length()</a></code> returns the
+both <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code> and <code><a href="../reference/str_length.html">str_length()</a></code> return the
 number of code points. This is usually the same as what you’d consider
 to be a character, but not always:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
@@ -1209,7 +1209,7 @@ a vector the same length as its input; to predict the return length of
 </div>
 <div class="section level3">
 <h3 id="str_dup-duplicate-strings-within-a-character-vector">
-<code>str_dup()</code>: duplicate strings within a character
+<code>str_dup()</code>: Duplicate strings within a character
 vector<a class="anchor" aria-label="anchor" href="#str_dup-duplicate-strings-within-a-character-vector"></a>
 </h3>
 <p>To duplicate strings within a character vector use

@@ -89,12 +89,12 @@ in each element of <code>string</code>.</p>
 <code><a href="modifiers.html">fixed()</a></code>. This is fast, but approximate. Generally,
 for matching human text, you'll want <code><a href="modifiers.html">coll()</a></code> which
 respects character matching rules for the specified locale.</p>
-<p>You can not match boundaries, including <code>""</code>, with this function.</p></dd>
+<p>You cannot match boundaries, including <code>""</code>, with this function.</p></dd>
 
 
 <dt id="arg-replacement">replacement<a class="anchor" aria-label="anchor" href="#arg-replacement"></a></dt>
 <dd><p>The replacement value, usually a single string,
-but it can be the a vector the same length as <code>string</code> or <code>pattern</code>.
+but it can be a vector the same length as <code>string</code> or <code>pattern</code>.
 References of the form <code>\1</code>, <code>\2</code>, etc will be replaced with
 the contents of the respective matched group (created by <code>()</code>).</p>
 <p>Alternatively, supply a function (or formula): it will be passed a single

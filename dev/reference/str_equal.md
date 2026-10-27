@@ -1,6 +1,6 @@
 # Determine if two strings are equivalent
 
-This uses Unicode canonicalisation rules, and optionally ignores case.
+This uses Unicode canonicalization rules, and optionally ignores case.
 
 ## Usage
 
@@ -32,7 +32,7 @@ str_equal(x, y, locale = "en", ignore_case = FALSE, ...)
 
 ## Value
 
-An logical vector the same length as `x`/`y`.
+A logical vector the same length as `x`/`y`.
 
 ## See also
 

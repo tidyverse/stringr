@@ -39,7 +39,7 @@ str_subset(string, pattern, negate = FALSE)
   [`coll()`](https://stringr.tidyverse.org/dev/reference/modifiers.md)
   which respects character matching rules for the specified locale.
 
-  You can not match boundaries, including `""`, with this function.
+  You cannot match boundaries, including `""`, with this function.
 
 - negate:
 

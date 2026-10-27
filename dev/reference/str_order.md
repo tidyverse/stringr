@@ -2,9 +2,9 @@
 
 - `str_sort()` returns the sorted vector.
 
-- `str_order()` returns an integer vector that returns the desired order
+- `str_order()` returns an integer vector that gives the desired order
   when used for subsetting, i.e. `x[str_order(x)]` is the same as
-  `str_sort()`
+  `str_sort()`.
 
 - `str_rank()` returns the ranks of the values, i.e.
   `arrange(df, str_rank(x))` is the same as `str_sort(df$x)`.
@@ -67,7 +67,7 @@ str_sort(
 
 ## Value
 
-A character vector the same length as `string`.
+A character vector the same length as `x`.
 
 ## See also
 

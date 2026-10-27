@@ -32,13 +32,13 @@ to work around issues with
 returned 2 for `nchar(NA)`. This has been fixed as of R 3.3.0, so it is
 no longer so important.
 
-You can access individual character using
+You can access individual characters using
 [`str_sub()`](https://stringr.tidyverse.org/dev/reference/str_sub.md).
 It takes three arguments: a character vector, a `start` position and an
-`end` position. Either position can either be a positive integer, which
-counts from the left, or a negative integer which counts from the right.
-The positions are inclusive, and if longer than the string, will be
-silently truncated.
+`end` position. Either position can be a positive integer, which counts
+from the left, or a negative integer which counts from the right. The
+positions are inclusive, and if longer than the string, will be silently
+truncated.
 
 ``` r
 
@@ -191,7 +191,7 @@ str_sort(x, locale = "lt")
 The locale always defaults to English to ensure that the default
 behaviour is identical across systems. Locales always include a two
 letter ISO-639-1 language code (like “en” for English or “zh” for
-Chinese), and optionally a ISO-3166 country code (like “en_UK” vs
+Chinese), and optionally an ISO-3166 country code (like “en_UK” vs
 “en_US”). You can see a complete list of available locales by running
 [`stringi::stri_locale_list()`](https://rdrr.io/pkg/stringi/man/stri_locale_list.html).
 
@@ -227,7 +227,7 @@ phone <- "([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})"
   [`str_subset()`](https://stringr.tidyverse.org/dev/reference/str_subset.md)
   returns the elements of a character vector that match a regular
   expression (similar to [`grep()`](https://rdrr.io/r/base/grep.html)
-  with `value = TRUE`)\`.
+  with `value = TRUE`).
 
   ``` r
 

@@ -1,7 +1,7 @@
 # Wrap words into nicely formatted paragraphs
 
 Wrap words into paragraphs, minimizing the "raggedness" of the lines
-(i.e. the variation in length line) using the Knuth-Plass algorithm.
+(i.e. the variation in line length) using the Knuth-Plass algorithm.
 
 ## Usage
 

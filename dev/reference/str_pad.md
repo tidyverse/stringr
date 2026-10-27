@@ -42,7 +42,7 @@ str_pad(
 
 ## Value
 
-A character vector the same length as `stringr`/`width`/`pad`.
+A character vector the same length as `string`/`width`/`pad`.
 
 ## See also
 

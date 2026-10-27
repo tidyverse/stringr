@@ -64,7 +64,7 @@ str_glue_data(.x, ..., .sep = "", .envir = parent.frame(), .na = "NA")
 
 ## Value
 
-A character vector with same length as the longest input.
+A character vector with the same length as the longest input.
 
 ## Examples
 
@@ -83,7 +83,7 @@ str_glue(
 str_glue("My name is {name}, not {{name}}.")
 #> My name is Fred, not {name}.
 
-# You can also used named arguments
+# You can also use named arguments
 str_glue(
   "My name is {name}, ",
   "and my age next year is {age + 1}.",

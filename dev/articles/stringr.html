@@ -117,12 +117,12 @@ are three other tools.</p></li>
 Previously it was needed to work around issues with <code><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar()</a></code>
 such as the fact that it returned 2 for <code>nchar(NA)</code>. This has
 been fixed as of R 3.3.0, so it is no longer so important.</p>
-<p>You can access individual character using <code><a href="../reference/str_sub.html">str_sub()</a></code>. It
+<p>You can access individual characters using <code><a href="../reference/str_sub.html">str_sub()</a></code>. It
 takes three arguments: a character vector, a <code>start</code> position
-and an <code>end</code> position. Either position can either be a
-positive integer, which counts from the left, or a negative integer
-which counts from the right. The positions are inclusive, and if longer
-than the string, will be silently truncated.</p>
+and an <code>end</code> position. Either position can be a positive
+integer, which counts from the left, or a negative integer which counts
+from the right. The positions are inclusive, and if longer than the
+string, will be silently truncated.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"abcdef"</span>, <span class="st">"ghifjk"</span><span class="op">)</span></span>
 <span></span>
@@ -237,7 +237,7 @@ are case transformation functions:</p>
 <p>The locale always defaults to English to ensure that the default
 behaviour is identical across systems. Locales always include a two
 letter ISO-639-1 language code (like “en” for English or “zh” for
-Chinese), and optionally a ISO-3166 country code (like “en_UK” vs
+Chinese), and optionally an ISO-3166 country code (like “en_UK” vs
 “en_US”). You can see a complete list of available locales by running
 <code><a href="https://rdrr.io/pkg/stringi/man/stri_locale_list.html" class="external-link">stringi::stri_locale_list()</a></code>.</p>
 </div>
@@ -272,7 +272,7 @@ designed to match (US) phone numbers:</p>
 pattern and returns a logical vector (similar to <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl()</a></code>).
 <code><a href="../reference/str_subset.html">str_subset()</a></code> returns the elements of a character vector
 that match a regular expression (similar to <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep()</a></code> with
-<code>value = TRUE</code>)`.</p>
+<code>value = TRUE</code>).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Which strings contain phone numbers?</span></span>
 <span><span class="fu"><a href="../reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">strings</span>, <span class="va">phone</span><span class="op">)</span></span>

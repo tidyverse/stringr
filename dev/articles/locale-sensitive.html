@@ -156,7 +156,7 @@ locale:</p>
 <p>Case conversion also comes up in another situation: case-insensitive
 comparison. This is relevant in two contexts. First,
 <code><a href="../reference/str_equal.html">str_equal()</a></code> and <code><a href="../reference/str_unique.html">str_unique()</a></code> can optionally
-ignore case, so it’s important to also supply locale when working with
+ignore case, so it’s important to also supply a locale when working with
 non-English text. For example, imagine we’re searching for a Turkish
 name, ignoring case:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -171,7 +171,7 @@ name, ignoring case:</p>
 <span><span class="fu"><a href="../reference/str_equal.html">str_equal</a></span><span class="op">(</span><span class="va">turkish_names</span>, <span class="va">search_name</span>, ignore_case <span class="op">=</span> <span class="cn">TRUE</span>, locale <span class="op">=</span> <span class="st">"tr"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE FALSE FALSE</span></span></code></pre></div>
 <p>Case conversion also comes up in pattern matching functions like
-<code><a href="../reference/str_detect.html">str_detect()</a></code>. You might be accustomed to use
+<code><a href="../reference/str_detect.html">str_detect()</a></code>. You might be accustomed to using
 <code>ignore_case = TRUE</code> with <code><a href="../reference/modifiers.html">regex()</a></code> or
 <code><a href="../reference/modifiers.html">fixed()</a></code>, but if you want to use locale-sensitive comparison
 you instead need to use <code><a href="../reference/modifiers.html">coll()</a></code>:</p>

@@ -77,9 +77,9 @@ comparison. This is relevant in two contexts. First,
 [`str_equal()`](https://stringr.tidyverse.org/dev/reference/str_equal.md)
 and
 [`str_unique()`](https://stringr.tidyverse.org/dev/reference/str_unique.md)
-can optionally ignore case, so it’s important to also supply locale when
-working with non-English text. For example, imagine we’re searching for
-a Turkish name, ignoring case:
+can optionally ignore case, so it’s important to also supply a locale
+when working with non-English text. For example, imagine we’re searching
+for a Turkish name, ignoring case:
 
 ``` r
 
@@ -97,7 +97,7 @@ str_equal(turkish_names, search_name, ignore_case = TRUE, locale = "tr")
 
 Case conversion also comes up in pattern matching functions like
 [`str_detect()`](https://stringr.tidyverse.org/dev/reference/str_detect.md).
-You might be accustomed to use `ignore_case = TRUE` with
+You might be accustomed to using `ignore_case = TRUE` with
 [`regex()`](https://stringr.tidyverse.org/dev/reference/modifiers.md) or
 [`fixed()`](https://stringr.tidyverse.org/dev/reference/modifiers.md),
 but if you want to use locale-sensitive comparison you instead need to
