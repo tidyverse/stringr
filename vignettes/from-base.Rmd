@@ -176,7 +176,7 @@ str_sub(hw, end = 6)
 
 In base you could use `substr()` or `substring()`. The former requires both a start and stop of the substring while the latter assumes the stop will be the end of the string. The stringr version, `str_sub()` has the same functionality, but also gives a default start value (the beginning of the string). Both the base and stringr functions have the same order of expected inputs.
 
-In stringr you can use negative numbers to index from the right-hand side string: -1 is the last letter, -2 is the second to last, and so on.
+In stringr you can use negative numbers to index from the right-hand side of the string: -1 is the last letter, -2 is the second to last, and so on.
 
 ```{r}
 str_sub(hw, start = 1, end = -1)
@@ -308,7 +308,7 @@ nchar(factor("abc"))
 str_length(factor("abc"))
 ```
 
-Note that "characters" is a poorly defined concept, and technically both `nchar()` and `str_length()` returns the number of code points. This is usually the same as what you'd consider to be a character, but not always:
+Note that "characters" is a poorly defined concept, and technically both `nchar()` and `str_length()` return the number of code points. This is usually the same as what you'd consider to be a character, but not always:
 
 ```{r}
 x <- c("\u00fc", "u\u0308")
@@ -449,7 +449,7 @@ str_flatten(letters, collapse = "-")
 
 The advantage of `str_flatten()` is that it always returns a vector the same length as its input; to predict the return length of `paste()` you must carefully read all arguments.
 
-## `str_dup()`: duplicate strings within a character vector
+## `str_dup()`: Duplicate strings within a character vector
 
 To duplicate strings within a character vector use `strrep()` (in R 3.3.0 or greater) or `str_dup()`:
 
