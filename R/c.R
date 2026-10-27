@@ -41,7 +41,7 @@
 #' # Missing inputs give missing outputs
 #' str_c(c("a", NA, "b"), "-d")
 #' paste0(c("a", NA, "b"), "-d")
-#' # Use str_replace_NA to display literal NAs:
+#' # Use str_replace_na to display literal NAs:
 #' str_c(str_replace_na(c("a", NA, "b")), "-d")
 #'
 #' # Uses tidyverse recycling rules
