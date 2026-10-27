@@ -20,7 +20,7 @@ test_that("directions work for simple case", {
   expect_equal(pad("both"), "   had    ")
 })
 
-test_that("padding based of length works", {
+test_that("padding based on length works", {
   # \u4e2d is a 2-characters-wide Chinese character
   pad <- function(...) str_pad("\u4e2d", ..., side = "both")
 

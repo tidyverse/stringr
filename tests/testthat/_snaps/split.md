@@ -20,7 +20,7 @@
 
     `string` must be a single string, not a character vector.
 
-# str_split_fixed check its inputs
+# str_split_fixed checks its inputs
 
     Code
       str_split_fixed("x", "x", 0)
@@ -28,7 +28,7 @@
       Error in `str_split_fixed()`:
       ! `n` must be a number larger than 1, not the number 0.
 
-# str_split_i check its inputs
+# str_split_i checks its inputs
 
     Code
       str_split_i("x", "x", 0)

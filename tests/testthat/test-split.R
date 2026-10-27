@@ -66,7 +66,7 @@ test_that("str_split_fixed pads with empty string", {
   )
 })
 
-test_that("str_split_fixed check its inputs", {
+test_that("str_split_fixed checks its inputs", {
   expect_snapshot(str_split_fixed("x", "x", 0), error = TRUE)
 })
 
@@ -85,7 +85,7 @@ test_that("str_split_i returns NA for absent components", {
   expect_equal(str_split_i(c("1-2-3", "4-5"), "-", -4), c(NA_character_, NA))
 })
 
-test_that("str_split_i check its inputs", {
+test_that("str_split_i checks its inputs", {
   expect_snapshot(error = TRUE, {
     str_split_i("x", "x", 0)
     str_split_i("x", "x", 0.5)

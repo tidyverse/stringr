@@ -1,4 +1,4 @@
-# can't empty/boundary
+# can't use empty/boundary
 
     Code
       str_detect("x", "")
