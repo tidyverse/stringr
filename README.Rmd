@@ -109,7 +109,7 @@ As well as regular expressions (the default), there are three other pattern matc
 * `coll()`: match human letters
 * `boundary()`: match boundaries
 
-## RStudio Addin
+## RStudio addin
 
 The [RegExplain RStudio addin](https://www.garrickadenbuie.com/project/regexplain/) provides a friendly interface for working with regular expressions and functions from stringr. This addin allows you to interactively build your regexp, check the output of common string matching functions, consult the interactive help pages, or use the included resources to learn regular expressions.
 
@@ -138,7 +138,7 @@ R provides a solid set of string operations, but because they have grown organic
 * Simplifies string operations by eliminating options that you don't need
   95% of the time.
 
-* Produces outputs than can easily be used as inputs. This includes ensuring
+* Produces outputs that can easily be used as inputs. This includes ensuring
   that missing inputs result in missing outputs, and zero length inputs
   result in zero length outputs.
   

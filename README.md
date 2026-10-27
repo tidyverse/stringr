@@ -158,7 +158,7 @@ pattern matching engines:
 - `coll()`: match human letters
 - `boundary()`: match boundaries
 
-## RStudio Addin
+## RStudio addin
 
 The [RegExplain RStudio
 addin](https://www.garrickadenbuie.com/project/regexplain/) provides a
@@ -198,7 +198,7 @@ languages like Ruby or Python are rather hard to do in R.
 - Simplifies string operations by eliminating options that you don’t
   need 95% of the time.
 
-- Produces outputs than can easily be used as inputs. This includes
+- Produces outputs that can easily be used as inputs. This includes
   ensuring that missing inputs result in missing outputs, and zero
   length inputs result in zero length outputs.
 
