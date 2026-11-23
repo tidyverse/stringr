@@ -229,7 +229,7 @@ str_transform_all <- function(
 
   # unchop list into a vector, apply replacement(), and then rechop back into
   # a list
-  old_flat <- vctrs::list_unchop(old)
+  old_flat <- vctrs::list_unchop(old, name_spec = function(outer, inner) outer)
   if (length(old_flat) == 0) {
     # minor optimisation to avoid problems with the many replacement
     # functions that use paste
@@ -270,8 +270,8 @@ str_transform_all <- function(
   idx <- chop_index(old)
   new <- vctrs::vec_chop(new_flat, idx)
 
-  stringi::stri_sub_all(string, locs) <- new
-  string
+  out <- stringi::`stri_sub_all<-`(string, locs, value = new)
+  preserve_names_if_possible(string, pattern, out)
 }
 
 chop_index <- function(x) {

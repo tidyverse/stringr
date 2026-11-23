@@ -1,5 +1,8 @@
 # stringr (development version)
 
+* `str_replace_all()` now handles named strings with multiple matches when
+  `replacement` is a function (#595).
+
 * `str_dup()` now recycles `string` to the length of `times` when `sep` is
   supplied, instead of failing with a subscript out of bounds error.
 
