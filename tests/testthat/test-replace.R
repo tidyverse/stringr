@@ -79,6 +79,18 @@ test_that("replacement is vectorised", {
   )
 })
 
+test_that("replacement functions handle named input with multiple matches", {
+  x <- c(first = "abc", second = "c", unchanged = "b")
+  expect_equal(
+    str_replace_all(x, "a|c", ~ paste0(names(.x), toupper(.x))),
+    c(first = "firstAbfirstC", second = "secondC", unchanged = "b")
+  )
+  expect_equal(
+    str_replace_all(c(first = "abc"), c("a", "c"), toupper),
+    c("Abc", "abC")
+  )
+})
+
 test_that("is forgiving of 0 matches with paste", {
   x <- c("a", "b", "c")
   expect_equal(str_replace_all(x, "d", ~ paste("x", .x)), x)
